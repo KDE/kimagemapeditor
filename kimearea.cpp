@@ -2,7 +2,7 @@
                           kimearea.cpp  -  description
                              -------------------
     begin                : Thu Jun 14 2001
-    copyright            : (C) 2001 by Jan Sch�er
+    copyright            : (C) 2001 by Jan Schaefer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

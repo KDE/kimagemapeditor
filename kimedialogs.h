@@ -157,6 +157,7 @@ Q_OBJECT
 		QPtrList<MapTag> *maps;
 		QPtrList<ImageTag> *images;
 		KURL baseUrl;
+    void initImageListTable(QWidget*);    
 	public:
 		ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images, const KURL & _baseUrl);
 		~ImageMapChooseDialog();
@@ -165,6 +166,7 @@ Q_OBJECT
 	protected slots:
 		void slotImageChanged();
 		void slotMapChanged(int i);
+      
 };
 
 class KConfig;

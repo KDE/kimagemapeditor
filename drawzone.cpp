@@ -253,11 +253,8 @@ void DrawZone::contentsMousePressEvent(QMouseEvent* e)
 	drawStart-=imageRect.topLeft();
   QPoint zoomedPoint = drawStart;
 	drawStart=translateFromZoom(drawStart);
-	if (oldArea)
-	{
-	  delete oldArea;
-	  oldArea=0L;
-	}
+	delete oldArea;
+	oldArea=0L;
 	
 	if (currentArea)
 	{
@@ -514,12 +511,8 @@ void DrawZone::contentsMouseReleaseEvent(QMouseEvent *e) {
 	  currentArea->setMoving(false);
 		repaintArea(*currentArea);
 	}
-	if (oldArea)
-	{
-	  delete oldArea;
-	  oldArea=0L;
-	
-	}
+	delete oldArea;
+	oldArea=0L;
 //	repaintContents(0,0,contentsWidth(),contentsHeight(),false);
   imageMapEditor->slotUpdateSelectionCoords();
 }

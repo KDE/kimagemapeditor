@@ -70,6 +70,9 @@ KimeShell::KimeShell(const char *name )
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
 
+  if (!initialGeometrySet())
+    resize( QSize(725, 525).expandedTo(minimumSizeHint()));
+
   connect( m_part, SIGNAL(setStatusBarText(const QString &)),
            this, SLOT(slotSetStatusBarText ( const QString & )));
 

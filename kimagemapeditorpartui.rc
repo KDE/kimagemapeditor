@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kimagemapeditorpart" version="19">
+<kpartgui name="kimagemapeditorpart" version="20">
  <MenuBar>
   <Menu name="file">
     <Action name="file_open"/>
@@ -36,7 +36,7 @@
     <Action name="view_highlightareas"/>
     <Action name="view_showalt"/>
   </Menu>
-  <Menu name="tool" >
+  <Menu name="tools" >
   <text>&amp;Tools</text>
   	<Action name="tool_arrow" />
   	<Action name="tool_circle" />

@@ -410,12 +410,12 @@ void KImageMapEditor::openLastURL(KConfig* config) {
 
 //  kdDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
 //  KMessageBox::information(0L, config->group()+" "+lastURL.path());
-
   if (!lastURL.isEmpty()) {
 //    kdDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
-    openHTMLFile(lastURL, lastMap, lastImage);
-    m_url = lastURL;
-
+    if ( openHTMLFile(lastURL, lastMap, lastImage) )
+        m_url = lastURL;
+    else
+        m_url = "";
   }
 }
 
@@ -1803,9 +1803,11 @@ QDict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & read
 }
 
 
-void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, const QString & imagePath)
+bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, const QString & imagePath)
 {
   QFile f(url.path());
+  if ( !f.exists () )
+      return false;
   f.open(IO_ReadOnly);
   QTextStream s(&f);
   QString str;
@@ -1971,6 +1973,7 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
 
   emit setWindowCaption(url.fileName());
   setModified(false);
+  return true;
 }
 
 /**

@@ -53,7 +53,7 @@ typedef QDict<QString> AreaTag;
 
 /**
  * Stores an image tag and all its attributes
- * the origcode attribute hold the original htmlcode 
+ * the origcode attribute hold the original htmlcode
  * of this tag
  */
 typedef QDict<QString> ImageTag;
@@ -84,9 +84,9 @@ public:
     HtmlMapElement(const QString & s) : HtmlElement(s) {
         mapTag = 0L;
     };
-    
+
     virtual ~HtmlMapElement() {};
-    
+
     MapTag *mapTag;
 };
 
@@ -111,7 +111,7 @@ class KSelectAction;
 class KRadioAction;
 class KRecentFilesAction;
 class KAction;
-#if KDE_VERSION < 300                              
+#if KDE_VERSION < 300
   class KAccel;
 #endif
 ///class QListViewItem;
@@ -187,46 +187,46 @@ public :
     bool queryClose();
     virtual void setReadWrite(bool);
     QString getHtmlCode();
-    
+
     /**
      * Reimplemented to disable and enable Save action
      */
     virtual void setModified(bool);
-    
+
     /**
      * Opens the given file.
      * If it's an HTML file openURL is called
      * If it's an Image, the image is added to the image list
      */
     void openFile(const KURL &);
-    
+
     /**
      * Opens the last URL the user worked with.
      * Sets also, the last map and the last image
      */
     void openLastURL(KConfig*);
-    
+
     void readConfig(KConfig*);
     void writeConfig(KConfig*);
-    
+
 
 protected:
     void init();
-    void openHTMLFile(const KURL &, const QString & mapName = QString::null, const QString & imagePath = QString::null);
+    bool openHTMLFile(const KURL &, const QString & mapName = QString::null, const QString & imagePath = QString::null);
     void saveImageMap(const KURL &);
-    
+
     /**
-     * Returns a language dependend background picture, with 
+     * Returns a language dependend background picture, with
      * the text : Drop an image or html file
      */
     QImage getBackgroundImage();
 
-    
+
     /**
      * Saves information to restore the last working state
      */
     void saveLastURL(KConfig*);
-        
+
 
 private:
     // Stores the hole html file in a List
@@ -237,7 +237,7 @@ private:
     KURL _imageUrl;
     QString _mapName;
     QImage _backgroundImage;
-    
+
     bool backupFileCreated;
 
     KImageMapEditor::ToolType _currentToolType;
@@ -270,7 +270,7 @@ private:
     KAction *pasteAction;
     KAction *zoomInAction;
     KAction *zoomOutAction;
-    
+
     KAction *mapNewAction;
     KAction *mapDeleteAction;
     KAction *mapNameAction;
@@ -303,14 +303,14 @@ private:
     KToggleAction* configureShowAreaListAction;
     KToggleAction* configureShowMapListAction;
     KToggleAction* configureShowImageListAction;
-    
-    
+
+
   	KRecentFilesAction* recentFilesAction;
-    
-    #if KDE_VERSION < 300                              
+
+    #if KDE_VERSION < 300
       KAccel *accel;
     #endif
-    
+
     KDockMainWindow *mainDock;
     KDockWidget* areaDock;
     KDockWidget* mapsDock;
@@ -344,7 +344,7 @@ private:
     void addImage(const KURL &);
     void setImageActionsEnabled(bool);
     void setMapActionsEnabled(bool);
-    
+
     void saveAreasToMapTag(MapTag*);
     void showPopupMenu(const QPoint &, const QString &);
     void drawToCenter(QPainter* p, const QString & str, int y, int width);
@@ -427,11 +427,11 @@ protected slots:
     void slotDecreaseWidth();
 
     void slotCancelDrawing();
-    
+
     void configureShowAreaList();
     void configureShowMapList();
     void configureShowImageList();
-    
+
 
     //	void slotPreferences();
     void imageAdd();

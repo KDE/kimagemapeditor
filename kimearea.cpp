@@ -437,7 +437,7 @@ void Area::draw(QPainter & p)
    }
   p.setRasterOp(Qt::XorROP);
 	
-};
+}
 
 QRect* Area::onSelectionPoint(const QPoint & p, double zoom) const
 {

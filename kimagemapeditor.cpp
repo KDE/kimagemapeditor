@@ -91,9 +91,11 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
   // instead of a Splitter 
   mainDock = dynamic_cast<KDockMainWindow*>(parent) ;
   QSplitter * splitter = 0L;
+  tabWidget = 0L;
 
   if (mainDock) {
 //    kdDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
+    
     KDockWidget* parentDock = mainDock->getMainDockWidget();
     areaDock = mainDock->createDockWidget( "Areas", 0L, 0L, i18n("Areas"));
     mapsDock = mainDock->createDockWidget( "Maps", 0L, 0L, i18n("Maps"));
@@ -1491,7 +1493,9 @@ void KImageMapEditor::mapDefaultArea()
 void KImageMapEditor::mapEditName()
 {
   bool ok=false;
-  QString input = KLineEditDlg::getText(i18n("Enter the name of the map"),_mapName,&ok,widget());
+  QString input = KInputDialog::getText(i18n("Enter map name"),
+    i18n("Enter the name of the map"),
+    _mapName,&ok,widget());
   if (ok) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
@@ -1941,12 +1945,17 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
   }
   else if ( ! mapName.isNull()) {
     mapsListView->selectMap(mapName);  
+  } else {
+    if (tabWidget)
+       tabWidget->showPage(mapsListView); 
   }
   
   if (!imageUrl.isEmpty()) {
     setPicture(imageUrl);
   } else {
     setPicture(getBackgroundImage());
+    if (tabWidget)
+       tabWidget->showPage(imagesListView); 
   }
   
 

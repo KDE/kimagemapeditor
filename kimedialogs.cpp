@@ -623,36 +623,58 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   line->setFixedHeight(10);
   layout->addWidget(line,0);			
 
-  imageListTable= new QTable(images->count(),2,page);
-  imageListTable->horizontalHeader()->setLabel(0,"src");
-  imageListTable->horizontalHeader()->setLabel(1,"usemap");
+
+  if (maps->isEmpty()) {
+    mapListBox->insertItem(i18n("No maps found"));
+    mapListBox->setEnabled(false);
+  } 
+  else {
+    for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
+      mapListBox->insertItem(tag->name);
+    }
+    connect (mapListBox, SIGNAL(highlighted(int)), this, SLOT(slotMapChanged(int)));
+  }
+  
+  initImageListTable(page);
+  
+  
+
+  resize(510,460);
+}
+
+void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
+
+  
+  if (images->isEmpty()) {
+    imageListTable= new QTable(1,1,parent);
+    imageListTable->setText(0,0,i18n("No images found"));
+    imageListTable->setEnabled(false);
+    imageListTable->horizontalHeader()->hide();
+    imageListTable->setTopMargin(0);
+    imageListTable->setColumnStretchable(0,true);
+  } else
+    imageListTable= new QTable(2,images->count(),parent);
+
   imageListTable->verticalHeader()->hide();
   imageListTable->setLeftMargin(0);
+      
+  QLabel *lbl= new QLabel(i18n("&Images"),parent);
+  lbl->setBuddy(imageListTable);
+  
+  parent->layout()->add(lbl);
+  parent->layout()->add(imageListTable);
 
-#ifdef KDE2VERSION
-  imageListTable->setSelectionMode(QTable::NoSelection);
-#else
+  if (images->isEmpty())
+    return;
+    
+  imageListTable->horizontalHeader()->setLabel(0,"src");
+  imageListTable->horizontalHeader()->setLabel(1,"usemap");
+
   imageListTable->setSelectionMode(QTable::SingleRow);
   imageListTable->setFocusStyle(QTable::FollowStyle);
-#endif
   imageListTable->clearSelection(true);
-
-  lbl= new QLabel(i18n("&Images"),page);
-  lbl->setBuddy(imageListTable);
-  layout->addWidget(lbl);
-  layout->addWidget(imageListTable);
-/*	
-  hbox= new QHBox(page);
-  hbox->setSpacing(5);
-  lbl = new QLabel(i18n("Map &name"),hbox);
-  mapNameEdit= new QLineEdit(hbox);
-  lbl->setBuddy(mapNameEdit);
-  layout->addWidget(hbox);
-*/	
-  for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
-    mapListBox->insertItem(tag->name);
-  }
-
+  
+  
   int row=0;
   for (ImageTag *tag = images->first(); tag!=0L; tag=images->next()) {
     QString src="";
@@ -666,11 +688,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
     imageListTable->setText(row,1,usemap);
     row++;
   }
-
   connect (imageListTable, SIGNAL(selectionChanged()), this, SLOT(slotImageChanged()));
-  connect (mapListBox, SIGNAL(highlighted(int)), this, SLOT(slotMapChanged(int)));
-
-  resize(510,460);
 }
 
 ImageMapChooseDialog::~ImageMapChooseDialog() {

@@ -1912,8 +1912,9 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
     
     
     // If there are more than one map or there wasn't
-    // found a fitting image let the user choose
-    if (maps->count() >1 || imageUrl.isEmpty())
+    // found a fitting image and there is something to choose 
+    // let the user choose
+    if (maps->count() >1 || (imageUrl.isEmpty() && images->count() > 1))
     {
       ImageMapChooseDialog dialog(widget(),maps,images,url);
       dialog.exec();
@@ -1937,6 +1938,9 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
   }
   else if ( ! mapName.isNull()) {
     mapsListView->selectMap(mapName);  
+  }
+  else {
+    setMapActionsEnabled(false);
   }
   
 

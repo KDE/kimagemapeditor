@@ -2,7 +2,7 @@
                           kimedialogs.cpp  -  description
                             -------------------
     begin                : Tue Apr 17 2001
-    copyright            : (C) 2001 by Jan Schäfer
+    copyright            : (C) 2001 by Jan Schï¿½er
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -503,7 +503,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  KURL url=KFileDialog::getOpenURL(QString::null,"*|All files",this,i18n("Choose a file"));
+  KURL url=KFileDialog::getOpenURL(QString::null,"*|All Files",this,i18n("Choose File"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }

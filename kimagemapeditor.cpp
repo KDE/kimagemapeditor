@@ -2,7 +2,7 @@
                           imagemapeditor.cpp  -  description
                             -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan Schäfer
+    copyright            : (C) 2001 by Jan Schï¿½er
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -1525,7 +1525,7 @@ void KImageMapEditor::mapEditName()
 
 void KImageMapEditor::mapShowHTML()
 {
-  KDialogBase *dialog= new KDialogBase(widget(),"",true,i18n("HTML code of the map"),KDialogBase::Ok);
+  KDialogBase *dialog= new KDialogBase(widget(),"",true,i18n("HTML Code of Map"),KDialogBase::Ok);
   QMultiLineEdit *edit = new QMultiLineEdit(dialog);
 
   edit->setText(getHtmlCode());

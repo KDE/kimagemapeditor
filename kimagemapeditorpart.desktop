@@ -1,6 +1,6 @@
-
 [Desktop Entry]
 Type=Service
+Encoding=UTF-8
 MimeType=text/html
 Icon=kimagemapeditor
 ServiceTypes=KParts/ReadWritePart

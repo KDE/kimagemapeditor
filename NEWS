@@ -1,0 +1,13 @@
+1.0 :
+- New features :
+  * French translation - Thanks to Germain Chazot
+    - KImageMapEditor is now translated to 4 languages :
+      German, spanish, french and dutch
+  * Session management
+  * Made it possible to start with the last opened document
+- Bug fixes :
+  * Fixed the bug that prevents from dropping html or image files
+  * Fixed another Mandrake compilation problem
+  * The area preview image size can now be changed by the properties dialog
+  * The highlight and show alt tag settings are now saved when used within Quanta.
+  * Completed spanish translation - Thanks to Antonio Crevillén

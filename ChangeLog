@@ -1,0 +1,105 @@
+1.0 :
+- New features :
+  * French translation - Thanks to Germain Chazot
+    - KImageMapEditor is now translated to 4 languages :
+      German, spanish, french and dutch
+  * Improved session management
+  * Made it possible to start with the last opened document
+  * The ImageMapChoosDialog is only shown, if there are more then one map to choose.
+- Bug fixes :
+  * Fixed the bug that prevents from dropping html or image files
+  * Fixed another Mandrake compilation problem
+  * The area preview image size can now be changed by the properties dialog
+  * The highlight and show alt tag settings are now saved when used within Quanta.
+  * Completed spanish translation - Thanks to Antonio Crevillén
+
+1.0b3 :
+- New features :
+  * Added dutch translation - Thanks to Fabrice Mous
+- Bug fixes :
+  * added namespace to cout : std::cout to solve the compilation problem under Mandrake
+  * saveAs works now
+  * made the KPart readwrite only to work within Quanta correctly
+
+1.0b2 :
+- Bug fixes :
+  * Opening of an image over the toolbar or the menu entry file->open add
+    the image now correctly to the image list.
+  * The command line option --stdout works again.
+
+1.0b :
+- Note : Because of various internal modifications, this is intended to be a beta
+         release. So it's possible that KImageMapEditor may crash and/or
+         the content of the currently editing html file could be corrupted
+         or be lost at all.
+         KImageMapEditor therefore creates a backup file everytime you
+         save an html file. It ends with a ~.
+         Please only delete this file if you are sure that the original file
+         isn't corrupted.
+- New features :
+  * Converted the program to the KPart architecture, it can now be used as a
+    imagemap viewer plugin in Konqueror or as an edit plugin in Quanta.
+  * It's now possible to really edit a html file instead of creating always
+    a new one with only one imagemap.
+  * Added a listview of all imagemaps of the current editing html files.
+    It's now possible to switch between the different maps, to delete maps and
+    to add new maps to the html file.
+  * Added a listview of all images that are contained in the current html file.
+    It's now possible to switch between these images.
+  * Spanish translation - Thanks to Antonio Crevillén
+- Bug fixes :
+  * When KImageMapEditor was not properly installed with make install and
+    the required image files couldn't be found, KImageMapEditor now shows
+    an error message and exit(1), instead of crashing.
+    
+0.9.5 :
+- New features :
+  * Tool for adding and removing points to/from a polygon with the mouse
+  * Freehand tool for drawing polygons
+  * German translation
+  * More zoom modes
+- Bug fixes :
+  * Some undo bugs which results in a crash -> fixed
+  * When switching from non-highlight mode to highlight mode the areas
+    weren't highlighted correctly -> fixed
+  * Crash when moving an area outside the drawing zone -> fixed
+
+0.9.4 :
+- New features :
+  * Areas can be highlighted
+  * Alt. text can be shown
+  * PHP-files can be read
+  * Property dialog extended
+  * New action : close file
+
+0.9.3 :
+- New features :
+	* Multiselection
+	* Keyboard can be used better
+	* New mouse cursors
+	* New Action : delete
+	* other new Actions
+	
+0.9.2 :
+- New features :
+	* Undo / Redo for almost all actions
+	* Middle mouse click opens the properties dialog
+	* Possiblity of enable / disable the default area
+	
+- Bug fixes :
+	* It's now possible to save to a file without an *.html,*.htm extension
+	* Creating a rectangle with a negative size ( and a following crash ) is no longer possible.
+	
+0.9.1 :
+- New features :
+	* Better way of editing the area coordinates manually
+		- Possibility of adding and removing points to a polygon
+	* Cursor shape changes to indicate moving or resizing	
+  * Circle drawing is now perfekt
+  * Possibility of changing the order of the areas
+  	
+- Bug fixes :
+  * When saving to an HTML file the ending </html> tag is no longer missing.
+  * When adding an area and pressing cancel the area will not be added.
+  * Restoring the window size works now
+

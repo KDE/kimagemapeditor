@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+MimeType=text/html
+Icon=kimagemapeditor.png
+MiniIcon=kimagemapeditor.png
+ServiceTypes=KParts/ReadWritePart
+X-KDE-Library=libkimagemapeditor
+Comment=An HTML imagemap editor
+Comment[de]=Ein HTML Imagemap Editor
+Name=KImageMapEditor
+Name[de]=KImageMapEditor

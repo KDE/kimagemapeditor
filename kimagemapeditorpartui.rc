@@ -65,11 +65,11 @@
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
     <Separator/>
-    <Action name="configure_show_arealist"/>
-    <Action name="configure_show_maplist"/>
-    <Action name="configure_show_imagelist"/>
+    <Action name="configure_show_arealist" group="settings_show"/>
+    <Action name="configure_show_maplist" group="settings_show"/>
+    <Action name="configure_show_imagelist" group="settings_show"/>
     <Separator/>
-    <Action name="configure_kimagemapeditor"/>
+    <Action name="configure_kimagemapeditor" group="settings_configure"/>
   </Menu>
  </MenuBar>
  <StatusBar/>

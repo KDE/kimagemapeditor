@@ -4,7 +4,10 @@
   <Menu name="file"><text>&amp;File</text>
     <Merge/>
   </Menu>
-  <Merge/>
+  <Menu name="settings">
+    <DefineGroup name="settings_show" append="show_merge"/>
+    <DefineGroup name="settings_configure" append="configure_merge"/>
+  </Menu>
   <Merge/>
  </MenuBar>
  <StatusBar/>

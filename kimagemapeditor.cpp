@@ -57,6 +57,7 @@
 #include <kxmlguifactory.h>
 #include <kdockwidget.h>
 #include <kio/job.h>
+#include <kinputdialog.h>
 
 // local
 #include "kimagemapeditor.h"
@@ -1585,12 +1586,12 @@ void KImageMapEditor::fileSaveAs() {
   if ( fileInfo.exists() )
   {
   	if (KMessageBox::warningYesNo(widget(),
-      i18n("<qt>The file <i>%1</i> already exists!<br>Do you want to overwrite it?</qt>").arg(fileInfo.fileName()),
+      i18n("<qt>The file <em>%1</em> already exists!<br>Do you want to overwrite it?</qt>").arg(fileInfo.fileName()),
       i18n("Really overwrite the file ?"))==KMessageBox::No)
       return;
   
     if(!fileInfo.isWritable()) {
-      KMessageBox::sorry(widget(), i18n("You do not have write permission to this file"));
+      KMessageBox::sorry(widget(), i18n("<qt>You do not have write permission for the file <em>%1/em>!</qt>").arg(fileInfo.fileName()));
       return;
     }
   }
@@ -1609,7 +1610,7 @@ bool KImageMapEditor::openFile()
   if ( !fileInfo.exists() )
   {
       KMessageBox::information(widget(),
-        i18n("The file <b> %1 </b> does not exists!").arg(fileInfo.fileName()),
+        i18n("<qt>The file <b>%1</b> does not exists!</qt>").arg(fileInfo.fileName()),
         i18n("File does not exists!"));
       return false;
   }
@@ -1933,21 +1934,20 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
   mapsListView->addMaps(maps);
 
   
+  setMapActionsEnabled(false);
+  
   if (map) {  
     mapsListView->selectMap(map->name);  
   }
   else if ( ! mapName.isNull()) {
     mapsListView->selectMap(mapName);  
   }
-  else {
-    setMapActionsEnabled(false);
-  }
   
 
   // Only update the image if an image was choosen
   if (!imageUrl.isEmpty()) {
     setPicture(imageUrl);
-  }
+  } 
   
 
   emit setWindowCaption(url.fileName());      
@@ -2709,8 +2709,16 @@ void KImageMapEditor::imageUsemap() {
   if (imageTag->find("usemap"))
       usemap=*imageTag->find("usemap");
 
-
-  QString input = KLineEditDlg::getText(i18n("Enter the usemap value"),usemap,&ok,widget());
+  QStringList maps = mapsListView->getMaps();     
+  int index = maps.findIndex(usemap);
+  if (index == -1) {
+    maps.prepend("");
+    index = 0;
+  }    
+  
+  QString input = KInputDialog::getItem(i18n("Enter usmap"),
+    i18n("Enter the usemap value"),
+    maps,index,true,&ok,widget());
   if (ok) {
      imageTag->replace("usemap", new QString(input));
      imagesListView->updateImage(imageTag);

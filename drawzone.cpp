@@ -25,8 +25,8 @@
 #include <kdebug.h>
 #include <kurldrag.h>
 #include <kglobal.h>
-#include <kstddirs.h>
-#include <kapp.h>
+#include <kstandarddirs.h>
+#include <kapplication.h>
 
 // Local
 #include "drawzone.h"

@@ -38,7 +38,7 @@
 #include <kfiledialog.h>
 #include <klocale.h>
 #include <kdebug.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <khtmlview.h>
 #include <khtml_part.h>
 #include <ktempfile.h>
@@ -567,7 +567,7 @@ void AreaDialog::slotUpdateArea() {
     oldArea->setRect(area->rect());
 }
 
-ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QList<MapTag> *_maps,QList<ImageTag> *_images,const KURL & _baseUrl)
+ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images,const KURL & _baseUrl)
   : KDialogBase(parent,"",true,"Choose the map and image to edit",Ok,Ok,true)
 {
   baseUrl=_baseUrl;

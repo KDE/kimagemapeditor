@@ -48,7 +48,7 @@ void MapsListView::addMap(const QString & name = QString::null) {
 
 }
 
-void MapsListView::addMaps(QList<MapTag> * maps) {
+void MapsListView::addMaps(QPtrList<MapTag> * maps) {
 
     for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
         addMap(tag->name);

@@ -5,7 +5,9 @@ kde_module_LTLIBRARIES = libkimagemapeditor.la
 
 METASOURCES = AUTO
 
-libkimagemapeditor_la_SOURCES = \
+noinst_LTLIBRARIES = libkimagemapeditorcommon.la
+
+libkimagemapeditorcommon_la_SOURCES = \
     qextfileinfo.cpp \
     areacreator.cpp \
     kimearea.cpp \
@@ -14,28 +16,16 @@ libkimagemapeditor_la_SOURCES = \
     kimagemapeditor.cpp \
     drawzone.cpp \
     arealistview.cpp \
-    arealistview.h \
     imageslistview.cpp \
-    imageslistview.h \
-    mapslistview.cpp \
-    mapslistview.h
+    mapslistview.cpp 
+
+libkimagemapeditor_la_SOURCES = \
+    dummy.cpp
 
 kimagemapeditor_SOURCES = \
     main.cpp \
-    kimeshell.cpp \
-    qextfileinfo.cpp \
-    areacreator.cpp \
-    kimearea.cpp \
-    kimecommands.cpp \
-    kimedialogs.cpp \
-    kimagemapeditor.cpp \
-    drawzone.cpp \
-    arealistview.cpp \
-    arealistview.h \
-    imageslistview.cpp \
-    imageslistview.h \
-    mapslistview.cpp \
-    mapslistview.h
+    kimeshell.cpp 
+    
 
 noinst_HEADERS = \
 	qextfileinfo.h \
@@ -45,29 +35,14 @@ noinst_HEADERS = \
 	kimedialogs.h \
 	kimagemapeditor.h \
 	drawzone.h \
-  kimeshell.h
+        kimeshell.h
 
 
 libkimagemapeditor_la_LDFLAGS = -module -no-undefined $(all_libraries) -version-info 1:0:0
-libkimagemapeditor_la_LIBADD = $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
+libkimagemapeditor_la_LIBADD = libkimagemapeditorcommon.la $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
 
 kimagemapeditor_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kimagemapeditor_LDADD = $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
-
-
-install-data-local:
-	$(mkinstalldirs) $(kde_datadir)/kimagemapeditor
-	$(INSTALL_DATA) pics/polygoncursor.png $(kde_datadir)/kimagemapeditor/polygoncursor.png
-	$(INSTALL_DATA) pics/freehandcursor.png $(kde_datadir)/kimagemapeditor/freehandcursor.png
-	$(INSTALL_DATA) pics/addpointcursor.png $(kde_datadir)/kimagemapeditor/addpointcursor.png
-	$(INSTALL_DATA) pics/removepointcursor.png $(kde_datadir)/kimagemapeditor/removepointcursor.png
-
-uninstall-local:
-	-rm -f $(kde_datadir)/kimagemapeditor/polygoncursor.png
-	-rm -f $(kde_datadir)/kimagemapeditor/freehandcursor.png
-	-rm -f $(kde_datadir)/kimagemapeditor/addpointcursor.png
-	-rm -f $(kde_datadir)/kimagemapeditor/removepointcursor.png
-	-rmdir $(kde_datadir)/kimagemapeditor
+kimagemapeditor_LDADD = libkimagemapeditorcommon.la $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
 
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)

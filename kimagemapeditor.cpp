@@ -47,12 +47,12 @@
 #include <kiconloader.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <kkeydialog.h>
 #include <kedittoolbar.h>
 #include <klineeditdlg.h>
 #include <kglobal.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <kxmlguifactory.h>
 #include <kdockwidget.h>
@@ -1796,9 +1796,9 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
   QString str;
   QChar w;
   QDict<QString> *attr=0L;
-  QList<ImageTag> *images= new QList<ImageTag>;
+  QPtrList<ImageTag> *images= new QPtrList<ImageTag>;
   MapTag *map=0L;
-  QList<MapTag> *maps = new QList<MapTag>;
+  QPtrList<MapTag> *maps = new QPtrList<MapTag>;
 
   _htmlContent.clear();
   currentMapElement = 0L;
@@ -2585,7 +2585,7 @@ bool KImageMapEditor::queryClose() {
      return true;
      
   switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it ?</qt>").arg(url().filename())) ) {
+   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it ?</qt>").arg(url().fileName())) ) {
            case KMessageBox::Yes :
              saveFile();
              return TRUE;

@@ -20,7 +20,7 @@
 
 #include <qrect.h>
 #include <qpoint.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <klocale.h>
 #include <qmap.h>
 
@@ -31,7 +31,7 @@ class QPointArray;
 class QListViewItem;
 class QBitmap;
 
-typedef QList<QRect> SelectionPointList;
+typedef QPtrList<QRect> SelectionPointList;
 
 typedef QMap<QString,QString> AttributeMap;
 typedef QMapConstIterator<QString,QString> AttributeIterator;
@@ -255,8 +255,8 @@ class DefaultArea :public Area
 };
 
 
-typedef QList<Area> AreaList;
-typedef QListIterator<Area> AreaListIterator;
+typedef QPtrList<Area> AreaList;
+typedef QPtrListIterator<Area> AreaListIterator;
 
 /**
  *	This class represents a selection of areas

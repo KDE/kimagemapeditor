@@ -61,7 +61,7 @@ typedef QDict<QString> ImageTag;
 /**
  * Only a small class to give a list of AreaTags a name
  */
-class MapTag : public QList<AreaTag> {
+class MapTag : public QPtrList<AreaTag> {
 public:
     MapTag();
     QString name;

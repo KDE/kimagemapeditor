@@ -154,11 +154,11 @@ Q_OBJECT
 		QLabel *imagePreview;		
 		QListBox *mapListBox;	
 		QLineEdit *mapNameEdit;
-		QList<MapTag> *maps;
-		QList<ImageTag> *images;
+		QPtrList<MapTag> *maps;
+		QPtrList<ImageTag> *images;
 		KURL baseUrl;
 	public:
-		ImageMapChooseDialog(QWidget* parent,QList<MapTag> *_maps,QList<ImageTag> *_images, const KURL & _baseUrl);
+		ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images, const KURL & _baseUrl);
 		~ImageMapChooseDialog();
 		KURL pixUrl;
 		MapTag* currentMap;

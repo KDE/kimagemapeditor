@@ -43,7 +43,7 @@ public:
   /**
    * Adds all maps of the given QList to the ListView
    */
-  void addMaps(QList<MapTag> *);
+  void addMaps(QPtrList<MapTag> *);
   
   /**
    * Removes the given map from the ListView

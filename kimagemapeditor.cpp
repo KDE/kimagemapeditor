@@ -521,7 +521,9 @@ void KImageMapEditor::setupActions()
 
   showAltAction = new KToggleAction(i18n("Show Alt Tag"),0, this, SLOT (slotShowAltTag()),
       actionCollection(), "view_showalt");
-
+#if KDE_IS_VERSION(3,2,90)
+  showAltAction->setCheckedState(i18n("Hide Alt Tag"));
+#endif
 
   mapNameAction= new KAction(i18n("Map &Name"),0,this,SLOT(mapEditName()),
     actionCollection(), "map_name");
@@ -700,6 +702,11 @@ void KImageMapEditor::setupActions()
     configureShowImageListAction = new KToggleAction( i18n("Show Image List"), 0L, 0,
                         this, SLOT(configureShowImageList()),
                         actionCollection(), "configure_show_imagelist" );
+#if KDE_IS_VERSION(3,2,90)
+    configureShowAreaListAction->setCheckedState(i18n("Hide Area List"));
+    configureShowMapListAction->setCheckedState(i18n("Hide Map List"));
+    configureShowImageListAction->setCheckedState(i18n("Hide Image List"));
+#endif
   }
 
   updateActionAccess();

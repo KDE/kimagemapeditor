@@ -89,6 +89,11 @@ public:
   bool nameAlreadyExists(const QString &);
   
   /**
+   * Returns a QStringList of all maps
+   */
+  QStringList getMaps();
+  
+  /**
    * Returns the number of maps
    */
   uint count();

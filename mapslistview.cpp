@@ -137,11 +137,22 @@ bool MapsListView::nameAlreadyExists(const QString & name) {
     return result;
 }
 
+QStringList MapsListView::getMaps() {
+    QStringList result;
+    
+    QListViewItem* item = 0L;
+    for(item = _listView->firstChild(); item; item = item->nextSibling()) {
+        QString map = item->text(0);
+        result << map;
+    }
+    
+    return result;
+}
+
 QString MapsListView::getUnusedMapName() {
     QString result;
     QString attempt;
     int i=0;
-//    kdDebug() << "MapsListView::getUnusedMapName : Trying to find an unused name ... " << endl;
     while(result.isEmpty()) {
         i++;
         attempt = i18n("unnamed");

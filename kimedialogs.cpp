@@ -568,7 +568,7 @@ void AreaDialog::slotUpdateArea() {
 }
 
 ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images,const KURL & _baseUrl)
-  : KDialogBase(parent,"",true,i18n( "Choose the map and image to edit" ),Ok,Ok,true)
+  : KDialogBase(parent,"",true,i18n( "Choose Map & Image to Edit" ),Ok,Ok,true)
 {
   baseUrl=_baseUrl;
   maps=_maps;

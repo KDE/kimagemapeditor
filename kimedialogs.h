@@ -166,6 +166,7 @@ Q_OBJECT
 	protected slots:
 		void slotImageChanged();
 		void slotMapChanged(int i);
+        void selectImageWithUsemap(const QString & usemap);
       
 };
 

@@ -637,8 +637,11 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   
   initImageListTable(page);
   
+  if (! maps->isEmpty()) {
+    mapListBox->setCurrentItem(0);
+    slotMapChanged(0);
+  }    
   
-
   resize(510,460);
 }
 
@@ -691,9 +694,11 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     row++;
   }
   connect (imageListTable, SIGNAL(selectionChanged()), this, SLOT(slotImageChanged()));
-  
+ 
   imageListTable->selectRow(0);
   slotImageChanged();
+
+   
 }
 
 ImageMapChooseDialog::~ImageMapChooseDialog() {
@@ -726,8 +731,19 @@ void ImageMapChooseDialog::slotImageChanged()
 //	imagePreview->repaint();
 }
 
+void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
+  for (int i=0; i<imageListTable->numRows(); i++) {
+    if (imageListTable->text(i,1)==usemap) {
+      imageListTable->selectRow(i);
+      slotImageChanged();
+      return;
+    }
+  }
+}
+
 void ImageMapChooseDialog::slotMapChanged(int i) {
   currentMap=maps->at(i);
+  selectImageWithUsemap(currentMap->name);
 }
 
 PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)

@@ -401,7 +401,7 @@ void KImageMapEditor::slotConfigChanged()
 }
 
 void KImageMapEditor::openLastURL(KConfig* config) {
-  KURL lastURL = config->readEntry("lastopenurl");
+  KURL lastURL ( config->readEntry("lastopenurl") );
   QString lastMap = config->readEntry("lastactivemap");
   QString lastImage = config->readEntry("lastactiveimage");
 
@@ -1553,7 +1553,7 @@ void KImageMapEditor::fileOpen() {
           "*.png|PNG-Image\n*.jpg *.jpeg|JPEG-Image\n*.gif|GIF-Image\n*|All files"
           ,widget(),i18n("Choose a file to open"));
 
-  openFile(fileName);
+  openFile(KURL( fileName ));
 }
 
 
@@ -2248,7 +2248,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
 
   if (!backupFileCreated) {
     QString backupFile = url.path()+"~";
-    KIO::file_copy(url, backupFile, -1, true, false, false);
+    KIO::file_copy(url, KURL::fromPathOrURL( backupFile ), -1, true, false, false);
     backupFileCreated = true;
   }
 
@@ -2270,7 +2270,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
       << "<body>\n"
       << "  " << getHTMLImageMap()
       << "\n"
-      << "  <img src=\"" << QExtFileInfo::toRelative(_imageUrl,url.directory()).path() << "\""
+      << "  <img src=\"" << QExtFileInfo::toRelative(_imageUrl,KURL( url.directory() )).path() << "\""
       << " usemap=\"#" << _mapName << "\""
       << " width=\"" << drawZone->picture().width() << "\""
       << " height=\"" << drawZone->picture().height() << "\">\n"
@@ -2650,7 +2650,7 @@ void KImageMapEditor::addImage(const KURL & imgUrl) {
     if (imgUrl.isEmpty())
         return;
 
-    QString relativePath = QExtFileInfo::toRelative(imgUrl, url().directory()).path();
+    QString relativePath ( QExtFileInfo::toRelative(imgUrl, KURL( url().directory() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
     ImageTag *imgTag = new ImageTag();

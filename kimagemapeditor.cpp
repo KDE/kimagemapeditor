@@ -526,10 +526,10 @@ void KImageMapEditor::setupActions()
   showAltAction->setCheckedState(i18n("Hide Alt Tag"));
 #endif
 
-  mapNameAction= new KAction(i18n("Map &Name"),0,this,SLOT(mapEditName()),
+  mapNameAction= new KAction(i18n("Map &Name..."),0,this,SLOT(mapEditName()),
     actionCollection(), "map_name");
 
-  mapNewAction = new KAction(i18n("Ne&w Map"),0,this,SLOT(mapNew()),
+  mapNewAction = new KAction(i18n("Ne&w Map..."),0,this,SLOT(mapNew()),
     actionCollection(), "map_new");
   mapNewAction->setToolTip(i18n("Create a new map"));
 
@@ -537,7 +537,7 @@ void KImageMapEditor::setupActions()
     actionCollection(), "map_delete");
   mapDeleteAction->setToolTip(i18n("Delete the current active map"));
 
-  mapDefaultAreaAction = new KAction(i18n("Edit &Default Area"),0,this,SLOT(mapDefaultArea()),
+  mapDefaultAreaAction = new KAction(i18n("Edit &Default Area..."),0,this,SLOT(mapDefaultArea()),
     actionCollection(), "map_defaultarea");
   mapDefaultAreaAction->setToolTip(i18n("Edit the default area of the current active map"));
 
@@ -548,7 +548,7 @@ void KImageMapEditor::setupActions()
   // IMAGE
   i18n("&Image");
 
-  imageAddAction = new KAction(i18n("Add Image"),0,this,SLOT(imageAdd()),
+  imageAddAction = new KAction(i18n("Add Image..."),0,this,SLOT(imageAdd()),
     actionCollection(), "image_add");
   imageAddAction->setToolTip(i18n("Add a new image"));
 
@@ -556,7 +556,7 @@ void KImageMapEditor::setupActions()
     actionCollection(), "image_remove");
   imageRemoveAction->setToolTip(i18n("Remove the current visible image"));
 
-  imageUsemapAction = new KAction(i18n("Edit Usemap"),0,this,SLOT(imageUsemap()),
+  imageUsemapAction = new KAction(i18n("Edit Usemap..."),0,this,SLOT(imageUsemap()),
     actionCollection(), "image_usemap");
   imageUsemapAction->setToolTip(i18n("Edit the usemap tag of the current visible image"));
 
@@ -602,7 +602,7 @@ void KImageMapEditor::setupActions()
   polygonAction->setExclusiveGroup("drawing");
 
   // Freehand
-  freehandAction=new KRadioAction(i18n("&Freehandpolygon"), "freehand",
+  freehandAction=new KRadioAction(i18n("&Freehand Polygon"), "freehand",
             0,this,SLOT (slotDrawFreehand()),
       actionCollection(), "tool_freehand");
   QMimeSourceFactory::defaultFactory()->setPixmap( "freehandimage", SmallIcon("freehand") );
@@ -1565,7 +1565,7 @@ bool KImageMapEditor::openURL(const KURL & url) {
 void KImageMapEditor::fileOpen() {
 
   QString fileName = KFileDialog::getOpenFileName(QString::null,
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web file\n"
+          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
           "*.htm *.html|HTML Files\n"
           "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"
@@ -2576,10 +2576,10 @@ void KImageMapEditor::mapDelete()
 
   QString selectedMap = mapsListView->selectedMap();
 
-  int result = KMessageBox::warningYesNo(widget(),
+  int result = KMessageBox::warningContinueCancel(widget(),
     i18n("<qt>Are you sure you want to delete the map <i>%1</i>?"
          " <br><b>There is no way to undo this.</b></qt>").arg(selectedMap),
-    i18n("Delete Map?"));
+    i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"editdelete"));
 
   if (result == KMessageBox::No)
      return;
@@ -2752,11 +2752,11 @@ void KImageMapEditor::imageUsemap() {
   }
 
 #if KDE_IS_VERSION(3, 1, 90)
-  QString input = KInputDialog::getItem(i18n("Enter usemap:"),
+  QString input = KInputDialog::getItem(i18n("Enter Usemap"),
 #else
-  QString input = QInputDialog::getItem(i18n("Enter usemap:"),
+  QString input = QInputDialog::getItem(i18n("Enter Usemap"),
 #endif
-    i18n("Enter the usemap value"),
+    i18n("Enter the usemap value:"),
     maps,index,true,&ok,widget());
   if (ok) {
      imageTag->replace("usemap", new QString(input));

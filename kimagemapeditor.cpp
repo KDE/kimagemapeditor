@@ -225,14 +225,14 @@ KImageMapEditor::~KImageMapEditor() {
 
 MapTag::MapTag() {
   modified = false;
-  name = "";
+  name = QString::null;
 }
 
 void KImageMapEditor::init()
 {
   _htmlContent.clear();
-  _imageUrl = "";
-  m_url = "";
+  _imageUrl = QString::null;
+  m_url = QString::null;
   HtmlElement* el = new HtmlElement("<html>\n");
   _htmlContent.append(el);
   el = new HtmlElement("<head>\n");
@@ -400,9 +400,9 @@ void KImageMapEditor::slotConfigChanged()
 }
 
 void KImageMapEditor::openLastURL(KConfig* config) {
-  KURL lastURL ( config->readEntry("lastopenurl") );
+  KURL lastURL ( config->readPathEntry("lastopenurl") );
   QString lastMap = config->readEntry("lastactivemap");
-  QString lastImage = config->readEntry("lastactiveimage");
+  QString lastImage = config->readPathEntry("lastactiveimage");
 
 
 //  kdDebug() << "loading from group : " << config->group() << endl;
@@ -414,14 +414,14 @@ void KImageMapEditor::openLastURL(KConfig* config) {
     if ( openHTMLFile(lastURL, lastMap, lastImage) )
         m_url = lastURL;
     else
-        m_url = "";
+        m_url = QString::null;
   }
 }
 
 void KImageMapEditor::saveLastURL(KConfig* config) {
-  config->writeEntry("lastopenurl",url().path());
+  config->writePathEntry("lastopenurl",url().path());
   config->writeEntry("lastactivemap",mapName());
-  config->writeEntry("lastactiveimage",_imageUrl.path());
+  config->writePathEntry("lastactiveimage",_imageUrl.path());
 //  kdDebug() << "writing entry lastopenurl : " << url().path() << endl;
 //  kdDebug() << "writing entry lastactivemap : " << mapName() << endl;
 //  kdDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
@@ -844,7 +844,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 
 //  QString filename = QString("dropimage_")+KGlobal::locale()->language()+".png";
-//  QString path = ""; //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
+//  QString path = QString::null; //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
 //  kdDebug() << "getBackgroundPic : loaded image : " << path << endl;
 
 //  if ( ! QFileInfo(path).exists() ) {
@@ -868,7 +868,7 @@ QImage KImageMapEditor::getBackgroundImage() {
     QStringList strList = QStringList::split(" ",str);
 
     // Get the string parts
-    QString tmp = "";
+    QString tmp;
     QStringList outputStrList;
     QFontMetrics fm = p.fontMetrics();
 
@@ -1525,7 +1525,7 @@ void KImageMapEditor::mapEditName()
 
 void KImageMapEditor::mapShowHTML()
 {
-  KDialogBase *dialog= new KDialogBase(widget(),"",true,i18n("HTML Code of Map"),KDialogBase::Ok);
+  KDialogBase *dialog= new KDialogBase(widget(),QString::null,true,i18n("HTML Code of Map"),KDialogBase::Ok);
   QMultiLineEdit *edit = new QMultiLineEdit(dialog);
 
   edit->setText(getHtmlCode());
@@ -1671,7 +1671,7 @@ QDict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & read
   QChar w;
   QString attr,value;
 
-  readText = "";
+  readText = QString::null;
 
   // get the tagname
   while (!s.atEnd() && w!=" ") {
@@ -1713,8 +1713,8 @@ QDict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & read
   bool valueRead=false; // currently reading a value ?
   QChar quotation='\0'; // currently reading a value with quotation marks ?
   bool php=false; // currently reading a php script
-  attr="";
-  value="";
+  attr=QString::null;
+  value=QString::null;
 
   //get the other attributes
   while (!s.atEnd() && w!=">")
@@ -1798,7 +1798,7 @@ QDict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & read
           quotation='\0';
           valueRead=false;
           dict.insert(attr,new QString(value));
-          attr="";value="";
+          attr = value = QString::null;
 
         }
       } else
@@ -1806,7 +1806,7 @@ QDict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & read
       if (w==" ") {
         valueRead=false;
         dict.insert(attr,new QString(value));
-        attr="";value="";
+        attr = value = QString::null;
       }
     } else {
       if (w!=" ") {
@@ -1848,9 +1848,9 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
     s >> w;
     if (w=="<")
     {
-      if (!readMap && origcode != "") {
+      if (!readMap && !origcode.isEmpty()) {
         _htmlContent.append( new HtmlElement(origcode));
-        origcode = "";
+        origcode = QString::null;
       }
 
       origcode.append("<");
@@ -1865,7 +1865,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
           images->append(el->imgTag);
           _htmlContent.append(el);
 
-          origcode = "";
+          origcode = QString::null;
         } else
         if (attr->find("tagname")->lower()=="map") {
           map = new MapTag();
@@ -1879,7 +1879,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
           el->mapTag = map;
           _htmlContent.append(el);
 
-          origcode = "";
+          origcode = QString::null;
         } else
         if (readMap) {
           if (attr->find("tagname")->lower()=="area") {
@@ -1887,7 +1887,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
           }
         } else {
           _htmlContent.append(new HtmlElement(origcode));
-          origcode = "";
+          origcode = QString::null;
         }
 
       }
@@ -1897,7 +1897,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
     }
   }
 
-  if (origcode != "") {
+  if (!origcode.isEmpty()) {
     _htmlContent.append(new HtmlElement(origcode));
   }
 
@@ -2246,7 +2246,7 @@ QString KImageMapEditor::getHtmlCode() {
     currentMapElement->htmlCode = getHTMLImageMap();
   }
 
-  QString result = "";
+  QString result;
 
   HtmlElement *el;
     for ( el = _htmlContent.first(); el; el = _htmlContent.next() ) {
@@ -2740,7 +2740,7 @@ void KImageMapEditor::imageUsemap() {
   if ( ! imageTag)
      return;
 
-  QString usemap = "";
+  QString usemap;
 
   if (imageTag->find("usemap"))
       usemap=*imageTag->find("usemap");

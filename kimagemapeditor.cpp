@@ -1614,7 +1614,7 @@ bool KImageMapEditor::openFile()
         i18n("File does not exists!"));
       return false;
   }
-
+  
   openHTMLFile(url());
 
   drawZone->viewport()->repaint();
@@ -1943,11 +1943,11 @@ void KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
     mapsListView->selectMap(mapName);  
   }
   
-
-  // Only update the image if an image was choosen
   if (!imageUrl.isEmpty()) {
     setPicture(imageUrl);
-  } 
+  } else {
+    setPicture(getBackgroundImage());
+  }
   
 
   emit setWindowCaption(url.fileName());      

@@ -5,9 +5,37 @@ kde_module_LTLIBRARIES = libkimagemapeditor.la
 
 METASOURCES = AUTO
 
-libkimagemapeditor_la_SOURCES = qextfileinfo.cpp 	areacreator.cpp 	kimearea.cpp 	kimecommands.cpp 	kimedialogs.cpp 	kimagemapeditor.cpp 	drawzone.cpp arealistview.cpp arealistview.h imageslistview.cpp imageslistview.h mapslistview.cpp mapslistview.h
+libkimagemapeditor_la_SOURCES = \
+    qextfileinfo.cpp \
+    areacreator.cpp \
+    kimearea.cpp \
+    kimecommands.cpp \
+    kimedialogs.cpp \
+    kimagemapeditor.cpp \
+    drawzone.cpp \
+    arealistview.cpp \
+    arealistview.h \
+    imageslistview.cpp \
+    imageslistview.h \
+    mapslistview.cpp \
+    mapslistview.h
 
-kimagemapeditor_SOURCES = main.cpp kimeshell.cpp
+kimagemapeditor_SOURCES = \
+    main.cpp \
+    kimeshell.cpp \
+    qextfileinfo.cpp \
+    areacreator.cpp \
+    kimearea.cpp \
+    kimecommands.cpp \
+    kimedialogs.cpp \
+    kimagemapeditor.cpp \
+    drawzone.cpp \
+    arealistview.cpp \
+    arealistview.h \
+    imageslistview.cpp \
+    imageslistview.h \
+    mapslistview.cpp \
+    mapslistview.h
 
 noinst_HEADERS = \
 	qextfileinfo.h \
@@ -20,11 +48,11 @@ noinst_HEADERS = \
   kimeshell.h
 
 
-libkimagemapeditor_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module -no-undefined  -avoid-version
+libkimagemapeditor_la_LDFLAGS = -module -no-undefined $(all_libraries) -version-info 1:0:0
 libkimagemapeditor_la_LIBADD = $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
 
-kimagemapeditor_LDFLAGS = $(KDE_RPATH) $(all_libraries) 
-kimagemapeditor_LDADD = libkimagemapeditor.la
+kimagemapeditor_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kimagemapeditor_LDADD = $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
 
 
 install-data-local:

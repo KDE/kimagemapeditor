@@ -141,7 +141,7 @@ void KimeShell::fileNew()
 
 void KimeShell::openFile(const KURL & url)
 {
-	m_part->openURL(url);
+	m_part->openFile(url);
 }
 
 void KimeShell::openLastFile()

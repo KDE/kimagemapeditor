@@ -143,7 +143,7 @@ bool QExtFileInfo::createDir( const KURL& path )
     //  debug(d1);
     }
   //  dir2.setPath(dir2.path(-1));
-    result = KIO::NetAccess::mkdir(dir2);
+    result = KIO::NetAccess::mkdir(dir2, 0L, -1);
     i++;
   }
  result = exists(path);

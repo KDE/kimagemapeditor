@@ -32,7 +32,7 @@
 #include "kimearea.h"
 
 /**
-  *@author Jan Sch√?fer
+  *@author Jan Schaefer
   */
 
 
@@ -209,6 +209,7 @@ public :
     void readConfig(KConfig*);
     void writeConfig(KConfig*);
 
+    virtual bool openURL(const KURL & url);
 
 protected:
     void init();

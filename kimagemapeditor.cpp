@@ -36,6 +36,7 @@
 #include <qpainter.h>
 #include <qtabwidget.h>
 #include <qfontdatabase.h>
+#include <qfile.h>
 
 // KDE
 #include <kcommand.h>
@@ -1547,6 +1548,18 @@ void KImageMapEditor::openFile(const KURL & url) {
     else
         openURL(url);
   }
+}
+
+bool KImageMapEditor::openURL(const KURL & url) {
+    // If a local file does not exist
+    // we start with an empty file, so
+    // that we can return true here.
+    // For non local files, we cannot check
+    // the existance
+    if (url.isLocalFile() &&
+        ! QFile::exists(url.path()))
+        return true;
+    return KParts::ReadOnlyPart::openURL(url);
 }
 
 void KImageMapEditor::fileOpen() {

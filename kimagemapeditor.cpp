@@ -2738,7 +2738,7 @@ void KImageMapEditor::imageUsemap() {
 #if KDE_IS_VERSION(3, 1, 90)
   QString input = KInputDialog::getItem(i18n("Enter usmap"),
 #else
-  QString input = QInputDialog::getText(i18n("Enter usmap"),
+  QString input = QInputDialog::getItem(i18n("Enter usmap"),
 #endif
     i18n("Enter the usemap value"),
     maps,index,true,&ok,widget());

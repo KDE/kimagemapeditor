@@ -1606,7 +1606,7 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|HTML File\n*.txt|Text File\n*|All Files"),widget());
+  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|HTML File\n*.txt|Text File\n*|All Files",widget());
   if (url.isEmpty() || !url.isValid()) {
     return;
   }

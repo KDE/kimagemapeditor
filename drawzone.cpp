@@ -27,6 +27,7 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
+#include <kmimetype.h>
 
 // Local
 #include "drawzone.h"
@@ -874,7 +875,17 @@ void DrawZone::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 }
 
 void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
-  e->accept(KURLDrag::canDecode(e));
+  if (!KURLDrag::canDecode(e))
+    return;
+    
+  bool accept = false;
+  KURL::List uris;
+  KURLDrag::decode(e,uris);
+  KMimeType::Ptr ptr = KMimeType::findByURL(uris.first());
+//  kdDebug() << "***** " << ptr.data()->name() << endl;
+  if ((ptr.data()->name() == "text/html")
+      || (ptr.data()->name().left(6) == "image/"))
+    e->accept();
 }
 
 void DrawZone::contentsDropEvent( QDropEvent* e) {

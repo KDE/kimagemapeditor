@@ -333,7 +333,7 @@ QWidget* AreaDialog::createGeneralPage()
   hbox->setMinimumHeight(hbox->height());
 
   layout->addWidget(hbox,0,2);
-  QLabel *lbl=new QLabel("&HREF:",page);
+  QLabel *lbl=new QLabel(i18n( "&HREF:" ),page);
   lbl->setBuddy(hrefEdit);
   layout->addWidget(lbl,0,1);
 
@@ -503,7 +503,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  KURL url=KFileDialog::getOpenURL(QString::null,"*|All Files",this,i18n("Choose File"));
+  KURL url=KFileDialog::getOpenURL(QString::null, "*|" + i18n( "All Files" ), this, i18n("Choose File"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }
@@ -568,7 +568,7 @@ void AreaDialog::slotUpdateArea() {
 }
 
 ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images,const KURL & _baseUrl)
-  : KDialogBase(parent,"",true,"Choose the map and image to edit",Ok,Ok,true)
+  : KDialogBase(parent,"",true,i18n( "Choose the map and image to edit" ),Ok,Ok,true)
 {
   baseUrl=_baseUrl;
   maps=_maps;
@@ -866,10 +866,6 @@ void HTMLPreviewDialog::show() {
 //  htmlView->layout();
 //  htmlView->repaint();
   resize(800,600);
-
-
-
-
 }
 
 #include "kimedialogs.moc"

@@ -18,7 +18,7 @@
 
 #include <iostream>
 
-#include <kaction.h> 
+#include <kaction.h>
 #include <kiconloader.h>
 #include <kstandarddirs.h>
 #include <kfiledialog.h>
@@ -40,47 +40,47 @@ KimeShell::KimeShell(const char *name )
   : KParts::DockMainWindow( 0L, name )
 {
 	setXMLFile("kimagemapeditorui.rc");
-  
-  
+
+
   KDockWidget* mainDock;
   mainDock = createDockWidget( "MainDockWidget", 0L, 0L, "main_dock_widget");
   QWidget *w = new QHBox( mainDock );
 //  QLayout* layout = new QGridLayout( mainDock );
-  
+
   mainDock->setWidget( w );
   // allow others to dock to the 4 sides
   mainDock->setDockSite(KDockWidget::DockCorner);
   // forbit docking abilities of mainDock itself
   mainDock->setEnableDocking(KDockWidget::DockNone);
   setView( mainDock); // central widget in a KDE mainwindow
-  setMainDockWidget( mainDock); // master dockwidget  
+  setMainDockWidget( mainDock); // master dockwidget
   m_part = new KImageMapEditor( w, "kimagemapeditor", this, "kimagemapeditor");
-   
-   
+
+
 //	setCentralWidget( part->widget() );
-  
+
   setupActions();
 
 	_stdout=false;
-  
+
 //  createGUI( part );
 	createShellGUI( true );
   guiFactory()->addClient( m_part );
   KParts::GUIActivateEvent ev( true );
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
-	
-  connect( m_part, SIGNAL(setStatusBarText(const QString &)), 
-           this, SLOT(slotSetStatusBarText ( const QString & ))); 
-           
+
+  connect( m_part, SIGNAL(setStatusBarText(const QString &)),
+           this, SLOT(slotSetStatusBarText ( const QString & )));
+
   connect( m_part, SIGNAL(setWindowCaption(const QString &)),
-           this, SLOT(setCaption( const QString &)));           
-  
+           this, SLOT(setCaption( const QString &)));
+
   setAutoSaveSettings( "General Options" );
-           
+
 }
 
-KimeShell::~KimeShell() 
+KimeShell::~KimeShell()
 {
 //  delete part;
 }
@@ -90,7 +90,7 @@ bool KimeShell::queryClose()
 	if (_stdout) {
 		std::cout << m_part->getHtmlCode() << std::endl;
 	}
-  
+
   return m_part->queryClose();
 }
 
@@ -107,7 +107,7 @@ bool KimeShell::queryExit()
 void KimeShell::setupActions()
 {
   (void)KStdAction::openNew(this, SLOT(fileNew()), actionCollection());
-  
+
 	// File Quit
 	(void)KStdAction::quit(this, SLOT(close()),actionCollection());
 
@@ -133,7 +133,7 @@ void KimeShell::fileNew()
     if ( ! m_part->url().isEmpty() || m_part->isModified() )
     {
         KimeShell * newShell = new KimeShell();
-        
+
         newShell->show();
         newShell->readConfig();
     };
@@ -153,12 +153,12 @@ void KimeShell::openLastFile()
 void KimeShell::fileOpen()
 {
   KURL url=KFileDialog::getOpenURL(QString::null,
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web Files\n"
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
-          "*.htm *.html|HTML Files\n"
-          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF Images\n*|All Files"
+          "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + "\n"
+          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + "\n"
+          "*.htm *.html|" + i18n( "HTML Files" ) + "\n"
+          "*.png|" + i18n( "PNG Images" ) + "\n*.jpg *.jpeg|" + i18n( "JPEG Images" ) + "\n*.gif|" + i18n( "GIF Images" ) + "\n*|" + i18n( "All Files" )
           ,this,i18n("Choose Picture to Open"));
-          
+
   if (!url.isEmpty()) {
         // About this function, the style guide (
         // http://developer.kde.org/documentation/standards/kde/style/basics/index.html )
@@ -220,21 +220,21 @@ void KimeShell::saveProperties(KConfig *config)
   //writeConfig(config);
   m_part->saveProperties(config);
   writeConfig();
-  
+
 }
 
 void KimeShell::readProperties(KConfig *config)
 {
   readConfig();
   m_part->readProperties(config);
-  
-  
+
+
 }
 
 
 void KimeShell::optionsConfigureKeys() {
 //  KKeyDialog::configureKeys(actionCollection(), "testprog_shell.rc");
-  
+
   KKeyDialog dlg;
   dlg.insert(actionCollection());
   dlg.insert(m_part->actionCollection());

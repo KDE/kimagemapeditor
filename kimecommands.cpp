@@ -16,6 +16,7 @@
  ***************************************************************************/
 #include <qstring.h>
 #include <kdebug.h>
+#include <klocale.h>
 
 #include "kimagemapeditor.h"
 #include "kimecommands.h"
@@ -23,13 +24,13 @@
 
 CutCommand::CutCommand(KImageMapEditor * document, const AreaSelection & a)
   :
-  
+
 #if KDE_VERSION < 300
 KCommand
 #else
 KNamedCommand
 #endif
- ("Cut "+a.typeString())
+ (i18n( "Cut %1" ).arg( a.typeString() ))
 {
 	_document=document;
 	_cutAreaSelection=new AreaSelection();
@@ -45,9 +46,9 @@ CutCommand::~CutCommand()
 		AreaList list = _cutAreaSelection->getAreaList();
   	for ( Area *a=list.first(); a != 0; a=list.next() )	{
   		delete a;
-  	}		
+  	}
 	}
-	
+
 	delete _cutAreaSelection;
 }
 
@@ -73,7 +74,7 @@ void CutCommand::unexecute()
 DeleteCommand::DeleteCommand(KImageMapEditor * document, const AreaSelection & a)
 	: CutCommand(document,a)
 {
-	setName("Delete "+a.typeString());
+	setName(i18n( "Delete %1" ).arg( a.typeString() ));
 }
 
 PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
@@ -83,7 +84,7 @@ KCommand
 #else
 KNamedCommand
 #endif
- ("Paste "+a.typeString())
+ (i18n( "Paste %1" ).arg( a.typeString() ))
 {
 	_document=document;
 	_pasteAreaSelection=new AreaSelection();
@@ -98,9 +99,9 @@ PasteCommand::~PasteCommand ()
 		AreaList list=_pasteAreaSelection->getAreaList();
   	for (Area* a=list.first(); a != 0; a=list.next() )	{
   		delete a;
-  	}		
+  	}
 	}
-	
+
 	delete _pasteAreaSelection;
 }
 
@@ -128,21 +129,16 @@ KCommand
 #else
 KNamedCommand
 #endif
-("Move "+a->typeString())
+(i18n( "Move %1" ).arg( a->typeString() ))
 {
 	_document=document;
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
 	_oldPoint.setX(oldPoint.x());
 	_oldPoint.setY(oldPoint.y());
-	
+
 	_newPoint.setX(a->rect().left());
 	_newPoint.setY(a->rect().top());
-
-
-
-
-	
 }
 
 MoveCommand::~MoveCommand () {
@@ -160,13 +156,13 @@ void MoveCommand::execute()
   	_areaSelection->moveTo( _oldPoint.x(), _oldPoint.y() );
 
   _document->selected()->invalidate();
-	
+
 
 	_document->slotAreaChanged( tempArea );
 	_document->slotAreaChanged( _areaSelection );
 
 	delete tempArea;
-		
+
 }
 
 void MoveCommand::unexecute()
@@ -177,14 +173,14 @@ void MoveCommand::unexecute()
   _areaSelection->setMoving(true);
 	_areaSelection->moveTo( _oldPoint.x(), _oldPoint.y() );
   _areaSelection->setMoving(false);
-		
+
   _document->selected()->invalidate();
 
 	_document->slotAreaChanged( tempArea );
 	_document->slotAreaChanged( _areaSelection );
-		
+
 	delete tempArea;
-	
+
 }
 
 
@@ -195,7 +191,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-("Resize "+a->typeString())
+(i18n( "Resize %1" ).arg( a->typeString() ))
 {
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
@@ -216,21 +212,21 @@ void ResizeCommand::execute()
 {
   _areaSelection->setArea ( *_newArea);
   _areaSelection->setMoving(false);
-		
+
 	_document->slotAreaChanged( _areaSelection );
 	_document->slotAreaChanged( _oldArea );
-	
-		
+
+
 }
 
 void ResizeCommand::unexecute()
 {
   _areaSelection->setArea ( *_oldArea);
   _areaSelection->setMoving(false);
-			
+
 	_document->slotAreaChanged( _areaSelection );
 	_document->slotAreaChanged( _newArea );
-	
+
 }
 
 
@@ -242,7 +238,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-("Add point to "+a->typeString())
+(i18n( "Add point to %1" ).arg( a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -266,7 +262,7 @@ void AddPointCommand::execute()
 {
   _coordpos = _areaSelection->addCoord(_point);
   _areaSelection->setMoving(false);
-		
+
 	_document->slotAreaChanged( _areaSelection );
 }
 
@@ -275,7 +271,7 @@ void AddPointCommand::unexecute()
 //  QRect *selectionPoint = _areaSelection->onSelectionPoint(_point);
   Area* repaintArea = _areaSelection->clone();
 
-  _areaSelection->removeCoord(_coordpos);			
+  _areaSelection->removeCoord(_coordpos);
   _areaSelection->setMoving(false);
 
 	_document->slotAreaChanged( _areaSelection );
@@ -291,7 +287,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-("Remove point from "+a->typeString())
+(i18n( "Remove point from %1" ).arg( a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -318,21 +314,21 @@ void RemovePointCommand::execute()
 {
   _areaSelection->setArea ( *_newArea);
   _areaSelection->setMoving(false);
-		
+
 	_document->slotAreaChanged( _areaSelection );
 	_document->slotAreaChanged( _oldArea );
-	
-		
+
+
 }
 
 void RemovePointCommand::unexecute()
 {
   _areaSelection->setArea ( *_oldArea);
   _areaSelection->setMoving(false);
-			
+
 	_document->slotAreaChanged( _areaSelection );
 	_document->slotAreaChanged( _newArea );
-	
+
 }
 
 
@@ -344,13 +340,13 @@ KCommand
 #else
 KNamedCommand
 #endif
-("Create "+area->typeString())
+(i18n( "Create %1" ).arg( area->typeString() ))
 {
 	_document=document;
 	_area=area;
 	_created=true;
 	_wasUndoed=false;
-	
+
 }
 
 CreateCommand::~CreateCommand ()
@@ -362,7 +358,7 @@ CreateCommand::~CreateCommand ()
 void CreateCommand::execute()
 {
 	if (_document) {
-	
+
 		if ( _wasUndoed ) {
 			_document->addArea( _area );
 			_document->deselectAll();
@@ -371,10 +367,10 @@ void CreateCommand::execute()
 		}
 		else
 			_document->addAreaAndEdit( _area );
-			
+
 		_created=true;
 	}
-		
+
 }
 
 void CreateCommand::unexecute()
@@ -386,4 +382,3 @@ void CreateCommand::unexecute()
 	}
 
 }
-

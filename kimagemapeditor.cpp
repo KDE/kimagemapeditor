@@ -628,9 +628,9 @@ void KImageMapEditor::setupActions()
                           "Click this to remove points from a polygon."));
   removePointAction->setExclusiveGroup("drawing");
 
-  #if KDE_VERSION < 300
+#if KDE_VERSION < 300
     KAction *cancelAction =
-  #endif
+#endif
       new KAction(i18n("Cancel Drawing"), Key_Escape, this, SLOT( slotCancelDrawing() ),
                               actionCollection(), "canceldrawing" );
 
@@ -657,7 +657,7 @@ void KImageMapEditor::setupActions()
 
   decreaseHeightAction = new KAction(i18n("Decrease Height"), Key_Down + SHIFT, this, SLOT( slotDecreaseHeight() ),
                               actionCollection() , "decreaseheight" );
-  #if KDE_VERSION < 300
+#if KDE_VERSION < 300
     accel = new KAccel(widget());
     cancelAction->plugAccel(accel, true);
     moveLeftAction->plugAccel(accel, true);
@@ -668,7 +668,7 @@ void KImageMapEditor::setupActions()
     decreaseWidthAction->plugAccel(accel, true);
     increaseHeightAction->plugAccel(accel, true);
     decreaseHeightAction->plugAccel(accel, true);
-  #endif
+#endif
 
   toFrontAction = new KAction(i18n("Bring to Front"), 0 , this, SLOT( slotToFront() ),
                               actionCollection() , "tofront" );
@@ -1565,11 +1565,11 @@ bool KImageMapEditor::openURL(const KURL & url) {
 void KImageMapEditor::fileOpen() {
 
   QString fileName = KFileDialog::getOpenFileName(QString::null,
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
+          i18n("*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
           "*.htm *.html|HTML Files\n"
-          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"
-          ,widget(),i18n("Choose File to Open"));
+          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"),
+          widget(),i18n("Choose File to Open"));
 
   openFile(KURL( fileName ));
 }
@@ -1606,7 +1606,8 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|HTML File\n*.txt|Text File\n*|All Files",widget());
+  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|" + i18n( "HTML File" ) +
+                                     "\n*.txt|" + i18n( "Text File" ) + "\n*|" + i18n( "All Files" ),widget());
   if (url.isEmpty() || !url.isValid()) {
     return;
   }

@@ -47,8 +47,7 @@ kimagemapeditor_LDADD = libkimagemapeditorcommon.la $(LIB_KFILE) $(LIB_KPARTS) $
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
 
-apps_DATA = kimagemapeditor.desktop
-appsdir = $(kde_appsdir)/Development
+xdg_apps_DATA = kimagemapeditor.desktop
 
 rcdir = $(kde_datadir)/kimagemapeditor
 rc_DATA = kimagemapeditorui.rc \

@@ -101,9 +101,9 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
 //    kdDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
 
     KDockWidget* parentDock = mainDock->getMainDockWidget();
-    areaDock = mainDock->createDockWidget( "Areas", 0L, 0L, i18n("Areas"));
-    mapsDock = mainDock->createDockWidget( "Maps", 0L, 0L, i18n("Maps"));
-    imagesDock = mainDock->createDockWidget( "Images", 0L, 0L, i18n("Images"));
+    areaDock = mainDock->createDockWidget( "Areas", 0L, 0L, i18n("Areas"), i18n("Areas"));
+    mapsDock = mainDock->createDockWidget( "Maps", 0L, 0L, i18n("Maps"), i18n("Maps"));
+    imagesDock = mainDock->createDockWidget( "Images", 0L, 0L, i18n("Images"), i18n("Images"));
 
     areaListView = new AreaListView(areaDock,"AreaListView");
     mapsListView = new MapsListView(mapsDock, "MapsListView");

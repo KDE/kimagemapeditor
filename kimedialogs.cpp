@@ -30,7 +30,6 @@
 #include <qspinbox.h>
 #include <qtabwidget.h>
 #include <qpointarray.h>
-#include <qpushbutton.h>
 #include <qimage.h>
 //#include <qwidget.h>
 // KDE
@@ -42,7 +41,8 @@
 #include <khtmlview.h>
 #include <khtml_part.h>
 #include <ktempfile.h>
-
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -213,7 +213,7 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   QPushButton *removeBtn=new QPushButton(i18n("Remove"),hbox);
   connect( removeBtn, SIGNAL(pressed()), this, SLOT(slotRemovePoint()));
 
-  layout->addWidget(hbox);	
+  layout->addWidget(hbox);
   slotHighlightPoint(1);
 }
 
@@ -271,7 +271,7 @@ void PolyCoordsEdit::applyChanges() {
                     coordsTable->text(i,1).toInt());
 
     area->moveCoord(i,newPoint);
-  }	
+  }
 }
 
 SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
@@ -391,9 +391,9 @@ QWidget* AreaDialog::createButtonBar()
 {
   QHBox *box = new QHBox(this);
   QWidget *spacer = new QWidget(box);
-  QPushButton *okBtn = new QPushButton(i18n("&Ok"),box);
-  QPushButton *applyBtn = new QPushButton(i18n("&Apply"),box);
-  QPushButton *cancelBtn = new QPushButton(i18n("&Cancel"),box);
+  QPushButton *okBtn = new KPushButton(KStdGuiItem::ok(),box);
+  QPushButton *applyBtn = new KPushButton(KStdGuiItem::apply(),box);
+  QPushButton *cancelBtn = new KPushButton(KStdGuiItem::cancel(),box);
 
   connect(okBtn, SIGNAL(clicked()), this, SLOT(slotOk()));
   connect(applyBtn, SIGNAL(clicked()), this, SLOT(slotApply()));
@@ -458,7 +458,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
   if (a->type()==Area::Default)
   {
       shape=i18n("Default");
-  }		
+  }
   else
     tab->addTab(createCoordsPage(),i18n("Coor&dinates"));
 
@@ -486,7 +486,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
   if (!a) return 0;
   switch (a->type()) {
     case Area::Rectangle :
-        return new RectCoordsEdit(parent,a);				
+        return new RectCoordsEdit(parent,a);
       break;
     case Area::Circle :
         return new CircleCoordsEdit(parent,a);
@@ -543,7 +543,7 @@ void AreaDialog::slotApply() {
     // draw new area
     emit areaChanged(area);
     oldArea->setRect(area->rect());
-  }	
+  }
 }
 
 void AreaDialog::slotCancel() {
@@ -585,7 +585,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   QFrame *line= new QFrame(page);
   line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
-  layout->addWidget(line,0);	
+  layout->addWidget(line,0);
 
   QGridLayout *gridLayout= new QGridLayout(layout,2,3,5);
   gridLayout->setRowStretch(0,0);
@@ -621,33 +621,33 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   line= new QFrame(page);
   line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
-  layout->addWidget(line,0);			
+  layout->addWidget(line,0);
 
 
   if (maps->isEmpty()) {
     mapListBox->insertItem(i18n("No maps found"));
     mapListBox->setEnabled(false);
-  } 
+  }
   else {
     for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
       mapListBox->insertItem(tag->name);
     }
     connect (mapListBox, SIGNAL(highlighted(int)), this, SLOT(slotMapChanged(int)));
   }
-  
+
   initImageListTable(page);
-  
+
   if (! maps->isEmpty()) {
     mapListBox->setCurrentItem(0);
     slotMapChanged(0);
-  }    
-  
+  }
+
   resize(510,460);
 }
 
 void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
 
-  
+
   if (images->isEmpty()) {
     imageListTable= new QTable(1,1,parent);
     imageListTable->setText(0,0,i18n("No images found"));
@@ -658,28 +658,28 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   } else {
     imageListTable= new QTable(images->count(),2,parent);
     imageListTable->setColumnStretchable(0,true);
-  }    
+  }
 
   imageListTable->verticalHeader()->hide();
   imageListTable->setLeftMargin(0);
-      
+
   QLabel *lbl= new QLabel(i18n("&Images"),parent);
   lbl->setBuddy(imageListTable);
-  
+
   parent->layout()->add(lbl);
   parent->layout()->add(imageListTable);
 
   if (images->isEmpty())
     return;
-    
+
   imageListTable->horizontalHeader()->setLabel(0,i18n("Path"));
   imageListTable->horizontalHeader()->setLabel(1,"usemap");
 
   imageListTable->setSelectionMode(QTable::SingleRow);
   imageListTable->setFocusStyle(QTable::FollowStyle);
   imageListTable->clearSelection(true);
-  
-  
+
+
   int row=0;
   for (ImageTag *tag = images->first(); tag!=0L; tag=images->next()) {
     QString src="";
@@ -694,11 +694,11 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     row++;
   }
   connect (imageListTable, SIGNAL(selectionChanged()), this, SLOT(slotImageChanged()));
- 
+
   imageListTable->selectRow(0);
   slotImageChanged();
 
-   
+
 }
 
 ImageMapChooseDialog::~ImageMapChooseDialog() {
@@ -787,11 +787,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   redoSpinBox->setMinValue(1);
   redoSpinBox->setValue(config->readNumEntry("redo-level",20));
   lbl->setBuddy(redoSpinBox);
-  
+
   startWithCheck = new QCheckBox(i18n("&Start with last used document"),page);
   startWithCheck->setChecked(config->readBoolEntry("start-with-last-used-document",true));
 
-/*	
+/*
   hbox= new QHBox(page);
   (void)new QLabel(i18n("Highlight Areas")+" ",hbox);
 
@@ -812,7 +812,7 @@ PreferencesDialog::~PreferencesDialog() {
 }
 
 void PreferencesDialog::slotDefault( void ) {
-  rowHeightSpinBox->setValue(50);	
+  rowHeightSpinBox->setValue(50);
 }
 
 void PreferencesDialog::slotOk( void ) {
@@ -833,7 +833,7 @@ void PreferencesDialog::slotApply( void ) {
   emit applyClicked();
 }
 
-HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KURL url, const QString & htmlCode) 
+HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KURL url, const QString & htmlCode)
   : KDialogBase(parent, "", true, i18n("Preview"), KDialogBase::Ok)
 {
   tempFile = new KTempFile(url.directory(false), ".html");

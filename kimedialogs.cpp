@@ -69,7 +69,7 @@ CoordsEdit::~CoordsEdit()
 RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this,5,2);
+  QGridLayout *layout= new QGridLayout(this,5,2,5,5);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaxValue(2000);
@@ -78,7 +78,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(topXSpin,0,1);
   connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  QLabel *lbl= new QLabel(i18n("Top &X"),this);
+  QLabel *lbl= new QLabel(i18n("Top &X:"),this);
   lbl->setBuddy(topXSpin);
   layout->addWidget(lbl,0,0);
 
@@ -89,7 +89,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(topYSpin,1,1);
   connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  lbl= new QLabel(i18n("Top &Y"),this);
+  lbl= new QLabel(i18n("Top &Y:"),this);
   lbl->setBuddy(topYSpin);
   layout->addWidget(lbl,1,0);
 
@@ -100,7 +100,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(widthSpin,2,1);
   connect( widthSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  lbl= new QLabel(i18n("&Width"),this);
+  lbl= new QLabel(i18n("&Width:"),this);
   lbl->setBuddy(widthSpin);
   layout->addWidget(lbl,2,0);
 
@@ -111,7 +111,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(heightSpin,3,1);
   connect( heightSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  lbl= new QLabel(i18n("Hei&ght"),this);
+  lbl= new QLabel(i18n("Hei&ght:"),this);
   lbl->setBuddy(heightSpin);
   layout->addWidget(lbl,3,0);
 
@@ -130,7 +130,7 @@ void RectCoordsEdit::applyChanges() {
 CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this,4,2);
+  QGridLayout *layout= new QGridLayout(this,4,2,5,5);
 
   centerXSpin = new QSpinBox(this);
   centerXSpin->setMaxValue(2000);
@@ -139,7 +139,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(centerXSpin,0,1);
   connect( centerXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  QLabel *lbl= new QLabel(i18n("Center &X"),this);
+  QLabel *lbl= new QLabel(i18n("Center &X:"),this);
   lbl->setBuddy(centerXSpin);
   layout->addWidget(lbl,0,0);
 
@@ -151,7 +151,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   connect( centerYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
 
-  lbl= new QLabel(i18n("Center &Y"),this);
+  lbl= new QLabel(i18n("Center &Y:"),this);
   lbl->setBuddy(centerYSpin);
   layout->addWidget(lbl,1,0);
 
@@ -163,7 +163,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   connect( radiusSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
 
-  lbl= new QLabel(i18n("&Radius"),this);
+  lbl= new QLabel(i18n("&Radius:"),this);
   lbl->setBuddy(radiusSpin);
   layout->addWidget(lbl,2,0);
 
@@ -333,13 +333,13 @@ QWidget* AreaDialog::createGeneralPage()
   hbox->setMinimumHeight(hbox->height());
 
   layout->addWidget(hbox,0,2);
-  QLabel *lbl=new QLabel("&HREF",page);
+  QLabel *lbl=new QLabel("&HREF:",page);
   lbl->setBuddy(hrefEdit);
   layout->addWidget(lbl,0,1);
 
-  altEdit = createLineEdit(page,layout,1,area->attribute("alt"),i18n("Alt. &Text"));
-  targetEdit = createLineEdit(page,layout,2,area->attribute("target"),i18n("Tar&get"));
-  titleEdit = createLineEdit(page,layout,3,area->attribute("title"),i18n("Tit&le"));
+  altEdit = createLineEdit(page,layout,1,area->attribute("alt"),i18n("Alt. &Text:"));
+  targetEdit = createLineEdit(page,layout,2,area->attribute("target"),i18n("Tar&get:"));
+  titleEdit = createLineEdit(page,layout,3,area->attribute("title"),i18n("Tit&le:"));
 
   if (area->type()==Area::Default)
   {
@@ -373,13 +373,13 @@ QWidget* AreaDialog::createJavascriptPage()
   QFrame* page = new QFrame(this);
   QGridLayout* layout = new QGridLayout(page,8,2,5,5);
 
-  onClickEdit = createLineEdit(page,layout,0,area->attribute("onClick"),i18n("OnClick"));
-  onDblClickEdit = createLineEdit(page,layout,1,area->attribute("onDblClick"),i18n("OnDblClick"));
-  onMouseDownEdit = createLineEdit(page,layout,2,area->attribute("onMouseDown"),i18n("OnMouseDown"));
-  onMouseUpEdit = createLineEdit(page,layout,3,area->attribute("onMouseUp"),i18n("OnMouseUp"));
-  onMouseOverEdit = createLineEdit(page,layout,4,area->attribute("onMouseOver"),i18n("OnMouseOver"));
-  onMouseMoveEdit = createLineEdit(page,layout,5,area->attribute("onMouseMove"),i18n("OnMouseMove"));
-  onMouseOutEdit = createLineEdit(page,layout,6,area->attribute("onMouseOut"),i18n("OnMouseOut"));
+  onClickEdit = createLineEdit(page,layout,0,area->attribute("onClick"),i18n("OnClick:"));
+  onDblClickEdit = createLineEdit(page,layout,1,area->attribute("onDblClick"),i18n("OnDblClick:"));
+  onMouseDownEdit = createLineEdit(page,layout,2,area->attribute("onMouseDown"),i18n("OnMouseDown:"));
+  onMouseUpEdit = createLineEdit(page,layout,3,area->attribute("onMouseUp"),i18n("OnMouseUp:"));
+  onMouseOverEdit = createLineEdit(page,layout,4,area->attribute("onMouseOver"),i18n("OnMouseOver:"));
+  onMouseMoveEdit = createLineEdit(page,layout,5,area->attribute("onMouseMove"),i18n("OnMouseMove:"));
+  onMouseOutEdit = createLineEdit(page,layout,6,area->attribute("onMouseOut"),i18n("OnMouseOut:"));
 
   layout->setRowStretch(7,10);
 
@@ -735,12 +735,14 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 {
   config = conf;
   QVBox *page=new QVBox(this);
+  page->setSpacing(6);
   setMainWidget(page);
 
   QHBox *hbox= new QHBox(page);
 
-  (void)new QLabel(i18n("Maximum image preview height")+" ",hbox);
+  QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+" ",hbox);
   rowHeightSpinBox = new QSpinBox(hbox);
+  lbl->setBuddy(rowHeightSpinBox);
 
   config->setGroup("Appearance");
   rowHeightSpinBox->setMaxValue(1000);
@@ -751,24 +753,26 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   config->setGroup("General");
 
   hbox= new QHBox(page);
-  (void)new QLabel(i18n("Undo limit")+" ",hbox);
+  lbl = new QLabel(i18n("&Undo limit:")+" ",hbox);
   undoSpinBox = new QSpinBox(hbox);
   undoSpinBox->setFixedWidth(60);
+  lbl->setBuddy(undoSpinBox);
 
   undoSpinBox->setMaxValue(100);
   undoSpinBox->setMinValue(1);
   undoSpinBox->setValue(config->readNumEntry("undo-level",20));
 
   hbox= new QHBox(page);
-  (void)new QLabel(i18n("Redo limit")+" ",hbox);
+  lbl = new QLabel(i18n("&Redo limit:")+" ",hbox);
 
   redoSpinBox = new QSpinBox(hbox);
   redoSpinBox->setFixedWidth(60);
   redoSpinBox->setMaxValue(100);
   redoSpinBox->setMinValue(1);
   redoSpinBox->setValue(config->readNumEntry("redo-level",20));
+  lbl->setBuddy(redoSpinBox);
   
-  startWithCheck = new QCheckBox(i18n("Start with last used document"),page);
+  startWithCheck = new QCheckBox(i18n("&Start with last used document"),page);
   startWithCheck->setChecked(config->readBoolEntry("start-with-last-used-document",true));
 
 /*	

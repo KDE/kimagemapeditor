@@ -1,0 +1,150 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="kimagemapeditorpart" version="19">
+ <MenuBar>
+  <Menu name="file">
+    <Action name="file_open"/>
+    <Action name="file_open_recent"/>
+    <Separator/>
+    <Action name="file_save"/>
+    <Action name="file_save_as"/>
+    <Separator/>
+    <Action name="file_close"/>
+  </Menu>
+  <Menu name="edit" noMerge="1">
+  	<text>&amp;Edit</text>
+  	<Action name="edit_undo" />
+  	<Action name="edit_redo" />
+	  <Separator/>
+  	<Action name="edit_cut" />
+  	<Action name="edit_copy" />
+  	<Action name="edit_paste" />
+  	<Action name="edit_delete" />
+  	<Separator/>
+    <Action name="tofront" />
+    <Action name="toback" />
+    <Action name="forwardone" />
+    <Action name="backone" />
+    <Separator/>
+    <Action name="edit_properties" />
+  </Menu>
+  <Menu name="view" >
+  <text>&amp;View</text>
+    <Action name="view_zoom_in"/>
+    <Action name="view_zoom_out"/>
+    <Action name="view_zoom"/>
+    <Separator/>
+    <Action name="view_highlightareas"/>
+    <Action name="view_showalt"/>
+  </Menu>
+  <Menu name="tool" >
+  <text>&amp;Tools</text>
+  	<Action name="tool_arrow" />
+  	<Action name="tool_circle" />
+  	<Action name="tool_rectangle" />
+  	<Action name="tool_polygon" />
+    <Action name="tool_freehand" />
+    <Action name="tool_addpoint" />
+    <Action name="tool_removepoint" />
+  </Menu>
+  <Menu name="map" >
+  <text>&amp;Map</text>
+     <Action name="map_name" />
+     <Action name="map_new" />
+     <Action name="map_delete" />
+     <Separator/>
+     <Action name="map_defaultarea" />
+     <Separator/>
+     <Action name="map_showhtml" />
+     <Action name="map_preview" />
+  </Menu>
+  <Menu name="images" >
+  <text>&amp;Image</text>
+     <Action name="image_usemap" />
+     <Action name="image_remove" />
+     <Action name="image_add" />
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <Separator/>
+    <Action name="configure_show_arealist"/>
+    <Action name="configure_show_maplist"/>
+    <Action name="configure_show_imagelist"/>
+    <Separator/>
+    <Action name="configure_kimagemapeditor"/>
+  </Menu>
+ </MenuBar>
+ <StatusBar/>
+ <ToolBar name="mainToolBar">
+  <text>KImageMapEditor Main Toolbar</text>
+  <Action name="file_open"/>
+  <Action name="file_save"/>
+  <Action name="file_save_as"/>
+  <Separator/>
+ 	<Action name="edit_undo" />
+ 	<Action name="edit_redo" />
+  <Separator/>
+ 	<Action name="edit_cut" />
+ 	<Action name="edit_copy" />
+ 	<Action name="edit_paste" />
+ 	<Action name="edit_delete" />
+  <Separator/>
+  <Action name="view_zoom_in"/>
+  <Action name="view_zoom_out"/>
+  <Action name="view_zoom"/>
+  <Separator/>
+ </ToolBar>
+ <ToolBar noMerge="1" name="kImageMapEditorPartDrawToolBar">
+  <text>KImageMapEditor Draw Toolbar</text>
+  <Action name="tool_arrow" />
+  <Action name="tool_circle" />
+  <Action name="tool_rectangle" />
+  <Action name="tool_polygon" />
+  <Action name="tool_freehand" />
+  <Action name="tool_addpoint" />
+  <Action name="tool_removepoint" />
+ </ToolBar>
+ <Menu name="popup_main">
+   <Action name="edit_properties" />
+  <Separator/>
+   <Action name="edit_cut" />
+   <Action name="edit_copy" />
+   <Action name="edit_paste" />
+   <Action name="edit_delete" />
+  <Separator/>
+   <Action name="tofront" />
+   <Action name="toback" />
+   <Action name="forwardone" />
+   <Action name="backone" />
+ </Menu>
+  <Menu name="popup_map">
+   <Action name="map_name" />
+   <Action name="map_new" />
+   <Action name="map_delete" />
+   <Action name="map_defaultarea" />
+ </Menu>
+  <Menu name="popup_image">
+   <Action name="image_usemap" />
+   <Action name="image_remove" />
+   <Action name="image_add" />
+ </Menu>
+
+ 
+ <ActionProperties>
+ <Action shortcut="Left" name="moveleft" /> 
+ <Action shortcut="Right" name="moveright" /> 
+ <Action shortcut="Down" name="movedown" /> 
+ <Action shortcut="Up" name="moveup" /> 
+ <Action shortcut="Shift+Left" name="decreasewidth" /> 
+ <Action shortcut="Shift+Right" name="increasewidth" /> 
+ <Action shortcut="Shift+Down" name="decreaseheight" /> 
+ <Action shortcut="Shift+Up" name="increaseheight" /> 
+ <Action shortcut="Escape" name="canceldrawing" /> 
+ 
+ </ActionProperties>
+</kpartgui>
+
+
+
+
+
+
+

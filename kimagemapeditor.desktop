@@ -1,0 +1,12 @@
+# KDE Config File
+[Desktop Entry]
+Type=Application
+Exec=kimagemapeditor -caption "%c" %i %m  
+Icon=kimagemapeditor.png
+MiniIcon=kimagemapeditor.png
+DocPath=kimagemapeditor/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=KImageMapEditor
+Name[de]=KImageMapEditor

@@ -1205,7 +1205,7 @@ bool PolyArea::setCoords(const QString & s)
 	_coords=new QPointArray();
 	_selectionPoints= new SelectionPointList();
 	
-	for (QStringList::Iterator it = list.begin(); it !=list.end(); it++)
+	for (QStringList::Iterator it = list.begin(); it !=list.end(); ++it)
 	{
 		bool ok=true;
 		int newXCoord=(*it).toInt(&ok,10);

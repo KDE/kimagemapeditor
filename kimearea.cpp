@@ -2,7 +2,7 @@
                           kimearea.cpp  -  description
                              -------------------
     begin                : Thu Jun 14 2001
-    copyright            : (C) 2001 by Jan Schäfer
+    copyright            : (C) 2001 by Jan Schï¿½er
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -752,7 +752,7 @@ QString RectArea::getHTMLCode() const {
 	retStr+=getHTMLAttributes();
 	
 	retStr+="coords=\""+coordsToString()+"\" ";
-	retStr+=">";
+	retStr+="/>";
 	return retStr;
 
 }
@@ -954,7 +954,7 @@ QString CircleArea::getHTMLCode() const {
 	retStr+=getHTMLAttributes();
 	
 	retStr+="coords=\""+coordsToString()+"\" ";
-	retStr+=">";
+	retStr+="/>";
 	return retStr;
 
 }
@@ -1229,7 +1229,7 @@ QString PolyArea::getHTMLCode() const {
 	retStr+=getHTMLAttributes();
 		
 	retStr+="coords=\""+coordsToString()+"\" ";
-	retStr+=">";
+	retStr+="/>";
 	return retStr;
 
 }
@@ -1287,7 +1287,7 @@ QString DefaultArea::getHTMLCode() const {
 
 	retStr+=getHTMLAttributes();
 		
-	retStr+=">";
+	retStr+="/>";
 	return retStr;
 
 }

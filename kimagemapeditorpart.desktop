@@ -7,6 +7,7 @@ MiniIcon=kimagemapeditor
 ServiceTypes=KParts/ReadWritePart
 X-KDE-Library=libkimagemapeditor
 Comment=An HTML imagemap editor
+Comment[ar]=مُحرر مخطط صور HTML
 Comment[bg]=Редактор на изображения-карти за HTML
 Comment[ca]=Un editor de correspondències a imatges HTML
 Comment[da]=En HTML-editor af billedkort

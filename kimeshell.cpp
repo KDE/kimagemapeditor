@@ -2,7 +2,7 @@
                           kimepart.cpp  -  description
                              -------------------
     begin                : Mon Aug 5 2002
-    copyright            : (C) 2002 by Jan Schäfer
+    copyright            : (C) 2002 by Jan Schï¿½er
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -153,11 +153,11 @@ void KimeShell::openLastFile()
 void KimeShell::fileOpen()
 {
   KURL url=KFileDialog::getOpenURL(QString::null,
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web file\n"
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Image\n"
-          "*.htm *.html|HTML-File\n"
-          "*.png|PNG-Image\n*.jpg *.jpeg|JPEG-Image\n*.gif|GIF-Image\n*|All files"
-          ,this,i18n("Choose a picture to open"));
+          "*.png *.jpg *.jpeg *.gif *.htm *.html|Web Files\n"
+          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
+          "*.htm *.html|HTML Files\n"
+          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF Images\n*|All Files"
+          ,this,i18n("Choose Picture to Open"));
           
   if (!url.isEmpty()) {
         // About this function, the style guide (

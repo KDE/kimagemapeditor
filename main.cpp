@@ -2,7 +2,7 @@
                           main.cpp  -  description
                             -------------------
     begin                : Die Apr 10 19:46:49 CEST 2001
-    copyright            : (C) 2001 by Jan Schäfer
+    copyright            : (C) 2001 by Jan Schï¿½er
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -32,8 +32,8 @@ static const char *description =
 static KCmdLineOptions options[] =
 {
   { "c", 0, 0 },
-  { "stdout", I18N_NOOP("write HTML-Code to stdout on exit"), 0 },
-  { "+[File]", I18N_NOOP("file to open"), 0 },
+  { "stdout", I18N_NOOP("Write HTML-Code to stdout on exit"), 0 },
+  { "+[File]", I18N_NOOP("File to open"), 0 },
   { 0, 0, 0 }
   // INSERT YOUR COMMANDLINE OPTIONS HERE
 };

@@ -800,7 +800,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   colorizeAreaChk->setChecked(kapp->config()->readBoolEntry("highlightareas",true));
 
   hbox= new QHBox(page);
-  (void)new QLabel(i18n("Show alt. text")+" ",hbox);
+  (void)new QLabel(i18n("Show alternative text")+" ",hbox);
 
   showAltChk = new QCheckBox(hbox);
   showAltChk->setFixedWidth(60);

@@ -1504,12 +1504,12 @@ void KImageMapEditor::mapEditName()
 {
   bool ok=false;
 #if KDE_IS_VERSION(3, 1, 90)
-  QString input = KInputDialog::getText(i18n("Enter map name"),
-    i18n("Enter the name of the map"),
+  QString input = KInputDialog::getText(i18n("Enter Map Name"),
+    i18n("Enter the name of the map:"),
     _mapName,&ok,widget());
 #else
-  QString input = KLineEditDlg::getText(i18n("Enter map name"),
-    i18n("Enter the name of the map"),
+  QString input = KLineEditDlg::getText(i18n("Enter Map Name"),
+    i18n("Enter the name of the map:"),
     _mapName,&ok,widget());
 #endif
   if (ok) {
@@ -1566,10 +1566,10 @@ void KImageMapEditor::fileOpen() {
 
   QString fileName = KFileDialog::getOpenFileName(QString::null,
           "*.png *.jpg *.jpeg *.gif *.htm *.html|Web file\n"
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Image\n"
-          "*.htm *.html|HTML-File\n"
-          "*.png|PNG-Image\n*.jpg *.jpeg|JPEG-Image\n*.gif|GIF-Image\n*|All files"
-          ,widget(),i18n("Choose a file to open"));
+          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
+          "*.htm *.html|HTML Files\n"
+          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"
+          ,widget(),i18n("Choose File to Open"));
 
   openFile(KURL( fileName ));
 }
@@ -1606,8 +1606,7 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|"+i18n("HTML file")+"\n*.txt|"+
-  						i18n("Text file")+"\n*|"+i18n("All Files"),widget());
+  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|HTML File\n*.txt|Text File\n*|All Files"),widget());
   if (url.isEmpty() || !url.isValid()) {
     return;
   }
@@ -1643,7 +1642,7 @@ bool KImageMapEditor::openFile()
   {
       KMessageBox::information(widget(),
         i18n("<qt>The file <b>%1</b> does not exist.</qt>").arg(fileInfo.fileName()),
-        i18n("File does not exists."));
+        i18n("File Does Not Exist"));
       return false;
   }
 
@@ -2753,9 +2752,9 @@ void KImageMapEditor::imageUsemap() {
   }
 
 #if KDE_IS_VERSION(3, 1, 90)
-  QString input = KInputDialog::getItem(i18n("Enter usemap"),
+  QString input = KInputDialog::getItem(i18n("Enter usemap:"),
 #else
-  QString input = QInputDialog::getItem(i18n("Enter usemap"),
+  QString input = QInputDialog::getItem(i18n("Enter usemap:"),
 #endif
     i18n("Enter the usemap value"),
     maps,index,true,&ok,widget());

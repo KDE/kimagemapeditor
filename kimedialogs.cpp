@@ -652,8 +652,10 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     imageListTable->horizontalHeader()->hide();
     imageListTable->setTopMargin(0);
     imageListTable->setColumnStretchable(0,true);
-  } else
-    imageListTable= new QTable(2,images->count(),parent);
+  } else {
+    imageListTable= new QTable(images->count(),2,parent);
+    imageListTable->setColumnStretchable(0,true);
+  }    
 
   imageListTable->verticalHeader()->hide();
   imageListTable->setLeftMargin(0);
@@ -667,7 +669,7 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   if (images->isEmpty())
     return;
     
-  imageListTable->horizontalHeader()->setLabel(0,"src");
+  imageListTable->horizontalHeader()->setLabel(0,i18n("Path"));
   imageListTable->horizontalHeader()->setLabel(1,"usemap");
 
   imageListTable->setSelectionMode(QTable::SingleRow);
@@ -689,6 +691,9 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     row++;
   }
   connect (imageListTable, SIGNAL(selectionChanged()), this, SLOT(slotImageChanged()));
+  
+  imageListTable->selectRow(0);
+  slotImageChanged();
 }
 
 ImageMapChooseDialog::~ImageMapChooseDialog() {

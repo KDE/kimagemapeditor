@@ -79,10 +79,9 @@ QString Area::getHTMLAttributes() const
 
 
 Area::~Area() {
-	delete _coords;
-	delete _selectionPoints;
-  if (_highlightedPixmap)
-    delete _highlightedPixmap;
+  delete _coords;
+  delete _selectionPoints;
+  delete _highlightedPixmap;
 
 }
 
@@ -169,9 +168,7 @@ void Area::setListViewItem(QListViewItem* item) {
 
 void Area::deleteListViewItem()
 {
-	if ( _listViewItem != 0L )
-		delete _listViewItem;
-		
+	delete _listViewItem;
 	_listViewItem = 0L;
 }
 
@@ -574,8 +571,7 @@ void Area::setHighlightedPixmap( QImage & im, QBitmap & mask )
   if (!Area::highlightArea)
      return;
 
-  if (_highlightedPixmap)
-    delete _highlightedPixmap;
+  delete _highlightedPixmap;
 
   QImage image = im.convertDepth( 32 );
   QSize size = image.size();

@@ -206,10 +206,8 @@ KImageMapEditor::~KImageMapEditor() {
   delete areas;
 
   delete currentSelected;
-  if (copyArea)
-     delete copyArea;
-  if (defaultArea)
-     delete defaultArea;
+  delete copyArea;
+  delete defaultArea;
 
   // Delete our DockWidgets
   if (areaDock) {
@@ -2293,8 +2291,7 @@ void KImageMapEditor::slotCut()
 {
   if ( 0 == currentSelected->count() )
     return;
-  if (copyArea)
-    delete copyArea;
+  delete copyArea;
 
   copyArea= static_cast< AreaSelection* > (currentSelected->clone());
   pasteAction->setEnabled(true);
@@ -2314,8 +2311,7 @@ void KImageMapEditor::slotDelete()
 
 void KImageMapEditor::slotCopy()
 {
-  if (copyArea)
-    delete copyArea;
+  delete copyArea;
 
   copyArea = static_cast< AreaSelection* > (currentSelected->clone());
   pasteAction->setEnabled(true);
@@ -2632,12 +2628,10 @@ bool KImageMapEditor::closeURL()
   deleteAllMaps();
   imagesListView->clear();
 
-  if (copyArea)
-     delete copyArea;
+  delete copyArea;
   copyArea=0L;
 
-  if (defaultArea)
-     delete defaultArea;
+  delete defaultArea;
   defaultArea=0L;
 
   currentMapElement = 0L;

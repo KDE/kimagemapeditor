@@ -38,7 +38,7 @@ noinst_HEADERS = \
         kimeshell.h
 
 
-libkimagemapeditor_la_LDFLAGS = -module -no-undefined $(all_libraries) -version-info 1:0:0
+libkimagemapeditor_la_LDFLAGS = -module $(KDE_PLUGIN) $(all_libraries)
 libkimagemapeditor_la_LIBADD = libkimagemapeditorcommon.la $(LIB_KFILE) $(LIB_KPARTS) $(LIB_KHTML)
 
 kimagemapeditor_LDFLAGS = $(all_libraries) $(KDE_RPATH)

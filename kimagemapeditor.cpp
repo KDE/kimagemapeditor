@@ -434,8 +434,8 @@ void KImageMapEditor::setupActions()
 	// File Open
   KAction *temp=KStdAction::open(this, SLOT(fileOpen()), actionCollection());
   QMimeSourceFactory::defaultFactory()->setPixmap( "openimage", SmallIcon("fileopen") );
-	temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or html file."));
-	temp->setToolTip(i18n("Open new picture or html file"));
+	temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
+	temp->setToolTip(i18n("Open new picture or HTML file"));
 
 	// File Open Recent
   recentFilesAction = KStdAction::openRecent(this, SLOT(openURL(const KURL&)),
@@ -443,8 +443,8 @@ void KImageMapEditor::setupActions()
 	// File Save
   temp =KStdAction::save(this, SLOT(fileSave()), actionCollection());
   QMimeSourceFactory::defaultFactory()->setPixmap( "saveimage", SmallIcon("filesave") );
-	temp->setWhatsThis(i18n("<h3>Save File</h3>Click this to <em>save</em> the changes to the html file."));
-	temp->setToolTip(i18n("Save html file"));
+	temp->setWhatsThis(i18n("<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."));
+	temp->setToolTip(i18n("Save HTML file"));
 
 
 	// File Save As
@@ -453,8 +453,8 @@ void KImageMapEditor::setupActions()
 	// File Close
   temp=KStdAction::close(this, SLOT(fileClose()), actionCollection());
   QMimeSourceFactory::defaultFactory()->setPixmap( "closeimage", SmallIcon("fileclose") );
-	temp->setWhatsThis(i18n("<h3>Close File</h3>Click this to <em>close</em> the currently open html file."));
-	temp->setToolTip(i18n("Close html file"));
+	temp->setWhatsThis(i18n("<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."));
+	temp->setToolTip(i18n("Close HTML file"));
 
   // Edit Copy
   copyAction=KStdAction::copy(this, SLOT(slotCopy()), actionCollection());
@@ -505,16 +505,16 @@ void KImageMapEditor::setupActions()
   zoomAction->setWhatsThis(i18n("<h3>Zoom</h3>"
                           "Choose the desired zoom level."));
   zoomAction->setItems(QStringList()
-    << i18n("25 %")
-    << i18n("50 %")
-    << i18n("100 %")
-    << i18n("150 %")
-    << i18n("200 %")
-    << i18n("250 %")
-    << i18n("300 %")
-    << i18n("500 %")
-    << i18n("750 %")
-    << i18n("1000 %"));
+    << i18n("25%")
+    << i18n("50%")
+    << i18n("100%")
+    << i18n("150%")
+    << i18n("200%")
+    << i18n("250%")
+    << i18n("300%")
+    << i18n("500%")
+    << i18n("750%")
+    << i18n("1000%"));
 
   zoomAction->setCurrentItem(2);
 
@@ -669,15 +669,15 @@ void KImageMapEditor::setupActions()
     decreaseHeightAction->plugAccel(accel, true);
   #endif
 
-  toFrontAction = new KAction(i18n("Bring to front"), 0 , this, SLOT( slotToFront() ),
+  toFrontAction = new KAction(i18n("Bring to Front"), 0 , this, SLOT( slotToFront() ),
                               actionCollection() , "tofront" );
 
-  toBackAction  = new KAction(i18n("To Back"), 0 , this, SLOT( slotToBack() ),
+  toBackAction  = new KAction(i18n("Send to Back"), 0 , this, SLOT( slotToBack() ),
                               actionCollection() , "toback" );
 
-  forwardOneAction  = new KAction(i18n("Forward One"), "raise" ,0, this, SLOT( slotForwardOne() ),
+  forwardOneAction  = new KAction(i18n("Bring Forward One"), "raise" ,0, this, SLOT( slotForwardOne() ),
                               actionCollection() , "forwardone" );
-  backOneAction = new KAction(i18n("Back One"), "lower" ,0, this, SLOT( slotBackOne() ),
+  backOneAction = new KAction(i18n("Send Back One"), "lower" ,0, this, SLOT( slotBackOne() ),
                               actionCollection() , "backone" );
 
   forwardOneAction->plug(areaListView->upBtn);
@@ -713,7 +713,7 @@ void KImageMapEditor::setupStatusBar()
 //  We can't do this with a KPart !
 //	widget()->statusBar()->insertItem(i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 //	widget()->statusBar()->insertItem(i18n(" Selection")+" : - ",STATUS_SELECTION);
-  emit setStatusBarText( i18n(" Cursor")+" : x: 0 ,y: 0" + "  " + i18n(" Selection")+" : - ");
+  emit setStatusBarText( i18n(" Selection: -  Cursor: x: 0, y: 0 "));
 }
 
 void KImageMapEditor::slotShowPreferences()
@@ -789,7 +789,7 @@ void KImageMapEditor::updateStatusBar()
 void KImageMapEditor::slotChangeStatusCoords(int x,int y)
 {
 //	statusBar()->changeItem(QString(" Cursor : x: %1 ,y: %2 ").arg(x).arg(y),STATUS_CURSOR);
-  cursorStatusText = i18n(" Cursor : x: %1 ,y: %2 ").arg(x).arg(y);
+  cursorStatusText = i18n(" Cursor: x: %1, y: %2 ").arg(x).arg(y);
   updateStatusBar();
 }
 
@@ -797,12 +797,12 @@ void KImageMapEditor::slotUpdateSelectionCoords() {
   if (selected()->count()>0) {
     QRect r=selected()->rect();
 //		statusBar()->changeItem(
-    selectionStatusText = i18n(" Selection : x: %1 ,y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
+    selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
 
 //		  ,STATUS_SELECTION);
     kapp->processEvents();
   } else
-    selectionStatusText = i18n(" Selection : - ");
+    selectionStatusText = i18n(" Selection: - ");
     //statusBar()->changeItem(" Selection : - ",STATUS_SELECTION);
 
   updateStatusBar();
@@ -810,7 +810,7 @@ void KImageMapEditor::slotUpdateSelectionCoords() {
 
 void KImageMapEditor::slotUpdateSelectionCoords( const QRect & r )
 {
-  selectionStatusText = i18n(" Selection : x: %1 ,y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
+  selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
   updateStatusBar();
   kapp->processEvents();
 }
@@ -858,7 +858,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
     // The translated string must be divided into
     // parts with about the same size that fit to the image
-    QString str = i18n("Drop an image or html file");
+    QString str = i18n("Drop an image or HTML file");
     QStringList strList = QStringList::split(" ",str);
 
     // Get the string parts
@@ -1509,7 +1509,7 @@ void KImageMapEditor::mapEditName()
   if (ok) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
-            KMessageBox::sorry(this->widget(), i18n("Sorry, the name <em>%1</em> already exists.").arg(input));
+            KMessageBox::sorry(this->widget(), i18n("The name <em>%1</em> already exists.").arg(input));
         else {
             setMapName(input);
         }
@@ -1601,7 +1601,7 @@ void KImageMapEditor::fileSaveAs() {
   {
   	if (KMessageBox::warningYesNo(widget(),
       i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>").arg(fileInfo.fileName()),
-      i18n("Really overwrite the file ?"))==KMessageBox::No)
+      i18n("Overwrite File?"))==KMessageBox::No)
       return;
 
     if(!fileInfo.isWritable()) {
@@ -1624,7 +1624,7 @@ bool KImageMapEditor::openFile()
   if ( !fileInfo.exists() )
   {
       KMessageBox::information(widget(),
-        i18n("<qt>The file <b>%1</b> does not exists.</qt>").arg(fileInfo.fileName()),
+        i18n("<qt>The file <b>%1</b> does not exist.</qt>").arg(fileInfo.fileName()),
         i18n("File does not exists."));
       return false;
   }
@@ -2242,7 +2242,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
 
   if (!QFileInfo(url.directory()).isWritable()) {
     KMessageBox::error(widget(),
-      i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the needed write permissions.</qt>").arg(url.path()));
+      i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the required write permissions.</qt>").arg(url.path()));
     return;
   }
 
@@ -2559,9 +2559,9 @@ void KImageMapEditor::mapDelete()
   QString selectedMap = mapsListView->selectedMap();
 
   int result = KMessageBox::warningYesNo(widget(),
-    i18n("<qt>Do you really want to delete the map <i>%1</i> ?"
-         " <br>There is no way to undo this !</qt>").arg(selectedMap),
-    i18n("Really delete map ?"));
+    i18n("<qt>Are you sure you want to delete the map <i>%1</i>?"
+         " <br><b>There is no way to undo this.</b></qt>").arg(selectedMap),
+    i18n("Delete Map?"));
 
   if (result == KMessageBox::No)
      return;
@@ -2608,7 +2608,7 @@ bool KImageMapEditor::queryClose() {
      return true;
 
   switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it ?</qt>").arg(url().fileName())) ) {
+   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>").arg(url().fileName())) ) {
            case KMessageBox::Yes :
              saveFile();
              return TRUE;
@@ -2736,9 +2736,9 @@ void KImageMapEditor::imageUsemap() {
   }
 
 #if KDE_IS_VERSION(3, 1, 90)
-  QString input = KInputDialog::getItem(i18n("Enter usmap"),
+  QString input = KInputDialog::getItem(i18n("Enter usemap"),
 #else
-  QString input = QInputDialog::getItem(i18n("Enter usmap"),
+  QString input = QInputDialog::getItem(i18n("Enter usemap"),
 #endif
     i18n("Enter the usemap value"),
     maps,index,true,&ok,widget());

@@ -44,10 +44,10 @@ AreaListView::AreaListView(QWidget *parent, const char *name)
   listView->setFullWidth(true);
 
 
-  QWhatsThis::add( listView, i18n("<h3>Arealist</h3>The arealist shows you all areas of the map.<br>\
-                                  The left column shows the link of the area, on the right column \
-                                  you can see which part of the image is covered by the area.<br>\
-                                  The maximum size of the preview images can be configured."));
+  QWhatsThis::add( listView, i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
+                                  "The left column shows the link associated with the area; the right "
+                                  "column shows the part of the image that is covered by the area.<br>"
+                                  "The maximum size of the preview images can be configured."));
   QToolTip::add( listView, i18n("A list of all areas"));
 
   QHBox *hbox= new QHBox(this);

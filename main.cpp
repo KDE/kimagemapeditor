@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
   aboutData.addAuthor("Jan Schaefer",0, "janschaefer@users.sourceforge.net");
   aboutData.addCredit("Joerg Jaspert",I18N_NOOP("For helping me with the Makefiles, and creating the Debian package"));
   aboutData.addCredit("Aaron Seigo and Michael",I18N_NOOP("For helping me fixing --enable-final mode"));
-  aboutData.addCredit("Antonio Crevillen",I18N_NOOP("For the spanish translation"));
-  aboutData.addCredit("Fabrice Mous",I18N_NOOP("For the dutch translation"));
-  aboutData.addCredit("Germain Chazot",I18N_NOOP("For the french translation"));
+  aboutData.addCredit("Antonio Crevillen",I18N_NOOP("For the Spanish translation"));
+  aboutData.addCredit("Fabrice Mous",I18N_NOOP("For the Dutch translation"));
+  aboutData.addCredit("Germain Chazot",I18N_NOOP("For the French translation"));
   KCmdLineArgs::init( argc, argv, &aboutData );
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 

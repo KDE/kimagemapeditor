@@ -417,7 +417,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 
   _document=parent;
 
-  setCaption(i18n("Area tag editor"));
+  setCaption(i18n("Area Tag Editor"));
 
   area=a;
   QString shape="Default";
@@ -462,7 +462,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
   else
     tab->addTab(createCoordsPage(),i18n("Coor&dinates"));
 
-  tab->addTab(createJavascriptPage(),i18n("&Javascript"));
+  tab->addTab(createJavascriptPage(),i18n("&JavaScript"));
 
   line = new QFrame(this);
   line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);

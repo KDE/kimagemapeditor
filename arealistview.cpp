@@ -52,10 +52,10 @@ AreaListView::AreaListView(QWidget *parent, const char *name)
 
   QHBox *hbox= new QHBox(this);
   upBtn= new QPushButton("",hbox);
-  upBtn->setPixmap(SmallIcon("up"));
+  upBtn->setIconSet(SmallIconSet("up"));
 
   downBtn= new QPushButton("",hbox);
-  downBtn->setPixmap(SmallIcon("down"));
+  downBtn->setIconSet(SmallIconSet("down"));
 
 }
 

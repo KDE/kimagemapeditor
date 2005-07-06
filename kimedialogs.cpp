@@ -580,7 +580,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   QVBoxLayout *layout = new QVBoxLayout(page,5,5);
 
   QLabel *lbl= new QLabel(i18n("Select an image and/or a map that you want to edit"),page);
-  lbl->setFont(QFont("Helvetica",14,QFont::Bold));
+  lbl->setFont(QFont("Sans Serif",12, QFont::Bold));
   layout->addWidget(lbl);
   QFrame *line= new QFrame(page);
   line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);

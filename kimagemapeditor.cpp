@@ -2630,11 +2630,11 @@ bool KImageMapEditor::queryClose() {
    i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>").arg(url().fileName())) ) {
            case KMessageBox::Yes :
              saveFile();
-             return TRUE;
+             return true;
            case KMessageBox::No :
-             return TRUE;
+             return true;
            default:
-             return FALSE;
+             return false;
   }
 }
 

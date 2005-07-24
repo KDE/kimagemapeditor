@@ -1617,9 +1617,9 @@ void KImageMapEditor::fileSaveAs() {
 
   if ( fileInfo.exists() )
   {
-  	if (KMessageBox::warningYesNo(widget(),
+  	if (KMessageBox::warningContinueCancel(widget(),
       i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>").arg(fileInfo.fileName()),
-      i18n("Overwrite File?"))==KMessageBox::No)
+      i18n("Overwrite File?"), i18n("Overwrite"))==KMessageBox::Cancel)
       return;
 
     if(!fileInfo.isWritable()) {
@@ -2627,7 +2627,7 @@ bool KImageMapEditor::queryClose() {
      return true;
 
   switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>").arg(url().fileName())) ) {
+   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>").arg(url().fileName()), QString::null, KStdGuiItem::save(), KStdGuiItem::discard()) ) {
            case KMessageBox::Yes :
              saveFile();
              return true;

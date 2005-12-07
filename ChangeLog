@@ -11,7 +11,7 @@
   * Fixed another Mandrake compilation problem
   * The area preview image size can now be changed by the properties dialog
   * The highlight and show alt tag settings are now saved when used within Quanta.
-  * Completed spanish translation - Thanks to Antonio Crevillén
+  * Completed spanish translation - Thanks to Antonio CrevillÃ©n
 
 1.0b3 :
 - New features :
@@ -46,7 +46,7 @@
     to add new maps to the html file.
   * Added a listview of all images that are contained in the current html file.
     It's now possible to switch between these images.
-  * Spanish translation - Thanks to Antonio Crevillén
+  * Spanish translation - Thanks to Antonio CrevillÃ©n
 - Bug fixes :
   * When KImageMapEditor was not properly installed with make install and
     the required image files couldn't be found, KImageMapEditor now shows

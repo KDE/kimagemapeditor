@@ -2,7 +2,7 @@
                           arealistview.cpp  -  description
                              -------------------
     begin                : Weg Feb 26 2003
-    copyright            : (C) 2003 by Jan Sch‰fer
+    copyright            : (C) 2003 by Jan Sch√§fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

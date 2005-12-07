@@ -2,7 +2,7 @@
                           kimecommands.h  -  description
                              -------------------
     begin                : Fri May 25 2001
-    copyright            : (C) 2001 by Jan Sch‰fer
+    copyright            : (C) 2001 by Jan Sch√§fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

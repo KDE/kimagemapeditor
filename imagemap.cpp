@@ -2,7 +2,7 @@
                           imagemap.cpp  -  description
                              -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan Sch‰fer
+    copyright            : (C) 2001 by Jan Sch√§fer
     email                : j_schaef@informatik.uni-kl.de
  ***************************************************************************/
 

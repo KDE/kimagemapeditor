@@ -2,7 +2,7 @@
                           kimearea.h  -  description
                              -------------------
     begin                : Thu Jun 14 2001
-    copyright            : (C) 2001 by Jan Sch‰fer
+    copyright            : (C) 2001 by Jan Sch√§fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

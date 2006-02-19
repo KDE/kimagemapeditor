@@ -6,6 +6,7 @@ Icon=kimagemapeditor
 ServiceTypes=KParts/ReadWritePart
 X-KDE-Library=libkimagemapeditor
 Comment=An HTML imagemap editor
+Comment[fr]=Éditeur d'hyperimages HTML
 Comment[x-test]=xxAn HTML imagemap editorxx
 Name=KImageMapEditor
 Name[x-test]=xxKImageMapEditorxx

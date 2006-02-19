@@ -8,5 +8,6 @@ Terminal=false
 Name=KImageMapEditor
 Name[x-test]=xxKImageMapEditorxx
 GenericName=HTML Image Map Editor
+GenericName[fr]=Éditeur d'hyperimages HTML
 GenericName[x-test]=xxHTML Image Map Editorxx
 Categories=Qt;KDE;Development;WebDevelopment;

@@ -30,7 +30,7 @@ KCommand
 #else
 KNamedCommand
 #endif
- (i18n( "Cut %1" ).arg( a.typeString() ))
+ (i18n( "Cut %1", a.typeString() ))
 {
 	_document=document;
 	_cutAreaSelection=new AreaSelection();
@@ -74,7 +74,7 @@ void CutCommand::unexecute()
 DeleteCommand::DeleteCommand(KImageMapEditor * document, const AreaSelection & a)
 	: CutCommand(document,a)
 {
-	setName(i18n( "Delete %1" ).arg( a.typeString() ));
+	setName(i18n( "Delete %1", a.typeString() ));
 }
 
 PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
@@ -84,7 +84,7 @@ KCommand
 #else
 KNamedCommand
 #endif
- (i18n( "Paste %1" ).arg( a.typeString() ))
+ (i18n( "Paste %1", a.typeString() ))
 {
 	_document=document;
 	_pasteAreaSelection=new AreaSelection();
@@ -129,7 +129,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-(i18n( "Move %1" ).arg( a->typeString() ))
+(i18n( "Move %1", a->typeString() ))
 {
 	_document=document;
 	_areaSelection=new AreaSelection();
@@ -191,7 +191,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-(i18n( "Resize %1" ).arg( a->typeString() ))
+(i18n( "Resize %1", a->typeString() ))
 {
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
@@ -238,7 +238,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-(i18n( "Add point to %1" ).arg( a->typeString() ))
+(i18n( "Add point to %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -287,7 +287,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-(i18n( "Remove point from %1" ).arg( a->typeString() ))
+(i18n( "Remove point from %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -340,7 +340,7 @@ KCommand
 #else
 KNamedCommand
 #endif
-(i18n( "Create %1" ).arg( area->typeString() ))
+(i18n( "Create %1", area->typeString() ))
 {
 	_document=document;
 	_area=area;

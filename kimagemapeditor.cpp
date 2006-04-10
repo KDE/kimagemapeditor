@@ -795,7 +795,7 @@ void KImageMapEditor::updateStatusBar()
 void KImageMapEditor::slotChangeStatusCoords(int x,int y)
 {
 //	statusBar()->changeItem(QString(" Cursor : x: %1 ,y: %2 ").arg(x).arg(y),STATUS_CURSOR);
-  cursorStatusText = i18n(" Cursor: x: %1, y: %2 ").arg(x).arg(y);
+  cursorStatusText = i18n(" Cursor: x: %1, y: %2 ", x, y);
   updateStatusBar();
 }
 
@@ -803,7 +803,7 @@ void KImageMapEditor::slotUpdateSelectionCoords() {
   if (selected()->count()>0) {
     QRect r=selected()->rect();
 //		statusBar()->changeItem(
-    selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
+    selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ", r.left(), r.top(), r.width(), r.height());
 
 //		  ,STATUS_SELECTION);
     kapp->processEvents();
@@ -816,7 +816,7 @@ void KImageMapEditor::slotUpdateSelectionCoords() {
 
 void KImageMapEditor::slotUpdateSelectionCoords( const QRect & r )
 {
-  selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ").arg(r.left()).arg(r.top()).arg(r.width()).arg(r.height());
+  selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ", r.left(), r.top(), r.width(), r.height());
   updateStatusBar();
   kapp->processEvents();
 }
@@ -1515,7 +1515,7 @@ void KImageMapEditor::mapEditName()
   if (ok) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
-            KMessageBox::sorry(this->widget(), i18n("The name <em>%1</em> already exists.").arg(input));
+            KMessageBox::sorry(this->widget(), i18n("The name <em>%1</em> already exists.", input));
         else {
             setMapName(input);
         }
@@ -1618,12 +1618,12 @@ void KImageMapEditor::fileSaveAs() {
   if ( fileInfo.exists() )
   {
   	if (KMessageBox::warningContinueCancel(widget(),
-      i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>").arg(fileInfo.fileName()),
+      i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>", fileInfo.fileName()),
       i18n("Overwrite File?"), i18n("Overwrite"))==KMessageBox::Cancel)
       return;
 
     if(!fileInfo.isWritable()) {
-      KMessageBox::sorry(widget(), i18n("<qt>You do not have write permission for the file <em>%1</em>.</qt>").arg(fileInfo.fileName()));
+      KMessageBox::sorry(widget(), i18n("<qt>You do not have write permission for the file <em>%1</em>.</qt>", fileInfo.fileName()));
       return;
     }
   }
@@ -1642,7 +1642,7 @@ bool KImageMapEditor::openFile()
   if ( !fileInfo.exists() )
   {
       KMessageBox::information(widget(),
-        i18n("<qt>The file <b>%1</b> does not exist.</qt>").arg(fileInfo.fileName()),
+        i18n("<qt>The file <b>%1</b> does not exist.</qt>", fileInfo.fileName()),
         i18n("File Does Not Exist"));
       return false;
   }
@@ -2263,7 +2263,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
 
   if (!QFileInfo(url.directory()).isWritable()) {
     KMessageBox::error(widget(),
-      i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the required write permissions.</qt>").arg(url.path()));
+      i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the required write permissions.</qt>", url.path()));
     return;
   }
 
@@ -2579,7 +2579,7 @@ void KImageMapEditor::mapDelete()
 
   int result = KMessageBox::warningContinueCancel(widget(),
     i18n("<qt>Are you sure you want to delete the map <i>%1</i>?"
-         " <br><b>There is no way to undo this.</b></qt>").arg(selectedMap),
+         " <br><b>There is no way to undo this.</b></qt>", selectedMap),
     i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"editdelete"));
 
   if (result == KMessageBox::No)
@@ -2627,7 +2627,7 @@ bool KImageMapEditor::queryClose() {
      return true;
 
   switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>").arg(url().fileName()), QString::null, KStdGuiItem::save(), KStdGuiItem::discard()) ) {
+   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", url().fileName()), QString::null, KStdGuiItem::save(), KStdGuiItem::discard()) ) {
            case KMessageBox::Yes :
              saveFile();
              return true;

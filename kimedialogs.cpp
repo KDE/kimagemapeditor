@@ -413,7 +413,10 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 // : KDialogBase(Tabbed,i18n("Area Tag Editor"),Ok|Apply|Cancel,Ok,parent,"")
 //	: KDialogBase(parent,"",true,"Area Tag Editor",Ok|Apply|Cancel,Ok,true)
 {
-  if (!a) slotCancel();
+  if (!a) {
+   slotCancel();
+   return;  
+  }
 
   _document=parent;
 

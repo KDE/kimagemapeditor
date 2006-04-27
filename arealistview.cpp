@@ -19,7 +19,7 @@
 #include <k3listview.h>
 #include <qpushbutton.h>
 #include <q3hbox.h>
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 
 // KDE
@@ -44,11 +44,11 @@ AreaListView::AreaListView(QWidget *parent, const char *name)
   listView->setFullWidth(true);
 
 
-  Q3WhatsThis::add( listView, i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
+  listView->setWhatsThis( i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
                                   "The left column shows the link associated with the area; the right "
                                   "column shows the part of the image that is covered by the area.<br>"
                                   "The maximum size of the preview images can be configured."));
-  QToolTip::add( listView, i18n("A list of all areas"));
+  listView->setToolTip( i18n("A list of all areas"));
 
   Q3HBox *hbox= new Q3HBox(this);
   upBtn= new QPushButton("",hbox);

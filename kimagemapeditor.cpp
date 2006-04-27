@@ -58,7 +58,7 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <kxmlguifactory.h>
-#include <kdockwidget.h>
+#include <k3dockwidget.h>
 #include <kio/job.h>
 #if KDE_IS_VERSION(3,1,90)
 #include <kinputdialog.h>
@@ -101,7 +101,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
   tabWidget = 0L;
 
   if (mainDock) {
-//    kdDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
+//    kDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
 
     KDockWidget* parentDock = mainDock->getMainDockWidget();
     areaDock = mainDock->createDockWidget( "Areas", 0L, 0L, i18n("Areas"), i18n("Areas"));
@@ -163,7 +163,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
   // "Drop an image or html file"
 /*  QString path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/dropimage.png" ) + "kimagemapeditor/dropimage.png";
   if ( ! QFileInfo(path).exists() ) {
-      kdError() << "Couldn't find needed dropimage.png file in "
+      kError() << "Couldn't find needed dropimage.png file in "
                    "the data directory of KImageMapEditor.\n"
                    "Perhaps you have forgotten to do a make install !" << endl;
       exit(1);
@@ -407,12 +407,12 @@ void KImageMapEditor::openLastURL(KConfig* config) {
   QString lastImage = config->readPathEntry("lastactiveimage");
 
 
-//  kdDebug() << "loading from group : " << config->group() << endl;
+//  kDebug() << "loading from group : " << config->group() << endl;
 
-//  kdDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
+//  kDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
 //  KMessageBox::information(0L, config->group()+" "+lastURL.path());
   if (!lastURL.isEmpty()) {
-//    kdDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
+//    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
     if ( openHTMLFile(lastURL, lastMap, lastImage) )
         m_url = lastURL;
     else
@@ -424,9 +424,9 @@ void KImageMapEditor::saveLastURL(KConfig* config) {
   config->writePathEntry("lastopenurl",url().path());
   config->writeEntry("lastactivemap",mapName());
   config->writePathEntry("lastactiveimage",_imageUrl.path());
-//  kdDebug() << "writing entry lastopenurl : " << url().path() << endl;
-//  kdDebug() << "writing entry lastactivemap : " << mapName() << endl;
-//  kdDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
+//  kDebug() << "writing entry lastopenurl : " << url().path() << endl;
+//  kDebug() << "writing entry lastactivemap : " << mapName() << endl;
+//  kDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
   //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config->group()).arg(url().path()));
 }
 
@@ -738,7 +738,7 @@ void KImageMapEditor::showPopupMenu(const QPoint & pos, const QString & name)
   Q3PopupMenu* pop = static_cast<Q3PopupMenu *>(factory()->container(name, this));
 
   if (!pop) {
-      kdWarning() << QString("KImageMapEditorPart: Missing XML definition for %1\n").arg(name) << endl;
+      kWarning() << QString("KImageMapEditorPart: Missing XML definition for %1\n").arg(name) << endl;
       return;
   }
 
@@ -847,7 +847,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 //  QString filename = QString("dropimage_")+KGlobal::locale()->language()+".png";
 //  QString path = QString::null; //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
-//  kdDebug() << "getBackgroundPic : loaded image : " << path << endl;
+//  kDebug() << "getBackgroundPic : loaded image : " << path << endl;
 
 //  if ( ! QFileInfo(path).exists() ) {
     int width = 400;
@@ -927,12 +927,12 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 
     path = KGlobal::dirs()->saveLocation( "data", "kimagemapeditor/" ) +filename;
-    kdDebug() << "getBackgroundPic : save new image to : " << path << endl;
+    kDebug() << "getBackgroundPic : save new image to : " << path << endl;
     pix.save(path,"PNG",100);
   }
 
   if ( ! QFileInfo(path).exists() ) {
-      kdError() << "Couldn't find needed " << filename << " file in "
+      kError() << "Couldn't find needed " << filename << " file in "
                    "the data directory of KImageMapEditor.\n"
                    "Perhaps you have forgotten to do a make install !" << endl;
       exit(1);
@@ -1059,7 +1059,7 @@ void KImageMapEditor::deleteAllAreas()
 
 void KImageMapEditor::updateAllAreas()
 {
-//  kdDebug() << "KImageMapEditor::updateAllAreas" << endl;
+//  kDebug() << "KImageMapEditor::updateAllAreas" << endl;
   for (Area* a=areas->first();a!=0L;a=areas->next()) {
     a->listViewItem()->setPixmap(1,makeListViewPix(*a));
   }
@@ -1405,10 +1405,10 @@ void KImageMapEditor::setPicture(const KUrl & url) {
          imageUsemapAction->setEnabled(true);
      }
      else
-         kdError() << QString("The image %1 could not be opened.").arg(url.path()) << endl;
+         kError() << QString("The image %1 could not be opened.").arg(url.path()) << endl;
   }
   else
-     kdError() << QString("The image %1 does not exist.").arg(url.path()) << endl;
+     kError() << QString("The image %1 does not exist.").arg(url.path()) << endl;
 }
 
 void KImageMapEditor::setPicture(const QImage & pix) {
@@ -1632,7 +1632,7 @@ void KImageMapEditor::fileSaveAs() {
 
 
   saveAs(url);
-  recentFilesAction->addURL(url);
+  recentFilesAction->addUrl(url);
 
 }
 
@@ -1652,7 +1652,7 @@ bool KImageMapEditor::openFile()
   openHTMLFile(url());
 
   drawZone->viewport()->repaint();
-  recentFilesAction->addURL(url());
+  recentFilesAction->addUrl(url());
   setModified(false);
   backupFileCreated = false;
   return true;
@@ -2048,7 +2048,7 @@ void KImageMapEditor::addMap(const QString & name = QString::null) {
      _htmlContent.append(new HtmlElement("\n"));
 
      _htmlContent.append(el);
-     kdDebug() << "KImageMapEditor::addMap : No <body found ! Appending new map to the end." << endl;
+     kDebug() << "KImageMapEditor::addMap : No <body found ! Appending new map to the end." << endl;
   }
 
   mapsListView->addMap(name);
@@ -2070,7 +2070,7 @@ HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
     }
   }
 
-  kdWarning() << "KImageMapEditor::findHtmlMapElement: couldn't find map '" << mapName << "'" << endl;
+  kWarning() << "KImageMapEditor::findHtmlMapElement: couldn't find map '" << mapName << "'" << endl;
   return 0L;
 }
 
@@ -2080,7 +2080,7 @@ HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
 void KImageMapEditor::setMap(const QString & mapName) {
     HtmlMapElement* el = findHtmlMapElement(mapName);
     if (!el) {
-      kdWarning() << "KImageMapEditor::setMap : Couldn't set map '" << mapName << "', because it wasn't found !" << endl;
+      kWarning() << "KImageMapEditor::setMap : Couldn't set map '" << mapName << "', because it wasn't found !" << endl;
       return;
     }
 
@@ -2153,7 +2153,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
     deleteAllAreas();
     delete defaultArea;
     defaultArea = 0L;
-//    kdDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name << endl;
+//    kDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name << endl;
     _mapName = map->name;
     for (AreaTag *tag=map->first();tag!=0L;tag=map->next())
     {
@@ -2253,7 +2253,7 @@ QString KImageMapEditor::getHtmlCode() {
   HtmlElement *el;
     for ( el = _htmlContent.first(); el; el = _htmlContent.next() ) {
         result += el->htmlCode;
-        //kdDebug() << "KImageMapEditor::getHtmlCode : Writing : " << el->htmlCode << endl;
+        //kDebug() << "KImageMapEditor::getHtmlCode : Writing : " << el->htmlCode << endl;
 
     }
   return result;

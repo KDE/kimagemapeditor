@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 // QT
-#include <klistview.h>
+#include <k3listview.h>
 #include <qpushbutton.h>
 #include <q3hbox.h>
 #include <q3whatsthis.h>
@@ -34,7 +34,7 @@
 AreaListView::AreaListView(QWidget *parent, const char *name)
   : Q3VBox(parent, name)
 {
-  listView = new KListView(this);
+  listView = new K3ListView(this);
   listView->addColumn(i18n("Areas"));
   listView->addColumn(i18n("Preview"));
 

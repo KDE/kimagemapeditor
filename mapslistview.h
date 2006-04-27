@@ -23,7 +23,7 @@
 #include <Q3PtrList>
 
 #include "kimagemapeditor.h"
-class KListView;
+class K3ListView;
 
 /**
  * Simple class that shows all map tags of the current open html file in a ListView
@@ -100,9 +100,9 @@ public:
    */
   uint count();
   
-  KListView* listView() { return _listView; }
+  K3ListView* listView() { return _listView; }
 protected:
-  KListView* _listView;   
+  K3ListView* _listView;   
 
 protected slots:
   void slotSelectionChanged(Q3ListViewItem*);  

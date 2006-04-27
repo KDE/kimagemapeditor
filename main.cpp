@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
 
 
-  if (a.isRestored())
+  if (a.isSessionRestored())
   {
       RESTORE(KimeShell);
   }

@@ -330,7 +330,7 @@ void ImageMap::repaintArea(const Area & a) {
 }
 
 void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph) {
-//	kdDebug() << "drawing\n" << endl;
+//	kDebug() << "drawing\n" << endl;
 //	p.scale(rect.width()*2,rect.height()*2);
 //	if (e->rect()!=rect()) {
 //		p.setClipping(true);

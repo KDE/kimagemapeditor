@@ -18,7 +18,7 @@
 #ifndef _IMAGESLISTVIEW_H_
 #define _IMAGESLISTVIEW_H_
 
-#include <klistview.h>
+#include <k3listview.h>
 #include <kurl.h>
 
 #include "kimagemapeditor.h"
@@ -46,7 +46,7 @@ class ImagesListViewItem : public Q3ListViewItem
  * Simple class that shows a list of imagenames with a preview
  * Jan Schaefer
  **/
-class ImagesListView : public KListView
+class ImagesListView : public K3ListView
 {
   Q_OBJECT
 

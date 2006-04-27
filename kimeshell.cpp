@@ -30,6 +30,7 @@
 #include <kdebug.h>
 
 #include <q3hbox.h>
+#include <kglobal.h>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
@@ -101,7 +102,7 @@ bool KimeShell::queryClose()
 bool KimeShell::queryExit()
 {
 //  writeConfig();
-  saveProperties(kapp->config());
+  saveProperties(KGlobal::config());
 
   return true;
 }
@@ -187,7 +188,7 @@ void KimeShell::fileOpen()
 void KimeShell::readConfig() {
   KConfig *config;
 
-  config = kapp->config();
+  config = KGlobal::config();
 
   config->setGroup("General Options");
   readConfig(config);
@@ -203,7 +204,7 @@ void KimeShell::readConfig(KConfig* config) {
 void KimeShell::writeConfig() {
   KConfig *config;
 
-  config = kapp->config();
+  config = KGlobal::config();
 
   config->setGroup("General Options");
   writeConfig(config);

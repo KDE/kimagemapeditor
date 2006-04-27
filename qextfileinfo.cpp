@@ -72,7 +72,7 @@ KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
       };
     }
 
-    resultURL.setPath(QDir::cleanDirPath(path));
+    resultURL.setPath(QDir::cleanPath(path));
   }
 
   if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(1);
@@ -93,7 +93,7 @@ KUrl QExtFileInfo::toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL)
        cutdir.remove( cutdir.length()-1, 1 );
        cutdir.remove( cutdir.findRev('/')+1 , 1000);
     }
-    resultURL.setPath(QDir::cleanDirPath(cutdir+cutname));
+    resultURL.setPath(QDir::cleanPath(cutdir+cutname));
   }
 
   if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(1);
@@ -175,7 +175,7 @@ KUrl QExtFileInfo::path( const KUrl &url )
 KUrl QExtFileInfo::home()
 {
   KUrl url;
-  url.setPath(QDir::currentDirPath()+"/");
+  url.setPath(QDir::currentPath()+"/");
   return url;
 }
 
@@ -225,12 +225,12 @@ KUrl::List QExtFileInfo::allFilesInternal(const KUrl& startURL, const QString& m
     connect( job, SIGNAL( result (KIO::Job *) ),
              this, SLOT( slotResult (KIO::Job *) ) );
 
- //   kdDebug(24000) << "Now listing: " << startURL.url() << endl;
+ //   kDebug(24000) << "Now listing: " << startURL.url() << endl;
     enter_loop();
     lstFilters.clear();
     if (!bJobOK)
     {
- //     kdDebug(24000) << "Error while listing "<< startURL.url() << endl;
+ //     kDebug(24000) << "Error while listing "<< startURL.url() << endl;
       dirListItems.clear();
     }
   }
@@ -243,7 +243,7 @@ KUrl::List QExtFileInfo::allFilesInternal(const KUrl& startURL, const QString& m
 bool QExtFileInfo::internalExists(const KUrl& url)
 {
   bJobOK = true;
- // kdDebug(24000)<<"QExtFileInfo::internalExists"<<endl;
+ // kDebug(24000)<<"QExtFileInfo::internalExists"<<endl;
   KIO::StatJob * job = KIO::stat( url, false);
   job->setDetails(0);
   job->setSide(false); //check the url for writing
@@ -252,9 +252,9 @@ bool QExtFileInfo::internalExists(const KUrl& url)
 
   //To avoid lock-ups, start a timer.
   QTimer::singleShot(10*1000, this,SLOT(slotTimeout()));
-//  kdDebug(24000)<<"QExtFileInfo::internalExists:before enter_loop"<<endl;
+//  kDebug(24000)<<"QExtFileInfo::internalExists:before enter_loop"<<endl;
   enter_loop();
-//  kdDebug(24000)<<"QExtFileInfo::internalExists:after enter_loop"<<endl;
+//  kDebug(24000)<<"QExtFileInfo::internalExists:after enter_loop"<<endl;
   return bJobOK;
 }
 
@@ -282,9 +282,9 @@ void QExtFileInfo::enter_loop()
   QWidget dummy(0,0,Qt::WType_Dialog | Qt::WShowModal);
   dummy.setFocusPolicy( Qt::NoFocus );
   qt_enter_modal(&dummy);
-//  kdDebug(24000)<<"QExtFileInfo::enter_loop:before qApp->enter_loop()"<<endl;
+//  kDebug(24000)<<"QExtFileInfo::enter_loop:before qApp->enter_loop()"<<endl;
   qApp->enter_loop();
-//  kdDebug(24000)<<"QExtFileInfo::enter_loop:after qApp->enter_loop()"<<endl;
+//  kDebug(24000)<<"QExtFileInfo::enter_loop:after qApp->enter_loop()"<<endl;
   qt_leave_modal(&dummy);
 }
 

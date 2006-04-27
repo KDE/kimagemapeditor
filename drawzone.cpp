@@ -315,7 +315,7 @@ void DrawZone::contentsMousePressEvent(QMouseEvent* e)
 		  else
 		  {
   			currentAction=MoveArea;
-  			viewport()->setCursor(Qt::sizeAllCursor);
+  			viewport()->setCursor(Qt::SizeAllCursor);
 
   			if ( currentArea->isSelected() ) {
   				if ( (e->state() & Qt::ControlModifier) )
@@ -679,7 +679,7 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			    }
 			    else
 			    {
- 						viewport()->setCursor(Qt::pointingHandCursor);
+ 						viewport()->setCursor(Qt::PointingHandCursor);
  				  }
  				}
  				else
@@ -687,15 +687,15 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
    				QPoint center=imageMapEditor->selected()->rect().center();
    				if (drawCurrent.x() < center.x()) {
    					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(Qt::sizeFDiagCursor);
+   						viewport()->setCursor(Qt::SizeFDiagCursor);
    					else
-   						viewport()->setCursor(Qt::sizeBDiagCursor);
+   						viewport()->setCursor(Qt::SizeBDiagCursor);
    				}
    				else {
    					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(Qt::sizeBDiagCursor);
+   						viewport()->setCursor(Qt::SizeBDiagCursor);
    					else
-   						viewport()->setCursor(Qt::sizeFDiagCursor);
+   						viewport()->setCursor(Qt::SizeFDiagCursor);
  					}
  				}
 			} else
@@ -707,13 +707,13 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			  }
 			  else
         {
-				  viewport()->setCursor(Qt::sizeAllCursor);
+				  viewport()->setCursor(Qt::SizeAllCursor);
         }
 			}
 			else
 			if (imageMapEditor->currentToolType()==KImageMapEditor::Rectangle) {
 			    viewport()->setCursor(RectangleCursor);
-//          kdDebug() << "KImageMapEditor::DrawZone: viewport()->setCursor to Rectangle" << endl;
+//          kDebug() << "KImageMapEditor::DrawZone: viewport()->setCursor to Rectangle" << endl;
       }
 			else
 			if (imageMapEditor->currentToolType()==KImageMapEditor::Circle)
@@ -725,7 +725,7 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			if (imageMapEditor->currentToolType()==KImageMapEditor::Freehand)
 			    viewport()->setCursor(FreehandCursor);
 			else
-		 		viewport()->setCursor(Qt::arrowCursor);
+		 		viewport()->setCursor(Qt::ArrowCursor);
 
 		}
 		imageMapEditor->slotChangeStatusCoords(drawCurrent.x(),drawCurrent.y());
@@ -880,7 +880,7 @@ void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
   KUrl::List uris;
   KURLDrag::decode(e,uris);
   KMimeType::Ptr ptr = KMimeType::findByURL(uris.first());
-//  kdDebug() << "***** " << ptr.data()->name() << endl;
+//  kDebug() << "***** " << ptr.data()->name() << endl;
   if ((ptr.data()->name() == "text/html")
       || (ptr.data()->name().left(6) == "image/"))
     e->accept();

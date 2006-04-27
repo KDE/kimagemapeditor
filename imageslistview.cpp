@@ -52,7 +52,7 @@ ImageTag* ImagesListViewItem::imageTag() {
 
 
 ImagesListView::ImagesListView(QWidget *parent, const char *name)
-  : KListView(parent, name)
+  : K3ListView(parent, name)
 {
   addColumn(i18n("Images"));
   addColumn(i18n("Usemap"));
@@ -72,7 +72,7 @@ ImagesListView::~ImagesListView()
 void ImagesListView::addImage(ImageTag* tag)
 {
   if (!tag) {
-    kdDebug() << "ImageListView::addImage: Parameter is null !" << endl;
+    kDebug() << "ImageListView::addImage: Parameter is null !" << endl;
     return;
   }
 
@@ -97,7 +97,7 @@ void ImagesListView::removeImage(ImageTag* tag) {
      setSelected(currentItem(),true);
   }
   else {
-    kdDebug() << "ImageListView::removeImage: ListViewItem was not found !" << endl;
+    kDebug() << "ImageListView::removeImage: ListViewItem was not found !" << endl;
   }
 }
 
@@ -106,24 +106,24 @@ void ImagesListView::updateImage(ImageTag* tag) {
   if (item)
     item->update();
   else {
-    kdDebug() << "ImageListView::updateImage: ListViewItem was not found !" << endl;
+    kDebug() << "ImageListView::updateImage: ListViewItem was not found !" << endl;
   }     
 }
 
 ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
   
-  kdDebug() << "ImageListView::findListViewItem: start searching ... " << endl;
+  kDebug() << "ImageListView::findListViewItem: start searching ... " << endl;
 
   for (Q3ListViewItem* item = firstChild(); item ; item = item->nextSibling()) {
      ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
      if (imageItem->imageTag() == tag) {
-        kdDebug() << "ImageListView::findListViewItem: found it " << endl;
+        kDebug() << "ImageListView::findListViewItem: found it " << endl;
      
         return imageItem;
      }        
   } 
   
-  kdDebug() << "ImageListView::findListViewItem: found nothing " << endl;
+  kDebug() << "ImageListView::findListViewItem: found nothing " << endl;
   return 0L;
   
 }
@@ -137,7 +137,7 @@ void ImagesListView::slotSelectionChanged(Q3ListViewItem* item) {
 ImageTag* ImagesListView::selectedImage() {
   ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItem());
   if ( ! item) {
-     kdDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
+     kDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
      return 0L;
   }
   

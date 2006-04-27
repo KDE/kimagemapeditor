@@ -21,7 +21,7 @@
 #include <qwidget.h>
 #include <q3vbox.h>
 
-class KListView;
+class K3ListView;
 class QPushButton;
 class Area;
 
@@ -38,7 +38,7 @@ public:
   AreaListView(QWidget *parent, const char *name);
   ~AreaListView();
   
-  KListView* listView;
+  K3ListView* listView;
 	QPushButton *upBtn;
 	QPushButton *downBtn;
   

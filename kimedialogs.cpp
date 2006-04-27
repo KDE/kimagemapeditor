@@ -49,6 +49,7 @@
 #include <ktempfile.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
+#include <kglobal.h>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -803,14 +804,14 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   colorizeAreaChk = new QCheckBox(hbox);
   colorizeAreaChk->setFixedWidth(60);
-  colorizeAreaChk->setChecked(kapp->config()->readBoolEntry("highlightareas",true));
+  colorizeAreaChk->setChecked(KGlobal::config()->readBoolEntry("highlightareas",true));
 
   hbox= new QHBox(page);
   (void)new QLabel(i18n("Show alternative text")+" ",hbox);
 
   showAltChk = new QCheckBox(hbox);
   showAltChk->setFixedWidth(60);
-  showAltChk->setChecked(kapp->config()->readBoolEntry("showalt",true));
+  showAltChk->setChecked(KGlobal::config()->readBoolEntry("showalt",true));
 */
 }
 
@@ -845,10 +846,10 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & 
   tempFile = new KTempFile(url.directory(false), ".html");
   tempFile->setAutoDelete(true);
   (*tempFile->textStream()) << htmlCode;
-  kdDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->name() << endl;
+  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->name() << endl;
   tempFile->close();
 
-  Q3VBox *page = makeVBoxMainWidget();
+  KVBox *page = makeVBoxMainWidget();
 
   htmlPart = new KHTMLPart(page,"htmlpart");
 //  htmlView = new KHTMLView(htmlPart, page);

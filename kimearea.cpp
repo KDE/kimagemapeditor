@@ -230,7 +230,7 @@ void Area::insertCoord(int pos, const QPoint & p)
 {
 
 /*
-  kdDebug() << p.x() << "," << p.y() << endl;
+  kDebug() << p.x() << "," << p.y() << endl;
 
   if ( _coords->size()>0 )
   {
@@ -238,7 +238,7 @@ void Area::insertCoord(int pos, const QPoint & p)
     {
       if (p==_coords->point(i))
       {
-        kdDebug() << "same Point already exists" << endl;
+        kDebug() << "same Point already exists" << endl;
         return;
       }
 
@@ -265,7 +265,7 @@ void Area::removeCoord(int pos) {
 
 	if (count<4)
 	{
-	   kdDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !" << endl;
+	   kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !" << endl;
 	   return;
 	}
 	
@@ -341,7 +341,7 @@ void Area::drawAlt(QPainter & p)
 
   QMatrix oldMatrix = p.worldMatrix();
 
-  p.setWorldMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
+  p.setMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
 
   x = (rect().x()+rect().width()/2)*scalex;
   y = (rect().y()+rect().height()/2)*scalex;
@@ -367,7 +367,7 @@ void Area::drawAlt(QPainter & p)
 
   p.drawText(myround(x),myround(y),attribute("alt"));
 
-  p.setWorldMatrix(oldMatrix);
+  p.setMatrix(oldMatrix);
 }
 
 void Area::draw(QPainter & p)
@@ -384,7 +384,7 @@ void Area::draw(QPainter & p)
 
     QMatrix oldMatrix = p.worldMatrix();
 
-    p.setWorldMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
+    p.setMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
 
 		for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
 
@@ -426,7 +426,7 @@ void Area::draw(QPainter & p)
 */			
   		i++;
 		}
-    p.setWorldMatrix(oldMatrix);
+    p.setMatrix(oldMatrix);
 
 
 	}
@@ -517,7 +517,7 @@ QPixmap Area::cutOut(const QImage & image)
 	
 //  partOfMask = partOfMask.normalize();	
 	if (!partOfMask.isValid())
-	   kdDebug() << "PartofMask not valid : " << partOfMask.x() << "," << partOfMask.y() << ","
+	   kDebug() << "PartofMask not valid : " << partOfMask.x() << "," << partOfMask.y() << ","
 	            << partOfMask.width() << "," << partOfMask.height() << "," << endl;
 
 /*	            	
@@ -601,7 +601,7 @@ void Area::setHighlightedPixmap( QImage & im, QBitmap & mask )
   _highlightedPixmap->setMask( mask );
 
   if (_highlightedPixmap->isNull())
-     kdDebug() << "HighlightedPixmap is null" << endl;
+     kDebug() << "HighlightedPixmap is null" << endl;
 
 }
 
@@ -1101,13 +1101,13 @@ void PolyArea::simplifyCoords()
 
     if ( angle2==angle1 )
     {
-      kdDebug() << "removing " << i-1 << endl;
+      kDebug() << "removing " << i-1 << endl;
       removeCoord(i-1);
     }
     else
     {
       i++;
-      kdDebug() << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2 << endl;
+      kDebug() << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2 << endl;
       angle1 = angle2;
 
     }
@@ -1128,7 +1128,7 @@ int PolyArea::addCoord(const QPoint & p)
 
   if (_coords->point(_coords->size()-1) == p)
   {
-     kdDebug() << "equal Point added" << endl;
+     kDebug() << "equal Point added" << endl;
      return -1;
 
   }

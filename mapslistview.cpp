@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 // KDE
-#include <klistview.h>
+#include <k3listview.h>
 #include <klocale.h>
 #include <kdebug.h>
 
@@ -27,7 +27,7 @@
 
 MapsListView::MapsListView(QWidget *parent, const char *name)
 : Q3VBox(parent, name) {
-    _listView = new KListView(this);
+    _listView = new K3ListView(this);
     _listView->addColumn(i18n("Maps"));
     _listView->setFullWidth(true);
     _listView->setSelectionMode(Q3ListView::Single);
@@ -46,7 +46,7 @@ MapsListView::~MapsListView() {
 
 void MapsListView::addMap(const QString & name = QString::null) {
     new Q3ListViewItem(_listView,name);
-    //kdDebug() << "MapsListView::addMap : Added map '" << name << "'" << endl;
+    //kDebug() << "MapsListView::addMap : Added map '" << name << "'" << endl;
 
 }
 
@@ -62,7 +62,7 @@ void MapsListView::selectMap(const QString & name) {
     if (item) {
        selectMap(item);
     } else
-       kdWarning() << "MapsListView::selectMap : Couldn't found map '" << name << "'" << endl;
+       kWarning() << "MapsListView::selectMap : Couldn't found map '" << name << "'" << endl;
 
 }
 
@@ -79,7 +79,7 @@ QString MapsListView::selectedMap() {
     if (item)
         result = item->text(0);
     else
-        kdWarning() << "MapsListView::selectedMap : No map selected !" << endl;
+        kWarning() << "MapsListView::selectedMap : No map selected !" << endl;
 
     return result;
 }
@@ -89,9 +89,9 @@ void MapsListView::removeMap(const QString & name) {
     if (item) {
         _listView->takeItem(item);
         _listView->setSelected(_listView->currentItem(),true);
-//        kdDebug() << "MapsListView::removeMap : Removed map '" << name << "'" << endl;
+//        kDebug() << "MapsListView::removeMap : Removed map '" << name << "'" << endl;
     } else
-        kdWarning() << "MapsListView::removeMap : Couldn't found map '" << name << "'" << endl;
+        kWarning() << "MapsListView::removeMap : Couldn't found map '" << name << "'" << endl;
 }
 
 void MapsListView::clear() {
@@ -109,21 +109,21 @@ void MapsListView::slotItemRenamed(Q3ListViewItem* item) {
 }
 
 void MapsListView::changeMapName(const QString & oldName, const QString & newName) {
-//    kdDebug() << "MapsListView::changeMapName : " << oldName << " to " << newName << endl;
+//    kDebug() << "MapsListView::changeMapName : " << oldName << " to " << newName << endl;
     Q3ListViewItem* item = _listView->findItem(oldName,0);
     if (item) {
         item->setText(0,newName);
-//        kdDebug() << "MapsListView::changeMapName : successful" << endl;
+//        kDebug() << "MapsListView::changeMapName : successful" << endl;
     }
     else {
-        kdWarning() << "MapsListView::changeMapName : Chouldn't find map with name '" << oldName << "'" << endl;
+        kWarning() << "MapsListView::changeMapName : Chouldn't find map with name '" << oldName << "'" << endl;
     }
 
 }
 
 
 bool MapsListView::nameAlreadyExists(const QString & name) {
-//    kdDebug() << "MapsListView::nameAlreadyExists : " << name << " ? " << endl;
+//    kDebug() << "MapsListView::nameAlreadyExists : " << name << " ? " << endl;
     bool result = false;
     Q3ListViewItem* item = 0L;
     for(item = _listView->firstChild(); item; item = item->nextSibling()) {
@@ -134,7 +134,7 @@ bool MapsListView::nameAlreadyExists(const QString & name) {
         }
     }
 
-//    kdDebug() << "MapsListView::nameAlreadyExists : " << name << " : " << result << endl;
+//    kDebug() << "MapsListView::nameAlreadyExists : " << name << " : " << result << endl;
 
     return result;
 }
@@ -165,7 +165,7 @@ QString MapsListView::getUnusedMapName() {
         result = attempt;
     }
 
-//    kdDebug() << "MapsListView::getUnusedMapName : Found an unused name : '" << result << "'" << endl;
+//    kDebug() << "MapsListView::getUnusedMapName : Found an unused name : '" << result << "'" << endl;
     return result;
 }
 

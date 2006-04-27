@@ -242,7 +242,7 @@ KNamedCommand
 {
   if (a->type()!=Area::Polygon)
   {
-     kdDebug() << "trying to add a point to a " << a->typeString() << endl;
+     kDebug() << "trying to add a point to a " << a->typeString() << endl;
      return;
   }
 
@@ -291,7 +291,7 @@ KNamedCommand
 {
   if (a->type()!=Area::Polygon)
   {
-     kdDebug() << "trying to remove a point to a " << a->typeString() << endl;
+     kDebug() << "trying to remove a point to a " << a->typeString() << endl;
      return;
   }
 

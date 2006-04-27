@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 // QT
-#include <qptrlist.h>
+#include <q3ptrlist.h>
  
  
 // KDE
@@ -27,7 +27,7 @@
 #include "imageslistview.h"
 
 ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag) 
-  : QListViewItem(parent) 
+  : Q3ListViewItem(parent) 
 {
     _imageTag = tag;
     update();
@@ -60,8 +60,8 @@ ImagesListView::ImagesListView(QWidget *parent, const char *name)
   setFullWidth(true);
   
   
-  connect( this, SIGNAL( selectionChanged(QListViewItem*)),
-           this, SLOT( slotSelectionChanged(QListViewItem*)));
+  connect( this, SIGNAL( selectionChanged(Q3ListViewItem*)),
+           this, SLOT( slotSelectionChanged(Q3ListViewItem*)));
 }
 
 
@@ -79,7 +79,7 @@ void ImagesListView::addImage(ImageTag* tag)
   new ImagesListViewItem(this, tag);
 }
 
-void ImagesListView::addImages(QPtrList<ImageTag> * images)
+void ImagesListView::addImages(Q3PtrList<ImageTag> * images)
 {
 	for (ImageTag *tag = images->first(); tag!=0L; tag=images->next()) {
     addImage(tag);
@@ -87,7 +87,7 @@ void ImagesListView::addImages(QPtrList<ImageTag> * images)
 }
 
 void ImagesListView::clear() {
-  QListView::clear();
+  Q3ListView::clear();
 }
 
 void ImagesListView::removeImage(ImageTag* tag) {
@@ -114,7 +114,7 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
   
   kdDebug() << "ImageListView::findListViewItem: start searching ... " << endl;
 
-  for (QListViewItem* item = firstChild(); item ; item = item->nextSibling()) {
+  for (Q3ListViewItem* item = firstChild(); item ; item = item->nextSibling()) {
      ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
      if (imageItem->imageTag() == tag) {
         kdDebug() << "ImageListView::findListViewItem: found it " << endl;
@@ -128,7 +128,7 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
   
 }
 
-void ImagesListView::slotSelectionChanged(QListViewItem* item) {
+void ImagesListView::slotSelectionChanged(Q3ListViewItem* item) {
   QString src = item->text(0);
   
   emit imageSelected(KURL(_baseUrl,src));

@@ -18,11 +18,17 @@
 #ifndef IMAGEMAP_H
 #define IMAGEMAP_H
 
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qimage.h>
 #include <qpoint.h>
 #include <qrect.h>
 #include <qcursor.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QDragEnterEvent>
+#include <QPixmap>
+#include <QResizeEvent>
+#include <QDropEvent>
 
 #include "kdeversion.h"
 
@@ -35,7 +41,7 @@ class Area;
   *@internal
   *@see Area
   */
-class DrawZone : public QScrollView  {
+class DrawZone : public Q3ScrollView  {
 public:
 
   DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor);

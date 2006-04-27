@@ -14,7 +14,7 @@
 //qt includes
 #include <qdir.h>
 #include <qapplication.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qstringlist.h>
 #include <qregexp.h>
 #include <qtimer.h>
@@ -279,8 +279,8 @@ void qt_leave_modal( QWidget *widget );
 
 void QExtFileInfo::enter_loop()
 {
-  QWidget dummy(0,0,WType_Dialog | WShowModal);
-  dummy.setFocusPolicy( QWidget::NoFocus );
+  QWidget dummy(0,0,Qt::WType_Dialog | Qt::WShowModal);
+  dummy.setFocusPolicy( Qt::NoFocus );
   qt_enter_modal(&dummy);
 //  kdDebug(24000)<<"QExtFileInfo::enter_loop:before qApp->enter_loop()"<<endl;
   qApp->enter_loop();
@@ -330,7 +330,7 @@ void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsLis
       KFileItem* item = new KFileItem( *it, url, false, true );
       itemURL = item->url();
       if (item->isDir()) itemURL.adjustPath(1);
-      for ( QPtrListIterator<QRegExp> filterIt( lstFilters ); filterIt.current(); ++filterIt )
+      for ( Q3PtrListIterator<QRegExp> filterIt( lstFilters ); filterIt.current(); ++filterIt )
       if ( filterIt.current()->exactMatch( item->text() ) )
            dirListItems.append(itemURL);
       delete item;

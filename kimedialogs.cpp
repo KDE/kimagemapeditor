@@ -18,19 +18,25 @@
 // QT
 //#include <qstring.h>
 #include <qcheckbox.h>
-#include <qmultilineedit.h>
+#include <q3multilineedit.h>
 #include <qlayout.h>
 #include <qlabel.h>
-#include <qhbox.h>
-#include <qvbox.h>
+#include <q3hbox.h>
+#include <q3vbox.h>
 #include <qlineedit.h>
-#include <qlistbox.h>
-#include <qtable.h>
-#include <qgroupbox.h>
+#include <q3listbox.h>
+#include <q3table.h>
+#include <q3groupbox.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
-#include <qpointarray.h>
+#include <q3pointarray.h>
 #include <qimage.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <Q3GridLayout>
+#include <Q3PtrList>
+#include <Q3Frame>
+#include <Q3VBoxLayout>
 //#include <qwidget.h>
 // KDE
 #include <kiconloader.h>
@@ -69,7 +75,7 @@ CoordsEdit::~CoordsEdit()
 RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this,5,2,5,5);
+  Q3GridLayout *layout= new Q3GridLayout(this,5,2,5,5);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaxValue(2000);
@@ -130,7 +136,7 @@ void RectCoordsEdit::applyChanges() {
 CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this,4,2,5,5);
+  Q3GridLayout *layout= new Q3GridLayout(this,4,2,5,5);
 
   centerXSpin = new QSpinBox(this);
   centerXSpin->setMaxValue(2000);
@@ -184,14 +190,14 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
   if (!a) return;
-  QVBoxLayout *layout= new QVBoxLayout(this);
+  Q3VBoxLayout *layout= new Q3VBoxLayout(this);
   int numPoints=a->coords()->count();
-  coordsTable= new QTable(numPoints,2,this);
+  coordsTable= new Q3Table(numPoints,2,this);
   coordsTable->horizontalHeader()->setLabel(0,"X");
   coordsTable->horizontalHeader()->setLabel(1,"Y");
   coordsTable->verticalHeader()->hide();
   coordsTable->setLeftMargin(0);
-  coordsTable->setSelectionMode( QTable::Single );
+  coordsTable->setSelectionMode( Q3Table::Single );
 
 
   for (int i=0;i<numPoints;i++) {
@@ -207,7 +213,7 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   coordsTable->resize(coordsTable->width(),100);
   layout->addWidget(coordsTable);
   layout->setStretchFactor(coordsTable,-1);
-  QHBox *hbox= new QHBox(this);
+  Q3HBox *hbox= new Q3HBox(this);
   QPushButton *addBtn=new QPushButton(i18n("Add"),hbox);
   connect( addBtn, SIGNAL(pressed()), this, SLOT(slotAddPoint()));
   QPushButton *removeBtn=new QPushButton(i18n("Remove"),hbox);
@@ -277,7 +283,7 @@ void PolyCoordsEdit::applyChanges() {
 SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this,2,2);
+  Q3GridLayout *layout= new Q3GridLayout(this,2,2);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaxValue(2000);
@@ -308,7 +314,7 @@ void SelectionCoordsEdit::applyChanges() {
 
 
 
-QLineEdit* AreaDialog::createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name)
+QLineEdit* AreaDialog::createLineEdit(QWidget* parent, Q3GridLayout *layout, int y, const QString & value, const QString & name)
 {
   QLineEdit* edit=new QLineEdit(value,parent);
   layout->addWidget(edit,y,2);
@@ -321,11 +327,11 @@ QLineEdit* AreaDialog::createLineEdit(QWidget* parent, QGridLayout *layout, int 
 
 QWidget* AreaDialog::createGeneralPage()
 {
-  QFrame* page = new QFrame(this);
-  QGridLayout* layout = new QGridLayout(page,5,2,5,5);
+  Q3Frame* page = new Q3Frame(this);
+  Q3GridLayout* layout = new Q3GridLayout(page,5,2,5,5);
 
 
-  QHBox *hbox= new QHBox(page);
+  Q3HBox *hbox= new Q3HBox(page);
   hrefEdit = new QLineEdit(area->attribute("href"),hbox);
   QPushButton *btn = new QPushButton("",hbox);
   btn->setPixmap(SmallIcon("fileopen"));
@@ -357,8 +363,8 @@ QWidget* AreaDialog::createGeneralPage()
 
 QWidget* AreaDialog::createCoordsPage()
 {
-  QFrame* page = new QFrame(this);
-  QVBoxLayout *layout = new QVBoxLayout(page);
+  Q3Frame* page = new Q3Frame(this);
+  Q3VBoxLayout *layout = new Q3VBoxLayout(page);
   layout->setMargin(5);
 
   coordsEdit = createCoordsEdit(page,area);
@@ -370,8 +376,8 @@ QWidget* AreaDialog::createCoordsPage()
 
 QWidget* AreaDialog::createJavascriptPage()
 {
-  QFrame* page = new QFrame(this);
-  QGridLayout* layout = new QGridLayout(page,8,2,5,5);
+  Q3Frame* page = new Q3Frame(this);
+  Q3GridLayout* layout = new Q3GridLayout(page,8,2,5,5);
 
   onClickEdit = createLineEdit(page,layout,0,area->attribute("onClick"),i18n("OnClick:"));
   onDblClickEdit = createLineEdit(page,layout,1,area->attribute("onDblClick"),i18n("OnDblClick:"));
@@ -389,7 +395,7 @@ QWidget* AreaDialog::createJavascriptPage()
 
 QWidget* AreaDialog::createButtonBar()
 {
-  QHBox *box = new QHBox(this);
+  Q3HBox *box = new Q3HBox(this);
   QWidget *spacer = new QWidget(box);
   QPushButton *okBtn = new KPushButton(KStdGuiItem::ok(),box);
   QPushButton *applyBtn = new KPushButton(KStdGuiItem::apply(),box);
@@ -436,7 +442,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 
   // To get a margin around everything
 
-  QVBoxLayout *layout = new QVBoxLayout(this);
+  Q3VBoxLayout *layout = new Q3VBoxLayout(this);
 
   layout->setMargin(5);
 
@@ -444,8 +450,8 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
   lbl->setTextFormat(Qt::RichText);
   layout->addWidget(lbl);
 
-  QFrame *line = new QFrame(this);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  Q3Frame *line = new Q3Frame(this);
+  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line);
 
@@ -464,8 +470,8 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 
   tab->addTab(createJavascriptPage(),i18n("&JavaScript"));
 
-  line = new QFrame(this);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  line = new Q3Frame(this);
+  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line);
 
@@ -567,7 +573,7 @@ void AreaDialog::slotUpdateArea() {
     oldArea->setRect(area->rect());
 }
 
-ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images,const KURL & _baseUrl)
+ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images,const KURL & _baseUrl)
   : KDialogBase(parent,"",true,i18n( "Choose Map & Image to Edit" ),Ok,Ok,true)
 {
   baseUrl=_baseUrl;
@@ -577,27 +583,27 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   QWidget *page=new QWidget(this);
   setMainWidget(page);
   setCaption(baseUrl.fileName());
-  QVBoxLayout *layout = new QVBoxLayout(page,5,5);
+  Q3VBoxLayout *layout = new Q3VBoxLayout(page,5,5);
 
   QLabel *lbl= new QLabel(i18n("Select an image and/or a map that you want to edit"),page);
   lbl->setFont(QFont("Sans Serif",12, QFont::Bold));
   layout->addWidget(lbl);
-  QFrame *line= new QFrame(page);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  Q3Frame *line= new Q3Frame(page);
+  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line,0);
 
-  QGridLayout *gridLayout= new QGridLayout(layout,2,3,5);
+  Q3GridLayout *gridLayout= new Q3GridLayout(layout,2,3,5);
   gridLayout->setRowStretch(0,0);
   gridLayout->setRowStretch(1,100);
   lbl=new QLabel(i18n("&Maps"),page);
-  mapListBox= new QListBox(page);
+  mapListBox= new Q3ListBox(page);
   lbl->setBuddy(mapListBox);
   gridLayout->addWidget(lbl,0,0);
   gridLayout->addWidget(mapListBox,1,0);
 
-  line= new QFrame(page);
-  line->setFrameStyle(QFrame::VLine | QFrame::Sunken);
+  line= new Q3Frame(page);
+  line->setFrameStyle(Q3Frame::VLine | Q3Frame::Sunken);
   line->setFixedWidth(10);
 //	line->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
   gridLayout->addWidget(line,1,1);
@@ -618,8 +624,8 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_ma
   gridLayout->addWidget(imagePreview,1,2);
 //	layout->addLayout(gridLayout,1);
 
-  line= new QFrame(page);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  line= new Q3Frame(page);
+  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line,0);
 
@@ -649,14 +655,14 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
 
 
   if (images->isEmpty()) {
-    imageListTable= new QTable(1,1,parent);
+    imageListTable= new Q3Table(1,1,parent);
     imageListTable->setText(0,0,i18n("No images found"));
     imageListTable->setEnabled(false);
     imageListTable->horizontalHeader()->hide();
     imageListTable->setTopMargin(0);
     imageListTable->setColumnStretchable(0,true);
   } else {
-    imageListTable= new QTable(images->count(),2,parent);
+    imageListTable= new Q3Table(images->count(),2,parent);
     imageListTable->setColumnStretchable(0,true);
   }
 
@@ -675,8 +681,8 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   imageListTable->horizontalHeader()->setLabel(0,i18n("Path"));
   imageListTable->horizontalHeader()->setLabel(1,"usemap");
 
-  imageListTable->setSelectionMode(QTable::SingleRow);
-  imageListTable->setFocusStyle(QTable::FollowStyle);
+  imageListTable->setSelectionMode(Q3Table::SingleRow);
+  imageListTable->setFocusStyle(Q3Table::FollowStyle);
   imageListTable->clearSelection(true);
 
 
@@ -750,11 +756,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   : KDialogBase(parent,"",true,i18n("Preferences"),Ok|Apply|Cancel,Ok,true)
 {
   config = conf;
-  QVBox *page=new QVBox(this);
+  Q3VBox *page=new Q3VBox(this);
   page->setSpacing(6);
   setMainWidget(page);
 
-  QHBox *hbox= new QHBox(page);
+  Q3HBox *hbox= new Q3HBox(page);
 
   QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+" ",hbox);
   rowHeightSpinBox = new QSpinBox(hbox);
@@ -768,7 +774,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   config->setGroup("General");
 
-  hbox= new QHBox(page);
+  hbox= new Q3HBox(page);
   lbl = new QLabel(i18n("&Undo limit:")+" ",hbox);
   undoSpinBox = new QSpinBox(hbox);
   undoSpinBox->setFixedWidth(60);
@@ -778,7 +784,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   undoSpinBox->setMinValue(1);
   undoSpinBox->setValue(config->readNumEntry("undo-level",20));
 
-  hbox= new QHBox(page);
+  hbox= new Q3HBox(page);
   lbl = new QLabel(i18n("&Redo limit:")+" ",hbox);
 
   redoSpinBox = new QSpinBox(hbox);
@@ -842,7 +848,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KURL url, const QString & 
   kdDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->name() << endl;
   tempFile->close();
 
-  QVBox *page = makeVBoxMainWidget();
+  Q3VBox *page = makeVBoxMainWidget();
 
   htmlPart = new KHTMLPart(page,"htmlpart");
 //  htmlView = new KHTMLView(htmlPart, page);

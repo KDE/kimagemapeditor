@@ -18,8 +18,8 @@
 // QT
 #include <klistview.h>
 #include <qpushbutton.h>
-#include <qhbox.h>
-#include <qwhatsthis.h>
+#include <q3hbox.h>
+#include <q3whatsthis.h>
 #include <qtooltip.h>
 
 // KDE
@@ -32,25 +32,25 @@
 
 
 AreaListView::AreaListView(QWidget *parent, const char *name)
-  : QVBox(parent, name)
+  : Q3VBox(parent, name)
 {
   listView = new KListView(this);
   listView->addColumn(i18n("Areas"));
   listView->addColumn(i18n("Preview"));
 
   listView->setMultiSelection(true);
-  listView->setSelectionMode( QListView::Extended );
+  listView->setSelectionMode( Q3ListView::Extended );
   listView->setSorting(-1); // The user can't sort by clicking on the header
   listView->setFullWidth(true);
 
 
-  QWhatsThis::add( listView, i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
+  Q3WhatsThis::add( listView, i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
                                   "The left column shows the link associated with the area; the right "
                                   "column shows the part of the image that is covered by the area.<br>"
                                   "The maximum size of the preview images can be configured."));
   QToolTip::add( listView, i18n("A list of all areas"));
 
-  QHBox *hbox= new QHBox(this);
+  Q3HBox *hbox= new Q3HBox(this);
   upBtn= new QPushButton("",hbox);
   upBtn->setIconSet(SmallIconSet("up"));
 

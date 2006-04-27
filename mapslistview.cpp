@@ -21,21 +21,23 @@
 
 // locale
 #include "mapslistview.h"
+//Added by qt3to4:
+#include <Q3PtrList>
 
 
 MapsListView::MapsListView(QWidget *parent, const char *name)
-: QVBox(parent, name) {
+: Q3VBox(parent, name) {
     _listView = new KListView(this);
     _listView->addColumn(i18n("Maps"));
     _listView->setFullWidth(true);
-    _listView->setSelectionMode(QListView::Single);
+    _listView->setSelectionMode(Q3ListView::Single);
     _listView->setItemsRenameable(true);
 
-    connect( _listView, SIGNAL( selectionChanged(QListViewItem*)),
-             this, SLOT( slotSelectionChanged(QListViewItem*)));
+    connect( _listView, SIGNAL( selectionChanged(Q3ListViewItem*)),
+             this, SLOT( slotSelectionChanged(Q3ListViewItem*)));
 
-    connect( _listView, SIGNAL( itemRenamed(QListViewItem*)),
-             this, SLOT( slotItemRenamed(QListViewItem*)));
+    connect( _listView, SIGNAL( itemRenamed(Q3ListViewItem*)),
+             this, SLOT( slotItemRenamed(Q3ListViewItem*)));
 }
 
 
@@ -43,12 +45,12 @@ MapsListView::~MapsListView() {
 }
 
 void MapsListView::addMap(const QString & name = QString::null) {
-    new QListViewItem(_listView,name);
+    new Q3ListViewItem(_listView,name);
     //kdDebug() << "MapsListView::addMap : Added map '" << name << "'" << endl;
 
 }
 
-void MapsListView::addMaps(QPtrList<MapTag> * maps) {
+void MapsListView::addMaps(Q3PtrList<MapTag> * maps) {
 
     for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
         addMap(tag->name);
@@ -56,7 +58,7 @@ void MapsListView::addMaps(QPtrList<MapTag> * maps) {
 }
 
 void MapsListView::selectMap(const QString & name) {
-    QListViewItem* item = _listView->findItem(name,0);
+    Q3ListViewItem* item = _listView->findItem(name,0);
     if (item) {
        selectMap(item);
     } else
@@ -64,7 +66,7 @@ void MapsListView::selectMap(const QString & name) {
 
 }
 
-void MapsListView::selectMap(QListViewItem* item) {
+void MapsListView::selectMap(Q3ListViewItem* item) {
     if (item)
         _listView->setSelected(item,true);
 }
@@ -73,7 +75,7 @@ void MapsListView::selectMap(QListViewItem* item) {
 QString MapsListView::selectedMap() {
     QString result;
 
-    QListViewItem* item = _listView->selectedItem();
+    Q3ListViewItem* item = _listView->selectedItem();
     if (item)
         result = item->text(0);
     else
@@ -83,7 +85,7 @@ QString MapsListView::selectedMap() {
 }
 
 void MapsListView::removeMap(const QString & name) {
-    QListViewItem* item = _listView->findItem(name,0);
+    Q3ListViewItem* item = _listView->findItem(name,0);
     if (item) {
         _listView->takeItem(item);
         _listView->setSelected(_listView->currentItem(),true);
@@ -96,19 +98,19 @@ void MapsListView::clear() {
     _listView->clear();
 }
 
-void MapsListView::slotSelectionChanged(QListViewItem* item) {
+void MapsListView::slotSelectionChanged(Q3ListViewItem* item) {
     QString name = item->text(0);
     emit mapSelected(name);
 }
 
-void MapsListView::slotItemRenamed(QListViewItem* item) {
+void MapsListView::slotItemRenamed(Q3ListViewItem* item) {
     QString name = item->text(0);
     emit mapRenamed(name);
 }
 
 void MapsListView::changeMapName(const QString & oldName, const QString & newName) {
 //    kdDebug() << "MapsListView::changeMapName : " << oldName << " to " << newName << endl;
-    QListViewItem* item = _listView->findItem(oldName,0);
+    Q3ListViewItem* item = _listView->findItem(oldName,0);
     if (item) {
         item->setText(0,newName);
 //        kdDebug() << "MapsListView::changeMapName : successful" << endl;
@@ -123,7 +125,7 @@ void MapsListView::changeMapName(const QString & oldName, const QString & newNam
 bool MapsListView::nameAlreadyExists(const QString & name) {
 //    kdDebug() << "MapsListView::nameAlreadyExists : " << name << " ? " << endl;
     bool result = false;
-    QListViewItem* item = 0L;
+    Q3ListViewItem* item = 0L;
     for(item = _listView->firstChild(); item; item = item->nextSibling()) {
         QString otherMap = item->text(0);
         if(name == otherMap) {
@@ -140,7 +142,7 @@ bool MapsListView::nameAlreadyExists(const QString & name) {
 QStringList MapsListView::getMaps() {
     QStringList result;
     
-    QListViewItem* item = 0L;
+    Q3ListViewItem* item = 0L;
     for(item = _listView->firstChild(); item; item = item->nextSibling()) {
         QString map = item->text(0);
         result << map;

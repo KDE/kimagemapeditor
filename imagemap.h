@@ -18,10 +18,14 @@
 #ifndef IMAGEMAP_H
 #define IMAGEMAP_H
 
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qimage.h>
 #include <qpoint.h>
 #include <qrect.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
+#include <QResizeEvent>
 
 #include "kdeversion.h"
 
@@ -31,7 +35,7 @@
 class KImageMapEditor;
 class Area;
 
-class ImageMap : public QScrollView  {
+class ImageMap : public Q3ScrollView  {
 public:
 	enum DrawAction { None, DrawCircle, DrawRectangle, DrawPolygon, MoveSelectionPoint, MoveArea };
 private:

@@ -20,18 +20,21 @@
 
 #include <qrect.h>
 #include <qpoint.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <Q3PointArray>
 #include <klocale.h>
 #include <qmap.h>
 
 #include "kdeversion.h"
 
 class QPainter;
-class QPointArray;
-class QListViewItem;
+class Q3PointArray;
+class Q3ListViewItem;
 class QBitmap;
 
-typedef QPtrList<QRect> SelectionPointList;
+typedef Q3PtrList<QRect> SelectionPointList;
 
 typedef QMap<QString,QString> AttributeMap;
 typedef QMapConstIterator<QString,QString> AttributeIterator;
@@ -57,9 +60,9 @@ protected:
 	bool _finished;
 	bool _isMoving;
 	int currentHighlighted;
-	QListViewItem* _listViewItem;
+	Q3ListViewItem* _listViewItem;
 	// Only used for Polygons
-	QPointArray *_coords;
+	Q3PointArray *_coords;
 	SelectionPointList *_selectionPoints;
 	QPixmap *_highlightedPixmap;
 	
@@ -113,7 +116,7 @@ public:
 	virtual void insertCoord(int, const QPoint &);
 	virtual void removeCoord(int);
 	virtual void moveCoord(int,const QPoint &);
-	virtual QPointArray* coords() const;
+	virtual Q3PointArray* coords() const;
 	virtual void highlightSelectionPoint(int);
 
 	virtual QString attribute(const QString &) const;
@@ -122,9 +125,9 @@ public:
 	virtual AttributeIterator lastAttribute() const;
 	
 	QPixmap cutOut(const QImage &) ;		
-	void setListViewItem(QListViewItem*);
+	void setListViewItem(Q3ListViewItem*);
 	void deleteListViewItem();
-	QListViewItem* listViewItem() const;
+	Q3ListViewItem* listViewItem() const;
 	void setName(const QString &);
 	QString name() const;
 	void setSelected(bool b);
@@ -136,7 +139,7 @@ public:
 
 
 
-inline QListViewItem* Area::listViewItem() const {
+inline Q3ListViewItem* Area::listViewItem() const {
 	return _listViewItem;
 }
 
@@ -255,8 +258,8 @@ class DefaultArea :public Area
 };
 
 
-typedef QPtrList<Area> AreaList;
-typedef QPtrListIterator<Area> AreaListIterator;
+typedef Q3PtrList<Area> AreaList;
+typedef Q3PtrListIterator<Area> AreaListIterator;
 
 /**
  *	This class represents a selection of areas
@@ -350,7 +353,7 @@ class AreaSelection : public Area {
   	virtual void removeCoord(int pos);
     virtual bool removeSelectionPoint(QRect * r);  	
   	virtual void moveCoord(int pos,const QPoint & p);
-  	virtual QPointArray* coords() const;
+  	virtual Q3PointArray* coords() const;
 		virtual void highlightSelectionPoint(int);
 		
 		virtual QRect selectionRect() const;

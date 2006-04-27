@@ -25,9 +25,13 @@
 #include "kimagemapeditor.h"
 
 #include "kdeversion.h"
+//Added by qt3to4:
+#include <QLabel>
+#include <Q3GridLayout>
+#include <Q3PtrList>
 
 class QLineEdit;
-class QMultiLineEdit;
+class Q3MultiLineEdit;
 class QSpinBox;
 
 
@@ -66,7 +70,7 @@ class CircleCoordsEdit : public CoordsEdit {
 		QSpinBox *radiusSpin;
 };
 
-class QTable;
+class Q3Table;
 
 class PolyCoordsEdit : public CoordsEdit {
 Q_OBJECT	
@@ -75,7 +79,7 @@ Q_OBJECT
 		~PolyCoordsEdit();
 		virtual void applyChanges();
 	private:
-		QTable *coordsTable;
+		Q3Table *coordsTable;
 	protected slots:
   	void slotAddPoint();
   	void slotRemovePoint();
@@ -96,7 +100,7 @@ Q_OBJECT
 
 
 class QCheckBox;
-class QGridLayout;
+class Q3GridLayout;
 
 class AreaDialog : public KDialog {
 Q_OBJECT
@@ -133,7 +137,7 @@ Q_OBJECT
 		void slotChooseHref();
 		void slotUpdateArea();
 		
-    QLineEdit* createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name);
+    QLineEdit* createLineEdit(QWidget* parent, Q3GridLayout *layout, int y, const QString & value, const QString & name);
 	  QWidget* createGeneralPage();
 	  QWidget* createCoordsPage();
 	  QWidget* createJavascriptPage();
@@ -143,23 +147,23 @@ Q_OBJECT
 };
 
 class QLineEdit;
-class QListBox;
+class Q3ListBox;
 class QLabel;
 
 
 class ImageMapChooseDialog : public KDialogBase {
 Q_OBJECT
 	private:
-		QTable *imageListTable;
+		Q3Table *imageListTable;
 		QLabel *imagePreview;		
-		QListBox *mapListBox;	
+		Q3ListBox *mapListBox;	
 		QLineEdit *mapNameEdit;
-		QPtrList<MapTag> *maps;
-		QPtrList<ImageTag> *images;
+		Q3PtrList<MapTag> *maps;
+		Q3PtrList<ImageTag> *images;
 		KURL baseUrl;
     void initImageListTable(QWidget*);    
 	public:
-		ImageMapChooseDialog(QWidget* parent,QPtrList<MapTag> *_maps,QPtrList<ImageTag> *_images, const KURL & _baseUrl);
+		ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images, const KURL & _baseUrl);
 		~ImageMapChooseDialog();
 		KURL pixUrl;
 		MapTag* currentMap;

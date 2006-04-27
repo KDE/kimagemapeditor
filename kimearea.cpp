@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include <qbitmap.h>
-#include <qpointarray.h>
+#include <q3pointarray.h>
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qimage.h>
@@ -24,7 +24,7 @@
 #include <qbrush.h>
 #include <qpalette.h>
 #include <qcolor.h>
-#include <qlistview.h>
+#include <q3listview.h>
 
 #include <kdebug.h>
 
@@ -41,7 +41,7 @@ bool Area::showAlt;
 
 Area::Area()
 {
-	_coords=new QPointArray();
+	_coords=new Q3PointArray();
 	_selectionPoints= new SelectionPointList();
 	_selectionPoints->setAutoDelete(true);
 	_finished=false;
@@ -61,7 +61,7 @@ Area* Area::clone() const
 	return areaClone;
 }
 
-QPointArray* Area::coords() const {
+Q3PointArray* Area::coords() const {
 	return _coords;
 }
 
@@ -139,7 +139,7 @@ void Area::setArea(const Area & copy)
 {
 	delete _coords;
 	delete _selectionPoints;
- 	_coords=new QPointArray(copy.coords()->copy());
+ 	_coords=new Q3PointArray(copy.coords()->copy());
 	_selectionPoints= new SelectionPointList();
 	currentHighlighted=-1;
 	
@@ -162,7 +162,7 @@ void Area::setArea(const Area & copy)
 	
 }
 
-void Area::setListViewItem(QListViewItem* item) {
+void Area::setListViewItem(Q3ListViewItem* item) {
 	_listViewItem=item;
 }
 
@@ -339,9 +339,9 @@ void Area::drawAlt(QPainter & p)
   double scalex = p.worldMatrix().m11();
 //  double scaley = p.worldMatrix().m12();
 
-  QWMatrix oldMatrix = p.worldMatrix();
+  QMatrix oldMatrix = p.worldMatrix();
 
-  p.setWorldMatrix(QWMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
+  p.setWorldMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
 
   x = (rect().x()+rect().width()/2)*scalex;
   y = (rect().y()+rect().height()/2)*scalex;
@@ -382,9 +382,9 @@ void Area::draw(QPainter & p)
     double scalex = p.worldMatrix().m11();
 //    double scaley = p.worldMatrix().m12();
 
-    QWMatrix oldMatrix = p.worldMatrix();
+    QMatrix oldMatrix = p.worldMatrix();
 
-    p.setWorldMatrix(QWMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
+    p.setWorldMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
 
 		for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
 
@@ -1202,7 +1202,7 @@ bool PolyArea::setCoords(const QString & s)
 {
 	_finished=true;
 	QStringList list=QStringList::split(",",s);
-	_coords=new QPointArray();
+	_coords=new Q3PointArray();
 	_selectionPoints= new SelectionPointList();
 	
 	for (QStringList::Iterator it = list.begin(); it !=list.end(); ++it)
@@ -1653,7 +1653,7 @@ void AreaSelection::highlightSelectionPoint(int i)
 }
 
 
-QPointArray* AreaSelection::coords() const
+Q3PointArray* AreaSelection::coords() const
 {
 	if ( _areas->count()==1 )
 	{

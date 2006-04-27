@@ -18,8 +18,13 @@
 // QT
 #include <qbitmap.h>
 #include <qpainter.h>
-#include <qdragobject.h>
+#include <q3dragobject.h>
 #include <qpixmap.h>
+//Added by qt3to4:
+#include <QDropEvent>
+#include <QResizeEvent>
+#include <QDragEnterEvent>
+#include <QMouseEvent>
 
 // KDE
 #include <kdebug.h>
@@ -38,7 +43,7 @@
 #include "kimecommon.h"
 
 DrawZone::DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor)
-	: QScrollView(parent)
+	: Q3ScrollView(parent)
 {
 	imageMapEditor=_imageMapEditor;
 //	setPicture(QImage());
@@ -262,7 +267,7 @@ void DrawZone::contentsMousePressEvent(QMouseEvent* e)
 	}
 
 	if ( currentAction==None ) {
-		if (e->button()==RightButton)
+		if (e->button()==Qt::RightButton)
 		{
 			if ( (currentArea=imageMapEditor->onArea(drawStart)) )
 			{
@@ -278,7 +283,7 @@ void DrawZone::contentsMousePressEvent(QMouseEvent* e)
 
 		}
 		else
-		if (e->button()==MidButton) {
+		if (e->button()==Qt::MidButton) {
 			contentsMouseDoubleClickEvent(e);
 		}
 		else  // LeftClick on selectionpoint
@@ -310,14 +315,14 @@ void DrawZone::contentsMousePressEvent(QMouseEvent* e)
 		  else
 		  {
   			currentAction=MoveArea;
-  			viewport()->setCursor(sizeAllCursor);
+  			viewport()->setCursor(Qt::sizeAllCursor);
 
   			if ( currentArea->isSelected() ) {
-  				if ( (e->state() & ControlButton) )
+  				if ( (e->state() & Qt::ControlModifier) )
    					imageMapEditor->deselect(currentArea);
    			} else
   			{
-  				if ( (e->state() & ControlButton) )
+  				if ( (e->state() & Qt::ControlModifier) )
   					imageMapEditor->select( currentArea );
   				else {
   					imageMapEditor->deselectAll();
@@ -420,7 +425,7 @@ void DrawZone::contentsMouseReleaseEvent(QMouseEvent *e) {
 		// the right Button was pressed the Polygon is finished
   	if ((currentArea->selectionPoints()->count()>2)
   		&& (currentArea->selectionPoints()->first()->contains(drawEnd)
-  		 || (e->button()==RightButton)))
+  		 || (e->button()==Qt::RightButton)))
   	{
 			currentArea->setFinished(true);
   		currentAction=None;
@@ -674,7 +679,7 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			    }
 			    else
 			    {
- 						viewport()->setCursor(pointingHandCursor);
+ 						viewport()->setCursor(Qt::pointingHandCursor);
  				  }
  				}
  				else
@@ -682,15 +687,15 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
    				QPoint center=imageMapEditor->selected()->rect().center();
    				if (drawCurrent.x() < center.x()) {
    					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(sizeFDiagCursor);
+   						viewport()->setCursor(Qt::sizeFDiagCursor);
    					else
-   						viewport()->setCursor(sizeBDiagCursor);
+   						viewport()->setCursor(Qt::sizeBDiagCursor);
    				}
    				else {
    					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(sizeBDiagCursor);
+   						viewport()->setCursor(Qt::sizeBDiagCursor);
    					else
-   						viewport()->setCursor(sizeFDiagCursor);
+   						viewport()->setCursor(Qt::sizeFDiagCursor);
  					}
  				}
 			} else
@@ -702,7 +707,7 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			  }
 			  else
         {
-				  viewport()->setCursor(sizeAllCursor);
+				  viewport()->setCursor(Qt::sizeAllCursor);
         }
 			}
 			else
@@ -720,7 +725,7 @@ void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
 			if (imageMapEditor->currentToolType()==KImageMapEditor::Freehand)
 			    viewport()->setCursor(FreehandCursor);
 			else
-		 		viewport()->setCursor(arrowCursor);
+		 		viewport()->setCursor(Qt::arrowCursor);
 
 		}
 		imageMapEditor->slotChangeStatusCoords(drawCurrent.x(),drawCurrent.y());
@@ -754,7 +759,7 @@ void DrawZone::createBorderRectangles(const QRect & r,QRect & rb,QRect & lb,QRec
 
 
 void DrawZone::resizeEvent(QResizeEvent* e) {
-	QScrollView::resizeEvent(e);
+	Q3ScrollView::resizeEvent(e);
 	int width=(int) (image.width()*_zoom);
 	int height=(int) (image.height()*_zoom);
 	if (visibleWidth()>width)

@@ -18,7 +18,7 @@
 #include <kfileitem.h>
 
 #include <qobject.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qregexp.h>
 
 class QExtFileInfo:public QObject
@@ -56,7 +56,7 @@ private:
   static QString lastErrorMsg;
   KIO::UDSEntry m_entry;
   KURL::List dirListItems;
-  QPtrList<QRegExp> lstFilters;
+  Q3PtrList<QRegExp> lstFilters;
 
   /** No descriptions */
   KURL::List allFilesInternal(const KURL& startURL, const QString& mask);

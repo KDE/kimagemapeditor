@@ -18,6 +18,10 @@
 #include "imagemap.h"
 #include "kimagemapeditor.h"
 #include "qpainter.h"
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
+#include <QResizeEvent>
 #include "kdebug.h"
 #include <qbitmap.h>
 
@@ -29,7 +33,7 @@ int round(double d) {
 }
 
 ImageMap::ImageMap(QWidget *parent,KImageMapEditor* _imageMapEditor)
-	: QScrollView(parent)
+	: Q3ScrollView(parent)
 {
 	imageMapEditor=_imageMapEditor;
 //	setPicture(QImage());
@@ -125,7 +129,7 @@ void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
 		oldArea=new Area(*currentArea);
 		
 	if ( currentAction==None ) {
-		if (e->button()==RightButton) {
+		if (e->button()==Qt::RightButton) {
 			currentArea=imageMapEditor->onArea(drawStart);
 			imageMapEditor->select(currentArea);
 			imageMapEditor->slotShowPopupMenu(e->globalPos());
@@ -208,7 +212,7 @@ void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
 		// the right Button was pressed the Polygon is finished
   	if ((currentArea->selectionPoints()->count()>2)
   		&& (currentArea->selectionPoints()->first()->contains(drawEnd)
-  		 || (e->button()==RightButton)))
+  		 || (e->button()==Qt::RightButton)))
   	{
 			currentArea->setFinished(true);
    		imageMapEditor->addArea(currentArea);
@@ -304,7 +308,7 @@ void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
 }
 
 void ImageMap::resizeEvent(QResizeEvent* e) {
-	QScrollView::resizeEvent(e);
+	Q3ScrollView::resizeEvent(e);
 	int width=(int) (image.width()*_zoom);
 	int height=(int) (image.height()*_zoom);
 	if (visibleWidth()>width)

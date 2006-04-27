@@ -18,7 +18,9 @@
 #ifndef _MAPSLISTVIEW_H_
 #define _MAPSLISTVIEW_H_
 
-#include <qvbox.h>
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <Q3PtrList>
 
 #include "kimagemapeditor.h"
 class KListView;
@@ -28,7 +30,7 @@ class KListView;
  * 
  * Jan Schaefer
  **/
-class MapsListView : public QVBox
+class MapsListView : public Q3VBox
 {
 Q_OBJECT
 public:
@@ -43,7 +45,7 @@ public:
   /**
    * Adds all maps of the given QList to the ListView
    */
-  void addMaps(QPtrList<MapTag> *);
+  void addMaps(Q3PtrList<MapTag> *);
   
   /**
    * Removes the given map from the ListView
@@ -59,7 +61,7 @@ public:
   /**
    * Selects the given ListViewItem and deselects the current selected item
    */
-  void selectMap(QListViewItem* item);
+  void selectMap(Q3ListViewItem* item);
   
   /**
    * Changes the name of the map with the @p oldName to @p newName 
@@ -103,8 +105,8 @@ protected:
   KListView* _listView;   
 
 protected slots:
-  void slotSelectionChanged(QListViewItem*);  
-  void slotItemRenamed(QListViewItem*);
+  void slotSelectionChanged(Q3ListViewItem*);  
+  void slotItemRenamed(Q3ListViewItem*);
     
 signals:
 

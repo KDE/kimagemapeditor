@@ -18,10 +18,13 @@
 #ifndef KIMAGEMAPDIALOG_H
 #define KIMAGEMAPDIALOG_H
 
-#include <qptrlist.h>
-#include <qobjectlist.h>
-#include <qdict.h>
+#include <q3ptrlist.h>
+#include <qobject.h>
+#include <q3dict.h>
 #include <qimage.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QTextStream>
 #include <kurl.h>
 #include <kparts/part.h>
 #include <kparts/browserextension.h>
@@ -36,11 +39,11 @@
   */
 
 
-class QListView;
+class Q3ListView;
 class QPushButton;
 class DrawZone;
 class QComboBox;
-class QListViewItem;
+class Q3ListViewItem;
 class KToggleAction;
 
 
@@ -49,19 +52,19 @@ class KToggleAction;
 /**
  * Stores an area tag and all its attributes
  */
-typedef QDict<QString> AreaTag;
+typedef Q3Dict<QString> AreaTag;
 
 /**
  * Stores an image tag and all its attributes
  * the origcode attribute hold the original htmlcode
  * of this tag
  */
-typedef QDict<QString> ImageTag;
+typedef Q3Dict<QString> ImageTag;
 
 /**
  * Only a small class to give a list of AreaTags a name
  */
-class MapTag : public QPtrList<AreaTag> {
+class MapTag : public Q3PtrList<AreaTag> {
 public:
     MapTag();
     QString name;
@@ -103,7 +106,7 @@ HtmlImgElement(const QString & s) : HtmlElement(s) {
 /**
  * Stores the hole HTML content in a List.
  */
-class HtmlContent : public QPtrList<HtmlElement> {}
+class HtmlContent : public Q3PtrList<HtmlElement> {}
 ;
 
 
@@ -167,7 +170,7 @@ public :
     QString mapName() const;
     void select(Area*);
     void selectWithoutUpdate(Area*);
-    void select(QListViewItem*);
+    void select(Q3ListViewItem*);
     AreaSelection* selected() const;
     void setPicture(const QImage & pix);
     int showTagEditor(Area *);
@@ -331,7 +334,7 @@ private:
     void updateAllAreas();
     void updateUpDownBtn();
 
-    QDict<QString> getTagAttributes(QTextStream & s,QString &);
+    Q3Dict<QString> getTagAttributes(QTextStream & s,QString &);
 
     void setMap(HtmlMapElement*);
     void setMap(MapTag*);
@@ -356,8 +359,8 @@ public slots:
     void slotUpdateSelectionCoords( const QRect &);
     void slotAreaChanged(Area *);
     void slotShowMainPopupMenu(const QPoint &);
-    void slotShowMapPopupMenu(QListViewItem *, const QPoint &);
-    void slotShowImagePopupMenu(QListViewItem *, const QPoint &);
+    void slotShowMapPopupMenu(Q3ListViewItem *, const QPoint &);
+    void slotShowImagePopupMenu(Q3ListViewItem *, const QPoint &);
     void slotConfigChanged();
     void setPicture(const KURL & url);
     void setMap(const QString &);
@@ -379,13 +382,13 @@ protected slots:
     void fileSave();
     void fileClose();
 
-    void slotShowPopupMenu(QListViewItem*,const QPoint &);
+    void slotShowPopupMenu(Q3ListViewItem*,const QPoint &);
     void slotShowPreferences();
     void slotHightlightAreas();
     void slotShowAltTag();
     void slotSelectionChanged();
 
-    int showTagEditor(QListViewItem *item);
+    int showTagEditor(Q3ListViewItem *item);
     int showTagEditor();
 
     void slotZoom();

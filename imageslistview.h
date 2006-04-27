@@ -22,10 +22,12 @@
 #include <kurl.h>
 
 #include "kimagemapeditor.h"
+//Added by qt3to4:
+#include <Q3PtrList>
 
 class ImagesListView;
 
-class ImagesListViewItem : public QListViewItem
+class ImagesListViewItem : public Q3ListViewItem
 {
   public:
     ImagesListViewItem(ImagesListView*, ImageTag*);
@@ -60,7 +62,7 @@ public:
   /**
    * Adds images
    */
-  void addImages(QPtrList<ImageTag> *); 
+  void addImages(Q3PtrList<ImageTag> *); 
   
   /**
    * Removes the given image from the list
@@ -93,7 +95,7 @@ public:
   void setBaseUrl(const KURL & url) { _baseUrl = url; };
   
 protected slots:
-  void slotSelectionChanged(QListViewItem*);  
+  void slotSelectionChanged(Q3ListViewItem*);  
     
 signals:
   void imageSelected(const KURL &);  

@@ -29,7 +29,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 
-#include <qhbox.h>
+#include <q3hbox.h>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
@@ -44,7 +44,7 @@ KimeShell::KimeShell(const char *name )
 
   KDockWidget* mainDock;
   mainDock = createDockWidget( "MainDockWidget", 0L, 0L, "main_dock_widget");
-  QWidget *w = new QHBox( mainDock );
+  QWidget *w = new Q3HBox( mainDock );
 //  QLayout* layout = new QGridLayout( mainDock );
 
   mainDock->setWidget( w );

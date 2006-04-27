@@ -153,8 +153,8 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
   connect( mapsListView->listView(), SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
            SLOT(slotShowMapPopupMenu(Q3ListViewItem*,const QPoint &)));
 
-  connect( imagesListView, SIGNAL( imageSelected(const KURL &)),
-           this, SLOT( setPicture(const KURL &)));
+  connect( imagesListView, SIGNAL( imageSelected(const KUrl &)),
+           this, SLOT( setPicture(const KUrl &)));
 
   connect( imagesListView, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
            SLOT(slotShowImagePopupMenu(Q3ListViewItem*,const QPoint &)));
@@ -402,7 +402,7 @@ void KImageMapEditor::slotConfigChanged()
 }
 
 void KImageMapEditor::openLastURL(KConfig* config) {
-  KURL lastURL ( config->readPathEntry("lastopenurl") );
+  KUrl lastURL ( config->readPathEntry("lastopenurl") );
   QString lastMap = config->readEntry("lastactivemap");
   QString lastImage = config->readPathEntry("lastactiveimage");
 
@@ -439,7 +439,7 @@ void KImageMapEditor::setupActions()
 	temp->setToolTip(i18n("Open new picture or HTML file"));
 
 	// File Open Recent
-  recentFilesAction = KStdAction::openRecent(this, SLOT(openURL(const KURL&)),
+  recentFilesAction = KStdAction::openRecent(this, SLOT(openURL(const KUrl&)),
                                       actionCollection());
 	// File Save
   temp =KStdAction::save(this, SLOT(fileSave()), actionCollection());
@@ -1394,7 +1394,7 @@ void KImageMapEditor::setMapName(const QString & s) {
 }
 
 
-void KImageMapEditor::setPicture(const KURL & url) {
+void KImageMapEditor::setPicture(const KUrl & url) {
   _imageUrl=url;
   if (QFileInfo(url.path()).exists()) {
      QImage img(url.path());
@@ -1540,7 +1540,7 @@ void KImageMapEditor::mapShowHTML()
   dialog->exec();
 }
 
-void KImageMapEditor::openFile(const KURL & url) {
+void KImageMapEditor::openFile(const KUrl & url) {
   if ( ! url.isEmpty()) {
     QString ext=QFileInfo(url.path()).extension().lower();
 
@@ -1552,7 +1552,7 @@ void KImageMapEditor::openFile(const KURL & url) {
   }
 }
 
-bool KImageMapEditor::openURL(const KURL & url) {
+bool KImageMapEditor::openURL(const KUrl & url) {
     // If a local file does not exist
     // we start with an empty file, so
     // that we can return true here.
@@ -1573,7 +1573,7 @@ void KImageMapEditor::fileOpen() {
           "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"),
           widget(),i18n("Choose File to Open"));
 
-  openFile(KURL( fileName ));
+  openFile(KUrl( fileName ));
 }
 
 
@@ -1608,7 +1608,7 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KURL url = KFileDialog::getSaveURL(0L,"*.htm *.html|" + i18n( "HTML File" ) +
+  KUrl url = KFileDialog::getSaveURL(0L,"*.htm *.html|" + i18n( "HTML File" ) +
                                      "\n*.txt|" + i18n( "Text File" ) + "\n*|" + i18n( "All Files" ),widget());
   if (url.isEmpty() || !url.isValid()) {
     return;
@@ -1823,7 +1823,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
 }
 
 
-bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, const QString & imagePath)
+bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, const QString & imagePath)
 {
   QFile f(url.path());
   if ( !f.exists () )
@@ -1905,7 +1905,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
 
   f.close();
 
-  KURL imageUrl;
+  KUrl imageUrl;
   map = 0L;
 
 
@@ -1924,7 +1924,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
         ImageTag* imgTag = images->first();
         QString *src = imgTag->find("src");
         if (src)
-          imageUrl = KURL(url,*src);
+          imageUrl = KUrl(url,*src);
       }
     }
 
@@ -1941,7 +1941,7 @@ bool KImageMapEditor::openHTMLFile(const KURL & url, const QString & mapName, co
                 if (usemapName == map->name) {
                     QString *src = imageTag->find("src");
                     if (src)
-                      imageUrl = KURL(url,*src);
+                      imageUrl = KUrl(url,*src);
                 }
             }
         }
@@ -2259,7 +2259,7 @@ QString KImageMapEditor::getHtmlCode() {
   return result;
 }
 
-void KImageMapEditor::saveImageMap(const KURL & url)
+void KImageMapEditor::saveImageMap(const KUrl & url)
 {
   QFileInfo fileInfo(url.path());
 
@@ -2271,7 +2271,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
 
   if (!backupFileCreated) {
     QString backupFile = url.path()+"~";
-    KIO::file_copy(url, KURL::fromPathOrURL( backupFile ), -1, true, false, false);
+    KIO::file_copy(url, KUrl::fromPathOrURL( backupFile ), -1, true, false, false);
     backupFileCreated = true;
   }
 
@@ -2293,7 +2293,7 @@ void KImageMapEditor::saveImageMap(const KURL & url)
       << "<body>\n"
       << "  " << getHTMLImageMap()
       << "\n"
-      << "  <img src=\"" << QExtFileInfo::toRelative(_imageUrl,KURL( url.directory() )).path() << "\""
+      << "  <img src=\"" << QExtFileInfo::toRelative(_imageUrl,KUrl( url.directory() )).path() << "\""
       << " usemap=\"#" << _mapName << "\""
       << " width=\"" << drawZone->picture().width() << "\""
       << " height=\"" << drawZone->picture().height() << "\">\n"
@@ -2665,11 +2665,11 @@ bool KImageMapEditor::closeURL()
 
 }
 
-void KImageMapEditor::addImage(const KURL & imgUrl) {
+void KImageMapEditor::addImage(const KUrl & imgUrl) {
     if (imgUrl.isEmpty())
         return;
 
-    QString relativePath ( QExtFileInfo::toRelative(imgUrl, KURL( url().directory() )).path() );
+    QString relativePath ( QExtFileInfo::toRelative(imgUrl, KUrl( url().directory() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
     ImageTag *imgTag = new ImageTag();
@@ -2708,7 +2708,7 @@ void KImageMapEditor::setImageActionsEnabled(bool b) {
 
 
 void KImageMapEditor::imageAdd() {
-    KURL imgUrl = KFileDialog::getImageOpenURL();
+    KUrl imgUrl = KFileDialog::getImageOpenURL();
     addImage(imgUrl);
 }
 
@@ -2727,7 +2727,7 @@ void KImageMapEditor::imageRemove() {
         if (selected) {
             QString *url = selected->find("src");
             if (url) {
-                setPicture(KURL(*url));
+                setPicture(KUrl(*url));
             }
         }
     }

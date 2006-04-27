@@ -31,7 +31,7 @@ public:
   virtual ~KimeShell();
 	
   void setStdout(bool b);
-  void openFile(const KURL & url);
+  void openFile(const KUrl & url);
   
   /**
    * Opens the last open file, if the 

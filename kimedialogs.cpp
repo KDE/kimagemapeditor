@@ -509,7 +509,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  KURL url=KFileDialog::getOpenURL(QString::null, "*|" + i18n( "All Files" ), this, i18n("Choose File"));
+  KUrl url=KFileDialog::getOpenURL(QString::null, "*|" + i18n( "All Files" ), this, i18n("Choose File"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }
@@ -573,7 +573,7 @@ void AreaDialog::slotUpdateArea() {
     oldArea->setRect(area->rect());
 }
 
-ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images,const KURL & _baseUrl)
+ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images,const KUrl & _baseUrl)
   : KDialogBase(parent,"",true,i18n( "Choose Map & Image to Edit" ),Ok,Ok,true)
 {
   baseUrl=_baseUrl;
@@ -717,7 +717,7 @@ void ImageMapChooseDialog::slotImageChanged()
   if (images->at(i)->find("src")) {
     QString str=*images->at(i)->find("src");
     // relative url
-    pixUrl=KURL(baseUrl,str);
+    pixUrl=KUrl(baseUrl,str);
     pix=QImage(pixUrl.path());
     double zoom1=1;
     double zoom2=1;
@@ -839,7 +839,7 @@ void PreferencesDialog::slotApply( void ) {
   emit applyClicked();
 }
 
-HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KURL url, const QString & htmlCode)
+HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & htmlCode)
   : KDialogBase(parent, "", true, i18n("Preview"), KDialogBase::Ok)
 {
   tempFile = new KTempFile(url.directory(false), ".html");
@@ -868,7 +868,7 @@ HTMLPreviewDialog::~HTMLPreviewDialog() {
 
 void HTMLPreviewDialog::show() {
   KDialogBase::show();
-  htmlPart->openURL(KURL( tempFile->name() ));
+  htmlPart->openURL(KUrl( tempFile->name() ));
 //  htmlView->layout();
 //  htmlView->repaint();
   resize(800,600);

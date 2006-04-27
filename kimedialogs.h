@@ -160,12 +160,12 @@ Q_OBJECT
 		QLineEdit *mapNameEdit;
 		Q3PtrList<MapTag> *maps;
 		Q3PtrList<ImageTag> *images;
-		KURL baseUrl;
+		KUrl baseUrl;
     void initImageListTable(QWidget*);    
 	public:
-		ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images, const KURL & _baseUrl);
+		ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images, const KUrl & _baseUrl);
 		~ImageMapChooseDialog();
-		KURL pixUrl;
+		KUrl pixUrl;
 		MapTag* currentMap;
 	protected slots:
 		void slotImageChanged();
@@ -200,7 +200,7 @@ class KTempFile;
 
 class HTMLPreviewDialog : public KDialogBase {
   public:
-    HTMLPreviewDialog(QWidget *, KURL, const QString &);
+    HTMLPreviewDialog(QWidget *, KUrl, const QString &);
     ~HTMLPreviewDialog();
     virtual void show();
   private:

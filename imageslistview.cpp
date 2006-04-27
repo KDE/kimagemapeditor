@@ -131,7 +131,7 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
 void ImagesListView::slotSelectionChanged(Q3ListViewItem* item) {
   QString src = item->text(0);
   
-  emit imageSelected(KURL(_baseUrl,src));
+  emit imageSelected(KUrl(_baseUrl,src));
 }
 
 ImageTag* ImagesListView::selectedImage() {

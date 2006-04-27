@@ -92,16 +92,16 @@ public:
   /**
    * Sets the base URL of all images
    */
-  void setBaseUrl(const KURL & url) { _baseUrl = url; };
+  void setBaseUrl(const KUrl & url) { _baseUrl = url; };
   
 protected slots:
   void slotSelectionChanged(Q3ListViewItem*);  
     
 signals:
-  void imageSelected(const KURL &);  
+  void imageSelected(const KUrl &);  
   
 protected:
-  KURL _baseUrl;  
+  KUrl _baseUrl;  
   
   /**
    * Finds the first ImageListViewItem with the given ImageTag

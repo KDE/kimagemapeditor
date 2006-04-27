@@ -142,7 +142,7 @@ void KimeShell::fileNew()
     };
 }
 
-void KimeShell::openFile(const KURL & url)
+void KimeShell::openFile(const KUrl & url)
 {
 	m_part->openFile(url);
 }
@@ -155,7 +155,7 @@ void KimeShell::openLastFile()
 
 void KimeShell::fileOpen()
 {
-  KURL url=KFileDialog::getOpenURL(QString::null,
+  KUrl url=KFileDialog::getOpenURL(QString::null,
           "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + "\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + "\n"
           "*.htm *.html|" + i18n( "HTML Files" ) + "\n"

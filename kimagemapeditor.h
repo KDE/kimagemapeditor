@@ -201,7 +201,7 @@ public :
      * If it's an HTML file openURL is called
      * If it's an Image, the image is added to the image list
      */
-    void openFile(const KURL &);
+    void openFile(const KUrl &);
 
     /**
      * Opens the last URL the user worked with.
@@ -212,12 +212,12 @@ public :
     void readConfig(KConfig*);
     void writeConfig(KConfig*);
 
-    virtual bool openURL(const KURL & url);
+    virtual bool openURL(const KUrl & url);
 
 protected:
     void init();
-    bool openHTMLFile(const KURL &, const QString & mapName = QString::null, const QString & imagePath = QString::null);
-    void saveImageMap(const KURL &);
+    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null, const QString & imagePath = QString::null);
+    void saveImageMap(const KUrl &);
 
     /**
      * Returns a language dependend background picture, with
@@ -238,7 +238,7 @@ private:
     HtmlContent _htmlContent;
 
     // the url of the working image;
-    KURL _imageUrl;
+    KUrl _imageUrl;
     QString _mapName;
     QImage _backgroundImage;
 
@@ -345,7 +345,7 @@ private:
     HtmlImgElement* findHtmlImgElement(ImageTag*);
     HtmlMapElement* findHtmlMapElement(const QString &);
     void deleteAllMaps();
-    void addImage(const KURL &);
+    void addImage(const KUrl &);
     void setImageActionsEnabled(bool);
     void setMapActionsEnabled(bool);
 
@@ -362,7 +362,7 @@ public slots:
     void slotShowMapPopupMenu(Q3ListViewItem *, const QPoint &);
     void slotShowImagePopupMenu(Q3ListViewItem *, const QPoint &);
     void slotConfigChanged();
-    void setPicture(const KURL & url);
+    void setPicture(const KUrl & url);
     void setMap(const QString &);
     void setMapName(const QString & s);
 

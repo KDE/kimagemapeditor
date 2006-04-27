@@ -877,7 +877,7 @@ void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
     return;
 
 //   bool accept = false;
-  KURL::List uris;
+  KUrl::List uris;
   KURLDrag::decode(e,uris);
   KMimeType::Ptr ptr = KMimeType::findByURL(uris.first());
 //  kdDebug() << "***** " << ptr.data()->name() << endl;
@@ -893,7 +893,7 @@ void DrawZone::contentsDropEvent( QDropEvent* e) {
 
 
 void DrawZone::viewportDropEvent( QDropEvent* e) {
-	KURL::List urlList;
+	KUrl::List urlList;
 	// A file from konqueror was dropped
 	if (KURLDrag::decode(e,urlList)) {
 		imageMapEditor->openFile(urlList.first());

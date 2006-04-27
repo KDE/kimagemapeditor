@@ -35,9 +35,9 @@
 QString QExtFileInfo::lastErrorMsg = "";
 
 /** create a relative short url based in baseURL*/
-KURL QExtFileInfo::toRelative(const KURL& urlToConvert,const KURL& baseURL)
+KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
 {
-  KURL resultURL = urlToConvert;
+  KUrl resultURL = urlToConvert;
   if (urlToConvert.protocol() == baseURL.protocol())
   {
     QString path = urlToConvert.path();
@@ -79,9 +79,9 @@ KURL QExtFileInfo::toRelative(const KURL& urlToConvert,const KURL& baseURL)
   return resultURL;
 }
 /** convert relative filename to absolute */
-KURL QExtFileInfo::toAbsolute(const KURL& urlToConvert,const KURL& baseURL)
+KUrl QExtFileInfo::toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL)
 {
-  KURL resultURL = urlToConvert;
+  KUrl resultURL = urlToConvert;
   if (urlToConvert.protocol() == baseURL.protocol() && !urlToConvert.path().startsWith("/"))
   {
     int pos;
@@ -105,18 +105,18 @@ KURL QExtFileInfo::toAbsolute(const KURL& urlToConvert,const KURL& baseURL)
   This is needed for empty directory adding/handling. (Andras)
   Currently works only for local directories
 */
-KURL::List QExtFileInfo::allFiles( const KURL& path, const QString& mask)
+KUrl::List QExtFileInfo::allFiles( const KUrl& path, const QString& mask)
 {
   QExtFileInfo internalFileInfo;
   return internalFileInfo.allFilesInternal(path, mask);
 }
 
-KURL::List QExtFileInfo::allFilesRelative( const KURL& path, const QString& mask)
+KUrl::List QExtFileInfo::allFilesRelative( const KUrl& path, const QString& mask)
 {
   QExtFileInfo internalFileInfo;
-  KURL::List r = internalFileInfo.allFilesInternal( path, mask);
+  KUrl::List r = internalFileInfo.allFilesInternal( path, mask);
 
-  KURL::List::Iterator it;
+  KUrl::List::Iterator it;
   for ( it = r.begin(); it != r.end(); ++it )
   {
     *it = QExtFileInfo::toRelative( *it, path );
@@ -125,11 +125,11 @@ KURL::List QExtFileInfo::allFilesRelative( const KURL& path, const QString& mask
   return r;
 }
 
-bool QExtFileInfo::createDir( const KURL& path )
+bool QExtFileInfo::createDir( const KUrl& path )
 {
   int i=0;
   bool result;
-  KURL dir1, dir2 = KURL();
+  KUrl dir1, dir2 = KUrl();
   while ( !exists(path) && dir2.path() != path.path() )
   {
     dir1 = path;
@@ -150,9 +150,9 @@ bool QExtFileInfo::createDir( const KURL& path )
  return result;
 }
 
-KURL QExtFileInfo::cdUp(const KURL &url)
+KUrl QExtFileInfo::cdUp(const KUrl &url)
 {
-  KURL u = url;
+  KUrl u = url;
   QString dir = u.path(-1);
   while ( !dir.isEmpty() && dir.right(1) != "/" )
   {
@@ -167,20 +167,20 @@ QString QExtFileInfo::shortName(const QString &fname)
   return fname.section("/",-1);
 }
 
-KURL QExtFileInfo::path( const KURL &url )
+KUrl QExtFileInfo::path( const KUrl &url )
 {
-  return KURL( url.directory(false,false) );
+  return KUrl( url.directory(false,false) );
 }
 
-KURL QExtFileInfo::home()
+KUrl QExtFileInfo::home()
 {
-  KURL url;
+  KUrl url;
   url.setPath(QDir::currentDirPath()+"/");
   return url;
 }
 
 
-bool QExtFileInfo::exists(const KURL& a_url)
+bool QExtFileInfo::exists(const KUrl& a_url)
 {
 // Andras: Don't use it now, as it brings up an extra dialog and need manual
 // intervention when usign fish
@@ -198,7 +198,7 @@ bool QExtFileInfo::exists(const KURL& a_url)
 }
 
 /* Synchronouse copy, like NetAccess::file_copy in KDE 3.2 */
-bool QExtFileInfo::copy( const KURL& src, const KURL& target, int permissions,
+bool QExtFileInfo::copy( const KUrl& src, const KUrl& target, int permissions,
  bool overwrite, bool resume, QWidget* window )
 {
   QExtFileInfo internalFileInfo;
@@ -206,7 +206,7 @@ bool QExtFileInfo::copy( const KURL& src, const KURL& target, int permissions,
 }
 
 /** No descriptions */
-KURL::List QExtFileInfo::allFilesInternal(const KURL& startURL, const QString& mask)
+KUrl::List QExtFileInfo::allFilesInternal(const KUrl& startURL, const QString& mask)
 {
   dirListItems.clear();
   if (internalExists(startURL))
@@ -240,7 +240,7 @@ KURL::List QExtFileInfo::allFilesInternal(const KURL& startURL, const QString& m
 
 //Some hackery from KIO::NetAccess as they do not do exactly what we want
 /* return true if the url exists*/
-bool QExtFileInfo::internalExists(const KURL& url)
+bool QExtFileInfo::internalExists(const KUrl& url)
 {
   bJobOK = true;
  // kdDebug(24000)<<"QExtFileInfo::internalExists"<<endl;
@@ -258,7 +258,7 @@ bool QExtFileInfo::internalExists(const KURL& url)
   return bJobOK;
 }
 
-bool QExtFileInfo::internalCopy(const KURL& src, const KURL& target, int permissions,
+bool QExtFileInfo::internalCopy(const KUrl& src, const KUrl& target, int permissions,
                                 bool overwrite, bool resume, QWidget* window)
 {
   bJobOK = true; // success unless further error occurs
@@ -303,7 +303,7 @@ void QExtFileInfo::slotResult( KIO::Job * job )
 
 void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsList)
 {
-  KURL url = static_cast<KIO::ListJob *>(job)->url();
+  KUrl url = static_cast<KIO::ListJob *>(job)->url();
   url.adjustPath(-1);
   // avoid creating these QStrings again and again
   static const QString& dot = KGlobal::staticQString(".");
@@ -311,7 +311,7 @@ void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsLis
 
   KIO::UDSEntryListConstIterator it = udsList.begin();
   KIO::UDSEntryListConstIterator end = udsList.end();
-  KURL itemURL;
+  KUrl itemURL;
   for ( ; it != end; ++it )
   {
     QString name;

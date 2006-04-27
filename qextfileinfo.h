@@ -29,37 +29,37 @@ public:
   ~QExtFileInfo() {};
 
   /** create to ralative short name */
-  static KURL toRelative(const KURL& urlToConvert,const KURL& baseURL);
+  static KUrl toRelative(const KUrl& urlToConvert,const KUrl& baseURL);
   /** convert relative filename to absolute */
-  static KURL toAbsolute(const KURL& urlToConvert,const KURL& baseURL);
+  static KUrl toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL);
   /** recurse function for all files in dir */
-  static KURL::List allFiles( const KURL& path, const QString &mask);
-  static KURL::List allFilesRelative( const KURL& path, const QString &mask);
+  static KUrl::List allFiles( const KUrl& path, const QString &mask);
+  static KUrl::List allFilesRelative( const KUrl& path, const QString &mask);
   /** create dir if don't exists */
-  static bool createDir(const KURL & path );
-  static KURL cdUp(const KURL &dir);
+  static bool createDir(const KUrl & path );
+  static KUrl cdUp(const KUrl &dir);
   static QString shortName(const QString &fname );
-  static KURL path(const KURL &);
-  static KURL home();
-  static bool exists(const KURL& url);
-  static bool copy( const KURL& src, const KURL& dest, int permissions=-1,
+  static KUrl path(const KUrl &);
+  static KUrl home();
+  static bool exists(const KUrl& url);
+  static bool copy( const KUrl& src, const KUrl& dest, int permissions=-1,
                     bool overwrite=false, bool resume=false, QWidget* window = 0L );
 
   void enter_loop();
 
 private:
-  bool internalExists(const KURL& url);
-  bool internalCopy(const KURL& src, const KURL& target, int permissions,
+  bool internalExists(const KUrl& url);
+  bool internalCopy(const KUrl& src, const KUrl& target, int permissions,
                     bool overwrite, bool resume, QWidget* window);
 
   bool bJobOK;
   static QString lastErrorMsg;
   KIO::UDSEntry m_entry;
-  KURL::List dirListItems;
+  KUrl::List dirListItems;
   Q3PtrList<QRegExp> lstFilters;
 
   /** No descriptions */
-  KURL::List allFilesInternal(const KURL& startURL, const QString& mask);
+  KUrl::List allFilesInternal(const KUrl& startURL, const QString& mask);
 
 //  friend class I_like_this_class;
 

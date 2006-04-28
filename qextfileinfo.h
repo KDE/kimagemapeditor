@@ -64,7 +64,7 @@ private:
 //  friend class I_like_this_class;
 
 private slots:
-   void slotResult( KIO::Job * job );
+   void slotResult( KJob * job );
    void slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsList);
 public slots: // Public slots
   /** Timeout occured while waiting for some network function to return. */

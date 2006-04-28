@@ -222,8 +222,8 @@ KUrl::List QExtFileInfo::allFilesInternal(const KUrl& startURL, const QString& m
     KIO::ListJob *job = KIO::listRecursive(startURL, false, true);
     connect(job, SIGNAL(entries(KIO::Job *, const KIO::UDSEntryList&)),
             this, SLOT(slotNewEntries(KIO::Job *, const KIO::UDSEntryList&)));
-    connect( job, SIGNAL( result (KIO::Job *) ),
-             this, SLOT( slotResult (KIO::Job *) ) );
+    connect( job, SIGNAL( result (KJob *) ),
+             this, SLOT( slotResult (KJob *) ) );
 
  //   kDebug(24000) << "Now listing: " << startURL.url() << endl;
     enter_loop();
@@ -247,8 +247,8 @@ bool QExtFileInfo::internalExists(const KUrl& url)
   KIO::StatJob * job = KIO::stat( url, false);
   job->setDetails(0);
   job->setSide(false); //check the url for writing
-  connect( job, SIGNAL( result (KIO::Job *) ),
-           this, SLOT( slotResult (KIO::Job *) ) );
+  connect( job, SIGNAL( result (KJob *) ),
+           this, SLOT( slotResult (KJob *) ) );
 
   //To avoid lock-ups, start a timer.
   QTimer::singleShot(10*1000, this,SLOT(slotTimeout()));
@@ -266,8 +266,8 @@ bool QExtFileInfo::internalCopy(const KUrl& src, const KUrl& target, int permiss
   KIO::Scheduler::checkSlaveOnHold(true);
   KIO::Job * job = KIO::file_copy( src, target, permissions, overwrite, resume );
   job->setWindow (window);
-  connect( job, SIGNAL( result (KIO::Job *) ),
-           this, SLOT( slotResult (KIO::Job *) ) );
+  connect( job, SIGNAL( result (KJob *) ),
+           this, SLOT( slotResult (KJob *) ) );
 
   enter_loop();
   return bJobOK;
@@ -288,7 +288,7 @@ void QExtFileInfo::enter_loop()
   qt_leave_modal(&dummy);
 }
 
-void QExtFileInfo::slotResult( KIO::Job * job )
+void QExtFileInfo::slotResult( KJob * job )
 {
   bJobOK = !job->error();
   if ( !bJobOK )

@@ -19,7 +19,7 @@
 #define _AREALISTVIEW_H_
 
 #include <qwidget.h>
-#include <q3vbox.h>
+
 
 class K3ListView;
 class QPushButton;
@@ -30,7 +30,7 @@ class Area;
  * It shows all Areas of the current map.
  * Jan Schaefer
  **/
-class AreaListView : public Q3VBox
+class AreaListView : public KVBox
 {
   Q_OBJECT
 

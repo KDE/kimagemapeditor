@@ -18,13 +18,14 @@
 // QT
 #include <k3listview.h>
 #include <qpushbutton.h>
-#include <q3hbox.h>
+
 
 #include <qtooltip.h>
 
 // KDE
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kvbox.h>
 
 // local
 #include "kimearea.h"
@@ -32,7 +33,7 @@
 
 
 AreaListView::AreaListView(QWidget *parent, const char *name)
-  : Q3VBox(parent, name)
+  : KVBox(parent, name)
 {
   listView = new K3ListView(this);
   listView->addColumn(i18n("Areas"));
@@ -50,7 +51,7 @@ AreaListView::AreaListView(QWidget *parent, const char *name)
                                   "The maximum size of the preview images can be configured."));
   listView->setToolTip( i18n("A list of all areas"));
 
-  Q3HBox *hbox= new Q3HBox(this);
+  KHBox *hbox= new KHBox(this);
   upBtn= new QPushButton("",hbox);
   upBtn->setIconSet(SmallIconSet("up"));
 

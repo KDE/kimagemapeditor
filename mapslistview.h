@@ -18,7 +18,7 @@
 #ifndef _MAPSLISTVIEW_H_
 #define _MAPSLISTVIEW_H_
 
-#include <q3vbox.h>
+
 //Added by qt3to4:
 #include <Q3PtrList>
 
@@ -30,7 +30,7 @@ class K3ListView;
  * 
  * Jan Schaefer
  **/
-class MapsListView : public Q3VBox
+class MapsListView : public KVBox
 {
 Q_OBJECT
 public:

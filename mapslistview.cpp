@@ -23,10 +23,11 @@
 #include "mapslistview.h"
 //Added by qt3to4:
 #include <Q3PtrList>
+#include <kvbox.h>
 
 
 MapsListView::MapsListView(QWidget *parent, const char *name)
-: Q3VBox(parent, name) {
+: KVBox(parent, name) {
     _listView = new K3ListView(this);
     _listView->addColumn(i18n("Maps"));
     _listView->setFullWidth(true);

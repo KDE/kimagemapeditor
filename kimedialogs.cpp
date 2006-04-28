@@ -21,8 +21,8 @@
 #include <q3multilineedit.h>
 #include <qlayout.h>
 #include <qlabel.h>
-#include <q3hbox.h>
-#include <q3vbox.h>
+
+
 #include <qlineedit.h>
 #include <q3listbox.h>
 #include <q3table.h>
@@ -50,6 +50,7 @@
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include <kglobal.h>
+#include <kvbox.h>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -214,7 +215,7 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   coordsTable->resize(coordsTable->width(),100);
   layout->addWidget(coordsTable);
   layout->setStretchFactor(coordsTable,-1);
-  Q3HBox *hbox= new Q3HBox(this);
+  KHBox *hbox= new KHBox(this);
   QPushButton *addBtn=new QPushButton(i18n("Add"),hbox);
   connect( addBtn, SIGNAL(pressed()), this, SLOT(slotAddPoint()));
   QPushButton *removeBtn=new QPushButton(i18n("Remove"),hbox);
@@ -332,7 +333,7 @@ QWidget* AreaDialog::createGeneralPage()
   Q3GridLayout* layout = new Q3GridLayout(page,5,2,5,5);
 
 
-  Q3HBox *hbox= new Q3HBox(page);
+  KHBox *hbox= new KHBox(page);
   hrefEdit = new QLineEdit(area->attribute("href"),hbox);
   QPushButton *btn = new QPushButton("",hbox);
   btn->setPixmap(SmallIcon("fileopen"));
@@ -396,7 +397,7 @@ QWidget* AreaDialog::createJavascriptPage()
 
 QWidget* AreaDialog::createButtonBar()
 {
-  Q3HBox *box = new Q3HBox(this);
+  KHBox *box = new KHBox(this);
   QWidget *spacer = new QWidget(box);
   QPushButton *okBtn = new KPushButton(KStdGuiItem::ok(),box);
   QPushButton *applyBtn = new KPushButton(KStdGuiItem::apply(),box);
@@ -757,11 +758,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   : KDialogBase(parent,"",true,i18n("Preferences"),Ok|Apply|Cancel,Ok,true)
 {
   config = conf;
-  Q3VBox *page=new Q3VBox(this);
+  KVBox *page=new KVBox(this);
   page->setSpacing(6);
   setMainWidget(page);
 
-  Q3HBox *hbox= new Q3HBox(page);
+  KHBox *hbox= new KHBox(page);
 
   QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+" ",hbox);
   rowHeightSpinBox = new QSpinBox(hbox);
@@ -775,7 +776,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   config->setGroup("General");
 
-  hbox= new Q3HBox(page);
+  hbox= new KHBox(page);
   lbl = new QLabel(i18n("&Undo limit:")+" ",hbox);
   undoSpinBox = new QSpinBox(hbox);
   undoSpinBox->setFixedWidth(60);
@@ -785,7 +786,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   undoSpinBox->setMinValue(1);
   undoSpinBox->setValue(config->readNumEntry("undo-level",20));
 
-  hbox= new Q3HBox(page);
+  hbox= new KHBox(page);
   lbl = new QLabel(i18n("&Redo limit:")+" ",hbox);
 
   redoSpinBox = new QSpinBox(hbox);

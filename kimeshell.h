@@ -18,11 +18,11 @@
 #ifndef KIMESHELL_H
 #define KIMESHELL_H
 
-#include <kparts/dockmainwindow.h>
+#include <dockmainwindow3.h>
 
 class KImageMapEditor;
 
-class KimeShell : public KParts::DockMainWindow
+class KimeShell : public KParts::DockMainWindow3
 {
   Q_OBJECT
 

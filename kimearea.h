@@ -26,7 +26,7 @@
 #include <Q3PointArray>
 #include <klocale.h>
 #include <qmap.h>
-
+#include <QMapConstIterator>
 #include "kdeversion.h"
 
 class QPainter;

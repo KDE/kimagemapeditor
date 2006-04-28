@@ -29,8 +29,9 @@
 #include <kapplication.h>
 #include <kdebug.h>
 
-#include <q3hbox.h>
+#include <khbox.h>
 #include <kglobal.h>
+#include <ktoolbar.h>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
@@ -38,7 +39,7 @@
 #include "kimeshell.moc"
 
 KimeShell::KimeShell(const char *name )
-  : KParts::DockMainWindow( 0L, name )
+  : KParts::DockMainWindow3( 0L, name )
 {
 	setXMLFile("kimagemapeditorui.rc");
 

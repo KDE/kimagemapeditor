@@ -813,7 +813,7 @@ void DrawZone::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 
   QPainter p2(&doubleBuffer);
 	p2.drawPixmap(0,0,zoomedImage,clipx,clipy,clipw,cliph);
-	p2.setBackgroundColor(p->backgroundColor());
+	p2.setBackground(p->background());
 
 	if (zoomedImage.width() < (clipw+clipx) ) {
 		int eraseWidth = clipw+clipx - zoomedImage.width();
@@ -873,12 +873,11 @@ void DrawZone::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 }
 
 void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
-  if (!KURLDrag::canDecode(e))
+  KUrl::List uris = KUrl::List::fromMimeData( e->mimeData() );
+
+  if ( uris.isEmpty() )
     return;
 
-//   bool accept = false;
-  KUrl::List uris;
-  KURLDrag::decode(e,uris);
   KMimeType::Ptr ptr = KMimeType::findByURL(uris.first());
 //  kDebug() << "***** " << ptr.data()->name() << endl;
   if ((ptr.data()->name() == "text/html")
@@ -893,9 +892,9 @@ void DrawZone::contentsDropEvent( QDropEvent* e) {
 
 
 void DrawZone::viewportDropEvent( QDropEvent* e) {
-	KUrl::List urlList;
-	// A file from konqueror was dropped
-	if (KURLDrag::decode(e,urlList)) {
+  KUrl::List urlList = KUrl::List::fromMimeData( e->mimeData() );
+  // A file from konqueror was dropped
+	if (!urlList.isEmpty()) {
 		imageMapEditor->openFile(urlList.first());
 	}
 }

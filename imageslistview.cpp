@@ -17,17 +17,17 @@
 
 // QT
 #include <q3ptrlist.h>
- 
- 
+
+
 // KDE
-#include <klocale.h> 
+#include <klocale.h>
 #include <kdebug.h>
 
-// locale 
+// locale
 #include "imageslistview.h"
 
-ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag) 
-  : Q3ListViewItem(parent) 
+ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag)
+  : Q3ListViewItem(parent)
 {
     _imageTag = tag;
     update();
@@ -43,7 +43,7 @@ void ImagesListViewItem::update() {
       usemap=*_imageTag->find("usemap");
 
     setText(0,src);
-    setText(1,usemap); 
+    setText(1,usemap);
 }
 
 ImageTag* ImagesListViewItem::imageTag() {
@@ -51,15 +51,15 @@ ImageTag* ImagesListViewItem::imageTag() {
 }
 
 
-ImagesListView::ImagesListView(QWidget *parent, const char *name)
-  : K3ListView(parent, name)
+ImagesListView::ImagesListView(QWidget *parent)
+  : K3ListView(parent)
 {
   addColumn(i18n("Images"));
   addColumn(i18n("Usemap"));
   //addColumn(i18n("Preview"));
   setFullWidth(true);
-  
-  
+
+
   connect( this, SIGNAL( selectionChanged(Q3ListViewItem*)),
            this, SLOT( slotSelectionChanged(Q3ListViewItem*)));
 }
@@ -107,30 +107,30 @@ void ImagesListView::updateImage(ImageTag* tag) {
     item->update();
   else {
     kDebug() << "ImageListView::updateImage: ListViewItem was not found !" << endl;
-  }     
+  }
 }
 
 ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
-  
+
   kDebug() << "ImageListView::findListViewItem: start searching ... " << endl;
 
   for (Q3ListViewItem* item = firstChild(); item ; item = item->nextSibling()) {
      ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
      if (imageItem->imageTag() == tag) {
         kDebug() << "ImageListView::findListViewItem: found it " << endl;
-     
+
         return imageItem;
-     }        
-  } 
-  
+     }
+  }
+
   kDebug() << "ImageListView::findListViewItem: found nothing " << endl;
   return 0L;
-  
+
 }
 
 void ImagesListView::slotSelectionChanged(Q3ListViewItem* item) {
   QString src = item->text(0);
-  
+
   emit imageSelected(KUrl(_baseUrl,src));
 }
 
@@ -140,10 +140,10 @@ ImageTag* ImagesListView::selectedImage() {
      kDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
      return 0L;
   }
-  
+
   return item->imageTag();
-     
-  
+
+
 }
 
 void ImagesListView::selectImage(ImageTag* tag) {

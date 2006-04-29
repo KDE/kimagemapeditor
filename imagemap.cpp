@@ -44,7 +44,7 @@ ImageMap::ImageMap(QWidget *parent,KImageMapEditor* _imageMapEditor)
 	_zoom=1;
 	viewport()->setMouseTracking(true);
 
-	
+
 }
 
 ImageMap::~ImageMap(){
@@ -104,7 +104,7 @@ void ImageMap::contentsMouseDoubleClickEvent(QMouseEvent* e) {
 	if ( currentAction==None &&
 		(currentArea=imageMapEditor->onArea(point)))
 		imageMapEditor->showTagEditor(currentArea);
-		
+
 }
 
 void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
@@ -119,15 +119,15 @@ void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
 		if (drawStart.y()>imageRect.bottom())
 			drawStart.setY(imageRect.bottom());
 		if (drawStart.y()<imageRect.top())
-			drawStart.setY(imageRect.top());		
+			drawStart.setY(imageRect.top());
 	}
-	
+
 	// Translate it to picture coordinates
 	drawStart-=imageRect.topLeft();
 	drawStart=translateFromZoom(drawStart);
 	if (currentArea)
 		oldArea=new Area(*currentArea);
-		
+
 	if ( currentAction==None ) {
 		if (e->button()==Qt::RightButton) {
 			currentArea=imageMapEditor->onArea(drawStart);
@@ -156,7 +156,7 @@ void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
   					currentAction=DrawPolygon;
       			currentArea->addCoord(drawStart);
       			currentSelectionPoint=currentArea->selectionPoints()->last();
-  					
+
 					break;
 				default: break;
 			}
@@ -168,22 +168,22 @@ void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
   	}
 	} else
 	if ( currentAction==DrawPolygon) {
-		
+
 	}
-	
+
 	QRect r;
 	if (oldArea)
-		r=oldArea->selectionRect();		
+		r=oldArea->selectionRect();
 	if (currentArea) {
 		r= r | currentArea->selectionRect();
 		repaintContents(translateToZoom(r),false);
 	}
-	
+
 }
 
 void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
 	drawEnd=e->pos();
-	
+
 	// Check if it's on picture if not
 	// move it to the picture's border
 	if (!imageRect.contains(drawEnd)) {
@@ -194,12 +194,12 @@ void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
 		if (drawEnd.y()>imageRect.bottom())
 			drawEnd.setY(imageRect.bottom());
 		if (drawEnd.y()<imageRect.top())
-			drawEnd.setY(imageRect.top());		
+			drawEnd.setY(imageRect.top());
 	}
 	// Translate it to picture coordinates
 	drawEnd-=imageRect.topLeft();
 	drawEnd=translateFromZoom(drawEnd);
-	
+
 	if (currentAction==DrawCircle || currentAction==DrawRectangle) {
    		imageMapEditor->addArea(currentArea);
    		imageMapEditor->select(currentArea);
@@ -222,7 +222,7 @@ void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
    		currentArea->addCoord(drawEnd);
    		currentSelectionPoint=currentArea->selectionPoints()->last();
    	}
-	
+
 //			currentArea->addCoord(drawEnd);
 //			currentSelectionPoint=currentArea->selectionPoints()->last();
 	} else
@@ -244,7 +244,7 @@ void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
 
 void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
 		drawCurrent=e->pos();
-		
+
 		// If outside the image
 		// set it to the border
 		if (!imageRect.contains(drawCurrent)) {
@@ -255,13 +255,13 @@ void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
   		if (drawCurrent.y()>imageRect.bottom())
   			drawCurrent.setY(imageRect.bottom());
   		if (drawCurrent.y()<imageRect.top())
-  			drawCurrent.setY(imageRect.top());		
+  			drawCurrent.setY(imageRect.top());
 		}
-		
+
 		// Translate to image coordinates
 		drawCurrent-=imageRect.topLeft();
 		drawCurrent=translateFromZoom(drawCurrent);
-		
+
 		if (currentAction==DrawRectangle) {
 			// To avoid flicker, only repaint the minimum rect
 			QRect oldRect=translateToZoom(currentArea->rect());
@@ -289,7 +289,7 @@ void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
 		} else
 		if ( currentAction==MoveArea ) {
 			QRect oldRect=translateToZoom(currentArea->selectionRect());
-			currentArea->moveBy((drawCurrent-drawStart).x(),(drawCurrent-drawStart).y());
+			currentArea->translate((drawCurrent-drawStart).x(),(drawCurrent-drawStart).y());
 			QRect newRect=translateToZoom(currentArea->selectionRect());
 			QRect r=oldRect | newRect;
 			repaintContents(r,false);
@@ -315,14 +315,14 @@ void ImageMap::resizeEvent(QResizeEvent* e) {
 		width=visibleWidth();
 	if (visibleHeight()>height)
 		height=visibleHeight();
-		
+
 	resizeContents(width,height);
-	
+
 	imageRect.setLeft(0);
 	imageRect.setTop(0);
 	imageRect.setHeight(image.height()*_zoom);
 	imageRect.setWidth(image.width()*_zoom);
-	
+
 }
 
 void ImageMap::repaintArea(const Area & a) {
@@ -339,7 +339,7 @@ void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 /*	if (currentAction==DrawRectangle) {
 		p->setClipping(true);
 		QRect r(currentArea->rect());
-		r.moveBy(imageRect.left()-5,imageRect.top()-5);
+		r.translate(imageRect.left()-5,imageRect.top()-5);
 		r.setSize(r.size()+QSize(10,10));
 		p->setClipRegion(r);
 	}
@@ -349,13 +349,13 @@ void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
   QPixmap doubleBuffer(updateRect.size());        // Pixmap for double-buffering
   QPainter p2(&doubleBuffer);
 	p2.drawPixmap(0,0,zoomedImage,clipx,clipy,clipw,cliph);
-	p2.translate(-updateRect.x(), -updateRect.y());		
+	p2.translate(-updateRect.x(), -updateRect.y());
 	p2.scale(_zoom,_zoom);
-	
+
 	AreaList *list=imageMapEditor->areaList();
 	for (Area* s=list->first();s != 0L; s=list->next())
 		s->draw(p2);
-	
+
 	// Draw the current drawing Area
 	if (currentAction != MoveArea &&
 			currentAction != MoveSelectionPoint &&
@@ -365,7 +365,7 @@ void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 	}
 
   p2.end();
-	
+
   // Copy the double buffer into the widget
   p->drawPixmap(clipx,clipy,doubleBuffer);
 	// Erase background without flicker
@@ -375,18 +375,18 @@ void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 		p->eraseRect(region.rects()[i]);
 	}
 
-	
+
 	// Draw our picture
 //	p->drawPixmap(imageRect.left(),imageRect.top(),zoomedImage);
-//		
-//	
+//
+//
 //	p->scale(_zoom,_zoom);
-//	p->translate(imageRect.left(),imageRect.top());		
-//	
+//	p->translate(imageRect.left(),imageRect.top());
+//
 //	AreaList *list=imageMapEditor->areaList();
 //	for (Area* s=list->first();s != 0L; s=list->next())
 //		s->draw(*p);
-//	
+//
 //	// Draw the current drawing Area
 //	if (currentAction != MoveArea &&
 //			currentAction != MoveSelectionPoint &&

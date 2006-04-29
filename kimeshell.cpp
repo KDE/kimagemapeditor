@@ -28,6 +28,7 @@
 #include <kstatusbar.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kxmlguifactory.h>
 
 #include <khbox.h>
 #include <kglobal.h>
@@ -45,16 +46,16 @@ KimeShell::KimeShell(const char *name )
 	setXMLFile("kimagemapeditorui.rc");
 
 
-  KDockWidget* mainDock;
+  K3DockWidget* mainDock;
   mainDock = createDockWidget( "MainDockWidget", 0L, 0L, "main_dock_widget");
   QWidget *w = new KHBox( mainDock );
 //  QLayout* layout = new QGridLayout( mainDock );
 
   mainDock->setWidget( w );
   // allow others to dock to the 4 sides
-  mainDock->setDockSite(KDockWidget::DockCorner);
+  mainDock->setDockSite(K3DockWidget::DockCorner);
   // forbit docking abilities of mainDock itself
-  mainDock->setEnableDocking(KDockWidget::DockNone);
+  mainDock->setEnableDocking(K3DockWidget::DockNone);
   setView( mainDock); // central widget in a KDE mainwindow
   setMainDockWidget( mainDock); // master dockwidget
   m_part = new KImageMapEditor( w, "kimagemapeditor", this, "kimagemapeditor");
@@ -94,7 +95,7 @@ KimeShell::~KimeShell()
 bool KimeShell::queryClose()
 {
 	if (_stdout) {
-		std::cout << m_part->getHtmlCode() << std::endl;
+//FIXME 		std::cout << m_part->getHtmlCode() << std::endl;
 	}
 
   return m_part->queryClose();
@@ -118,7 +119,7 @@ void KimeShell::setupActions()
 	(void)KStdAction::quit(this, SLOT(close()),actionCollection());
 
 
-	(void)KStdAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
+//FIXME	(void)KStdAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
   (void)KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
 	(void)KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
   (void)KStdAction::showStatusbar(this, SLOT(optionsShowStatusbar()), actionCollection());
@@ -152,7 +153,7 @@ void KimeShell::openFile(const KUrl & url)
 
 void KimeShell::openLastFile()
 {
-  if (m_part->config()->readBoolEntry("start-with-last-used-document",true))
+  if (m_part->config()->readEntry("start-with-last-used-document",true))
      m_part->openLastURL(m_part->config());
 }
 
@@ -249,15 +250,7 @@ void KimeShell::optionsConfigureKeys() {
 
 void KimeShell::optionsConfigureToolbars()
 {
-#if defined(KDE_MAKE_VERSION)
-# if KDE_VERSION >= KDE_MAKE_VERSION(3,1,0)
     saveMainWindowSettings(KGlobal::config(), autoSaveGroup());
-# else
-    saveMainWindowSettings(KGlobal::config() );
-# endif
-#else
-    saveMainWindowSettings(KGlobal::config() );
-#endif
 
     // use the standard toolbar editor
     KEditToolbar dlg(factory());
@@ -268,15 +261,7 @@ void KimeShell::optionsConfigureToolbars()
 
 void KimeShell::applyNewToolbarConfig()
 {
-#if defined(KDE_MAKE_VERSION)
-# if KDE_VERSION >= KDE_MAKE_VERSION(3,1,0)
     applyMainWindowSettings(KGlobal::config(), autoSaveGroup());
-# else
-    applyMainWindowSettings(KGlobal::config());
-# endif
-#else
-    applyMainWindowSettings(KGlobal::config());
-#endif
 }
 
 

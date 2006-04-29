@@ -32,14 +32,14 @@ class ImagesListViewItem : public Q3ListViewItem
   public:
     ImagesListViewItem(ImagesListView*, ImageTag*);
     ImageTag* imageTag();
-    
+
     /**
      * Re-reads the contents of the ImageTag and updates
      * itself accordingly
      */
     void update();
   protected:
-    ImageTag* _imageTag;    
+    ImageTag* _imageTag;
 };
 
 /**
@@ -51,29 +51,29 @@ class ImagesListView : public K3ListView
   Q_OBJECT
 
 public:
-  ImagesListView(QWidget *parent, const char *name);
+  ImagesListView(QWidget *parent);
   virtual ~ImagesListView();
-  
+
   /**
    * Adds an image
    */
   void addImage(ImageTag*);
-  
+
   /**
    * Adds images
    */
-  void addImages(Q3PtrList<ImageTag> *); 
-  
+  void addImages(Q3PtrList<ImageTag> *);
+
   /**
    * Removes the given image from the list
    */
   void removeImage(ImageTag*);
-  
-  /** 
+
+  /**
    * Updates the listview item with the given ImageTag
    */
   void updateImage(ImageTag*);
-  
+
   /**
    * Removes all images
    */
@@ -83,26 +83,26 @@ public:
    * Returns the filename of the current selected Image
    */
   ImageTag* selectedImage();
-  
+
   /**
-   * Selects the given image 
+   * Selects the given image
    */
   void selectImage(ImageTag*);
-  
+
   /**
    * Sets the base URL of all images
    */
   void setBaseUrl(const KUrl & url) { _baseUrl = url; };
-  
+
 protected slots:
-  void slotSelectionChanged(Q3ListViewItem*);  
-    
+  void slotSelectionChanged(Q3ListViewItem*);
+
 signals:
-  void imageSelected(const KUrl &);  
-  
+  void imageSelected(const KUrl &);
+
 protected:
-  KUrl _baseUrl;  
-  
+  KUrl _baseUrl;
+
   /**
    * Finds the first ImageListViewItem with the given ImageTag
    * Returns 0L if no item was found

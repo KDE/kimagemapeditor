@@ -23,14 +23,7 @@
 #include "drawzone.h"
 
 CutCommand::CutCommand(KImageMapEditor * document, const AreaSelection & a)
-  :
-
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
- (i18n( "Cut %1", a.typeString() ))
+  : KNamedCommand(i18n( "Cut %1", a.typeString() ))
 {
 	_document=document;
 	_cutAreaSelection=new AreaSelection();
@@ -78,13 +71,7 @@ DeleteCommand::DeleteCommand(KImageMapEditor * document, const AreaSelection & a
 }
 
 PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
- (i18n( "Paste %1", a.typeString() ))
+	: KNamedCommand(i18n( "Paste %1", a.typeString() ))
 {
 	_document=document;
 	_pasteAreaSelection=new AreaSelection();
@@ -123,13 +110,7 @@ void PasteCommand::unexecute()
 
 
 MoveCommand::MoveCommand (KImageMapEditor *document, AreaSelection * a, const QPoint & oldPoint)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
-(i18n( "Move %1", a->typeString() ))
+	: KNamedCommand(i18n( "Move %1", a->typeString() ))
 {
 	_document=document;
 	_areaSelection=new AreaSelection();
@@ -185,13 +166,7 @@ void MoveCommand::unexecute()
 
 
 ResizeCommand::ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
-(i18n( "Resize %1", a->typeString() ))
+	:KNamedCommand(i18n( "Resize %1", a->typeString() ))
 {
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
@@ -232,13 +207,7 @@ void ResizeCommand::unexecute()
 
 
 AddPointCommand::AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
-(i18n( "Add point to %1", a->typeString() ))
+	:KNamedCommand(i18n( "Add point to %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -281,13 +250,7 @@ void AddPointCommand::unexecute()
 }
 
 RemovePointCommand::RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
-(i18n( "Remove point from %1", a->typeString() ))
+	: KNamedCommand(i18n( "Remove point from %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -334,13 +297,7 @@ void RemovePointCommand::unexecute()
 
 
 CreateCommand::CreateCommand (KImageMapEditor *document, Area *area)
-	:
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
-(i18n( "Create %1", area->typeString() ))
+	: KNamedCommand(i18n( "Create %1", area->typeString() ))
 {
 	_document=document;
 	_area=area;

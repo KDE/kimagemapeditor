@@ -26,8 +26,8 @@
 #include <kvbox.h>
 
 
-MapsListView::MapsListView(QWidget *parent, const char *name)
-: KVBox(parent, name) {
+MapsListView::MapsListView(QWidget *parent)
+: KVBox(parent) {
     _listView = new K3ListView(this);
     _listView->addColumn(i18n("Maps"));
     _listView->setFullWidth(true);
@@ -142,13 +142,13 @@ bool MapsListView::nameAlreadyExists(const QString & name) {
 
 QStringList MapsListView::getMaps() {
     QStringList result;
-    
+
     Q3ListViewItem* item = 0L;
     for(item = _listView->firstChild(); item; item = item->nextSibling()) {
         QString map = item->text(0);
         result << map;
     }
-    
+
     return result;
 }
 
@@ -170,7 +170,7 @@ QString MapsListView::getUnusedMapName() {
     return result;
 }
 
-uint MapsListView::count() {
+int MapsListView::count() {
     return _listView->childCount();
 }
 

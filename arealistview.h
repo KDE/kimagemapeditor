@@ -35,13 +35,13 @@ class AreaListView : public KVBox
   Q_OBJECT
 
 public:
-  AreaListView(QWidget *parent, const char *name);
+  AreaListView(QWidget *parent);
   ~AreaListView();
-  
+
   K3ListView* listView;
 	QPushButton *upBtn;
 	QPushButton *downBtn;
-  
+
 };
 
 #endif

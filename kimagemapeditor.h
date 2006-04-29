@@ -111,12 +111,9 @@ class HtmlContent : public Q3PtrList<HtmlElement> {}
 
 
 class KSelectAction;
-class KRadioAction;
+class KAction;
 class KRecentFilesAction;
 class KAction;
-#if KDE_VERSION < 300
-  class KAccel;
-#endif
 ///class QListViewItem;
 class KCommandHistory;
 class KApplication;
@@ -124,8 +121,9 @@ class QTabWidget;
 class AreaListView;
 class ImagesListView;
 class MapsListView;
-class KDockWidget;
+class K3DockWidget;
 class KDockMainWindow;
+class KAboutData;
 
 // needed by the statusbar
 #define STATUS_CURSOR 1000
@@ -260,13 +258,13 @@ private:
     // Actions
     //
     KSelectAction* zoomAction;
-    KRadioAction *arrowAction;
-    KRadioAction *circleAction;
-    KRadioAction *rectangleAction;
-    KRadioAction *polygonAction;
-    KRadioAction *freehandAction;
-    KRadioAction *addPointAction;
-    KRadioAction *removePointAction;
+    KAction *arrowAction;
+    KAction *circleAction;
+    KAction *rectangleAction;
+    KAction *polygonAction;
+    KAction *freehandAction;
+    KAction *addPointAction;
+    KAction *removePointAction;
 
     KAction *cutAction;
     KAction *deleteAction;
@@ -311,14 +309,10 @@ private:
 
   	KRecentFilesAction* recentFilesAction;
 
-    #if KDE_VERSION < 300
-      KAccel *accel;
-    #endif
-
     KDockMainWindow *mainDock;
-    KDockWidget* areaDock;
-    KDockWidget* mapsDock;
-    KDockWidget* imagesDock;
+    K3DockWidget* areaDock;
+    K3DockWidget* mapsDock;
+    K3DockWidget* imagesDock;
 
     KCommandHistory *_commandHistory;
     int maxAreaPreviewHeight;

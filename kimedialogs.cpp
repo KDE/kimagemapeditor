@@ -80,8 +80,8 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   Q3GridLayout *layout= new Q3GridLayout(this,5,2,5,5);
 
   topXSpin = new QSpinBox(this);
-  topXSpin->setMaxValue(2000);
-  topXSpin->setMinValue(0);
+  topXSpin->setMaximum(2000);
+  topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
   layout->addWidget(topXSpin,0,1);
   connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -91,8 +91,8 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   topYSpin = new QSpinBox(this);
-  topYSpin->setMaxValue(2000);
-  topYSpin->setMinValue(0);
+  topYSpin->setMaximum(2000);
+  topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
   layout->addWidget(topYSpin,1,1);
   connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -102,8 +102,8 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,1,0);
 
   widthSpin = new QSpinBox(this);
-  widthSpin->setMaxValue(2000);
-  widthSpin->setMinValue(0);
+  widthSpin->setMaximum(2000);
+  widthSpin->setMinimum(0);
   widthSpin->setValue(a->rect().width());
   layout->addWidget(widthSpin,2,1);
   connect( widthSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -113,8 +113,8 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,2,0);
 
   heightSpin = new QSpinBox(this);
-  heightSpin->setMaxValue(2000);
-  heightSpin->setMinValue(0);
+  heightSpin->setMaximum(2000);
+  heightSpin->setMinimum(0);
   heightSpin->setValue(a->rect().height());
   layout->addWidget(heightSpin,3,1);
   connect( heightSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -141,8 +141,8 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   Q3GridLayout *layout= new Q3GridLayout(this,4,2,5,5);
 
   centerXSpin = new QSpinBox(this);
-  centerXSpin->setMaxValue(2000);
-  centerXSpin->setMinValue(0);
+  centerXSpin->setMaximum(2000);
+  centerXSpin->setMinimum(0);
   centerXSpin->setValue(a->rect().center().x());
   layout->addWidget(centerXSpin,0,1);
   connect( centerXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -152,8 +152,8 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   centerYSpin = new QSpinBox(this);
-  centerYSpin->setMaxValue(2000);
-  centerYSpin->setMinValue(0);
+  centerYSpin->setMaximum(2000);
+  centerYSpin->setMinimum(0);
   centerYSpin->setValue(a->rect().center().y());
   layout->addWidget(centerYSpin,1,1);
   connect( centerYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -164,8 +164,8 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,1,0);
 
   radiusSpin = new QSpinBox(this);
-  radiusSpin->setMaxValue(2000);
-  radiusSpin->setMinValue(0);
+  radiusSpin->setMaximum(2000);
+  radiusSpin->setMinimum(0);
   radiusSpin->setValue(a->rect().width()/2);
   layout->addWidget(radiusSpin,2,1);
   connect( radiusSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -288,8 +288,8 @@ SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   Q3GridLayout *layout= new Q3GridLayout(this,2,2);
 
   topXSpin = new QSpinBox(this);
-  topXSpin->setMaxValue(2000);
-  topXSpin->setMinValue(0);
+  topXSpin->setMaximum(2000);
+  topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
   layout->addWidget(topXSpin,0,1);
   connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -299,8 +299,8 @@ SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   topYSpin = new QSpinBox(this);
-  topYSpin->setMaxValue(2000);
-  topYSpin->setMinValue(0);
+  topYSpin->setMaximum(2000);
+  topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
   layout->addWidget(topYSpin,1,1);
   connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
@@ -618,7 +618,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   imagePreview->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
   imagePreview->setFrameStyle(QLabel::Panel | QLabel::Sunken);
   imagePreview->setIndent(5);
-  imagePreview->setBackgroundColor(QColor("white"));
+  imagePreview->setBackground(QBrush(QColor("white")));
 //	imagePreview->setLineWidth(2);
 //	imagePreview->setScaledContents(true);
 //	lbl= new QLabel(i18n("&Maps"),page);
@@ -769,10 +769,10 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   lbl->setBuddy(rowHeightSpinBox);
 
   config->setGroup("Appearance");
-  rowHeightSpinBox->setMaxValue(1000);
-  rowHeightSpinBox->setMinValue(15);
+  rowHeightSpinBox->setMaximum(1000);
+  rowHeightSpinBox->setMinimum(15);
   rowHeightSpinBox->setFixedWidth(60);
-  rowHeightSpinBox->setValue(config->readNumEntry("maximum-preview-height",50));
+  rowHeightSpinBox->setValue(config->readEntry("maximum-preview-height",50));
 
   config->setGroup("General");
 
@@ -782,22 +782,22 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   undoSpinBox->setFixedWidth(60);
   lbl->setBuddy(undoSpinBox);
 
-  undoSpinBox->setMaxValue(100);
-  undoSpinBox->setMinValue(1);
-  undoSpinBox->setValue(config->readNumEntry("undo-level",20));
+  undoSpinBox->setMaximum(100);
+  undoSpinBox->setMinimum(1);
+  undoSpinBox->setValue(config->readEntry("undo-level",20));
 
   hbox= new KHBox(page);
   lbl = new QLabel(i18n("&Redo limit:")+" ",hbox);
 
   redoSpinBox = new QSpinBox(hbox);
   redoSpinBox->setFixedWidth(60);
-  redoSpinBox->setMaxValue(100);
-  redoSpinBox->setMinValue(1);
-  redoSpinBox->setValue(config->readNumEntry("redo-level",20));
+  redoSpinBox->setMaximum(100);
+  redoSpinBox->setMinimum(1);
+  redoSpinBox->setValue(config->readEntry("redo-level",20));
   lbl->setBuddy(redoSpinBox);
 
   startWithCheck = new QCheckBox(i18n("&Start with last used document"),page);
-  startWithCheck->setChecked(config->readBoolEntry("start-with-last-used-document",true));
+  startWithCheck->setChecked(config->readEntry("start-with-last-used-document",true));
 
 /*
   hbox= new QHBox(page);
@@ -805,14 +805,14 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   colorizeAreaChk = new QCheckBox(hbox);
   colorizeAreaChk->setFixedWidth(60);
-  colorizeAreaChk->setChecked(KGlobal::config()->readBoolEntry("highlightareas",true));
+  colorizeAreaChk->setChecked(KGlobal::config()->readEntry("highlightareas",true));
 
   hbox= new QHBox(page);
   (void)new QLabel(i18n("Show alternative text")+" ",hbox);
 
   showAltChk = new QCheckBox(hbox);
   showAltChk->setFixedWidth(60);
-  showAltChk->setChecked(KGlobal::config()->readBoolEntry("showalt",true));
+  showAltChk->setChecked(KGlobal::config()->readEntry("showalt",true));
 */
 }
 

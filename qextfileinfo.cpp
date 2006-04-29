@@ -52,8 +52,8 @@ KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
       int pos1=0;
       for (;;)
       {
-        pos=path.find("/");
-        pos1=basePath.find("/");
+        pos=path.indexOf("/");
+        pos1=basePath.indexOf("/");
         if ( pos<0 || pos1<0 ) break;
         if ( path.left(pos+1 ) == basePath.left(pos1+1) )
         {
@@ -65,7 +65,7 @@ KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
       };
 
       if ( basePath == "/" ) basePath="";
-      int level = basePath.contains("/");
+      int level = basePath.count("/");
       for (int i=0; i<level; i++)
       {
         path="../"+path;
@@ -87,11 +87,11 @@ KUrl QExtFileInfo::toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL)
     int pos;
     QString cutname = urlToConvert.path();
     QString cutdir = baseURL.path(1);
-    while ( (pos = cutname.find("../")) >=0 )
+    while ( (pos = cutname.indexOf("../")) >=0 )
     {
        cutname.remove( 0, pos+3 );
        cutdir.remove( cutdir.length()-1, 1 );
-       cutdir.remove( cutdir.findRev('/')+1 , 1000);
+       cutdir.remove( cutdir.lastIndexOf('/')+1 , 1000);
     }
     resultURL.setPath(QDir::cleanPath(cutdir+cutname));
   }
@@ -214,9 +214,9 @@ KUrl::List QExtFileInfo::allFilesInternal(const KUrl& startURL, const QString& m
     lstFilters.setAutoDelete(true);
     lstFilters.clear();
     // Split on white space
-    QStringList list = QStringList::split( ' ', mask );
+    QStringList list = mask.split( ' ' );
     for ( QStringList::Iterator it = list.begin(); it != list.end(); ++it )
-       lstFilters.append( new QRegExp(*it, false, true ) );
+       lstFilters.append( new QRegExp(*it, Qt::CaseInsensitive, QRegExp::Wildcard) );
 
     bJobOK = true;
     KIO::ListJob *job = KIO::listRecursive(startURL, false, true);
@@ -279,13 +279,15 @@ void qt_leave_modal( QWidget *widget );
 
 void QExtFileInfo::enter_loop()
 {
-  QWidget dummy(0,0,Qt::WType_Dialog | Qt::WShowModal);
-  dummy.setFocusPolicy( Qt::NoFocus );
-  qt_enter_modal(&dummy);
+  QWidget *dummy = new QWidget();
+  dummy->setWindowFlags(Qt::WType_Dialog | Qt::WShowModal);
+  dummy->setFocusPolicy( Qt::NoFocus );
+  qt_enter_modal(dummy);
 //  kDebug(24000)<<"QExtFileInfo::enter_loop:before qApp->enter_loop()"<<endl;
   qApp->enter_loop();
 //  kDebug(24000)<<"QExtFileInfo::enter_loop:after qApp->enter_loop()"<<endl;
-  qt_leave_modal(&dummy);
+  qt_leave_modal(dummy);
+  delete dummy;
 }
 
 void QExtFileInfo::slotResult( KJob * job )
@@ -293,10 +295,10 @@ void QExtFileInfo::slotResult( KJob * job )
   bJobOK = !job->error();
   if ( !bJobOK )
   {
-    if ( !lastErrorMsg )
+    if ( lastErrorMsg.isEmpty() )
      lastErrorMsg = job->errorString();
   }
-  if ( job->isA("KIO::StatJob") )
+  if ( job->metaObject()->className()=="KIO::StatJob" )
     m_entry = static_cast<KIO::StatJob *>(job)->statResult();
   qApp->exit_loop();
 }
@@ -309,21 +311,12 @@ void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsLis
   static const QString& dot = KGlobal::staticQString(".");
   static const QString& dotdot = KGlobal::staticQString("..");
 
-  KIO::UDSEntryListConstIterator it = udsList.begin();
-  KIO::UDSEntryListConstIterator end = udsList.end();
+  KIO::UDSEntryList::ConstIterator it = udsList.begin();
+  KIO::UDSEntryList::ConstIterator end = udsList.end();
   KUrl itemURL;
   for ( ; it != end; ++it )
   {
-    QString name;
-
-    // find out about the name
-    KIO::UDSEntry::ConstIterator entit = (*it).begin();
-    for( ; entit != (*it).end(); ++entit )
-      if ( (*entit).m_uds == KIO::UDS_NAME )
-      {
-        name = (*entit).m_str;
-        break;
-      }
+    QString name = (*it).stringValue(KIO::UDS_NAME);
 
     if ( ! name.isEmpty() && name != dot && name != dotdot)
     {

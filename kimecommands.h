@@ -28,13 +28,7 @@ class AreaSelection;
 
 
 
-class CutCommand : public
-
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class CutCommand : public KNamedCommand
 
 {
 	public:
@@ -60,12 +54,7 @@ class DeleteCommand : public CutCommand
  	 DeleteCommand (KImageMapEditor * document, const AreaSelection & selection);
 };
 
-class PasteCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class PasteCommand : public KNamedCommand
 {
 	public:
   	PasteCommand (KImageMapEditor * document, const AreaSelection & selection);
@@ -82,12 +71,7 @@ KNamedCommand
 
 };
 
-class MoveCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class MoveCommand : public KNamedCommand
 {
 	public:
   	MoveCommand (KImageMapEditor *document, AreaSelection *a,const QPoint & oldPoint);
@@ -99,18 +83,13 @@ KNamedCommand
   protected:
 		QPoint _newPoint;
 		QPoint _oldPoint;
-		
+
 		KImageMapEditor* _document;
   	AreaSelection *_areaSelection;
 //-		Area *_oldArea;
 };
 
-class ResizeCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class ResizeCommand : public KNamedCommand
 {
 	public:
   	ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
@@ -120,19 +99,14 @@ KNamedCommand
   	virtual void unexecute();
 
   protected:
-		
+
 		KImageMapEditor* _document;
   	AreaSelection *_areaSelection;
 		Area *_oldArea;
 		Area *_newArea;
 };
 
-class AddPointCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class AddPointCommand : public KNamedCommand
 {
 	public:
   	AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p);
@@ -142,19 +116,14 @@ KNamedCommand
   	virtual void unexecute();
 
   protected:
-		
+
 		KImageMapEditor* _document;
   	AreaSelection *_areaSelection;
     QPoint _point;
     int _coordpos;
 };
 
-class RemovePointCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class RemovePointCommand : public KNamedCommand
 {
 	public:
   	RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
@@ -164,7 +133,7 @@ KNamedCommand
   	virtual void unexecute();
 
   protected:
-		
+
 		KImageMapEditor* _document;
   	AreaSelection *_areaSelection;
 		Area *_oldArea;
@@ -172,12 +141,7 @@ KNamedCommand
 };
 
 
-class CreateCommand : public
-#if KDE_VERSION < 300
-KCommand
-#else
-KNamedCommand
-#endif
+class CreateCommand : public KNamedCommand
 {
 	public:
   	CreateCommand (KImageMapEditor *document, Area *area);
@@ -187,7 +151,7 @@ KNamedCommand
   	virtual void unexecute();
 
   protected:
-			
+
 		KImageMapEditor* _document;
 		Area *_area;
 		bool _created;

@@ -32,8 +32,8 @@
 #include "arealistview.h"
 
 
-AreaListView::AreaListView(QWidget *parent, const char *name)
-  : KVBox(parent, name)
+AreaListView::AreaListView(QWidget *parent)
+  : KVBox(parent)
 {
   listView = new K3ListView(this);
   listView->addColumn(i18n("Areas"));
@@ -53,10 +53,10 @@ AreaListView::AreaListView(QWidget *parent, const char *name)
 
   KHBox *hbox= new KHBox(this);
   upBtn= new QPushButton("",hbox);
-  upBtn->setIconSet(SmallIconSet("up"));
+  upBtn->setIcon(SmallIcon("up"));
 
   downBtn= new QPushButton("",hbox);
-  downBtn->setIconSet(SmallIconSet("down"));
+  downBtn->setIcon(SmallIcon("down"));
 
 }
 

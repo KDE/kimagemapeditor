@@ -3,7 +3,7 @@ kde4_header()
 
 add_subdirectory( pics )
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES}  )
+
 
 set(libkimagemapeditorcommon_SRC
     qextfileinfo.cpp 

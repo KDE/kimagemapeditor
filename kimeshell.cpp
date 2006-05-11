@@ -29,6 +29,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kxmlguifactory.h>
+#include <kstdaction.h>
 
 #include <khbox.h>
 #include <kglobal.h>

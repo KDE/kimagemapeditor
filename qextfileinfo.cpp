@@ -41,7 +41,7 @@ KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
   if (urlToConvert.protocol() == baseURL.protocol())
   {
     QString path = urlToConvert.path();
-    QString basePath = baseURL.path(1);
+    QString basePath = baseURL.path(KUrl::AddTrailingSlash);
     if (path.startsWith("/"))
     {
       path.remove(0, 1);
@@ -75,7 +75,7 @@ KUrl QExtFileInfo::toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
     resultURL.setPath(QDir::cleanPath(path));
   }
 
-  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(1);
+  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(KUrl::AddTrailingSlash);
   return resultURL;
 }
 /** convert relative filename to absolute */
@@ -86,7 +86,7 @@ KUrl QExtFileInfo::toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL)
   {
     int pos;
     QString cutname = urlToConvert.path();
-    QString cutdir = baseURL.path(1);
+    QString cutdir = baseURL.path(KUrl::AddTrailingSlash);
     while ( (pos = cutname.indexOf("../")) >=0 )
     {
        cutname.remove( 0, pos+3 );
@@ -96,7 +96,7 @@ KUrl QExtFileInfo::toAbsolute(const KUrl& urlToConvert,const KUrl& baseURL)
     resultURL.setPath(QDir::cleanPath(cutdir+cutname));
   }
 
-  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(1);
+  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(KUrl::AddTrailingSlash);
   return resultURL;
 }
 
@@ -153,7 +153,7 @@ bool QExtFileInfo::createDir( const KUrl& path )
 KUrl QExtFileInfo::cdUp(const KUrl &url)
 {
   KUrl u = url;
-  QString dir = u.path(-1);
+  QString dir = u.path(KUrl::RemoveTrailingSlash);
   while ( !dir.isEmpty() && dir.right(1) != "/" )
   {
     dir.remove( dir.length()-1,1);
@@ -169,7 +169,7 @@ QString QExtFileInfo::shortName(const QString &fname)
 
 KUrl QExtFileInfo::path( const KUrl &url )
 {
-  return KUrl( url.directory(false,false) );
+  return KUrl( url.directory() );
 }
 
 KUrl QExtFileInfo::home()
@@ -306,7 +306,7 @@ void QExtFileInfo::slotResult( KJob * job )
 void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsList)
 {
   KUrl url = static_cast<KIO::ListJob *>(job)->url();
-  url.adjustPath(-1);
+  url.adjustPath(KUrl::RemoveTrailingSlash);
   // avoid creating these QStrings again and again
   static const QString& dot = KGlobal::staticQString(".");
   static const QString& dotdot = KGlobal::staticQString("..");
@@ -322,7 +322,7 @@ void QExtFileInfo::slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsLis
     {
       KFileItem* item = new KFileItem( *it, url, false, true );
       itemURL = item->url();
-      if (item->isDir()) itemURL.adjustPath(1);
+      if (item->isDir()) itemURL.adjustPath(KUrl::AddTrailingSlash);
       for ( Q3PtrListIterator<QRegExp> filterIt( lstFilters ); filterIt.current(); ++filterIt )
       if ( filterIt.current()->exactMatch( item->text() ) )
            dirListItems.append(itemURL);

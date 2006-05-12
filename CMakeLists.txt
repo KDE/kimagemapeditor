@@ -1,4 +1,3 @@
-kde4_header()
 
 
 add_subdirectory( pics )
@@ -57,7 +56,6 @@ install_files( ${XDG_APPS_DIR} FILES  kimagemapeditor.desktop )
 install_files( ${SERVICES_INSTALL_DIR} FILES  kimagemapeditorpart.desktop )
 install_files( ${DATA_INSTALL_DIR}/kimagemapeditor FILES  kimagemapeditorui.rc            kimagemapeditorpartui.rc )
 
-kde4_footer()
 
 
 

@@ -2237,7 +2237,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
 
   if (!backupFileCreated) {
     QString backupFile = url.path()+"~";
-    KIO::file_copy(url, KUrl::fromPathOrURL( backupFile ), -1, true, false, false);
+    KIO::file_copy(url, KUrl::fromPathOrUrl( backupFile ), -1, true, false, false);
     backupFileCreated = true;
   }
 

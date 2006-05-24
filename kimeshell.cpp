@@ -59,7 +59,7 @@ KimeShell::KimeShell(const char *name )
   mainDock->setEnableDocking(K3DockWidget::DockNone);
   setView( mainDock); // central widget in a KDE mainwindow
   setMainDockWidget( mainDock); // master dockwidget
-  m_part = new KImageMapEditor( w, "kimagemapeditor", this, "kimagemapeditor");
+  m_part = new KImageMapEditor( w, this);
 
 
 //	setCentralWidget( part->widget() );

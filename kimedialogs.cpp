@@ -417,7 +417,7 @@ QWidget* AreaDialog::createButtonBar()
 }
 
 AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
-  : KDialog(parent->widget(),"",true)
+  : KDialog(parent->widget())
 // : KDialogBase(Tabbed,i18n("Area Tag Editor"),Ok|Apply|Cancel,Ok,parent,"")
 //	: KDialogBase(parent,"",true,"Area Tag Editor",Ok|Apply|Cancel,Ok,true)
 {
@@ -618,7 +618,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   imagePreview->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
   imagePreview->setFrameStyle(QLabel::Panel | QLabel::Sunken);
   imagePreview->setIndent(5);
-  imagePreview->setBackground(QBrush(QColor("white")));
+  //imagePreview->setBackground(QBrush(QColor("white")));
 //	imagePreview->setLineWidth(2);
 //	imagePreview->setScaledContents(true);
 //	lbl= new QLabel(i18n("&Maps"),page);
@@ -852,7 +852,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & 
 
   KVBox *page = makeVBoxMainWidget();
 
-  htmlPart = new KHTMLPart(page,"htmlpart");
+  htmlPart = new KHTMLPart(page);
 //  htmlView = new KHTMLView(htmlPart, page);
 //  htmlView->setVScrollBarMode(QScrollView::Auto);
 //  htmlView->setHScrollBarMode(QScrollView::Auto);

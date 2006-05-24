@@ -60,7 +60,8 @@
 #include <kio/job.h>
 #include <kinputdialog.h>
 #include <kinputdialog.h>
-
+#include <ktoggleaction.h>
+#include <krecentfilesaction.h>
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
@@ -80,8 +81,8 @@
 typedef KParts::GenericFactory<KImageMapEditor> KimeFactory;
 K_EXPORT_COMPONENT_FACTORY( libkimagemapeditor , KimeFactory )
 
-KImageMapEditor::KImageMapEditor(QWidget *parentWidget, const char *,
-            QObject *parent, const char *name, const QStringList & )
+KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
+            QObject *parent, const QStringList & )
   : KParts::ReadWritePart(parent,name)
 {
   setInstance( KimeFactory::instance() );

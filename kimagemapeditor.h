@@ -134,8 +134,8 @@ class KImageMapEditor : public KParts::ReadWritePart {
 public :
     enum ToolType { Selection, Rectangle, Circle, Polygon, Freehand, AddPoint, RemovePoint };
 
-    KImageMapEditor(QWidget *parentWidget, const char *,
-                    QObject *parent, const char *name, const QStringList & args = QStringList());
+    KImageMapEditor(QWidget *parentWidget,
+                    QObject *parent, const QStringList & args = QStringList());
     virtual ~KImageMapEditor();
 
     static KAboutData *createAboutData();

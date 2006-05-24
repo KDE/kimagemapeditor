@@ -28,7 +28,7 @@
 
 // KDE
 #include <kdebug.h>
-#include <kurldrag.h>
+#include <k3urldrag.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>

@@ -19,7 +19,6 @@
 #define KIMEDIALOGS_H
 
 #include <kdialog.h>
-#include <kdialogbase.h>
 
 #include <kurl.h>
 #include "kimagemapeditor.h"
@@ -151,7 +150,7 @@ class Q3ListBox;
 class QLabel;
 
 
-class ImageMapChooseDialog : public KDialogBase {
+class ImageMapChooseDialog : public KDialog {
 Q_OBJECT
 	private:
 		Q3Table *imageListTable;
@@ -176,7 +175,7 @@ Q_OBJECT
 
 class KConfig;
 
-class PreferencesDialog : public KDialogBase {
+class PreferencesDialog : public KDialog {
 Q_OBJECT
 	public:
 		PreferencesDialog(QWidget *parent,KConfig*);
@@ -198,7 +197,7 @@ Q_OBJECT
 class KHTMLPart;
 class KTempFile;
 
-class HTMLPreviewDialog : public KDialogBase {
+class HTMLPreviewDialog : public KDialog{
   public:
     HTMLPreviewDialog(QWidget *, KUrl, const QString &);
     ~HTMLPreviewDialog();

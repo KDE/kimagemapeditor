@@ -576,8 +576,13 @@ void AreaDialog::slotUpdateArea() {
 }
 
 ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images,const KUrl & _baseUrl)
-  : KDialogBase(parent,"",true,i18n( "Choose Map & Image to Edit" ),Ok,Ok,true)
+  : KDialog(parent)
 {
+  setCaption(i18n( "Choose Map & Image to Edit" ));
+  setModal(true);
+  setButtons(Ok);
+  setDefaultButton(Ok);
+  enableButtonSeparator(true);
   baseUrl=_baseUrl;
   maps=_maps;
   images=_images;
@@ -755,9 +760,14 @@ void ImageMapChooseDialog::slotMapChanged(int i) {
 }
 
 PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
-  : KDialogBase(parent,"",true,i18n("Preferences"),Ok|Apply|Cancel,Ok,true)
+  : KDialog(parent)
 {
   config = conf;
+  setCaption(i18n("Preferences"));
+  setButtons(Ok|Apply|Cancel);
+  setDefaultButton(Ok);
+  setModal(true);
+  enableButtonSeparator(true);
   KVBox *page=new KVBox(this);
   page->setSpacing(6);
   setMainWidget(page);
@@ -842,15 +852,20 @@ void PreferencesDialog::slotApply( void ) {
 }
 
 HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & htmlCode)
-  : KDialogBase(parent, "", true, i18n("Preview"), KDialogBase::Ok)
+  : KDialog(parent)
 {
   tempFile = new KTempFile(url.directory(false), ".html");
+  setCaption(i18n("Preview"));
+  setButtons(Ok);
+  setDefaultButton(Ok);
+  setModal(true);
   tempFile->setAutoDelete(true);
   (*tempFile->textStream()) << htmlCode;
   kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->name() << endl;
   tempFile->close();
 
-  KVBox *page = makeVBoxMainWidget();
+  KVBox *page = new KVBox(this);
+  setMainWidget(page);
 
   htmlPart = new KHTMLPart(page);
 //  htmlView = new KHTMLView(htmlPart, page);
@@ -869,7 +884,7 @@ HTMLPreviewDialog::~HTMLPreviewDialog() {
 }
 
 void HTMLPreviewDialog::show() {
-  KDialogBase::show();
+  KDialog::show();
   htmlPart->openURL(KUrl( tempFile->name() ));
 //  htmlView->layout();
 //  htmlView->repaint();

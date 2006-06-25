@@ -1488,7 +1488,11 @@ void KImageMapEditor::mapEditName()
 
 void KImageMapEditor::mapShowHTML()
 {
-  KDialogBase *dialog= new KDialogBase(widget(),QString::null,true,i18n("HTML Code of Map"),KDialogBase::Ok);
+  KDialog *dialog= new KDialog(widget());
+  dialog->setModal(true);
+  dialog->setCaption(i18n("HTML Code of Map"));
+  dialog->setButtons(KDialog::Ok);
+  dialog->setDefaultButton(KDialog::Ok);
   Q3MultiLineEdit *edit = new Q3MultiLineEdit(dialog);
 
   edit->setText(getHtmlCode());

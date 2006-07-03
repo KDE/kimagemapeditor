@@ -582,7 +582,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   setModal(true);
   setButtons(Ok);
   setDefaultButton(Ok);
-  enableButtonSeparator(true);
+  showButtonSeparator(true);
   baseUrl=_baseUrl;
   maps=_maps;
   images=_images;
@@ -767,7 +767,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   setButtons(Ok|Apply|Cancel);
   setDefaultButton(Ok);
   setModal(true);
-  enableButtonSeparator(true);
+  showButtonSeparator(true);
   KVBox *page=new KVBox(this);
   page->setSpacing(6);
   setMainWidget(page);

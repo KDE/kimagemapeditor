@@ -28,7 +28,7 @@ kde4_add_executable(kimagemapeditor ${kimagemapeditor_SRCS})
 
 target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
 
-install_targets(/bin kimagemapeditor )
+install(TARGETS kimagemapeditor  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### next target ###############
@@ -44,7 +44,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kimagemapeditor )
 
 target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kimagemapeditor )
+install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -52,9 +52,9 @@ install_targets(${PLUGIN_INSTALL_DIR} kimagemapeditor )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES  kimagemapeditor.desktop )
-install_files( ${SERVICES_INSTALL_DIR} FILES  kimagemapeditorpart.desktop )
-install_files( ${DATA_INSTALL_DIR}/kimagemapeditor FILES  kimagemapeditorui.rc            kimagemapeditorpartui.rc )
+install( FILES  kimagemapeditor.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES  kimagemapeditorpart.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install( FILES  kimagemapeditorui.rc            kimagemapeditorpartui.rc  DESTINATION ${DATA_INSTALL_DIR}/kimagemapeditor)
 
 
 

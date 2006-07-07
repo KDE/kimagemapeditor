@@ -160,7 +160,7 @@ void KimeShell::openLastFile()
 
 void KimeShell::fileOpen()
 {
-  KUrl url=KFileDialog::getOpenURL(QString::null,
+  KUrl url=KFileDialog::getOpenUrl(KUrl(),
           "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + "\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + "\n"
           "*.htm *.html|" + i18n( "HTML Files" ) + "\n"

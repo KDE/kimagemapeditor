@@ -19,7 +19,6 @@
 #include <kaboutdata.h>
 #include <klocale.h>
 #include <kapplication.h>
-#include <dcopclient.h>
 
 #include "kimeshell.h"
 #include <config.h>
@@ -53,11 +52,9 @@ int main(int argc, char *argv[])
   KCmdLineArgs::init( argc, argv, &aboutData );
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
+
+
   KApplication a;
-  a.dcopClient()->registerAs(a.name());
-
-
-
   if (a.isSessionRestored())
   {
       RESTORE(KimeShell);

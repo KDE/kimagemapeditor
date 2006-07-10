@@ -265,7 +265,7 @@ bool QExtFileInfo::internalCopy(const KUrl& src, const KUrl& target, int permiss
 
   KIO::Scheduler::checkSlaveOnHold(true);
   KIO::Job * job = KIO::file_copy( src, target, permissions, overwrite, resume );
-  job->setWindow (window);
+  job->ui()->setWindow (window);
   connect( job, SIGNAL( result (KJob *) ),
            this, SLOT( slotResult (KJob *) ) );
 

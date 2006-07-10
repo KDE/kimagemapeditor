@@ -1531,7 +1531,7 @@ bool KImageMapEditor::openURL(const KUrl & url) {
 
 void KImageMapEditor::fileOpen() {
 
-  QString fileName = KFileDialog::getOpenFileName(QString::null,
+  QString fileName = KFileDialog::getOpenFileName(KUrl(),
           i18n("*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
           "*.htm *.html|HTML Files\n"

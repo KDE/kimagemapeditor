@@ -511,7 +511,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  KUrl url=KFileDialog::getOpenURL(QString::null, "*|" + i18n( "All Files" ), this, i18n("Choose File"));
+  KUrl url=KFileDialog::getOpenUrl(QString::null, "*|" + i18n( "All Files" ), this, i18n("Choose File"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }

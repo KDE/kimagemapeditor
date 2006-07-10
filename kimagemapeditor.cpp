@@ -1531,7 +1531,7 @@ bool KImageMapEditor::openURL(const KUrl & url) {
 
 void KImageMapEditor::fileOpen() {
 
-  QString fileName = KFileDialog::getOpenFileName(QString::null,
+  QString fileName = KFileDialog::getOpenFileName(KUrl(),
           i18n("*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
           "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
           "*.htm *.html|HTML Files\n"
@@ -1573,7 +1573,7 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KUrl url = KFileDialog::getSaveURL(0L,"*.htm *.html|" + i18n( "HTML File" ) +
+  KUrl url = KFileDialog::getSaveUrl(0L,"*.htm *.html|" + i18n( "HTML File" ) +
                                      "\n*.txt|" + i18n( "Text File" ) + "\n*|" + i18n( "All Files" ),widget());
   if (url.isEmpty() || !url.isValid()) {
     return;

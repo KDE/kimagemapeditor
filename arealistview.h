@@ -19,6 +19,7 @@
 #define _AREALISTVIEW_H_
 
 #include <qwidget.h>
+#include <kvbox.h>
 
 
 class K3ListView;

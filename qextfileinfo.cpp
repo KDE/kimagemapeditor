@@ -28,6 +28,7 @@
 #include <kfileitem.h>
 #include <kglobal.h>
 #include <kdebug.h>
+#include <kjobuidelegate.h>
 
 //app includes
 #include "qextfileinfo.h"

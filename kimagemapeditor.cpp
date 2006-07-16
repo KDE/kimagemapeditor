@@ -673,17 +673,14 @@ void KImageMapEditor::setupActions()
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
   if (areaDock) {
-    configureShowAreaListAction = new KToggleAction( i18n("Show Area List"), 0L, 0,
-                        this, SLOT(configureShowAreaList()),
-                        actionCollection(), "configure_show_arealist" );
+    configureShowAreaListAction = new KToggleAction(i18n("Show Area List"), actionCollection(), "configure_show_arealist" );
+    connect(configureShowAreaListAction, SIGNAL(triggered(bool)), SLOT(configureShowAreaList()));
 
-    configureShowMapListAction = new KToggleAction( i18n("Show Map List"), 0L, 0,
-                        this, SLOT(configureShowMapList()),
-                        actionCollection(), "configure_show_maplist" );
+    configureShowMapListAction = new KToggleAction(i18n("Show Map List"), actionCollection(), "configure_show_maplist" );
+    connect(configureShowMapListAction, SIGNAL(triggered(bool)), SLOT(configureShowMapList()));
 
-    configureShowImageListAction = new KToggleAction( i18n("Show Image List"), 0L, 0,
-                        this, SLOT(configureShowImageList()),
-                        actionCollection(), "configure_show_imagelist" );
+    configureShowImageListAction = new KToggleAction(i18n("Show Image List"), actionCollection(), "configure_show_imagelist" );
+    connect(configureShowImageListAction, SIGNAL(triggered(bool)), SLOT(configureShowImageList()));
     configureShowAreaListAction->setCheckedState(i18n("Hide Area List"));
     configureShowMapListAction->setCheckedState(i18n("Hide Map List"));
     configureShowImageListAction->setCheckedState(i18n("Hide Image List"));

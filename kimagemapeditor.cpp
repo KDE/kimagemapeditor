@@ -485,8 +485,8 @@ void KImageMapEditor::setupActions()
   _commandHistory = new KCommandHistory( actionCollection(), true);
 
   // Edit Properties
-  areaPropertiesAction= new KAction(i18n("Pr&operties"),0,this,SLOT(showTagEditor()),
-    actionCollection(), "edit_properties");
+  areaPropertiesAction = new KAction(i18n("Pr&operties"), actionCollection(), "edit_properties");
+  connect(areaPropertiesAction, SIGNAL(triggered(bool)), SLOT(showTagEditor()));
   areaPropertiesAction->setEnabled(false);
 
   // View Zoom In
@@ -520,42 +520,42 @@ void KImageMapEditor::setupActions()
       actionCollection(), "view_showalt");
   showAltAction->setCheckedState(i18n("Hide Alt Tag"));
 
-  mapNameAction= new KAction(i18n("Map &Name..."),0,this,SLOT(mapEditName()),
-    actionCollection(), "map_name");
+  mapNameAction = new KAction(i18n("Map &Name..."), actionCollection(), "map_name");
+  connect(mapNameAction, SIGNAL(triggered(bool)), SLOT(mapEditName()));
 
-  mapNewAction = new KAction(i18n("Ne&w Map..."),0,this,SLOT(mapNew()),
-    actionCollection(), "map_new");
+  mapNewAction = new KAction(i18n("Ne&w Map..."), actionCollection(), "map_new");
+  connect(mapNewAction, SIGNAL(triggered(bool)), SLOT(mapNew()));
   mapNewAction->setToolTip(i18n("Create a new map"));
 
-  mapDeleteAction = new KAction(i18n("D&elete Map"),0,this,SLOT(mapDelete()),
-    actionCollection(), "map_delete");
+  mapDeleteAction = new KAction(i18n("D&elete Map"), actionCollection(), "map_delete");
+  connect(mapDeleteAction, SIGNAL(triggered(bool)), SLOT(mapDelete()));
   mapDeleteAction->setToolTip(i18n("Delete the current active map"));
 
-  mapDefaultAreaAction = new KAction(i18n("Edit &Default Area..."),0,this,SLOT(mapDefaultArea()),
-    actionCollection(), "map_defaultarea");
+  mapDefaultAreaAction = new KAction(i18n("Edit &Default Area..."), actionCollection(), "map_defaultarea");
+  connect(mapDefaultAreaAction, SIGNAL(triggered(bool)), SLOT(mapDefaultArea()));
   mapDefaultAreaAction->setToolTip(i18n("Edit the default area of the current active map"));
 
-  temp = new KAction(i18n("&Preview"),0,this,SLOT(mapPreview()),
-    actionCollection(), "map_preview");
+  temp = new KAction(i18n("&Preview"), actionCollection(), "map_preview");
+  connect(temp, SIGNAL(triggered(bool)), SLOT(mapPreview()));
   temp->setToolTip(i18n("Show a preview"));
 
   // IMAGE
   i18n("&Image");
 
-  imageAddAction = new KAction(i18n("Add Image..."),0,this,SLOT(imageAdd()),
-    actionCollection(), "image_add");
+  imageAddAction = new KAction(i18n("Add Image..."), actionCollection(), "image_add");
+  connect(imageAddAction, SIGNAL(triggered(bool)), SLOT(imageAdd()));
   imageAddAction->setToolTip(i18n("Add a new image"));
 
-  imageRemoveAction = new KAction(i18n("Remove Image"),0,this,SLOT(imageRemove()),
-    actionCollection(), "image_remove");
+  imageRemoveAction = new KAction(i18n("Remove Image"), actionCollection(), "image_remove");
+  connect(imageRemoveAction, SIGNAL(triggered(bool)), SLOT(imageRemove()));
   imageRemoveAction->setToolTip(i18n("Remove the current visible image"));
 
-  imageUsemapAction = new KAction(i18n("Edit Usemap..."),0,this,SLOT(imageUsemap()),
-    actionCollection(), "image_usemap");
+  imageUsemapAction = new KAction(i18n("Edit Usemap..."), actionCollection(), "image_usemap");
+  connect(imageUsemapAction, SIGNAL(triggered(bool)), SLOT(imageUsemap()));
   imageUsemapAction->setToolTip(i18n("Edit the usemap tag of the current visible image"));
 
-  temp= new KAction(i18n("Show &HTML"),0,this,SLOT(mapShowHTML()),
-    actionCollection(), "map_showhtml");
+  temp = new KAction(i18n("Show &HTML"), actionCollection(), "map_showhtml");
+  connect(temp, SIGNAL(triggered(bool)), SLOT(mapShowHTML()));
 
 
   QActionGroup *drawingGroup = new QActionGroup(this);
@@ -616,38 +616,47 @@ void KImageMapEditor::setupActions()
                           "Click this to remove points from a polygon."));
   drawingGroup->addAction(removePointAction);
 
-  new KAction(i18n("Cancel Drawing"), Qt::Key_Escape, this, SLOT( slotCancelDrawing() ),
-                              actionCollection(), "canceldrawing" );
+  KAction *action = new KAction(i18n("Cancel Drawing"), actionCollection(), "canceldrawing" );
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
+  action->setShortcut(Qt::Key_Escape);
 
-  moveLeftAction = new KAction(i18n("Move Left"), Qt::Key_Left, this, SLOT( slotMoveLeft() ),
-                              actionCollection() , "moveleft" );
+  moveLeftAction = new KAction(i18n("Move Left"), actionCollection(), "moveleft" );
+  connect(moveLeftAction, SIGNAL(triggered(bool)), SLOT( slotMoveLeft() ));
+  moveLeftAction->setShortcut(Qt::Key_Left);
 
-  moveRightAction = new KAction(i18n("Move Right"), Qt::Key_Right, this, SLOT( slotMoveRight() ),
-                              actionCollection() , "moveright" );
+  moveRightAction = new KAction(i18n("Move Right"), actionCollection(), "moveright" );
+  connect(moveRightAction, SIGNAL(triggered(bool)), SLOT( slotMoveRight() ));
+  moveRightAction->setShortcut(Qt::Key_Right);
 
-  moveUpAction = new KAction(i18n("Move Up"), Qt::Key_Up, this, SLOT( slotMoveUp() ),
-                              actionCollection() , "moveup" );
+  moveUpAction = new KAction(i18n("Move Up"), actionCollection(), "moveup" );
+  connect(moveUpAction, SIGNAL(triggered(bool)), SLOT( slotMoveUp() ));
+  moveUpAction->setShortcut(Qt::Key_Up);
 
-  moveDownAction = new KAction(i18n("Move Down"), Qt::Key_Down, this, SLOT( slotMoveDown() ),
-                              actionCollection() , "movedown" );
+  moveDownAction = new KAction(i18n("Move Down"), actionCollection(), "movedown" );
+  connect(moveDownAction, SIGNAL(triggered(bool)), SLOT( slotMoveDown() ));
+  moveDownAction->setShortcut(Qt::Key_Down);
 
-  increaseWidthAction = new KAction(i18n("Increase Width"), Qt::Key_Right + Qt::SHIFT, this, SLOT( slotIncreaseWidth() ),
-                              actionCollection() , "increasewidth" );
+  increaseWidthAction = new KAction(i18n("Increase Width"), actionCollection(), "increasewidth" );
+  connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseWidth() ));
+  increaseWidthAction->setShortcut(Qt::Key_Right + Qt::SHIFT);
 
-  decreaseWidthAction = new KAction(i18n("Decrease Width"), Qt::Key_Left + Qt::SHIFT, this, SLOT( slotDecreaseWidth() ),
-                              actionCollection() , "decreasewidth" );
+  decreaseWidthAction = new KAction(i18n("Decrease Width"), actionCollection(), "decreasewidth" );
+  connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseWidth() ));
+  decreaseWidthAction->setShortcut(Qt::Key_Left + Qt::SHIFT);
 
-  increaseHeightAction = new KAction(i18n("Increase Height"), Qt::Key_Up + Qt::SHIFT, this, SLOT( slotIncreaseHeight() ),
-                              actionCollection() , "increaseheight" );
+  increaseHeightAction = new KAction(i18n("Increase Height"), actionCollection(), "increaseheight" );
+  connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseHeight() ));
+  increaseHeightAction->setShortcut(Qt::Key_Up + Qt::SHIFT);
 
-  decreaseHeightAction = new KAction(i18n("Decrease Height"), Qt::Key_Down + Qt::SHIFT, this, SLOT( slotDecreaseHeight() ),
-                              actionCollection() , "decreaseheight" );
+  decreaseHeightAction = new KAction(i18n("Decrease Height"), actionCollection(), "decreaseheight" );
+  connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseHeight() ));
+  decreaseHeightAction->setShortcut(Qt::Key_Down + Qt::SHIFT);
 
-  toFrontAction = new KAction(i18n("Bring to Front"), 0 , this, SLOT( slotToFront() ),
-                              actionCollection() , "tofront" );
+  toFrontAction = new KAction(i18n("Bring to Front"), actionCollection(), "tofront" );
+  connect(toFrontAction, SIGNAL(triggered(bool)), SLOT( slotToFront() ));
 
-  toBackAction  = new KAction(i18n("Send to Back"), 0 , this, SLOT( slotToBack() ),
-                              actionCollection() , "toback" );
+  toBackAction = new KAction(i18n("Send to Back"), actionCollection(), "toback" );
+  connect(toBackAction, SIGNAL(triggered(bool)), SLOT( slotToBack() ));
 
   forwardOneAction = new KAction(KIcon("raise"), i18n("Bring Forward One"), actionCollection(), "forwardone" );
   connect(forwardOneAction, SIGNAL(triggered(bool) ), SLOT( slotForwardOne() ));

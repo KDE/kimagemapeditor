@@ -473,8 +473,9 @@ void KImageMapEditor::setupActions()
 
 
   // Edit Delete
-  deleteAction=new KAction(i18n("&Delete"), "editdelete",
-              Qt::Key_Delete,this,SLOT (slotDelete()),actionCollection(), "edit_delete");
+  deleteAction = new KAction(KIcon("editdelete"), i18n("&Delete"), actionCollection(), "edit_delete");
+  connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
+  deleteAction->setShortcut(Qt::Key_Delete);
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("editdelete") );
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
@@ -559,7 +560,7 @@ void KImageMapEditor::setupActions()
 
   QActionGroup *drawingGroup = new QActionGroup(this);
   // Selection Tool
-  arrowAction=new KAction(SmallIcon("arrow"), i18n("&Selection"), actionCollection(), "tool_arrow");
+  arrowAction=new KAction(KIcon("arrow"), i18n("&Selection"), actionCollection(), "tool_arrow");
   connect(arrowAction, SIGNAL(triggered(bool)), SLOT (slotDrawArrow()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "arrowimage", SmallIcon("arrow") );
   arrowAction->setWhatsThis(i18n("<h3>Selection</h3>"
@@ -568,7 +569,7 @@ void KImageMapEditor::setupActions()
   arrowAction->setChecked(true);
 
   // Circle
-  circleAction=new KAction(SmallIcon( "circle"), i18n("&Circle"), actionCollection(), "tool_circle");
+  circleAction=new KAction(KIcon( "circle"), i18n("&Circle"), actionCollection(), "tool_circle");
   connect(circleAction, SIGNAL(triggered(bool)), SLOT(slotDrawCircle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "circleimage", SmallIcon("drawcircle") );
   circleAction->setWhatsThis(i18n("<h3>Circle</h3>"
@@ -576,7 +577,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(circleAction);
 
   // Rectangle
-  rectangleAction=new KAction(SmallIcon("rectangle"), i18n("&Rectangle"), actionCollection(), "tool_rectangle");
+  rectangleAction=new KAction(KIcon("rectangle"), i18n("&Rectangle"), actionCollection(), "tool_rectangle");
   connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawRectangle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "rectangleimage", SmallIcon("drawrectangle") );
   rectangleAction->setWhatsThis(i18n("<h3>Rectangle</h3>"
@@ -584,7 +585,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(rectangleAction);
 
   // Polygon
-  polygonAction=new KAction(SmallIcon("polygon"), i18n("&Polygon"), actionCollection(), "tool_polygon");
+  polygonAction=new KAction(KIcon("polygon"), i18n("&Polygon"), actionCollection(), "tool_polygon");
   connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "polygonimage", SmallIcon("drawpolygon") );
   polygonAction->setWhatsThis(i18n("<h3>Polygon</h3>"
@@ -592,7 +593,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(polygonAction);
 
   // Freehand
-  freehandAction=new KAction(SmallIcon("freehand"), i18n("&Freehand Polygon"), actionCollection(), "tool_freehand");
+  freehandAction=new KAction(KIcon("freehand"), i18n("&Freehand Polygon"), actionCollection(), "tool_freehand");
   connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "freehandimage", SmallIcon("freehand") );
   freehandAction->setWhatsThis(i18n("<h3>Freehandpolygon</h3>"
@@ -600,15 +601,15 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(freehandAction);
 
   // Add Point
-  addPointAction=new KAction(SmallIcon("addpoint"), i18n("&Add Point"), actionCollection(), "tool_addpoint");
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint());
+  addPointAction=new KAction(KIcon("addpoint"), i18n("&Add Point"), actionCollection(), "tool_addpoint");
+  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "addpointimage", SmallIcon("addpoint") );
   addPointAction->setWhatsThis(i18n("<h3>Add Point</h3>"
                           "Click this to add points to a polygon."));
   drawingGroup->addAction(addPointAction);
 
   // Remove Point
-  removePointAction=new KAction(SmallIcon("removepoint"), i18n("&Remove Point"), actionCollection(), "tool_removepoint");
+  removePointAction=new KAction(KIcon("removepoint"), i18n("&Remove Point"), actionCollection(), "tool_removepoint");
   connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawRemovePoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage", SmallIcon("removepoint") );
   removePointAction->setWhatsThis(i18n("<h3>Remove Point</h3>"
@@ -648,10 +649,10 @@ void KImageMapEditor::setupActions()
   toBackAction  = new KAction(i18n("Send to Back"), 0 , this, SLOT( slotToBack() ),
                               actionCollection() , "toback" );
 
-  forwardOneAction  = new KAction(i18n("Bring Forward One"), "raise" ,0, this, SLOT( slotForwardOne() ),
-                              actionCollection() , "forwardone" );
-  backOneAction = new KAction(i18n("Send Back One"), "lower" ,0, this, SLOT( slotBackOne() ),
-                              actionCollection() , "backone" );
+  forwardOneAction = new KAction(KIcon("raise"), i18n("Bring Forward One"), actionCollection(), "forwardone" );
+  connect(forwardOneAction, SIGNAL(triggered(bool) ), SLOT( slotForwardOne() ));
+  backOneAction = new KAction(KIcon("lower"), i18n("Send Back One"), actionCollection(), "backone" );
+  connect(backOneAction, SIGNAL(triggered(bool) ), SLOT( slotBackOne() ));
 
   forwardOneAction->plug(areaListView->upBtn);
   backOneAction->plug(areaListView->downBtn);
@@ -659,9 +660,8 @@ void KImageMapEditor::setupActions()
   connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(activate()));
   connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(activate()));
 
-  new KAction( i18n("Configure KImageMapEditor..."), "configure", 0,
-                        this, SLOT(slotShowPreferences()),
-                        actionCollection(), "configure_kimagemapeditor" );
+  KAction *action = new KAction(KIcon("configure"),  i18n("Configure KImageMapEditor..."), actionCollection(), "configure_kimagemapeditor" );
+  connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
   if (areaDock) {
     configureShowAreaListAction = new KToggleAction( i18n("Show Area List"), 0L, 0,

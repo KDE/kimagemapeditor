@@ -52,6 +52,7 @@
 #include <kapplication.h>
 #include <kkeydialog.h>
 #include <kedittoolbar.h>
+#include <kactioncollection.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>

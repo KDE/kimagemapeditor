@@ -24,6 +24,7 @@
 #include <kio/job.h>
 #include <kio/netaccess.h>
 #include <kio/scheduler.h>
+#inlucde <kio/jobuidelegate.h>
 #include <kdirlister.h>
 #include <kfileitem.h>
 #include <kglobal.h>

@@ -535,7 +535,7 @@ QPixmap Area::cutOut(const QImage & image)
 
 	// if transparent image fill the background
 	// with gimp-like rectangles
-	if (pix.mask()) {
+	if (!pix.mask().isNull()) {
   	QPixmap backPix(32,32);
 
   	// Gimp like transparent rectangle
@@ -543,7 +543,6 @@ QPixmap Area::cutOut(const QImage & image)
   	p2.fillRect(0,0,32,32,QColor(156,149,156));
   	p2.fillRect(0,16,16,16,QColor(98,105,98));
   	p2.fillRect(16,0,16,16,QColor(98,105,98));
-  	p2.flush();
 
   	p3.setPen(QPen());
   	p3.fillRect(0,0,pix.width(),pix.height(),QBrush(QColor("black"),backPix));
@@ -551,7 +550,6 @@ QPixmap Area::cutOut(const QImage & image)
 
 
 	p3.drawPixmap(QPoint(0,0),pix);
-	p3.flush();
 	p3.end();
 	retPix.setMask(mask);
 
@@ -821,7 +819,6 @@ QBitmap CircleArea::getMask() const
 	p.setPen(Qt::color1);
 	p.setBrush(Qt::color1);
 	p.drawPie(QRect(0,0,_rect.width(),_rect.height()),0,5760);
-	p.flush();
 	p.end();
 
 
@@ -1019,7 +1016,6 @@ QBitmap PolyArea::getMask() const
  	r.translate(-_rect.left(),-_rect.top());
  	p.setClipRegion(r);
  	p.fillRect(QRect(0,0,_rect.width(),_rect.height()),Qt::color1);
- 	p.flush();
 	p.end();
 
 	return mask;

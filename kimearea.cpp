@@ -317,7 +317,7 @@ void Area::drawHighlighting(QPainter & p)
 {
 	if (Area::highlightArea && !isMoving() && _highlightedPixmap)
 	{
-  	p.setRasterOp(Qt::CopyROP);
+    p.setCompositionMode(QPainter::CompositionMode_Source); 
 
   	QPoint point = QPoint(rect().x(),rect().y());
     if (point.x()<0)
@@ -354,12 +354,12 @@ void Area::drawAlt(QPainter & p)
 
   if (highlightArea)
   {
-    p.setRasterOp(Qt::CopyROP);
+    p.setCompositionMode(QPainter::CompositionMode_Source); 
     p.setPen(Qt::black);
   }
   else
   {
-    p.setRasterOp(Qt::XorROP);
+    p.setCompositionMode(QPainter::CompositionMode_Xor); 
   	p.setPen(QPen(QColor("white"),1));
 	}
 
@@ -390,15 +390,15 @@ void Area::draw(QPainter & p)
 			if (i==currentHighlighted) {
 				QRect r2(0,0,15,15);
 				r2.moveCenter(r->center()*scalex);
-				p.setRasterOp(Qt::CopyROP);
+        p.setCompositionMode(QPainter::CompositionMode_Source); 
 				p.setPen(QPen(QColor("lightgreen"),2));
 				p.drawEllipse(r2);
-				p.setRasterOp(Qt::XorROP);
+        p.setCompositionMode(QPainter::CompositionMode_Xor); 
 				p.setPen(QPen(QColor("white"),1));
 			}
 
 			// Draw the selection point
-			p.setRasterOp(Qt::XorROP);
+      p.setCompositionMode(QPainter::CompositionMode_Xor); 
 
 			QRect r3(*r);
       int d = 1;
@@ -433,7 +433,7 @@ void Area::draw(QPainter & p)
   {
      drawAlt(p);
    }
-  p.setRasterOp(Qt::XorROP);
+   p.setCompositionMode(QPainter::CompositionMode_Xor); 
 
 }
 
@@ -645,7 +645,7 @@ void RectArea::draw(QPainter & p)
 //	b.setColor(QColor(32,32,32));
 //	p.fillRect(rect(), b);
 
-	p.setRasterOp(Qt::XorROP);
+  p.setCompositionMode(QPainter::CompositionMode_Xor); 
 	p.setPen(QPen(QColor("white"),1));
   QRect r(rect());
   r.setWidth(r.width()+1);
@@ -800,7 +800,7 @@ void CircleArea::draw(QPainter & p)
 	p.drawChord(r,0,5760);
 	p.setBrush(bold);
 */
-  p.setRasterOp(Qt::XorROP);
+  p.setCompositionMode(QPainter::CompositionMode_Xor); 
   p.setPen(QPen(QColor("white"),1));
 
   QRect r(_rect);
@@ -983,7 +983,7 @@ void PolyArea::draw(QPainter & p)
 {
   drawHighlighting(p);
 
-	p.setRasterOp(Qt::XorROP);
+  p.setCompositionMode(QPainter::CompositionMode_Xor); 
 	p.setPen(QPen(QColor("white"),1));
  	if (_coords->count()==0) return;
 

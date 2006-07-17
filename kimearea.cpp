@@ -148,10 +148,10 @@ void Area::setArea(const Area & copy)
   _rect = copy.rect();
 
 	AttributeIterator it = copy.attributeIterator();
-	while (it.hasNext)
+	while (it.hasNext())
 	{
 	  it.next();
-    setAttribute(it.key(),it.value());
+          setAttribute(it.key(),it.value());
 	}
 
 	setMoving(copy.isMoving());
@@ -505,8 +505,8 @@ QPixmap Area::cutOut(const QImage & image)
 		partOfMask.setY(myabs(rect().y()));
 	}
 
-  QImage tempImage=mask.convertToImage().copy(partOfMask);
-	mask.convertFromImage(tempImage);
+        QImage tempImage=mask.toImage().copy(partOfMask);
+	mask = QPixmap::fromImage(tempImage);
 
 //  partOfImage = partOfImage.normalize();
 	QImage cut=image.copy(partOfImage);
@@ -526,7 +526,7 @@ QPixmap Area::cutOut(const QImage & image)
 	p4.end();
 */
 
-	pix.convertFromImage(cut);
+	pix = QPixmap::fromImage(cut);
 
 	setHighlightedPixmap(cut, mask);
 

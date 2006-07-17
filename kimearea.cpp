@@ -102,7 +102,7 @@ QString Area::attribute(const QString & name) const
 
 void Area::setAttribute(const QString & name, const QString & value)
 {
-  _attributes.replace(name.toLower(),value);
+  _attributes.insert(name.toLower(), value);
   if (value.isEmpty())
      _attributes.remove(name.toLower());
 }

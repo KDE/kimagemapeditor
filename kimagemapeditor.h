@@ -122,7 +122,7 @@ class AreaListView;
 class ImagesListView;
 class MapsListView;
 class K3DockWidget;
-class KDockMainWindow;
+class K3DockMainWindow;
 class KAboutData;
 
 // needed by the statusbar
@@ -309,7 +309,7 @@ private:
 
   	KRecentFilesAction* recentFilesAction;
 
-    KDockMainWindow *mainDock;
+    K3DockMainWindow *mainDock;
     K3DockWidget* areaDock;
     K3DockWidget* mapsDock;
     K3DockWidget* imagesDock;

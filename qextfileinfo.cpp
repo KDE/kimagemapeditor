@@ -275,21 +275,12 @@ bool QExtFileInfo::internalCopy(const KUrl& src, const KUrl& target, int permiss
   return bJobOK;
 }
 
-
-void qt_enter_modal( QWidget *widget );
-void qt_leave_modal( QWidget *widget );
-
 void QExtFileInfo::enter_loop()
 {
-  QWidget *dummy = new QWidget();
-  dummy->setWindowFlags(Qt::WType_Dialog | Qt::WShowModal);
-  dummy->setFocusPolicy( Qt::NoFocus );
-  qt_enter_modal(dummy);
-//  kDebug(24000)<<"QExtFileInfo::enter_loop:before qApp->enter_loop()"<<endl;
-  qApp->enter_loop();
-//  kDebug(24000)<<"QExtFileInfo::enter_loop:after qApp->enter_loop()"<<endl;
-  qt_leave_modal(dummy);
-  delete dummy;
+  QEventLoop eventLoop;
+  connect(this, SIGNAL(leaveModality()),
+          &eventLoop, SLOT(quit()));
+  eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
 void QExtFileInfo::slotResult( KJob * job )

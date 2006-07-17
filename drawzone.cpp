@@ -180,18 +180,16 @@ void DrawZone::setZoom(double z)
 	pix.convertFromImage(image);
 	// if the picture has transparent areas,
 	// fill them with Gimp like background
-	if (pix.mask()) {
+	if (!pix.mask().isNull()) {
   	QPixmap backPix(32,32);
   	QPainter p2(&backPix);
   	p2.fillRect(0,0,32,32,QColor(156,149,156));
   	p2.fillRect(0,16,16,16,QColor(98,105,98));
   	p2.fillRect(16,0,16,16,QColor(98,105,98));
-  	p2.flush();
   	p.setPen(QPen());
   	p.fillRect(imageRect.left(),imageRect.top(),imageRect.width(),imageRect.height(),QBrush(QColor("black"),backPix));
 	}
 	p.drawPixmap(imageRect.left(),imageRect.top(),pix);
-	p.flush();
 	resizeContents(visibleWidth()>imageRect.width() ? visibleWidth() : imageRect.width(),
 								 visibleHeight()>imageRect.height() ? visibleHeight() : imageRect.height());
 	repaintContents(0,0,contentsWidth(),contentsHeight(),true);
@@ -853,7 +851,7 @@ void DrawZone::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
 	if (currentAction == DoSelect )
   {
 		QPen pen = QPen(QColor("white"),1);
-		p2.setRasterOp(Qt::XorROP);
+    p2.setCompositionMode(QPainter::CompositionMode_Xor); 
 		pen.setStyle(Qt::DotLine);
 		p2.setPen(pen);
 

@@ -84,7 +84,7 @@ K_EXPORT_COMPONENT_FACTORY( libkimagemapeditor , KimeFactory )
 
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
             QObject *parent, const QStringList & )
-  : KParts::ReadWritePart(parent,name)
+  : KParts::ReadWritePart(parent)
 {
   setInstance( KimeFactory::instance() );
 
@@ -92,7 +92,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 
   // Test if the MainWindow can handle DockWindows, if so create DockWidgets
   // instead of a Splitter
-  mainDock = dynamic_cast<KDockMainWindow*>(parent) ;
+  mainDock = dynamic_cast<K3DockMainWindow*>(parent) ;
   QSplitter * splitter = 0L;
   tabWidget = 0L;
 
@@ -669,7 +669,7 @@ void KImageMapEditor::setupActions()
   connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(activate()));
   connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(activate()));
 
-  KAction *action = new KAction(KIcon("configure"),  i18n("Configure KImageMapEditor..."), actionCollection(), "configure_kimagemapeditor" );
+  action = new KAction(KIcon("configure"),  i18n("Configure KImageMapEditor..."), actionCollection(), "configure_kimagemapeditor" );
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
   if (areaDock) {
@@ -835,7 +835,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
     QFont font = QFontDatabase().font("Luxi Sans","Bold",fontSize);
     p.setFont( font );
-    p.setRasterOp(Qt::CopyROP);
+    p.setCompositionMode(QPainter::CompositionMode_Source);
     p.setPen(QPen(QColor(112,114,112),1));
 
     // The translated string must be divided into
@@ -2105,7 +2105,7 @@ void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
     Q3Dict<QString> *dict = new Q3Dict<QString>(17,false);
     dict->insert("shape",new QString("default"));
 
-    AttributeIterator it = a->attributeIterator();
+    AttributeIterator it = defaultArea->attributeIterator();
     while (it.hasNext())
     {
       it.next();

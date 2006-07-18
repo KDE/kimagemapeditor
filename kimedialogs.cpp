@@ -873,7 +873,8 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & 
 //  htmlView->setHScrollBarMode(QScrollView::Auto);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
-  QLabel* lbl = new QLabel(page,"urllabel");
+  QLabel* lbl = new QLabel( page );
+  lbl->setObjectName( "urllabel" );
 
   connect( htmlPart, SIGNAL( onURL(const QString&)), lbl, SLOT( setText(const QString&)));
 }

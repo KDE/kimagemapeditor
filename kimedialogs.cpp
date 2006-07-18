@@ -854,7 +854,7 @@ void PreferencesDialog::slotApply( void ) {
 HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & htmlCode)
   : KDialog(parent)
 {
-  tempFile = new KTempFile(url.directory(false), ".html");
+  tempFile = new KTempFile(url.directory(KUrl::AppendTrailingSlash), ".html");
   setCaption(i18n("Preview"));
   setButtons(Ok);
   setDefaultButton(Ok);

@@ -495,8 +495,8 @@ void KImageMapEditor::setupActions()
   zoomOutAction=KStdAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
 
   // View Zoom
-  zoomAction=new KSelectAction(i18n("Zoom"), 0,this,SLOT (slotZoom()),
-      actionCollection(), "view_zoom");
+  zoomAction = new KSelectAction(i18n("Zoom"), actionCollection(), "view_zoom");
+  connect(zoomAction, SIGNAL(triggered(bool)), SLOT (slotZoom()));
   zoomAction->setWhatsThis(i18n("<h3>Zoom</h3>"
                           "Choose the desired zoom level."));
   zoomAction->setItems(QStringList()

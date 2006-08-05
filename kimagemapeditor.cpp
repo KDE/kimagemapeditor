@@ -70,6 +70,7 @@
 #include "kimedialogs.h"
 #include "kimecommands.h"
 #include "qextfileinfo.h"
+#include <kicon.h>
 #include "areacreator.h"
 #include "arealistview.h"
 #include "imageslistview.h"

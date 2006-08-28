@@ -1534,7 +1534,7 @@ bool KImageMapEditor::openURL(const KUrl & url) {
     if (url.isLocalFile() &&
         ! QFile::exists(url.path()))
         return true;
-    return KParts::ReadOnlyPart::openURL(url);
+    return KParts::ReadOnlyPart::openUrl(url);
 }
 
 void KImageMapEditor::fileOpen() {
@@ -2621,7 +2621,7 @@ bool KImageMapEditor::queryClose() {
 
 bool KImageMapEditor::closeURL()
 {
-  bool result = KParts::ReadWritePart::closeURL();
+  bool result = KParts::ReadWritePart::closeUrl();
   if (!result)
      return false;
 

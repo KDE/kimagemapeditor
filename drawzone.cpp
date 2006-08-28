@@ -876,7 +876,7 @@ void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
   if ( uris.isEmpty() )
     return;
 
-  KMimeType::Ptr ptr = KMimeType::findByURL(uris.first());
+  KMimeType::Ptr ptr = KMimeType::findByUrl(uris.first());
 //  kDebug() << "***** " << ptr.data()->name() << endl;
   if ((ptr.data()->name() == "text/html")
       || (ptr.data()->name().left(6) == "image/"))

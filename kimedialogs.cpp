@@ -886,7 +886,7 @@ HTMLPreviewDialog::~HTMLPreviewDialog() {
 
 void HTMLPreviewDialog::show() {
   KDialog::show();
-  htmlPart->openURL(KUrl( tempFile->name() ));
+  htmlPart->openUrl(KUrl( tempFile->name() ));
 //  htmlView->layout();
 //  htmlView->repaint();
   resize(800,600);

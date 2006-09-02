@@ -2,7 +2,7 @@
                           mapslistview.h  -  description
                              -------------------
     begin                : Weg Feb 26 2003
-    copyright            : (C) 2003 by Jan Schäfer
+    copyright            : (C) 2003 by Jan SchÃ¤fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -35,7 +35,7 @@ class MapsListView : public KVBox
 {
 Q_OBJECT
 public:
-  MapsListView(QWidget *parent);
+  explicit MapsListView(QWidget *parent);
   ~MapsListView();
 
   /**

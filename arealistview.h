@@ -2,7 +2,7 @@
                           arealistview.h  -  description
                              -------------------
     begin                : Weg Feb 26 2003
-    copyright            : (C) 2003 by Jan Schäfer
+    copyright            : (C) 2003 by Jan SchÃ¤fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -36,7 +36,7 @@ class AreaListView : public KVBox
   Q_OBJECT
 
 public:
-  AreaListView(QWidget *parent);
+  explicit AreaListView(QWidget *parent);
   ~AreaListView();
 
   K3ListView* listView;

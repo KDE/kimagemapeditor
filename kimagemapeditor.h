@@ -2,7 +2,7 @@
                           imagemapeditor.h  -  description
                              -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan SchÃ?fer
+    copyright            : (C) 2001 by Jan SchÃÂ?fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -84,7 +84,7 @@ public:
 
 class HtmlMapElement : public HtmlElement {
 public:
-    HtmlMapElement(const QString & s) : HtmlElement(s) {
+    explicit HtmlMapElement(const QString & s) : HtmlElement(s) {
         mapTag = 0L;
     };
 
@@ -218,7 +218,7 @@ protected:
     void saveImageMap(const KUrl &);
 
     /**
-     * Returns a language dependend background picture, with
+     * Returns a language dependent background picture, with
      * the text : Drop an image or html file
      */
     QImage getBackgroundImage();
@@ -362,7 +362,7 @@ public slots:
 
 
 protected slots:
-    // overriden from KReadWritePart
+    // overridden from KReadWritePart
     virtual bool openFile();
 
     virtual bool saveFile() {

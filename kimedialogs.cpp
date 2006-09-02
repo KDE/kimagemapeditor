@@ -2,7 +2,7 @@
                           kimedialogs.cpp  -  description
                             -------------------
     begin                : Tue Apr 17 2001
-    copyright            : (C) 2001 by Jan Sch�er
+    copyright            : (C) 2001 by Jan SchÃ¯Â¿Â½er
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -774,7 +774,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   KHBox *hbox= new KHBox(page);
 
-  QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+" ",hbox);
+  QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+' ',hbox);
   rowHeightSpinBox = new QSpinBox(hbox);
   lbl->setBuddy(rowHeightSpinBox);
 
@@ -787,7 +787,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   config->setGroup("General");
 
   hbox= new KHBox(page);
-  lbl = new QLabel(i18n("&Undo limit:")+" ",hbox);
+  lbl = new QLabel(i18n("&Undo limit:")+' ',hbox);
   undoSpinBox = new QSpinBox(hbox);
   undoSpinBox->setFixedWidth(60);
   lbl->setBuddy(undoSpinBox);
@@ -797,7 +797,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   undoSpinBox->setValue(config->readEntry("undo-level",20));
 
   hbox= new KHBox(page);
-  lbl = new QLabel(i18n("&Redo limit:")+" ",hbox);
+  lbl = new QLabel(i18n("&Redo limit:")+' ',hbox);
 
   redoSpinBox = new QSpinBox(hbox);
   redoSpinBox->setFixedWidth(60);
@@ -851,7 +851,7 @@ void PreferencesDialog::slotApply( void ) {
   emit applyClicked();
 }
 
-HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, KUrl url, const QString & htmlCode)
+HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QString & htmlCode)
   : KDialog(parent)
 {
   tempFile = new KTempFile(url.directory(KUrl::AppendTrailingSlash), ".html");

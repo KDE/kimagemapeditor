@@ -2,7 +2,7 @@
                           imagemapeditor.cpp  -  description
                             -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan Sch�er
+    copyright            : (C) 2001 by Jan SchÃÂ¯ÃÂ¿ÃÂ½er
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -221,14 +221,14 @@ KImageMapEditor::~KImageMapEditor() {
 
 MapTag::MapTag() {
   modified = false;
-  name = QString::null;
+  name.clear();
 }
 
 void KImageMapEditor::init()
 {
   _htmlContent.clear();
-  _imageUrl = QString::null;
-  m_url = QString::null;
+  _imageUrl.clear();
+  m_url.clear();
   HtmlElement* el = new HtmlElement("<html>\n");
   _htmlContent.append(el);
   el = new HtmlElement("<head>\n");
@@ -410,7 +410,7 @@ void KImageMapEditor::openLastURL(KConfig* config) {
     if ( openHTMLFile(lastURL, lastMap, lastImage) )
         m_url = lastURL;
     else
-        m_url = QString::null;
+      m_url.clear();
   }
 }
 
@@ -854,10 +854,10 @@ QImage KImageMapEditor::getBackgroundImage() {
 
         if (fm.boundingRect(tmp2).width() > width-border) {
            outputStrList.append(tmp);
-           tmp = *it + " ";
+           tmp = *it + ' ';
         }
         else
-          tmp = tmp2 + " ";
+          tmp = tmp2 + ' ';
     }
 
     // Last one was forgotten so add it.
@@ -1329,11 +1329,11 @@ QString KImageMapEditor::getHTMLImageMap() const {
   retStr+="<map "+QString("name=\"")+_mapName+"\">\n";
 
   for (Area* a=areas->first();a!=0L;a=areas->next()) {
-    retStr+="  "+a->getHTMLCode()+"\n";
+    retStr+="  "+a->getHTMLCode()+'\n';
   }
 
   if (defaultArea && defaultArea->finished())
-    retStr+="  "+defaultArea->getHTMLCode()+"\n";
+    retStr+="  "+defaultArea->getHTMLCode()+'\n';
 
   retStr+="</map>";
   return retStr;
@@ -1530,7 +1530,7 @@ bool KImageMapEditor::openURL(const KUrl & url) {
     // we start with an empty file, so
     // that we can return true here.
     // For non local files, we cannot check
-    // the existance
+    // the existence
     if (url.isLocalFile() &&
         ! QFile::exists(url.path()))
         return true;
@@ -1646,7 +1646,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
   QChar w;
   QString attr,value;
 
-  readText = QString::null;
+  readText.clear();
 
   // get the tagname
   while (!s.atEnd() && w!=' ') {
@@ -1688,8 +1688,8 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
   bool valueRead=false; // currently reading a value ?
   QChar quotation='\0'; // currently reading a value with quotation marks ?
   bool php=false; // currently reading a php script
-  attr=QString::null;
-  value=QString::null;
+  attr.clear();
+  value.clear();
 
   //get the other attributes
   while (!s.atEnd() && w!='>')
@@ -1773,15 +1773,16 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
           quotation='\0';
           valueRead=false;
           dict.insert(attr,new QString(value));
-          attr = value = QString::null;
-
+          attr.clear();
+          value.clear();
         }
       } else
       // a whitespace indicates that the value has finished
       if (w.isSpace()) {
         valueRead=false;
         dict.insert(attr,new QString(value));
-        attr = value = QString::null;
+        attr.clear();
+        value.clear();
       }
     } else {
       if (!w.isSpace()) {
@@ -1825,7 +1826,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
     {
       if (!readMap && !origcode.isEmpty()) {
         _htmlContent.append( new HtmlElement(origcode));
-        origcode = QString::null;
+        origcode.clear();
       }
 
       origcode.append("<");
@@ -1840,7 +1841,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
           images->append(el->imgTag);
           _htmlContent.append(el);
 
-          origcode = QString::null;
+          origcode.clear();
         } else
         if (attr->find("tagname")->toLower()=="map") {
           map = new MapTag();
@@ -1854,7 +1855,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
           el->mapTag = map;
           _htmlContent.append(el);
 
-          origcode = QString::null;
+          origcode.clear();
         } else
         if (readMap) {
           if (attr->find("tagname")->toLower()=="area") {
@@ -1862,7 +1863,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
           }
         } else {
           _htmlContent.append(new HtmlElement(origcode));
-          origcode = QString::null;
+          origcode.clear();
         }
 
       }
@@ -2249,7 +2250,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
   }
 
   if (!backupFileCreated) {
-    QString backupFile = url.path()+"~";
+    QString backupFile = url.path()+'~';
     KIO::file_copy(url, KUrl::fromPathOrUrl( backupFile ), -1, true, false, false);
     backupFileCreated = true;
   }
@@ -2753,11 +2754,11 @@ void KImageMapEditor::imageUsemap() {
         if (it.currentKey() != "tagname") {
            imgEl->htmlCode += " " + it.currentKey() + "=\"";
            imgEl->htmlCode += *it.current();
-           imgEl->htmlCode += "\"";
+           imgEl->htmlCode += '"';
         }
      }
 
-     imgEl->htmlCode += ">";
+     imgEl->htmlCode += '>';
 
   }
 }

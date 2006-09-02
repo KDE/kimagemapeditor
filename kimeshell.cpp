@@ -2,7 +2,7 @@
                           kimepart.cpp  -  description
                              -------------------
     begin                : Mon Aug 5 2002
-    copyright            : (C) 2002 by Jan Sch�er
+    copyright            : (C) 2002 by Jan SchÃ¯Â¿Â½er
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -161,9 +161,9 @@ void KimeShell::openLastFile()
 void KimeShell::fileOpen()
 {
   KUrl url=KFileDialog::getOpenUrl(KUrl(),
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + "\n"
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + "\n"
-          "*.htm *.html|" + i18n( "HTML Files" ) + "\n"
+          "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + '\n' +
+          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + '\n' +
+          "*.htm *.html|" + i18n( "HTML Files" ) + '\n' +
           "*.png|" + i18n( "PNG Images" ) + "\n*.jpg *.jpeg|" + i18n( "JPEG Images" ) + "\n*.gif|" + i18n( "GIF Images" ) + "\n*|" + i18n( "All Files" )
           ,this,i18n("Choose Picture to Open"));
 

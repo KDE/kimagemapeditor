@@ -2,7 +2,7 @@
                           kimedialogs.h  -  description
                              -------------------
     begin                : Tue Apr 17 2001
-    copyright            : (C) 2001 by Jan Schäfer
+    copyright            : (C) 2001 by Jan SchÃ¤fer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 
@@ -199,7 +199,7 @@ class KTempFile;
 
 class HTMLPreviewDialog : public KDialog{
   public:
-    HTMLPreviewDialog(QWidget *, KUrl, const QString &);
+    HTMLPreviewDialog(QWidget *, const KUrl &, const QString &);
     ~HTMLPreviewDialog();
     virtual void show();
   private:

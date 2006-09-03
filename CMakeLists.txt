@@ -20,15 +20,17 @@ set(libkimagemapeditorcommon_SRC
 
 ########### next target ###############
 
-set(kimagemapeditor_SRCS main.cpp kimeshell.cpp ${libkimagemapeditorcommon_SRC})
+set(kimagemapeditor_bin_SRCS main.cpp kimeshell.cpp ${libkimagemapeditorcommon_SRC})
 
-kde4_automoc(${kimagemapeditor_SRCS})
+kde4_automoc(${kimagemapeditor_bin_SRCS})
 
-kde4_add_executable(kimagemapeditor ${kimagemapeditor_SRCS})
+kde4_add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
-target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
+set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-install(TARGETS kimagemapeditor  DESTINATION ${BIN_INSTALL_DIR} )
+target_link_libraries(kimagemapeditor_bin  ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
+
+install(TARGETS kimagemapeditor_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### next target ###############
@@ -42,7 +44,7 @@ kde4_add_plugin(kimagemapeditor WITH_PREFIX ${kimagemapeditor_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kimagemapeditor )
 
-target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} )
+target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 

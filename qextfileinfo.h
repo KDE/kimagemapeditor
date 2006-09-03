@@ -67,7 +67,7 @@ private slots:
    void slotResult( KJob * job );
    void slotNewEntries(KIO::Job *job, const KIO::UDSEntryList& udsList);
 public slots: // Public slots
-  /** Timeout occurerd while waiting for some network function to return. */
+  /** Timeout occurred while waiting for some network function to return. */
   void slotTimeout();
 };
 

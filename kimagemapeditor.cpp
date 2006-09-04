@@ -2078,7 +2078,6 @@ void KImageMapEditor::setMap(MapTag* map) {
 void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
   map->clear();
   for (Area* a=areas->first();a!=0L;a=areas->next()) {
-    Q3Dict<QString> *dict = new Q3Dict<QString>(17,false);
     QString *shapeStr = 0L;
 
     switch (a->type()) {
@@ -2088,6 +2087,7 @@ void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
       default : continue;
     }
 
+    Q3Dict<QString> *dict = new Q3Dict<QString>(17,false);
     dict->insert("shape",shapeStr);
 
     AttributeIterator it = a->attributeIterator();

@@ -1553,7 +1553,7 @@ void KImageMapEditor::fileOpen() {
 
 void KImageMapEditor::fileClose()
 {
-  if (! closeURL())
+  if (! closeUrl())
      return;
 
 
@@ -2601,7 +2601,7 @@ void KImageMapEditor::deleteAllMaps()
 }
 
 /**
- * Doesn't call the closeURL method, because
+ * Doesn't call the closeUrl method, because
  * we need the URL for the session management
  */
 bool KImageMapEditor::queryClose() {
@@ -2620,7 +2620,7 @@ bool KImageMapEditor::queryClose() {
   }
 }
 
-bool KImageMapEditor::closeURL()
+bool KImageMapEditor::closeUrl()
 {
   bool result = KParts::ReadWritePart::closeUrl();
   if (!result)

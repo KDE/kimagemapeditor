@@ -184,7 +184,7 @@ public :
 
     virtual void readProperties(KConfig *);
     virtual void saveProperties(KConfig *);
-    virtual bool closeURL();
+    virtual bool closeUrl();
     bool queryClose();
     virtual void setReadWrite(bool);
     QString getHtmlCode();

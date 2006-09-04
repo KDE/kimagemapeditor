@@ -1880,9 +1880,9 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
   f.close();
 
   KUrl imageUrl;
+
+  delete map;
   map = 0L;
-
-
 
   // If there is a preselection of map and image
   // don't let the user choose something

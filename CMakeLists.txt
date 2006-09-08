@@ -44,7 +44,7 @@ kde4_add_plugin(kimagemapeditor WITH_PREFIX ${kimagemapeditor_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kimagemapeditor )
 
-target_link_libraries(kimagemapeditor  ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
+target_link_libraries(kimagemapeditor  ${KDE4_KPARTS_LIBS} ${KDE4_KHTML_LIBS} )
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 

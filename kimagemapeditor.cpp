@@ -519,7 +519,7 @@ void KImageMapEditor::setupActions()
 
   showAltAction = new KToggleAction(i18n("Show Alt Tag"),0, this, SLOT (slotShowAltTag()),
       actionCollection(), "view_showalt");
-  showAltAction->setCheckedState(i18n("Hide Alt Tag"));
+  showAltAction->setCheckedState(KGuiItem(i18n("Hide Alt Tag")));
 
   mapNameAction = new KAction(i18n("Map &Name..."), actionCollection(), "map_name");
   connect(mapNameAction, SIGNAL(triggered(bool)), SLOT(mapEditName()));
@@ -682,9 +682,9 @@ void KImageMapEditor::setupActions()
 
     configureShowImageListAction = new KToggleAction(i18n("Show Image List"), actionCollection(), "configure_show_imagelist" );
     connect(configureShowImageListAction, SIGNAL(triggered(bool)), SLOT(configureShowImageList()));
-    configureShowAreaListAction->setCheckedState(i18n("Hide Area List"));
-    configureShowMapListAction->setCheckedState(i18n("Hide Map List"));
-    configureShowImageListAction->setCheckedState(i18n("Hide Image List"));
+    configureShowAreaListAction->setCheckedState(KGuiItem(i18n("Hide Area List")));
+    configureShowMapListAction->setCheckedState(KGuiItem(i18n("Hide Map List")));
+    configureShowImageListAction->setCheckedState(KGuiItem(i18n("Hide Image List")));
   }
 
   updateActionAccess();
@@ -1594,7 +1594,7 @@ void KImageMapEditor::fileSaveAs() {
   {
   	if (KMessageBox::warningContinueCancel(widget(),
       i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>", fileInfo.fileName()),
-      i18n("Overwrite File?"), i18n("Overwrite"))==KMessageBox::Cancel)
+      i18n("Overwrite File?"), KGuiItem(i18n("Overwrite")))==KMessageBox::Cancel)
       return;
 
     if(!fileInfo.isWritable()) {

@@ -1,4 +1,4 @@
-
+project(kimagemapeditor)
 
 add_subdirectory( pics )
 

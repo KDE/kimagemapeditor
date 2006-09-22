@@ -2,7 +2,7 @@
 Type=Application
 Encoding=UTF-8
 MimeType=text/html
-Exec=kimagemapeditor -caption "%c" %i 
+Exec=kimagemapeditor -caption "%c" %i
 Icon=kimagemapeditor
 Terminal=false
 Name=KImageMapEditor

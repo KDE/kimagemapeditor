@@ -46,7 +46,7 @@
 #include <kapplication.h>
 #include <khtmlview.h>
 #include <khtml_part.h>
-#include <ktempfile.h>
+#include <ktemporaryfile.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include <kglobal.h>
@@ -857,15 +857,18 @@ void PreferencesDialog::slotApply( void ) {
 HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QString & htmlCode)
   : KDialog(parent)
 {
-  tempFile = new KTempFile(url.directory(KUrl::AppendTrailingSlash), ".html");
+  tempFile = new KTemporaryFile();
+  tempFile->setPrefix(url.directory(KUrl::AppendTrailingSlash));
+  tempFile->setSuffix(".html");
+  tempFile->open();
   setCaption(i18n("Preview"));
   setButtons(Ok);
   setDefaultButton(Ok);
   setModal(true);
-  tempFile->setAutoDelete(true);
-  (*tempFile->textStream()) << htmlCode;
-  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->name() << endl;
-  tempFile->close();
+  QTextStream stream(tempFile);
+  stream << htmlCode;
+  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->fileName() << endl;
+  stream.flush();
 
   KVBox *page = new KVBox(this);
   setMainWidget(page);
@@ -889,7 +892,7 @@ HTMLPreviewDialog::~HTMLPreviewDialog() {
 
 void HTMLPreviewDialog::show() {
   KDialog::show();
-  htmlPart->openUrl(KUrl( tempFile->name() ));
+  htmlPart->openUrl(KUrl( tempFile->fileName() ));
 //  htmlView->layout();
 //  htmlView->repaint();
   resize(800,600);

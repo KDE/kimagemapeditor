@@ -195,7 +195,7 @@ Q_OBJECT
 };
 
 class KHTMLPart;
-class KTempFile;
+class KTemporaryFile;
 
 class HTMLPreviewDialog : public KDialog{
   public:
@@ -204,7 +204,7 @@ class HTMLPreviewDialog : public KDialog{
     virtual void show();
   private:
     KHTMLPart* htmlPart;
-    KTempFile* tempFile;
+    KTemporaryFile* tempFile;
 };
 
 #endif

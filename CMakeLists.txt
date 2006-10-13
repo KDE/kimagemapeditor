@@ -22,7 +22,7 @@ set(libkimagemapeditorcommon_SRC
 
 set(kimagemapeditor_bin_SRCS main.cpp kimeshell.cpp ${libkimagemapeditorcommon_SRC})
 
-kde4_automoc(${kimagemapeditor_bin_SRCS})
+kde4_automoc(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 kde4_add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
@@ -37,7 +37,7 @@ install(TARGETS kimagemapeditor_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
 set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
 
-kde4_automoc(${kimagemapeditor_PART_SRCS})
+kde4_automoc(kimagemapeditor ${kimagemapeditor_PART_SRCS})
 
 kde4_add_plugin(kimagemapeditor WITH_PREFIX ${kimagemapeditor_PART_SRCS})
 

@@ -476,7 +476,7 @@ void KImageMapEditor::setupActions()
   // Edit Delete
   deleteAction = new KAction(KIcon("editdelete"), i18n("&Delete"), actionCollection(), "edit_delete");
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
-  deleteAction->setShortcut(Qt::Key_Delete);
+  deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("editdelete") );
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
@@ -619,39 +619,39 @@ void KImageMapEditor::setupActions()
 
   KAction *action = new KAction(i18n("Cancel Drawing"), actionCollection(), "canceldrawing" );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
-  action->setShortcut(Qt::Key_Escape);
+  action->setShortcut(QKeySequence(Qt::Key_Escape));
 
   moveLeftAction = new KAction(i18n("Move Left"), actionCollection(), "moveleft" );
   connect(moveLeftAction, SIGNAL(triggered(bool)), SLOT( slotMoveLeft() ));
-  moveLeftAction->setShortcut(Qt::Key_Left);
+  moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
 
   moveRightAction = new KAction(i18n("Move Right"), actionCollection(), "moveright" );
   connect(moveRightAction, SIGNAL(triggered(bool)), SLOT( slotMoveRight() ));
-  moveRightAction->setShortcut(Qt::Key_Right);
+  moveRightAction->setShortcut(QKeySequence(Qt::Key_Right));
 
   moveUpAction = new KAction(i18n("Move Up"), actionCollection(), "moveup" );
   connect(moveUpAction, SIGNAL(triggered(bool)), SLOT( slotMoveUp() ));
-  moveUpAction->setShortcut(Qt::Key_Up);
+  moveUpAction->setShortcut(QKeySequence(Qt::Key_Up));
 
   moveDownAction = new KAction(i18n("Move Down"), actionCollection(), "movedown" );
   connect(moveDownAction, SIGNAL(triggered(bool)), SLOT( slotMoveDown() ));
-  moveDownAction->setShortcut(Qt::Key_Down);
+  moveDownAction->setShortcut(QKeySequence(Qt::Key_Down));
 
   increaseWidthAction = new KAction(i18n("Increase Width"), actionCollection(), "increasewidth" );
   connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseWidth() ));
-  increaseWidthAction->setShortcut(Qt::Key_Right + Qt::SHIFT);
+  increaseWidthAction->setShortcut(QKeySequence(Qt::Key_Right + Qt::SHIFT));
 
   decreaseWidthAction = new KAction(i18n("Decrease Width"), actionCollection(), "decreasewidth" );
   connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseWidth() ));
-  decreaseWidthAction->setShortcut(Qt::Key_Left + Qt::SHIFT);
+  decreaseWidthAction->setShortcut(QKeySequence(Qt::Key_Left + Qt::SHIFT));
 
   increaseHeightAction = new KAction(i18n("Increase Height"), actionCollection(), "increaseheight" );
   connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseHeight() ));
-  increaseHeightAction->setShortcut(Qt::Key_Up + Qt::SHIFT);
+  increaseHeightAction->setShortcut(QKeySequence(Qt::Key_Up + Qt::SHIFT));
 
   decreaseHeightAction = new KAction(i18n("Decrease Height"), actionCollection(), "decreaseheight" );
   connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseHeight() ));
-  decreaseHeightAction->setShortcut(Qt::Key_Down + Qt::SHIFT);
+  decreaseHeightAction->setShortcut(QKeySequence(Qt::Key_Down + Qt::SHIFT));
 
   toFrontAction = new KAction(i18n("Bring to Front"), actionCollection(), "tofront" );
   connect(toFrontAction, SIGNAL(triggered(bool)), SLOT( slotToFront() ));

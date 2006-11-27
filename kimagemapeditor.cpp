@@ -514,10 +514,10 @@ void KImageMapEditor::setupActions()
 
   zoomAction->setCurrentItem(2);
 
-  highlightAreasAction = new KToggleAction(i18n("Highlight Areas"),0, this, SLOT (slotHightlightAreas()),
+  highlightAreasAction = new KToggleAction(i18n("Highlight Areas"), KShortcut(), this, SLOT (slotHightlightAreas()),
       actionCollection(), "view_highlightareas");
 
-  showAltAction = new KToggleAction(i18n("Show Alt Tag"),0, this, SLOT (slotShowAltTag()),
+  showAltAction = new KToggleAction(i18n("Show Alt Tag"), KShortcut(), this, SLOT (slotShowAltTag()),
       actionCollection(), "view_showalt");
   showAltAction->setCheckedState(KGuiItem(i18n("Hide Alt Tag")));
 

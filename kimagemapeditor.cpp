@@ -664,8 +664,8 @@ void KImageMapEditor::setupActions()
   backOneAction = new KAction(KIcon("lower"), i18n("Send Back One"), actionCollection(), "backone" );
   connect(backOneAction, SIGNAL(triggered(bool) ), SLOT( slotBackOne() ));
 
-  forwardOneAction->plug(areaListView->upBtn);
-  backOneAction->plug(areaListView->downBtn);
+  areaListView->upBtn->addAction(forwardOneAction);
+  areaListView->downBtn->addAction(backOneAction);
 
   connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(activate()));
   connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(activate()));

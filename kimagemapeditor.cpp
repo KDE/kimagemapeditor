@@ -45,7 +45,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kaction.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kiconloader.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
@@ -318,7 +318,7 @@ void KImageMapEditor::setReadWrite(bool)
 void KImageMapEditor::setModified(bool modified)
 {
     // get a handle on our Save action and make sure it is valid
-    QAction *save = actionCollection()->action(KStdAction::stdName(KStdAction::Save));
+    QAction *save = actionCollection()->action(KStandardAction::stdName(KStandardAction::Save));
     if (!save)
         return;
 
@@ -427,46 +427,46 @@ void KImageMapEditor::saveLastURL(KConfig* config) {
 void KImageMapEditor::setupActions()
 {
 	// File Open
-  KAction *temp=KStdAction::open(this, SLOT(fileOpen()), actionCollection());
+  KAction *temp=KStandardAction::open(this, SLOT(fileOpen()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "openimage", SmallIcon("fileopen") );
 	temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
 	temp->setToolTip(i18n("Open new picture or HTML file"));
 
 	// File Open Recent
-  recentFilesAction = KStdAction::openRecent(this, SLOT(openURL(const KUrl&)),
+  recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(const KUrl&)),
                                       actionCollection());
 	// File Save
-  temp =KStdAction::save(this, SLOT(fileSave()), actionCollection());
+  temp =KStandardAction::save(this, SLOT(fileSave()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "saveimage", SmallIcon("filesave") );
 	temp->setWhatsThis(i18n("<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."));
 	temp->setToolTip(i18n("Save HTML file"));
 
 
 	// File Save As
-  (void)KStdAction::saveAs(this, SLOT(fileSaveAs()), actionCollection());
+  (void)KStandardAction::saveAs(this, SLOT(fileSaveAs()), actionCollection());
 
 	// File Close
-  temp=KStdAction::close(this, SLOT(fileClose()), actionCollection());
+  temp=KStandardAction::close(this, SLOT(fileClose()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "closeimage", SmallIcon("fileclose") );
 	temp->setWhatsThis(i18n("<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."));
 	temp->setToolTip(i18n("Close HTML file"));
 
   // Edit Copy
-  copyAction=KStdAction::copy(this, SLOT(slotCopy()), actionCollection());
+  copyAction=KStandardAction::copy(this, SLOT(slotCopy()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcopyimage", SmallIcon("editcopy") );
   copyAction->setWhatsThis(i18n("<h3>Copy</h3>"
                           "Click this to <em>copy</em> the selected area."));
   copyAction->setEnabled(false);
 
   // Edit Cut
-  cutAction=KStdAction::cut(this, SLOT(slotCut()), actionCollection());
+  cutAction=KStandardAction::cut(this, SLOT(slotCut()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcutimage", SmallIcon("editcut") );
   cutAction->setWhatsThis(i18n("<h3>Cut</h3>"
                           "Click this to <em>cut</em> the selected area."));
   cutAction->setEnabled(false);
 
   // Edit Paste
-  pasteAction=KStdAction::paste(this, SLOT(slotPaste()), actionCollection());
+  pasteAction=KStandardAction::paste(this, SLOT(slotPaste()), actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editpasteimage", SmallIcon("editpaste") );
   pasteAction->setWhatsThis(i18n("<h3>Paste</h3>"
                           "Click this to <em>paste</em> the copied area."));
@@ -491,9 +491,9 @@ void KImageMapEditor::setupActions()
   areaPropertiesAction->setEnabled(false);
 
   // View Zoom In
-  zoomInAction=KStdAction::zoomIn(this, SLOT(slotZoomIn()), actionCollection());
+  zoomInAction=KStandardAction::zoomIn(this, SLOT(slotZoomIn()), actionCollection());
   // View Zoom Out
-  zoomOutAction=KStdAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
+  zoomOutAction=KStandardAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
 
   // View Zoom
   zoomAction = new KSelectAction(i18n("Zoom"), actionCollection(), "view_zoom");

@@ -29,7 +29,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kxmlguifactory.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 
 #include <khbox.h>
 #include <kglobal.h>
@@ -114,16 +114,16 @@ bool KimeShell::queryExit()
 
 void KimeShell::setupActions()
 {
-  (void)KStdAction::openNew(this, SLOT(fileNew()), actionCollection());
+  (void)KStandardAction::openNew(this, SLOT(fileNew()), actionCollection());
 
 	// File Quit
-	(void)KStdAction::quit(this, SLOT(close()),actionCollection());
+	(void)KStandardAction::quit(this, SLOT(close()),actionCollection());
 
 
-//FIXME	(void)KStdAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
-  (void)KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
-	(void)KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-  (void)KStdAction::showStatusbar(this, SLOT(optionsShowStatusbar()), actionCollection());
+//FIXME	(void)KStandardAction::showToolbar(this, SLOT(optionsShowToolbar()), actionCollection());
+  (void)KStandardAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+	(void)KStandardAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+  (void)KStandardAction::showStatusbar(this, SLOT(optionsShowStatusbar()), actionCollection());
 
 
 }

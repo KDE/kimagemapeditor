@@ -2609,7 +2609,7 @@ bool KImageMapEditor::queryClose() {
      return true;
 
   switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", url().fileName()), QString::null, KStdGuiItem::save(), KStdGuiItem::discard()) ) {
+   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", url().fileName()), QString::null, KStandardGuiItem::save(), KStandardGuiItem::discard()) ) {
            case KMessageBox::Yes :
              saveFile();
              return true;

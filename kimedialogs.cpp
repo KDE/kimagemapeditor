@@ -48,7 +48,7 @@
 #include <khtml_part.h>
 #include <ktemporaryfile.h>
 #include <kpushbutton.h>
-#include <kstdguiitem.h>
+#include <kstandardguiitem.h>
 #include <kglobal.h>
 #include <kvbox.h>
 
@@ -399,9 +399,9 @@ QWidget* AreaDialog::createButtonBar()
 {
   KHBox *box = new KHBox(this);
   QWidget *spacer = new QWidget(box);
-  QPushButton *okBtn = new KPushButton(KStdGuiItem::ok(),box);
-  QPushButton *applyBtn = new KPushButton(KStdGuiItem::apply(),box);
-  QPushButton *cancelBtn = new KPushButton(KStdGuiItem::cancel(),box);
+  QPushButton *okBtn = new KPushButton(KStandardGuiItem::ok(),box);
+  QPushButton *applyBtn = new KPushButton(KStandardGuiItem::apply(),box);
+  QPushButton *cancelBtn = new KPushButton(KStandardGuiItem::cancel(),box);
 
   connect(okBtn, SIGNAL(clicked()), this, SLOT(slotOk()));
   connect(applyBtn, SIGNAL(clicked()), this, SLOT(slotApply()));

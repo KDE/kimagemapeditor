@@ -533,8 +533,8 @@ void AreaDialog::slotApply() {
     area->setAttribute("alt",altEdit->text());
     area->setAttribute("target",targetEdit->text());
     area->setAttribute("title",titleEdit->text());
-    area->setAttribute("onclick",onDblClickEdit->text());
-    area->setAttribute("ondblclick",onClickEdit->text());
+    area->setAttribute("onclick",onClickEdit->text());
+    area->setAttribute("ondblclick",onDblClickEdit->text());
     area->setAttribute("onmousedown",onMouseDownEdit->text());
     area->setAttribute("onmouseup",onMouseUpEdit->text());
     area->setAttribute("onmousemove",onMouseMoveEdit->text());

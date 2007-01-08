@@ -857,8 +857,12 @@ QImage KImageMapEditor::getBackgroundImage() {
     pix.fill(QColor(74,76,74));
     QPainter p(&pix);
 
-    QFont font = QFontDatabase().font("Luxi Sans","Bold",fontSize);
+    QFont font;
+    font.setFamily("Sans");
+    font.setPixelSize(fontSize);
+    font.setBold(true);
     p.setFont( font );
+    
     p.setRasterOp(Qt::CopyROP);
     p.setPen(QPen(QColor(112,114,112),1));
 

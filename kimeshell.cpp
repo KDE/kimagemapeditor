@@ -40,7 +40,7 @@
 #include "kimagemapeditor.h"	// the KPart
 #include "kimeshell.h"
 #include "kimeshell.moc"
-
+#include <kactioncollection.h>
 KimeShell::KimeShell(const char *name )
   : KParts::DockMainWindow3( 0L, name )
 {

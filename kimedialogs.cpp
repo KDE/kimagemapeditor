@@ -827,6 +827,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   showAltChk->setFixedWidth(60);
   showAltChk->setChecked(KGlobal::config()->readEntry("showalt",true));
 */
+  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
+  connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
 }
 
 PreferencesDialog::~PreferencesDialog() {

@@ -291,11 +291,12 @@ void DrawZone::mousePressRightNone(QMouseEvent* e, QPoint drawStart) {
 }
 
 void DrawZone::mousePressLeftNoneOnArea(QMouseEvent* e, Area* area) {
+
   if ( imageMapEditor->currentToolType() == KImageMapEditor::AddPoint )
   {
+    oldArea=area->clone();
     currentAction=AddPoint;
     setCursor(addPointCursor);
-    oldArea=area->clone();
   } else {
     currentAction=MoveArea;
     setCursor(Qt::SizeAllCursor);
@@ -410,6 +411,7 @@ void DrawZone::mousePressEvent(QMouseEvent* e)
     return;
 
   drawStart = moveIntoImage(e->pos());
+  drawLast = drawStart;
  
   // Translate it to picture coordinates
   //  drawStart-=imageRect.topLeft();
@@ -696,6 +698,7 @@ void DrawZone::mouseMoveEvent(QMouseEvent *e)
   if ( ! imageMapEditor->isReadWrite())
     return;
 
+  drawLast = drawCurrent;
   drawCurrent=moveIntoImage(e->pos());
 
   // Translate to image coordinates
@@ -727,9 +730,8 @@ void DrawZone::mouseMoveEvent(QMouseEvent *e)
     currentArea->insertCoord(currentArea->countSelectionPoints(), drawCurrent);
     break;
   case MoveArea: {
-    QPoint to = drawCurrent+(oldArea->rect().topLeft()-drawStart);
-    currentArea->moveTo(to.x(),to.y());
-    //    currentArea->moveTo(drawCurrent.x(), drawCurrent.y());
+    QPoint d = drawCurrent - drawLast;
+    currentArea->moveBy(d.x(),d.y());
     currentArea->setMoving(true);
     break;
   }

@@ -112,6 +112,7 @@ private:
   // The point where the user clicked the mouse
   QPoint drawStart;
   QPoint drawCurrent;
+  QPoint drawLast;
   // The original image
   QImage image;
   KImageMapEditor *imageMapEditor;

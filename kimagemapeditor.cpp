@@ -19,6 +19,8 @@
 #include <assert.h>
 
 // QT
+#include <QScrollArea>
+
 #include <qlayout.h>
 #include <q3listview.h>
 #include <qpushbutton.h>
@@ -69,7 +71,6 @@
 #include "drawzone.h"
 #include "kimedialogs.h"
 #include "kimecommands.h"
-#include "qextfileinfo.h"
 #include <kicon.h>
 #include "areacreator.h"
 #include "arealistview.h"
@@ -91,19 +92,26 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 
 //  KDockMainWindow* mainWidget;
 
-  // Test if the MainWindow can handle DockWindows, if so create DockWidgets
-  // instead of a Splitter
-  mainDock = dynamic_cast<K3DockMainWindow*>(parent) ;
+  mainWindow = dynamic_cast<KMainWindow*>(parent) ;
   QSplitter * splitter = 0L;
   tabWidget = 0L;
 
-  if (mainDock) {
+  if (mainWindow) {
 //    kDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
 
-    K3DockWidget* parentDock = mainDock->getMainDockWidget();
-    areaDock = mainDock->createDockWidget( "Areas", 0L, 0L, i18n("Areas"), i18n("Areas"));
-    mapsDock = mainDock->createDockWidget( "Maps", 0L, 0L, i18n("Maps"), i18n("Maps"));
-    imagesDock = mainDock->createDockWidget( "Images", 0L, 0L, i18n("Images"), i18n("Images"));
+//    K3DockWidget* parentDock = mainDock->getMainDockWidget();
+    areaDock = new QDockWidget(i18n("Areas"),mainWindow);
+    mapsDock = new QDockWidget(i18n("Maps"),mainWindow);
+    imagesDock = new QDockWidget(i18n("Images"),mainWindow);
+
+    // Needed to save their state
+    areaDock->setObjectName("areaDock");
+    mapsDock->setObjectName("mapsDock");
+    imagesDock->setObjectName("imagesDock");
+
+    mainWindow->addDockWidget( Qt::LeftDockWidgetArea, areaDock);
+    mainWindow->addDockWidget( Qt::LeftDockWidgetArea, mapsDock);
+    mainWindow->addDockWidget( Qt::LeftDockWidgetArea, imagesDock);
 
     areaListView = new AreaListView(areaDock);
     mapsListView = new MapsListView(mapsDock);
@@ -113,11 +121,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
     mapsDock->setWidget(mapsListView);
     imagesDock->setWidget(imagesListView);
 
-    areaDock->manualDock( (K3DockWidget*) parentDock, K3DockWidget::DockLeft, 30);
-    mapsDock->manualDock( (K3DockWidget*) areaDock, K3DockWidget::DockCenter);
-    imagesDock->manualDock( (K3DockWidget*) mapsDock, K3DockWidget::DockCenter);
-
-    connect( mainDock->manager(), SIGNAL(change()), this, SLOT(dockingStateChanged()));
+    //FIXME:    connect( mainDock->manager(), SIGNAL(change()), this, SLOT(dockingStateChanged()));
   }
   else
   {
@@ -156,25 +160,17 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   connect( imagesListView, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
            SLOT(slotShowImagePopupMenu(Q3ListViewItem*,const QPoint &)));
 
-  // Shows the text:
-  // "Drop an image or html file"
-/*  QString path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/dropimage.png" ) + "kimagemapeditor/dropimage.png";
-  if ( ! QFileInfo(path).exists() ) {
-      kError() << "Couldn't find needed dropimage.png file in "
-                   "the data directory of KImageMapEditor.\n"
-                   "Perhaps you have forgotten to do a make install !" << endl;
-      exit(1);
-  }
-*/
-
   if (splitter) {
     drawZone = new DrawZone(splitter,this);
-    splitter->setResizeMode(drawZone,QSplitter::Stretch);
-    splitter->setResizeMode(tabWidget,QSplitter::KeepSize);
+    splitter->setStretchFactor(splitter->indexOf(tabWidget), 0);
+    splitter->setStretchFactor(splitter->indexOf(drawZone), 1);
     setWidget(splitter);
   } else {
-    drawZone = new DrawZone(parentWidget,this);
-    setWidget(drawZone);
+    QScrollArea *sa = new QScrollArea(mainWindow);
+    drawZone = new DrawZone(0L,this);
+    mainWindow->setCentralWidget(sa);
+    sa->setWidget(drawZone);
+    //    sa->setWidgetResizable(true);
   }
 
 
@@ -379,8 +375,8 @@ void KImageMapEditor::slotConfigChanged()
   config()->setGroup("Appearance");
   int newHeight=config()->readEntry("maximum-preview-height",50);
   config()->setGroup("General Options");
-  _commandHistory->setUndoLimit(config()->readEntry("undo-level",20));
-  _commandHistory->setRedoLimit(config()->readEntry("redo-level",20));
+  _commandHistory->setUndoLimit(config()->readEntry("undo-level",100));
+  _commandHistory->setRedoLimit(config()->readEntry("redo-level",100));
   Area::highlightArea = config()->readEntry("highlightareas",true);
   highlightAreasAction->setChecked(Area::highlightArea);
   Area::showAlt = config()->readEntry("showalt",true);
@@ -392,7 +388,7 @@ void KImageMapEditor::slotConfigChanged()
   }
 
   updateAllAreas();
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
 }
 
 void KImageMapEditor::openLastURL(KConfig* config) {
@@ -519,13 +515,13 @@ void KImageMapEditor::setupActions()
 
   highlightAreasAction = actionCollection()->add<KToggleAction>("view_highlightareas");
   highlightAreasAction->setText(i18n("Highlight Areas"));
-  connect(highlightAreasAction,SIGNAL(toggled(bool)),this,SLOT(slotHightlightAreas()));
+
+  connect(highlightAreasAction, SIGNAL(toggled(bool)), 
+	  this, SLOT(slotHighlightAreas(bool)));
 
   showAltAction =   actionCollection()->add<KToggleAction>("view_showalt");
   showAltAction->setText(i18n("Show Alt Tag"));
-  connect(showAltAction,SIGNAL(toggled(bool)),this,SLOT(slotShowAltTag()));
-  
-  showAltAction->setCheckedState(KGuiItem(i18n("Hide Alt Tag")));
+  connect(showAltAction, SIGNAL(toggled(bool)),this, SLOT (slotShowAltTag(bool)));
 
     mapNameAction  = new KAction(i18n("Map &Name..."), this);
     actionCollection()->addAction("map_name", mapNameAction );
@@ -588,7 +584,7 @@ void KImageMapEditor::setupActions()
   // Circle
     circleAction = new KAction(KIcon( "circle"), i18n("&Circle"), this);
     actionCollection()->addAction("tool_circle", circleAction);
-  connect(circleAction, SIGNAL(triggered(bool)), SLOT(slotDrawCircle()));
+  connect(circleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawCircle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "circleimage", SmallIcon("drawcircle") );
   circleAction->setWhatsThis(i18n("<h3>Circle</h3>"
                           "Click this to start drawing a circle."));
@@ -597,7 +593,7 @@ void KImageMapEditor::setupActions()
   // Rectangle
     rectangleAction = new KAction(KIcon("rectangle"), i18n("&Rectangle"), this);
     actionCollection()->addAction("tool_rectangle", rectangleAction);
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawRectangle()));
+  connect(rectangleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawRectangle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "rectangleimage", SmallIcon("drawrectangle") );
   rectangleAction->setWhatsThis(i18n("<h3>Rectangle</h3>"
                           "Click this to start drawing a rectangle."));
@@ -606,7 +602,7 @@ void KImageMapEditor::setupActions()
   // Polygon
     polygonAction = new KAction(KIcon("polygon"), i18n("&Polygon"), this);
     actionCollection()->addAction("tool_polygon", polygonAction);
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
+  connect(polygonAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "polygonimage", SmallIcon("drawpolygon") );
   polygonAction->setWhatsThis(i18n("<h3>Polygon</h3>"
                           "Click this to start drawing a polygon."));
@@ -615,7 +611,7 @@ void KImageMapEditor::setupActions()
   // Freehand
     freehandAction = new KAction(KIcon("freehand"), i18n("&Freehand Polygon"), this);
     actionCollection()->addAction("tool_freehand", freehandAction);
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
+  connect(freehandAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "freehandimage", SmallIcon("freehand") );
   freehandAction->setWhatsThis(i18n("<h3>Freehandpolygon</h3>"
                           "Click this to start drawing a freehand polygon."));
@@ -624,7 +620,7 @@ void KImageMapEditor::setupActions()
   // Add Point
     addPointAction = new KAction(KIcon("addpoint"), i18n("&Add Point"), this);
     actionCollection()->addAction("tool_addpoint", addPointAction);
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
+  connect(addPointAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "addpointimage", SmallIcon("addpoint") );
   addPointAction->setWhatsThis(i18n("<h3>Add Point</h3>"
                           "Click this to add points to a polygon."));
@@ -633,7 +629,7 @@ void KImageMapEditor::setupActions()
   // Remove Point
     removePointAction = new KAction(KIcon("removepoint"), i18n("&Remove Point"), this);
     actionCollection()->addAction("tool_removepoint", removePointAction);
-  connect(rectangleAction, SIGNAL(triggered(bool)), SLOT(slotDrawRemovePoint()));
+  connect(removePointAction, SIGNAL(triggered(bool)), SLOT(slotDrawRemovePoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage", SmallIcon("removepoint") );
   removePointAction->setWhatsThis(i18n("<h3>Remove Point</h3>"
                           "Click this to remove points from a polygon."));
@@ -712,18 +708,19 @@ void KImageMapEditor::setupActions()
   if (areaDock) {
     configureShowAreaListAction  = new KToggleAction(i18n("Show Area List"), this);
     actionCollection()->addAction("configure_show_arealist", configureShowAreaListAction );
-    connect(configureShowAreaListAction, SIGNAL(triggered(bool)), SLOT(configureShowAreaList()));
+    connect(configureShowAreaListAction, SIGNAL(triggered(bool)), 
+	    areaDock, SLOT(setVisible(bool)));
 
     configureShowMapListAction  = new KToggleAction(i18n("Show Map List"), this);
     actionCollection()->addAction("configure_show_maplist", configureShowMapListAction );
-    connect(configureShowMapListAction, SIGNAL(triggered(bool)), SLOT(configureShowMapList()));
+    connect(configureShowMapListAction, SIGNAL(triggered(bool)), 
+	    mapsDock, SLOT(setVisible(bool)));
 
     configureShowImageListAction  = new KToggleAction(i18n("Show Image List"), this);
     actionCollection()->addAction("configure_show_imagelist", configureShowImageListAction );
-    connect(configureShowImageListAction, SIGNAL(triggered(bool)), SLOT(configureShowImageList()));
-    configureShowAreaListAction->setCheckedState(KGuiItem(i18n("Hide Area List")));
-    configureShowMapListAction->setCheckedState(KGuiItem(i18n("Hide Map List")));
-    configureShowImageListAction->setCheckedState(KGuiItem(i18n("Hide Image List")));
+    connect(configureShowImageListAction, SIGNAL(triggered(bool)), 
+	    imagesDock, SLOT(setVisible(bool)));
+
   }
 
   updateActionAccess();
@@ -873,7 +870,10 @@ QImage KImageMapEditor::getBackgroundImage() {
     pix.fill(QColor(74,76,74));
     QPainter p(&pix);
 
-    QFont font = QFontDatabase().font("Luxi Sans","Bold",fontSize);
+    //    QFont font = QFontDatabase().font("Luxi Sans","Bold",fontSize);
+    QFont font;
+    font.setBold(true);
+    font.setPixelSize(fontSize);
     p.setFont( font );
     p.setCompositionMode(QPainter::CompositionMode_Source);
     p.setPen(QPen(QColor(112,114,112),1));
@@ -913,7 +913,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
     p.end();
 
-    _backgroundImage = pix.convertToImage();
+    _backgroundImage = pix.toImage();
   }
 
 
@@ -1067,7 +1067,7 @@ void KImageMapEditor::deleteAllAreas()
     a=areas->first(); // because the current is deleted
   }
 
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
 
 }
 
@@ -1077,7 +1077,7 @@ void KImageMapEditor::updateAllAreas()
   for (Area* a=areas->first();a!=0L;a=areas->next()) {
     a->listViewItem()->setPixmap(1,makeListViewPix(*a));
   }
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
 }
 
 void KImageMapEditor::updateSelection() const {
@@ -1438,16 +1438,19 @@ void KImageMapEditor::slotDrawArrow() {
 
 void KImageMapEditor::slotDrawCircle() {
   _currentToolType=KImageMapEditor::Circle;
+  kDebug() << "slotDrawCircle" << endl;
 
 }
 
 void KImageMapEditor::slotDrawRectangle() {
   _currentToolType=KImageMapEditor::Rectangle;
+  kDebug() << "slotDrawRectangle" << endl;
 
 }
 
 void KImageMapEditor::slotDrawPolygon() {
   _currentToolType=KImageMapEditor::Polygon;
+  kDebug() << "slotDrawPolygon" << endl;
 }
 
 void KImageMapEditor::slotDrawFreehand() {
@@ -1554,7 +1557,7 @@ void KImageMapEditor::mapShowHTML()
 
 void KImageMapEditor::openFile(const KUrl & url) {
   if ( ! url.isEmpty()) {
-    QString ext=QFileInfo(url.path()).extension().toLower();
+    QString ext=QFileInfo(url.path()).completeSuffix().toLower();
 
     if (ext=="png" || ext=="jpg" || ext=="jpeg" || ext=="gif" ||
         ext=="bmp" || ext=="xbm" || ext=="xpm" || ext=="mng" || ext=="pnm")
@@ -1663,7 +1666,7 @@ bool KImageMapEditor::openFile()
 
   openHTMLFile(url());
 
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
   recentFilesAction->addUrl(url());
   setModified(false);
   backupFileCreated = false;
@@ -1991,16 +1994,21 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
   else if ( ! mapName.isNull()) {
     mapsListView->selectMap(mapName);
   } else {
+#ifdef WITH_TABWIDGET
     if (tabWidget)
        tabWidget->showPage(mapsListView);
+#endif
   }
+
 
   if (!imageUrl.isEmpty()) {
     setPicture(imageUrl);
   } else {
     setPicture(getBackgroundImage());
+#ifdef WITH_TABWIDGET
     if (tabWidget)
        tabWidget->showPage(imagesListView);
+#endif
   }
 
 
@@ -2016,7 +2024,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
  */
 HtmlElement* KImageMapEditor::findHtmlElement(const QString & containingText) {
   for (HtmlElement * el = _htmlContent.first(); el; el = _htmlContent.next() ) {
-    if (el->htmlCode.contains(containingText,false)) {
+    if (el->htmlCode.contains(containingText,Qt::CaseInsensitive)) {
       return el;
     }
   }
@@ -2278,6 +2286,67 @@ QString KImageMapEditor::getHtmlCode() {
   return result;
 }
 
+
+/** 
+ create a relative short url based in baseURL
+
+ taken from qextfileinfo.cpp:
+
+ From WebMaker - KDE HTML Editor
+ Copyright (C) 1998, 1999 Alexei Dets <dets@services.ru>
+
+ Rewritten for Quanta Plus: (C) 2002 Andras Mantia <amantia@freemail.hu>
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+*/
+static KUrl toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
+{
+  KUrl resultURL = urlToConvert;
+  if (urlToConvert.protocol() == baseURL.protocol())
+  {
+    QString path = urlToConvert.path();
+    QString basePath = baseURL.path(KUrl::AddTrailingSlash);
+    if (path.startsWith("/"))
+    {
+      path.remove(0, 1);
+      basePath.remove(0, 1);
+      if ( basePath.right(1) != "/" ) basePath.append("/");
+
+      int pos=0;
+      int pos1=0;
+      for (;;)
+      {
+        pos=path.indexOf("/");
+        pos1=basePath.indexOf("/");
+        if ( pos<0 || pos1<0 ) break;
+        if ( path.left(pos+1 ) == basePath.left(pos1+1) )
+        {
+          path.remove(0, pos+1);
+          basePath.remove(0, pos1+1);
+        }
+        else
+          break;
+      };
+
+      if ( basePath == "/" ) basePath="";
+      int level = basePath.count("/");
+      for (int i=0; i<level; i++)
+      {
+        path="../"+path;
+      };
+    }
+
+    resultURL.setPath(QDir::cleanPath(path));
+  }
+
+  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(KUrl::AddTrailingSlash);
+  return resultURL;
+}
+
+
 void KImageMapEditor::saveImageMap(const KUrl & url)
 {
   QFileInfo fileInfo(url.path());
@@ -2290,7 +2359,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
 
   if (!backupFileCreated) {
     QString backupFile = url.path()+'~';
-    KIO::file_copy(url, KUrl::fromPathOrUrl( backupFile ), -1, true, false, false);
+    KIO::file_copy(url, KUrl(backupFile ), -1, true, false, false);
     backupFileCreated = true;
   }
 
@@ -2312,7 +2381,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
       << "<body>\n"
       << "  " << getHTMLImageMap()
       << "\n"
-      << "  <img src=\"" << QExtFileInfo::toRelative(_imageUrl,KUrl( url.directory() )).path() << "\""
+      << "  <img src=\"" << toRelative(_imageUrl,KUrl( url.directory() )).path() << "\""
       << " usemap=\"#" << _mapName << "\""
       << " width=\"" << drawZone->picture().width() << "\""
       << " height=\"" << drawZone->picture().height() << "\">\n"
@@ -2510,7 +2579,7 @@ void KImageMapEditor::slotIncreaseHeight()
 
   QRect r = selected()->rect();
   r.setHeight( r.height()+1 );
-  r.moveBy(0,-1);
+  r.translate(0,-1);
 
   selected()->setRect(r);
 
@@ -2526,7 +2595,7 @@ void KImageMapEditor::slotDecreaseHeight()
 
   QRect r = selected()->rect();
   r.setHeight( r.height()-1 );
-  r.moveBy(0,1);
+  r.translate(0,1);
 
   selected()->setRect(r);
 
@@ -2566,22 +2635,17 @@ void KImageMapEditor::slotDecreaseWidth()
   slotUpdateSelectionCoords();
 }
 
-void KImageMapEditor::slotHightlightAreas()
+void KImageMapEditor::slotHighlightAreas(bool b)
 {
-  bool b = highlightAreasAction->isChecked();
-
-//  highlightAreasAction->setChecked(b);
   Area::highlightArea = b;
   updateAllAreas();
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
 }
 
-void KImageMapEditor::slotShowAltTag()
+void KImageMapEditor::slotShowAltTag(bool b)
 {
-  bool b = showAltAction->isChecked();
-//  showAltAction->setChecked(b);
   Area::showAlt = b;
-  drawZone->viewport()->repaint();
+  drawZone->repaint();
 }
 
 void KImageMapEditor::mapNew()
@@ -2688,7 +2752,7 @@ void KImageMapEditor::addImage(const KUrl & imgUrl) {
     if (imgUrl.isEmpty())
         return;
 
-    QString relativePath ( QExtFileInfo::toRelative(imgUrl, KUrl( url().directory() )).path() );
+    QString relativePath ( toRelative(imgUrl, KUrl( url().directory() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
     ImageTag *imgTag = new ImageTag();
@@ -2767,7 +2831,7 @@ void KImageMapEditor::imageUsemap() {
       usemap=*imageTag->find("usemap");
 
   QStringList maps = mapsListView->getMaps();
-  int index = maps.findIndex(usemap);
+  int index = maps.indexOf(usemap);
   if (index == -1) {
     maps.prepend("");
     index = 0;
@@ -2800,27 +2864,6 @@ void KImageMapEditor::imageUsemap() {
      imgEl->htmlCode += '>';
 
   }
-}
-
-void KImageMapEditor::configureShowAreaList() {
-  if (configureShowAreaListAction->isChecked())
-    mainDock->makeDockVisible(areaDock);
-  else
-    mainDock->makeDockInvisible(areaDock);
-}
-
-void KImageMapEditor::configureShowMapList() {
-  if (configureShowMapListAction->isChecked())
-    mainDock->makeDockVisible(mapsDock);
-  else
-    mainDock->makeDockInvisible(mapsDock);
-}
-
-void KImageMapEditor::configureShowImageList() {
-  if (configureShowImageListAction->isChecked())
-    mainDock->makeDockVisible(imagesDock);
-  else
-    mainDock->makeDockInvisible(imagesDock);
 }
 
 void KImageMapEditor::dockingStateChanged() {

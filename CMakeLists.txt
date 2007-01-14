@@ -2,10 +2,7 @@ project(kimagemapeditor)
 
 add_subdirectory( pics )
 
-
-
 set(libkimagemapeditorcommon_SRC
-    qextfileinfo.cpp 
     areacreator.cpp 
     kimearea.cpp 
     kimecommands.cpp 

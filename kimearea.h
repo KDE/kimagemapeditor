@@ -23,14 +23,13 @@
 #include <q3ptrlist.h>
 //Added by qt3to4:
 #include <QPixmap>
-#include <Q3PointArray>
 #include <klocale.h>
 #include <qhash.h>
 #include <QHashIterator>
 #include "kdeversion.h"
 
 class QPainter;
-class Q3PointArray;
+class QPolygon;
 class Q3ListViewItem;
 class QBitmap;
 
@@ -38,6 +37,8 @@ typedef Q3PtrList<QRect> SelectionPointList;
 
 typedef QHash<QString,QString> AttributeMap;
 typedef QHashIterator<QString,QString> AttributeIterator;
+
+#define SELSIZE 9
 
 
 
@@ -61,13 +62,13 @@ protected:
 	bool _isMoving;
 	int currentHighlighted;
 	Q3ListViewItem* _listViewItem;
-	// Only used for Polygons
-	Q3PointArray *_coords;
-	SelectionPointList *_selectionPoints;
-	QPixmap *_highlightedPixmap;
 
-	void drawHighlighting(QPainter & p);
-	void drawAlt(QPainter & p);
+	QPolygon _coords;
+	SelectionPointList *_selectionPoints;
+
+	void setPenAndBrush(QPainter* p);
+	void drawAlt(QPainter*);
+	void drawSelectionPoint(QPainter*, QRect, double);
 	QString getHTMLAttributes() const;
 
 public:
@@ -79,12 +80,10 @@ public:
 	virtual bool contains(const QPoint &) const;
 	// Default implementation; is specified by subclasses
 	virtual QString coordsToString() const;
-	virtual void draw(QPainter &);
+	virtual void draw(QPainter*);
 
 	virtual QBitmap getMask() const;
 	virtual	QString getHTMLCode() const;
-
-	virtual void setHighlightedPixmap( QImage &, QBitmap &);
 
 	virtual void moveBy(int, int);
 	virtual void moveTo(int, int);
@@ -100,7 +99,7 @@ public:
 	virtual void setArea(const Area &);
 	virtual bool setCoords(const QString &);
 	/** finished drawing only important for polygon */
-	virtual void setFinished(bool b) { _finished=b; }
+	virtual void setFinished(bool b, bool removeLast = true); 
 	virtual void setRect(const QRect &);
   virtual void setMoving(bool b);
   virtual bool isMoving() const;
@@ -116,7 +115,7 @@ public:
 	virtual void insertCoord(int, const QPoint &);
 	virtual void removeCoord(int);
 	virtual void moveCoord(int,const QPoint &);
-	virtual Q3PointArray* coords() const;
+	virtual QPolygon coords() const;
 	virtual void highlightSelectionPoint(int);
 
 	virtual QString attribute(const QString &) const;
@@ -176,7 +175,7 @@ class RectArea : public Area
 		virtual Area* clone() const;
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
-		virtual void draw(QPainter & p);
+		virtual void draw(QPainter*);
 		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
 		virtual bool setCoords(const QString & s);
 		virtual QString typeString() const { return i18n("Rectangle"); }
@@ -198,7 +197,7 @@ class CircleArea : public Area
 		virtual Area* clone() const;
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
-		virtual void draw(QPainter & p);
+		virtual void draw(QPainter*);
 		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
 		virtual bool setCoords(const QString & s);
 		virtual void setRect(const QRect & r);
@@ -221,13 +220,13 @@ class PolyArea :public Area
 		virtual Area* clone() const;
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
-		virtual void draw(QPainter & p);
+		virtual void draw(QPainter*);
 		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
 		virtual void simplifyCoords();
   	virtual int addCoord(const QPoint & p);
 		virtual bool setCoords(const QString & s);
 		virtual QRect selectionRect() const;
-		virtual void setFinished(bool b);
+		virtual void setFinished(bool b, bool removeLast);
 		virtual QString typeString() const { return i18n("Polygon"); }
 		virtual QBitmap getMask() const;
 		virtual QString getHTMLCode() const;
@@ -250,7 +249,7 @@ class DefaultArea :public Area
 
 		virtual Area* clone() const;
 		// the default area isn't drawn
-		virtual void draw(QPainter & p);
+		virtual void draw(QPainter*);
 		virtual QString typeString() const { return i18n("Default"); }
 		virtual QString getHTMLCode() const;
 
@@ -338,7 +337,7 @@ class AreaSelection : public Area {
 
 		// The selection is only a container
 		// so it is never drawn
-		virtual void draw(QPainter & p);
+		virtual void draw(QPainter*);
 
 
 		/**
@@ -352,7 +351,7 @@ class AreaSelection : public Area {
   	virtual void removeCoord(int pos);
     virtual bool removeSelectionPoint(QRect * r);
   	virtual void moveCoord(int pos,const QPoint & p);
-  	virtual Q3PointArray* coords() const;
+  	virtual QPolygon coords() const;
 		virtual void highlightSelectionPoint(int);
 
 		virtual QRect selectionRect() const;

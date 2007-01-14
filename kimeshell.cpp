@@ -18,8 +18,10 @@
 
 #include <iostream>
 
+#include <QDockWidget>
+#include <QScrollArea>
+
 #include <kaction.h>
-#include <kiconloader.h>
 #include <kstandarddirs.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
@@ -41,26 +43,26 @@
 #include "kimeshell.h"
 #include "kimeshell.moc"
 #include <kactioncollection.h>
-KimeShell::KimeShell(const char *name )
-  : KParts::DockMainWindow3( 0L, name )
+KimeShell::KimeShell(const char * )
+  : KParts::MainWindow()
 {
-	setXMLFile("kimagemapeditorui.rc");
+  setXMLFile("kimagemapeditorui.rc");
 
-
-  K3DockWidget* mainDock;
-  mainDock = createDockWidget( "MainDockWidget", 0L, 0L, "main_dock_widget");
-  QWidget *w = new KHBox( mainDock );
+  //  QDockWidget* mainDock = new QDockWidget(this);
+  //  mainDock = createDockWidget( "MainDockWidget", 0L, 0L, "main_dock_widget");
+  //  QWidget *mainWidget = new KHBox( this );
+  //  QScrollArea* mainWidget = new QScrollArea(this);
+  //  setCentralWidget(mainWidget);
 //  QLayout* layout = new QGridLayout( mainDock );
 
-  mainDock->setWidget( w );
+//  mainDock->setWidget( w );
   // allow others to dock to the 4 sides
-  mainDock->setDockSite(K3DockWidget::DockCorner);
+  //  mainDock->setDockSite(K3DockWidget::DockCorner);
   // forbit docking abilities of mainDock itself
-  mainDock->setEnableDocking(K3DockWidget::DockNone);
-  setView( mainDock); // central widget in a KDE mainwindow
-  setMainDockWidget( mainDock); // master dockwidget
-  m_part = new KImageMapEditor( w, this);
-
+  //  mainDock->setEnableDocking(K3DockWidget::DockNone);
+  //  setView( mainDock); // central widget in a KDE mainwindow
+  //  setMainDockWidget( mainDock); // master dockwidget
+  m_part = new KImageMapEditor((QWidget*)0L, this);
 
 //	setCentralWidget( part->widget() );
 
@@ -199,10 +201,10 @@ void KimeShell::readConfig() {
 
 }
 
-void KimeShell::readConfig(KConfig* config) {
+void KimeShell::readConfig(KConfig*) {
 //	applyMainWindowSettings(config);
 //	restoreWindowSize(config);
-  readDockConfig(config);
+//  readDockConfig(config);
 }
 
 void KimeShell::writeConfig() {
@@ -217,7 +219,7 @@ void KimeShell::writeConfig() {
 void KimeShell::writeConfig(KConfig* config) {
 	saveMainWindowSettings(config);
 	saveWindowSize(config);
-  writeDockConfig(config);
+	//  writeDockConfig(config);
   config->sync();
 
 }

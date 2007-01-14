@@ -34,11 +34,11 @@ Area* AreaCreator::create( Area::ShapeType type)
 
 Area* AreaCreator::create( KImageMapEditor::ToolType type)
 {
-	switch ( type ) {
-		case KImageMapEditor::Rectangle : return new RectArea();
-		case KImageMapEditor::Circle : return new CircleArea();
-		case KImageMapEditor::Polygon : return new PolyArea();
-		case KImageMapEditor::Freehand : return new PolyArea();
-		default : return new Area();
-	}
+  switch ( type ) {
+  case KImageMapEditor::Rectangle : return new RectArea();
+  case KImageMapEditor::Circle : return new CircleArea();
+  case KImageMapEditor::Polygon : return new PolyArea();
+  case KImageMapEditor::Freehand : return new PolyArea();
+  default : return new Area();
+  }
 }

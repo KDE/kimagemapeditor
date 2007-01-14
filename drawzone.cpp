@@ -39,127 +39,147 @@
 #include "kimagemapeditor.h"
 #include "kimecommands.h"
 #include "areacreator.h"
+#include "kimearea.h"
 
 #include "kimecommon.h"
 
+static QCursor createCircleCursor();
+static QCursor createRectangleCursor();
+
 DrawZone::DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor)
-	: Q3ScrollView(parent)
+	: QWidget(parent)
 {
-	imageMapEditor=_imageMapEditor;
+  imageMapEditor=_imageMapEditor;
 //	setPicture(QImage());
-	currentAction=None;
-	currentArea=0L;
-	oldArea=0L;
-	_zoom=1;
+  currentAction=None;
+  currentArea=0L;
+  oldArea=0L;
+  _zoom=1;
+  //  QWidget* w = new QWidget(this);
+  //  setWidget(w);
+
   if (imageMapEditor->isReadWrite()) {
-	    viewport()->setMouseTracking(true);
-    	viewport()->setAcceptDrops(true);
-      this->setAcceptDrops(true);
+    setMouseTracking(true);
+    setAcceptDrops(true);
+  } else {
+    setMouseTracking(false);
   }
-  else
-      viewport()->setMouseTracking(false);
 
-	setDragAutoScroll(true);
+  rectangleCursor = createRectangleCursor();
+  circleCursor = createCircleCursor();
 
-	// The cross rectangle cursor
-	QBitmap b(32,32,true);
-	QBitmap b2(32,32,true);
-	QPainter p(&b);
-	// the cross
-  p.drawLine(0,8,6,8);
-  p.drawLine(10,8,16,8);
-	p.drawLine(8,0,8,6);
-	p.drawLine(8,10,8,16);
-	// the rectangle
-	p.drawRect(17,17,8,6);
+  QString path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/polygoncursor.png" ) + "kimagemapeditor/polygoncursor.png";
+  polygonCursor = QCursor(QPixmap(path),8,8);
 
-	p.end();
+  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/freehandcursor.png" ) + "kimagemapeditor/freehandcursor.png";
+  freehandCursor = QCursor(QPixmap(path),8,8);
 
-	p.begin(&b2);
-	// the cross black lines
-  p.drawLine(0,8,6,8);
-  p.drawLine(10,8,16,8);
-	p.drawLine(8,0,8,6);
-	p.drawLine(8,10,8,16);
+  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/addpointcursor.png" ) + "kimagemapeditor/addpointcursor.png";
+  addPointCursor = QCursor(QPixmap(path),8,8);
 
-	// the cross white lines
-  p.drawLine(0,7,6,7);
-  p.drawLine(10,7,16,7);
-	p.drawLine(7,0,7,6);
-	p.drawLine(7,10,7,16);
-
-	// the cross white lines
-  p.drawLine(0,9,6,9);
-  p.drawLine(10,9,16,9);
-	p.drawLine(9,0,9,6);
-	p.drawLine(9,10,9,16);
-
-	// the rectangles
-	p.drawRect(17,17,8,6);	// black
-	p.drawRect(18,18,6,4);  // white
-	p.drawRect(16,16,10,8); // white
-
-	p.end();
-
-	RectangleCursor = QCursor(b,b2,8,8);
-
-
-	// The cross circle cursor
-	b = QBitmap(32,32,true);
-	b2 = QBitmap(32,32,true);
-	p.begin(&b);
-	// the cross
-  p.drawLine(0,8,6,8);
-  p.drawLine(10,8,16,8);
-	p.drawLine(8,0,8,6);
-	p.drawLine(8,10,8,16);
-	// the circle
-	p.drawEllipse(17,17,8,8);
-
-	p.end();
-
-	p.begin(&b2);
-	// the cross black lines
-  p.drawLine(0,8,6,8);
-  p.drawLine(10,8,16,8);
-	p.drawLine(8,0,8,6);
-	p.drawLine(8,10,8,16);
-
-	// the cross white lines
-  p.drawLine(0,7,6,7);
-  p.drawLine(10,7,16,7);
-	p.drawLine(7,0,7,6);
-	p.drawLine(7,10,7,16);
-
-	// the cross white lines
-  p.drawLine(0,9,6,9);
-  p.drawLine(10,9,16,9);
-	p.drawLine(9,0,9,6);
-	p.drawLine(9,10,9,16);
-
-	// the circles
-	p.drawEllipse(17,17,8,8);  // black
-	p.drawEllipse(16,16,10,10);  // white
-	p.drawEllipse(18,18,6,6);  // white
-
-	p.end();
-
-	CircleCursor = QCursor(b,b2,8,8);
-
-	QString path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/polygoncursor.png" ) + "kimagemapeditor/polygoncursor.png";
-	PolygonCursor = QCursor(QPixmap(path),8,8);
-
-	path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/freehandcursor.png" ) + "kimagemapeditor/freehandcursor.png";
-	FreehandCursor = QCursor(QPixmap(path),8,8);
-
-	path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/addpointcursor.png" ) + "kimagemapeditor/addpointcursor.png";
-	AddPointCursor = QCursor(QPixmap(path),8,8);
-
-	path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/removepointcursor.png" ) + "kimagemapeditor/removepointcursor.png";
-	RemovePointCursor = QCursor(QPixmap(path),8,8);
+  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/removepointcursor.png" ) + "kimagemapeditor/removepointcursor.png";
+  removePointCursor = QCursor(QPixmap(path),8,8);
 }
 
 DrawZone::~DrawZone(){
+}
+
+static QCursor createCircleCursor() {
+  
+
+  // The cross circle cursor
+  QBitmap b(32,32);
+  QBitmap b2(32,32);
+  b2.clear();
+  b.clear();
+
+  QPainter p;
+
+  p.begin(&b);
+  // the cross
+  p.drawLine(0,8,6,8);
+  p.drawLine(10,8,16,8);
+  p.drawLine(8,0,8,6);
+  p.drawLine(8,10,8,16);
+  // the circle
+  p.drawEllipse(17,17,8,8);
+
+  p.end();
+
+  p.begin(&b2);
+  // the cross black lines
+  p.drawLine(0,8,6,8);
+  p.drawLine(10,8,16,8);
+  p.drawLine(8,0,8,6);
+  p.drawLine(8,10,8,16);
+
+  // the cross white lines
+  p.drawLine(0,7,6,7);
+  p.drawLine(10,7,16,7);
+  p.drawLine(7,0,7,6);
+  p.drawLine(7,10,7,16);
+
+  // the cross white lines
+  p.drawLine(0,9,6,9);
+  p.drawLine(10,9,16,9);
+  p.drawLine(9,0,9,6);
+  p.drawLine(9,10,9,16);
+
+  // the circles
+  p.drawEllipse(17,17,8,8);  // black
+  p.drawEllipse(16,16,10,10);  // white
+  p.drawEllipse(18,18,6,6);  // white
+
+  p.end();
+
+  return QCursor(b,b2,8,8);
+}
+
+static QCursor createRectangleCursor() {
+  // The cross rectangle cursor
+  QBitmap b(32,32);
+  QBitmap b2(32,32);
+  b.clear();
+  b2.clear();
+
+  QPainter p(&b);
+  // the cross
+  p.drawLine(0,8,6,8);
+  p.drawLine(10,8,16,8);
+  p.drawLine(8,0,8,6);
+  p.drawLine(8,10,8,16);
+  // the rectangle
+  p.drawRect(17,17,8,6);
+
+  p.end();
+
+  p.begin(&b2);
+  // the cross black lines
+  p.drawLine(0,8,6,8);
+  p.drawLine(10,8,16,8);
+  p.drawLine(8,0,8,6);
+  p.drawLine(8,10,8,16);
+
+  // the cross white lines
+  p.drawLine(0,7,6,7);
+  p.drawLine(10,7,16,7);
+  p.drawLine(7,0,7,6);
+  p.drawLine(7,10,7,16);
+
+  // the cross white lines
+  p.drawLine(0,9,6,9);
+  p.drawLine(10,9,16,9);
+  p.drawLine(9,0,9,6);
+  p.drawLine(9,10,9,16);
+
+  // the rectangles
+  p.drawRect(17,17,8,6);	// black
+  p.drawRect(18,18,6,4);  // white
+  p.drawRect(16,16,10,8); // white
+
+  p.end();
+
+  return QCursor(b,b2,8,8);
 }
 
 void DrawZone::setPicture(const QImage &_image) {
@@ -167,32 +187,41 @@ void DrawZone::setPicture(const QImage &_image) {
 //-	zoomedImage.convertFromImage(image);
 	setZoom(_zoom);
 }
-
+ 
 void DrawZone::setZoom(double z)
 {
-	_zoom=z;
-	imageRect.setHeight(myround(image.height()*_zoom));
-	imageRect.setWidth(myround(image.width()*_zoom));
-	zoomedImage=QPixmap(imageRect.width(),imageRect.height());
-	QPainter p(&zoomedImage);
-	p.scale(z,z);
-	QPixmap pix;
-	pix.convertFromImage(image);
-	// if the picture has transparent areas,
-	// fill them with Gimp like background
-	if (!pix.mask().isNull()) {
-  	QPixmap backPix(32,32);
-  	QPainter p2(&backPix);
-  	p2.fillRect(0,0,32,32,QColor(156,149,156));
-  	p2.fillRect(0,16,16,16,QColor(98,105,98));
-  	p2.fillRect(16,0,16,16,QColor(98,105,98));
-  	p.setPen(QPen());
-  	p.fillRect(imageRect.left(),imageRect.top(),imageRect.width(),imageRect.height(),QBrush(QColor("black"),backPix));
-	}
-	p.drawPixmap(imageRect.left(),imageRect.top(),pix);
-	resizeContents(visibleWidth()>imageRect.width() ? visibleWidth() : imageRect.width(),
-								 visibleHeight()>imageRect.height() ? visibleHeight() : imageRect.height());
-	repaintContents(0,0,contentsWidth(),contentsHeight(),true);
+  _zoom=z;
+  zoomedImage = zoomedImage.fromImage(image);
+  imageRect.setHeight(myround(image.height()*_zoom));
+  imageRect.setWidth(myround(image.width()*_zoom));
+  zoomedImage = zoomedImage.scaled(imageRect.size());
+  /*
+  zoomedImage = QPixmap(imageRect.width(),imageRect.height());
+  QPainter p(&zoomedImage);
+  p.scale(z,z);
+  QPixmap pix;
+  pix.fromImage(image);
+  // if the picture has transparent areas,
+  // fill them with Gimp like background
+  if (!pix.mask().isNull()) {
+    QPixmap backPix(32,32);
+    QPainter p2(&backPix);
+    p2.fillRect(0,0,32,32,QColor(156,149,156));
+    p2.fillRect(0,16,16,16,QColor(98,105,98));
+    p2.fillRect(16,0,16,16,QColor(98,105,98));
+    p.setPen(QPen());
+    p.fillRect(imageRect.left(),imageRect.top(),imageRect.width(),imageRect.height(),QBrush(QColor("black"),backPix));
+  }
+  p.drawPixmap(imageRect.left(),imageRect.top(),pix);
+  */
+  /*
+    resizeContents(visibleWidth()>imageRect.width() ? visibleWidth() : imageRect.width(),
+    visibleHeight()>imageRect.height() ? visibleHeight() : imageRect.height());
+  */
+
+  
+  resize(zoomedImage.size());
+  repaint();//0,0,width(),height());
 }
 
 QPoint DrawZone::translateFromZoom(const QPoint & p) const {
@@ -215,7 +244,7 @@ QRect DrawZone::translateToZoom(const QRect & r) const {
 							 (int)(r.width()*_zoom+2),(int)(r.height()*_zoom+2));
 }
 
-void DrawZone::contentsMouseDoubleClickEvent(QMouseEvent* e) {
+void DrawZone::mouseDoubleClickEvent(QMouseEvent* e) {
   if ( ! imageMapEditor->isReadWrite())
      return;
 
@@ -233,503 +262,504 @@ void DrawZone::contentsMouseDoubleClickEvent(QMouseEvent* e) {
 
 }
 
-void DrawZone::contentsMousePressEvent(QMouseEvent* e)
+QPoint DrawZone::moveIntoImage(QPoint p) {
+  // Check if it's on picture if not
+  // move it to the picture's border
+  if (!imageRect.contains(p)) {
+    if (p.x()>imageRect.right())
+      p.setX(imageRect.right());
+    if (p.x()<imageRect.left())
+      p.setX(imageRect.left());
+    if (p.y()>imageRect.bottom())
+      p.setY(imageRect.bottom());
+    if (p.y()<imageRect.top())
+      p.setY(imageRect.top());
+  }
+  return p;
+}
+
+
+void DrawZone::mousePressRightNone(QMouseEvent* e, QPoint drawStart) {
+  if ( (currentArea=imageMapEditor->onArea(drawStart)) ) {
+    if ( ! currentArea->isSelected()) {
+      imageMapEditor->deselectAll();
+      imageMapEditor->select(currentArea);
+    }
+    currentArea=imageMapEditor->selected();
+  }
+  imageMapEditor->slotShowMainPopupMenu(e->globalPos());
+}
+
+void DrawZone::mousePressLeftNoneOnArea(QMouseEvent* e, Area* area) {
+  if ( imageMapEditor->currentToolType() == KImageMapEditor::AddPoint )
+  {
+    currentAction=AddPoint;
+    setCursor(addPointCursor);
+    oldArea=area->clone();
+  } else {
+    currentAction=MoveArea;
+    setCursor(Qt::SizeAllCursor);
+	
+    if ( area->isSelected() ) {
+      if ( (e->modifiers() & Qt::ControlModifier) )
+	imageMapEditor->deselect(area);
+    } else {
+      if ( (e->modifiers() & Qt::ControlModifier) )
+	imageMapEditor->select( area );
+      else {
+	imageMapEditor->deselectAll();
+	imageMapEditor->select( area );
+      }
+    }
+	
+    currentArea = imageMapEditor->selected();
+    currentArea->setMoving(true);
+
+    oldArea=currentArea->clone();
+  }
+}
+
+
+void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {   
+  KImageMapEditor::ToolType toolType = imageMapEditor->currentToolType();
+  
+  if ( (toolType==KImageMapEditor::Rectangle) ||
+       (toolType==KImageMapEditor::Circle) ||
+       (toolType==KImageMapEditor::Polygon) ||
+       (toolType==KImageMapEditor::Freehand))
+  {
+    currentArea = AreaCreator::create(toolType);
+
+    currentArea->setRect(QRect(drawStart,drawStart));
+    currentArea->setSelected(false);
+    imageMapEditor->deselectAll();
+    
+    switch (toolType)	{
+    case KImageMapEditor::Rectangle : 
+      currentAction = DrawRectangle; 
+      break;
+    case KImageMapEditor::Circle : 
+      currentAction = DrawCircle; 
+      break;
+    case KImageMapEditor::Polygon :
+      currentAction = DrawPolygon;
+      currentArea->addCoord(drawStart);
+      currentSelectionPoint = currentArea->selectionPoints()->last();
+      break;
+    case KImageMapEditor::Freehand :
+      currentAction = DrawFreehand;
+      //currentArea->addCoord(drawStart);
+      currentArea->setFinished(false);
+      break;
+    default: 
+      break;
+    }
+  } else {
+    // leftclicked with the arrow at an areafree position
+    if (toolType==KImageMapEditor::Selection)
+    {
+      currentArea=0L;
+      imageMapEditor->deselectAll();
+      // Start drawing a selection rectangle
+      currentAction=DoSelect;
+      oldSelectionRect = imageRect;
+    }
+  }
+}
+
+
+void DrawZone::mousePressLeftNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoint) {
+  if ((currentArea=imageMapEditor->selected()) &&
+      (currentSelectionPoint=currentArea->onSelectionPoint(zoomedPoint,_zoom)))
+  {
+    if ( (imageMapEditor->currentToolType() == KImageMapEditor::RemovePoint) &&
+	 (imageMapEditor->selected()->selectionPoints()->count()>3) )
+    {
+      currentAction=RemovePoint;
+    } else {
+      currentAction=MoveSelectionPoint;
+      currentArea->setMoving(true);
+    }
+  } else { // leftclick not on selectionpoint but on area
+    if ((currentArea=imageMapEditor->onArea(drawStart))) {
+      mousePressLeftNoneOnArea(e,currentArea);
+    } else { 
+      mousePressLeftNoneOnBackground(e, drawStart);
+    }
+  }
+}
+
+
+void DrawZone::mousePressNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoint) {
+  if (e->button()==Qt::RightButton) {
+    mousePressRightNone(e,drawStart);
+  } else {
+    if (e->button()==Qt::MidButton) {
+      mouseDoubleClickEvent(e);
+    } else {
+      mousePressLeftNone(e,drawStart,zoomedPoint);
+    }
+      
+  } 
+
+}
+
+void DrawZone::mousePressEvent(QMouseEvent* e)
 {
   if ( ! imageMapEditor->isReadWrite())
-     return;
+    return;
 
-	drawStart=e->pos();
-	// Check if it's on picture if not
-	// move it to the picture's border
-	if (!imageRect.contains(drawStart)) {
-		if (drawStart.x()>imageRect.right())
-			drawStart.setX(imageRect.right());
-		if (drawStart.x()<imageRect.left())
-			drawStart.setX(imageRect.left());
-		if (drawStart.y()>imageRect.bottom())
-			drawStart.setY(imageRect.bottom());
-		if (drawStart.y()<imageRect.top())
-			drawStart.setY(imageRect.top());
-	}
-
-	// Translate it to picture coordinates
-	drawStart-=imageRect.topLeft();
+  drawStart = moveIntoImage(e->pos());
+ 
+  // Translate it to picture coordinates
+  //  drawStart-=imageRect.topLeft();
   QPoint zoomedPoint = drawStart;
-	drawStart=translateFromZoom(drawStart);
-	delete oldArea;
-	oldArea=0L;
+  drawStart=translateFromZoom(drawStart);
 
-	if (currentArea)
-	{
-		oldArea=currentArea->clone();
-	}
+  delete oldArea;
+  oldArea=0L;
 
-	if ( currentAction==None ) {
-		if (e->button()==Qt::RightButton)
-		{
-			if ( (currentArea=imageMapEditor->onArea(drawStart)) )
-			{
-  			if ( ! currentArea->isSelected())
-  			{
-  				imageMapEditor->deselectAll();
-  				imageMapEditor->select(currentArea);
-  			}
- 				currentArea=imageMapEditor->selected();
-  		}
+  if (currentArea) {
+    oldArea = currentArea->clone();
+  }
 
-  		imageMapEditor->slotShowMainPopupMenu(e->globalPos());
+  if (currentAction == None) {
+    mousePressNone(e,drawStart,zoomedPoint);
+  }
 
-		}
-		else
-		if (e->button()==Qt::MidButton) {
-			contentsMouseDoubleClickEvent(e);
-		}
-		else  // LeftClick on selectionpoint
-		if ((currentArea=imageMapEditor->selected()) &&
-			(currentSelectionPoint=currentArea->onSelectionPoint(zoomedPoint,_zoom)))
-		{
-			oldArea=currentArea->clone();
+  QRect r;
+  if (oldArea)
+    r = oldArea->selectionRect();
 
-		  if ( (imageMapEditor->currentToolType() == KImageMapEditor::RemovePoint) &&
-		       (imageMapEditor->selected()->selectionPoints()->count()>3) )
-		  {
-      	currentAction=RemovePoint;
-		  }
-		  else
-		  {
-  			currentAction=MoveSelectionPoint;
-        currentArea->setMoving(true);
-      }
-
-		} else // leftclick not on selectionpoint but on area
-		if ((currentArea=imageMapEditor->onArea(drawStart)))
-		{
-		  if ( imageMapEditor->currentToolType() == KImageMapEditor::AddPoint )
-		  {
-		    currentAction=AddPoint;
-		    viewport()->setCursor(AddPointCursor);
-   			oldArea=currentArea->clone();
-		  }
-		  else
-		  {
-  			currentAction=MoveArea;
-  			viewport()->setCursor(Qt::SizeAllCursor);
-
-  			if ( currentArea->isSelected() ) {
-  				if ( (e->state() & Qt::ControlModifier) )
-   					imageMapEditor->deselect(currentArea);
-   			} else
-  			{
-  				if ( (e->state() & Qt::ControlModifier) )
-  					imageMapEditor->select( currentArea );
-  				else {
-  					imageMapEditor->deselectAll();
-  					imageMapEditor->select( currentArea );
-  				}
-  			}
-
-  			currentArea = imageMapEditor->selected();
-        currentArea->setMoving(true);
-
-  			oldArea=currentArea->clone();
-      }
-  	}
-		else  // leftclick on the background
-		if ( (imageMapEditor->currentToolType()==KImageMapEditor::Rectangle) ||
-		     (imageMapEditor->currentToolType()==KImageMapEditor::Circle) ||
-		     (imageMapEditor->currentToolType()==KImageMapEditor::Polygon) ||
-		     (imageMapEditor->currentToolType()==KImageMapEditor::Freehand))
-		{
-			currentArea=AreaCreator::create(imageMapEditor->currentToolType());
-
- 		  currentArea->setRect(QRect(drawStart,drawStart));
- 		  currentArea->setSelected(false);
- 		  imageMapEditor->deselectAll();
-
-			switch (imageMapEditor->currentToolType())	{
-				case KImageMapEditor::Rectangle : currentAction=DrawRectangle; break;
-				case KImageMapEditor::Circle : currentAction=DrawCircle; break;
-				case KImageMapEditor::Polygon :
-  					currentAction=DrawPolygon;
-      			currentArea->addCoord(drawStart);
-      			currentSelectionPoint=currentArea->selectionPoints()->last();
-      			break;
-        case KImageMapEditor::Freehand :
-            currentAction=DrawFreehand;
-      			//currentArea->addCoord(drawStart);
-      			currentArea->setFinished(false);
- 			  		break;
-				default: break;
-			}
-		}
-		else
-  	// leftclicked with the arrow at an areafree position
-		if (imageMapEditor->currentToolType()==KImageMapEditor::Selection)
-  	{
-  	  	currentArea=0L;
-  	  	imageMapEditor->deselectAll();
-  	  	// Start drawing a selection rectangle
-  	  	currentAction=DoSelect;
-  	  	oldSelectionRect = imageRect;
-  	}
-	} else
-	if ( currentAction==DrawPolygon) {
-
-	}
-
-	QRect r;
-	if (oldArea)
-		r=oldArea->selectionRect();
-	if (currentArea) {
-		r= r | currentArea->selectionRect();
-		repaintContents(translateToZoom(r),false);
-	}
+  if (currentArea) {
+    r = r | currentArea->selectionRect();
+    repaint(translateToZoom(r));
+  }
 
 
 }
 
-void DrawZone::contentsMouseReleaseEvent(QMouseEvent *e) {
+void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
   if ( ! imageMapEditor->isReadWrite())
      return;
 
-  QPoint drawEnd=e->pos();
+  QPoint drawEnd= moveIntoImage(e->pos());
 
-	// Check if it's on picture if not
-	// move it to the picture's border
-	if (!imageRect.contains(drawEnd)) {
-		if (drawEnd.x()>imageRect.right())
-			drawEnd.setX(imageRect.right());
-		if (drawEnd.x()<imageRect.left())
-			drawEnd.setX(imageRect.left());
-		if (drawEnd.y()>imageRect.bottom())
-			drawEnd.setY(imageRect.bottom());
-		if (drawEnd.y()<imageRect.top())
-			drawEnd.setY(imageRect.top());
-	}
-	// Translate it to picture coordinates
-	drawEnd-=imageRect.topLeft();
+  // Translate it to picture coordinates
+  //  drawEnd-=imageRect.topLeft();
   QPoint zoomedPoint=drawEnd;
+  drawEnd=translateFromZoom(drawEnd);
 
-	drawEnd=translateFromZoom(drawEnd);
+  switch (currentAction) {
+  case DrawCircle:
+  case DrawRectangle:
+    currentAction = None;
+    imageMapEditor->commandHistory()->addCommand(
+	  new CreateCommand( imageMapEditor, 
+			     currentArea ), 
+	  true);
+    break;
+  case DrawPolygon:
+    // If the number of Polygonpoints is more than 2
+    // and clicked on the first PolygonPoint or
+    // the right Button was pressed the Polygon is finished
+    if ((currentArea->selectionPoints()->count()>2)
+	&& (currentArea->selectionPoints()->first()->contains(drawEnd)
+	    || (e->button()==Qt::RightButton)))
+    {
+      currentArea->setFinished(true);
+      currentAction=None;
+      imageMapEditor->commandHistory()->addCommand(
+	  new CreateCommand( imageMapEditor, currentArea ), true);
+    } else {
+      currentArea->insertCoord(currentArea->countSelectionPoints()-1, drawEnd);
+      currentSelectionPoint=currentArea->selectionPoints()->last();
+    }
+    break;
+  case DrawFreehand:
+    currentArea->setFinished(true,false);
+    currentArea->simplifyCoords();
+    currentAction=None;
+    imageMapEditor->commandHistory()->addCommand(
+	new CreateCommand( imageMapEditor, currentArea ), true);
+    break;
+  case MoveArea: {
+    QPoint p1 = oldArea->rect().topLeft();
+    QPoint p2 = imageMapEditor->selected()->rect().topLeft();
 
-	if (currentAction==DrawCircle || currentAction==DrawRectangle) {
-  		currentAction=None;
-   		imageMapEditor->commandHistory()->addCommand(
-   			new CreateCommand( imageMapEditor, currentArea ), true);
-  } else
-	if (currentAction==DrawPolygon) {
-		// If the number of Polygonpoints is more than 2
-		// and clicked on the first PolygonPoint or
-		// the right Button was pressed the Polygon is finished
-  	if ((currentArea->selectionPoints()->count()>2)
-  		&& (currentArea->selectionPoints()->first()->contains(drawEnd)
-  		 || (e->button()==Qt::RightButton)))
-  	{
-			currentArea->setFinished(true);
-  		currentAction=None;
-   		imageMapEditor->commandHistory()->addCommand(
-   			new CreateCommand( imageMapEditor, currentArea ), true);
-		} else
-		{
-   		currentArea->insertCoord(currentArea->countSelectionPoints()-1, drawEnd);
-   		currentSelectionPoint=currentArea->selectionPoints()->last();
-   	}
-	} else
-	if (currentAction==DrawFreehand)
-	{
-			currentArea->setFinished(true);
-			currentArea->simplifyCoords();
-  		currentAction=None;
-   		imageMapEditor->commandHistory()->addCommand(
-   			new CreateCommand( imageMapEditor, currentArea ), true);
-	} else
-	if (currentAction==MoveArea) {
-	    QPoint p1 = oldArea->rect().topLeft();
-	    QPoint p2 = imageMapEditor->selected()->rect().topLeft();
+    if (p1 != p2) {
+      imageMapEditor->commandHistory()->addCommand(
+	new MoveCommand( imageMapEditor, 
+			 imageMapEditor->selected(), 
+			 oldArea->rect().topLeft()),
+	true);
+      imageMapEditor->slotAreaChanged(currentArea);
+    } else {
+      imageMapEditor->updateSelection();
+    }
+    
+    currentAction=None;
+    break;
+  }
+  case MoveSelectionPoint:
+    imageMapEditor->commandHistory()->addCommand(
+	new ResizeCommand( imageMapEditor, 
+			   imageMapEditor->selected(), 
+			   oldArea),
+	true);
+    imageMapEditor->slotAreaChanged(currentArea);
+    currentAction=None;
+    break;
+  case RemovePoint:
+    if (currentSelectionPoint ==
+	currentArea->onSelectionPoint(zoomedPoint,_zoom)) 
+    {
+      currentArea->removeSelectionPoint(currentSelectionPoint);
+      imageMapEditor->commandHistory()->addCommand(
+	new RemovePointCommand( imageMapEditor, 
+				imageMapEditor->selected(), 
+				oldArea),
+	true);
+      imageMapEditor->slotAreaChanged(currentArea);
+    }
+    currentAction=None;
+    break;
+  case AddPoint:
+    if (currentArea == imageMapEditor->onArea(drawEnd)) {
+      imageMapEditor->commandHistory()->addCommand(
+         new AddPointCommand( imageMapEditor, 
+			      imageMapEditor->selected(), 
+			      drawEnd),
+	 true);
+      imageMapEditor->slotAreaChanged(currentArea);
+    }
+    currentAction=None;
+    break;
+  case DoSelect: {
+    currentAction=None;
+    QRect r(drawStart.x(),
+	    drawStart.y(),
+	    drawCurrent.x()-drawStart.x(),
+	    drawCurrent.y()-drawStart.y());
+    r = r.normalized();
 
-	    if (p1 != p2)
-	    {
-  			imageMapEditor->commandHistory()->addCommand(
-	  			new MoveCommand( imageMapEditor, imageMapEditor->selected(), oldArea->rect().topLeft()),true);
-  	  	imageMapEditor->slotAreaChanged(currentArea);
-  	  } else
-     	  imageMapEditor->updateSelection();
-
-  		currentAction=None;
-  } else
-  if (currentAction==MoveSelectionPoint) {
-			imageMapEditor->commandHistory()->addCommand(
-				new ResizeCommand( imageMapEditor, imageMapEditor->selected(), oldArea),true);
-  		imageMapEditor->slotAreaChanged(currentArea);
-  		currentAction=None;
-  } else
-  if (currentAction==RemovePoint) {
-     if (currentSelectionPoint==currentArea->onSelectionPoint(zoomedPoint,_zoom))
-     {
-       currentArea->removeSelectionPoint(currentSelectionPoint);
-
-       imageMapEditor->commandHistory()->addCommand(
-         new RemovePointCommand( imageMapEditor, imageMapEditor->selected(), oldArea),true);
-    	 imageMapEditor->slotAreaChanged(currentArea);
-     }
- 		 currentAction=None;
-  } else
-  if (currentAction==AddPoint)
-  {
-      if (currentArea==imageMapEditor->onArea(drawEnd))
-      {
-        imageMapEditor->commandHistory()->addCommand(
-          new AddPointCommand( imageMapEditor, imageMapEditor->selected(), drawEnd),true);
-    		imageMapEditor->slotAreaChanged(currentArea);
-  		}
-   		currentAction=None;
-  } else
-  if (currentAction==DoSelect) {
-  	currentAction=None;
-
-   	QRect r(drawStart.x(),drawStart.y(),drawCurrent.x()-drawStart.x(),drawCurrent.y()-drawStart.y());
-   	r = r.normalize();
-
-    	AreaListIterator it=imageMapEditor->areaList();
-  		for ( ; it.current() != 0L ; ++it )	{
-    		if ( it.current()->rect().intersects(r) )
-    		{
-   				if (!it.current()->isSelected() )
-    				imageMapEditor->selectWithoutUpdate( it.current() );
-    		}
-    		else
-     		  if (it.current()->isSelected())
-      			imageMapEditor->deselectWithoutUpdate( it.current() );
-			}
+    AreaListIterator it = imageMapEditor->areaList();
+    for ( ; it.current() != 0L ; ++it )	{
+      if ( it.current()->rect().intersects(r) )	{
+	if (!it.current()->isSelected() ) {
+	  imageMapEditor->selectWithoutUpdate( it.current() );
+	}
+      } else {
+	if (it.current()->isSelected()) {
+	  imageMapEditor->deselectWithoutUpdate( it.current() );
+	}
+      }
+    }
 
     imageMapEditor->updateActionAccess();
-  	imageMapEditor->updateSelection();
-    repaintContents(imageRect,false);
-  } else {
-  	currentAction=None;
+    imageMapEditor->updateSelection();
+    repaint(imageRect);
+    break;
   }
-	imageMapEditor->slotChangeStatusCoords(drawEnd.x(),drawEnd.y());
-	if (currentArea)
-	{
-	  currentArea->setMoving(false);
-		repaintArea(*currentArea);
-	}
-	delete oldArea;
-	oldArea=0L;
-//	repaintContents(0,0,contentsWidth(),contentsHeight(),false);
+  default:  
+    currentAction=None;
+  }
+
+  imageMapEditor->slotChangeStatusCoords(drawEnd.x(),drawEnd.y());
+  if (currentArea) {
+    currentArea->setMoving(false);
+    repaintArea(*currentArea);
+  }
+  
+  delete oldArea;
+  oldArea=0L;
   imageMapEditor->slotUpdateSelectionCoords();
 }
 
-
-void DrawZone::contentsMouseMoveEvent(QMouseEvent *e)
-{
-  if ( ! imageMapEditor->isReadWrite())
-     return;
-
-
-		drawCurrent=e->pos();
-
-		// If outside the image
-		// set it to the border
-		if (!imageRect.contains(drawCurrent)) {
-  		if (drawCurrent.x()>imageRect.right())
-  			drawCurrent.setX(imageRect.right());
-  		if (drawCurrent.x()<imageRect.left())
-  			drawCurrent.setX(imageRect.left());
-  		if (drawCurrent.y()>imageRect.bottom())
-  			drawCurrent.setY(imageRect.bottom());
-  		if (drawCurrent.y()<imageRect.top())
-  			drawCurrent.setY(imageRect.top());
-		}
-
-		// Translate to image coordinates
-		drawCurrent-=imageRect.topLeft();
-    QPoint zoomedPoint=drawCurrent;
-		drawCurrent=translateFromZoom(drawCurrent);
-
-		if (currentAction==DrawRectangle) {
-			// To avoid flicker, only repaint the minimum rect
-			QRect oldRect=translateToZoom(currentArea->rect());
-			currentArea->setRect(QRect(drawStart,drawCurrent).normalize());
-			QRect newRect=translateToZoom(currentArea->selectionRect());
-			QRect r=oldRect | newRect;
-			repaintContents(r,false);
-			imageMapEditor->slotUpdateSelectionCoords( currentArea->rect() );
-		} else
-		if (currentAction==DrawCircle) {
-			QRect oldRect=translateToZoom(currentArea->rect());
-
-			// We don't want ellipses
-			int maxDistance=myabs(drawStart.x()-drawCurrent.x()) >
-											myabs(drawStart.y()-drawCurrent.y()) ?
-											myabs(drawStart.x()-drawCurrent.x()) :
-											myabs(drawStart.y()-drawCurrent.y()) ;
-
-			int xDiff=maxDistance;
-			int yDiff=maxDistance;
-
-			if ( drawStart.x()-drawCurrent.x() > 0)
-				xDiff=-xDiff;
-
-			if ( drawStart.y()-drawCurrent.y() > 0)
-				yDiff=-yDiff;
-
-			QPoint endPoint( drawStart.x()+xDiff, drawStart.y()+yDiff);
-
-			currentArea->setRect(QRect(drawStart,endPoint).normalize());
-			QRect newRect=translateToZoom(currentArea->rect());
-			QRect r=oldRect | newRect;
-			repaintContents(r,false);
-			imageMapEditor->slotUpdateSelectionCoords( currentArea->rect() );
-		} else
-		if ( currentAction==DrawPolygon ) {
-			QRect oldRect=translateToZoom(currentArea->rect());
-			currentArea->moveSelectionPoint(currentSelectionPoint,drawCurrent);
-			QRect newRect=translateToZoom(currentArea->rect());
-			QRect r=oldRect | newRect;
-			repaintContents(r,false);
-		} else
-		if ( currentAction==DrawFreehand) {
-			QRect oldRect=translateToZoom(currentArea->rect());
-		  currentArea->insertCoord(currentArea->countSelectionPoints(), drawCurrent);
-			QRect newRect=translateToZoom(currentArea->rect());
-			QRect r=oldRect | newRect;
-			repaintContents(r,false);
-		} else
-		if ( currentAction==MoveArea ) {
-			QRect oldRect=translateToZoom(currentArea->selectionRect());
-			currentArea->moveBy((drawCurrent-drawStart).x(),(drawCurrent-drawStart).y());
-			QRect newRect=translateToZoom(currentArea->selectionRect());
-			QRect r=oldRect | newRect;
-			currentArea->setMoving(true);
-			repaintContents(r,false);
-			drawStart=drawCurrent;
-			imageMapEditor->slotUpdateSelectionCoords();
-		} else
-		if ( currentAction==MoveSelectionPoint ) {
-			QRect oldRect=translateToZoom(currentArea->selectionRect());
-			currentArea->moveSelectionPoint(currentSelectionPoint,drawCurrent);
-			QRect newRect=translateToZoom(currentArea->selectionRect());
-			QRect r=oldRect | newRect;
-			repaintContents(r,false);
-			imageMapEditor->slotUpdateSelectionCoords();
-		} else
-	  if (currentAction==DoSelect) {
-
-    	QRect r(drawStart.x(),drawStart.y(),drawCurrent.x()-drawStart.x(),drawCurrent.y()-drawStart.y());
-    	r = r.normalize();
-//    	r = translateFromZoom(r);
-/*
-    	AreaListIterator it=imageMapEditor->areaList();
-  		for ( ; it.current() != 0L ; ++it )	{
-    		if ( it.current()->rect().intersects(r) )
-    		{
-   				if (!it.current()->isSelected() )
-    				imageMapEditor->selectWithoutUpdate( it.current() );
-    		}
-    		else
-     		  if (it.current()->isSelected())
-      			imageMapEditor->deselectWithoutUpdate( it.current() );
-			}
-*/
-      // We don't have to repaint the hole selection rectangle
-      // only the borders have to be repainted.
-      // So we have to create 4 rectangles for every rectangle
-      // which represent the borders and then repaint them.
-
-      QRect lb,rb,tb,bb;
-      createBorderRectangles(translateToZoom(r),lb,rb,tb,bb);
-      repaintContents(lb,false);
-      repaintContents(rb,false);
-      repaintContents(tb,false);
-      repaintContents(bb,false);
-
-      createBorderRectangles(translateToZoom(oldSelectionRect),lb,rb,tb,bb);
-      repaintContents(lb,false);
-      repaintContents(rb,false);
-      repaintContents(tb,false);
-      repaintContents(bb,false);
-
-//    	repaintContents(oldSelectionRect | r,false);
-    	oldSelectionRect = r;
-//    	repaintContents(translateToZoom(r),false);
-//+			imageMapEditor->updateSelection();
-
-
-//			QRect r(drawStart.x(),drawStart.y(),drawCurrent.x()-drawStart.x(),drawCurrent.y()-drawStart.y());
-//			r = r.normalize();
-//			QRect r2(drawStart.x(),drawStart.y(),drawOld.x()-drawStart.x(),drawOld.y()-drawStart.y());
-//			r2 = r2.normalize();
-//			r = translateToZoom(r | r2);
-//			repaintContents(r,false);
-  	} else
-		if ( currentAction==None )
-		{
-			if ( imageMapEditor->selected() &&
-					 imageMapEditor->selected()->onSelectionPoint(zoomedPoint,_zoom ))
-			{
- 				if (imageMapEditor->selected()->type()==Area::Polygon)
- 				{
-			    if ((imageMapEditor->currentToolType()==KImageMapEditor::RemovePoint) &&
-			        (imageMapEditor->selected()->selectionPoints()->count()>3) )
-			    {
-		        viewport()->setCursor(RemovePointCursor);
-			    }
-			    else
-			    {
- 						viewport()->setCursor(Qt::PointingHandCursor);
- 				  }
- 				}
- 				else
- 				{
-   				QPoint center=imageMapEditor->selected()->rect().center();
-   				if (drawCurrent.x() < center.x()) {
-   					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(Qt::SizeFDiagCursor);
-   					else
-   						viewport()->setCursor(Qt::SizeBDiagCursor);
-   				}
-   				else {
-   					if (drawCurrent.y() < center.y())
-   						viewport()->setCursor(Qt::SizeBDiagCursor);
-   					else
-   						viewport()->setCursor(Qt::SizeFDiagCursor);
- 					}
- 				}
-			} else
-			if ( imageMapEditor->onArea(drawCurrent) )
-			{
-  			if (imageMapEditor->currentToolType()==KImageMapEditor::AddPoint)
-  			{
-			    viewport()->setCursor(AddPointCursor);
-			  }
-			  else
-        {
-				  viewport()->setCursor(Qt::SizeAllCursor);
-        }
-			}
-			else
-			if (imageMapEditor->currentToolType()==KImageMapEditor::Rectangle) {
-			    viewport()->setCursor(RectangleCursor);
-//          kDebug() << "KImageMapEditor::DrawZone: viewport()->setCursor to Rectangle" << endl;
-      }
-			else
-			if (imageMapEditor->currentToolType()==KImageMapEditor::Circle)
-			    viewport()->setCursor(CircleCursor);
-			else
-			if (imageMapEditor->currentToolType()==KImageMapEditor::Polygon)
-			    viewport()->setCursor(PolygonCursor);
-			else
-			if (imageMapEditor->currentToolType()==KImageMapEditor::Freehand)
-			    viewport()->setCursor(FreehandCursor);
-			else
-		 		viewport()->setCursor(Qt::ArrowCursor);
-
-		}
-		imageMapEditor->slotChangeStatusCoords(drawCurrent.x(),drawCurrent.y());
+QCursor DrawZone::getCursorOfToolType(KImageMapEditor::ToolType toolType) {
+  switch(toolType) {
+  case KImageMapEditor::Rectangle:
+    return rectangleCursor;
+  case KImageMapEditor::Circle:
+    return circleCursor;
+  case KImageMapEditor::Polygon:
+    return polygonCursor;
+  case KImageMapEditor::Freehand:
+    return freehandCursor;
+  default:
+    return Qt::ArrowCursor;
+  }
+  return Qt::ArrowCursor;
 }
 
-void DrawZone::createBorderRectangles(const QRect & r,QRect & rb,QRect & lb,QRect & tb,QRect & bb)
+
+void DrawZone::updateCursor(QPoint zoomedPoint) {
+  AreaSelection* selected = imageMapEditor->selected();
+  KImageMapEditor::ToolType toolType = imageMapEditor->currentToolType();
+
+  if ( selected &&
+       selected->onSelectionPoint(zoomedPoint,_zoom ))
+  {
+    if (selected->type()==Area::Polygon)
+    {
+      if ((toolType==KImageMapEditor::RemovePoint) &&
+	      (selected->selectionPoints()->count()>3) )
+      {
+	setCursor(removePointCursor);
+      } else {
+	setCursor(Qt::PointingHandCursor);
+      }
+    } else {
+      QPoint center=selected->rect().center();
+      if (drawCurrent.x() < center.x()) {
+	if (drawCurrent.y() < center.y())
+	  setCursor(Qt::SizeFDiagCursor);
+	else {
+	  setCursor(Qt::SizeBDiagCursor);
+	}
+      } else {
+	if (drawCurrent.y() < center.y())
+	  setCursor(Qt::SizeBDiagCursor);
+	else
+	  setCursor(Qt::SizeFDiagCursor);
+      }
+    }
+  } else {
+    if ( imageMapEditor->onArea(drawCurrent) )
+    {
+      if (toolType==KImageMapEditor::AddPoint)
+      {
+	setCursor(addPointCursor);
+      } else {
+	setCursor(Qt::SizeAllCursor);
+      }
+    } else {
+      setCursor(getCursorOfToolType(toolType));
+    }
+  }
+}
+
+void DrawZone::mouseMoveSelection(QPoint drawCurrent) {
+    
+  QRect r(drawStart.x(),
+	  drawStart.y(),
+	  drawCurrent.x()-drawStart.x(),
+	  drawCurrent.y()-drawStart.y());
+  r = r.normalized();
+
+  /*
+  QRect r1,r2,r3,r4;
+  createBorderRectangles(translateToZoom(oldSelectionRect),r1,r2,r3,r4);
+  repaint(r1);
+  repaint(r2);
+  repaint(r3);
+  repaint(r4);
+
+  createBorderRectangles(translateToZoom(r),r1,r2,r3,r4);
+  repaint(r1);
+  repaint(r2);
+  repaint(r3);
+  repaint(r4);
+  */
+
+  QRect r2 = r.adjusted(-2,-2,2,2);
+  oldSelectionRect.adjust(-2,-2,2,2);
+
+  repaint(translateToZoom(r2) | translateToZoom(oldSelectionRect));
+
+  oldSelectionRect = r;
+}
+
+void DrawZone::mouseMoveDrawCircle(QPoint drawCurrent) {
+    // We don't want ellipses
+    int maxDistance=myabs(drawStart.x()-drawCurrent.x()) >
+      myabs(drawStart.y()-drawCurrent.y()) ?
+      myabs(drawStart.x()-drawCurrent.x()) :
+      myabs(drawStart.y()-drawCurrent.y()) ;
+
+    int xDiff=maxDistance;
+    int yDiff=maxDistance;
+
+    if ( drawStart.x()-drawCurrent.x() > 0)
+      xDiff=-xDiff;
+
+    if ( drawStart.y()-drawCurrent.y() > 0)
+      yDiff=-yDiff;
+
+    QPoint endPoint( drawStart.x()+xDiff, drawStart.y()+yDiff);
+
+    currentArea->setRect(QRect(drawStart,endPoint).normalized());
+}
+
+void DrawZone::mouseMoveEvent(QMouseEvent *e)
+{
+  if ( ! imageMapEditor->isReadWrite())
+    return;
+
+  drawCurrent=moveIntoImage(e->pos());
+
+  // Translate to image coordinates
+  //  drawCurrent-=imageRect.topLeft();
+  QPoint zoomedPoint=drawCurrent;
+  drawCurrent=translateFromZoom(drawCurrent);
+
+  QRect oldRect;
+  if (currentArea)
+    oldRect=currentArea->rect();
+
+  switch(currentAction) {
+  case None:
+    updateCursor(zoomedPoint);
+    break;
+  case DoSelect:
+    mouseMoveSelection(drawCurrent);
+    break;
+  case DrawRectangle:
+    currentArea->setRect(QRect(drawStart,drawCurrent).normalized());
+    break;
+  case DrawCircle:
+    mouseMoveDrawCircle(drawCurrent);
+    break;
+  case DrawPolygon:
+    currentArea->moveSelectionPoint(currentSelectionPoint,drawCurrent);
+    break;
+  case DrawFreehand:
+    currentArea->insertCoord(currentArea->countSelectionPoints(), drawCurrent);
+    break;
+  case MoveArea: {
+    QPoint to = drawCurrent+(oldArea->rect().topLeft()-drawStart);
+    currentArea->moveTo(to.x(),to.y());
+    //    currentArea->moveTo(drawCurrent.x(), drawCurrent.y());
+    currentArea->setMoving(true);
+    break;
+  }
+  case MoveSelectionPoint:
+    currentArea->moveSelectionPoint(currentSelectionPoint,drawCurrent);
+    break;
+  case RemovePoint:
+  case AddPoint:
+    break;
+  }
+  
+  if (currentArea && (currentAction != DoSelect)) {
+    QRect newRect = currentArea->selectionRect();
+    newRect.adjust(-SELSIZE, -SELSIZE, SELSIZE, SELSIZE);
+    QRect r = oldRect;
+    r.adjust(-SELSIZE, -SELSIZE, SELSIZE, SELSIZE);
+    repaint(translateToZoom(r) | translateToZoom(newRect));
+    imageMapEditor->slotUpdateSelectionCoords( currentArea->rect() );
+  }
+
+  imageMapEditor->slotChangeStatusCoords(drawCurrent.x(),drawCurrent.y());
+  //repaint();
+}
+
+void DrawZone::createBorderRectangles(
+  const QRect & r,
+  QRect & rb,
+  QRect & lb,
+  QRect & tb,
+  QRect & bb)
 {
   int bw;
   bw = (int) (2+2*_zoom); // Border width
@@ -755,25 +785,6 @@ void DrawZone::createBorderRectangles(const QRect & r,QRect & rb,QRect & lb,QRec
   bb.setHeight(bw+1);
 }
 
-
-void DrawZone::resizeEvent(QResizeEvent* e) {
-	Q3ScrollView::resizeEvent(e);
-	int width=(int) (image.width()*_zoom);
-	int height=(int) (image.height()*_zoom);
-	if (visibleWidth()>width)
-		width=visibleWidth();
-	if (visibleHeight()>height)
-		height=visibleHeight();
-
-	resizeContents(width,height);
-
-	imageRect.setLeft(0);
-	imageRect.setTop(0);
-	imageRect.setHeight((int)(image.height()*_zoom));
-	imageRect.setWidth((int)(image.width()*_zoom));
-
-}
-
 void DrawZone::cancelDrawing()
 {
   if (   (currentAction == DrawPolygon )
@@ -785,92 +796,78 @@ void DrawZone::cancelDrawing()
     QRect r = translateToZoom(currentArea->selectionRect());
     delete currentArea;
     currentArea = 0L;
-    repaintContents(r,false);
+    repaint(r);
     imageMapEditor->slotUpdateSelectionCoords();
   }
 }
 
 void DrawZone::repaintArea(const Area & a) {
-	repaintContents(translateToZoom(a.selectionRect()),false);
+	repaint(translateToZoom(a.selectionRect()));
 }
 
 void DrawZone::repaintRect(const QRect & r) {
-	repaintContents(translateToZoom(r),false);
+	repaint(translateToZoom(r));
 }
 
-void DrawZone::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph)
-{
+QSize DrawZone::sizeHint () const {
+  return zoomedImage.size();
+}
 
-// Erase background without flicker
-	QRect updateRect(clipx,clipy,clipw,cliph);
-
-	// Pixmap for double-buffering
-  QPixmap doubleBuffer(updateRect.size());
-  if (doubleBuffer.isNull())
-  	return;
-
-  QPainter p2(&doubleBuffer);
-	p2.drawPixmap(0,0,zoomedImage,clipx,clipy,clipw,cliph);
-	p2.setBackground(p->background());
-
-	if (zoomedImage.width() < (clipw+clipx) ) {
-		int eraseWidth = clipw+clipx - zoomedImage.width();
-		p2.eraseRect( QRect(clipw-eraseWidth,0,eraseWidth,cliph) );
-	}
-
-	if (zoomedImage.height() < (cliph+clipy) ) {
-		int eraseHeight = cliph+clipy - zoomedImage.height();
-		p2.eraseRect( QRect(0,cliph-eraseHeight,clipw,eraseHeight) );
-	}
-
-	p2.translate(-clipx, -clipy);
-	p2.scale(_zoom,_zoom);
-
-	QRect areaUpdateRect;
-	areaUpdateRect.setX(myround(clipx/_zoom)-1);
-	areaUpdateRect.setY(myround(clipy/_zoom)-1);
-	areaUpdateRect.setWidth(myround(clipw/_zoom)+2);
-	areaUpdateRect.setHeight(myround(cliph/_zoom)+2);
-
-	AreaListIterator it=imageMapEditor->areaList();
-	for ( it.toLast();it.current() != 0L; --it)
-	{
-     if (it.current()->rect().intersects(areaUpdateRect))
-       it.current()->draw(p2);
-	}
-
-	// Draw the current drawing Area
-	if (currentAction != MoveArea &&
-			currentAction != MoveSelectionPoint &&
-			currentAction != None &&
-			currentAction != DoSelect)
-	{
-		currentArea->draw(p2);
-	}
-
-	if (currentAction == DoSelect )
-  {
-		QPen pen = QPen(QColor("white"),1);
-    p2.setCompositionMode(QPainter::CompositionMode_Xor); 
-		pen.setStyle(Qt::DotLine);
-		p2.setPen(pen);
-
-		QRect r( drawStart.x(),drawStart.y(),drawCurrent.x()-drawStart.x(),drawCurrent.y()-drawStart.y());
-		r = r.normalize();
-		p2.drawRect(r);
-	}
+QSize DrawZone::minimumSize() const {
+  return zoomedImage.size();
+}
 
 
 
-  p2.end();
+void DrawZone::paintEvent(QPaintEvent*) {
+  QPainter p(this);
+  p.drawPixmap(0,0,zoomedImage);//,clipx,clipy,clipw,cliph);
+  p.setRenderHint(QPainter::Antialiasing);
+  p.scale(_zoom,_zoom);
+
+  AreaListIterator it=imageMapEditor->areaList();
+  for ( it.toLast();it.current() != 0L; --it)
+    {
+	it.current()->draw(&p);
+    }
+
+  // Draw the current drawing Area
+  if (currentAction != MoveArea &&
+      currentAction != MoveSelectionPoint &&
+      currentAction != None &&
+      currentAction != DoSelect)
+    {
+      currentArea->draw(&p);
+    }
+
+  if (currentAction == DoSelect ) {
+    QColor front = Qt::white;
+    front.setAlpha(200);
+    QPen pen = QPen(front,1);
+    //    pen.setStyle(Qt::DotLine);
+    p.setPen(pen);
+    p.setBrush(QBrush(Qt::NoBrush));
+
+    QRect r( drawStart.x(),
+	     drawStart.y(),
+	     drawCurrent.x()-drawStart.x(),
+	     drawCurrent.y()-drawStart.y());
+    r = r.normalized();
+    p.drawRect(r);
+  }
+
+
+  p.end();
+
+  //  p->end();
 
   // Copy the double buffer into the widget
-  p->drawPixmap(clipx,clipy,doubleBuffer);
+  //  p->drawPixmap(clipx,clipy,doubleBuffer);
 
 
 }
 
-void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
+void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
   KUrl::List uris = KUrl::List::fromMimeData( e->mimeData() );
 
   if ( uris.isEmpty() )
@@ -883,13 +880,7 @@ void DrawZone::contentsDragEnterEvent(QDragEnterEvent*e) {
     e->accept();
 }
 
-void DrawZone::contentsDropEvent( QDropEvent* e) {
-  viewportDropEvent(e);
-}
-
-
-
-void DrawZone::viewportDropEvent( QDropEvent* e) {
+void DrawZone::dropEvent( QDropEvent* e) {
   KUrl::List urlList = KUrl::List::fromMimeData( e->mimeData() );
   // A file from konqueror was dropped
 	if (!urlList.isEmpty()) {

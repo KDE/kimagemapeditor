@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
 
 
   KApplication a;
+
   if (a.isSessionRestored())
   {
       RESTORE(KimeShell);

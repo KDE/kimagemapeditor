@@ -24,9 +24,8 @@
 #include "kimagemapeditor.h"
 
 #include "kdeversion.h"
-//Added by qt3to4:
+
 #include <QLabel>
-#include <Q3GridLayout>
 #include <Q3PtrList>
 
 class QLineEdit;
@@ -136,11 +135,10 @@ Q_OBJECT
 		void slotChooseHref();
 		void slotUpdateArea();
 		
-    QLineEdit* createLineEdit(QWidget* parent, Q3GridLayout *layout, int y, const QString & value, const QString & name);
+    QLineEdit* createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name);
 	  QWidget* createGeneralPage();
 	  QWidget* createCoordsPage();
 	  QWidget* createJavascriptPage();
-	  QWidget* createButtonBar();
 	signals:
 		void areaChanged(Area* a);
 };

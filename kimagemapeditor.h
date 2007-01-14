@@ -18,6 +18,7 @@
 #ifndef KIMAGEMAPDIALOG_H
 #define KIMAGEMAPDIALOG_H
 
+#include <QDockWidget>
 #include <q3ptrlist.h>
 #include <qobject.h>
 #include <q3dict.h>
@@ -38,6 +39,8 @@
   *@author Jan Schaefer
   */
 
+// #define WITH_TABWIDGET
+
 
 class Q3ListView;
 class QPushButton;
@@ -45,7 +48,7 @@ class DrawZone;
 class QComboBox;
 class Q3ListViewItem;
 class KToggleAction;
-
+class KMainWindow;
 
 
 
@@ -132,7 +135,13 @@ class KAboutData;
 class KImageMapEditor : public KParts::ReadWritePart {
     Q_OBJECT
 public :
-    enum ToolType { Selection, Rectangle, Circle, Polygon, Freehand, AddPoint, RemovePoint };
+    enum ToolType { Selection, 
+		    Rectangle, 
+		    Circle, 
+		    Polygon, 
+		    Freehand, 
+		    AddPoint, 
+		    RemovePoint };
 
     KImageMapEditor(QWidget *parentWidget,
                     QObject *parent, const QStringList & args = QStringList());
@@ -210,7 +219,6 @@ public :
     void readConfig(KConfig*);
     void writeConfig(KConfig*);
 
-    virtual bool openURL(const KUrl & url);
 
 protected:
     void init();
@@ -309,10 +317,10 @@ private:
 
   	KRecentFilesAction* recentFilesAction;
 
-    K3DockMainWindow *mainDock;
-    K3DockWidget* areaDock;
-    K3DockWidget* mapsDock;
-    K3DockWidget* imagesDock;
+    KMainWindow *mainWindow;
+    QDockWidget* areaDock;
+    QDockWidget* mapsDock;
+    QDockWidget* imagesDock;
 
     KCommandHistory *_commandHistory;
     int maxAreaPreviewHeight;
@@ -348,6 +356,7 @@ private:
     void drawToCenter(QPainter* p, const QString & str, int y, int width);
 
 public slots:
+    virtual bool openURL(const KUrl & url);
     void slotChangeStatusCoords(int x,int y);
     void slotUpdateSelectionCoords();
     void slotUpdateSelectionCoords( const QRect &);
@@ -378,8 +387,8 @@ protected slots:
 
     void slotShowPopupMenu(Q3ListViewItem*,const QPoint &);
     void slotShowPreferences();
-    void slotHightlightAreas();
-    void slotShowAltTag();
+    void slotHighlightAreas(bool b);
+    void slotShowAltTag(bool b);
     void slotSelectionChanged();
 
     int showTagEditor(Q3ListViewItem *item);
@@ -425,11 +434,6 @@ protected slots:
     void slotDecreaseWidth();
 
     void slotCancelDrawing();
-
-    void configureShowAreaList();
-    void configureShowMapList();
-    void configureShowImageList();
-
 
     //	void slotPreferences();
     void imageAdd();

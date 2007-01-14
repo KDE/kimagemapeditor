@@ -16,28 +16,23 @@
 ***************************************************************************/
 
 // QT
-//#include <qstring.h>
 #include <qcheckbox.h>
 #include <q3multilineedit.h>
 #include <qlayout.h>
 #include <qlabel.h>
-
-
 #include <qlineedit.h>
 #include <q3listbox.h>
 #include <q3table.h>
 #include <q3groupbox.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
-#include <q3pointarray.h>
 #include <qimage.h>
-//Added by qt3to4:
 #include <QPixmap>
-#include <Q3GridLayout>
+#include <QGridLayout>
 #include <Q3PtrList>
-#include <Q3Frame>
-#include <Q3VBoxLayout>
-//#include <qwidget.h>
+#include <QFrame>
+#include <QVBoxLayout>
+
 // KDE
 #include <kiconloader.h>
 #include <kfiledialog.h>
@@ -77,7 +72,7 @@ CoordsEdit::~CoordsEdit()
 RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  Q3GridLayout *layout= new Q3GridLayout(this,5,2,5,5);
+  QGridLayout *layout= new QGridLayout(this); //,5,2,5,5);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaximum(2000);
@@ -138,7 +133,7 @@ void RectCoordsEdit::applyChanges() {
 CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  Q3GridLayout *layout= new Q3GridLayout(this,4,2,5,5);
+  QGridLayout *layout= new QGridLayout(this);
 
   centerXSpin = new QSpinBox(this);
   centerXSpin->setMaximum(2000);
@@ -192,8 +187,8 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
   if (!a) return;
-  Q3VBoxLayout *layout= new Q3VBoxLayout(this);
-  int numPoints=a->coords()->count();
+  QVBoxLayout *layout= new QVBoxLayout(this);
+  int numPoints = a->coords().count();
   coordsTable= new Q3Table(numPoints,2,this);
   coordsTable->horizontalHeader()->setLabel(0,"X");
   coordsTable->horizontalHeader()->setLabel(1,"Y");
@@ -203,8 +198,8 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
 
 
   for (int i=0;i<numPoints;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords()->point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords()->point(i).y()) );
+    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
+    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
   }
 
   connect( coordsTable, SIGNAL(currentChanged(int,int)), this, SLOT(slotHighlightPoint(int)));
@@ -239,16 +234,16 @@ void PolyCoordsEdit::slotHighlightPoint(int row) {
 
 void PolyCoordsEdit::slotAddPoint() {
   int newPos= coordsTable->currentRow();
-  QPoint currentPoint=area->coords()->point(newPos);
+  QPoint currentPoint=area->coords().point(newPos);
   area->insertCoord(newPos,currentPoint);
 
-  int count=area->coords()->size();
+  int count=area->coords().size();
 
   coordsTable->setNumRows(count);
 
   for (int i=0;i<count;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords()->point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords()->point(i).y()) );
+    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
+    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
   }
 
   emit update();
@@ -259,13 +254,13 @@ void PolyCoordsEdit::slotRemovePoint() {
 
   area->removeCoord(currentPos);
 
-  int count=area->coords()->size();
+  int count=area->coords().size();
 
   coordsTable->setNumRows(count);
 
   for (int i=0;i<count;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords()->point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords()->point(i).y()) );
+    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
+    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
   }
 
   emit update();
@@ -285,7 +280,7 @@ void PolyCoordsEdit::applyChanges() {
 SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  Q3GridLayout *layout= new Q3GridLayout(this,2,2);
+  QGridLayout *layout= new QGridLayout(this);//,2,2);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaximum(2000);
@@ -316,7 +311,7 @@ void SelectionCoordsEdit::applyChanges() {
 
 
 
-QLineEdit* AreaDialog::createLineEdit(QWidget* parent, Q3GridLayout *layout, int y, const QString & value, const QString & name)
+QLineEdit* AreaDialog::createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name)
 {
   QLineEdit* edit=new QLineEdit(value,parent);
   layout->addWidget(edit,y,2);
@@ -329,14 +324,14 @@ QLineEdit* AreaDialog::createLineEdit(QWidget* parent, Q3GridLayout *layout, int
 
 QWidget* AreaDialog::createGeneralPage()
 {
-  Q3Frame* page = new Q3Frame(this);
-  Q3GridLayout* layout = new Q3GridLayout(page,5,2,5,5);
+  QFrame* page = new QFrame(this);
+  QGridLayout* layout = new QGridLayout(page);//,5,2,5,5);
 
 
   KHBox *hbox= new KHBox(page);
   hrefEdit = new QLineEdit(area->attribute("href"),hbox);
   QPushButton *btn = new QPushButton("",hbox);
-  btn->setPixmap(SmallIcon("fileopen"));
+  btn->setIcon(SmallIcon("fileopen"));
   connect( btn, SIGNAL(pressed()), this, SLOT(slotChooseHref()));
   hbox->setMinimumHeight(hbox->height());
 
@@ -365,8 +360,8 @@ QWidget* AreaDialog::createGeneralPage()
 
 QWidget* AreaDialog::createCoordsPage()
 {
-  Q3Frame* page = new Q3Frame(this);
-  Q3VBoxLayout *layout = new Q3VBoxLayout(page);
+  QFrame* page = new QFrame(this);
+  QVBoxLayout *layout = new QVBoxLayout(page);
   layout->setMargin(5);
 
   coordsEdit = createCoordsEdit(page,area);
@@ -378,8 +373,8 @@ QWidget* AreaDialog::createCoordsPage()
 
 QWidget* AreaDialog::createJavascriptPage()
 {
-  Q3Frame* page = new Q3Frame(this);
-  Q3GridLayout* layout = new Q3GridLayout(page,8,2,5,5);
+  QFrame* page = new QFrame(this);
+  QGridLayout* layout = new QGridLayout(page);//,8,2,5,5);
 
   onClickEdit = createLineEdit(page,layout,0,area->attribute("onClick"),i18n("OnClick:"));
   onDblClickEdit = createLineEdit(page,layout,1,area->attribute("onDblClick"),i18n("OnDblClick:"));
@@ -395,32 +390,18 @@ QWidget* AreaDialog::createJavascriptPage()
   return page;
 }
 
-QWidget* AreaDialog::createButtonBar()
-{
-  KHBox *box = new KHBox(this);
-  QWidget *spacer = new QWidget(box);
-  QPushButton *okBtn = new KPushButton(KStandardGuiItem::ok(),box);
-  QPushButton *applyBtn = new KPushButton(KStandardGuiItem::apply(),box);
-  QPushButton *cancelBtn = new KPushButton(KStandardGuiItem::cancel(),box);
-
-  connect(okBtn, SIGNAL(clicked()), this, SLOT(slotOk()));
-  connect(applyBtn, SIGNAL(clicked()), this, SLOT(slotApply()));
-  connect(cancelBtn, SIGNAL(clicked()), this, SLOT(slotCancel()));
-
-  box->setSpacing(5);
-  box->setStretchFactor(spacer,10);
-
-  okBtn->setDefault(true);
-
-  return box;
-
-}
-
 AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
   : KDialog(parent->widget())
 // : KDialogBase(Tabbed,i18n("Area Tag Editor"),Ok|Apply|Cancel,Ok,parent,"")
 //	: KDialogBase(parent,"",true,"Area Tag Editor",Ok|Apply|Cancel,Ok,true)
 {
+  setCaption(i18n("Area Tag Editor"));
+  setButtons(Ok|Apply|Cancel);
+  setDefaultButton(Ok);
+  //  setFaceType( KPageDialog::Tabbed );
+  setObjectName( "Area Tag Editor" );
+  setModal(true);
+  
   _document=parent;
 
   if (!a) {
@@ -428,7 +409,6 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
       return;
   }
 
-  setCaption(i18n("Area Tag Editor"));
 
   area=a;
   QString shape="Default";
@@ -447,20 +427,22 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 
   // To get a margin around everything
 
-  Q3VBoxLayout *layout = new Q3VBoxLayout(this);
+  QWidget* w = mainWidget();
+
+  QVBoxLayout *layout = new QVBoxLayout(w);
 
   layout->setMargin(5);
 
-  QLabel *lbl = new QLabel("<b>"+shape+"</b>",this);
+  QLabel *lbl = new QLabel("<b>"+shape+"</b>",w);
   lbl->setTextFormat(Qt::RichText);
   layout->addWidget(lbl);
 
-  Q3Frame *line = new Q3Frame(this);
-  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
+  QFrame *line = new QFrame(w);
+  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line);
 
-  QTabWidget *tab = new QTabWidget(this);
+  QTabWidget *tab = new QTabWidget(w);
 
   layout->addWidget(tab);
 
@@ -475,15 +457,13 @@ AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
 
   tab->addTab(createJavascriptPage(),i18n("&JavaScript"));
 
-  line = new Q3Frame(this);
-  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
-  line->setFixedHeight(10);
-  layout->addWidget(line);
-
-  layout->addWidget(createButtonBar());
-
   setMinimumHeight(360);
   setMinimumWidth(327);
+
+  connect(this, SIGNAL(okClicked()), this, SLOT(slotOk()));
+  connect(this, SIGNAL(applyClicked()), this, SLOT(slotApply()));
+  connect(this, SIGNAL(cancelClicked()), this, SLOT(slotCancel()));
+
 
   resize(327,360);
 }
@@ -593,17 +573,18 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   QWidget *page=new QWidget(this);
   setMainWidget(page);
   setCaption(baseUrl.fileName());
-  Q3VBoxLayout *layout = new Q3VBoxLayout(page,5,5);
+  QVBoxLayout *layout = new QVBoxLayout(page);//,5,5);
 
   QLabel *lbl= new QLabel(i18n("Select an image and/or a map that you want to edit"),page);
   lbl->setFont(QFont("Sans Serif",12, QFont::Bold));
   layout->addWidget(lbl);
-  Q3Frame *line= new Q3Frame(page);
-  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
+  QFrame *line= new QFrame(page);
+  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line,0);
 
-  Q3GridLayout *gridLayout= new Q3GridLayout(layout,2,3,5);
+  QGridLayout *gridLayout= new QGridLayout();
+  layout->addLayout(gridLayout);
   gridLayout->setRowStretch(0,0);
   gridLayout->setRowStretch(1,100);
   lbl=new QLabel(i18n("&Maps"),page);
@@ -612,8 +593,8 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   gridLayout->addWidget(lbl,0,0);
   gridLayout->addWidget(mapListBox,1,0);
 
-  line= new Q3Frame(page);
-  line->setFrameStyle(Q3Frame::VLine | Q3Frame::Sunken);
+  line= new QFrame(page);
+  line->setFrameStyle(QFrame::VLine | QFrame::Sunken);
   line->setFixedWidth(10);
 //	line->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
   gridLayout->addWidget(line,1,1);
@@ -634,8 +615,8 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   gridLayout->addWidget(imagePreview,1,2);
 //	layout->addLayout(gridLayout,1);
 
-  line= new Q3Frame(page);
-  line->setFrameStyle(Q3Frame::HLine  | Q3Frame::Sunken);
+  line= new QFrame(page);
+  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line,0);
 
@@ -682,8 +663,8 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   QLabel *lbl= new QLabel(i18n("&Images"),parent);
   lbl->setBuddy(imageListTable);
 
-  parent->layout()->add(lbl);
-  parent->layout()->add(imageListTable);
+  parent->layout()->addWidget(lbl);
+  parent->layout()->addWidget(imageListTable);
 
   if (images->isEmpty())
     return;
@@ -738,10 +719,13 @@ void ImageMapChooseDialog::slotImageChanged()
 
 
     zoom1= zoom1 < zoom2 ? zoom1 : zoom2;
-    pix=pix.smoothScale((int)(pix.width()*zoom1),int(pix.height()*zoom1));
+    pix=pix.scaled((int)(pix.width()*zoom1),
+		   int(pix.height()*zoom1),
+		   Qt::KeepAspectRatio,
+		   Qt::SmoothTransformation);
   }
   QPixmap pix2;
-  pix2.convertFromImage(pix);
+  pix2.fromImage(pix);
   imagePreview->setPixmap(pix2);
 
 //	imagePreview->repaint();

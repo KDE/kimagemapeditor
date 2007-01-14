@@ -18,7 +18,6 @@
 #ifndef IMAGEMAP_H
 #define IMAGEMAP_H
 
-#include <q3scrollview.h>
 #include <qimage.h>
 #include <qpoint.h>
 #include <qrect.h>
@@ -32,7 +31,8 @@
 
 #include "kdeversion.h"
 
-class KImageMapEditor;
+#include "kimagemapeditor.h"
+
 class Area;
 
 /**
@@ -41,7 +41,7 @@ class Area;
   *@internal
   *@see Area
   */
-class DrawZone : public Q3ScrollView  {
+class DrawZone : public QWidget  {
 public:
 
   DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor);
@@ -60,20 +60,23 @@ public:
   QPoint translateToZoom(const QPoint & p) const;
   QRect translateToZoom(const QRect & p) const;
 
-  QRect getImageRect() const { return image.rect(); }
+  QRect getImageRect() const { 
+    return image.rect(); 
+  }
 
+  virtual QSize sizeHint () const;
+  virtual QSize minimumSize () const;
 
 protected:
 
-  virtual void contentsMouseDoubleClickEvent(QMouseEvent*);
-  virtual void contentsMousePressEvent(QMouseEvent*);
-  virtual void contentsMouseReleaseEvent(QMouseEvent*);
-  virtual void contentsMouseMoveEvent(QMouseEvent*);
-  virtual void resizeEvent(QResizeEvent*);
-  virtual void drawContents(QPainter*,int,int,int,int);
-  virtual void viewportDropEvent(QDropEvent*);
-  virtual void contentsDragEnterEvent(QDragEnterEvent*);
-  virtual void contentsDropEvent(QDropEvent*);
+  virtual void mouseDoubleClickEvent(QMouseEvent*);
+  virtual void mousePressEvent(QMouseEvent*);
+  virtual void mouseReleaseEvent(QMouseEvent*);
+  virtual void mouseMoveEvent(QMouseEvent*);
+  //virtual void resizeEvent(QResizeEvent*);
+  virtual void paintEvent(QPaintEvent*);//,int,int,int,int);
+  virtual void dropEvent(QDropEvent*);
+  virtual void dragEnterEvent(QDragEnterEvent*);
   
   /**
   * Represents whats currently going on
@@ -84,7 +87,18 @@ protected:
   * @li MoveArea : The user is moving an @ref Area
   * @li DoSelect : The user makes a selection rectangle
   */
-  enum DrawAction { None, DrawCircle, DrawRectangle, DrawPolygon, DrawFreehand, MoveSelectionPoint, MoveArea, DoSelect, RemovePoint, AddPoint };
+  enum DrawAction { 
+    None, 
+    DrawCircle, 
+    DrawRectangle, 
+    DrawPolygon, 
+    DrawFreehand, 
+    MoveSelectionPoint, 
+    MoveArea, 
+    DoSelect, 
+    RemovePoint, 
+    AddPoint 
+  };
 
   void createBorderRectangles(const QRect & r,QRect & rb,QRect & lb,QRect & tb,QRect & bb);
 
@@ -112,12 +126,27 @@ private:
   // The current zoom-factor
   double _zoom;
 
-  QCursor RectangleCursor;
-  QCursor CircleCursor;
-  QCursor PolygonCursor;
-  QCursor FreehandCursor;
-  QCursor AddPointCursor;
-  QCursor RemovePointCursor;
+  QCursor rectangleCursor;
+  QCursor circleCursor;
+  QCursor polygonCursor;
+  QCursor freehandCursor;
+  QCursor addPointCursor;
+  QCursor removePointCursor;
+
+  void updateCursor(QPoint);
+  void mouseMoveSelection(QPoint);
+  void mouseMoveDrawCircle(QPoint);
+
+  void mousePressNone(QMouseEvent*, QPoint startPoint, QPoint zoomedPoint);
+  void mousePressRightNone(QMouseEvent*,QPoint);
+  void mousePressLeftNone(QMouseEvent*, QPoint, QPoint);
+  void mousePressLeftNoneOnArea(QMouseEvent*, Area*);
+  void mousePressLeftNoneOnBackground(QMouseEvent*, QPoint); 
+
+  QPoint moveIntoImage(QPoint);
+
+  QCursor getCursorOfToolType(KImageMapEditor::ToolType);
+
 };
 
 inline QImage DrawZone::picture() const {

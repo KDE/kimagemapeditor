@@ -35,6 +35,96 @@
 
 // The size of Selection Points
 
+SelectionPoint::SelectionPoint(QPoint p)
+{
+  point = p;
+  state = Normal;
+}
+
+SelectionPoint::~SelectionPoint() {
+}
+
+void SelectionPoint::setState(SelectionPoint::State s) {
+  state = s;
+}
+
+SelectionPoint::State SelectionPoint::getState() const {
+  return state;
+}
+
+void SelectionPoint::setPoint(QPoint p) {
+  point = p;
+}
+
+void SelectionPoint::translate(int dx, int dy) {
+  point += QPoint(dx,dy);
+}
+
+
+QPoint SelectionPoint::getPoint() const {
+  return point;
+}
+
+QRect SelectionPoint::getRect() const {
+  QRect r(0,0,SELSIZE,SELSIZE);
+  r.moveCenter(point);
+  return r;
+}
+
+void SelectionPoint::draw(QPainter* p, double scalex) {
+  QColor brushColor;
+
+  switch (state) {
+  case Normal: 
+    brushColor = Qt::white;
+    break;
+  case HighLighted:
+    brushColor = Qt::green;
+    break;
+  case AboutToRemove:
+    brushColor = Qt::red;
+    break;
+  case Inactive:
+    brushColor = Qt::gray;
+    break;
+  }
+
+  int d = 1;
+  if (scalex > 2) 
+    d = 0;
+
+  QPoint scaledCenter((int)(point.x()*scalex),
+		      (int)(point.y()*scalex));
+
+  if (state == HighLighted || state == AboutToRemove) {
+    QRect r2(0,0,SELSIZE+4,SELSIZE+4);
+    
+    r2.moveCenter(scaledCenter);
+    QColor color(brushColor);
+    color.setAlpha(100);
+    p->setPen(QPen(color,4,Qt::SolidLine));
+    p->setBrush(Qt::NoBrush);
+    p->drawRect(r2);
+    
+  }
+
+  //  brushColor.setAlpha(230);
+  brushColor.setAlpha(200);
+  p->setBrush(QBrush(brushColor,Qt::SolidPattern));
+
+  QColor penColor = Qt::black;
+  penColor.setAlpha(120);
+  QPen pen(penColor, 2, Qt::SolidLine);
+
+  QRect r(0,0,SELSIZE,SELSIZE);
+  r.moveCenter( scaledCenter );
+  
+  p->setPen(pen);
+  p->drawRect(r);
+
+
+}
+
 
 bool Area::highlightArea;
 bool Area::showAlt;
@@ -42,8 +132,6 @@ bool Area::showAlt;
 
 Area::Area()
 {
-	_selectionPoints= new SelectionPointList();
-	_selectionPoints->setAutoDelete(true);
 	_finished=false;
 	_isSelected=false;
 	_name=i18n("noname");
@@ -77,10 +165,28 @@ QString Area::getHTMLAttributes() const
   return retStr;
 }
 
+void Area::resetSelectionPointState() {
+  setSelectionPointStates(SelectionPoint::Normal);
+}
+
+void Area::setSelectionPointStates(SelectionPoint::State st) {
+  for (int i=0;i<_selectionPoints.size();i++) {
+    _selectionPoints.at(i)->setState(st);
+  }
+}
+
+
+
+
+void Area::deleteSelectionPoints() {
+  for (int i=0;i<_selectionPoints.size();i++) {
+    delete _selectionPoints.at(i);
+  }
+  _selectionPoints.clear();
+}
 
 Area::~Area() {
-  delete _selectionPoints;
-
+  deleteSelectionPoints();
 }
 
 bool Area::contains(const QPoint &) const {
@@ -112,11 +218,10 @@ bool Area::setCoords(const QString &) {
   return true;
 }
 
-void Area::moveSelectionPoint(QRect*, const QPoint &)
+void Area::moveSelectionPoint(SelectionPoint*, const QPoint &)
 {}
 
-
-	// Default implementation; is specified by subclasses
+// Default implementation; is specified by subclasses
 QString Area::coordsToString() const
 {
   return "";
@@ -129,31 +234,29 @@ Area::ShapeType Area::type() const {
 
 void Area::setArea(const Area & copy)
 {
-	delete _selectionPoints;
-	_coords.clear();
- 	_coords += copy.coords();
-	_selectionPoints= new SelectionPointList();
-	currentHighlighted=-1;
-
-	// Need a deep copy of the list
- 	for (QRect *r=copy.selectionPoints()->first();r!=0L;r=copy.selectionPoints()->next())
- 			_selectionPoints->append(new QRect( r->topLeft(),r->bottomRight() ) );
-
-	_finished=copy.finished();
-	_isSelected=copy.isSelected();
+  deleteSelectionPoints();
+  _coords.clear();
+  _coords += copy.coords();
+  currentHighlighted=-1;
+  
+  SelectionPointList points = copy.selectionPoints();
+  for (int i=0; i<points.size(); i++) {
+    SelectionPoint* np = 
+      new SelectionPoint(points.at(i)->getPoint());
+    _selectionPoints.append(np);
+  }
+   
+  _finished=copy.finished();
+  _isSelected=copy.isSelected();
   _rect = copy.rect();
 
-	AttributeIterator it = copy.attributeIterator();
-	while (it.hasNext())
-	{
-	  it.next();
-          setAttribute(it.key(),it.value());
-	}
+  AttributeIterator it = copy.attributeIterator();
+  while (it.hasNext()) {
+    it.next();
+    setAttribute(it.key(),it.value());
+  }
 
-	setMoving(copy.isMoving());
-
-//	_listViewItem=0L;
-
+  setMoving(copy.isMoving());
 }
 
 void Area::setFinished(bool b, bool ) { 
@@ -188,12 +291,12 @@ void Area::setMoving(bool b) {
 
 
 void Area::moveBy(int dx, int dy) {
-	_rect.translate(dx,dy);
-	_coords.translate(dx,dy);
+  _rect.translate(dx,dy);
+  _coords.translate(dx,dy);
 
-	for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
-		r->translate(dx,dy);
-	}
+  for (int i=0;i < _selectionPoints.size(); i++) {
+    _selectionPoints.at(i)->translate(dx,dy);
+  }
 }
 
 
@@ -205,78 +308,55 @@ void Area::moveTo(int x, int y) {
 
 int Area::countSelectionPoints() const
 {
-  return (int) selectionPoints()->count();
+  return selectionPoints().size();
 }
 
 int Area::addCoord(const QPoint & p)
 {
-	_coords.resize(_coords.size()+1);
-	_coords.setPoint(_coords.size()-1,p);
-
-	QRect *r= new QRect(0,0,SELSIZE,SELSIZE);
-	r->moveCenter(p);
-	_selectionPoints->append(r);
-	setRect(_coords.boundingRect());
+  _coords.resize(_coords.size()+1);
+  _coords.setPoint(_coords.size()-1,p);
+  _selectionPoints.append(new SelectionPoint(p));
+  setRect(_coords.boundingRect());
 
   return _coords.size()-1;
 }
 
 void Area::insertCoord(int pos, const QPoint & p)
 {
+  _coords.resize(_coords.size()+1);
 
-/*
-  kDebug() << p.x() << "," << p.y() << endl;
 
-  if ( _coords.size()>0 )
-  {
-    for (int i=0; i<_coords.size(); i++)
-    {
-      if (p==_coords.point(i))
-      {
-        kDebug() << "same Point already exists" << endl;
-        return;
-      }
-
-    }
+  for (int i=_coords.size()-1;i>pos;i--) {
+    _coords.setPoint(i,_coords.point(i-1));
   }
-*/
-	_coords.resize(_coords.size()+1);
+  _coords.setPoint(pos, p);
 
-
-	for (int i=_coords.size()-1;i>pos;i--) {
-		_coords.setPoint(i,_coords.point(i-1));
-	}
-	_coords.setPoint(pos, p);
-
-	QRect *r= new QRect(0,0,SELSIZE,SELSIZE);
-	r->moveCenter(p);
-	_selectionPoints->insert(pos,r);
-	setRect(_coords.boundingRect());
+  _selectionPoints.insert(pos,new SelectionPoint(p));
+  setRect(_coords.boundingRect());
 }
 
 void Area::removeCoord(int pos) {
 
-	int count=_coords.size();
+  int count =_coords.size();
 
-	if (count<4)
-	{
-	   kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !" << endl;
-	   return;
-	}
+  if (count<4){
+    kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !" << endl;
+    return;
+  }
 
-	for (int i=pos;i<(count-1);i++)
-		_coords.setPoint(i, _coords.point(i+1));
+  for (int i=pos;i<(count-1);i++)
+    _coords.setPoint(i, _coords.point(i+1));
 
-	_coords.resize(count-1);
-	_selectionPoints->remove(pos);
-	setRect(_coords.boundingRect());
+  _coords.resize(count-1);
+  delete _selectionPoints.takeAt(pos);
+  setRect(_coords.boundingRect());
 }
 
-bool Area::removeSelectionPoint(QRect * r)
+bool Area::removeSelectionPoint(SelectionPoint * p)
 {
-  if (_selectionPoints->contains(r))
+  if (_selectionPoints.contains(p))
   {
-    removeCoord(_selectionPoints->find(r));
+    removeCoord(_selectionPoints.indexOf(p));
     return true;
   }
 
@@ -285,17 +365,17 @@ bool Area::removeSelectionPoint(QRect * r)
 
 
 void Area::moveCoord(int pos, const QPoint & p) {
-	_coords.setPoint(pos,p);
-	_selectionPoints->at(pos)->moveCenter(p);
-	setRect(_coords.boundingRect());
+  _coords.setPoint(pos,p);
+  _selectionPoints.at(pos)->setPoint(p);
+  setRect(_coords.boundingRect());
 }
 
 void Area::setSelected(bool b)
 {
-	_isSelected=b;
-	if (_listViewItem) {
-		_listViewItem->setSelected(b);
-	}
+  _isSelected=b;
+  if (_listViewItem) {
+    _listViewItem->setSelected(b);
+  }
 }
 
 void Area::highlightSelectionPoint(int number){
@@ -359,82 +439,50 @@ void Area::drawAlt(QPainter* p)
   p->setMatrix(oldMatrix);
 }
 
-void Area::drawSelectionPoint(QPainter* p, QRect point, double scalex) {
-  int d = 1;
-  if (scalex > 2) 
-    d = 0;
-
-  point.moveCenter( QPoint((int)(point.center().x()*scalex),
-			   (int)(point.center().y()*scalex)) );
-  
-  p->drawRect(point);
-}
-
 void Area::draw(QPainter * p)
 {
 
   // Only draw the selection points at base class
   // the rest is done in the derived classes
-  if (_isSelected)
-    {
-      int i=0;
+  if (_isSelected)  {
+    // We do not want to have the selection points 
+    // scaled, so calculate the unscaled version
+    double scalex = p->matrix().m11();
+    QMatrix oldMatrix = p->matrix();
+    p->setMatrix(QMatrix(1,oldMatrix.m12(), 
+			 oldMatrix.m21(), 1, 
+			 oldMatrix.dx(), 
+			 oldMatrix.dy() ));
 
-      // We do not want to have the selection points 
-      // scaled, so calculate the unscaled version
-      double scalex = p->matrix().m11();
-      QMatrix oldMatrix = p->matrix();
-      p->setMatrix(QMatrix(1,oldMatrix.m12(), 
-			   oldMatrix.m21(), 1, 
-			   oldMatrix.dx(), 
-			   oldMatrix.dy() ));
-      
-      for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
-	QColor brushColor;
-
-	if (i==currentHighlighted) {
-	  brushColor = Qt::green;
-	} else {
-	  brushColor = Qt::white;
-	}
-
-	brushColor.setAlpha(230);
-	p->setBrush(QBrush(brushColor,Qt::SolidPattern));
-
-	QColor penColor = Qt::black;
-	penColor.setAlpha(120);
-	p->setPen(QPen(penColor, 2, Qt::SolidLine));
-
-	drawSelectionPoint(p,*r,scalex);
-	i++;
-      }
-      p->setMatrix(oldMatrix);
-
-
+    for (int i=0; i<_selectionPoints.size(); i++) {
+      _selectionPoints.at(i)->draw(p,scalex);
     }
+    p->setMatrix(oldMatrix);
+  }
 
-  if (showAlt)
-    {
-      drawAlt(p);
-    }
+  if (showAlt) {
+    drawAlt(p);
+  }
 
 }
 
-QRect* Area::onSelectionPoint(const QPoint & p, double zoom) const
+SelectionPoint* Area::onSelectionPoint(const QPoint & p, double zoom) const
 {
-	for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next())
-  {
-    QRect r2(r->topLeft(),r->bottomRight());
+  
+  for (int i=0; i<_selectionPoints.size(); i++) {
+    SelectionPoint* sp = _selectionPoints.at(i);
+    
+    QRect r = sp->getRect();
 
-    r2.moveCenter(r2.center()*zoom);
+    r.moveCenter(sp->getPoint()*zoom);
 
-    if (r2.contains(p))
+    if (r.contains(p))
     {
-
-			return r;
+      return sp;
     }
-	}
+  }
 
-	return 0L;
+  return 0L;
 }
 
 
@@ -550,15 +598,11 @@ QBitmap Area::getMask() const
 RectArea::RectArea()
 	: Area()
 {
- 	QRect *p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
-	_type=Area::Rectangle;
+  _type=Area::Rectangle;
+  QPoint p(0,0);
+  for (int i = 0; i<4; i++) {
+    _selectionPoints.append(new SelectionPoint(p));
+  }
 
 }
 
@@ -614,42 +658,38 @@ bool RectArea::contains(const QPoint & p) const{
 	return rect().contains(p);
 }
 
-void RectArea::moveSelectionPoint(QRect* selectionPoint, const QPoint & p)
+void RectArea::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p)
 {
-	selectionPoint->moveCenter(p);
- 	int i=0;
- 	for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
- 		if (r==selectionPoint)
- 			break;
- 		i++;
- 	}
+	selectionPoint->setPoint(p);
+ 	int i = _selectionPoints.indexOf(selectionPoint);
+
  	QRect r2(_rect);
  	switch (i) {
- 		case 0 : _rect.setLeft(p.x());
- 						 _rect.setTop(p.y());
- 			break;
- 		case 1 : _rect.setRight(p.x());
- 		 				 _rect.setTop(p.y());
- 			break;
- 		case 2 : _rect.setLeft(p.x());
- 						 _rect.setBottom(p.y());
- 			break;
- 		case 3 : _rect.setRight(p.x());
- 	 					 _rect.setBottom(p.y());
- 			break;
+	case 0 : _rect.setLeft(p.x());
+	  _rect.setTop(p.y());
+	  break;
+	case 1 : _rect.setRight(p.x());
+	  _rect.setTop(p.y());
+	  break;
+	case 2 : _rect.setLeft(p.x());
+	  _rect.setBottom(p.y());
+	  break;
+	case 3 : _rect.setRight(p.x());
+	  _rect.setBottom(p.y());
+	  break;
  	}
- 	if ( ! _rect.isValid())
- 		_rect=r2;
+ 	if (! _rect.isValid())
+	  _rect=r2;
 
  	updateSelectionPoints();
 }
 
 void RectArea::updateSelectionPoints()
 {
- 	_selectionPoints->first()->moveCenter(_rect.topLeft());
- 	_selectionPoints->next()->moveCenter(_rect.topRight()+QPoint(1,0));
- 	_selectionPoints->next()->moveCenter(_rect.bottomLeft()+QPoint(0,1));
- 	_selectionPoints->next()->moveCenter(_rect.bottomRight()+QPoint(1,1));
+  _selectionPoints[0]->setPoint(_rect.topLeft());
+  _selectionPoints[1]->setPoint(_rect.topRight()+QPoint(1,0));
+  _selectionPoints[2]->setPoint(_rect.bottomLeft()+QPoint(0,1));
+  _selectionPoints[3]->setPoint(_rect.bottomRight()+QPoint(1,1));
 }
 
 bool RectArea::setCoords(const QString & s)
@@ -665,10 +705,11 @@ bool RectArea::setCoords(const QString & s)
 	r.setRight((*it).toInt(&ok,10));it++;
 	r.setBottom((*it).toInt(&ok,10));
 	if (ok) {
-		setRect(r);
-		return true;
-	} else
-		return false;
+	  setRect(r);
+	  return true;
+	} else {
+	  return false;
+	}
 }
 
 QString RectArea::getHTMLCode() const {
@@ -692,15 +733,11 @@ QString RectArea::getHTMLCode() const {
 CircleArea::CircleArea()
 	: Area()
 {
-	_type=Area::Circle;
- 	QRect *p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
- 	p = new QRect(0,0,SELSIZE,SELSIZE);
- 	_selectionPoints->append(p);
+  _type = Area::Circle;
+  QPoint p(0,0);
+  for (int i = 0; i<4; i++) {
+    _selectionPoints.append(new SelectionPoint(p));
+  }
 }
 
 CircleArea::~CircleArea() {
@@ -758,19 +795,15 @@ bool CircleArea::contains(const QPoint & p) const
 	return r.contains(p);
 }
 
-void CircleArea::moveSelectionPoint(QRect* selectionPoint, const QPoint & p)
+void CircleArea::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p)
 {
-  selectionPoint->moveCenter(p);
+  selectionPoint->setPoint(p);
 
-  int i=0;
-  for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
-    if (r==selectionPoint)
-      break;
-    i++;
-  }
+  int i = _selectionPoints.indexOf(selectionPoint);
 
   // The code below really sucks, but I have no better idea.
-  // it only makes sure that the circle is perfektly round
+  // it only makes sure that the circle is perfectly round
+
   QPoint newPoint;
   int diff=myabs(p.x()-_rect.center().x());
   if (myabs(p.y()-_rect.center().y())>diff)
@@ -833,10 +866,10 @@ void CircleArea::setRect(const QRect & r)
 
 void CircleArea::updateSelectionPoints()
 {
- 	_selectionPoints->first()->moveCenter(_rect.topLeft());
- 	_selectionPoints->next()->moveCenter(_rect.topRight());
- 	_selectionPoints->next()->moveCenter(_rect.bottomLeft());
- 	_selectionPoints->next()->moveCenter(_rect.bottomRight());
+  _selectionPoints[0]->setPoint(_rect.topLeft());
+  _selectionPoints[1]->setPoint(_rect.topRight());
+  _selectionPoints[2]->setPoint(_rect.bottomLeft());
+  _selectionPoints[3]->setPoint(_rect.bottomRight());
 }
 
 bool CircleArea::setCoords(const QString & s)
@@ -879,7 +912,7 @@ QString CircleArea::getHTMLCode() const {
 PolyArea::PolyArea()
 	: Area()
 {
-	_type=Area::Polygon;
+  _type = Area::Polygon;
 }
 
 PolyArea::~PolyArea() {
@@ -1068,31 +1101,20 @@ bool PolyArea::contains(const QPoint & p) const
  		return false;
 }
 
-void PolyArea::moveSelectionPoint(QRect* selectionPoint, const QPoint & p)
+void PolyArea::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p)
 {
-	selectionPoint->moveCenter(p);
+  selectionPoint->setPoint(p);
 
- 	int i=0;
- 	for (QRect *r=_selectionPoints->first();r!=0L;r=_selectionPoints->next()) {
- 		if (r==selectionPoint)
- 			break;
- 		i++;
- 	}
- 	_coords.setPoint(i,p);
- 	_rect=_coords.boundingRect();
+  int i = _selectionPoints.indexOf(selectionPoint);
+  _coords.setPoint(i,p);
+  _rect=_coords.boundingRect();
 }
 
 void PolyArea::updateSelectionPoints()
 {
-	QRect *r;
- 	r=_selectionPoints->first();
-
- 	for (int i=0;i<_coords.size();i++)
- 	{
- 		r->moveCenter(_coords.point(i));
- 		r=_selectionPoints->next();
- 	}
-
+  for (int i = 0; i < _selectionPoints.size(); ++i) {
+    _selectionPoints.at(i)->setPoint(_coords.point(i));
+  }
 }
 
 bool PolyArea::setCoords(const QString & s)
@@ -1100,7 +1122,7 @@ bool PolyArea::setCoords(const QString & s)
 	_finished=true;
 	QStringList list = s.split(",");
 	_coords.clear();
-	_selectionPoints= new SelectionPointList();
+	_selectionPoints.clear();
 
 	for (QStringList::Iterator it = list.begin(); it !=list.end(); ++it)
 	{
@@ -1137,7 +1159,7 @@ void PolyArea::setFinished(bool b, bool removeLast = true)
 	// so delete it
   if (b && removeLast) {
     _coords.resize(_coords.size()-1);
-    _selectionPoints->removeLast();
+    _selectionPoints.removeLast();
   }
 
   _finished = b;
@@ -1255,6 +1277,26 @@ void AreaSelection::add(Area *a)
 	invalidate();
 }
 
+
+void AreaSelection::setSelectionPointStates(SelectionPoint::State st) {
+  AreaListIterator it=getAreaListIterator();
+
+  for ( ; it.current() != 0L; ++it )
+  {
+  	it.current()->setSelectionPointStates( st );
+  }
+}
+
+void AreaSelection::updateSelectionPointStates() {
+  SelectionPoint::State st = SelectionPoint::Normal;
+  
+  if (_areas->count() > 1) 
+    st = SelectionPoint::Inactive;
+
+  setSelectionPointStates(st);
+}
+
+
 void AreaSelection::remove(Area *a)
 {
 	if (_areas->find(a) == -1)
@@ -1295,27 +1337,28 @@ bool AreaSelection::contains(const QPoint & p) const
   return b;
 }
 
-QRect* AreaSelection::onSelectionPoint(const QPoint & p, double zoom) const
+SelectionPoint* AreaSelection::onSelectionPoint(const QPoint & p, double zoom) const
 {
   AreaListIterator it=getAreaListIterator();
 
-	if (it.count() != 1)
-		return 0L;
+  if (it.count() != 1)
+    return 0L;
 
-	QRect* retRect=0L;
+  SelectionPoint* res=0L;
 
-  for ( ; it.current() != 0L; ++it )
-  {
-  	if ( (retRect = it.current()->onSelectionPoint( p , zoom) ) )
-		{
-  		break;
-  	}
-  }
+  //  for ( ; it.current() != 0L; ++it )
+  //  {
+  //    if ( (res = it.current()->onSelectionPoint( p , zoom) ) )
+  //      {
+  //	break;
+  //      }
+  //  }
 
-  return retRect;
+
+  return it.current()->onSelectionPoint(p,zoom);
 }
 
-void AreaSelection::moveSelectionPoint(QRect* selectionPoint, const QPoint & p)
+void AreaSelection::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p)
 {
 	// It's only possible to move a SelectionPoint if only one Area is selected
 	if (_areas->count() != 1)
@@ -1362,6 +1405,10 @@ Area::ShapeType AreaSelection::type() const
 		return _areas->getFirst()->type();
 	else
 		return Area::Selection;
+}
+
+void AreaSelection::resetSelectionPointState() {
+  updateSelectionPointStates();
 }
 
 void AreaSelection::updateSelectionPoints()
@@ -1510,20 +1557,20 @@ void AreaSelection::removeCoord(int pos)
 	}
 }
 
-bool AreaSelection::removeSelectionPoint(QRect * r)
+bool AreaSelection::removeSelectionPoint(SelectionPoint* p)
 {
   bool result=false;
 
 	if ( _areas->count()==1 )
 	{
-		result = _areas->getFirst()->removeSelectionPoint(r);
+		result = _areas->getFirst()->removeSelectionPoint(p);
 		invalidate();
 	}
 
 	return result;
 }
 
-SelectionPointList* AreaSelection::selectionPoints() const
+const SelectionPointList & AreaSelection::selectionPoints() const
 {
 	if ( _areas->count()==1 )
 	{
@@ -1635,5 +1682,11 @@ bool AreaSelection::allAreasWithin(const QRect & r) const
 
 void AreaSelection::draw(QPainter *)
 {}
+
+void AreaSelection::invalidate() {
+  _selectionCacheValid=false;
+  _rectCacheValid=false;
+  updateSelectionPointStates();
+}
 
 

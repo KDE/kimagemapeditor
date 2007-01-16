@@ -20,20 +20,20 @@
 
 #include <qrect.h>
 #include <qpoint.h>
-#include <q3ptrlist.h>
+#include <QList>
 //Added by qt3to4:
 #include <QPixmap>
 #include <klocale.h>
 #include <qhash.h>
 #include <QHashIterator>
 #include "kdeversion.h"
+#include <Q3PtrList>
 
 class QPainter;
 class QPolygon;
 class Q3ListViewItem;
 class QBitmap;
 
-typedef Q3PtrList<QRect> SelectionPointList;
 
 typedef QHash<QString,QString> AttributeMap;
 typedef QHashIterator<QString,QString> AttributeIterator;
@@ -42,10 +42,53 @@ typedef QHashIterator<QString,QString> AttributeIterator;
 
 
 
+class SelectionPoint 
+{
+
+public:
+  enum State {
+    Normal,
+    HighLighted,
+    AboutToRemove,
+    Inactive
+  };
+
+
+  SelectionPoint(QPoint);
+  virtual ~SelectionPoint();
+
+  void setState(SelectionPoint::State s);
+  State getState() const;
+
+  QPoint getPoint() const;
+  void setPoint(QPoint);
+  void translate(int,int);
+
+  QRect getRect() const;
+
+  void draw(QPainter*, double);
+
+private:
+  QPoint point;
+  State state;
+  
+};
+
+typedef QList<SelectionPoint*> SelectionPointList;
+
+
 class Area
 {
 public:
-	enum ShapeType { None, Rectangle, Circle, Polygon, Default, Selection };
+  enum ShapeType { 
+    None, 
+    Rectangle, 
+    Circle, 
+    Polygon, 
+    Default, 
+    Selection 
+  };
+
   static bool highlightArea;
   static bool showAlt;
 
@@ -64,12 +107,12 @@ protected:
 	Q3ListViewItem* _listViewItem;
 
 	QPolygon _coords;
-	SelectionPointList *_selectionPoints;
+	SelectionPointList _selectionPoints;
 
 	void setPenAndBrush(QPainter* p);
 	void drawAlt(QPainter*);
-	void drawSelectionPoint(QPainter*, QRect, double);
 	QString getHTMLAttributes() const;
+	void deleteSelectionPoints();
 
 public:
 	Area();
@@ -87,11 +130,13 @@ public:
 
 	virtual void moveBy(int, int);
 	virtual void moveTo(int, int);
-	virtual void moveSelectionPoint(QRect*, const QPoint &);
+	virtual void moveSelectionPoint(SelectionPoint*, const QPoint &);
 
-	virtual QRect* onSelectionPoint(const QPoint &,double zoom) const;
-	virtual bool removeSelectionPoint(QRect * r);
-  virtual SelectionPointList* selectionPoints() const { return _selectionPoints; }
+	virtual SelectionPoint* onSelectionPoint(const QPoint &,double zoom) const;
+	virtual bool removeSelectionPoint(SelectionPoint* );
+	virtual const SelectionPointList & selectionPoints() const { return _selectionPoints; }
+	virtual void resetSelectionPointState();
+	virtual void setSelectionPointStates(SelectionPoint::State st);
 
 	virtual QRect rect() const;
 
@@ -116,6 +161,7 @@ public:
 	virtual void removeCoord(int);
 	virtual void moveCoord(int,const QPoint &);
 	virtual QPolygon coords() const;
+
 	virtual void highlightSelectionPoint(int);
 
 	virtual QString attribute(const QString &) const;
@@ -176,7 +222,7 @@ class RectArea : public Area
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
 		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
+		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
 		virtual bool setCoords(const QString & s);
 		virtual QString typeString() const { return i18n("Rectangle"); }
 		virtual QBitmap getMask() const;
@@ -198,7 +244,7 @@ class CircleArea : public Area
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
 		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
+		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
 		virtual bool setCoords(const QString & s);
 		virtual void setRect(const QRect & r);
 		virtual QString typeString() const { return i18n("Circle"); }
@@ -221,7 +267,7 @@ class PolyArea :public Area
 		virtual bool contains(const QPoint & p) const;
 		virtual QString coordsToString() const;
 		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
+		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
 		virtual void simplifyCoords();
   	virtual int addCoord(const QPoint & p);
 		virtual bool setCoords(const QString & s);
@@ -243,15 +289,17 @@ class PolyArea :public Area
  **/
 class DefaultArea :public Area
 {
-	public:
-		DefaultArea();
-		virtual ~DefaultArea();
+ public:
+  DefaultArea();
+  virtual ~DefaultArea();
 
-		virtual Area* clone() const;
-		// the default area isn't drawn
-		virtual void draw(QPainter*);
-		virtual QString typeString() const { return i18n("Default"); }
-		virtual QString getHTMLCode() const;
+  virtual Area* clone() const;
+  // the default area isn't drawn
+  virtual void draw(QPainter*);
+  virtual QString typeString() const { 
+    return i18n("Default"); 
+  }
+  virtual QString getHTMLCode() const;
 
 };
 
@@ -267,125 +315,124 @@ typedef Q3PtrListIterator<Area> AreaListIterator;
  *  move action
  **/
 class AreaSelection : public Area {
-	public :
-		AreaSelection();
-		virtual ~AreaSelection();
+public :
+  AreaSelection();
+  virtual ~AreaSelection();
 
-		/**
-		 * New Methods
-		 */
+  /**
+   * New Methods
+   */
 
-		// Adding automatically selects the area
-		void add(Area *a);
+  // Adding automatically selects the area
+  void add(Area *a);
 
-		// Removing automatically deselects the area
-		void remove(Area *a);
+  // Removing automatically deselects the area
+  void remove(Area *a);
 
-		// Removes all areas from the list and deselects them
-		void reset();
+  // Removes all areas from the list and deselects them
+  void reset();
 
-		int count() const;
+  int count() const;
 
-		AreaList getAreaList() const;
-		AreaListIterator getAreaListIterator() const;
-		void setAreaList( const AreaList & areas );
+  AreaList getAreaList() const;
+  AreaListIterator getAreaListIterator() const;
+  void setAreaList( const AreaList & areas );
 
-		bool isEmpty() const;
+  bool isEmpty() const;
 
-		/**
-		 * Overiden Methods of the Area class
-		 */
-		virtual bool contains(const QPoint & p) const;
+  /**
+   * Overiden Methods of the Area class
+   */
+  virtual bool contains(const QPoint & p) const;
 
-		/**
-		 *
-		 **/
-		virtual QRect* onSelectionPoint(const QPoint & p, double zoom) const;
+  /**
+   *
+   **/
+  virtual SelectionPoint* onSelectionPoint(const QPoint & p, double zoom) const;
 
-		/**
-		 * Only if one Area is selected the moveSelectionPoint method
-		 * of that Area will be called
-		 **/
-		virtual void moveSelectionPoint(QRect* selectionPoint, const QPoint & p);
+  /**
+   * Only if one Area is selected the moveSelectionPoint method
+   * of that Area will be called
+   **/
+  virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
 
-    virtual SelectionPointList* selectionPoints() const;
+  virtual const SelectionPointList & selectionPoints() const;
 
-		/**
-		 * All Areas will be moved by dx and dy
-		 **/
-		virtual void moveBy(int dx, int dy);
+  /**
+   * All Areas will be moved by dx and dy
+   **/
+  virtual void moveBy(int dx, int dy);
 
-		/**
-		 * Calls for every selected Area the setArea with the
-		 * corresponding Area in the copy Selection.
-		 * IMPORTANT : works only if the copy Area is an AreaSelection
-		 * and have the same number of Areas
-		 **/
-		virtual void setArea(const Area & copy);
-		virtual void setAreaSelection(const AreaSelection & copy);
+  /**
+   * Calls for every selected Area the setArea with the
+   * corresponding Area in the copy Selection.
+   * IMPORTANT : works only if the copy Area is an AreaSelection
+   * and have the same number of Areas
+   **/
+  virtual void setArea(const Area & copy);
+  virtual void setAreaSelection(const AreaSelection & copy);
 
-		/**
-		 * If only one Area is selected the setRect method of that Area
-		 * will be called
-		 **/
-		virtual void setRect(const QRect & r);
-		virtual QRect rect() const;
-
-
-		virtual QString typeString() const;
-		virtual ShapeType type() const;
-
-		// The selection is only a container
-		// so it is never drawn
-		virtual void draw(QPainter*);
+  /**
+   * If only one Area is selected the setRect method of that Area
+   * will be called
+   **/
+  virtual void setRect(const QRect & r);
+  virtual QRect rect() const;
 
 
-		/**
-		 * A deep copy of the Areas
-		 **/
-		virtual Area* clone() const;
+  virtual QString typeString() const;
+  virtual ShapeType type() const;
 
-		virtual void updateSelectionPoints();
-  	virtual int addCoord(const QPoint & p);
-  	virtual void insertCoord(int pos, const QPoint & p);
-  	virtual void removeCoord(int pos);
-    virtual bool removeSelectionPoint(QRect * r);
-  	virtual void moveCoord(int pos,const QPoint & p);
-  	virtual QPolygon coords() const;
-		virtual void highlightSelectionPoint(int);
-
-		virtual QRect selectionRect() const;
-
-  	virtual QString attribute(const QString & name) const;
-  	virtual void setAttribute(const QString & name, const QString & value);
-  	virtual AttributeIterator attributeIterator() const;
-
-    virtual void setMoving(bool b);
-    virtual bool isMoving() const;
+  // The selection is only a container
+  // so it is never drawn
+  virtual void draw(QPainter*);
 
 
-    bool allAreasWithin(const QRect & r) const;
+  /**
+   * A deep copy of the Areas
+   **/
+  virtual Area* clone() const;
 
-		// makes the cache invalid
-		void invalidate();
-	private :
+  virtual void resetSelectionPointState();
+  virtual void setSelectionPointStates(SelectionPoint::State st);
+  void updateSelectionPointStates();
 
-		AreaList *_areas;
+  virtual void updateSelectionPoints();
+  virtual int addCoord(const QPoint & p);
+  virtual void insertCoord(int pos, const QPoint & p);
+  virtual void removeCoord(int pos);
+  virtual bool removeSelectionPoint(SelectionPoint *);
+  virtual void moveCoord(int pos,const QPoint & p);
+  virtual QPolygon coords() const;
+  virtual void highlightSelectionPoint(int);
 
-		// The selectionRect and the rect are cached
-		// so even in const functions they must be changeable
-		mutable QRect _cachedSelectionRect;
-		mutable QRect _cachedRect;
-		mutable bool _selectionCacheValid;
-		mutable bool _rectCacheValid;
+  virtual QRect selectionRect() const;
+
+  virtual QString attribute(const QString & name) const;
+  virtual void setAttribute(const QString & name, const QString & value);
+  virtual AttributeIterator attributeIterator() const;
+
+  virtual void setMoving(bool b);
+  virtual bool isMoving() const;
+
+
+  bool allAreasWithin(const QRect & r) const;
+
+  // makes the cache invalid
+  void invalidate();
+
+private :
+  AreaList *_areas;
+
+  // The selectionRect and the rect are cached
+  // so even in const functions they must be changeable
+  mutable QRect _cachedSelectionRect;
+  mutable QRect _cachedRect;
+  mutable bool _selectionCacheValid;
+  mutable bool _rectCacheValid;
 
 };
 
-
-inline void AreaSelection::invalidate() {
-	_selectionCacheValid=false;
-	_rectCacheValid=false;
-}
 
 #endif
 

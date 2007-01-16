@@ -108,7 +108,7 @@ private:
   // The currently drawing area
   Area *currentArea;
   // Needed when moving selectionpoints
-  QRect *currentSelectionPoint;
+  SelectionPoint* currentSelectionPoint;
   // The point where the user clicked the mouse
   QPoint drawStart;
   QPoint drawCurrent;

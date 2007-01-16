@@ -249,8 +249,9 @@ void AddPointCommand::unexecute()
   delete repaintArea;
 }
 
-RemovePointCommand::RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea)
-	: KNamedCommand(i18n( "Remove point from %1", a->typeString() ))
+RemovePointCommand::RemovePointCommand(KImageMapEditor *document, 
+       AreaSelection *a, Area *oldArea)
+  : KNamedCommand(i18n( "Remove point from %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {

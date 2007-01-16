@@ -248,17 +248,18 @@ void DrawZone::mouseDoubleClickEvent(QMouseEvent* e) {
   if ( ! imageMapEditor->isReadWrite())
      return;
 
-	QPoint point=e->pos();
-	point-=imageRect.topLeft();
-	point=translateFromZoom(point);
-	if ( currentAction==None &&
-		(currentArea=imageMapEditor->onArea(point)))
-	{
-		imageMapEditor->deselectAll();
-		imageMapEditor->select(currentArea);
-		currentArea=imageMapEditor->selected();
-		imageMapEditor->showTagEditor(imageMapEditor->selected());
-	}
+  QPoint point=e->pos();
+  point-=imageRect.topLeft();
+  point=translateFromZoom(point);
+  Area* a;
+  if ( currentAction==None &&
+       (a=imageMapEditor->onArea(point)))
+  {
+    imageMapEditor->deselectAll();
+    imageMapEditor->select(currentArea);
+    currentArea=imageMapEditor->selected();
+    imageMapEditor->showTagEditor(imageMapEditor->selected());
+  }
 
 }
 
@@ -345,7 +346,7 @@ void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {
     case KImageMapEditor::Polygon :
       currentAction = DrawPolygon;
       currentArea->addCoord(drawStart);
-      currentSelectionPoint = currentArea->selectionPoints()->last();
+      currentSelectionPoint = currentArea->selectionPoints().last();
       break;
     case KImageMapEditor::Freehand :
       currentAction = DrawFreehand;
@@ -370,11 +371,14 @@ void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {
 
 
 void DrawZone::mousePressLeftNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoint) {
-  if ((currentArea=imageMapEditor->selected()) &&
-      (currentSelectionPoint=currentArea->onSelectionPoint(zoomedPoint,_zoom)))
+  kDebug() << "mousePressLeftNone" << endl;
+  Area* a;
+  if ((a = imageMapEditor->selected()) &&
+      (currentSelectionPoint=a->onSelectionPoint(zoomedPoint,_zoom)))
   {
+    currentArea = a;
     if ( (imageMapEditor->currentToolType() == KImageMapEditor::RemovePoint) &&
-	 (imageMapEditor->selected()->selectionPoints()->count()>3) )
+	 (imageMapEditor->selected()->selectionPoints().count()>3) )
     {
       currentAction=RemovePoint;
     } else {
@@ -382,7 +386,8 @@ void DrawZone::mousePressLeftNone(QMouseEvent* e, QPoint drawStart, QPoint zoome
       currentArea->setMoving(true);
     }
   } else { // leftclick not on selectionpoint but on area
-    if ((currentArea=imageMapEditor->onArea(drawStart))) {
+    if ((a = imageMapEditor->onArea(drawStart))) {
+      currentArea = a;
       mousePressLeftNoneOnArea(e,currentArea);
     } else { 
       mousePressLeftNoneOnBackground(e, drawStart);
@@ -423,7 +428,7 @@ void DrawZone::mousePressEvent(QMouseEvent* e)
 
   if (currentArea) {
     oldArea = currentArea->clone();
-  }
+  } 
 
   if (currentAction == None) {
     mousePressNone(e,drawStart,zoomedPoint);
@@ -465,8 +470,8 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
     // If the number of Polygonpoints is more than 2
     // and clicked on the first PolygonPoint or
     // the right Button was pressed the Polygon is finished
-    if ((currentArea->selectionPoints()->count()>2)
-	&& (currentArea->selectionPoints()->first()->contains(drawEnd)
+    if ((currentArea->selectionPoints().count()>2)
+	&& (currentArea->selectionPoints().first()->getRect().contains(drawEnd)
 	    || (e->button()==Qt::RightButton)))
     {
       currentArea->setFinished(true);
@@ -475,7 +480,7 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
 	  new CreateCommand( imageMapEditor, currentArea ), true);
     } else {
       currentArea->insertCoord(currentArea->countSelectionPoints()-1, drawEnd);
-      currentSelectionPoint=currentArea->selectionPoints()->last();
+      currentSelectionPoint=currentArea->selectionPoints().last();
     }
     break;
   case DrawFreehand:
@@ -598,47 +603,52 @@ QCursor DrawZone::getCursorOfToolType(KImageMapEditor::ToolType toolType) {
 void DrawZone::updateCursor(QPoint zoomedPoint) {
   AreaSelection* selected = imageMapEditor->selected();
   KImageMapEditor::ToolType toolType = imageMapEditor->currentToolType();
+  SelectionPoint* selectionPoint;
 
-  if ( selected &&
-       selected->onSelectionPoint(zoomedPoint,_zoom ))
-  {
-    if (selected->type()==Area::Polygon)
-    {
-      if ((toolType==KImageMapEditor::RemovePoint) &&
-	      (selected->selectionPoints()->count()>3) )
-      {
-	setCursor(removePointCursor);
-      } else {
-	setCursor(Qt::PointingHandCursor);
-      }
+
+  if ( imageMapEditor->onArea(drawCurrent) ) {
+    if (toolType==KImageMapEditor::AddPoint) {
+	setCursor(addPointCursor);
     } else {
-      QPoint center=selected->rect().center();
-      if (drawCurrent.x() < center.x()) {
-	if (drawCurrent.y() < center.y())
-	  setCursor(Qt::SizeFDiagCursor);
-	else {
-	  setCursor(Qt::SizeBDiagCursor);
-	}
-      } else {
-	if (drawCurrent.y() < center.y())
-	  setCursor(Qt::SizeBDiagCursor);
-	else
-	  setCursor(Qt::SizeFDiagCursor);
-      }
+      setCursor(Qt::SizeAllCursor);
     }
   } else {
-    if ( imageMapEditor->onArea(drawCurrent) )
-    {
-      if (toolType==KImageMapEditor::AddPoint)
-      {
-	setCursor(addPointCursor);
-      } else {
-	setCursor(Qt::SizeAllCursor);
-      }
-    } else {
-      setCursor(getCursorOfToolType(toolType));
-    }
+    setCursor(getCursorOfToolType(toolType));
   }
+
+
+  if ( selected )
+  {
+    selected->resetSelectionPointState();
+    selectionPoint = selected->onSelectionPoint(zoomedPoint,_zoom );
+    if (selectionPoint) {
+      selectionPoint->setState(SelectionPoint::HighLighted);
+      if (selected->type()==Area::Polygon) {
+	if ((toolType==KImageMapEditor::RemovePoint) &&
+	    (selected->selectionPoints().count()>3) )
+	{
+	  setCursor(removePointCursor);
+	  selectionPoint->setState(SelectionPoint::AboutToRemove);
+	} else {
+	  setCursor(Qt::PointingHandCursor);
+	}
+      } else {
+	QPoint center=selected->rect().center();
+	if (drawCurrent.x() < center.x()) {
+	  if (drawCurrent.y() < center.y())
+	    setCursor(Qt::SizeFDiagCursor);
+	  else {
+	    setCursor(Qt::SizeBDiagCursor);
+	  }
+	} else {
+	  if (drawCurrent.y() < center.y())
+	    setCursor(Qt::SizeBDiagCursor);
+	  else
+	    setCursor(Qt::SizeFDiagCursor);
+	}
+      }
+    } 
+  } 
 }
 
 void DrawZone::mouseMoveSelection(QPoint drawCurrent) {

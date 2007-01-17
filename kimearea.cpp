@@ -35,10 +35,11 @@
 
 // The size of Selection Points
 
-SelectionPoint::SelectionPoint(QPoint p)
+SelectionPoint::SelectionPoint(QPoint p, QCursor c)
 {
   point = p;
   state = Normal;
+  _cursor = c;
 }
 
 SelectionPoint::~SelectionPoint() {
@@ -70,6 +71,15 @@ QRect SelectionPoint::getRect() const {
   r.moveCenter(point);
   return r;
 }
+
+QCursor SelectionPoint::cursor() {
+  return _cursor;
+}
+
+void SelectionPoint::setCursor(QCursor c) {
+  _cursor = c;
+}
+
 
 void SelectionPoint::draw(QPainter* p, double scalex) {
   QColor brushColor;
@@ -242,7 +252,7 @@ void Area::setArea(const Area & copy)
   SelectionPointList points = copy.selectionPoints();
   for (int i=0; i<points.size(); i++) {
     SelectionPoint* np = 
-      new SelectionPoint(points.at(i)->getPoint());
+      new SelectionPoint(points.at(i)->getPoint(),points.at(i)->cursor());
     _selectionPoints.append(np);
   }
    
@@ -315,7 +325,7 @@ int Area::addCoord(const QPoint & p)
 {
   _coords.resize(_coords.size()+1);
   _coords.setPoint(_coords.size()-1,p);
-  _selectionPoints.append(new SelectionPoint(p));
+  _selectionPoints.append(new SelectionPoint(p,QCursor(Qt::PointingHandCursor)));
   setRect(_coords.boundingRect());
 
   return _coords.size()-1;
@@ -331,7 +341,7 @@ void Area::insertCoord(int pos, const QPoint & p)
   }
   _coords.setPoint(pos, p);
 
-  _selectionPoints.insert(pos,new SelectionPoint(p));
+  _selectionPoints.insert(pos,new SelectionPoint(p,QCursor(Qt::PointingHandCursor)));
   setRect(_coords.boundingRect());
 }
 
@@ -600,10 +610,14 @@ RectArea::RectArea()
 {
   _type=Area::Rectangle;
   QPoint p(0,0);
-  for (int i = 0; i<4; i++) {
-    _selectionPoints.append(new SelectionPoint(p));
-  }
-
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeFDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeBDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeBDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeFDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeVerCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeHorCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeVerCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeHorCursor));
 }
 
 RectArea::~RectArea() {
@@ -665,18 +679,35 @@ void RectArea::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint &
 
  	QRect r2(_rect);
  	switch (i) {
-	case 0 : _rect.setLeft(p.x());
+	case 0 :
+	  _rect.setLeft(p.x());
 	  _rect.setTop(p.y());
 	  break;
-	case 1 : _rect.setRight(p.x());
+	case 1 : 
+	  _rect.setRight(p.x());
 	  _rect.setTop(p.y());
 	  break;
-	case 2 : _rect.setLeft(p.x());
+	case 2 : 
+	  _rect.setLeft(p.x());
 	  _rect.setBottom(p.y());
 	  break;
-	case 3 : _rect.setRight(p.x());
+	case 3 : 
+	  _rect.setRight(p.x());
 	  _rect.setBottom(p.y());
 	  break;
+	case 4 : // top line
+	  _rect.setTop(p.y());
+	  break;
+	case 5 : // right line
+	  _rect.setRight(p.x());
+	  break;
+	case 6 : // bottom
+	  _rect.setBottom(p.y());
+	  break;
+	case 7 : // left
+	  _rect.setLeft(p.x());
+	  break;
+	  
  	}
  	if (! _rect.isValid())
 	  _rect=r2;
@@ -686,10 +717,21 @@ void RectArea::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint &
 
 void RectArea::updateSelectionPoints()
 {
-  _selectionPoints[0]->setPoint(_rect.topLeft());
-  _selectionPoints[1]->setPoint(_rect.topRight()+QPoint(1,0));
-  _selectionPoints[2]->setPoint(_rect.bottomLeft()+QPoint(0,1));
-  _selectionPoints[3]->setPoint(_rect.bottomRight()+QPoint(1,1));
+  int d = 2;
+  QRect r(_rect);
+  r.adjust(0,0,1,1);
+  int xmid = r.left()+(r.width()/2);
+  int ymid = r.top()+(r.height()/2);
+  
+
+  _selectionPoints[0]->setPoint(r.topLeft());
+  _selectionPoints[1]->setPoint(r.topRight());
+  _selectionPoints[2]->setPoint(r.bottomLeft());
+  _selectionPoints[3]->setPoint(r.bottomRight());
+  _selectionPoints[4]->setPoint(QPoint(xmid,r.top()));
+  _selectionPoints[5]->setPoint(QPoint(r.right(),ymid));
+  _selectionPoints[6]->setPoint(QPoint(xmid,r.bottom()));
+  _selectionPoints[7]->setPoint(QPoint(r.left(),ymid));
 }
 
 bool RectArea::setCoords(const QString & s)
@@ -735,9 +777,10 @@ CircleArea::CircleArea()
 {
   _type = Area::Circle;
   QPoint p(0,0);
-  for (int i = 0; i<4; i++) {
-    _selectionPoints.append(new SelectionPoint(p));
-  }
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeFDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeBDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeBDiagCursor));
+  _selectionPoints.append(new SelectionPoint(p,Qt::SizeFDiagCursor));
 }
 
 CircleArea::~CircleArea() {
@@ -1344,7 +1387,7 @@ SelectionPoint* AreaSelection::onSelectionPoint(const QPoint & p, double zoom) c
   if (it.count() != 1)
     return 0L;
 
-  SelectionPoint* res=0L;
+  //  SelectionPoint* res=0L;
 
   //  for ( ; it.current() != 0L; ++it )
   //  {

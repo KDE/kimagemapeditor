@@ -54,7 +54,7 @@ public:
   };
 
 
-  SelectionPoint(QPoint);
+  SelectionPoint(QPoint,QCursor);
   virtual ~SelectionPoint();
 
   void setState(SelectionPoint::State s);
@@ -68,9 +68,13 @@ public:
 
   void draw(QPainter*, double);
 
+  QCursor cursor();
+  void setCursor(QCursor);
+
 private:
   QPoint point;
   State state;
+  QCursor _cursor;
   
 };
 

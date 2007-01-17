@@ -623,28 +623,13 @@ void DrawZone::updateCursor(QPoint zoomedPoint) {
     selectionPoint = selected->onSelectionPoint(zoomedPoint,_zoom );
     if (selectionPoint) {
       selectionPoint->setState(SelectionPoint::HighLighted);
+      setCursor(selectionPoint->cursor());
       if (selected->type()==Area::Polygon) {
 	if ((toolType==KImageMapEditor::RemovePoint) &&
 	    (selected->selectionPoints().count()>3) )
 	{
 	  setCursor(removePointCursor);
 	  selectionPoint->setState(SelectionPoint::AboutToRemove);
-	} else {
-	  setCursor(Qt::PointingHandCursor);
-	}
-      } else {
-	QPoint center=selected->rect().center();
-	if (drawCurrent.x() < center.x()) {
-	  if (drawCurrent.y() < center.y())
-	    setCursor(Qt::SizeFDiagCursor);
-	  else {
-	    setCursor(Qt::SizeBDiagCursor);
-	  }
-	} else {
-	  if (drawCurrent.y() < center.y())
-	    setCursor(Qt::SizeBDiagCursor);
-	  else
-	    setCursor(Qt::SizeFDiagCursor);
 	}
       }
     } 

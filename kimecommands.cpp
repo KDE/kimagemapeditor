@@ -36,9 +36,9 @@ CutCommand::~CutCommand()
 {
 	if (_cutted)
 	{
-		AreaList list = _cutAreaSelection->getAreaList();
-  	for ( Area *a=list.first(); a != 0; a=list.next() )	{
-  		delete a;
+		AreaListIterator it(_cutAreaSelection->getAreaList());
+    while (it.hasNext()) {
+      delete it.next();
   	}
 	}
 
@@ -83,9 +83,9 @@ PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
 PasteCommand::~PasteCommand ()
 {
 	if ( ! _pasted ) {
-		AreaList list=_pasteAreaSelection->getAreaList();
-  	for (Area* a=list.first(); a != 0; a=list.next() )	{
-  		delete a;
+		AreaListIterator it(_pasteAreaSelection->getAreaList());
+    while (it.hasNext()) {
+  		delete it.next();
   	}
 	}
 

@@ -21,7 +21,7 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qlineedit.h>
-#include <q3listbox.h>
+#include <QListWidget>
 #include <q3table.h>
 #include <q3groupbox.h>
 #include <qspinbox.h>
@@ -29,9 +29,10 @@
 #include <qimage.h>
 #include <QPixmap>
 #include <QGridLayout>
-#include <Q3PtrList>
+#include <QLinkedList>
 #include <QFrame>
 #include <QVBoxLayout>
+#include <QLinkedList>
 
 // KDE
 #include <kiconloader.h>
@@ -340,16 +341,22 @@ QWidget* AreaDialog::createGeneralPage()
   lbl->setBuddy(hrefEdit);
   layout->addWidget(lbl,0,1);
 
-  altEdit = createLineEdit(page,layout,1,area->attribute("alt"),i18n("Alt. &Text:"));
-  targetEdit = createLineEdit(page,layout,2,area->attribute("target"),i18n("Tar&get:"));
-  titleEdit = createLineEdit(page,layout,3,area->attribute("title"),i18n("Tit&le:"));
+  altEdit = createLineEdit(page,layout,1,
+			   area->attribute("alt"),
+			   i18n("Alt. &Text:"));
+  targetEdit = createLineEdit(page,layout,2,
+			      area->attribute("target"),
+			      i18n("Tar&get:"));
+  titleEdit = createLineEdit(page,layout,3,
+			     area->attribute("title"),
+			     i18n("Tit&le:"));
 
   if (area->type()==Area::Default)
   {
     defaultAreaChk = new QCheckBox(i18n("Enable default map"),page);
     if (area->finished())
       defaultAreaChk->setChecked(true);
-    layout->addWidget(defaultAreaChk,3,2);
+    layout->addWidget(defaultAreaChk,4,2);
   }
 
 
@@ -558,7 +565,11 @@ void AreaDialog::slotUpdateArea() {
     oldArea->setRect(area->rect());
 }
 
-ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images,const KUrl & _baseUrl)
+ImageMapChooseDialog::ImageMapChooseDialog(
+    QWidget* parent,
+    QList<MapTag*> _maps,
+    QList<ImageTag*> _images,
+    const KUrl & _baseUrl)
   : KDialog(parent)
 {
   setCaption(i18n( "Choose Map & Image to Edit" ));
@@ -569,7 +580,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   baseUrl=_baseUrl;
   maps=_maps;
   images=_images;
-  currentMap=0L;
+//  currentMap;
   QWidget *page=new QWidget(this);
   setMainWidget(page);
   setCaption(baseUrl.fileName());
@@ -588,7 +599,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   gridLayout->setRowStretch(0,0);
   gridLayout->setRowStretch(1,100);
   lbl=new QLabel(i18n("&Maps"),page);
-  mapListBox= new Q3ListBox(page);
+  mapListBox= new QListWidget(page);
   lbl->setBuddy(mapListBox);
   gridLayout->addWidget(lbl,0,0);
   gridLayout->addWidget(mapListBox,1,0);
@@ -621,20 +632,20 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
   layout->addWidget(line,0);
 
 
-  if (maps->isEmpty()) {
-    mapListBox->insertItem(i18n("No maps found"));
+  if (maps.isEmpty()) {
+    mapListBox->addItem(i18n("No maps found"));
     mapListBox->setEnabled(false);
   }
   else {
-    for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
-      mapListBox->insertItem(tag->name);
+    for (int i = 0; i < maps.count(); i++) {
+      mapListBox->addItem(maps.at(i)->name);
     }
     connect (mapListBox, SIGNAL(highlighted(int)), this, SLOT(slotMapChanged(int)));
   }
 
   initImageListTable(page);
 
-  if (! maps->isEmpty()) {
+  if (! maps.isEmpty()) {
     mapListBox->setCurrentItem(0);
     slotMapChanged(0);
   }
@@ -645,7 +656,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_m
 void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
 
 
-  if (images->isEmpty()) {
+  if (images.isEmpty()) {
     imageListTable= new Q3Table(1,1,parent);
     imageListTable->setText(0,0,i18n("No images found"));
     imageListTable->setEnabled(false);
@@ -653,7 +664,7 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     imageListTable->setTopMargin(0);
     imageListTable->setColumnStretchable(0,true);
   } else {
-    imageListTable= new Q3Table(images->count(),2,parent);
+    imageListTable= new Q3Table(images.count(),2,parent);
     imageListTable->setColumnStretchable(0,true);
   }
 
@@ -666,7 +677,7 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   parent->layout()->addWidget(lbl);
   parent->layout()->addWidget(imageListTable);
 
-  if (images->isEmpty())
+  if (images.isEmpty())
     return;
 
   imageListTable->horizontalHeader()->setLabel(0,i18n("Path"));
@@ -678,13 +689,15 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
 
 
   int row=0;
-  for (ImageTag *tag = images->first(); tag!=0L; tag=images->next()) {
+  QListIterator<ImageTag*> it(images);
+  while (it.hasNext()) {
     QString src="";
     QString usemap="";
-    if (tag->find("src"))
-      src=*tag->find("src");
-    if (tag->find("usemap"))
-      usemap=*tag->find("usemap");
+    ImageTag* tag = it.next();
+    if (tag->contains("src"))
+      src=tag->value("src");
+    if (tag->contains("usemap"))
+      usemap=tag->value("usemap");
 
     imageListTable->setText(row,0,src);
     imageListTable->setText(row,1,usemap);
@@ -705,8 +718,8 @@ void ImageMapChooseDialog::slotImageChanged()
 {
   int i=imageListTable->currentRow();
   QImage pix;
-  if (images->at(i)->find("src")) {
-    QString str=*images->at(i)->find("src");
+  if (images.at(i)->contains("src")) {
+    QString str = images.at(i)->value("src");
     // relative url
     pixUrl=KUrl(baseUrl,str);
     pix=QImage(pixUrl.path());
@@ -742,7 +755,7 @@ void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
 }
 
 void ImageMapChooseDialog::slotMapChanged(int i) {
-  currentMap=maps->at(i);
+  currentMap=maps.at(i);
   selectImageWithUsemap(currentMap->name);
 }
 

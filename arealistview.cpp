@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 // QT
-#include <k3listview.h>
+#include <QTreeWidget>
 #include <qpushbutton.h>
 
 
@@ -35,21 +35,22 @@
 AreaListView::AreaListView(QWidget *parent)
   : KVBox(parent)
 {
-  listView = new K3ListView(this);
-  listView->addColumn(i18n("Areas"));
-  listView->addColumn(i18n("Preview"));
-
-  listView->setMultiSelection(true);
-  listView->setSelectionMode( Q3ListView::Extended );
-  listView->setSorting(-1); // The user can't sort by clicking on the header
-  listView->setFullWidth(true);
-
-
-  listView->setWhatsThis( i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
+  listView = new QTreeWidget(this);
+  listView->setColumnCount(2);
+  listView->setHeaderLabels(QStringList() 
+    << i18n("Areas")
+    << i18n("Preview"));
+  listView->setRootIsDecorated(false);
+  listView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+  listView->setSortingEnabled(false);
+  // FIXME:
+  //listView->setFullWidth(true);
+  /*listView->setWhatsThis( i18n("<h3>Area List</h3>The area list shows you all areas of the map.<br>"
                                   "The left column shows the link associated with the area; the right "
                                   "column shows the part of the image that is covered by the area.<br>"
                                   "The maximum size of the preview images can be configured."));
-  listView->setToolTip( i18n("A list of all areas"));
+    */                                  
+  //listView->setToolTip( i18n("A list of all areas"));
 
   KHBox *hbox= new KHBox(this);
   upBtn= new QPushButton("",hbox);

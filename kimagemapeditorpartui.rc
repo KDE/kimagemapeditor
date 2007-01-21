@@ -129,7 +129,6 @@
 
  
  <ActionProperties>
- <Action shortcut="Left" name="moveleft" /> 
  <Action shortcut="Right" name="moveright" /> 
  <Action shortcut="Down" name="movedown" /> 
  <Action shortcut="Up" name="moveup" /> 

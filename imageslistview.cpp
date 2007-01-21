@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 // QT
-#include <q3ptrlist.h>
+#include <QLinkedList>
 
 
 // KDE
@@ -27,7 +27,7 @@
 #include "imageslistview.h"
 
 ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag)
-  : Q3ListViewItem(parent)
+  : QTreeWidgetItem(parent)
 {
     _imageTag = tag;
     update();
@@ -37,10 +37,10 @@ ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag)
 void ImagesListViewItem::update() {
     QString src="";
     QString usemap="";
-    if (_imageTag->find("src"))
-      src=*_imageTag->find("src");
-    if (_imageTag->find("usemap"))
-      usemap=*_imageTag->find("usemap");
+    if (_imageTag->contains("src"))
+      src= _imageTag->value("src");
+    if (_imageTag->contains("usemap"))
+      usemap=_imageTag->value("usemap");
 
     setText(0,src);
     setText(1,usemap);
@@ -52,16 +52,23 @@ ImageTag* ImagesListViewItem::imageTag() {
 
 
 ImagesListView::ImagesListView(QWidget *parent)
-  : K3ListView(parent)
+  : QTreeWidget(parent)
 {
-  addColumn(i18n("Images"));
-  addColumn(i18n("Usemap"));
+  setColumnCount(2);
+  setContextMenuPolicy(Qt::CustomContextMenu);
+  setHeaderLabels(QStringList() 
+    << i18n("Images")
+    << i18n("Usemap"));
+  setRootIsDecorated(false);
+
+  //listView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+  //listView->setSortingEnabled(false);
   //addColumn(i18n("Preview"));
-  setFullWidth(true);
+//  setFullWidth(true);
 
 
-  connect( this, SIGNAL( selectionChanged(Q3ListViewItem*)),
-           this, SLOT( slotSelectionChanged(Q3ListViewItem*)));
+  connect( this, SIGNAL( itemSelectionChanged()),
+           this, SLOT( slotSelectionChanged()));
 }
 
 
@@ -71,30 +78,29 @@ ImagesListView::~ImagesListView()
 
 void ImagesListView::addImage(ImageTag* tag)
 {
-  if (!tag) {
-    kDebug() << "ImageListView::addImage: Parameter is null !" << endl;
-    return;
-  }
-
   new ImagesListViewItem(this, tag);
 }
 
-void ImagesListView::addImages(Q3PtrList<ImageTag> * images)
+void ImagesListView::addImages(const QList<ImageTag*> & images)
 {
-	for (ImageTag *tag = images->first(); tag!=0L; tag=images->next()) {
-    addImage(tag);
+    QListIterator<ImageTag*> it(images);
+    while (it.hasNext()) {
+        addImage(it.next());
 	}
 }
 
 void ImagesListView::clear() {
-  Q3ListView::clear();
+  QTreeWidget::clear();
 }
 
 void ImagesListView::removeImage(ImageTag* tag) {
   ImagesListViewItem *item = findListViewItem(tag);
   if (item) {
-     takeItem(item);
-     setSelected(currentItem(),true);
+     int i = invisibleRootItem()->indexOfChild(item);
+     takeTopLevelItem(i);
+     if (currentItem()) {
+        currentItem()->setSelected(true);
+     }     
   }
   else {
     kDebug() << "ImageListView::removeImage: ListViewItem was not found !" << endl;
@@ -111,16 +117,14 @@ void ImagesListView::updateImage(ImageTag* tag) {
 }
 
 ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
+  for (int i = 0; i < topLevelItemCount(); i++) {
+    QTreeWidgetItem* item = topLevelItem(i);
+    ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
+    if (imageItem->imageTag() == tag) {
+       kDebug() << "ImageListView::findListViewItem: found it " << endl;
 
-  kDebug() << "ImageListView::findListViewItem: start searching ... " << endl;
-
-  for (Q3ListViewItem* item = firstChild(); item ; item = item->nextSibling()) {
-     ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
-     if (imageItem->imageTag() == tag) {
-        kDebug() << "ImageListView::findListViewItem: found it " << endl;
-
-        return imageItem;
-     }
+       return imageItem;
+    }
   }
 
   kDebug() << "ImageListView::findListViewItem: found nothing " << endl;
@@ -128,14 +132,14 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
 
 }
 
-void ImagesListView::slotSelectionChanged(Q3ListViewItem* item) {
+void ImagesListView::slotSelectionChanged(QTreeWidgetItem* item) {
   QString src = item->text(0);
 
   emit imageSelected(KUrl(_baseUrl,src));
 }
 
 ImageTag* ImagesListView::selectedImage() {
-  ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItem());
+  ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItems().first());
   if ( ! item) {
      kDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
      return 0L;
@@ -149,7 +153,7 @@ ImageTag* ImagesListView::selectedImage() {
 void ImagesListView::selectImage(ImageTag* tag) {
   ImagesListViewItem* item = findListViewItem(tag);
   if (item) {
-     setSelected(item, true);
+     item->setSelected(true);
   }
 }
 

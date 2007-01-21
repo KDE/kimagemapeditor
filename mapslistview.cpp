@@ -14,8 +14,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include <QListWidget>
+
 // KDE
-#include <k3listview.h>
 #include <klocale.h>
 #include <kdebug.h>
 
@@ -28,17 +29,21 @@
 
 MapsListView::MapsListView(QWidget *parent)
 : KVBox(parent) {
-    _listView = new K3ListView(this);
-    _listView->addColumn(i18n("Maps"));
-    _listView->setFullWidth(true);
-    _listView->setSelectionMode(Q3ListView::Single);
-    _listView->setItemsRenameable(true);
+    _listView = new QTreeWidget(this);
+    _listView->setColumnCount(1);
+    _listView->setHeaderLabel(i18n("Maps"));
+    _listView->setRootIsDecorated(false);
+//FIXME:    _listView->setFullWidth(true);
+//    _listView->setItemsRenameable(true);
+  _listView->setSelectionMode(QAbstractItemView::SingleSelection);
+  _listView->setSortingEnabled(false);
+    
 
-    connect( _listView, SIGNAL( selectionChanged(Q3ListViewItem*)),
-             this, SLOT( slotSelectionChanged(Q3ListViewItem*)));
+    connect( _listView, SIGNAL( itemSelectionChanged()),
+             this, SLOT( slotSelectionChanged()));
 
-    connect( _listView, SIGNAL( itemRenamed(Q3ListViewItem*)),
-             this, SLOT( slotItemRenamed(Q3ListViewItem*)));
+    connect( _listView, SIGNAL( itemChanged( QTreeWidgetItem * item, int column)),
+             this, SLOT( slotItemRenamed(QTreeWidgetItem*)));
 }
 
 
@@ -46,39 +51,41 @@ MapsListView::~MapsListView() {
 }
 
 void MapsListView::addMap(const QString & name = QString::null) {
-    new Q3ListViewItem(_listView,name);
+    new QTreeWidgetItem(_listView,QStringList() << name);
     //kDebug() << "MapsListView::addMap : Added map '" << name << "'" << endl;
 
 }
 
-void MapsListView::addMaps(Q3PtrList<MapTag> * maps) {
-
-    for (MapTag *tag = maps->first(); tag!=0L; tag=maps->next()) {
-        addMap(tag->name);
+void MapsListView::addMaps(const QList<MapTag*> & maps) {
+    QListIterator<MapTag*> it(maps);
+    while (it.hasNext()) {
+        addMap(it.next()->name);
     }
 }
 
 void MapsListView::selectMap(const QString & name) {
-    Q3ListViewItem* item = _listView->findItem(name,0);
-    if (item) {
-       selectMap(item);
-    } else
+    QList<QTreeWidgetItem *> items = _listView->findItems(name,Qt::MatchExactly);
+    if (items.count()>0) {
+       selectMap(items[0]);
+    } else {
        kWarning() << "MapsListView::selectMap : Couldn't found map '" << name << "'" << endl;
+    }
 
 }
 
-void MapsListView::selectMap(Q3ListViewItem* item) {
-    if (item)
-        _listView->setSelected(item,true);
+void MapsListView::selectMap(QTreeWidgetItem* item) {
+    if (item) {
+        item->setSelected(true);
+    }
 }
 
 
 QString MapsListView::selectedMap() {
     QString result;
 
-    Q3ListViewItem* item = _listView->selectedItem();
-    if (item)
-        result = item->text(0);
+    QList<QTreeWidgetItem *> items = _listView->selectedItems();
+    if (items.count()>0)
+        result = items[0]->text(0);
     else
         kWarning() << "MapsListView::selectedMap : No map selected !" << endl;
 
@@ -86,10 +93,12 @@ QString MapsListView::selectedMap() {
 }
 
 void MapsListView::removeMap(const QString & name) {
-    Q3ListViewItem* item = _listView->findItem(name,0);
-    if (item) {
-        _listView->takeItem(item);
-        _listView->setSelected(_listView->currentItem(),true);
+    QList<QTreeWidgetItem *> items = _listView->findItems(name,Qt::MatchExactly);
+    if (items.count()>0) {
+        int i = _listView->invisibleRootItem()->indexOfChild(items[0]);
+        _listView->takeTopLevelItem(i);
+        if (_listView->currentItem())
+            _listView->currentItem()->setSelected(true);
 //        kDebug() << "MapsListView::removeMap : Removed map '" << name << "'" << endl;
     } else
         kWarning() << "MapsListView::removeMap : Couldn't found map '" << name << "'" << endl;
@@ -99,21 +108,24 @@ void MapsListView::clear() {
     _listView->clear();
 }
 
-void MapsListView::slotSelectionChanged(Q3ListViewItem* item) {
-    QString name = item->text(0);
-    emit mapSelected(name);
+void MapsListView::slotSelectionChanged() {
+    QList<QTreeWidgetItem *> list = _listView->selectedItems();
+    if (list.count()>0) {
+        QString name = list[0]->text(0);
+        emit mapSelected(name);
+    }
 }
 
-void MapsListView::slotItemRenamed(Q3ListViewItem* item) {
+void MapsListView::slotItemRenamed(QTreeWidgetItem* item) {
     QString name = item->text(0);
     emit mapRenamed(name);
 }
 
 void MapsListView::changeMapName(const QString & oldName, const QString & newName) {
 //    kDebug() << "MapsListView::changeMapName : " << oldName << " to " << newName << endl;
-    Q3ListViewItem* item = _listView->findItem(oldName,0);
-    if (item) {
-        item->setText(0,newName);
+    QList<QTreeWidgetItem *> items = _listView->findItems(oldName,Qt::MatchExactly);
+    if (items.count()>0) {
+        items[0]->setText(0,newName);
 //        kDebug() << "MapsListView::changeMapName : successful" << endl;
     }
     else {
@@ -124,29 +136,14 @@ void MapsListView::changeMapName(const QString & oldName, const QString & newNam
 
 
 bool MapsListView::nameAlreadyExists(const QString & name) {
-//    kDebug() << "MapsListView::nameAlreadyExists : " << name << " ? " << endl;
-    bool result = false;
-    Q3ListViewItem* item = 0L;
-    for(item = _listView->firstChild(); item; item = item->nextSibling()) {
-        QString otherMap = item->text(0);
-        if(name == otherMap) {
-            result = true;
-            break;
-        }
-    }
-
-//    kDebug() << "MapsListView::nameAlreadyExists : " << name << " : " << result << endl;
-
-    return result;
+    return _listView->findItems(name, Qt::MatchExactly).count() > 0;  
 }
 
 QStringList MapsListView::getMaps() {
     QStringList result;
 
-    Q3ListViewItem* item = 0L;
-    for(item = _listView->firstChild(); item; item = item->nextSibling()) {
-        QString map = item->text(0);
-        result << map;
+    for (int i=0; i<_listView->topLevelItemCount(); i++) {
+         result << _listView->topLevelItem(i)->text(0);
     }
 
     return result;
@@ -171,7 +168,7 @@ QString MapsListView::getUnusedMapName() {
 }
 
 int MapsListView::count() {
-    return _listView->childCount();
+    return _listView->topLevelItemCount();
 }
 
 #include "mapslistview.moc"

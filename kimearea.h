@@ -21,17 +21,17 @@
 #include <qrect.h>
 #include <qpoint.h>
 #include <QList>
-//Added by qt3to4:
+
 #include <QPixmap>
+#include <QLinkedList>
+#include <QHashIterator>
+#include <QTreeWidgetItem>
 #include <klocale.h>
 #include <qhash.h>
-#include <QHashIterator>
 #include "kdeversion.h"
-#include <Q3PtrList>
 
 class QPainter;
 class QPolygon;
-class Q3ListViewItem;
 class QBitmap;
 
 
@@ -108,7 +108,7 @@ protected:
 	bool _finished;
 	bool _isMoving;
 	int currentHighlighted;
-	Q3ListViewItem* _listViewItem;
+	QTreeWidgetItem* _listViewItem;
 
 	QPolygon _coords;
 	SelectionPointList _selectionPoints;
@@ -173,9 +173,9 @@ public:
 	virtual AttributeIterator attributeIterator() const;
 
 	QPixmap cutOut(const QImage &) ;
-	void setListViewItem(Q3ListViewItem*);
+	void setListViewItem(QTreeWidgetItem*);
 	void deleteListViewItem();
-	Q3ListViewItem* listViewItem() const;
+	QTreeWidgetItem* listViewItem() const;
 	void setName(const QString &);
 	QString name() const;
 	void setSelected(bool b);
@@ -187,7 +187,7 @@ public:
 
 
 
-inline Q3ListViewItem* Area::listViewItem() const {
+inline QTreeWidgetItem* Area::listViewItem() const {
 	return _listViewItem;
 }
 
@@ -308,8 +308,8 @@ class DefaultArea :public Area
 };
 
 
-typedef Q3PtrList<Area> AreaList;
-typedef Q3PtrListIterator<Area> AreaListIterator;
+typedef QList<Area*> AreaList;
+typedef QListIterator<Area*> AreaListIterator;
 
 /**
  *	This class represents a selection of areas

@@ -22,7 +22,7 @@
 #include <QScrollArea>
 
 #include <qlayout.h>
-#include <q3listview.h>
+#include <QListWidget>
 #include <qpushbutton.h>
 #include <q3vbox.h>
 #include <qpixmap.h>
@@ -32,15 +32,13 @@
 #include <q3multilineedit.h>
 #include <qtextstream.h>
 #include <q3popupmenu.h>
-#include <q3dict.h>
 #include <q3whatsthis.h>
 #include <qtooltip.h>
 #include <qpainter.h>
 #include <qtabwidget.h>
 #include <qfontdatabase.h>
 #include <qfile.h>
-//Added by qt3to4:
-#include <Q3PtrList>
+#include <QLinkedList>
 
 // KDE
 #include <kcommand.h>
@@ -59,12 +57,12 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <kxmlguifactory.h>
-#include <k3dockwidget.h>
 #include <kio/job.h>
 #include <kinputdialog.h>
 #include <kinputdialog.h>
 #include <ktoggleaction.h>
 #include <krecentfilesaction.h>
+#include <kmainwindow.h>
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
@@ -121,7 +119,6 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
     mapsDock->setWidget(mapsListView);
     imagesDock->setWidget(imagesListView);
 
-    //FIXME:    connect( mainDock->manager(), SIGNAL(change()), this, SLOT(dockingStateChanged()));
   }
   else
   {
@@ -140,10 +137,15 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   }
 
 
-  connect( areaListView->listView, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
-  connect( areaListView->listView, SIGNAL(doubleClicked(Q3ListViewItem*)), this, SLOT(showTagEditor(Q3ListViewItem*)));
-  connect( areaListView->listView, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
-           SLOT(slotShowPopupMenu(Q3ListViewItem*,const QPoint &)));
+  connect( areaListView->listView, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
+  connect( areaListView->listView, 
+           SIGNAL(doubleClicked(QTreeWidgetItem*)), 
+           this, 
+           SLOT(showTagEditor(QTreeWidgetItem*)));
+  connect( areaListView->listView,
+           SIGNAL(customContextMenuRequested(const QPoint&)), 
+           this,
+           SLOT(slotShowPopupMenu(const QPoint &)));
 
   connect( mapsListView, SIGNAL( mapSelected(const QString &)),
            this, SLOT( setMap(const QString &)));
@@ -151,14 +153,18 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   connect( mapsListView, SIGNAL( mapRenamed(const QString &)),
            this, SLOT( setMapName(const QString &)));
 
-  connect( mapsListView->listView(), SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
-           SLOT(slotShowMapPopupMenu(Q3ListViewItem*,const QPoint &)));
+  connect( mapsListView->listView(),
+           SIGNAL(customContextMenuRequested(const QPoint &)), 
+           this,
+           SLOT(slotShowMapPopupMenu(const QPoint &)));
 
   connect( imagesListView, SIGNAL( imageSelected(const KUrl &)),
            this, SLOT( setPicture(const KUrl &)));
 
-  connect( imagesListView, SIGNAL(rightButtonPressed(Q3ListViewItem*,const QPoint &,int)), this,
-           SLOT(slotShowImagePopupMenu(Q3ListViewItem*,const QPoint &)));
+  connect( imagesListView, 
+           SIGNAL(customContextMenuRequested(const QPoint &)), 
+           this,
+           SLOT(slotShowImagePopupMenu(const QPoint &)));
 
   if (splitter) {
     drawZone = new DrawZone(splitter,this);
@@ -187,7 +193,6 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   setXMLFile("kimagemapeditorpartui.rc");
 
   setPicture(getBackgroundImage());
-  _htmlContent.setAutoDelete(true);
 
   init();
   readConfig();
@@ -423,12 +428,15 @@ void KImageMapEditor::saveLastURL(KConfig* config) {
 void KImageMapEditor::setupActions()
 {
 	// File Open
-  QAction *temp=KStandardAction::open(this, SLOT(fileOpen()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "openimage", SmallIcon("fileopen") );
-	temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
-	temp->setToolTip(i18n("Open new picture or HTML file"));
+  QAction *temp = 
+    KStandardAction::open(this, SLOT(fileOpen()), 
+			  actionCollection());
+  Q3MimeSourceFactory::defaultFactory()->setPixmap("openimage", 
+						   SmallIcon("fileopen") );
+  temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
+  temp->setToolTip(i18n("Open new picture or HTML file"));
 
-	// File Open Recent
+  // File Open Recent
   recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(const KUrl&)),
                                       actionCollection());
 	// File Save
@@ -470,8 +478,9 @@ void KImageMapEditor::setupActions()
 
 
   // Edit Delete
-    deleteAction  = new KAction(KIcon("editdelete"), i18n("&Delete"), this);
-    actionCollection()->addAction("edit_delete", deleteAction );
+  deleteAction = new KAction(KIcon("editdelete"), 
+      i18n("&Delete"), this);
+  actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
   deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("editdelete") );
@@ -494,9 +503,9 @@ void KImageMapEditor::setupActions()
   zoomOutAction=KStandardAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
 
   // View Zoom
-    zoomAction  = new KSelectAction(i18n("Zoom"), this);
-    actionCollection()->addAction("view_zoom", zoomAction );
-  connect(zoomAction, SIGNAL(triggered(bool)), SLOT (slotZoom()));
+  zoomAction  = new KSelectAction(i18n("Zoom"), this);
+  actionCollection()->addAction("view_zoom", zoomAction );
+  connect(zoomAction, SIGNAL(triggered(int)), this, SLOT (slotZoom()));
   zoomAction->setWhatsThis(i18n("<h3>Zoom</h3>"
                           "Choose the desired zoom level."));
   zoomAction->setItems(QStringList()
@@ -550,8 +559,8 @@ void KImageMapEditor::setupActions()
   // IMAGE
   i18n("&Image");
 
-    imageAddAction  = new KAction(i18n("Add Image..."), this);
-    actionCollection()->addAction("image_add", imageAddAction );
+  imageAddAction  = new KAction(i18n("Add Image..."), this);
+  actionCollection()->addAction("image_add", imageAddAction );
   connect(imageAddAction, SIGNAL(triggered(bool)), SLOT(imageAdd()));
   imageAddAction->setToolTip(i18n("Add a new image"));
 
@@ -572,8 +581,9 @@ void KImageMapEditor::setupActions()
 
   QActionGroup *drawingGroup = new QActionGroup(this);
   // Selection Tool
-    arrowAction = new KAction(KIcon("arrow"), i18n("&Selection"), this);
-    actionCollection()->addAction("tool_arrow", arrowAction);
+  arrowAction = new KToggleAction(KIcon("arrow"), i18n("&Selection"), this);
+  arrowAction->setShortcut(QKeySequence("s"));
+  actionCollection()->addAction("tool_arrow", arrowAction);
   connect(arrowAction, SIGNAL(triggered(bool)), SLOT (slotDrawArrow()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "arrowimage", SmallIcon("arrow") );
   arrowAction->setWhatsThis(i18n("<h3>Selection</h3>"
@@ -582,8 +592,10 @@ void KImageMapEditor::setupActions()
   arrowAction->setChecked(true);
 
   // Circle
-    circleAction = new KAction(KIcon( "circle"), i18n("&Circle"), this);
-    actionCollection()->addAction("tool_circle", circleAction);
+  circleAction = new KToggleAction(KIcon( "circle"), i18n("&Circle"), this);
+  circleAction->setShortcut(QKeySequence("c"));
+
+  actionCollection()->addAction("tool_circle", circleAction);
   connect(circleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawCircle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "circleimage", SmallIcon("drawcircle") );
   circleAction->setWhatsThis(i18n("<h3>Circle</h3>"
@@ -591,7 +603,8 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(circleAction);
 
   // Rectangle
-    rectangleAction = new KAction(KIcon("rectangle"), i18n("&Rectangle"), this);
+    rectangleAction = new KToggleAction(KIcon("rectangle"), i18n("&Rectangle"), this);
+  rectangleAction->setShortcut(QKeySequence("r"));
     actionCollection()->addAction("tool_rectangle", rectangleAction);
   connect(rectangleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawRectangle()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "rectangleimage", SmallIcon("drawrectangle") );
@@ -600,7 +613,8 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(rectangleAction);
 
   // Polygon
-    polygonAction = new KAction(KIcon("polygon"), i18n("&Polygon"), this);
+    polygonAction = new KToggleAction(KIcon("polygon"), i18n("&Polygon"), this);
+  polygonAction->setShortcut(QKeySequence("p"));
     actionCollection()->addAction("tool_polygon", polygonAction);
   connect(polygonAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "polygonimage", SmallIcon("drawpolygon") );
@@ -609,7 +623,8 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(polygonAction);
 
   // Freehand
-    freehandAction = new KAction(KIcon("freehand"), i18n("&Freehand Polygon"), this);
+    freehandAction = new KToggleAction(KIcon("freehand"), i18n("&Freehand Polygon"), this);
+  freehandAction->setShortcut(QKeySequence("f"));
     actionCollection()->addAction("tool_freehand", freehandAction);
   connect(freehandAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "freehandimage", SmallIcon("freehand") );
@@ -618,7 +633,8 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(freehandAction);
 
   // Add Point
-    addPointAction = new KAction(KIcon("addpoint"), i18n("&Add Point"), this);
+    addPointAction = new KToggleAction(KIcon("addpoint"), i18n("&Add Point"), this);
+  addPointAction->setShortcut(QKeySequence("a"));
     actionCollection()->addAction("tool_addpoint", addPointAction);
   connect(addPointAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "addpointimage", SmallIcon("addpoint") );
@@ -627,7 +643,8 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(addPointAction);
 
   // Remove Point
-    removePointAction = new KAction(KIcon("removepoint"), i18n("&Remove Point"), this);
+    removePointAction = new KToggleAction(KIcon("removepoint"), i18n("&Remove Point"), this);
+  removePointAction->setShortcut(QKeySequence("e"));
     actionCollection()->addAction("tool_removepoint", removePointAction);
   connect(removePointAction, SIGNAL(triggered(bool)), SLOT(slotDrawRemovePoint()));
   Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage", SmallIcon("removepoint") );
@@ -640,9 +657,10 @@ void KImageMapEditor::setupActions()
   connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
   action->setShortcut(QKeySequence(Qt::Key_Escape));
 
-    moveLeftAction  = new KAction(i18n("Move Left"), this);
-    actionCollection()->addAction("moveleft", moveLeftAction );
-  connect(moveLeftAction, SIGNAL(triggered(bool)), SLOT( slotMoveLeft() ));
+  moveLeftAction  = new KAction(i18n("Move Left"), this);
+  actionCollection()->addAction("moveleft", moveLeftAction );
+  connect(moveLeftAction, SIGNAL(triggered(bool)), 
+         SLOT( slotMoveLeft() ));
   moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
 
     moveRightAction  = new KAction(i18n("Move Right"), this);
@@ -706,21 +724,19 @@ void KImageMapEditor::setupActions()
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
   if (areaDock) {
-    configureShowAreaListAction  = new KToggleAction(i18n("Show Area List"), this);
-    actionCollection()->addAction("configure_show_arealist", configureShowAreaListAction );
-    connect(configureShowAreaListAction, SIGNAL(triggered(bool)), 
-	    areaDock, SLOT(setVisible(bool)));
 
-    configureShowMapListAction  = new KToggleAction(i18n("Show Map List"), this);
-    actionCollection()->addAction("configure_show_maplist", configureShowMapListAction );
-    connect(configureShowMapListAction, SIGNAL(triggered(bool)), 
-	    mapsDock, SLOT(setVisible(bool)));
+    QAction* a =  areaDock->toggleViewAction();
+    a->setText(i18n("Show Area List"));
+    actionCollection()->addAction("configure_show_arealist", 
+				  a);
 
-    configureShowImageListAction  = new KToggleAction(i18n("Show Image List"), this);
-    actionCollection()->addAction("configure_show_imagelist", configureShowImageListAction );
-    connect(configureShowImageListAction, SIGNAL(triggered(bool)), 
-	    imagesDock, SLOT(setVisible(bool)));
+    a = mapsDock->toggleViewAction();
+    a->setText(i18n("Show Map List"));
+    actionCollection()->addAction("configure_show_maplist", a );
 
+    a = imagesDock->toggleViewAction();
+    a->setText(i18n("Show Image List"));
+    actionCollection()->addAction("configure_show_imagelist", a );   
   }
 
   updateActionAccess();
@@ -746,7 +762,7 @@ void KImageMapEditor::slotShowPreferences()
 
 void KImageMapEditor::showPopupMenu(const QPoint & pos, const QString & name)
 {
-  Q3PopupMenu* pop = static_cast<Q3PopupMenu *>(factory()->container(name, this));
+  QMenu* pop = static_cast<QMenu *>(factory()->container(name, this));
 
   if (!pop) {
       kWarning() << QString("KImageMapEditorPart: Missing XML definition for %1\n").arg(name) << endl;
@@ -761,8 +777,11 @@ void KImageMapEditor::slotShowMainPopupMenu(const QPoint & pos)
   showPopupMenu(pos,"popup_main");
 }
 
-void KImageMapEditor::slotShowMapPopupMenu(Q3ListViewItem* item,const QPoint & pos)
+void KImageMapEditor::slotShowMapPopupMenu(const QPoint & pos)
 {
+  kDebug() << "slotShowMapPopupMenu" << endl;
+  QTreeWidgetItem* item = mapsListView->listView()->itemAt(pos);
+  
   if (isReadWrite()) {
     mapDeleteAction->setEnabled(item);
     mapNameAction->setEnabled(item);
@@ -772,22 +791,27 @@ void KImageMapEditor::slotShowMapPopupMenu(Q3ListViewItem* item,const QPoint & p
   if (item)
      mapsListView->selectMap(item);
 
-  showPopupMenu(pos,"popup_map");
+  showPopupMenu(mapsListView->listView()->viewport()->mapToGlobal(pos),"popup_map");
 }
 
-void KImageMapEditor::slotShowImagePopupMenu(Q3ListViewItem* item,const QPoint & pos)
+void KImageMapEditor::slotShowImagePopupMenu(const QPoint & pos)
 {
+  kDebug() << "slotShowImagePopupMenu" << endl;
+  QTreeWidgetItem* item = imagesListView->itemAt(pos);
+
   imageRemoveAction->setEnabled(item);
   imageUsemapAction->setEnabled(item);
 
   if (item)
-     imagesListView->setSelected(item,true);
+     imagesListView->setCurrentItem(item);
 
-  showPopupMenu(pos,"popup_image");
+  showPopupMenu(imagesListView->viewport()->mapToGlobal(pos),"popup_image");
 }
 
-void KImageMapEditor::slotShowPopupMenu(Q3ListViewItem* item,const QPoint & p)
+void KImageMapEditor::slotShowPopupMenu(const QPoint & p)
 {
+  QTreeWidgetItem* item = areaListView->listView->itemAt(p);
+
   if (!item)
     return;
 
@@ -797,7 +821,7 @@ void KImageMapEditor::slotShowPopupMenu(Q3ListViewItem* item,const QPoint & p)
     select(item);
   }
 
-  slotShowMainPopupMenu(p);
+  slotShowMainPopupMenu(areaListView->listView->viewport()->mapToGlobal(p));
 }
 
 void KImageMapEditor::updateStatusBar()
@@ -964,20 +988,23 @@ void KImageMapEditor::addArea(Area* area) {
   AreaSelection *selection=0L;
   if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
-    AreaList list = selection->getAreaList();
-
-    for (Area* a = list.first(); a != 0L; a = list.next() )
-    {
+    AreaListIterator it = selection->getAreaListIterator();
+    while (it.hasNext()) {
+      Area* a = it.next();    
       areas->prepend(a);
-      a->setListViewItem(new Q3ListViewItem(areaListView->listView,a->attribute("href")));
-      a->listViewItem()->setPixmap(1,makeListViewPix(*a));
+      a->setListViewItem(new QTreeWidgetItem(
+          areaListView->listView,
+          QStringList(a->attribute("href"))));
+      a->listViewItem()->setIcon(1,QIcon(makeListViewPix(*a)));
     }
   }
   else
   {
     areas->prepend(area);
-    area->setListViewItem(new Q3ListViewItem(areaListView->listView,area->attribute("href")));
-    area->listViewItem()->setPixmap(1,makeListViewPix(*area));
+    area->setListViewItem(new QTreeWidgetItem(
+      areaListView->listView,
+      QStringList(area->attribute("href"))));
+    area->listViewItem()->setIcon(1,QIcon(makeListViewPix(*area)));
   }
 
   setModified(true);
@@ -987,8 +1014,10 @@ void KImageMapEditor::addArea(Area* area) {
 void KImageMapEditor::addAreaAndEdit(Area* s)
 {
   areas->prepend(s);
-  s->setListViewItem(new Q3ListViewItem(areaListView->listView,s->attribute("href")));
-  s->listViewItem()->setPixmap(1,makeListViewPix(*s));
+  s->setListViewItem(new QTreeWidgetItem(
+    areaListView->listView,
+    QStringList(s->attribute("href"))));
+  s->listViewItem()->setIcon(1,QIcon(makeListViewPix(*s)));
   deselectAll();
   select(s);
   if (!showTagEditor(selected())) {
@@ -1011,19 +1040,18 @@ void KImageMapEditor::deleteArea( Area * area )
   AreaSelection *selection=0L;
     if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
-    AreaList list = selection->getAreaList();
-
-    for (Area* a = list.first(); a != 0L; a = list.next() )
-    {
+    AreaListIterator it = selection->getAreaListIterator();
+    while (it.hasNext()) {
+      Area* a = it.next();
       currentSelected->remove(a);
-      areas->remove( a );
+      areas->removeAll( a );
       a->deleteListViewItem();
     }
   }
   else
   {
     deselect( area );
-    areas->remove( area );
+    areas->removeAll( area );
     area->deleteListViewItem();
   }
 
@@ -1039,12 +1067,11 @@ void KImageMapEditor::deleteArea( Area * area )
 
 void KImageMapEditor::deleteSelected() {
 
-  Area *a;
-  AreaList list=currentSelected->getAreaList();
-
-  for ( a=list.first(); a != 0; a=list.next() )	{
+  AreaListIterator it = currentSelected->getAreaListIterator();
+  while (it.hasNext()) {
+    Area *a = it.next();
     currentSelected->remove( a );
-    areas->remove( a );
+    areas->removeAll( a );
     delete a->listViewItem();
   }
 
@@ -1059,10 +1086,10 @@ void KImageMapEditor::deleteSelected() {
 
 void KImageMapEditor::deleteAllAreas()
 {
-  for (Area* a=areas->first();a!=0L;)
-  {
+  Area* a;
+  foreach (a,*areas) {
     deselect( a );
-    areas->remove( a );
+    areas->removeAll( a );
     a->deleteListViewItem();
     a=areas->first(); // because the current is deleted
   }
@@ -1074,14 +1101,15 @@ void KImageMapEditor::deleteAllAreas()
 void KImageMapEditor::updateAllAreas()
 {
 //  kDebug() << "KImageMapEditor::updateAllAreas" << endl;
-  for (Area* a=areas->first();a!=0L;a=areas->next()) {
-    a->listViewItem()->setPixmap(1,makeListViewPix(*a));
+  Area* a;
+  foreach(a,*areas) {
+    a->listViewItem()->setIcon(1,QIcon(makeListViewPix(*a)));
   }
   drawZone->repaint();
 }
 
 void KImageMapEditor::updateSelection() const {
-  areaListView->listView->triggerUpdate();
+  //FIXME: areaListView->listView->triggerUpdate();
 }
 
 AreaSelection* KImageMapEditor::selected() const {
@@ -1110,31 +1138,30 @@ void KImageMapEditor::slotSelectionChanged()
   AreaListIterator it = areaList();
   AreaList list = currentSelected->getAreaList();
 
-  for ( ; it.current() != 0L; ++it)
-  {
-    if ( it.current()->listViewItem()->isSelected() != (list.containsRef(it.current()) > 0) )
+  while (it.hasNext()) {
+    Area* a = it.next();
+    if ( a->listViewItem()->isSelected() != (list.contains(a)) )
     {
-      it.current()->listViewItem()->isSelected()
-        ? select( it.current() )
-        :	deselect( it.current() );
+      a->listViewItem()->isSelected()
+        ? select( a )
+        :	deselect( a );
 
-      drawZone->repaintArea( *it.current());
+      drawZone->repaintArea( *a);
     }
   }
 
 }
 
-void KImageMapEditor::select( Q3ListViewItem* item)
+void KImageMapEditor::select( QTreeWidgetItem* item)
 {
 
   AreaListIterator it = areaList();
-
-  for ( ; it.current() != 0L; ++it)
-  {
-    if (it.current()->listViewItem() == item )
+  while (it.hasNext()) {
+    Area* a = it.next();
+    if (a->listViewItem() == item )
     {
-      select( it.current() );
-      drawZone->repaintArea( *it.current());
+      select( a );
+      drawZone->repaintArea( *a);
     }
   }
 
@@ -1158,12 +1185,11 @@ void KImageMapEditor::slotAreaChanged(Area *area)
   if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
     AreaListIterator it = selection->getAreaListIterator();
-
-    for ( ; it.current() != 0L; ++it )
-    {
-      if (it.current()->listViewItem()) {
-        it.current()->listViewItem()->setText(0,it.current()->attribute("href"));
-        it.current()->listViewItem()->setPixmap(1,makeListViewPix(*it.current()));
+    while (it.hasNext()) {
+      Area* a = it.next();
+      if (a->listViewItem()) {
+        a->listViewItem()->setText(0,a->attribute("href"));
+        a->listViewItem()->setIcon(1,QIcon(makeListViewPix(*a)));
       }
     }
 
@@ -1171,7 +1197,7 @@ void KImageMapEditor::slotAreaChanged(Area *area)
   else
   if (area->listViewItem()) {
     area->listViewItem()->setText(0,area->attribute("href"));
-    area->listViewItem()->setPixmap(1,makeListViewPix(*area));
+    area->listViewItem()->setIcon(1,QIcon(makeListViewPix(*area)));
   }
 
   drawZone->repaintArea(*area);
@@ -1283,8 +1309,7 @@ void KImageMapEditor::updateUpDownBtn()
 
   AreaList list = currentSelected->getAreaList();
 
-  if (list.isEmpty() || (areas->count() < 2))
-  {
+  if (list.isEmpty() || (areas->count() < 2)) {
     forwardOneAction->setEnabled(false);
     areaListView->upBtn->setEnabled(false);
     backOneAction->setEnabled(false);
@@ -1292,27 +1317,24 @@ void KImageMapEditor::updateUpDownBtn()
     return;
   }
   // if the first Area is in the selection can't move up
-  if (list.find( areas->getFirst() ) == -1)
-  {
-    forwardOneAction->setEnabled(true);
-    areaListView->upBtn->setEnabled(true);
-  }
-  else {
+  if (list.contains( areas->first() )) {
     forwardOneAction->setEnabled(false);
     areaListView->upBtn->setEnabled(false);
+  } else {
+    forwardOneAction->setEnabled(true);
+    areaListView->upBtn->setEnabled(true);
   }
 
   drawZone->repaintArea(*currentSelected);
 
   // if the last Area is in the selection can't move down
-  if (list.find( areas->getLast() ) == -1)
-  {
-    backOneAction->setEnabled(true);
-    areaListView->downBtn->setEnabled(true);
-  }
-  else {
+  if (list.contains( areas->last() )) {
     backOneAction->setEnabled(false);
     areaListView->downBtn->setEnabled(false);
+  }
+  else {
+    backOneAction->setEnabled(true);
+    areaListView->downBtn->setEnabled(true);
   }
 
 }
@@ -1326,7 +1348,8 @@ void KImageMapEditor::deselectAll()
 }
 
 Area* KImageMapEditor::onArea(const QPoint & p) const {
-  for (Area* s=areas->first();s!=0L;s=areas->next()) {
+  Area* s;
+  foreach(s,*areas) {
     if (s->contains(p))
       return s;
   }
@@ -1348,9 +1371,12 @@ int KImageMapEditor::showTagEditor(Area *a) {
 
 }
 
-int KImageMapEditor::showTagEditor(Q3ListViewItem *item) {
-  if (!item) return 0;
-  for (Area* a=areas->first();a!=0L;a=areas->next()) {
+int KImageMapEditor::showTagEditor(QTreeWidgetItem *item) {
+  if (!item) 
+    return 0;
+
+  Area* a;
+  foreach(a,*areas) {
     if (a->listViewItem()==item) {
       return showTagEditor(a);
     }
@@ -1367,7 +1393,8 @@ QString KImageMapEditor::getHTMLImageMap() const {
   QString retStr;
   retStr+="<map "+QString("name=\"")+_mapName+"\">\n";
 
-  for (Area* a=areas->first();a!=0L;a=areas->next()) {
+  Area* a;
+  foreach(a,*areas) {
     retStr+="  "+a->getHTMLCode()+'\n';
   }
 
@@ -1681,9 +1708,9 @@ bool KImageMapEditor::openFile()
  * with all attributes and their values. It stores the whole read text in the
  * parameter readText.
  */
-Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & readText)
+QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & readText)
 {
-  Q3Dict<QString> dict(17,false);
+  QHash<QString,QString> dict;
   // the "<" is already read
   QChar w;
   QString attr,value;
@@ -1695,7 +1722,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
     s >> w;
     readText.append(w);
     if (w.isSpace() || w=='>') {
-      dict.insert("tagname",new QString(value));
+      dict.insert("tagname",value);
       break;
     }
     value+=w;
@@ -1774,7 +1801,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
     // finished ?
     if (w=='>') {
       if (valueRead)
-        dict.insert(attr,new QString(value));
+        dict.insert(attr,value);
         return dict;
     } else
     // currently reading an attribute ?
@@ -1814,7 +1841,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
         } else {
           quotation='\0';
           valueRead=false;
-          dict.insert(attr,new QString(value));
+          dict.insert(attr,value);
           attr.clear();
           value.clear();
         }
@@ -1822,7 +1849,7 @@ Q3Dict<QString> KImageMapEditor::getTagAttributes(QTextStream & s, QString & rea
       // a whitespace indicates that the value has finished
       if (w.isSpace()) {
         valueRead=false;
-        dict.insert(attr,new QString(value));
+        dict.insert(attr,value);
         attr.clear();
         value.clear();
       }
@@ -1848,10 +1875,10 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
   QTextStream s(&f);
   QString str;
   QChar w;
-  Q3Dict<QString> *attr=0L;
-  Q3PtrList<ImageTag> *images= new Q3PtrList<ImageTag>;
+  QHash<QString,QString> *attr=0L;
+  QList<ImageTag*> images;
   MapTag *map=0L;
-  Q3PtrList<MapTag> *maps = new Q3PtrList<MapTag>;
+  QList<MapTag*> maps;
 
   _htmlContent.clear();
   currentMapElement = 0L;
@@ -1872,27 +1899,27 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
       }
 
       origcode.append("<");
-      attr=new Q3Dict<QString>(getTagAttributes(s,temp));
+      attr=new QHash<QString,QString>(getTagAttributes(s,temp));
       origcode.append(temp);
 
-      if (attr->find("tagname")) {
-
-        if (attr->find("tagname")->toLower()=="img") {
+      if (attr->contains("tagname")) {
+        QString tagName = attr->value("tagname").toLower();
+        if (tagName =="img") {
           HtmlImgElement *el = new HtmlImgElement(origcode);
           el->imgTag = static_cast<ImageTag*>(attr);
-          images->append(el->imgTag);
+          images.append(el->imgTag);
           _htmlContent.append(el);
 
           origcode.clear();
         } else
-        if (attr->find("tagname")->toLower()=="map") {
+        if (tagName == "map") {
           map = new MapTag();
-          map->name=(*attr->find("name"));
+          map->name= attr->value("name") ;
           readMap=true;
         } else
-        if (attr->find("tagname")->toLower()=="/map") {
+        if (tagName=="/map") {
           readMap=false;
-          maps->append(map);
+          maps.append(map);
           HtmlMapElement *el = new HtmlMapElement(origcode);
           el->mapTag = map;
           _htmlContent.append(el);
@@ -1900,8 +1927,8 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
           origcode.clear();
         } else
         if (readMap) {
-          if (attr->find("tagname")->toLower()=="area") {
-             map->prepend(attr);
+          if (tagName=="area") {
+             map->prepend(*attr);
           }
         } else {
           _htmlContent.append(new HtmlElement(origcode));
@@ -1931,33 +1958,30 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
   if (imagePath.isNull() || mapName.isNull()) {
     // If we have more than on map or more than one image
     // Let the user choose, otherwise take the only ones
-    if (maps->count() == 1) {
-      map = maps->first();
+    if (maps.count() == 1) {
+      map = maps.first();
     }
 
-    if (images->count() == 1) {
-      if (images->first()) {
-        ImageTag* imgTag = images->first();
-        QString *src = imgTag->find("src");
-        if (src)
-          imageUrl = KUrl(url,*src);
+    if (images.count() == 1) {
+      if (images.first()) {
+        ImageTag* imgTag = images.first();
+        if (imgTag->contains("src"))
+          imageUrl = KUrl(url,imgTag->value("src"));
       }
     }
 
     // If there is only one map and more than one image
     // try to find out the image with the according usemap tag
-    if (maps->count() == 1 && images->count() > 1) {
+    if (maps.count() == 1 && images.count() > 1) {
         ImageTag* imageTag;
-        for ( imageTag = images->first(); imageTag; imageTag = images->next() )
-        {
-            QString *usemap = imageTag->find("usemap");
-            if (usemap) {
+        foreach(imageTag, images) {
+            if (imageTag->contains("usemap")) {
+                QString usemap = imageTag->value("usemap");
                 // Remove the #
-                QString usemapName = usemap->right(usemap->length()-1);
+                QString usemapName = usemap.right(usemap.length()-1);
                 if (usemapName == map->name) {
-                    QString *src = imageTag->find("src");
-                    if (src)
-                      imageUrl = KUrl(url,*src);
+                    if (imageTag->contains("src"))
+                      imageUrl = KUrl(url,imageTag->value("src"));
                 }
             }
         }
@@ -1967,7 +1991,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
     // If there are more than one map or there wasn't
     // found a fitting image and there is something to choose
     // let the user choose
-    if (maps->count() >1 || (imageUrl.isEmpty() && images->count() > 1))
+    if (maps.count() >1 || (imageUrl.isEmpty() && images.count() > 1))
     {
       ImageMapChooseDialog dialog(widget(),maps,images,url);
       dialog.exec();
@@ -2023,7 +2047,8 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
  * Returns 0L if no element was found.
  */
 HtmlElement* KImageMapEditor::findHtmlElement(const QString & containingText) {
-  for (HtmlElement * el = _htmlContent.first(); el; el = _htmlContent.next() ) {
+  HtmlElement *el;
+  foreach (el,_htmlContent) {
     if (el->htmlCode.contains(containingText,Qt::CaseInsensitive)) {
       return el;
     }
@@ -2037,7 +2062,8 @@ HtmlElement* KImageMapEditor::findHtmlElement(const QString & containingText) {
  * Returns 0L if no element was found.
  */
 HtmlImgElement* KImageMapEditor::findHtmlImgElement(ImageTag* tag) {
-  for (HtmlElement * el = _htmlContent.first(); el; el = _htmlContent.next() ) {
+  HtmlElement* el;
+  foreach(el,_htmlContent) {
     HtmlImgElement* imgEl = dynamic_cast<HtmlImgElement*>(el);
 
     if (imgEl && imgEl->imgTag == tag)
@@ -2057,7 +2083,7 @@ void KImageMapEditor::addMap(const QString & name = QString::null) {
 
   // if we found one add the new map right after the body tag
   if (bodyTag) {
-     uint index = _htmlContent.find(bodyTag);
+     uint index = _htmlContent.indexOf(bodyTag);
 
      // Add a newline before the map
      _htmlContent.insert(index+1, new HtmlElement("\n"));
@@ -2082,7 +2108,7 @@ void KImageMapEditor::addMap(const QString & name = QString::null) {
  * Returns 0L if there exists no map with the given name
  */
 HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
-  for (HtmlElement * el = _htmlContent.first(); el; el = _htmlContent.next() ) {
+  foreach(HtmlElement * el,_htmlContent) {
     if (dynamic_cast<HtmlMapElement*>(el)) {
       HtmlMapElement *tagEl = static_cast<HtmlMapElement*>(el);
       if (tagEl->mapTag->name == mapName) {
@@ -2110,7 +2136,8 @@ void KImageMapEditor::setMap(const QString & mapName) {
 }
 
 void KImageMapEditor::setMap(MapTag* map) {
-  for (HtmlElement * el = _htmlContent.first(); el; el = _htmlContent.next() ) {
+  HtmlElement * el;
+  foreach(el,_htmlContent) {
     HtmlMapElement *tagEl = dynamic_cast<HtmlMapElement*>(el);
     if (tagEl) {
       if (tagEl->mapTag == map) {
@@ -2124,46 +2151,52 @@ void KImageMapEditor::setMap(MapTag* map) {
 
 void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
   map->clear();
-  for (Area* a=areas->first();a!=0L;a=areas->next()) {
-    QString *shapeStr = 0L;
+  Area* a;
+  foreach(a,*areas) {
+    QString shapeStr;
 
     switch (a->type()) {
-      case Area::Rectangle : shapeStr = new QString("rect");break;
-      case Area::Circle : shapeStr = new QString("circle");break;
-      case Area::Polygon : shapeStr = new QString("poly");break;
+      case Area::Rectangle : shapeStr = "rect";break;
+      case Area::Circle : shapeStr = "circle";break;
+      case Area::Polygon : shapeStr = "poly";break;
       default : continue;
     }
 
-    Q3Dict<QString> *dict = new Q3Dict<QString>(17,false);
-    dict->insert("shape",shapeStr);
+    QHash<QString,QString> dict; 
+    dict.insert("shape",shapeStr);
 
     AttributeIterator it = a->attributeIterator();
     while (it.hasNext())
     {
       it.next();
-      dict->insert(it.key(),new QString(it.value()));
+      dict.insert(it.key(),it.value());
     }
 
-    dict->insert("coords",new QString(a->coordsToString()));
+    dict.insert("coords",a->coordsToString());
 
     map->append(dict);
 
   }
 
   if (defaultArea && defaultArea->finished()) {
-    Q3Dict<QString> *dict = new Q3Dict<QString>(17,false);
-    dict->insert("shape",new QString("default"));
+    QHash<QString,QString> dict;
+    dict.insert("shape","default");
 
     AttributeIterator it = defaultArea->attributeIterator();
     while (it.hasNext())
     {
       it.next();
-      dict->insert(it.key(),new QString(it.value()));
+      dict.insert(it.key(),it.value());
     }
 
     map->append(dict);
   }
 
+}
+
+static void setAttribute(Area* a, const AreaTag & tag, const QString & s) {
+  if (tag.contains(s))
+    a->setAttribute(s,tag.value(s));
 }
 
 void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
@@ -2177,16 +2210,19 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
   MapTag* map = currentMapElement->mapTag;
 
   // Remove old areas only if a new map is loaded
-    deleteAllAreas();
-    delete defaultArea;
-    defaultArea = 0L;
+  deleteAllAreas();
+  delete defaultArea;
+  defaultArea = 0L;
 //    kDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name << endl;
     _mapName = map->name;
-    for (AreaTag *tag=map->first();tag!=0L;tag=map->next())
-    {
+    AreaTag tag;
+    
+    QLinkedListIterator<AreaTag> it(*map);
+    while (it.hasNext()) {
+        tag = it.next();
         QString shape="rect";
-        if (tag->find("shape"))
-          shape=*tag->find("shape");
+        if (tag.contains("shape"))
+          shape=tag.value("shape");
 
         Area::ShapeType type=Area::Rectangle;
         if (shape=="circle")
@@ -2198,37 +2234,15 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
 
         Area* a=AreaCreator::create(type);
 
-        if (tag->find("href"))
-          a->setAttribute("href",*tag->find("href"));
-
-        if (tag->find("alt"))
-          a->setAttribute("alt",*tag->find("alt"));
-
-        if (tag->find("target"))
-          a->setAttribute("target",*tag->find("target"));
-
-        if (tag->find("title"))
-          a->setAttribute("title",*tag->find("title"));
-
-        if (tag->find("onclick"))
-          a->setAttribute("onclick",*tag->find("onclick"));
-
-        if (tag->find("onmousedown"))
-          a->setAttribute("onmousedown",*tag->find("onmousedown"));
-
-        if (tag->find("onmouseup"))
-          a->setAttribute("onmouseup",*tag->find("onmouseup"));
-
-        if (tag->find("onmouseover"))
-          a->setAttribute("onmouseover",*tag->find("onmouseover"));
-
-        if (tag->find("onmousemove"))
-          a->setAttribute("onmousemove",*tag->find("onmousemove"));
-
-        if (tag->find("onmouseout"))
-          a->setAttribute("onmouseout",*tag->find("onmouseout"));
-
-
+        setAttribute(a,tag,"href");
+        setAttribute(a,tag,"alt");
+        setAttribute(a,tag,"target");
+        setAttribute(a,tag,"title");
+        setAttribute(a,tag,"onclick");
+        setAttribute(a,tag,"onmousedown");
+        setAttribute(a,tag,"onmouseup");
+        setAttribute(a,tag,"onmousemove");
+        setAttribute(a,tag,"onmouseout");
 
         if (type==Area::Default) {
           defaultArea=a;
@@ -2236,8 +2250,8 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
           continue;
         }
 
-        if (tag->find("coords"))
-          a->setCoords(*tag->find("coords"));
+        if (tag.contains("coords"))
+          a->setCoords(tag.value("coords"));
 
         a->setMoving(false);
         addArea(a);
@@ -2278,11 +2292,9 @@ QString KImageMapEditor::getHtmlCode() {
   QString result;
 
   HtmlElement *el;
-    for ( el = _htmlContent.first(); el; el = _htmlContent.next() ) {
+  foreach(el,_htmlContent) {
         result += el->htmlCode;
-        //kDebug() << "KImageMapEditor::getHtmlCode : Writing : " << el->htmlCode << endl;
-
-    }
+  }
   return result;
 }
 
@@ -2461,12 +2473,14 @@ void KImageMapEditor::slotBackOne()
   // move every selected Area one step lower
   for (int i=areas->count()-2; i > -1; i--)
   {
-    if (list.find( areas->at(i) ) > -1 )
+    if (list.contains( areas->at(i) ))
     {
+      uint j = (uint)i+1;
       a = areas->at(i);
-      areas->remove(a);
-      areas->insert((uint)i+1,a);
-      a->listViewItem()->moveItem( areas->at(i)->listViewItem() );
+      areas->removeAll(a);
+      areas->insert(j,a);
+      QTreeWidgetItem* root = areaListView->listView->invisibleRootItem();
+      root->insertChild(j,root->takeChild(i));
     }
   }
   // to update the up and down buttons
@@ -2485,12 +2499,14 @@ void KImageMapEditor::slotForwardOne()
   // move every selected Area one step higher
   for (int i=1; i < (int)areas->count(); i++)
   {
-    if (list.find( areas->at(i) ) > -1 )
+    if (list.contains( areas->at(i) ))
     {
+      uint j = (uint) i-1;
       a = areas->at(i);
-      areas->remove(a);
-      areas->insert((uint)i-1,a);
-      areas->at(i)->listViewItem()->moveItem( a->listViewItem() );
+      areas->removeAll(a);
+      areas->insert(j,a);
+      QTreeWidgetItem* root = areaListView->listView->invisibleRootItem();
+      root->insertChild(j,root->takeChild(i));
     }
   }
   // to update the up and down buttons
@@ -2674,7 +2690,7 @@ void KImageMapEditor::mapDelete()
 
   mapsListView->removeMap(selectedMap);
   HtmlMapElement* mapEl = findHtmlMapElement(selectedMap);
-  _htmlContent.remove(mapEl);
+  _htmlContent.removeAll(mapEl);
   if (mapsListView->count() == 0) {
 
       currentMapElement = 0L;
@@ -2711,15 +2727,21 @@ bool KImageMapEditor::queryClose() {
   if ( ! isModified() )
      return true;
 
-  switch ( KMessageBox::warningYesNoCancel( widget(),
-   i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", url().fileName()), QString::null, KStandardGuiItem::save(), KStandardGuiItem::discard()) ) {
-           case KMessageBox::Yes :
-             saveFile();
-             return true;
-           case KMessageBox::No :
-             return true;
-           default:
-             return false;
+  switch ( KMessageBox::warningYesNoCancel( 
+              widget(),
+	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", 
+	      url().fileName()), 
+	      QString::null, 
+	      KStandardGuiItem::save(), 
+	      KStandardGuiItem::discard()) ) 
+    {
+    case KMessageBox::Yes :
+      saveFile();
+      return true;
+    case KMessageBox::No :
+      return true;
+    default:
+      return false;
   }
 }
 
@@ -2755,16 +2777,16 @@ void KImageMapEditor::addImage(const KUrl & imgUrl) {
     QString relativePath ( toRelative(imgUrl, KUrl( url().directory() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
-    ImageTag *imgTag = new ImageTag();
-    imgTag->insert("tagname",new QString("img"));
-    imgTag->insert("src", new QString(relativePath));
+    ImageTag* imgTag = new ImageTag();
+    imgTag->insert("tagname","img");
+    imgTag->insert("src", relativePath);
 
-    HtmlImgElement *imgEl = new HtmlImgElement(imgHtml);
+    HtmlImgElement* imgEl = new HtmlImgElement(imgHtml);
     imgEl->imgTag = imgTag;
 
-    HtmlElement *bodyEl = findHtmlElement("<body");
+    HtmlElement* bodyEl = findHtmlElement("<body");
     if (bodyEl) {
-        int bodyIndex = _htmlContent.find(bodyEl);
+        int bodyIndex = _htmlContent.indexOf(bodyEl);
         _htmlContent.insert(bodyIndex+1, new HtmlElement("\n"));
         _htmlContent.insert(bodyIndex+2, imgEl);
     }
@@ -2799,20 +2821,19 @@ void KImageMapEditor::imageRemove() {
     ImageTag* imgTag = imagesListView->selectedImage();
     HtmlImgElement* imgEl = findHtmlImgElement(imgTag);
     imagesListView->removeImage(imgTag);
-    _htmlContent.remove(imgEl);
+    _htmlContent.removeAt(_htmlContent.indexOf(imgEl));
 
-    if (imagesListView->childCount() == 0) {
+    if (imagesListView->topLevelItemCount() == 0) {
         setPicture(getBackgroundImage());
         setImageActionsEnabled(false);
     }
     else {
-        ImageTag* selected = imagesListView->selectedImage();
-        if (selected) {
-            QString *url = selected->find("src");
-            if (url) {
-                setPicture(KUrl(*url));
-            }
-        }
+      ImageTag* selected = imagesListView->selectedImage();
+      if (selected) {
+	if (selected->contains("src")) {
+	  setPicture(KUrl(selected->value("src")));
+	}
+      }
     }
 
     setModified(true);
@@ -2827,8 +2848,8 @@ void KImageMapEditor::imageUsemap() {
 
   QString usemap;
 
-  if (imageTag->find("usemap"))
-      usemap=*imageTag->find("usemap");
+  if (imageTag->contains("usemap"))
+      usemap = imageTag->value("usemap");
 
   QStringList maps = mapsListView->getMaps();
   int index = maps.indexOf(usemap);
@@ -2837,11 +2858,12 @@ void KImageMapEditor::imageUsemap() {
     index = 0;
   }
 
-  QString input = KInputDialog::getItem(i18n("Enter Usemap"),
-    i18n("Enter the usemap value:"),
-    maps,index,true,&ok,widget());
+  QString input = 
+    KInputDialog::getItem(i18n("Enter Usemap"),
+			  i18n("Enter the usemap value:"),
+			  maps,index,true,&ok,widget());
   if (ok) {
-     imageTag->replace("usemap", new QString(input));
+     imageTag->insert("usemap", input);
      imagesListView->updateImage(imageTag);
      setModified(true);
 
@@ -2849,16 +2871,16 @@ void KImageMapEditor::imageUsemap() {
      HtmlImgElement* imgEl = findHtmlImgElement(imageTag);
 
      imgEl->htmlCode = "<";
-     QString *tagName = imgEl->imgTag->find("tagname");
-     imgEl->htmlCode += QString(*tagName);
-
-     Q3DictIterator<QString> it( *imgEl->imgTag );
-     for( ; it.current(); ++it ) {
-        if (it.currentKey() != "tagname") {
-           imgEl->htmlCode += " " + it.currentKey() + "=\"";
-           imgEl->htmlCode += *it.current();
+     QString tagName = imgEl->imgTag->value("tagname");
+     imgEl->htmlCode += QString(tagName);
+     QHashIterator<QString, QString> it( *imgEl->imgTag );
+     while (it.hasNext()) {
+       it.next();
+       if (it.key() != "tagname") {
+           imgEl->htmlCode += " " + it.key() + "=\"";
+           imgEl->htmlCode += it.value();
            imgEl->htmlCode += '"';
-        }
+       }
      }
 
      imgEl->htmlCode += '>';
@@ -2866,10 +2888,3 @@ void KImageMapEditor::imageUsemap() {
   }
 }
 
-void KImageMapEditor::dockingStateChanged() {
-  if (areaDock) {
-    configureShowImageListAction->setChecked( imagesDock->isVisible() );
-    configureShowAreaListAction->setChecked( areaDock->isVisible() );
-    configureShowMapListAction->setChecked( mapsDock->isVisible() );
-  }
-}

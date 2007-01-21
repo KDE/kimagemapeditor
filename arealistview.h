@@ -18,11 +18,11 @@
 #ifndef _AREALISTVIEW_H_
 #define _AREALISTVIEW_H_
 
+#include <QTreeWidget>
 #include <qwidget.h>
 #include <kvbox.h>
 
 
-class K3ListView;
 class QPushButton;
 class Area;
 
@@ -39,7 +39,7 @@ public:
   explicit AreaListView(QWidget *parent);
   ~AreaListView();
 
-  K3ListView* listView;
+  QTreeWidget* listView;
 	QPushButton *upBtn;
 	QPushButton *downBtn;
 

@@ -18,16 +18,16 @@
 #ifndef _IMAGESLISTVIEW_H_
 #define _IMAGESLISTVIEW_H_
 
-#include <k3listview.h>
+#include <QTreeWidget>
+#include <QLinkedList>
+
 #include <kurl.h>
 
 #include "kimagemapeditor.h"
-//Added by qt3to4:
-#include <Q3PtrList>
 
 class ImagesListView;
 
-class ImagesListViewItem : public Q3ListViewItem
+class ImagesListViewItem : public QTreeWidgetItem
 {
   public:
     ImagesListViewItem(ImagesListView*, ImageTag*);
@@ -46,7 +46,7 @@ class ImagesListViewItem : public Q3ListViewItem
  * Simple class that shows a list of imagenames with a preview
  * Jan Schaefer
  **/
-class ImagesListView : public K3ListView
+class ImagesListView : public QTreeWidget
 {
   Q_OBJECT
 
@@ -62,7 +62,7 @@ public:
   /**
    * Adds images
    */
-  void addImages(Q3PtrList<ImageTag> *);
+  void addImages(const QList<ImageTag*> &);
 
   /**
    * Removes the given image from the list
@@ -72,7 +72,7 @@ public:
   /**
    * Updates the listview item with the given ImageTag
    */
-  void updateImage(ImageTag*);
+  void updateImage(ImageTag *);
 
   /**
    * Removes all images
@@ -95,7 +95,7 @@ public:
   void setBaseUrl(const KUrl & url) { _baseUrl = url; };
 
 protected slots:
-  void slotSelectionChanged(Q3ListViewItem*);
+  void slotSelectionChanged(QTreeWidgetItem*);
 
 signals:
   void imageSelected(const KUrl &);

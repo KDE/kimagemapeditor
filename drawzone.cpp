@@ -551,15 +551,16 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
     r = r.normalized();
 
     AreaListIterator it = imageMapEditor->areaList();
-    for ( ; it.current() != 0L ; ++it )	{
-      if ( it.current()->rect().intersects(r) )	{
-	if (!it.current()->isSelected() ) {
-	  imageMapEditor->selectWithoutUpdate( it.current() );
-	}
+    while (it.hasNext()) {
+      Area* a = it.next();
+      if ( a->rect().intersects(r) )	{
+	    if (!a->isSelected() ) {
+	       imageMapEditor->selectWithoutUpdate( a );
+	    }
       } else {
-	if (it.current()->isSelected()) {
-	  imageMapEditor->deselectWithoutUpdate( it.current() );
-	}
+	    if (a->isSelected()) {
+	       imageMapEditor->deselectWithoutUpdate( a );
+	    }
       }
     }
 
@@ -823,10 +824,9 @@ void DrawZone::paintEvent(QPaintEvent*) {
   p.scale(_zoom,_zoom);
 
   AreaListIterator it=imageMapEditor->areaList();
-  for ( it.toLast();it.current() != 0L; --it)
-    {
-	it.current()->draw(&p);
-    }
+  while (it.hasNext()) {
+	it.next()->draw(&p);
+  }
 
   // Draw the current drawing Area
   if (currentAction != MoveArea &&

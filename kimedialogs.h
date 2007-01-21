@@ -18,15 +18,15 @@
 #ifndef KIMEDIALOGS_H
 #define KIMEDIALOGS_H
 
+#include <QLabel>
+#include <QLinkedList>
+
 #include <kdialog.h>
-
 #include <kurl.h>
-#include "kimagemapeditor.h"
 
+#include "kimagemapeditor.h"
 #include "kdeversion.h"
 
-#include <QLabel>
-#include <Q3PtrList>
 
 class QLineEdit;
 class Q3MultiLineEdit;
@@ -144,7 +144,7 @@ Q_OBJECT
 };
 
 class QLineEdit;
-class Q3ListBox;
+class QListWidget;
 class QLabel;
 
 
@@ -153,14 +153,15 @@ Q_OBJECT
 	private:
 		Q3Table *imageListTable;
 		QLabel *imagePreview;		
-		Q3ListBox *mapListBox;	
+		QListWidget *mapListBox;	
 		QLineEdit *mapNameEdit;
-		Q3PtrList<MapTag> *maps;
-		Q3PtrList<ImageTag> *images;
+		QList<MapTag*> maps;
+		QList<ImageTag*> images;
 		KUrl baseUrl;
     void initImageListTable(QWidget*);    
 	public:
-		ImageMapChooseDialog(QWidget* parent,Q3PtrList<MapTag> *_maps,Q3PtrList<ImageTag> *_images, const KUrl & _baseUrl);
+		ImageMapChooseDialog(QWidget* parent,QList<MapTag*> _maps,
+                             QList<ImageTag*> _images, const KUrl & _baseUrl);
 		~ImageMapChooseDialog();
 		KUrl pixUrl;
 		MapTag* currentMap;

@@ -20,11 +20,11 @@
 
 #include <kvbox.h>
 
-//Added by qt3to4:
-#include <Q3PtrList>
+#include <QTreeWidgetItem>
+#include <QTreeWidget>
+#include <QLinkedList>
 
 #include "kimagemapeditor.h"
-class K3ListView;
 
 /**
  * Simple class that shows all map tags of the current open html file in a ListView
@@ -46,7 +46,7 @@ public:
   /**
    * Adds all maps of the given QList to the ListView
    */
-  void addMaps(Q3PtrList<MapTag> *);
+  void addMaps(const QList<MapTag*> &);
 
   /**
    * Removes the given map from the ListView
@@ -62,7 +62,7 @@ public:
   /**
    * Selects the given ListViewItem and deselects the current selected item
    */
-  void selectMap(Q3ListViewItem* item);
+  void selectMap(QTreeWidgetItem* item);
 
   /**
    * Changes the name of the map with the @p oldName to @p newName
@@ -101,13 +101,13 @@ public:
    */
   int count();
 
-  K3ListView* listView() { return _listView; }
+  QTreeWidget* listView() { return _listView; }
 protected:
-  K3ListView* _listView;
+  QTreeWidget* _listView;
 
 protected slots:
-  void slotSelectionChanged(Q3ListViewItem*);
-  void slotItemRenamed(Q3ListViewItem*);
+  void slotSelectionChanged();
+  void slotItemRenamed(QTreeWidgetItem*);
 
 signals:
 

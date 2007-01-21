@@ -19,13 +19,13 @@
 #define KIMAGEMAPDIALOG_H
 
 #include <QDockWidget>
-#include <q3ptrlist.h>
-#include <qobject.h>
-#include <q3dict.h>
-#include <qimage.h>
-//Added by qt3to4:
+#include <QLinkedList>
+#include <QObject>
+#include <QHash>
+#include <QImage>
 #include <QPixmap>
 #include <QTextStream>
+
 #include <kurl.h>
 #include <kparts/part.h>
 #include <kparts/browserextension.h>
@@ -42,11 +42,11 @@
 // #define WITH_TABWIDGET
 
 
-class Q3ListView;
+class QTreeWidget;
 class QPushButton;
 class DrawZone;
 class QComboBox;
-class Q3ListViewItem;
+class QTreeWidgetItem;
 class KToggleAction;
 class KMainWindow;
 
@@ -55,19 +55,19 @@ class KMainWindow;
 /**
  * Stores an area tag and all its attributes
  */
-typedef Q3Dict<QString> AreaTag;
+typedef QHash<QString,QString> AreaTag;
 
 /**
  * Stores an image tag and all its attributes
  * the origcode attribute hold the original htmlcode
  * of this tag
  */
-typedef Q3Dict<QString> ImageTag;
+typedef QHash<QString,QString> ImageTag;
 
 /**
  * Only a small class to give a list of AreaTags a name
  */
-class MapTag : public Q3PtrList<AreaTag> {
+class MapTag : public QLinkedList<AreaTag> {
 public:
     MapTag();
     QString name;
@@ -88,29 +88,28 @@ public:
 class HtmlMapElement : public HtmlElement {
 public:
     explicit HtmlMapElement(const QString & s) : HtmlElement(s) {
-        mapTag = 0L;
+      mapTag = 0L;
     };
 
     virtual ~HtmlMapElement() {};
 
-    MapTag *mapTag;
+    MapTag* mapTag;
 };
 
 class HtmlImgElement : public HtmlElement {
 public:
 HtmlImgElement(const QString & s) : HtmlElement(s) {
-        imgTag = 0L;
+      imgTag = 0L;
     };
     virtual ~HtmlImgElement() {}
     ;
-    ImageTag *imgTag;
+    ImageTag* imgTag;
 };
 
 /**
  * Stores the hole HTML content in a List.
  */
-class HtmlContent : public Q3PtrList<HtmlElement> {}
-;
+typedef QList<HtmlElement*> HtmlContent;
 
 
 class KSelectAction;
@@ -124,8 +123,6 @@ class QTabWidget;
 class AreaListView;
 class ImagesListView;
 class MapsListView;
-class K3DockWidget;
-class K3DockMainWindow;
 class KAboutData;
 
 // needed by the statusbar
@@ -177,7 +174,7 @@ public :
     QString mapName() const;
     void select(Area*);
     void selectWithoutUpdate(Area*);
-    void select(Q3ListViewItem*);
+    void select(QTreeWidgetItem*);
     AreaSelection* selected() const;
     void setPicture(const QImage & pix);
     int showTagEditor(Area *);
@@ -222,7 +219,8 @@ public :
 
 protected:
     void init();
-    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null, const QString & imagePath = QString::null);
+    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null, 
+		      const QString & imagePath = QString::null);
     void saveImageMap(const KUrl &);
 
     /**
@@ -336,7 +334,7 @@ private:
     void updateAllAreas();
     void updateUpDownBtn();
 
-    Q3Dict<QString> getTagAttributes(QTextStream & s,QString &);
+    QHash<QString,QString> getTagAttributes(QTextStream & s,QString &);
 
     void setMap(HtmlMapElement*);
     void setMap(MapTag*);
@@ -362,8 +360,8 @@ public slots:
     void slotUpdateSelectionCoords( const QRect &);
     void slotAreaChanged(Area *);
     void slotShowMainPopupMenu(const QPoint &);
-    void slotShowMapPopupMenu(Q3ListViewItem *, const QPoint &);
-    void slotShowImagePopupMenu(Q3ListViewItem *, const QPoint &);
+    void slotShowMapPopupMenu(const QPoint &);
+    void slotShowImagePopupMenu(const QPoint &);
     void slotConfigChanged();
     void setPicture(const KUrl & url);
     void setMap(const QString &);
@@ -385,13 +383,13 @@ protected slots:
     void fileSave();
     void fileClose();
 
-    void slotShowPopupMenu(Q3ListViewItem*,const QPoint &);
+    void slotShowPopupMenu(const QPoint &);
     void slotShowPreferences();
     void slotHighlightAreas(bool b);
     void slotShowAltTag(bool b);
     void slotSelectionChanged();
 
-    int showTagEditor(Q3ListViewItem *item);
+    int showTagEditor(QTreeWidgetItem *item);
     int showTagEditor();
 
     void slotZoom();
@@ -439,8 +437,6 @@ protected slots:
     void imageAdd();
     void imageRemove();
     void imageUsemap();
-
-    void dockingStateChanged();
 
 };
 

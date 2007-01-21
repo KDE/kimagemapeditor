@@ -274,7 +274,7 @@ void Area::setFinished(bool b, bool ) {
 }
 
 
-void Area::setListViewItem(Q3ListViewItem* item) {
+void Area::setListViewItem(QTreeWidgetItem* item) {
 	_listViewItem=item;
 }
 
@@ -720,8 +720,8 @@ void RectArea::updateSelectionPoints()
   int d = 2;
   QRect r(_rect);
   r.adjust(0,0,1,1);
-  int xmid = r.left()+(r.width()/2);
-  int ymid = r.top()+(r.height()/2);
+  int xmid = r.left()+(r.width()/d);
+  int ymid = r.top()+(r.height()/d);
   
 
   _selectionPoints[0]->setPoint(r.topLeft());
@@ -1276,57 +1276,46 @@ AreaSelection::~AreaSelection() {
 
 Area* AreaSelection::clone() const
 {
-	AreaSelection* areaClone = new AreaSelection();
+  AreaSelection* areaClone = new AreaSelection();
 
-	// we want a deep copy of the Areas
+  // we want a deep copy of the Areas
   AreaListIterator it=getAreaListIterator();
+  while (it.hasNext()) {
+    areaClone->add( it.next()->clone() );
+  }
 
-  for ( ; it.current() != 0L; ++it )
-  {
-		areaClone->add( it.current()->clone() );
-	}
-
-//	areaClone->setArea( *this );
-
-	return areaClone;
+  return areaClone;
 }
 
 
 void AreaSelection::add(Area *a)
 {
-
-	// if a selection of areas was added get the areas of it
-	AreaSelection *selection=0L;
-	if ( (selection = dynamic_cast <AreaSelection*> ( a ) ) )
-	{
-		AreaList list = selection->getAreaList();
-
-		for (Area* area = list.first(); area != 0L; area = list.next() )
-		{
-			if ( _areas->find( area ) == -1 ) {
-				_areas->append( area );  // Must come before area->setSelected
-				area->setSelected( true );
-			}
-		}
-	}
-	else
-	{
-		if ( _areas->find( a ) == -1 ) {
-  		_areas->append( a );  // Must come before a->setSelected
-  		a->setSelected( true );
-  	}
+  // if a selection of areas was added get the areas of it
+  AreaSelection *selection=0L;
+  if ( (selection = dynamic_cast <AreaSelection*> ( a ) ) ) {
+    AreaList list = selection->getAreaList();
+    Area* area;
+    foreach(area,list) {
+      if ( !_areas->contains( area )) {
+	_areas->append( area );  // Must come before area->setSelected
+	area->setSelected( true );
+      }
+    }
+  } else {
+    if ( !_areas->contains( a )) {
+      _areas->append( a );  // Must come before a->setSelected
+      a->setSelected( true );
+    }
   }
 
-	invalidate();
+  invalidate();
 }
 
 
 void AreaSelection::setSelectionPointStates(SelectionPoint::State st) {
   AreaListIterator it=getAreaListIterator();
-
-  for ( ; it.current() != 0L; ++it )
-  {
-  	it.current()->setSelectionPointStates( st );
+  while(it.hasNext()) {
+    it.next()->setSelectionPointStates( st );
   }
 }
 
@@ -1342,112 +1331,92 @@ void AreaSelection::updateSelectionPointStates() {
 
 void AreaSelection::remove(Area *a)
 {
-	if (_areas->find(a) == -1)
-		return;
+  if (!_areas->contains(a))
+    return;
 
-	a->setSelected( false );
-	_areas->remove( a );
-	invalidate();
+  a->setSelected( false );
+  _areas->removeAt(_areas->indexOf(a));
+  invalidate();
 }
 
 void AreaSelection::reset()
 {
   AreaListIterator it=getAreaListIterator();
-
-  for ( ; it.current() != 0L; ++it )
-  {
-  	it.current()->setSelected( false );
+  while (it.hasNext()) {
+    it.next()->setSelected( false );
   }
 
- 	_areas->clear();
-	invalidate();
+  _areas->clear();
+  invalidate();
 }
 
 bool AreaSelection::contains(const QPoint & p) const
 {
-	bool b=false;
   AreaListIterator it=getAreaListIterator();
-
-  for ( ; it.current() != 0L; ++it )
-  {
-  	if ( it.current()->contains( p ) )
-  	{
-  		b=true;
-  		break;
-  	}
+  while (it.hasNext()) {
+    if ( it.next()->contains( p ) ) {
+      return true;
+    }
   }
 
-  return b;
+  return false;
 }
 
 SelectionPoint* AreaSelection::onSelectionPoint(const QPoint & p, double zoom) const
 {
-  AreaListIterator it=getAreaListIterator();
 
-  if (it.count() != 1)
+  if (_areas->count() != 1)
     return 0L;
 
-  //  SelectionPoint* res=0L;
-
-  //  for ( ; it.current() != 0L; ++it )
-  //  {
-  //    if ( (res = it.current()->onSelectionPoint( p , zoom) ) )
-  //      {
-  //	break;
-  //      }
-  //  }
-
-
-  return it.current()->onSelectionPoint(p,zoom);
+  return _areas->first()->onSelectionPoint(p,zoom);
 }
 
 void AreaSelection::moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p)
 {
-	// It's only possible to move a SelectionPoint if only one Area is selected
-	if (_areas->count() != 1)
-		return;
+  // It's only possible to move a SelectionPoint if only one Area is selected
+  if (_areas->count() != 1)
+    return;
 
-	_areas->getFirst()->moveSelectionPoint(selectionPoint,p);
+  _areas->first()->moveSelectionPoint(selectionPoint,p);
 
-	invalidate();
+  invalidate();
 }
 
 
 void AreaSelection::moveBy(int dx, int dy)
 {
   AreaListIterator it=getAreaListIterator();
+  while (it.hasNext()) {
+    it.next()->moveBy(dx,dy);
+  }
 
-  for ( ; it.current() != 0L; ++it )
-  	it.current()->moveBy(dx,dy);
-
-	Area::moveBy( dx, dy );
-
-	invalidate();
+  Area::moveBy( dx, dy );
+  invalidate();
 }
 
 QString AreaSelection::typeString() const
 {
-	// if there is only one Area selected
-	// show the name of that Area
-	if ( _areas->count()==0 )
-		return "";
-	else if ( _areas->count()==1 )
-		return _areas->getFirst()->typeString();
-	else
-		return i18n("Number of Areas");
+  // if there is only one Area selected
+  // show the name of that Area
+  if ( _areas->count()==0 )
+    return "";
+  else if ( _areas->count()==1 )
+    return _areas->first()->typeString();
+  else
+    return i18n("Number of Areas");
 
 }
 
 Area::ShapeType AreaSelection::type() const
 {
-	// if there is only one Area selected
-	// take the type of that Area
-	if ( _areas->count()==0 )
-		return Area::None;
-	else if ( _areas->count()==1 )
-		return _areas->getFirst()->type();
-	else
-		return Area::Selection;
+  // if there is only one Area selected
+  // take the type of that Area
+  if ( _areas->count()==0 )
+    return Area::None;
+  else if ( _areas->count()==1 )
+    return _areas->first()->type();
+  else
+    return Area::Selection;
 }
 
 void AreaSelection::resetSelectionPointState() {
@@ -1456,79 +1425,75 @@ void AreaSelection::resetSelectionPointState() {
 
 void AreaSelection::updateSelectionPoints()
 {
-
   AreaListIterator it=getAreaListIterator();
-
-  for ( ; it.current() != 0L; ++it )
-  {
-		it.current()->updateSelectionPoints();
+  while (it.hasNext()) {
+    it.next()->updateSelectionPoints();
   }
 
- 	invalidate();
-
+  invalidate();
 }
 
 
 
 QRect AreaSelection::selectionRect() const
 {
-	if (!_selectionCacheValid)
-	{
-		_selectionCacheValid=true;
-  	QRect r;
+  if (!_selectionCacheValid) {
+    _selectionCacheValid=true;
+    QRect r;
     AreaListIterator it=getAreaListIterator();
-
-    for ( ; it.current() != 0L; ++it )
-    	r = r | it.current()->selectionRect();
-
-   	_cachedSelectionRect=r;
+    while (it.hasNext()) {
+    	r = r | it.next()->selectionRect();
+    }
+    _cachedSelectionRect=r;
   }
 
   return _cachedSelectionRect;
 }
 
 int AreaSelection::count() const {
-	return _areas->count();
+  return _areas->count();
 }
 
 bool AreaSelection::isEmpty() const
 {
-	return _areas->isEmpty();
+  return _areas->isEmpty();
 }
 
 
 AreaList AreaSelection::getAreaList() const {
-	AreaList list(*_areas);
-	return list;
+  AreaList list(*_areas);
+  return list;
 }
 
 AreaListIterator AreaSelection::getAreaListIterator() const {
-	AreaListIterator it(*_areas);
-	return it;
+  AreaListIterator it(*_areas);
+  return it;
 }
 
 void AreaSelection::setArea(const Area & copy)
 {
-	Area *area = copy.clone();
-	AreaSelection *selection = dynamic_cast<AreaSelection*>(area);
-	if (selection)
-		setAreaSelection(*selection);
-	else {
+  Area *area = copy.clone();
+  AreaSelection *selection = dynamic_cast<AreaSelection*>(area);
+  if (selection)
+    setAreaSelection(*selection);
+  else {
     Area::setArea(copy);
-  	invalidate();
+    invalidate();
   }
 }
 
 void AreaSelection::setAreaSelection(const AreaSelection & copy)
 {
-  AreaListIterator it=getAreaListIterator();
-	AreaListIterator it2=copy.getAreaListIterator();
+  AreaList* areasCopy = copy._areas;
 
-	if (it.count() != it2.count())
-		return;
+  if (_areas->count() != areasCopy->count())
+    return;
 
-  for ( ; it.current() != 0L; ++it, ++it2 )
-   	it.current()->setArea(*it2.current());
+  AreaListIterator it(*_areas);
+  AreaListIterator it2(*areasCopy);
+  while (it.hasNext()) {
+   	it.next()->setArea(*it2.next());
+  }
 
   Area::setArea(copy);
 	invalidate();
@@ -1536,16 +1501,16 @@ void AreaSelection::setAreaSelection(const AreaSelection & copy)
 
 void AreaSelection::setAreaList( const AreaList & areas )
 {
-	delete _areas;
-	_areas = new AreaList(areas);
-	invalidate();
+  delete _areas;
+  _areas = new AreaList(areas);
+  invalidate();
 }
 
 void AreaSelection::setRect(const QRect & r)
 {
 	if ( _areas->count()==1 )
 	{
-		_areas->getFirst()->setRect(r);
+		_areas->first()->setRect(r);
 	}
 
 	invalidate();
@@ -1561,8 +1526,9 @@ QRect AreaSelection::rect() const
   	QRect r;
     AreaListIterator it=getAreaListIterator();
 
-    for ( ; it.current() != 0L; ++it )
-    	r = r | it.current()->rect();
+    while (it.hasNext()) {
+    	r = r | it.next()->rect();
+    }
 
     _cachedRect=r;
   }
@@ -1575,7 +1541,7 @@ int AreaSelection::addCoord(const QPoint & p)
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->addCoord(p);
+		return _areas->first()->addCoord(p);
 		invalidate();
 	}
 
@@ -1586,7 +1552,7 @@ void AreaSelection::insertCoord(int pos, const QPoint & p)
 {
 	if ( _areas->count()==1 )
 	{
-		_areas->getFirst()->insertCoord(pos, p);
+		_areas->first()->insertCoord(pos, p);
 		invalidate();
 	}
 }
@@ -1595,7 +1561,7 @@ void AreaSelection::removeCoord(int pos)
 {
 	if ( _areas->count()==1 )
 	{
-		_areas->getFirst()->removeCoord(pos);
+		_areas->first()->removeCoord(pos);
 		invalidate();
 	}
 }
@@ -1606,7 +1572,7 @@ bool AreaSelection::removeSelectionPoint(SelectionPoint* p)
 
 	if ( _areas->count()==1 )
 	{
-		result = _areas->getFirst()->removeSelectionPoint(p);
+		result = _areas->first()->removeSelectionPoint(p);
 		invalidate();
 	}
 
@@ -1617,7 +1583,7 @@ const SelectionPointList & AreaSelection::selectionPoints() const
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->selectionPoints();
+		return _areas->first()->selectionPoints();
 	}
 
 	return _selectionPoints;
@@ -1628,7 +1594,7 @@ void AreaSelection::moveCoord(int pos,const QPoint & p)
 {
 	if ( _areas->count()==1 )
 	{
-		_areas->getFirst()->moveCoord(pos,p);
+		_areas->first()->moveCoord(pos,p);
 		invalidate();
 	}
 }
@@ -1636,8 +1602,8 @@ void AreaSelection::moveCoord(int pos,const QPoint & p)
 void AreaSelection::highlightSelectionPoint(int i)
 {
 	if ( _areas->count()==1 )
-	{
-		_areas->getFirst()->highlightSelectionPoint(i);
+	{  
+		_areas->first()->highlightSelectionPoint(i);
 		invalidate();
 	}
 }
@@ -1647,7 +1613,7 @@ QPolygon AreaSelection::coords() const
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->coords();
+		return _areas->first()->coords();
 	}
 
 	return Area::coords();
@@ -1657,7 +1623,7 @@ QString AreaSelection::attribute(const QString & name) const
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->attribute(name);
+		return _areas->first()->attribute(name);
 	}
 
 	return Area::attribute(name);
@@ -1667,8 +1633,9 @@ void AreaSelection::setAttribute(const QString & name, const QString & value)
 {
   AreaListIterator it=getAreaListIterator();
 
-  for ( ; it.current() != 0L; ++it )
-   	it.current()->setAttribute(name,value);
+  while (it.hasNext()) {
+    it.next()->setAttribute(name,value);
+  }
 
 	Area::setAttribute(name,value);
 }
@@ -1677,7 +1644,7 @@ AttributeIterator AreaSelection::attributeIterator() const
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->attributeIterator();
+		return _areas->first()->attributeIterator();
 	}
 
   return AttributeIterator(_attributes);
@@ -1686,9 +1653,10 @@ AttributeIterator AreaSelection::attributeIterator() const
 void AreaSelection::setMoving(bool b)
 {
   AreaListIterator it=getAreaListIterator();
-
-  for ( ; it.current() != 0L; ++it )
-   	it.current()->setMoving(b);
+  
+  while (it.hasNext()) {
+    it.next()->setMoving(b);
+  }
 
 	Area::setMoving(b);
 }
@@ -1697,7 +1665,7 @@ bool AreaSelection::isMoving() const
 {
 	if ( _areas->count()==1 )
 	{
-		return _areas->getFirst()->isMoving();
+		return _areas->first()->isMoving();
 	}
 
 	return Area::isMoving();
@@ -1714,9 +1682,10 @@ bool AreaSelection::allAreasWithin(const QRect & r) const
   {
     AreaListIterator it=getAreaListIterator();
 
-    for ( ; it.current() != 0L; ++it )
-      if (!it.current()->rect().intersects(r))
-          return false;
+    while (it.hasNext()) {
+      if (!it.next()->rect().intersects(r))
+        return false;
+    }
   }
 
   return true;

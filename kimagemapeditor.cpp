@@ -76,7 +76,7 @@
 #include "mapslistview.h"
 #include "kimecommon.h"
 #include <kparts/genericfactory.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 // Factory code for KDE 3
 typedef KParts::GenericFactory<KImageMapEditor> KimeFactory;
@@ -86,7 +86,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
             QObject *parent, const QStringList & )
   : KParts::ReadWritePart(parent)
 {
-  setInstance( KimeFactory::instance() );
+  setComponentData( KimeFactory::componentData() );
 
 //  KDockMainWindow* mainWidget;
 
@@ -337,7 +337,8 @@ void KImageMapEditor::setModified(bool modified)
 
 KConfig *KImageMapEditor::config()
 {
-    return KimeFactory::instance()->config();
+    KSharedConfigPtr tmp = KimeFactory::componentData().config();
+    return tmp.data();
 }
 
 void KImageMapEditor::readConfig(KConfig* config) {

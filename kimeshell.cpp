@@ -108,7 +108,7 @@ bool KimeShell::queryClose()
 bool KimeShell::queryExit()
 {
 //  writeConfig();
-  saveProperties(KGlobal::config());
+  saveProperties(KGlobal::config().data());
 
   return true;
 }
@@ -192,13 +192,10 @@ void KimeShell::fileOpen()
 
 
 void KimeShell::readConfig() {
-  KConfig *config;
-
-  config = KGlobal::config();
+  KSharedConfigPtr config = KGlobal::config();
 
   config->setGroup("General Options");
-  readConfig(config);
-
+  readConfig(config.data());
 }
 
 void KimeShell::readConfig(KConfig*) {
@@ -208,12 +205,10 @@ void KimeShell::readConfig(KConfig*) {
 }
 
 void KimeShell::writeConfig() {
-  KConfig *config;
-
-  config = KGlobal::config();
+  KSharedConfigPtr config = KGlobal::config();
 
   config->setGroup("General Options");
-  writeConfig(config);
+  writeConfig(config.data());
 }
 
 void KimeShell::writeConfig(KConfig* config) {
@@ -253,7 +248,7 @@ void KimeShell::optionsConfigureKeys() {
 
 void KimeShell::optionsConfigureToolbars()
 {
-    saveMainWindowSettings(KGlobal::config(), autoSaveGroup());
+    saveMainWindowSettings(KGlobal::config().data(), autoSaveGroup());
 
     // use the standard toolbar editor
     KEditToolbar dlg(factory());
@@ -264,7 +259,7 @@ void KimeShell::optionsConfigureToolbars()
 
 void KimeShell::applyNewToolbarConfig()
 {
-    applyMainWindowSettings(KGlobal::config(), autoSaveGroup());
+    applyMainWindowSettings(KGlobal::config().data(), autoSaveGroup());
 }
 
 

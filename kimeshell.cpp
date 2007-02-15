@@ -198,24 +198,22 @@ void KimeShell::readConfig() {
   readConfig(config.data());
 }
 
-void KimeShell::readConfig(KConfig*) {
+void KimeShell::readConfig(const KConfigGroup &) {
 //	applyMainWindowSettings(config);
 //	restoreWindowSize(config);
 //  readDockConfig(config);
 }
 
 void KimeShell::writeConfig() {
-  KSharedConfigPtr config = KGlobal::config();
-
-  config->setGroup("General Options");
-  writeConfig(config.data());
+  KConfigGroup config( KGlobal::config(), "General Options");
+  writeConfig( config );
 }
 
-void KimeShell::writeConfig(KConfig* config) {
+void KimeShell::writeConfig(KConfigGroup &config) {
 	saveMainWindowSettings(config);
 	saveWindowSize(config);
 	//  writeDockConfig(config);
-  config->sync();
+  config.sync();
 
 }
 

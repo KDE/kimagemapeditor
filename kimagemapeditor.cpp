@@ -342,19 +342,23 @@ KConfig *KImageMapEditor::config()
 }
 
 void KImageMapEditor::readConfig(const KConfigGroup &config) {
-  recentFilesAction->loadEntries(config.config()->group( "Data" ));
+  KConfigGroup data = config;
+  data.changeGroup( "Data" );
+  recentFilesAction->loadEntries( data );
 }
 
 void KImageMapEditor::writeConfig(KConfigGroup& config) {
   config.writeEntry("highlightareas",highlightAreasAction->isChecked());
   config.writeEntry("showalt",showAltAction->isChecked());
-  recentFilesAction->saveEntries(config.config()->group( "Data") );
+  KConfigGroup data = config;
+  data.changeGroup( "Data" );
+  recentFilesAction->saveEntries( data );
   saveLastURL(config);
 
 }
 
 void KImageMapEditor::readConfig() {
-  readConfig(config->group("General Options" ) );
+  readConfig(config()->group("General Options" ) );
   slotConfigChanged();
 }
 
@@ -415,14 +419,14 @@ void KImageMapEditor::openLastURL(KConfig* config) {
   }
 }
 
-void KImageMapEditor::saveLastURL(KConfig* config) {
-  config->writePathEntry("lastopenurl",url().path());
-  config->writeEntry("lastactivemap",mapName());
-  config->writePathEntry("lastactiveimage",_imageUrl.path());
+void KImageMapEditor::saveLastURL(KConfigGroup & config) {
+  config.writePathEntry("lastopenurl",url().path());
+  config.writeEntry("lastactivemap",mapName());
+  config.writePathEntry("lastactiveimage",_imageUrl.path());
 //  kDebug() << "writing entry lastopenurl : " << url().path() << endl;
 //  kDebug() << "writing entry lastactivemap : " << mapName() << endl;
 //  kDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
-  //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config->group()).arg(url().path()));
+  //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config.group()).arg(url().path()));
 }
 
 void KImageMapEditor::setupActions()

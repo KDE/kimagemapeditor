@@ -48,8 +48,8 @@ protected:
   void writeConfig(KConfigGroup&);
 
 //  virtual bool queryClose();
-  virtual void readProperties(KConfig *config);
-  virtual void saveProperties(KConfig *config);
+  virtual void readProperties(const KConfigGroup &config);
+  virtual void saveProperties(KConfigGroup &config);
 
   virtual bool queryClose();
   virtual bool queryExit();

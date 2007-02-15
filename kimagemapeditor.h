@@ -188,8 +188,8 @@ public :
     void readConfig();
     void writeConfig();
 
-    virtual void readProperties(KConfig *);
-    virtual void saveProperties(KConfig *);
+    virtual void readProperties(const KConfigGroup &);
+    virtual void saveProperties(KConfigGroup &);
     virtual bool closeUrl();
     bool queryClose();
     virtual void setReadWrite(bool);
@@ -211,7 +211,7 @@ public :
      * Opens the last URL the user worked with.
      * Sets also, the last map and the last image
      */
-    void openLastURL(KConfig*);
+    void openLastURL(const KConfigGroup &);
 
     void readConfig(const KConfigGroup &);
     void writeConfig(KConfigGroup &);

@@ -369,12 +369,12 @@ void KImageMapEditor::writeConfig() {
 }
 
 
-void KImageMapEditor::saveProperties(KConfig *config)
+void KImageMapEditor::saveProperties(KConfigGroup &config)
 {
   saveLastURL(config);
 }
 
-void KImageMapEditor::readProperties(KConfig * config)
+void KImageMapEditor::readProperties(const KConfigGroup& config)
 {
   openLastURL(config);
 }
@@ -400,16 +400,16 @@ void KImageMapEditor::slotConfigChanged()
   drawZone->repaint();
 }
 
-void KImageMapEditor::openLastURL(KConfig* config) {
-  KUrl lastURL ( config->readPathEntry("lastopenurl") );
-  QString lastMap = config->readEntry("lastactivemap");
-  QString lastImage = config->readPathEntry("lastactiveimage");
+void KImageMapEditor::openLastURL(const KConfigGroup & config) {
+  KUrl lastURL ( config.readPathEntry("lastopenurl") );
+  QString lastMap = config.readEntry("lastactivemap");
+  QString lastImage = config.readPathEntry("lastactiveimage");
 
 
-//  kDebug() << "loading from group : " << config->group() << endl;
+//  kDebug() << "loading from group : " << config.group() << endl;
 
 //  kDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
-//  KMessageBox::information(0L, config->group()+" "+lastURL.path());
+//  KMessageBox::information(0L, config.group()+" "+lastURL.path());
   if (!lastURL.isEmpty()) {
 //    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
     if ( openHTMLFile(lastURL, lastMap, lastImage) )

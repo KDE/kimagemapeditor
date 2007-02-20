@@ -138,12 +138,12 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 
 
   connect( areaListView->listView, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
-  connect( areaListView->listView, 
-           SIGNAL(doubleClicked(QTreeWidgetItem*)), 
-           this, 
+  connect( areaListView->listView,
+           SIGNAL(doubleClicked(QTreeWidgetItem*)),
+           this,
            SLOT(showTagEditor(QTreeWidgetItem*)));
   connect( areaListView->listView,
-           SIGNAL(customContextMenuRequested(const QPoint&)), 
+           SIGNAL(customContextMenuRequested(const QPoint&)),
            this,
            SLOT(slotShowPopupMenu(const QPoint &)));
 
@@ -154,15 +154,15 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
            this, SLOT( setMapName(const QString &)));
 
   connect( mapsListView->listView(),
-           SIGNAL(customContextMenuRequested(const QPoint &)), 
+           SIGNAL(customContextMenuRequested(const QPoint &)),
            this,
            SLOT(slotShowMapPopupMenu(const QPoint &)));
 
   connect( imagesListView, SIGNAL( imageSelected(const KUrl &)),
            this, SLOT( setPicture(const KUrl &)));
 
-  connect( imagesListView, 
-           SIGNAL(customContextMenuRequested(const QPoint &)), 
+  connect( imagesListView,
+           SIGNAL(customContextMenuRequested(const QPoint &)),
            this,
            SLOT(slotShowImagePopupMenu(const QPoint &)));
 
@@ -341,37 +341,40 @@ KConfig *KImageMapEditor::config()
     return tmp.data();
 }
 
-void KImageMapEditor::readConfig(KConfig* config) {
-  recentFilesAction->loadEntries(config,"Data");
+void KImageMapEditor::readConfig(const KConfigGroup &config) {
+  KConfigGroup data = config;
+  data.changeGroup( "Data" );
+  recentFilesAction->loadEntries( data );
 }
 
-void KImageMapEditor::writeConfig(KConfig* config) {
-  config->writeEntry("highlightareas",highlightAreasAction->isChecked());
-  config->writeEntry("showalt",showAltAction->isChecked());
-	recentFilesAction->saveEntries(config,"Data");
+void KImageMapEditor::writeConfig(KConfigGroup& config) {
+  config.writeEntry("highlightareas",highlightAreasAction->isChecked());
+  config.writeEntry("showalt",showAltAction->isChecked());
+  KConfigGroup data = config;
+  data.changeGroup( "Data" );
+  recentFilesAction->saveEntries( data );
   saveLastURL(config);
 
 }
 
 void KImageMapEditor::readConfig() {
-  config()->setGroup("General Options");
-  readConfig(config());
+  readConfig(config()->group("General Options" ) );
   slotConfigChanged();
 }
 
 void KImageMapEditor::writeConfig() {
-  config()->setGroup("General Options");
-  writeConfig(config());
+  KConfigGroup cg( config(), "General Options");
+  writeConfig( cg );
   config()->sync();
 }
 
 
-void KImageMapEditor::saveProperties(KConfig *config)
+void KImageMapEditor::saveProperties(KConfigGroup &config)
 {
   saveLastURL(config);
 }
 
-void KImageMapEditor::readProperties(KConfig * config)
+void KImageMapEditor::readProperties(const KConfigGroup& config)
 {
   openLastURL(config);
 }
@@ -397,16 +400,16 @@ void KImageMapEditor::slotConfigChanged()
   drawZone->repaint();
 }
 
-void KImageMapEditor::openLastURL(KConfig* config) {
-  KUrl lastURL ( config->readPathEntry("lastopenurl") );
-  QString lastMap = config->readEntry("lastactivemap");
-  QString lastImage = config->readPathEntry("lastactiveimage");
+void KImageMapEditor::openLastURL(const KConfigGroup & config) {
+  KUrl lastURL ( config.readPathEntry("lastopenurl") );
+  QString lastMap = config.readEntry("lastactivemap");
+  QString lastImage = config.readPathEntry("lastactiveimage");
 
 
-//  kDebug() << "loading from group : " << config->group() << endl;
+//  kDebug() << "loading from group : " << config.group() << endl;
 
 //  kDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
-//  KMessageBox::information(0L, config->group()+" "+lastURL.path());
+//  KMessageBox::information(0L, config.group()+" "+lastURL.path());
   if (!lastURL.isEmpty()) {
 //    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
     if ( openHTMLFile(lastURL, lastMap, lastImage) )
@@ -416,23 +419,23 @@ void KImageMapEditor::openLastURL(KConfig* config) {
   }
 }
 
-void KImageMapEditor::saveLastURL(KConfig* config) {
-  config->writePathEntry("lastopenurl",url().path());
-  config->writeEntry("lastactivemap",mapName());
-  config->writePathEntry("lastactiveimage",_imageUrl.path());
+void KImageMapEditor::saveLastURL(KConfigGroup & config) {
+  config.writePathEntry("lastopenurl",url().path());
+  config.writeEntry("lastactivemap",mapName());
+  config.writePathEntry("lastactiveimage",_imageUrl.path());
 //  kDebug() << "writing entry lastopenurl : " << url().path() << endl;
 //  kDebug() << "writing entry lastactivemap : " << mapName() << endl;
 //  kDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
-  //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config->group()).arg(url().path()));
+  //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config.group()).arg(url().path()));
 }
 
 void KImageMapEditor::setupActions()
 {
 	// File Open
-  QAction *temp = 
-    KStandardAction::open(this, SLOT(fileOpen()), 
+  QAction *temp =
+    KStandardAction::open(this, SLOT(fileOpen()),
 			  actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap("openimage", 
+  Q3MimeSourceFactory::defaultFactory()->setPixmap("openimage",
 						   SmallIcon("fileopen") );
   temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
   temp->setToolTip(i18n("Open new picture or HTML file"));
@@ -479,7 +482,7 @@ void KImageMapEditor::setupActions()
 
 
   // Edit Delete
-  deleteAction = new KAction(KIcon("editdelete"), 
+  deleteAction = new KAction(KIcon("editdelete"),
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
@@ -526,7 +529,7 @@ void KImageMapEditor::setupActions()
   highlightAreasAction = actionCollection()->add<KToggleAction>("view_highlightareas");
   highlightAreasAction->setText(i18n("Highlight Areas"));
 
-  connect(highlightAreasAction, SIGNAL(toggled(bool)), 
+  connect(highlightAreasAction, SIGNAL(toggled(bool)),
 	  this, SLOT(slotHighlightAreas(bool)));
 
   showAltAction =   actionCollection()->add<KToggleAction>("view_showalt");
@@ -660,7 +663,7 @@ void KImageMapEditor::setupActions()
 
   moveLeftAction  = new KAction(i18n("Move Left"), this);
   actionCollection()->addAction("moveleft", moveLeftAction );
-  connect(moveLeftAction, SIGNAL(triggered(bool)), 
+  connect(moveLeftAction, SIGNAL(triggered(bool)),
          SLOT( slotMoveLeft() ));
   moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
 
@@ -728,7 +731,7 @@ void KImageMapEditor::setupActions()
 
     QAction* a =  areaDock->toggleViewAction();
     a->setText(i18n("Show Area List"));
-    actionCollection()->addAction("configure_show_arealist", 
+    actionCollection()->addAction("configure_show_arealist",
 				  a);
 
     a = mapsDock->toggleViewAction();
@@ -737,7 +740,7 @@ void KImageMapEditor::setupActions()
 
     a = imagesDock->toggleViewAction();
     a->setText(i18n("Show Image List"));
-    actionCollection()->addAction("configure_show_imagelist", a );   
+    actionCollection()->addAction("configure_show_imagelist", a );
   }
 
   updateActionAccess();
@@ -782,7 +785,7 @@ void KImageMapEditor::slotShowMapPopupMenu(const QPoint & pos)
 {
   kDebug() << "slotShowMapPopupMenu" << endl;
   QTreeWidgetItem* item = mapsListView->listView()->itemAt(pos);
-  
+
   if (isReadWrite()) {
     mapDeleteAction->setEnabled(item);
     mapNameAction->setEnabled(item);
@@ -991,7 +994,7 @@ void KImageMapEditor::addArea(Area* area) {
   {
     AreaListIterator it = selection->getAreaListIterator();
     while (it.hasNext()) {
-      Area* a = it.next();    
+      Area* a = it.next();
       areas->prepend(a);
       a->setListViewItem(new QTreeWidgetItem(
           areaListView->listView,
@@ -1373,7 +1376,7 @@ int KImageMapEditor::showTagEditor(Area *a) {
 }
 
 int KImageMapEditor::showTagEditor(QTreeWidgetItem *item) {
-  if (!item) 
+  if (!item)
     return 0;
 
   Area* a;
@@ -2163,7 +2166,7 @@ void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
       default : continue;
     }
 
-    QHash<QString,QString> dict; 
+    QHash<QString,QString> dict;
     dict.insert("shape",shapeStr);
 
     AttributeIterator it = a->attributeIterator();
@@ -2217,7 +2220,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
 //    kDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name << endl;
     _mapName = map->name;
     AreaTag tag;
-    
+
     QLinkedListIterator<AreaTag> it(*map);
     while (it.hasNext()) {
         tag = it.next();
@@ -2300,7 +2303,7 @@ QString KImageMapEditor::getHtmlCode() {
 }
 
 
-/** 
+/**
  create a relative short url based in baseURL
 
  taken from qextfileinfo.cpp:
@@ -2728,13 +2731,13 @@ bool KImageMapEditor::queryClose() {
   if ( ! isModified() )
      return true;
 
-  switch ( KMessageBox::warningYesNoCancel( 
+  switch ( KMessageBox::warningYesNoCancel(
               widget(),
-	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>", 
-	      url().fileName()), 
-	      QString::null, 
-	      KStandardGuiItem::save(), 
-	      KStandardGuiItem::discard()) ) 
+	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>",
+	      url().fileName()),
+	      QString::null,
+	      KStandardGuiItem::save(),
+	      KStandardGuiItem::discard()) )
     {
     case KMessageBox::Yes :
       saveFile();
@@ -2859,7 +2862,7 @@ void KImageMapEditor::imageUsemap() {
     index = 0;
   }
 
-  QString input = 
+  QString input =
     KInputDialog::getItem(i18n("Enter Usemap"),
 			  i18n("Enter the usemap value:"),
 			  maps,index,true,&ok,widget());

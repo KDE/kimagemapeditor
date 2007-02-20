@@ -132,12 +132,12 @@ class KAboutData;
 class KImageMapEditor : public KParts::ReadWritePart {
     Q_OBJECT
 public :
-    enum ToolType { Selection, 
-		    Rectangle, 
-		    Circle, 
-		    Polygon, 
-		    Freehand, 
-		    AddPoint, 
+    enum ToolType { Selection,
+		    Rectangle,
+		    Circle,
+		    Polygon,
+		    Freehand,
+		    AddPoint,
 		    RemovePoint };
 
     KImageMapEditor(QWidget *parentWidget,
@@ -188,8 +188,8 @@ public :
     void readConfig();
     void writeConfig();
 
-    virtual void readProperties(KConfig *);
-    virtual void saveProperties(KConfig *);
+    virtual void readProperties(const KConfigGroup &);
+    virtual void saveProperties(KConfigGroup &);
     virtual bool closeUrl();
     bool queryClose();
     virtual void setReadWrite(bool);
@@ -211,15 +211,15 @@ public :
      * Opens the last URL the user worked with.
      * Sets also, the last map and the last image
      */
-    void openLastURL(KConfig*);
+    void openLastURL(const KConfigGroup &);
 
-    void readConfig(KConfig*);
-    void writeConfig(KConfig*);
+    void readConfig(const KConfigGroup &);
+    void writeConfig(KConfigGroup &);
 
 
 protected:
     void init();
-    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null, 
+    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null,
 		      const QString & imagePath = QString::null);
     void saveImageMap(const KUrl &);
 
@@ -233,7 +233,7 @@ protected:
     /**
      * Saves information to restore the last working state
      */
-    void saveLastURL(KConfig*);
+    void saveLastURL(KConfigGroup&);
 
 
 private:

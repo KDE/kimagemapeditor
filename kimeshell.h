@@ -29,12 +29,12 @@ class KimeShell : public KParts::MainWindow
 public:
   KimeShell( const char *name=0 );
   virtual ~KimeShell();
-	
+
   void setStdout(bool b);
   void openFile(const KUrl & url);
-  
+
   /**
-   * Opens the last open file, if the 
+   * Opens the last open file, if the
    * user has configured to open the last
    * file. Otherwise does nothing
    */
@@ -44,18 +44,18 @@ public:
 
 protected:
   void setupActions();
-  void readConfig(KConfig*);
-  void writeConfig(KConfig*);
-  
+  void readConfig(const KConfigGroup&);
+  void writeConfig(KConfigGroup&);
+
 //  virtual bool queryClose();
-  virtual void readProperties(KConfig *config);
-  virtual void saveProperties(KConfig *config);
+  virtual void readProperties(const KConfigGroup &config);
+  virtual void saveProperties(KConfigGroup &config);
 
   virtual bool queryClose();
   virtual bool queryExit();
 
-  
-private slots:    
+
+private slots:
   void fileNew();
   void fileOpen();
   void optionsShowToolbar();
@@ -68,7 +68,7 @@ private:
   KImageMapEditor *m_part;
 
 	bool _stdout; // write HTML-Code to stdout on exit ?
-  
+
 
 
 };

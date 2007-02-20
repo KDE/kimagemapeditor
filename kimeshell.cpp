@@ -108,7 +108,9 @@ bool KimeShell::queryClose()
 bool KimeShell::queryExit()
 {
 //  writeConfig();
-  saveProperties(KGlobal::config().data());
+#warning what group is correct here? A random one?
+  KConfigGroup cg( KGlobal::config(), QString() );
+  saveProperties( cg );
 
   return true;
 }
@@ -156,8 +158,10 @@ void KimeShell::openFile(const KUrl & url)
 
 void KimeShell::openLastFile()
 {
-  if (m_part->config()->readEntry("start-with-last-used-document",true))
-     m_part->openLastURL(m_part->config());
+#warning there is no group defined
+    KConfigGroup cg( m_part->config(), QString() );
+    if (cg.readEntry("start-with-last-used-document",true))
+        m_part->openLastURL( cg );
 }
 
 void KimeShell::fileOpen()
@@ -193,34 +197,30 @@ void KimeShell::fileOpen()
 
 void KimeShell::readConfig() {
   KSharedConfigPtr config = KGlobal::config();
-
-  config->setGroup("General Options");
-  readConfig(config.data());
+  readConfig(config->group("General Options") );
 }
 
-void KimeShell::readConfig(KConfig*) {
+void KimeShell::readConfig(const KConfigGroup &) {
 //	applyMainWindowSettings(config);
 //	restoreWindowSize(config);
 //  readDockConfig(config);
 }
 
 void KimeShell::writeConfig() {
-  KSharedConfigPtr config = KGlobal::config();
-
-  config->setGroup("General Options");
-  writeConfig(config.data());
+  KConfigGroup config( KGlobal::config(), "General Options");
+  writeConfig( config );
 }
 
-void KimeShell::writeConfig(KConfig* config) {
+void KimeShell::writeConfig(KConfigGroup &config) {
 	saveMainWindowSettings(config);
 	saveWindowSize(config);
 	//  writeDockConfig(config);
-  config->sync();
+  config.sync();
 
 }
 
 
-void KimeShell::saveProperties(KConfig *config)
+void KimeShell::saveProperties(KConfigGroup &config)
 {
   //writeConfig(config);
   m_part->saveProperties(config);
@@ -228,7 +228,7 @@ void KimeShell::saveProperties(KConfig *config)
 
 }
 
-void KimeShell::readProperties(KConfig *config)
+void KimeShell::readProperties(const KConfigGroup &config)
 {
   readConfig();
   m_part->readProperties(config);
@@ -248,7 +248,7 @@ void KimeShell::optionsConfigureKeys() {
 
 void KimeShell::optionsConfigureToolbars()
 {
-    saveMainWindowSettings(KGlobal::config().data(), autoSaveGroup());
+    saveMainWindowSettings(KGlobal::config()->group( autoSaveGroup()) );
 
     // use the standard toolbar editor
     KEditToolbar dlg(factory());
@@ -259,7 +259,7 @@ void KimeShell::optionsConfigureToolbars()
 
 void KimeShell::applyNewToolbarConfig()
 {
-    applyMainWindowSettings(KGlobal::config().data(), autoSaveGroup());
+    applyMainWindowSettings(KGlobal::config()->group( autoSaveGroup()) );
 }
 
 

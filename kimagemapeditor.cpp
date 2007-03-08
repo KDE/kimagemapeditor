@@ -436,7 +436,7 @@ void KImageMapEditor::setupActions()
     KStandardAction::open(this, SLOT(fileOpen()),
 			  actionCollection());
   Q3MimeSourceFactory::defaultFactory()->setPixmap("openimage",
-						   SmallIcon("fileopen") );
+						   SmallIcon("document-open") );
   temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
   temp->setToolTip(i18n("Open new picture or HTML file"));
 
@@ -445,7 +445,7 @@ void KImageMapEditor::setupActions()
                                       actionCollection());
 	// File Save
   temp =KStandardAction::save(this, SLOT(fileSave()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "saveimage", SmallIcon("filesave") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "saveimage", SmallIcon("document-save") );
 	temp->setWhatsThis(i18n("<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."));
 	temp->setToolTip(i18n("Save HTML file"));
 
@@ -455,39 +455,39 @@ void KImageMapEditor::setupActions()
 
 	// File Close
   temp=KStandardAction::close(this, SLOT(fileClose()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "closeimage", SmallIcon("fileclose") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "closeimage", SmallIcon("window-close") );
 	temp->setWhatsThis(i18n("<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."));
 	temp->setToolTip(i18n("Close HTML file"));
 
   // Edit Copy
   copyAction=KStandardAction::copy(this, SLOT(slotCopy()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcopyimage", SmallIcon("editcopy") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcopyimage", SmallIcon("edit-copy") );
   copyAction->setWhatsThis(i18n("<h3>Copy</h3>"
                           "Click this to <em>copy</em> the selected area."));
   copyAction->setEnabled(false);
 
   // Edit Cut
   cutAction=KStandardAction::cut(this, SLOT(slotCut()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcutimage", SmallIcon("editcut") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcutimage", SmallIcon("edit-cut") );
   cutAction->setWhatsThis(i18n("<h3>Cut</h3>"
                           "Click this to <em>cut</em> the selected area."));
   cutAction->setEnabled(false);
 
   // Edit Paste
   pasteAction=KStandardAction::paste(this, SLOT(slotPaste()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editpasteimage", SmallIcon("editpaste") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editpasteimage", SmallIcon("edit-paste") );
   pasteAction->setWhatsThis(i18n("<h3>Paste</h3>"
                           "Click this to <em>paste</em> the copied area."));
   pasteAction->setEnabled(false);
 
 
   // Edit Delete
-  deleteAction = new KAction(KIcon("editdelete"),
+  deleteAction = new KAction(KIcon("edit-delete"),
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
   deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("editdelete") );
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("edit-delete") );
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
   deleteAction->setEnabled(false);
@@ -2685,7 +2685,7 @@ void KImageMapEditor::mapDelete()
   int result = KMessageBox::warningContinueCancel(widget(),
     i18n("<qt>Are you sure you want to delete the map <i>%1</i>?"
          " <br><b>There is no way to undo this.</b></qt>", selectedMap),
-    i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"editdelete"));
+    i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"edit-delete"));
 
   if (result == KMessageBox::No)
      return;

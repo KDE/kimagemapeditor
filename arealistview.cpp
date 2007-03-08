@@ -54,10 +54,10 @@ AreaListView::AreaListView(QWidget *parent)
 
   KHBox *hbox= new KHBox(this);
   upBtn= new QPushButton("",hbox);
-  upBtn->setIcon(SmallIcon("up"));
+  upBtn->setIcon(SmallIcon("go-up"));
 
   downBtn= new QPushButton("",hbox);
-  downBtn->setIcon(SmallIcon("down"));
+  downBtn->setIcon(SmallIcon("go-down"));
 
 }
 

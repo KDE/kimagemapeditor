@@ -332,7 +332,7 @@ QWidget* AreaDialog::createGeneralPage()
   KHBox *hbox= new KHBox(page);
   hrefEdit = new QLineEdit(area->attribute("href"),hbox);
   QPushButton *btn = new QPushButton("",hbox);
-  btn->setIcon(SmallIcon("fileopen"));
+  btn->setIcon(SmallIcon("document-open"));
   connect( btn, SIGNAL(pressed()), this, SLOT(slotChooseHref()));
   hbox->setMinimumHeight(hbox->height());
 

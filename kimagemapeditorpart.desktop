@@ -6,6 +6,7 @@ Icon=kimagemapeditor
 ServiceTypes=KParts/ReadWritePart
 X-KDE-Library=libkimagemapeditor
 Comment=An HTML imagemap editor
+Comment[bg]=Редактор на маркирания на изображения за HTML
 Comment[ca]=Un editor de mapes d'imatge HTML
 Comment[cs]=Editor HTML map
 Comment[da]=En HTML-editor af kortbilleder

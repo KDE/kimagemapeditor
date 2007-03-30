@@ -241,8 +241,8 @@ void KimeShell::optionsConfigureKeys() {
 //  KKeyDialog::configureKeys(actionCollection(), "testprog_shell.rc");
 
   KKeyDialog dlg;
-  dlg.insert(actionCollection());
-  dlg.insert(m_part->actionCollection());
+  dlg.addCollection(actionCollection());
+  dlg.addCollection(m_part->actionCollection());
   dlg.configure();
 }
 

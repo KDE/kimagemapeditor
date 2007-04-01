@@ -25,7 +25,7 @@
 #include <kstandarddirs.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
-#include <kkeydialog.h>
+#include <kshortcutsdialog.h>
 #include <kedittoolbar.h>
 #include <kstatusbar.h>
 #include <kapplication.h>
@@ -238,9 +238,9 @@ void KimeShell::readProperties(const KConfigGroup &config)
 
 
 void KimeShell::optionsConfigureKeys() {
-//  KKeyDialog::configureKeys(actionCollection(), "testprog_shell.rc");
+//  KShortcutsDialog::configureKeys(actionCollection(), "testprog_shell.rc");
 
-  KKeyDialog dlg;
+  KShortcutsDialog dlg;
   dlg.addCollection(actionCollection());
   dlg.addCollection(m_part->actionCollection());
   dlg.configure();

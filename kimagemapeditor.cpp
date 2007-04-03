@@ -228,7 +228,7 @@ void KImageMapEditor::init()
 {
   _htmlContent.clear();
   _imageUrl.clear();
-  m_url.clear();
+  closeUrl();
   HtmlElement* el = new HtmlElement("<html>\n");
   _htmlContent.append(el);
   el = new HtmlElement("<head>\n");
@@ -412,9 +412,9 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
   if (!lastURL.isEmpty()) {
 //    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
     if ( openHTMLFile(lastURL, lastMap, lastImage) )
-        m_url = lastURL;
+        openUrl(lastURL);
     else
-      m_url.clear();
+      closeUrl();
   }
 }
 

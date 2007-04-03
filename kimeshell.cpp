@@ -251,7 +251,7 @@ void KimeShell::optionsConfigureToolbars()
     saveMainWindowSettings(KGlobal::config()->group( autoSaveGroup()) );
 
     // use the standard toolbar editor
-    KEditToolbar dlg(factory());
+    KEditToolBar dlg(factory());
     connect(&dlg, SIGNAL(newToolbarConfig()),
             this, SLOT(applyNewToolbarConfig()));
     dlg.exec();

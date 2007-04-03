@@ -23,7 +23,7 @@
 #include "drawzone.h"
 
 CutCommand::CutCommand(KImageMapEditor * document, const AreaSelection & a)
-  : KNamedCommand(i18n( "Cut %1", a.typeString() ))
+  : K3NamedCommand(i18n( "Cut %1", a.typeString() ))
 {
 	_document=document;
 	_cutAreaSelection=new AreaSelection();
@@ -71,7 +71,7 @@ DeleteCommand::DeleteCommand(KImageMapEditor * document, const AreaSelection & a
 }
 
 PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
-	: KNamedCommand(i18n( "Paste %1", a.typeString() ))
+	: K3NamedCommand(i18n( "Paste %1", a.typeString() ))
 {
 	_document=document;
 	_pasteAreaSelection=new AreaSelection();
@@ -110,7 +110,7 @@ void PasteCommand::unexecute()
 
 
 MoveCommand::MoveCommand (KImageMapEditor *document, AreaSelection * a, const QPoint & oldPoint)
-	: KNamedCommand(i18n( "Move %1", a->typeString() ))
+	: K3NamedCommand(i18n( "Move %1", a->typeString() ))
 {
 	_document=document;
 	_areaSelection=new AreaSelection();
@@ -166,7 +166,7 @@ void MoveCommand::unexecute()
 
 
 ResizeCommand::ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea)
-	:KNamedCommand(i18n( "Resize %1", a->typeString() ))
+	:K3NamedCommand(i18n( "Resize %1", a->typeString() ))
 {
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
@@ -207,7 +207,7 @@ void ResizeCommand::unexecute()
 
 
 AddPointCommand::AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p)
-	:KNamedCommand(i18n( "Add point to %1", a->typeString() ))
+	:K3NamedCommand(i18n( "Add point to %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -251,7 +251,7 @@ void AddPointCommand::unexecute()
 
 RemovePointCommand::RemovePointCommand(KImageMapEditor *document, 
        AreaSelection *a, Area *oldArea)
-  : KNamedCommand(i18n( "Remove point from %1", a->typeString() ))
+  : K3NamedCommand(i18n( "Remove point from %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -298,7 +298,7 @@ void RemovePointCommand::unexecute()
 
 
 CreateCommand::CreateCommand (KImageMapEditor *document, Area *area)
-	: KNamedCommand(i18n( "Create %1", area->typeString() ))
+	: K3NamedCommand(i18n( "Create %1", area->typeString() ))
 {
 	_document=document;
 	_area=area;

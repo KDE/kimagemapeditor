@@ -19,7 +19,7 @@
 #define KIMECOMMANDS_H
 
 
-#include <kcommand.h>
+#include <k3command.h>
 
 #include <kdeversion.h>
 
@@ -28,7 +28,7 @@ class AreaSelection;
 
 
 
-class CutCommand : public KNamedCommand
+class CutCommand : public K3NamedCommand
 
 {
 	public:
@@ -54,7 +54,7 @@ class DeleteCommand : public CutCommand
  	 DeleteCommand (KImageMapEditor * document, const AreaSelection & selection);
 };
 
-class PasteCommand : public KNamedCommand
+class PasteCommand : public K3NamedCommand
 {
 	public:
   	PasteCommand (KImageMapEditor * document, const AreaSelection & selection);
@@ -71,7 +71,7 @@ class PasteCommand : public KNamedCommand
 
 };
 
-class MoveCommand : public KNamedCommand
+class MoveCommand : public K3NamedCommand
 {
 	public:
   	MoveCommand (KImageMapEditor *document, AreaSelection *a,const QPoint & oldPoint);
@@ -89,7 +89,7 @@ class MoveCommand : public KNamedCommand
 //-		Area *_oldArea;
 };
 
-class ResizeCommand : public KNamedCommand
+class ResizeCommand : public K3NamedCommand
 {
 	public:
   	ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
@@ -106,7 +106,7 @@ class ResizeCommand : public KNamedCommand
 		Area *_newArea;
 };
 
-class AddPointCommand : public KNamedCommand
+class AddPointCommand : public K3NamedCommand
 {
 	public:
   	AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p);
@@ -123,7 +123,7 @@ class AddPointCommand : public KNamedCommand
     int _coordpos;
 };
 
-class RemovePointCommand : public KNamedCommand
+class RemovePointCommand : public K3NamedCommand
 {
 	public:
   	RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
@@ -141,7 +141,7 @@ class RemovePointCommand : public KNamedCommand
 };
 
 
-class CreateCommand : public KNamedCommand
+class CreateCommand : public K3NamedCommand
 {
 	public:
   	CreateCommand (KImageMapEditor *document, Area *area);

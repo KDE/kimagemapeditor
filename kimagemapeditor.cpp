@@ -41,7 +41,7 @@
 #include <QLinkedList>
 
 // KDE
-#include <kcommand.h>
+#include <k3command.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kaction.h>
@@ -492,7 +492,7 @@ void KImageMapEditor::setupActions()
   deleteAction->setEnabled(false);
 
   // Edit Undo/Redo
-  _commandHistory = new KCommandHistory( actionCollection(), true);
+  _commandHistory = new K3CommandHistory( actionCollection(), true);
 
   // Edit Properties
     areaPropertiesAction  = new KAction(i18n("Pr&operties"), this);
@@ -2420,7 +2420,7 @@ void KImageMapEditor::slotCut()
 
   copyArea= static_cast< AreaSelection* > (currentSelected->clone());
   pasteAction->setEnabled(true);
-  KCommand *command= new CutCommand(this,*currentSelected);
+  K3Command *command= new CutCommand(this,*currentSelected);
   commandHistory()->addCommand( command ,true);
 }
 
@@ -2430,7 +2430,7 @@ void KImageMapEditor::slotDelete()
   if ( 0 == currentSelected->count() )
     return;
 
-  KCommand *command= new DeleteCommand(this,*currentSelected);
+  K3Command *command= new DeleteCommand(this,*currentSelected);
   commandHistory()->addCommand( command ,true);
 }
 

@@ -24,15 +24,13 @@
 #include <qlayout.h>
 #include <QListWidget>
 #include <qpushbutton.h>
-#include <q3vbox.h>
 #include <qpixmap.h>
 #include <qcombobox.h>
 #include <qsplitter.h>
 #include <qfileinfo.h>
 #include <q3multilineedit.h>
 #include <qtextstream.h>
-#include <q3popupmenu.h>
-#include <q3whatsthis.h>
+#include <QMenu>
 #include <qtooltip.h>
 #include <qpainter.h>
 #include <qtabwidget.h>
@@ -380,14 +378,14 @@ void KImageMapEditor::readProperties(const KConfigGroup& config)
 
 void KImageMapEditor::slotConfigChanged()
 {
-  config()->setGroup("Appearance");
-  int newHeight=config()->readEntry("maximum-preview-height",50);
-  config()->setGroup("General Options");
-  _commandHistory->setUndoLimit(config()->readEntry("undo-level",100));
-  _commandHistory->setRedoLimit(config()->readEntry("redo-level",100));
-  Area::highlightArea = config()->readEntry("highlightareas",true);
+  KConfigGroup group = config()->group("Appearance");
+  int newHeight=group.readEntry("maximum-preview-height",50);
+  group = config()->group("General Options");
+  _commandHistory->setUndoLimit(group.readEntry("undo-level",100));
+  _commandHistory->setRedoLimit(group.readEntry("redo-level",100));
+  Area::highlightArea = group.readEntry("highlightareas",true);
   highlightAreasAction->setChecked(Area::highlightArea);
-  Area::showAlt = config()->readEntry("showalt",true);
+  Area::showAlt = group.readEntry("showalt",true);
   showAltAction->setChecked(Area::showAlt);
 
   // if the image preview size changed update all images

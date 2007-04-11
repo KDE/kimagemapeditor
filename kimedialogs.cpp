@@ -841,13 +841,13 @@ void PreferencesDialog::slotOk( void ) {
 }
 
 void PreferencesDialog::slotApply( void ) {
-  config->setGroup("Appearance");
-  config->writeEntry("maximum-preview-height",rowHeightSpinBox->cleanText().toInt());
+  KConfigGroup group = config->group("Appearance");
+  group.writeEntry("maximum-preview-height",rowHeightSpinBox->cleanText().toInt());
 
-  config->setGroup("General Options");
-  config->writeEntry("undo-level",undoSpinBox->cleanText().toInt());
-  config->writeEntry("redo-level",redoSpinBox->cleanText().toInt());
-  config->writeEntry("start-with-last-used-document", startWithCheck->isChecked());
+  group = config->group("General Options");
+  group.writeEntry("undo-level",undoSpinBox->cleanText().toInt());
+  group.writeEntry("redo-level",redoSpinBox->cleanText().toInt());
+  group.writeEntry("start-with-last-used-document", startWithCheck->isChecked());
 
   config->sync();
   emit applyClicked();

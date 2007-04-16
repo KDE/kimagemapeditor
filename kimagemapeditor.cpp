@@ -59,7 +59,7 @@
 #include <kinputdialog.h>
 #include <ktoggleaction.h>
 #include <krecentfilesaction.h>
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
@@ -87,7 +87,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 
 //  KDockMainWindow* mainWidget;
 
-  mainWindow = dynamic_cast<KMainWindow*>(parent) ;
+  mainWindow = dynamic_cast<KXmlGuiWindow*>(parent) ;
   QSplitter * splitter = 0L;
   tabWidget = 0L;
 

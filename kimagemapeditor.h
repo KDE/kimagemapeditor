@@ -48,7 +48,7 @@ class DrawZone;
 class QComboBox;
 class QTreeWidgetItem;
 class KToggleAction;
-class KMainWindow;
+class KXmlGuiWindow;
 
 
 
@@ -315,7 +315,7 @@ private:
 
   	KRecentFilesAction* recentFilesAction;
 
-    KMainWindow *mainWindow;
+    KXmlGuiWindow *mainWindow;
     QDockWidget* areaDock;
     QDockWidget* mapsDock;
     QDockWidget* imagesDock;

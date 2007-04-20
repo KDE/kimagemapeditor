@@ -21,7 +21,7 @@
 #include <kapplication.h>
 
 #include "kimeshell.h"
-#include <config.h>
+#include "version.h"
 
 static const char *description =
   I18N_NOOP("An HTML imagemap editor");
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 {
 
   KAboutData aboutData( "kimagemapeditor", I18N_NOOP("KImageMapEditor"),
-    VERSION, description, KAboutData::License_GPL,
+    KIMAGEMAPEDITOR_VERSION, description, KAboutData::License_GPL,
     "(c) 2001-2007 Jan Schaefer", 0, "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
   aboutData.addAuthor("Jan Schaefer",0, "janschaefer@users.sourceforge.net");
   aboutData.addCredit("Joerg Jaspert",I18N_NOOP("For helping me with the Makefiles, and creating the Debian package"));

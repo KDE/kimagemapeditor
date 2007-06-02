@@ -68,7 +68,7 @@ class CircleCoordsEdit : public CoordsEdit {
 		QSpinBox *radiusSpin;
 };
 
-class Q3Table;
+class QTableWidget;
 
 class PolyCoordsEdit : public CoordsEdit {
 Q_OBJECT	
@@ -77,12 +77,13 @@ Q_OBJECT
 		~PolyCoordsEdit();
 		virtual void applyChanges();
 	private:
-		Q3Table *coordsTable;
+		QTableWidget *coordsTable;
+		void updatePoints();
 	protected slots:
   	void slotAddPoint();
   	void slotRemovePoint();
   	void slotHighlightPoint(int);
-
+	
 };
 
 class SelectionCoordsEdit : public CoordsEdit {
@@ -151,7 +152,7 @@ class QLabel;
 class ImageMapChooseDialog : public KDialog {
 Q_OBJECT
 	private:
-		Q3Table *imageListTable;
+		QTableWidget *imageListTable;
 		QLabel *imagePreview;		
 		QListWidget *mapListBox;	
 		QLineEdit *mapNameEdit;

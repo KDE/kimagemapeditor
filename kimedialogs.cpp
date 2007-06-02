@@ -2,7 +2,7 @@
                           kimedialogs.cpp  -  description
                             -------------------
     begin                : Tue Apr 17 2001
-    copyright            : (C) 2001 by Jan SchÃ¯Â¿Â½er
+    copyright            : (C) 2001 by Jan Schäfer
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 
@@ -22,7 +22,8 @@
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <QListWidget>
-#include <q3table.h>
+#include <QTableWidget>
+#include <QHeaderView>
 #include <q3groupbox.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
@@ -189,19 +190,12 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
 {
   if (!a) return;
   QVBoxLayout *layout= new QVBoxLayout(this);
-  int numPoints = a->coords().count();
-  coordsTable= new Q3Table(numPoints,2,this);
-  coordsTable->horizontalHeader()->setLabel(0,"X");
-  coordsTable->horizontalHeader()->setLabel(1,"Y");
+  coordsTable= new QTableWidget(0,2,this);
   coordsTable->verticalHeader()->hide();
-  coordsTable->setLeftMargin(0);
-  coordsTable->setSelectionMode( Q3Table::Single );
+  // PORT: coordsTable->setLeftMargin(0);
+  coordsTable->setSelectionMode( QTableWidget::SingleSelection );
 
-
-  for (int i=0;i<numPoints;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
-  }
+  updatePoints();
 
   connect( coordsTable, SIGNAL(currentChanged(int,int)), this, SLOT(slotHighlightPoint(int)));
 
@@ -233,46 +227,47 @@ void PolyCoordsEdit::slotHighlightPoint(int row) {
 }
 
 
-void PolyCoordsEdit::slotAddPoint() {
-  int newPos= coordsTable->currentRow();
-  QPoint currentPoint=area->coords().point(newPos);
-  area->insertCoord(newPos,currentPoint);
+void PolyCoordsEdit::updatePoints() {
+  coordsTable->clear();
 
   int count=area->coords().size();
 
-  coordsTable->setNumRows(count);
+  coordsTable->setHorizontalHeaderLabels(QStringList() << "X" << "Y");
+  coordsTable->setRowCount(count);
 
   for (int i=0;i<count;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
+    coordsTable->setItem(i,0, new QTableWidgetItem(QString::number(area->coords().point(i).x()) ));
+    coordsTable->setItem(i,1, new QTableWidgetItem(QString::number(area->coords().point(i).y()) ));
   }
 
   emit update();
+}
+
+void PolyCoordsEdit::slotAddPoint() {
+  int newPos= coordsTable->currentRow();
+  if (newPos < 0 || newPos >= area->coords().size()) 
+    newPos = area->coords().size();
+
+  QPoint currentPoint=area->coords().point(newPos);
+  area->insertCoord(newPos,currentPoint);
+  updatePoints();
+
 }
 
 void PolyCoordsEdit::slotRemovePoint() {
   int currentPos= coordsTable->currentRow();
-
+  if (currentPos < 0 || currentPos >= area->coords().size())
+    return;
   area->removeCoord(currentPos);
-
-  int count=area->coords().size();
-
-  coordsTable->setNumRows(count);
-
-  for (int i=0;i<count;i++) {
-    coordsTable->setText(i,0, QString::number(area->coords().point(i).x()) );
-    coordsTable->setText(i,1, QString::number(area->coords().point(i).y()) );
-  }
-
-  emit update();
+  updatePoints();
 }
 
 void PolyCoordsEdit::applyChanges() {
-  int count=coordsTable->numRows();
+  int count=coordsTable->rowCount();
 
   for (int i=0;i<count;i++) {
-    QPoint newPoint( coordsTable->text(i,0).toInt(),
-                    coordsTable->text(i,1).toInt());
+    QPoint newPoint( coordsTable->item(i,0)->text().toInt(),
+                    coordsTable->item(i,1)->text().toInt());
 
     area->moveCoord(i,newPoint);
   }
@@ -657,19 +652,19 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
 
 
   if (images.isEmpty()) {
-    imageListTable= new Q3Table(1,1,parent);
-    imageListTable->setText(0,0,i18n("No images found"));
+    imageListTable= new QTableWidget(1,1,parent);
+    imageListTable->item(0,0)->setText(i18n("No images found"));
     imageListTable->setEnabled(false);
     imageListTable->horizontalHeader()->hide();
-    imageListTable->setTopMargin(0);
-    imageListTable->setColumnStretchable(0,true);
+    // PORT: imageListTable->setTopMargin(0);
+    // PORT: imageListTable->setColumnStretchable(0,true);
   } else {
-    imageListTable= new Q3Table(images.count(),2,parent);
-    imageListTable->setColumnStretchable(0,true);
+    imageListTable= new QTableWidget(images.count(),2,parent);
+    // PORT: imageListTable->setColumnStretchable(0,true);
   }
 
   imageListTable->verticalHeader()->hide();
-  imageListTable->setLeftMargin(0);
+  // PORT imageListTable->setLeftMargin(0);
 
   QLabel *lbl= new QLabel(i18n("&Images"),parent);
   lbl->setBuddy(imageListTable);
@@ -680,12 +675,11 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
   if (images.isEmpty())
     return;
 
-  imageListTable->horizontalHeader()->setLabel(0,i18n("Path"));
-  imageListTable->horizontalHeader()->setLabel(1,"usemap");
+  imageListTable->setHorizontalHeaderLabels(QStringList() << i18n("Path") << "usemap");
 
-  imageListTable->setSelectionMode(Q3Table::SingleRow);
-  imageListTable->setFocusStyle(Q3Table::FollowStyle);
-  imageListTable->clearSelection(true);
+  imageListTable->setSelectionMode(QAbstractItemView::SingleSelection);
+  // PORT:  imageListTable->setFocusStyle(QTableWidget::FollowStyle);
+  imageListTable->clearSelection();
 
 
   int row=0;
@@ -699,11 +693,13 @@ void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
     if (tag->contains("usemap"))
       usemap=tag->value("usemap");
 
-    imageListTable->setText(row,0,src);
-    imageListTable->setText(row,1,usemap);
+    imageListTable->item(row,0)->setText(src);
+    imageListTable->item(row,1)->setText(usemap);
     row++;
   }
-  connect (imageListTable, SIGNAL(selectionChanged()), this, SLOT(slotImageChanged()));
+  // FIXME: CRASH here
+  connect (imageListTable, SIGNAL(selectionChanged()), 
+	   this, SLOT(slotImageChanged()));
 
   imageListTable->selectRow(0);
   slotImageChanged();
@@ -745,8 +741,8 @@ void ImageMapChooseDialog::slotImageChanged()
 }
 
 void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
-  for (int i=0; i<imageListTable->numRows(); i++) {
-    if (imageListTable->text(i,1)==usemap) {
+  for (int i=0; i<imageListTable->rowCount(); i++) {
+    if (imageListTable->item(i,1)->text()==usemap) {
       imageListTable->selectRow(i);
       slotImageChanged();
       return;

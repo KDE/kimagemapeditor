@@ -136,7 +136,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 
   connect( areaListView->listView, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
   connect( areaListView->listView,
-           SIGNAL(doubleClicked(QTreeWidgetItem*)),
+           SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
            this,
            SLOT(showTagEditor(QTreeWidgetItem*)));
   connect( areaListView->listView,
@@ -226,7 +226,7 @@ void KImageMapEditor::init()
 {
   _htmlContent.clear();
   _imageUrl.clear();
-  closeUrl();
+  //  closeUrl();
   HtmlElement* el = new HtmlElement("<html>\n");
   _htmlContent.append(el);
   el = new HtmlElement("<head>\n");
@@ -644,11 +644,13 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(addPointAction);
 
   // Remove Point
-    removePointAction = new KToggleAction(KIcon("removepoint"), i18n("&Remove Point"), this);
+  removePointAction = new KToggleAction(KIcon("removepoint"), i18n("&Remove Point"), this);
   removePointAction->setShortcut(QKeySequence("e"));
-    actionCollection()->addAction("tool_removepoint", removePointAction);
-  connect(removePointAction, SIGNAL(triggered(bool)), SLOT(slotDrawRemovePoint()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage", SmallIcon("removepoint") );
+  actionCollection()->addAction("tool_removepoint", removePointAction);
+  connect(removePointAction, SIGNAL(triggered(bool)), 
+          SLOT(slotDrawRemovePoint()));
+  Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage",
+       SmallIcon("removepoint") );
   removePointAction->setWhatsThis(i18n("<h3>Remove Point</h3>"
                           "Click this to remove points from a polygon."));
   drawingGroup->addAction(removePointAction);
@@ -662,7 +664,8 @@ void KImageMapEditor::setupActions()
   actionCollection()->addAction("moveleft", moveLeftAction );
   connect(moveLeftAction, SIGNAL(triggered(bool)),
          SLOT( slotMoveLeft() ));
-  moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
+  moveLeftAction->setShortcut(KShortcut(QKeySequence(Qt::Key_Left)));
+  moveLeftAction->setShortcutContext(Qt::ApplicationShortcut);
 
     moveRightAction  = new KAction(i18n("Move Right"), this);
     actionCollection()->addAction("moveright", moveRightAction );
@@ -717,12 +720,14 @@ void KImageMapEditor::setupActions()
   areaListView->upBtn->addAction(forwardOneAction);
   areaListView->downBtn->addAction(backOneAction);
 
-  connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(activate()));
-  connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(activate()));
+  connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(trigger()));
+  connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(trigger()));
 
     action  = new KAction(KIcon("configure"), i18n("Configure KImageMapEditor..."), this);
     actionCollection()->addAction("configure_kimagemapeditor", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
+
+  kDebug() << "KImageMapEditor: 1" << endl;
 
   if (areaDock) {
 
@@ -740,7 +745,9 @@ void KImageMapEditor::setupActions()
     actionCollection()->addAction("configure_show_imagelist", a );
   }
 
+  kDebug() << "KImageMapEditor: 2" << endl;
   updateActionAccess();
+  kDebug() << "KImageMapEditor: 3" << endl;
 }
 
 void KImageMapEditor::setupStatusBar()
@@ -1235,6 +1242,7 @@ void KImageMapEditor::updateActionAccess()
 
   if ( 0 < selected()->count())
   {
+    kDebug() << "actions enabled" << endl;
     areaPropertiesAction->setEnabled(true);
     deleteAction->setEnabled(true);
     copyAction->setEnabled(true);
@@ -1281,6 +1289,7 @@ void KImageMapEditor::updateActionAccess()
   }
   else
   {
+    kDebug() << "Actions disabled" << endl;
     areaPropertiesAction->setEnabled(false);
     deleteAction->setEnabled(false);
     copyAction->setEnabled(false);
@@ -1604,7 +1613,7 @@ bool KImageMapEditor::openURL(const KUrl & url) {
     if (url.isLocalFile() &&
         ! QFile::exists(url.path()))
         return true;
-    return KParts::ReadOnlyPart::openUrl(url);
+    return KParts::ReadWritePart::openUrl(url);
 }
 
 void KImageMapEditor::fileOpen() {
@@ -1682,7 +1691,8 @@ void KImageMapEditor::fileSaveAs() {
 
 bool KImageMapEditor::openFile()
 {
-  QFileInfo fileInfo(url().path());
+  KUrl u = url();
+  QFileInfo fileInfo(u.path());
 
   if ( !fileInfo.exists() )
   {
@@ -1692,17 +1702,17 @@ bool KImageMapEditor::openFile()
       return false;
   }
 
-  openHTMLFile(url());
+  openHTMLFile(u);
 
   drawZone->repaint();
-  recentFilesAction->addUrl(url());
+  recentFilesAction->addUrl(u);
   setModified(false);
   backupFileCreated = false;
   return true;
 }
 
 /**
- * This methods supposes that the given QTextStream s has just read
+ * This method supposes that the given QTextStream s has just read
  * the &lt; of a tag. It now reads all attributes of the tag until a &gt;
  * The tagname itself is also read and stored as a <em>tagname</em>
  * attribute. After parsing the whole tag it returns a QDict<QString>
@@ -2561,6 +2571,7 @@ void KImageMapEditor::slotMoveDown()
 
 void KImageMapEditor::slotMoveLeft()
 {
+  kDebug() << "slotMoveLeft" << endl;
   QRect r=selected()->rect();
   selected()->setMoving(true);
   selected()->moveBy(-1,0);

@@ -62,11 +62,15 @@ KimeShell::KimeShell(const char * )
   //  mainDock->setEnableDocking(K3DockWidget::DockNone);
   //  setView( mainDock); // central widget in a KDE mainwindow
   //  setMainDockWidget( mainDock); // master dockwidget
+  kDebug() << "KimeShell starting 0" << endl;
+
   m_part = new KImageMapEditor((QWidget*)0L, this);
 
 //	setCentralWidget( part->widget() );
 
+  kDebug() << "KimeShell starting 1" << endl;
   setupActions();
+  kDebug() << "KimeShell starting 2" << endl;
 
 	_stdout=false;
 
@@ -76,7 +80,7 @@ KimeShell::KimeShell(const char * )
   KParts::GUIActivateEvent ev( true );
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
-
+  kDebug() << "KimeShell starting 2";
   if (!initialGeometrySet())
     resize( QSize(725, 525).expandedTo(minimumSizeHint()));
 
@@ -87,6 +91,7 @@ KimeShell::KimeShell(const char * )
            this, SLOT(setCaption( const QString &)));
 
   setAutoSaveSettings( "General Options" );
+  kDebug() << "KimeShell starting 3";
 
 }
 

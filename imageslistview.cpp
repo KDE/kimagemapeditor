@@ -132,7 +132,8 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
 
 }
 
-void ImagesListView::slotSelectionChanged(QTreeWidgetItem* item) {
+void ImagesListView::slotSelectionChanged() {
+  QTreeWidgetItem* item = selectedItems()[0];
   QString src = item->text(0);
 
   emit imageSelected(KUrl(_baseUrl,src));

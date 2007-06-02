@@ -42,8 +42,8 @@ MapsListView::MapsListView(QWidget *parent)
     connect( _listView, SIGNAL( itemSelectionChanged()),
              this, SLOT( slotSelectionChanged()));
 
-    connect( _listView, SIGNAL( itemChanged( QTreeWidgetItem * item, int column)),
-             this, SLOT( slotItemRenamed(QTreeWidgetItem*)));
+  connect( _listView, SIGNAL( itemChanged( QTreeWidgetItem*,int)),
+           this, SLOT( slotItemRenamed(QTreeWidgetItem*)));
 }
 
 

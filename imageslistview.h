@@ -95,7 +95,7 @@ public:
   void setBaseUrl(const KUrl & url) { _baseUrl = url; };
 
 protected slots:
-  void slotSelectionChanged(QTreeWidgetItem*);
+  void slotSelectionChanged();
 
 signals:
   void imageSelected(const KUrl &);

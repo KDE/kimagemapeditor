@@ -12,6 +12,7 @@ set(libkimagemapeditorcommon_SRC
     arealistview.cpp 
     imageslistview.cpp 
     mapslistview.cpp
+    imagemapchoosedialog.cpp
 	)
 
 

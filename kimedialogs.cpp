@@ -194,11 +194,9 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   coordsTable->verticalHeader()->hide();
   // PORT: coordsTable->setLeftMargin(0);
   coordsTable->setSelectionMode( QTableWidget::SingleSelection );
-
-  updatePoints();
-
   connect( coordsTable, SIGNAL(currentChanged(int,int)), this, SLOT(slotHighlightPoint(int)));
 
+  updatePoints();
 //	coordsTable->setMinimumHeight(50);
 //	coordsTable->setMaximumHeight(400);
 //	coordsTable->resizeContents(100,100);
@@ -560,200 +558,6 @@ void AreaDialog::slotUpdateArea() {
     oldArea->setRect(area->rect());
 }
 
-ImageMapChooseDialog::ImageMapChooseDialog(
-    QWidget* parent,
-    QList<MapTag*> _maps,
-    QList<ImageTag*> _images,
-    const KUrl & _baseUrl)
-  : KDialog(parent)
-{
-  setCaption(i18n( "Choose Map & Image to Edit" ));
-  setModal(true);
-  setButtons(Ok);
-  setDefaultButton(Ok);
-  showButtonSeparator(true);
-  baseUrl=_baseUrl;
-  maps=_maps;
-  images=_images;
-//  currentMap;
-  QWidget *page=new QWidget(this);
-  setMainWidget(page);
-  setCaption(baseUrl.fileName());
-  QVBoxLayout *layout = new QVBoxLayout(page);//,5,5);
-
-  QLabel *lbl= new QLabel(i18n("Select an image and/or a map that you want to edit"),page);
-  lbl->setFont(QFont("Sans Serif",12, QFont::Bold));
-  layout->addWidget(lbl);
-  QFrame *line= new QFrame(page);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
-  line->setFixedHeight(10);
-  layout->addWidget(line,0);
-
-  QGridLayout *gridLayout= new QGridLayout();
-  layout->addLayout(gridLayout);
-  gridLayout->setRowStretch(0,0);
-  gridLayout->setRowStretch(1,100);
-  lbl=new QLabel(i18n("&Maps"),page);
-  mapListBox= new QListWidget(page);
-  lbl->setBuddy(mapListBox);
-  gridLayout->addWidget(lbl,0,0);
-  gridLayout->addWidget(mapListBox,1,0);
-
-  line= new QFrame(page);
-  line->setFrameStyle(QFrame::VLine | QFrame::Sunken);
-  line->setFixedWidth(10);
-//	line->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
-  gridLayout->addWidget(line,1,1);
-
-  lbl=new QLabel(i18n("Image Preview"),page);
-  gridLayout->addWidget(lbl,0,2);
-
-  imagePreview= new QLabel(page);
-  imagePreview->setFixedSize(310,210);
-  imagePreview->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
-  imagePreview->setFrameStyle(QLabel::Panel | QLabel::Sunken);
-  imagePreview->setIndent(5);
-  //imagePreview->setBackground(QBrush(QColor("white")));
-//	imagePreview->setLineWidth(2);
-//	imagePreview->setScaledContents(true);
-//	lbl= new QLabel(i18n("&Maps"),page);
-//	lbl->setBuddy(mapListBox);
-  gridLayout->addWidget(imagePreview,1,2);
-//	layout->addLayout(gridLayout,1);
-
-  line= new QFrame(page);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
-  line->setFixedHeight(10);
-  layout->addWidget(line,0);
-
-
-  if (maps.isEmpty()) {
-    mapListBox->addItem(i18n("No maps found"));
-    mapListBox->setEnabled(false);
-  }
-  else {
-    for (int i = 0; i < maps.count(); i++) {
-      mapListBox->addItem(maps.at(i)->name);
-    }
-    connect (mapListBox, SIGNAL(highlighted(int)), this, SLOT(slotMapChanged(int)));
-  }
-
-  initImageListTable(page);
-
-  if (! maps.isEmpty()) {
-    mapListBox->setCurrentItem(0);
-    slotMapChanged(0);
-  }
-
-  resize(510,460);
-}
-
-void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
-
-
-  if (images.isEmpty()) {
-    imageListTable= new QTableWidget(1,1,parent);
-    imageListTable->item(0,0)->setText(i18n("No images found"));
-    imageListTable->setEnabled(false);
-    imageListTable->horizontalHeader()->hide();
-    // PORT: imageListTable->setTopMargin(0);
-    // PORT: imageListTable->setColumnStretchable(0,true);
-  } else {
-    imageListTable= new QTableWidget(images.count(),2,parent);
-    // PORT: imageListTable->setColumnStretchable(0,true);
-  }
-
-  imageListTable->verticalHeader()->hide();
-  // PORT imageListTable->setLeftMargin(0);
-
-  QLabel *lbl= new QLabel(i18n("&Images"),parent);
-  lbl->setBuddy(imageListTable);
-
-  parent->layout()->addWidget(lbl);
-  parent->layout()->addWidget(imageListTable);
-
-  if (images.isEmpty())
-    return;
-
-  imageListTable->setHorizontalHeaderLabels(QStringList() << i18n("Path") << "usemap");
-
-  imageListTable->setSelectionMode(QAbstractItemView::SingleSelection);
-  // PORT:  imageListTable->setFocusStyle(QTableWidget::FollowStyle);
-  imageListTable->clearSelection();
-
-
-  int row=0;
-  QListIterator<ImageTag*> it(images);
-  while (it.hasNext()) {
-    QString src="";
-    QString usemap="";
-    ImageTag* tag = it.next();
-    if (tag->contains("src"))
-      src=tag->value("src");
-    if (tag->contains("usemap"))
-      usemap=tag->value("usemap");
-
-    imageListTable->item(row,0)->setText(src);
-    imageListTable->item(row,1)->setText(usemap);
-    row++;
-  }
-  // FIXME: CRASH here
-  connect (imageListTable, SIGNAL(selectionChanged()), 
-	   this, SLOT(slotImageChanged()));
-
-  imageListTable->selectRow(0);
-  slotImageChanged();
-
-
-}
-
-ImageMapChooseDialog::~ImageMapChooseDialog() {
-}
-
-void ImageMapChooseDialog::slotImageChanged()
-{
-  int i=imageListTable->currentRow();
-  QImage pix;
-  if (images.at(i)->contains("src")) {
-    QString str = images.at(i)->value("src");
-    // relative url
-    pixUrl=KUrl(baseUrl,str);
-    pix=QImage(pixUrl.path());
-    double zoom1=1;
-    double zoom2=1;
-    if (pix.width()>300)
-      zoom1=(double) 300/pix.width();
-    if (pix.height()>200)
-      zoom2=(double) 200/pix.height();
-
-
-    zoom1= zoom1 < zoom2 ? zoom1 : zoom2;
-    pix=pix.scaled((int)(pix.width()*zoom1),
-		   int(pix.height()*zoom1),
-		   Qt::KeepAspectRatio,
-		   Qt::SmoothTransformation);
-  }
-  QPixmap pix2;
-  pix2.fromImage(pix);
-  imagePreview->setPixmap(pix2);
-
-//	imagePreview->repaint();
-}
-
-void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
-  for (int i=0; i<imageListTable->rowCount(); i++) {
-    if (imageListTable->item(i,1)->text()==usemap) {
-      imageListTable->selectRow(i);
-      slotImageChanged();
-      return;
-    }
-  }
-}
-
-void ImageMapChooseDialog::slotMapChanged(int i) {
-  currentMap=maps.at(i);
-  selectImageWithUsemap(currentMap->name);
-}
 
 PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   : KDialog(parent)
@@ -774,13 +578,13 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   rowHeightSpinBox = new QSpinBox(hbox);
   lbl->setBuddy(rowHeightSpinBox);
 
-  config->setGroup("Appearance");
+  int maxPrevHeight = config->group("Appearance").readEntry("maximum-preview-height",50);
   rowHeightSpinBox->setMaximum(1000);
   rowHeightSpinBox->setMinimum(15);
   rowHeightSpinBox->setFixedWidth(60);
-  rowHeightSpinBox->setValue(config->readEntry("maximum-preview-height",50));
+  rowHeightSpinBox->setValue(maxPrevHeight);
 
-  config->setGroup("General");
+  KConfigGroup general = config->group("General");
 
   hbox= new KHBox(page);
   lbl = new QLabel(i18n("&Undo limit:")+' ',hbox);
@@ -790,7 +594,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   undoSpinBox->setMaximum(100);
   undoSpinBox->setMinimum(1);
-  undoSpinBox->setValue(config->readEntry("undo-level",20));
+  undoSpinBox->setValue(general.readEntry("undo-level",20));
 
   hbox= new KHBox(page);
   lbl = new QLabel(i18n("&Redo limit:")+' ',hbox);
@@ -799,11 +603,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
   redoSpinBox->setFixedWidth(60);
   redoSpinBox->setMaximum(100);
   redoSpinBox->setMinimum(1);
-  redoSpinBox->setValue(config->readEntry("redo-level",20));
+  redoSpinBox->setValue(general.readEntry("redo-level",20));
   lbl->setBuddy(redoSpinBox);
 
   startWithCheck = new QCheckBox(i18n("&Start with last used document"),page);
-  startWithCheck->setChecked(config->readEntry("start-with-last-used-document",true));
+  startWithCheck->setChecked(general.readEntry("start-with-last-used-document",true));
 
 /*
   hbox= new QHBox(page);
@@ -844,9 +648,9 @@ void PreferencesDialog::slotApply( void ) {
   group.writeEntry("undo-level",undoSpinBox->cleanText().toInt());
   group.writeEntry("redo-level",redoSpinBox->cleanText().toInt());
   group.writeEntry("start-with-last-used-document", startWithCheck->isChecked());
-
+ 
   config->sync();
-  emit applyClicked();
+  emit preferencesChanged();
 }
 
 HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QString & htmlCode)

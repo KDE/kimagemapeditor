@@ -72,6 +72,8 @@
 #include "imageslistview.h"
 #include "mapslistview.h"
 #include "kimecommon.h"
+#include "imagemapchoosedialog.h"
+
 #include <kparts/genericfactory.h>
 #include <kcomponentdata.h>
 
@@ -391,6 +393,7 @@ void KImageMapEditor::slotConfigChanged()
   // if the image preview size changed update all images
   if (maxAreaPreviewHeight!=newHeight) {
     maxAreaPreviewHeight=newHeight;
+    areaListView->listView->setIconSize(QSize(newHeight,newHeight));
   }
 
   updateAllAreas();
@@ -762,7 +765,7 @@ void KImageMapEditor::setupStatusBar()
 void KImageMapEditor::slotShowPreferences()
 {
   PreferencesDialog *dialog = new PreferencesDialog(widget(),config());
-  connect(dialog, SIGNAL(applyClicked()), this, SLOT(slotConfigChanged()));
+  connect(dialog, SIGNAL(preferencesChanged()), this, SLOT(slotConfigChanged()));
   dialog->exec();
   delete dialog;
 }
@@ -2004,10 +2007,12 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
     // let the user choose
     if (maps.count() >1 || (imageUrl.isEmpty() && images.count() > 1))
     {
-      ImageMapChooseDialog dialog(widget(),maps,images,url);
-      dialog.exec();
-      map=dialog.currentMap;
-      imageUrl=dialog.pixUrl;
+      ImageMapChooseDialog* dialog =
+	new ImageMapChooseDialog(widget(),maps,images,url);
+      kDebug() << "KImageMapEditor::openHTMLFile: before dialog->exec()" << endl;
+      dialog->exec();
+      map = dialog->currentMap;
+      imageUrl = dialog->pixUrl;
     }
   }
   else

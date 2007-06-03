@@ -144,34 +144,8 @@ Q_OBJECT
 		void areaChanged(Area* a);
 };
 
-class QLineEdit;
-class QListWidget;
-class QLabel;
 
 
-class ImageMapChooseDialog : public KDialog {
-Q_OBJECT
-	private:
-		QTableWidget *imageListTable;
-		QLabel *imagePreview;		
-		QListWidget *mapListBox;	
-		QLineEdit *mapNameEdit;
-		QList<MapTag*> maps;
-		QList<ImageTag*> images;
-		KUrl baseUrl;
-    void initImageListTable(QWidget*);    
-	public:
-		ImageMapChooseDialog(QWidget* parent,QList<MapTag*> _maps,
-                             QList<ImageTag*> _images, const KUrl & _baseUrl);
-		~ImageMapChooseDialog();
-		KUrl pixUrl;
-		MapTag* currentMap;
-	protected slots:
-		void slotImageChanged();
-		void slotMapChanged(int i);
-        void selectImageWithUsemap(const QString & usemap);
-      
-};
 
 class KConfig;
 
@@ -192,6 +166,8 @@ Q_OBJECT
 //		QCheckBox *showAltChk;
     QCheckBox *startWithCheck;
     KConfig *config;
+ signals:
+    void preferencesChanged();
 };
 
 class KHTMLPart;

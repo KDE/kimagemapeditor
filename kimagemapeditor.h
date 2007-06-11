@@ -219,8 +219,7 @@ public :
 
 protected:
     void init();
-    bool openHTMLFile(const KUrl &, const QString & mapName = QString::null,
-		      const QString & imagePath = QString::null);
+    bool openHTMLFile(const KUrl &);
     void saveImageMap(const KUrl &);
 
     /**

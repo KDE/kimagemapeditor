@@ -175,6 +175,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
     drawZone = new DrawZone(0L,this);
     mainWindow->setCentralWidget(sa);
     sa->setWidget(drawZone);
+    setWidget(mainWindow);
     //    sa->setWidgetResizable(true);
   }
 
@@ -411,15 +412,22 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
 //  kDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
 //  KMessageBox::information(0L, config.group()+" "+lastURL.path());
   if (!lastURL.isEmpty()) {
+    openUrl(lastURL);
+    if (!lastMap.isEmpty())
+      mapsListView->selectMap(lastMap);
+    if (!lastImage.isEmpty())
+      setPicture(lastImage);
 //    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
-    if ( openHTMLFile(lastURL, lastMap, lastImage) )
-        openUrl(lastURL);
-    else
-      closeUrl();
+//    if (! openHTMLFile(lastURL, lastMap, lastImage) )
+//      closeUrl();
+      //openUrl(lastURL);
+      //    else
+      //closeUrl();
   }
 }
 
 void KImageMapEditor::saveLastURL(KConfigGroup & config) {
+  kDebug() << "saveLastURL: " << url().path() << endl;
   config.writePathEntry("lastopenurl",url().path());
   config.writeEntry("lastactivemap",mapName());
   config.writePathEntry("lastactiveimage",_imageUrl.path());
@@ -1102,7 +1110,8 @@ void KImageMapEditor::deleteAllAreas()
     deselect( a );
     areas->removeAll( a );
     a->deleteListViewItem();
-    a=areas->first(); // because the current is deleted
+    if (!areas->isEmpty())
+      a = areas->first(); // because the current is deleted
   }
 
   drawZone->repaint();
@@ -1880,7 +1889,7 @@ QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QStrin
 }
 
 
-bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, const QString & imagePath)
+bool KImageMapEditor::openHTMLFile(const KUrl & url)
 {
   QFile f(url.path());
   if ( !f.exists () )
@@ -1928,7 +1937,9 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
         } else
         if (tagName == "map") {
           map = new MapTag();
-          map->name= attr->value("name") ;
+          map->name = attr->value("name");
+	  kDebug() << "KImageMapEditor::openHTMLFile: found map with name:" << map->name << endl;
+	  
           readMap=true;
         } else
         if (tagName=="/map") {
@@ -1964,59 +1975,66 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
 
   KUrl imageUrl;
 
-  delete map;
   map = 0L;
 
-  // If there is a preselection of map and image
-  // don't let the user choose something
-  if (imagePath.isNull() || mapName.isNull()) {
     // If we have more than on map or more than one image
     // Let the user choose, otherwise take the only ones
-    if (maps.count() == 1) {
+    if (maps.count() > 1) {
       map = maps.first();
     }
 
-    if (images.count() == 1) {
-      if (images.first()) {
-        ImageTag* imgTag = images.first();
+    if (images.count() > 1) {
+      ImageTag* imgTag = images.first();
+      if (imgTag) {
         if (imgTag->contains("src"))
           imageUrl = KUrl(url,imgTag->value("src"));
       }
     }
 
-    // If there is only one map and more than one image
-    // try to find out the image with the according usemap tag
-    if (maps.count() == 1 && images.count() > 1) {
-        ImageTag* imageTag;
+    // If there is more than one map and more than one image
+    // use the map that has an image with an according usemap tag
+    if (maps.count() > 1 && images.count() > 1) {
+      bool found = false;
+      MapTag *mapTag;
+      foreach(mapTag, maps) {
+        ImageTag *imageTag;
         foreach(imageTag, images) {
             if (imageTag->contains("usemap")) {
                 QString usemap = imageTag->value("usemap");
                 // Remove the #
                 QString usemapName = usemap.right(usemap.length()-1);
-                if (usemapName == map->name) {
-                    if (imageTag->contains("src"))
+                if (usemapName == mapTag->name) {
+		  if (imageTag->contains("src")) {
                       imageUrl = KUrl(url,imageTag->value("src"));
+		      found = true;
+		  }
                 }
             }
+	    if (found)
+	      break;
         }
+	if (found)
+	  break;
+      }
+      if (found) {
+	map = mapTag;
+      }
     }
 
 
     // If there are more than one map or there wasn't
     // found a fitting image and there is something to choose
     // let the user choose
-    if (maps.count() >1 || (imageUrl.isEmpty() && images.count() > 1))
+    /*    if (maps.count() >1 || (imageUrl.isEmpty() && images.count() > 1))
     {
-      ImageMapChooseDialog* dialog =
-	new ImageMapChooseDialog(widget(),maps,images,url);
+      ImageMapChooseDialog dialog(widget(),maps,images,url);
       kDebug() << "KImageMapEditor::openHTMLFile: before dialog->exec()" << endl;
-      dialog->exec();
-      map = dialog->currentMap;
-      imageUrl = dialog->pixUrl;
-    }
-  }
-  else
-    imageUrl = imagePath;
+      dialog.exec();
+      kDebug() << "KImageMapEditor::openHTMLFile: after dialog->exec()" << endl;
+      map = dialog.currentMap;
+      imageUrl = dialog.pixUrl;
+      }*/
+  
 
   imagesListView->clear();
   imagesListView->setBaseUrl(url);
@@ -2030,9 +2048,6 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url, const QString & mapName, co
 
   if (map) {
     mapsListView->selectMap(map->name);
-  }
-  else if ( ! mapName.isNull()) {
-    mapsListView->selectMap(mapName);
   } else {
 #ifdef WITH_TABWIDGET
     if (tabWidget)
@@ -2279,7 +2294,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
 }
 
 /**
- * Sets wether actions that depend on an selected map
+ * Sets whether actions that depend on an selected map
  * are enabled
  */
 void KImageMapEditor::setMapActionsEnabled(bool b) {

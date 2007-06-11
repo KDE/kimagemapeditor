@@ -80,7 +80,7 @@ KimeShell::KimeShell(const char * )
   KParts::GUIActivateEvent ev( true );
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
-  kDebug() << "KimeShell starting 2";
+  kDebug() << "KimeShell starting 3" << endl;
   if (!initialGeometrySet())
     resize( QSize(725, 525).expandedTo(minimumSizeHint()));
 
@@ -91,7 +91,7 @@ KimeShell::KimeShell(const char * )
            this, SLOT(setCaption( const QString &)));
 
   setAutoSaveSettings( "General Options" );
-  kDebug() << "KimeShell starting 3";
+  kDebug() << "KimeShell starting 4" << endl;
 
 }
 

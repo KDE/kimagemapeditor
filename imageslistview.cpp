@@ -133,18 +133,22 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
 }
 
 void ImagesListView::slotSelectionChanged() {
-  QTreeWidgetItem* item = selectedItems()[0];
+  if (selectedItems().isEmpty())
+    return;
+
+  QTreeWidgetItem* item = selectedItems().first();
   QString src = item->text(0);
 
   emit imageSelected(KUrl(_baseUrl,src));
 }
 
 ImageTag* ImagesListView::selectedImage() {
-  ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItems().first());
-  if ( ! item) {
+  if (selectedItems().isEmpty()) {
      kDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
      return 0L;
   }
+
+  ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItems().first());
 
   return item->imageTag();
 

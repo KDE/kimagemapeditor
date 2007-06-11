@@ -50,8 +50,10 @@ MapsListView::MapsListView(QWidget *parent)
 MapsListView::~MapsListView() {
 }
 
-void MapsListView::addMap(const QString & name = QString::null) {
-    new QTreeWidgetItem(_listView,QStringList() << name);
+void MapsListView::addMap(const QString & name = "") {
+  kDebug() << "MapsListView::addMap: " << name << endl;
+  QStringList list(name);
+  new QTreeWidgetItem(_listView,list);
     //kDebug() << "MapsListView::addMap : Added map '" << name << "'" << endl;
 
 }
@@ -59,7 +61,10 @@ void MapsListView::addMap(const QString & name = QString::null) {
 void MapsListView::addMaps(const QList<MapTag*> & maps) {
     QListIterator<MapTag*> it(maps);
     while (it.hasNext()) {
-        addMap(it.next()->name);
+      MapTag *tag = it.next();
+      QString s = tag->name;
+      kDebug() << "MapsListView::addMaps:" << s << endl;
+      addMap(s);
     }
 }
 

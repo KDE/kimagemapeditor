@@ -214,8 +214,6 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
 }
 
 PolyCoordsEdit::~PolyCoordsEdit() {
-  if (area)
-    area->highlightSelectionPoint(-1);
 }
 
 void PolyCoordsEdit::slotHighlightPoint(int row) {

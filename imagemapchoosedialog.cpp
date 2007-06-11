@@ -33,6 +33,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
   : KDialog(parent)
 {
   kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog" << endl;
+  kWarning(parent == 0) << "ImageMapChooseDialog: parent is null!" << endl;
 
   setCaption(i18n( "Choose Map & Image to Edit" ));
   setModal(true);
@@ -217,7 +218,8 @@ void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
   kDebug() << "ImageMapChooseDialog::selectImageWithUsemap: " << usemap << endl;
 
   for (int i=0; i<imageListTable->rowCount(); i++) {
-    if (imageListTable->item(i,1)->text()==usemap) {
+    QTableWidgetItem *item = imageListTable->item(i,1);
+    if (item && (item->text()==usemap)) {
       imageListTable->selectRow(i);
       slotImageChanged();
       return;

@@ -28,28 +28,24 @@ static const char *description =
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
-static KCmdLineOptions options[] =
-{
-  { "c", 0, 0 },
-  { "stdout", I18N_NOOP("Write HTML-Code to stdout on exit"), 0 },
-  { "+[File]", I18N_NOOP("File to open"), 0 },
-  { 0, 0, 0 }
-  // INSERT YOUR COMMANDLINE OPTIONS HERE
-};
-
 int main(int argc, char *argv[])
 {
 
-  KAboutData aboutData( "kimagemapeditor", I18N_NOOP("KImageMapEditor"),
-    KIMAGEMAPEDITOR_VERSION, description, KAboutData::License_GPL,
-    "(c) 2001-2007 Jan Schaefer", 0, "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
-  aboutData.addAuthor("Jan Schaefer",0, "janschaefer@users.sourceforge.net");
-  aboutData.addCredit("Joerg Jaspert",I18N_NOOP("For helping me with the Makefiles, and creating the Debian package"));
-  aboutData.addCredit("Aaron Seigo and Michael",I18N_NOOP("For helping me fixing --enable-final mode"));
-  aboutData.addCredit("Antonio Crevillen",I18N_NOOP("For the Spanish translation"));
-  aboutData.addCredit("Fabrice Mous",I18N_NOOP("For the Dutch translation"));
-  aboutData.addCredit("Germain Chazot",I18N_NOOP("For the French translation"));
+  KAboutData aboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
+    KIMAGEMAPEDITOR_VERSION, ki18n(description), KAboutData::License_GPL,
+    ki18n("(c) 2001-2007 Jan Schaefer"), KLocalizedString(), "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
+  aboutData.addAuthor(ki18n("Jan Schaefer"),KLocalizedString(), "janschaefer@users.sourceforge.net");
+  aboutData.addCredit(ki18n("Joerg Jaspert"),ki18n("For helping me with the Makefiles, and creating the Debian package"));
+  aboutData.addCredit(ki18n("Aaron Seigo and Michael"),ki18n("For helping me fixing --enable-final mode"));
+  aboutData.addCredit(ki18n("Antonio Crevillen"),ki18n("For the Spanish translation"));
+  aboutData.addCredit(ki18n("Fabrice Mous"),ki18n("For the Dutch translation"));
+  aboutData.addCredit(ki18n("Germain Chazot"),ki18n("For the French translation"));
   KCmdLineArgs::init( argc, argv, &aboutData );
+
+  KCmdLineOptions options;
+  options.add("c");
+  options.add("stdout", ki18n("Write HTML-Code to stdout on exit"));
+  options.add("+[File]", ki18n("File to open"));
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
 

@@ -252,10 +252,10 @@ void KImageMapEditor::init()
 KAboutData* KImageMapEditor::createAboutData()
 {
     KAboutData* aboutData =
-              new KAboutData( "kimagemapeditor", I18N_NOOP("KImageMapEditor"),
-              "1.0", I18N_NOOP( "An HTML imagemap editor" ),
+              new KAboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
+              "1.0", ki18n( "An HTML imagemap editor" ),
               KAboutData::License_GPL,
-              "(c) 2001-2003 Jan Sch&auml;fer <janschaefer@users.sourceforge.net>");
+              ki18n("(c) 2001-2003 Jan Sch&auml;fer <janschaefer@users.sourceforge.net>"));
     return aboutData;
 }
 

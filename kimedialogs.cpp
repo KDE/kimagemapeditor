@@ -72,7 +72,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   QGridLayout *layout= new QGridLayout(this,5,2,5,5);
 
   topXSpin = new QSpinBox(this);
-  topXSpin->setMaxValue(2000);
+  topXSpin->setMaxValue(INT_MAX);
   topXSpin->setMinValue(0);
   topXSpin->setValue(a->rect().left());
   layout->addWidget(topXSpin,0,1);
@@ -83,7 +83,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   topYSpin = new QSpinBox(this);
-  topYSpin->setMaxValue(2000);
+  topYSpin->setMaxValue(INT_MAX);
   topYSpin->setMinValue(0);
   topYSpin->setValue(a->rect().top());
   layout->addWidget(topYSpin,1,1);
@@ -94,7 +94,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,1,0);
 
   widthSpin = new QSpinBox(this);
-  widthSpin->setMaxValue(2000);
+  widthSpin->setMaxValue(INT_MAX);
   widthSpin->setMinValue(0);
   widthSpin->setValue(a->rect().width());
   layout->addWidget(widthSpin,2,1);
@@ -105,7 +105,7 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,2,0);
 
   heightSpin = new QSpinBox(this);
-  heightSpin->setMaxValue(2000);
+  heightSpin->setMaxValue(INT_MAX);
   heightSpin->setMinValue(0);
   heightSpin->setValue(a->rect().height());
   layout->addWidget(heightSpin,3,1);
@@ -133,7 +133,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   QGridLayout *layout= new QGridLayout(this,4,2,5,5);
 
   centerXSpin = new QSpinBox(this);
-  centerXSpin->setMaxValue(2000);
+  centerXSpin->setMaxValue(INT_MAX);
   centerXSpin->setMinValue(0);
   centerXSpin->setValue(a->rect().center().x());
   layout->addWidget(centerXSpin,0,1);
@@ -144,7 +144,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   centerYSpin = new QSpinBox(this);
-  centerYSpin->setMaxValue(2000);
+  centerYSpin->setMaxValue(INT_MAX);
   centerYSpin->setMinValue(0);
   centerYSpin->setValue(a->rect().center().y());
   layout->addWidget(centerYSpin,1,1);
@@ -156,7 +156,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,1,0);
 
   radiusSpin = new QSpinBox(this);
-  radiusSpin->setMaxValue(2000);
+  radiusSpin->setMaxValue(INT_MAX);
   radiusSpin->setMinValue(0);
   radiusSpin->setValue(a->rect().width()/2);
   layout->addWidget(radiusSpin,2,1);
@@ -280,7 +280,7 @@ SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   QGridLayout *layout= new QGridLayout(this,2,2);
 
   topXSpin = new QSpinBox(this);
-  topXSpin->setMaxValue(2000);
+  topXSpin->setMaxValue(INT_MAX);
   topXSpin->setMinValue(0);
   topXSpin->setValue(a->rect().left());
   layout->addWidget(topXSpin,0,1);
@@ -291,7 +291,7 @@ SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   layout->addWidget(lbl,0,0);
 
   topYSpin = new QSpinBox(this);
-  topYSpin->setMaxValue(2000);
+  topYSpin->setMaxValue(INT_MAX);
   topYSpin->setMinValue(0);
   topYSpin->setValue(a->rect().top());
   layout->addWidget(topYSpin,1,1);

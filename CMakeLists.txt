@@ -49,7 +49,7 @@ install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES  kimagemapeditor.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES  kimagemapeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
 install( FILES  kimagemapeditorpart.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 install( FILES  kimagemapeditorui.rc            kimagemapeditorpartui.rc  DESTINATION ${DATA_INSTALL_DIR}/kimagemapeditor)
 

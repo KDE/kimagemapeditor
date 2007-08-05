@@ -94,7 +94,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   tabWidget = 0L;
 
   if (mainWindow) {
-//    kDebug() << "KImageMapEditor: We got a KDockMainWindow !" << endl;
+//    kDebug() << "KImageMapEditor: We got a KDockMainWindow !";
 
 //    K3DockWidget* parentDock = mainDock->getMainDockWidget();
     areaDock = new QDockWidget(i18n("Areas"),mainWindow);
@@ -407,9 +407,9 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
   QString lastImage = config.readPathEntry("lastactiveimage");
 
 
-//  kDebug() << "loading from group : " << config.group() << endl;
+//  kDebug() << "loading from group : " << config.group();
 
-//  kDebug() << "loading entry lastopenurl : " << lastURL.path() << endl;
+//  kDebug() << "loading entry lastopenurl : " << lastURL.path();
 //  KMessageBox::information(0L, config.group()+" "+lastURL.path());
   if (!lastURL.isEmpty()) {
     openUrl(lastURL);
@@ -417,7 +417,7 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
       mapsListView->selectMap(lastMap);
     if (!lastImage.isEmpty())
       setPicture(lastImage);
-//    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage << endl;
+//    kDebug() << "opening HTML file with map " << lastMap << " and image " << lastImage;
 //    if (! openHTMLFile(lastURL, lastMap, lastImage) )
 //      closeUrl();
       //openUrl(lastURL);
@@ -427,13 +427,13 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
 }
 
 void KImageMapEditor::saveLastURL(KConfigGroup & config) {
-  kDebug() << "saveLastURL: " << url().path() << endl;
+  kDebug() << "saveLastURL: " << url().path();
   config.writePathEntry("lastopenurl",url().path());
   config.writeEntry("lastactivemap",mapName());
   config.writePathEntry("lastactiveimage",_imageUrl.path());
-//  kDebug() << "writing entry lastopenurl : " << url().path() << endl;
-//  kDebug() << "writing entry lastactivemap : " << mapName() << endl;
-//  kDebug() << "writing entry lastactiveimage : " << _imageUrl.path() << endl;
+//  kDebug() << "writing entry lastopenurl : " << url().path();
+//  kDebug() << "writing entry lastactivemap : " << mapName();
+//  kDebug() << "writing entry lastactiveimage : " << _imageUrl.path();
   //KMessageBox::information(0L, QString("Group: %1 Saving ... %2").arg(config.group()).arg(url().path()));
 }
 
@@ -738,7 +738,7 @@ void KImageMapEditor::setupActions()
     actionCollection()->addAction("configure_kimagemapeditor", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
-  kDebug() << "KImageMapEditor: 1" << endl;
+  kDebug() << "KImageMapEditor: 1";
 
   if (areaDock) {
 
@@ -756,9 +756,9 @@ void KImageMapEditor::setupActions()
     actionCollection()->addAction("configure_show_imagelist", a );
   }
 
-  kDebug() << "KImageMapEditor: 2" << endl;
+  kDebug() << "KImageMapEditor: 2";
   updateActionAccess();
-  kDebug() << "KImageMapEditor: 3" << endl;
+  kDebug() << "KImageMapEditor: 3";
 }
 
 void KImageMapEditor::setupStatusBar()
@@ -784,7 +784,7 @@ void KImageMapEditor::showPopupMenu(const QPoint & pos, const QString & name)
   QMenu* pop = static_cast<QMenu *>(factory()->container(name, this));
 
   if (!pop) {
-      kWarning() << QString("KImageMapEditorPart: Missing XML definition for %1\n").arg(name) << endl;
+      kWarning() << QString("KImageMapEditorPart: Missing XML definition for %1\n").arg(name);
       return;
   }
 
@@ -798,7 +798,7 @@ void KImageMapEditor::slotShowMainPopupMenu(const QPoint & pos)
 
 void KImageMapEditor::slotShowMapPopupMenu(const QPoint & pos)
 {
-  kDebug() << "slotShowMapPopupMenu" << endl;
+  kDebug() << "slotShowMapPopupMenu";
   QTreeWidgetItem* item = mapsListView->listView()->itemAt(pos);
 
   if (isReadWrite()) {
@@ -815,7 +815,7 @@ void KImageMapEditor::slotShowMapPopupMenu(const QPoint & pos)
 
 void KImageMapEditor::slotShowImagePopupMenu(const QPoint & pos)
 {
-  kDebug() << "slotShowImagePopupMenu" << endl;
+  kDebug() << "slotShowImagePopupMenu";
   QTreeWidgetItem* item = imagesListView->itemAt(pos);
 
   imageRemoveAction->setEnabled(item);
@@ -901,7 +901,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 //  QString filename = QString("dropimage_")+KGlobal::locale()->language()+".png";
 //  QString path = QString::null; //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
-//  kDebug() << "getBackgroundPic : loaded image : " << path << endl;
+//  kDebug() << "getBackgroundPic : loaded image : " << path;
 
 //  if ( ! QFileInfo(path).exists() ) {
     int width = 400;
@@ -984,7 +984,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 
     path = KGlobal::dirs()->saveLocation( "data", "kimagemapeditor/" ) +filename;
-    kDebug() << "getBackgroundPic : save new image to : " << path << endl;
+    kDebug() << "getBackgroundPic : save new image to : " << path;
     pix.save(path,"PNG",100);
   }
 
@@ -1120,7 +1120,7 @@ void KImageMapEditor::deleteAllAreas()
 
 void KImageMapEditor::updateAllAreas()
 {
-//  kDebug() << "KImageMapEditor::updateAllAreas" << endl;
+//  kDebug() << "KImageMapEditor::updateAllAreas";
   Area* a;
   foreach(a,*areas) {
     a->listViewItem()->setIcon(1,QIcon(makeListViewPix(*a)));
@@ -1254,7 +1254,7 @@ void KImageMapEditor::updateActionAccess()
 
   if ( 0 < selected()->count())
   {
-    kDebug() << "actions enabled" << endl;
+    kDebug() << "actions enabled";
     areaPropertiesAction->setEnabled(true);
     deleteAction->setEnabled(true);
     copyAction->setEnabled(true);
@@ -1301,7 +1301,7 @@ void KImageMapEditor::updateActionAccess()
   }
   else
   {
-    kDebug() << "Actions disabled" << endl;
+    kDebug() << "Actions disabled";
     areaPropertiesAction->setEnabled(false);
     deleteAction->setEnabled(false);
     copyAction->setEnabled(false);
@@ -1487,19 +1487,19 @@ void KImageMapEditor::slotDrawArrow() {
 
 void KImageMapEditor::slotDrawCircle() {
   _currentToolType=KImageMapEditor::Circle;
-  kDebug() << "slotDrawCircle" << endl;
+  kDebug() << "slotDrawCircle";
 
 }
 
 void KImageMapEditor::slotDrawRectangle() {
   _currentToolType=KImageMapEditor::Rectangle;
-  kDebug() << "slotDrawRectangle" << endl;
+  kDebug() << "slotDrawRectangle";
 
 }
 
 void KImageMapEditor::slotDrawPolygon() {
   _currentToolType=KImageMapEditor::Polygon;
-  kDebug() << "slotDrawPolygon" << endl;
+  kDebug() << "slotDrawPolygon";
 }
 
 void KImageMapEditor::slotDrawFreehand() {
@@ -1938,7 +1938,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url)
         if (tagName == "map") {
           map = new MapTag();
           map->name = attr->value("name");
-	  kDebug() << "KImageMapEditor::openHTMLFile: found map with name:" << map->name << endl;
+	  kDebug() << "KImageMapEditor::openHTMLFile: found map with name:" << map->name;
 	  
           readMap=true;
         } else
@@ -2028,9 +2028,9 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url)
     /*    if (maps.count() >1 || (imageUrl.isEmpty() && images.count() > 1))
     {
       ImageMapChooseDialog dialog(widget(),maps,images,url);
-      kDebug() << "KImageMapEditor::openHTMLFile: before dialog->exec()" << endl;
+      kDebug() << "KImageMapEditor::openHTMLFile: before dialog->exec()";
       dialog.exec();
-      kDebug() << "KImageMapEditor::openHTMLFile: after dialog->exec()" << endl;
+      kDebug() << "KImageMapEditor::openHTMLFile: after dialog->exec()";
       map = dialog.currentMap;
       imageUrl = dialog.pixUrl;
       }*/
@@ -2126,7 +2126,7 @@ void KImageMapEditor::addMap(const QString & name = QString::null) {
      _htmlContent.append(new HtmlElement("\n"));
 
      _htmlContent.append(el);
-     kDebug() << "KImageMapEditor::addMap : No <body found ! Appending new map to the end." << endl;
+     kDebug() << "KImageMapEditor::addMap : No <body found ! Appending new map to the end.";
   }
 
   mapsListView->addMap(name);
@@ -2148,7 +2148,7 @@ HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
     }
   }
 
-  kWarning() << "KImageMapEditor::findHtmlMapElement: couldn't find map '" << mapName << "'" << endl;
+  kWarning() << "KImageMapEditor::findHtmlMapElement: couldn't find map '" << mapName << "'";
   return 0L;
 }
 
@@ -2158,7 +2158,7 @@ HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
 void KImageMapEditor::setMap(const QString & mapName) {
     HtmlMapElement* el = findHtmlMapElement(mapName);
     if (!el) {
-      kWarning() << "KImageMapEditor::setMap : Couldn't set map '" << mapName << "', because it wasn't found !" << endl;
+      kWarning() << "KImageMapEditor::setMap : Couldn't set map '" << mapName << "', because it wasn't found !";
       return;
     }
 
@@ -2244,7 +2244,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
   deleteAllAreas();
   delete defaultArea;
   defaultArea = 0L;
-//    kDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name << endl;
+//    kDebug() << "KImageMapEditor::setMap : Setting new map : " << map->name;
     _mapName = map->name;
     AreaTag tag;
 
@@ -2591,7 +2591,7 @@ void KImageMapEditor::slotMoveDown()
 
 void KImageMapEditor::slotMoveLeft()
 {
-  kDebug() << "slotMoveLeft" << endl;
+  kDebug() << "slotMoveLeft";
   QRect r=selected()->rect();
   selected()->setMoving(true);
   selected()->moveBy(-1,0);

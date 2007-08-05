@@ -350,7 +350,7 @@ void Area::removeCoord(int pos) {
   int count =_coords.size();
 
   if (count<4){
-    kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !" << endl;
+    kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !";
     return;
   }
 
@@ -1074,13 +1074,13 @@ void PolyArea::simplifyCoords()
 
     if ( angle2==angle1 )
     {
-      kDebug() << "removing " << i-1 << endl;
+      kDebug() << "removing " << i-1;
       removeCoord(i-1);
     }
     else
     {
       i++;
-      kDebug() << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2 << endl;
+      kDebug() << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2;
       angle1 = angle2;
 
     }
@@ -1101,7 +1101,7 @@ int PolyArea::addCoord(const QPoint & p)
 
   if (_coords.point(_coords.size()-1) == p)
   {
-     kDebug() << "equal Point added" << endl;
+     kDebug() << "equal Point added";
      return -1;
 
   }

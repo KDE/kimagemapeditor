@@ -664,7 +664,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QS
   setModal(true);
   QTextStream stream(tempFile);
   stream << htmlCode;
-  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->fileName() << endl;
+  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->fileName();
   stream.flush();
 
   KVBox *page = new KVBox(this);

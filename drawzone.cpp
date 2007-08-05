@@ -371,7 +371,7 @@ void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {
 
 
 void DrawZone::mousePressLeftNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoint) {
-  kDebug() << "mousePressLeftNone" << endl;
+  kDebug() << "mousePressLeftNone";
   Area* a;
   if ((a = imageMapEditor->selected()) &&
       (currentSelectionPoint=a->onSelectionPoint(zoomedPoint,_zoom)))
@@ -871,7 +871,7 @@ void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
     return;
 
   KMimeType::Ptr ptr = KMimeType::findByUrl(uris.first());
-//  kDebug() << "***** " << ptr.data()->name() << endl;
+//  kDebug() << "***** " << ptr.data()->name();
   if ((ptr.data()->name() == "text/html")
       || (ptr.data()->name().left(6) == "image/"))
     e->accept();

@@ -103,7 +103,7 @@ void ImagesListView::removeImage(ImageTag* tag) {
      }     
   }
   else {
-    kDebug() << "ImageListView::removeImage: ListViewItem was not found !" << endl;
+    kDebug() << "ImageListView::removeImage: ListViewItem was not found !";
   }
 }
 
@@ -112,7 +112,7 @@ void ImagesListView::updateImage(ImageTag* tag) {
   if (item)
     item->update();
   else {
-    kDebug() << "ImageListView::updateImage: ListViewItem was not found !" << endl;
+    kDebug() << "ImageListView::updateImage: ListViewItem was not found !";
   }
 }
 
@@ -121,13 +121,13 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
     QTreeWidgetItem* item = topLevelItem(i);
     ImagesListViewItem *imageItem = static_cast<ImagesListViewItem*>(item);
     if (imageItem->imageTag() == tag) {
-       kDebug() << "ImageListView::findListViewItem: found it " << endl;
+       kDebug() << "ImageListView::findListViewItem: found it ";
 
        return imageItem;
     }
   }
 
-  kDebug() << "ImageListView::findListViewItem: found nothing " << endl;
+  kDebug() << "ImageListView::findListViewItem: found nothing ";
   return 0L;
 
 }
@@ -144,7 +144,7 @@ void ImagesListView::slotSelectionChanged() {
 
 ImageTag* ImagesListView::selectedImage() {
   if (selectedItems().isEmpty()) {
-     kDebug() << "ImagesListView::selectedImage: No Image is selected !" << endl;
+     kDebug() << "ImagesListView::selectedImage: No Image is selected !";
      return 0L;
   }
 

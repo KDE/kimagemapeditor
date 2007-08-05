@@ -32,8 +32,8 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     const KUrl & _baseUrl)
   : KDialog(parent)
 {
-  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog" << endl;
-  kWarning(parent == 0) << "ImageMapChooseDialog: parent is null!" << endl;
+  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog";
+  kWarning(parent == 0) << "ImageMapChooseDialog: parent is null!";
 
   setCaption(i18n( "Choose Map & Image to Edit" ));
   setModal(true);
@@ -102,11 +102,11 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     for (int i = 0; i < maps.count(); i++) {
       mapListBox->addItem(maps.at(i)->name);
     }
-    kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before connect " << endl;
+    kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before connect ";
     // UNSOLVED CRASH: connect(mapListBox, SIGNAL(currentRowChanged(int)), this, SLOT(slotMapChanged(int)));
   }
 
-  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before call initImageListTable " << endl;
+  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before call initImageListTable ";
   initImageListTable(page);
 
   if (! maps.isEmpty()) {
@@ -118,7 +118,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
 }
 
 void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
-  kDebug() << "ImageMapChooseDialog::initImageListTable " << endl;
+  kDebug() << "ImageMapChooseDialog::initImageListTable ";
 
 
   if (images.isEmpty()) {
@@ -182,7 +182,7 @@ ImageMapChooseDialog::~ImageMapChooseDialog() {
 
 void ImageMapChooseDialog::slotImageChanged()
 {
-  kDebug() << "ImageMapChooseDialog::slotImageChanged" << endl;
+  kDebug() << "ImageMapChooseDialog::slotImageChanged";
   int i=imageListTable->currentRow();
   if (i < 0 || i > images.count()) 
     i = 0;
@@ -215,7 +215,7 @@ void ImageMapChooseDialog::slotImageChanged()
 
 
 void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
-  kDebug() << "ImageMapChooseDialog::selectImageWithUsemap: " << usemap << endl;
+  kDebug() << "ImageMapChooseDialog::selectImageWithUsemap: " << usemap;
 
   for (int i=0; i<imageListTable->rowCount(); i++) {
     QTableWidgetItem *item = imageListTable->item(i,1);
@@ -228,7 +228,7 @@ void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
 }
 
 void ImageMapChooseDialog::slotMapChanged(int i) {
-  kDebug() << "ImageMapChooseDialog::slotMapChanged: " << i << endl;
+  kDebug() << "ImageMapChooseDialog::slotMapChanged: " << i;
   currentMap=maps.at(i);
   selectImageWithUsemap(currentMap->name);
 }

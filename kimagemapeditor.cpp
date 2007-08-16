@@ -900,7 +900,7 @@ QImage KImageMapEditor::getBackgroundImage() {
 
 
 //  QString filename = QString("dropimage_")+KGlobal::locale()->language()+".png";
-//  QString path = QString::null; //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
+//  QString path = QString(); //KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/"+filename ) + "kimagemapeditor/"+filename;
 //  kDebug() << "getBackgroundPic : loaded image : " << path;
 
 //  if ( ! QFileInfo(path).exists() ) {
@@ -2103,7 +2103,7 @@ HtmlImgElement* KImageMapEditor::findHtmlImgElement(ImageTag* tag) {
   return 0L;
 }
 
-void KImageMapEditor::addMap(const QString & name = QString::null) {
+void KImageMapEditor::addMap(const QString & name = QString::null) {	//krazy:exclude=nullstrassign for old broken gcc
   HtmlMapElement* el = new HtmlMapElement("\n<map></map>");
   MapTag* map = new MapTag();
   map->name = name;
@@ -2763,7 +2763,7 @@ bool KImageMapEditor::queryClose() {
               widget(),
 	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>",
 	      url().fileName()),
-	      QString::null,
+	      QString::null,	//krazy:exclude=nullstrassign for old broken gcc
 	      KStandardGuiItem::save(),
 	      KStandardGuiItem::discard()) )
     {

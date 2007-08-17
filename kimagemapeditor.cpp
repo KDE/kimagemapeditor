@@ -2103,7 +2103,7 @@ HtmlImgElement* KImageMapEditor::findHtmlImgElement(ImageTag* tag) {
   return 0L;
 }
 
-void KImageMapEditor::addMap(const QString & name = QString::null) {	//krazy:exclude=nullstrassign for old broken gcc
+void KImageMapEditor::addMap(const QString & name = QString()) {
   HtmlMapElement* el = new HtmlMapElement("\n<map></map>");
   MapTag* map = new MapTag();
   map->name = name;
@@ -2763,7 +2763,7 @@ bool KImageMapEditor::queryClose() {
               widget(),
 	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>",
 	      url().fileName()),
-	      QString::null,	//krazy:exclude=nullstrassign for old broken gcc
+	      QString(),
 	      KStandardGuiItem::save(),
 	      KStandardGuiItem::discard()) )
     {

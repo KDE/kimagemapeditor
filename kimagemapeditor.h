@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef KIMAGEMAPDIALOG_H
-#define KIMAGEMAPDIALOG_H
+#ifndef KIMAGEMAPEDITOR_H
+#define KIMAGEMAPEDITOR_H
 
 #include <QDockWidget>
 #include <QLinkedList>
@@ -452,5 +452,4 @@ inline K3CommandHistory* KImageMapEditor::commandHistory() const {
     return _commandHistory;
 }
 
-
-#endif
+#endif // IMAGEMAPEDITOR_H

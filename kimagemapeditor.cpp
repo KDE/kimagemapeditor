@@ -255,7 +255,7 @@ KAboutData* KImageMapEditor::createAboutData()
               new KAboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
               "1.0", ki18n( "An HTML imagemap editor" ),
               KAboutData::License_GPL,
-              ki18n("(c) 2001-2003 Jan Sch&auml;fer <janschaefer@users.sourceforge.net>"));
+              ki18n("(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</email>"));
     return aboutData;
 }
 
@@ -1684,7 +1684,7 @@ void KImageMapEditor::fileSaveAs() {
   if ( fileInfo.exists() )
   {
   	if (KMessageBox::warningContinueCancel(widget(),
-      i18n("<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?</qt>", fileInfo.fileName()),
+      i18n("<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?</qt>", fileInfo.fileName()),
       i18n("Overwrite File?"), KGuiItem(i18n("Overwrite")))==KMessageBox::Cancel)
       return;
 
@@ -2385,7 +2385,7 @@ static KUrl toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
     resultURL.setPath(QDir::cleanPath(path));
   }
 
-  if (urlToConvert.path().endsWith("/")) resultURL.adjustPath(KUrl::AddTrailingSlash);
+  if (urlToConvert.path().endsWith('/')) resultURL.adjustPath(KUrl::AddTrailingSlash);
   return resultURL;
 }
 
@@ -2712,7 +2712,7 @@ void KImageMapEditor::mapDelete()
 
   int result = KMessageBox::warningContinueCancel(widget(),
     i18n("<qt>Are you sure you want to delete the map <i>%1</i>?"
-         " <br><b>There is no way to undo this.</b></qt>", selectedMap),
+         " <br /><b>There is no way to undo this.</b></qt>", selectedMap),
     i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"edit-delete"));
 
   if (result == KMessageBox::No)
@@ -2761,7 +2761,7 @@ bool KImageMapEditor::queryClose() {
 
   switch ( KMessageBox::warningYesNoCancel(
               widget(),
-	      i18n("<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>",
+	      i18n("<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>",
 	      url().fileName()),
 	      QString(),
 	      KStandardGuiItem::save(),

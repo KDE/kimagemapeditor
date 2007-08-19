@@ -33,7 +33,6 @@
 #include <QLinkedList>
 #include <QFrame>
 #include <QVBoxLayout>
-#include <QLinkedList>
 
 // KDE
 #include <kiconloader.h>

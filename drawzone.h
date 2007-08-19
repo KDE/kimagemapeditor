@@ -15,8 +15,8 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef IMAGEMAP_H
-#define IMAGEMAP_H
+#ifndef DRAWZONE_H
+#define DRAWZONE_H
 
 #include <qimage.h>
 #include <qpoint.h>
@@ -154,5 +154,4 @@ inline QImage DrawZone::picture() const {
   return image;
 }
 
-
-#endif
+#endif // DRAWZONE_H

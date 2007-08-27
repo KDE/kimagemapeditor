@@ -56,7 +56,6 @@
 #include <kxmlguifactory.h>
 #include <kio/job.h>
 #include <kinputdialog.h>
-#include <kinputdialog.h>
 #include <ktoggleaction.h>
 #include <krecentfilesaction.h>
 #include <kxmlguiwindow.h>

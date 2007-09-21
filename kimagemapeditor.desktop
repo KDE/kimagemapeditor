@@ -48,6 +48,7 @@ GenericName[tg]=Муҳаррири тасвири ҳаритаи HTML
 GenericName[tr]=HTML Resim Haritası Düzenleyicisi
 GenericName[uk]=Редактор карт зображень HTML
 GenericName[x-test]=xxHTML Image Map Editorxx
+GenericName[zh_CN]=HTML 图像映射编辑器
 GenericName[zh_HK]=HTML 影像地圖編輯器
 GenericName[zh_TW]=HTML 影像地圖編輯器
 Categories=Qt;KDE;Development;WebDevelopment;

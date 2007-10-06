@@ -22,6 +22,7 @@
 #include <QGridLayout>
 #include <QHeaderView>
 
+#include <kdebug.h>
 
 #include "imagemapchoosedialog.h"
 

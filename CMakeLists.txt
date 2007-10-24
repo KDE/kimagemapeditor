@@ -25,7 +25,7 @@ kde4_add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-target_link_libraries(kimagemapeditor_bin  ${KDE4_KHTML_LIBS} )
+target_link_libraries(kimagemapeditor_bin  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS} )
 
 install(TARGETS kimagemapeditor_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
@@ -39,7 +39,7 @@ kde4_add_plugin(kimagemapeditor WITH_PREFIX ${kimagemapeditor_PART_SRCS})
 
 
 
-target_link_libraries(kimagemapeditor  ${KDE4_KHTML_LIBS} )
+target_link_libraries(kimagemapeditor  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS} )
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 

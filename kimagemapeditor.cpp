@@ -401,9 +401,9 @@ void KImageMapEditor::slotConfigChanged()
 }
 
 void KImageMapEditor::openLastURL(const KConfigGroup & config) {
-  KUrl lastURL ( config.readPathEntry("lastopenurl") );
+  KUrl lastURL ( config.readPathEntry("lastopenurl", QString()) );
   QString lastMap = config.readEntry("lastactivemap");
-  QString lastImage = config.readPathEntry("lastactiveimage");
+  QString lastImage = config.readPathEntry("lastactiveimage", QString());
 
 
 //  kDebug() << "loading from group : " << config.group();

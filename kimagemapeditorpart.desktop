@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 Encoding=UTF-8
-MimeType=text/html
+MimeType=text/html;
 Icon=kimagemapeditor
 ServiceTypes=KParts/ReadWritePart
 X-KDE-Library=libkimagemapeditor

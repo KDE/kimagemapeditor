@@ -1,9 +1,8 @@
 [Desktop Entry]
 Type=Service
-Encoding=UTF-8
 MimeType=text/html;
 Icon=kimagemapeditor
-ServiceTypes=KParts/ReadWritePart
+X-KDE-ServiceTypes=KParts/ReadWritePart
 X-KDE-Library=libkimagemapeditor
 Comment=An HTML imagemap editor
 Comment[ca]=Un editor de mapes d'imatge HTML

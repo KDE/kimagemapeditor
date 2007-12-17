@@ -401,7 +401,7 @@ QRect Area::selectionRect() const {
 }
 
 void Area::setPenAndBrush(QPainter* p) {
-  QBrush brush(QBrush(Qt::NoBrush));
+  QBrush brush(Qt::NoBrush);
   if (highlightArea) {
     QColor back = Qt::white;
     back.setAlpha(80);

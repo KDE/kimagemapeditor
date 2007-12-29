@@ -26,7 +26,6 @@
 
 static const char *description =
   I18N_NOOP("An HTML imagemap editor");
-// INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
 static KCmdLineOptions options[] =
@@ -43,7 +42,7 @@ int main(int argc, char *argv[])
 
   KAboutData aboutData( "kimagemapeditor", I18N_NOOP("KImageMapEditor"),
     VERSION, description, KAboutData::License_GPL,
-    "(c) 2001-2003 Jan Schaefer", 0, "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
+    "(C) 2001-2008 Jan Schaefer", 0, "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
   aboutData.addAuthor("Jan Schaefer",0, "janschaefer@users.sourceforge.net");
   aboutData.addCredit("Joerg Jaspert",I18N_NOOP("For helping me with the Makefiles, and creating the Debian package"));
   aboutData.addCredit("Aaron Seigo and Michael",I18N_NOOP("For helping me fixing --enable-final mode"));

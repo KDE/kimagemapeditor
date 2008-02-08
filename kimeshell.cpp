@@ -113,7 +113,9 @@ bool KimeShell::queryClose()
 bool KimeShell::queryExit()
 {
 //  writeConfig();
+#ifdef __GNUC__
 #warning what group is correct here? A random one?
+#endif
   KConfigGroup cg( KGlobal::config(), QString() );
   saveProperties( cg );
 
@@ -163,7 +165,9 @@ void KimeShell::openFile(const KUrl & url)
 
 void KimeShell::openLastFile()
 {
+#ifdef __GNUC__
 #warning there is no group defined
+#endif
     KConfigGroup cg( m_part->config(), QString() );
     if (cg.readEntry("start-with-last-used-document",true))
         m_part->openLastURL( cg );

@@ -43,9 +43,7 @@
 
 
 class QTreeWidget;
-class QPushButton;
 class DrawZone;
-class QComboBox;
 class QTreeWidgetItem;
 class KToggleAction;
 class KXmlGuiWindow;

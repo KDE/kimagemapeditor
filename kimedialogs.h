@@ -29,7 +29,6 @@
 
 
 class QLineEdit;
-class Q3MultiLineEdit;
 class QSpinBox;
 
 
@@ -99,7 +98,6 @@ Q_OBJECT
 
 
 class QCheckBox;
-class Q3GridLayout;
 
 class AreaDialog : public KDialog {
 Q_OBJECT

@@ -73,6 +73,8 @@
 #include "kimecommon.h"
 #include "imagemapchoosedialog.h"
 
+#include <QTextEdit>
+
 #include <kparts/genericfactory.h>
 #include <kcomponentdata.h>
 
@@ -1591,16 +1593,17 @@ void KImageMapEditor::mapShowHTML()
   dialog->setCaption(i18n("HTML Code of Map"));
   dialog->setButtons(KDialog::Ok);
   dialog->setDefaultButton(KDialog::Ok);
-  Q3MultiLineEdit *edit = new Q3MultiLineEdit(dialog);
+  QTextEdit *edit = new QTextEdit(dialog);
 
   edit->setText(getHtmlCode());
   edit->setReadOnly(true);
-  edit->setWordWrap(Q3TextEdit::NoWrap);
+  edit->setLineWrapMode(QTextEdit::NoWrap);
   dialog->setMainWidget(edit);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
   dialog->resize(600,400);
   dialog->exec();
+  delete dialog;
 }
 
 void KImageMapEditor::openFile(const KUrl & url) {

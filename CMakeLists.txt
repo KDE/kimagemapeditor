@@ -27,7 +27,7 @@ set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor
 
 target_link_libraries(kimagemapeditor_bin  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS} )
 
-install(TARGETS kimagemapeditor_bin  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############

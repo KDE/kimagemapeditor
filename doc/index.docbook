@@ -60,7 +60,7 @@ Do NOT change these in the translation. -->
 
 <abstract>
 <para>
-&kimagemapeditor; is an HTML imagemap editor for &kde;.
+&kimagemapeditor; is an &HTML; imagemap editor for &kde;.
 </para>
 </abstract>
 
@@ -98,8 +98,8 @@ problems. Basically a long version of the abstract.  Don't include a
 revision history. (see installation appendix comment) -->
 
 <para>
-&kimagemapeditor; is an HTML imagemap editor for &kde;.
-It allows you to create and modify HTML imagemaps.
+&kimagemapeditor; is an &HTML; imagemap editor for &kde;.
+It allows you to create and modify &HTML; imagemaps.
 </para>
 </chapter>
 
@@ -118,7 +118,6 @@ Documentation copyright 2007 Jan Sch&auml;fer <email>j_schaef&#64;informatik&#46
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
 &underFDL;               <!-- FDL: do not remove -->
 
 &underGPL;        	 <!-- GPL License -->

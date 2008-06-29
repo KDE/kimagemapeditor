@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Application
-Encoding=UTF-8
 MimeType=text/html;
 Exec=kimagemapeditor -caption "%c" %i %m
 Icon=kimagemapeditor

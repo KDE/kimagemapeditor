@@ -54,7 +54,7 @@ public:
   void removeMap(const QString &);
 
   /**
-   * Set the the given map selected in the ListView.
+   * Set to the given map selected in the ListView.
    * it does not emit mapSelected afterwards.
    */
   void selectMap(const QString &);

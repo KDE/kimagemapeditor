@@ -738,10 +738,10 @@ bool RectArea::setCoords(const QString & s)
 {
 	_finished=true;
 
-	QStringList list = s.split(",");
+	const QStringList list = s.split(",");
 	QRect r;
  	bool ok=true;
- 	QStringList::Iterator it = list.begin();
+ 	QStringList::ConstIterator it = list.begin();
 	r.setLeft((*it).toInt(&ok,10));it++;
 	r.setTop((*it).toInt(&ok,10));it++;
 	r.setRight((*it).toInt(&ok,10));it++;
@@ -918,9 +918,9 @@ void CircleArea::updateSelectionPoints()
 bool CircleArea::setCoords(const QString & s)
 {
 	_finished=true;
-	QStringList list = s.split(",");
+	const QStringList list = s.split(",");
  	bool ok=true;
- 	QStringList::Iterator it = list.begin();
+ 	QStringList::ConstIterator it = list.begin();
  	int x=(*it).toInt(&ok,10);it++;
  	int y=(*it).toInt(&ok,10);it++;
  	int rad=(*it).toInt(&ok,10);
@@ -1163,11 +1163,11 @@ void PolyArea::updateSelectionPoints()
 bool PolyArea::setCoords(const QString & s)
 {
 	_finished=true;
-	QStringList list = s.split(",");
+	const QStringList list = s.split(",");
 	_coords.clear();
 	_selectionPoints.clear();
 
-	for (QStringList::Iterator it = list.begin(); it !=list.end(); ++it)
+	for (QStringList::ConstIterator it = list.begin(); it !=list.end(); ++it)
 	{
 		bool ok=true;
 		int newXCoord=(*it).toInt(&ok,10);

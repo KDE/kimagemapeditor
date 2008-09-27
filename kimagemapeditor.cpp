@@ -925,14 +925,14 @@ QImage KImageMapEditor::getBackgroundImage() {
     // The translated string must be divided into
     // parts with about the same size that fit to the image
     QString str = i18n("Drop an image or HTML file");
-    QStringList strList = str.split(" ");
+    const QStringList strList = str.split(" ");
 
     // Get the string parts
     QString tmp;
     QStringList outputStrList;
     QFontMetrics fm = p.fontMetrics();
 
-    for ( QStringList::Iterator it = strList.begin(); it != strList.end(); ++it ) {
+    for ( QStringList::ConstIterator it = strList.begin(); it != strList.end(); ++it ) {
       QString tmp2 = tmp + *it;
 
         if (fm.boundingRect(tmp2).width() > width-border) {

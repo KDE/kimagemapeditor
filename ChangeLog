@@ -5,7 +5,7 @@
       German, spanish, french and dutch
   * Improved session management
   * Made it possible to start with the last opened document
-  * The ImageMapChoosDialog is only shown, if there are more then one map to choose.
+  * The ImageMapChoosDialog is only shown, if there is more than one map to choose.
 - Bug fixes :
   * Fixed the bug that prevents from dropping html or image files
   * Fixed another Mandrake compilation problem

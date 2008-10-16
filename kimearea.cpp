@@ -350,7 +350,7 @@ void Area::removeCoord(int pos) {
   int count =_coords.size();
 
   if (count<4){
-    kDebug() << "Danger : trying to remove coordinate from Area with less then 4 coordinates !";
+    kDebug() << "Danger : trying to remove coordinate from Area with less than 4 coordinates !";
     return;
   }
 

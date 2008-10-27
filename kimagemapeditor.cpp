@@ -1808,7 +1808,7 @@ QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QStrin
       }
     }
 
-    // Wrong syntax or PHP-Skript !
+    // Wrong syntax or PHP-Script !
     if (!php && (w=='<'))
     {
       if (valueRead)

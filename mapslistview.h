@@ -87,7 +87,7 @@ public:
   QString getUnusedMapName();
 
   /**
-   * Wether or not the given map name already exists
+   * Whether or not the given map name already exists
    */
   bool nameAlreadyExists(const QString &);
 

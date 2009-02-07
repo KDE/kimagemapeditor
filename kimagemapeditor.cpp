@@ -264,7 +264,7 @@ KAboutData* KImageMapEditor::createAboutData()
 void KImageMapEditor::setReadWrite(bool)
 {
 
-  // For now it doesn't matter if its readwrite or readonly
+  // For now it does not matter if it is readwrite or readonly
   // it is always readwrite, because Quanta only supports ReadOnlyParts
   // at this moment and in that case it should be readwrite, too.
   ReadWritePart::setReadWrite(true);

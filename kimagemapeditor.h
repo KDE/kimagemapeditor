@@ -188,6 +188,7 @@ public :
 
     virtual void readProperties(const KConfigGroup &);
     virtual void saveProperties(KConfigGroup &);
+    using KParts::ReadWritePart::closeUrl;
     virtual bool closeUrl();
     bool queryClose();
     virtual void setReadWrite(bool);

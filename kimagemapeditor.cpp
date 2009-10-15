@@ -1595,7 +1595,7 @@ void KImageMapEditor::mapShowHTML()
   dialog->setDefaultButton(KDialog::Ok);
   QTextEdit *edit = new QTextEdit(dialog);
 
-  edit->setText(getHtmlCode());
+  edit->setPlainText(getHtmlCode());
   edit->setReadOnly(true);
   edit->setLineWrapMode(QTextEdit::NoWrap);
   dialog->setMainWidget(edit);

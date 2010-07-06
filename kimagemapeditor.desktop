@@ -5,6 +5,7 @@ Exec=kimagemapeditor -caption "%c" %i
 Icon=kimagemapeditor
 Terminal=false
 Name=KImageMapEditor
+Name[bg]=KImageMapEditor
 Name[br]=KImageMapEditor
 Name[ca]=KImageMapEditor
 Name[ca@valencia]=KImageMapEditor

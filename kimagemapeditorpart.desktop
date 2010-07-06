@@ -52,6 +52,7 @@ Comment[zh_CN]=HTML 图像映射编辑器
 Comment[zh_HK]=一個 HTML 影像地圖的編輯器
 Comment[zh_TW]=一個 HTML 影像地圖的編輯器
 Name=KImageMapEditor
+Name[bg]=KImageMapEditor
 Name[br]=KImageMapEditor
 Name[ca]=KImageMapEditor
 Name[ca@valencia]=KImageMapEditor

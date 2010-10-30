@@ -677,7 +677,6 @@ void KImageMapEditor::setupActions()
   connect(moveLeftAction, SIGNAL(triggered(bool)),
          SLOT( slotMoveLeft() ));
   moveLeftAction->setShortcut(KShortcut(QKeySequence(Qt::Key_Left)));
-  moveLeftAction->setShortcutContext(Qt::ApplicationShortcut);
 
     moveRightAction  = new KAction(i18n("Move Right"), this);
     actionCollection()->addAction("moveright", moveRightAction );

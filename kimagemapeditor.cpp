@@ -2912,6 +2912,8 @@ void KImageMapEditor::imageUsemap() {
        it.next();
        if (it.key() != "tagname") {
            imgEl->htmlCode += " " + it.key() + "=\"";
+           if (it.key() == "usemap")
+               imgEl->htmlCode += '#';
            imgEl->htmlCode += it.value();
            imgEl->htmlCode += '"';
        }

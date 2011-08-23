@@ -32,8 +32,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2007-06-02</date>
-<releaseinfo>0&#46;0&#46;1</releaseinfo>
+<date>2011-08-22</date>
+<releaseinfo>3.9.0 (&kde; 4.7)</releaseinfo>
 
 <abstract>
 <para>
@@ -52,14 +52,24 @@
 
 </bookinfo>
 
-<chapter id="introduction">
-<title>Introduction</title>
+<chapter id="using">
+<title>Using &kimagemapeditor;</title>
 
 <para>
 &kimagemapeditor; is an &HTML; imagemap editor for &kde;.
-It allows you to create and modify &HTML; imagemaps.
-  <!--http://en.wikipedia.org/wiki/Imagemap-->
+It allows you to create and modify &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap">Imagemaps.</ulink>
 </para>
+
+  <!-- common use case map click on country to open link to selected region
+  
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+  usemap value without leading '#' has to match the Map Name 
+  
+  --> 
 </chapter>
 
 <chapter id="credits">

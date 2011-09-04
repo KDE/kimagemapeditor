@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
   KAboutData aboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
     KIMAGEMAPEDITOR_VERSION, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 2001-2007 Jan Schaefer"), KLocalizedString(), "http://www.nongnu.org/kimagemap/", "janschaefer@users.sourceforge.net");
+    ki18n("(c) 2001-2007 Jan Schaefer"), KLocalizedString(), "http://kde.org/applications/development/kimagemapeditor/", "janschaefer@users.sourceforge.net");
   aboutData.addAuthor(ki18n("Jan Schaefer"),KLocalizedString(), "janschaefer@users.sourceforge.net");
   aboutData.addCredit(ki18n("Joerg Jaspert"),ki18n("For helping me with the Makefiles, and creating the Debian package"));
   aboutData.addCredit(ki18n("Aaron Seigo and Michael"),ki18n("For helping me fixing --enable-final mode"));

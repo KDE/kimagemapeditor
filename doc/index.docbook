@@ -90,7 +90,7 @@ it into the image area. Select an image in the <guilabel>Images</guilabel> docke
 Map</guimenuitem></menuchoice> from the menu and enter a map name.</para>
 
 <para>Now the <guimenu>Tools</guimenu> menu is enabled and you can 
-select the appropriate gemometric shape like <guimenuitem>Circle</guimenuitem>, 
+select the appropriate geometric shape like <guimenuitem>Circle</guimenuitem>, 
 <guimenuitem>Rectangle</guimenuitem>, <guimenuitem>Polygon</guimenuitem> or 
 <guimenuitem>Freehand Polygon</guimenuitem> and define a clickable area in 
 the image.</para>
@@ -114,7 +114,7 @@ menu oder the context menu of the region.</para>
 to view the generated &HTML; code of the map.</para>
 
 <para>Next open <menuchoice><guimenu>Image</guimenu><guimenuitem>Edit Usemap...</guimenuitem></menuchoice> 
-and enter the map name ias usemap value. Save your work with <menuchoice><guimenu>File</guimenu>
+and enter the map name as usemap value. Save your work with <menuchoice><guimenu>File</guimenu>
 <guimenuitem>Save</guimenuitem></menuchoice>. Open the &HTML; file in &konqueror; to verify that 
 the imagemap is working as expected.</para>
 

@@ -2271,8 +2271,10 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
         setAttribute(a,tag,"target");
         setAttribute(a,tag,"title");
         setAttribute(a,tag,"onclick");
+        setAttribute(a,tag,"ondblclick");
         setAttribute(a,tag,"onmousedown");
-        setAttribute(a,tag,"onmouseup");
+        setAttribute(a,tag,"onmouseup"); 
+        setAttribute(a,tag,"onmouseover");
         setAttribute(a,tag,"onmousemove");
         setAttribute(a,tag,"onmouseout");
 

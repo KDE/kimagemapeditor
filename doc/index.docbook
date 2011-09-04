@@ -59,7 +59,24 @@
 &kimagemapeditor; is an &HTML; imagemap editor for &kde;.
 It allows you to create and modify &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap">Imagemaps.</ulink>
 </para>
-  <!-- 
+
+<screenshot>
+<screeninfo>Here's a screenshot of &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot</phrase>
+	  </textobject>
+	  <caption>
+	    <para>
+	      &kimagemapeditor; main window.
+	    </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
 <para>A common use case is a world map where each country is an imagemap. 
 By clicking on a country in the map you can open a link to the selected 
 country.</para>
@@ -79,23 +96,29 @@ select the appropriate gemometric shape like <guimenuitem>Circle</guimenuitem>,
 the image.</para>
 
 <para>The <guilabel>Area Tag Editor</guilabel> dialog is displayed. On the <guilabel>General</guilabel> 
-tab enter a <guilabel>HREF</guilabel> (link?), <guilabel>Alt.Text</guilabel>, <guilabel>Target</guilabel> 
-and <guilabel>Title</guilabel>.</para> 
+tab enter the attributes <guilabel>HREF</guilabel> (a link's target &URL;), <guilabel>Alt.Text</guilabel>, 
+<guilabel>Target</guilabel> and <guilabel>Title</guilabel>.</para> 
 
 <para>The <guilabel>Coordinates</guilabel> tab shows the geometric data of the shape. 
 Editing the value allows you to adjust size and position on the image as your changes 
 are immediately visible in the image. Size and position can be altered using the mouse 
 as well.</para>
 
-<para>JavaScript tab Enter name of funtions defined where? for actions</para>
+<!--para>JavaScript tab Enter name of funtions defined where? for actions</para-->
 
 <para>To open the <guilabel>Area Tag Editor</guilabel> dialog for an already defined 
 imagemap use <guimenuitem>Properties</guimenuitem> from the <guimenu>Edit</guimenu> 
 menu oder the context menu of the region.</para>
 
-<para>Use <menuchoice><guimenu>Map</guimenu><guimenuitem>Show HTMl</guimenuitem></menuchoice> 
+<para>Use <menuchoice><guimenu>Map</guimenu><guimenuitem>Show HTML</guimenuitem></menuchoice> 
 to view the generated &HTML; code of the map.</para>
 
+<para>Next open <menuchoice><guimenu>Image</guimenu><guimenuitem>Edit Usemap...</guimenuitem></menuchoice> 
+and enter the map name ias usemap value. Save your work with <menuchoice><guimenu>File</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice>. Open the &HTML; file in &konqueror; to verify that 
+the imagemap is working as expected.</para>
+
+<!-- 
 Map-Preview is empty?
 
   Draft of Howto create an imagemap
@@ -103,25 +126,7 @@ Map-Preview is empty?
   2) Tools Circle Rectangle Polygon to define an area
   3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
   4) Map->Show HTMl to view the html code of the map
-  usemap value without leading '#' has to match the Map Name 
-  
-  --> 
-<screenshot>
-<screeninfo>Here's a screenshot of &kimagemapeditor;</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="mainwindow.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Screenshot</phrase>
-	  </textobject>
-	  <caption>
-	    <para>
-	      &kimagemapeditor; main window.
-	    </para>
-	  </caption>
-	</mediaobject>
-</screenshot>
+--> 
 <para>
     Configuration options of &kimagemapeditor; can be accessed by opening the configuration dialog with selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure &kimagemapeditor;...</guimenuitem> </menuchoice> from the menu.
 </para>

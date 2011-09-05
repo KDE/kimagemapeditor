@@ -2,23 +2,12 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kimagemapeditor "<application>KImageMapEditor</application>">
   <!ENTITY kappname "&kimagemapeditor;"><!-- Do *not* replace kappname-->
-  <!ENTITY package "kde-module"><!-- kdebase, kdeadmin, etc -->
+  <!ENTITY package "kdewebdev"><!-- kdebase, kdeadmin, etc -->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
-  
-  
-  <!-- Do not define any other entities; instead, use the entities
-       from kde-genent.entities and $LANG/user.entities. -->
 ]>
 
-<!-- ................................................................ -->
-
-<!-- The language must NOT be changed here. -->
-
 <book lang="&language;">
-
-<!-- This header contains all of the meta-information for the document such
-as Authors, publish date, the abstract, and Keywords -->
 
 <bookinfo>
 <title>The &kimagemapeditor; Handbook</title>
@@ -38,25 +27,13 @@ as Authors, publish date, the abstract, and Keywords -->
 
 <copyright>
 <year>2007</year>
-<!--<year>2004</year>-->
 <holder>Jan Sch&auml;fer</holder>
 </copyright>
-<!-- Translators: put here the copyright notice of the translation -->
-<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
-     and in the FDL itself on how to use it. -->
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<!-- Date and version information of the documentation
-Don't forget to include this last date and this last revision number, we
-need them for translation coordination !
-Please respect the format of the date (YYYY-MM-DD) and of the version
-(V.MM.LL), it could be used by automation scripts.
-Do NOT change these in the translation. -->
-
-<date>2007-06-02</date>
-<releaseinfo>0&#46;0&#46;1</releaseinfo>
-
-<!-- Abstract about this handbook -->
+<date>2011-08-22</date>
+<releaseinfo>3.9.0 (&kde; 4.7)</releaseinfo>
 
 <abstract>
 <para>
@@ -64,43 +41,113 @@ Do NOT change these in the translation. -->
 </para>
 </abstract>
 
-<!-- This is a set of Keywords for indexing by search engines.
-Please at least include KDE, the KDE package it is in, the name
- of your application, and a few relevant keywords. -->
-
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>KImageMapEditor</keyword>
 <keyword>imagemap</keyword>
 <keyword>usemap</keyword>
 <keyword>kdewebdev</keyword>
-<keyword>Quanta</keyword>
 <keyword>html</keyword>
 </keywordset>
 
 </bookinfo>
 
-<!-- The contents of the documentation begin here.  Label
-each chapter so with the id attribute. This is necessary for two reasons: it
-allows you to easily reference the chapter from other chapters of your
-document, and if there is no ID, the name of the generated HTML files will vary
-from time to time making it hard to manage for maintainers and for the CVS
-system. Any chapter labelled (OPTIONAL) may be left out at the author's
-discretion. Other chapters should not be left out in order to maintain a
-consistent documentation style across all KDE apps. -->
-
-<chapter id="introduction">
-<title>Introduction</title>
-
-<!-- The introduction chapter contains a brief introduction for the
-application that explains what it does and where to report
-problems. Basically a long version of the abstract.  Don't include a
-revision history. (see installation appendix comment) -->
+<chapter id="using">
+<title>Using &kimagemapeditor;</title>
 
 <para>
-&kimagemapeditor; is an &HTML; imagemap editor for &kde;.
-It allows you to create and modify &HTML; imagemaps.
+&kimagemapeditor; is a &HTML; imagemap editor for &kde;.
+It allows you to create and modify &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap">Imagemaps.</ulink>
 </para>
+
+<screenshot>
+<screeninfo>Here's a screenshot of &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot</phrase>
+	  </textobject>
+	  <caption>
+	    <para>
+	      &kimagemapeditor; main window.
+	    </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para>A common use case is a world map where each country is an imagemap. 
+By clicking on a country in the map you can open a link to the selected 
+country.</para>
+
+<para>Creating an imagemap requires the following steps:</para>
+
+<para>Load an image file (<filename class="extension">png</filename>, 
+<filename class="extension">jpg</filename>, <filename class="extension">gif</filename>) 
+or a &HTML; file from your disk or drag 
+it into the image area. Select an image in the <guilabel>Images</guilabel> docker.</para>
+
+<para>Add a imagemap using <menuchoice><guimenu>Map</guimenu><guimenuitem>New 
+Map</guimenuitem></menuchoice> from the menu and enter a map name.</para>
+
+<para>Now the <guimenu>Tools</guimenu> menu is enabled and you can 
+select the appropriate geometric shape like <guimenuitem>Circle</guimenuitem>, 
+<guimenuitem>Rectangle</guimenuitem>, <guimenuitem>Polygon</guimenuitem> or 
+<guimenuitem>Freehand Polygon</guimenuitem> and define a clickable area in 
+the image.</para>
+
+<para>The <guilabel>Area Tag Editor</guilabel> dialog is displayed. On the <guilabel>General</guilabel> 
+tab enter the attributes <guilabel>HREF</guilabel> (a link's target &URL;), <guilabel>Alt.Text</guilabel>, 
+<guilabel>Target</guilabel> and <guilabel>Title</guilabel>.</para> 
+
+<para>The <guilabel>Coordinates</guilabel> tab shows the geometric data of the shape. 
+Editing the value allows you to adjust size and position on the image as your changes 
+are immediately visible in the image. Size and position can be altered using the mouse 
+as well.</para>
+
+<!--para>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para>To open the <guilabel>Area Tag Editor</guilabel> dialog for an already defined 
+imagemap use <guimenuitem>Properties</guimenuitem> from the <guimenu>Edit</guimenu> 
+menu or the context menu of the region.</para>
+
+<para>Use <menuchoice><guimenu>Map</guimenu><guimenuitem>Show HTML</guimenuitem></menuchoice> 
+to view the generated &HTML; code of the map.</para>
+
+<para>Next open <menuchoice><guimenu>Image</guimenu><guimenuitem>Edit Usemap...</guimenuitem></menuchoice> 
+and enter the map name as usemap value. Save your work with <menuchoice><guimenu>File</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice>. Open the &HTML; file in &konqueror; to verify that 
+the imagemap is working as expected.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para>
+    Configuration options of &kimagemapeditor; can be accessed by opening the configuration dialog with selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure &kimagemapeditor;...</guimenuitem> </menuchoice> from the menu.
+</para>
+<screenshot>
+<screeninfo>Configuration dialog of &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Configuration dialog of &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para>
+	      Configuration dialog of &kimagemapeditor;.
+	    </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
 </chapter>
 
 <chapter id="credits">

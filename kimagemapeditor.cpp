@@ -320,7 +320,7 @@ void KImageMapEditor::setReadWrite(bool)
 void KImageMapEditor::setModified(bool modified)
 {
     // get a handle on our Save action and make sure it is valid
-    QAction *save = actionCollection()->action(KStandardAction::stdName(KStandardAction::Save));
+    QAction *save = actionCollection()->action(KStandardAction::name(KStandardAction::Save));
     if (!save)
         return;
 

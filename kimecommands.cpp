@@ -23,7 +23,7 @@
 #include "drawzone.h"
 
 CutCommand::CutCommand(KImageMapEditor * document, const AreaSelection & a)
-  : K3NamedCommand(i18n( "Cut %1", a.typeString() ))
+  : QUndoCommand(i18n( "Cut %1", a.typeString() ))
 {
 	_document=document;
 	_cutAreaSelection=new AreaSelection();
@@ -45,7 +45,7 @@ CutCommand::~CutCommand()
 	delete _cutAreaSelection;
 }
 
-void CutCommand::execute()
+void CutCommand::redo()
 {
 	// The Area won't be really delete
 	// it only gets removed from the AreaList
@@ -54,7 +54,7 @@ void CutCommand::execute()
 	_cutted=true;
 }
 
-void CutCommand::unexecute()
+void CutCommand::undo()
 {
 	if (_document) {
 		_document->addArea( _cutAreaSelection );
@@ -67,11 +67,11 @@ void CutCommand::unexecute()
 DeleteCommand::DeleteCommand(KImageMapEditor * document, const AreaSelection & a)
 	: CutCommand(document,a)
 {
-	setName(i18n( "Delete %1", a.typeString() ));
+	setText(i18n( "Delete %1", a.typeString() ));
 }
 
 PasteCommand::PasteCommand(KImageMapEditor *document, const AreaSelection & a)
-	: K3NamedCommand(i18n( "Paste %1", a.typeString() ))
+	: QUndoCommand(i18n( "Paste %1", a.typeString() ))
 {
 	_document=document;
 	_pasteAreaSelection=new AreaSelection();
@@ -92,7 +92,7 @@ PasteCommand::~PasteCommand ()
 	delete _pasteAreaSelection;
 }
 
-void PasteCommand::execute()
+void PasteCommand::redo()
 {
 	_document->deselectAll();
 	_document->addArea( _pasteAreaSelection );
@@ -101,7 +101,7 @@ void PasteCommand::execute()
 	_pasted=true;
 }
 
-void PasteCommand::unexecute()
+void PasteCommand::undo()
 {
 	_document->deleteArea(_pasteAreaSelection );
 	_pasted=false;
@@ -110,7 +110,7 @@ void PasteCommand::unexecute()
 
 
 MoveCommand::MoveCommand (KImageMapEditor *document, AreaSelection * a, const QPoint & oldPoint)
-	: K3NamedCommand(i18n( "Move %1", a->typeString() ))
+	: QUndoCommand(i18n( "Move %1", a->typeString() ))
 {
 	_document=document;
 	_areaSelection=new AreaSelection();
@@ -126,7 +126,7 @@ MoveCommand::~MoveCommand () {
 	delete _areaSelection;
 }
 
-void MoveCommand::execute()
+void MoveCommand::redo()
 {
 	// only for repainting reasons
 	Area* tempArea = _areaSelection->clone();
@@ -146,7 +146,7 @@ void MoveCommand::execute()
 
 }
 
-void MoveCommand::unexecute()
+void MoveCommand::undo()
 {
   // only to erase the old Area
   Area* tempArea = _areaSelection->clone();
@@ -166,7 +166,7 @@ void MoveCommand::unexecute()
 
 
 ResizeCommand::ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea)
-	:K3NamedCommand(i18n( "Resize %1", a->typeString() ))
+	:QUndoCommand(i18n( "Resize %1", a->typeString() ))
 {
 	_areaSelection=new AreaSelection();
 	_areaSelection->setAreaList( a->getAreaList() );
@@ -183,7 +183,7 @@ ResizeCommand::~ResizeCommand ()
 	delete _areaSelection;
 }
 
-void ResizeCommand::execute()
+void ResizeCommand::redo()
 {
   _areaSelection->setArea ( *_newArea);
   _areaSelection->setMoving(false);
@@ -194,7 +194,7 @@ void ResizeCommand::execute()
 
 }
 
-void ResizeCommand::unexecute()
+void ResizeCommand::undo()
 {
   _areaSelection->setArea ( *_oldArea);
   _areaSelection->setMoving(false);
@@ -207,7 +207,7 @@ void ResizeCommand::unexecute()
 
 
 AddPointCommand::AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p)
-	:K3NamedCommand(i18n( "Add point to %1", a->typeString() ))
+	:QUndoCommand(i18n( "Add point to %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -227,7 +227,7 @@ AddPointCommand::~AddPointCommand ()
 	delete _areaSelection;
 }
 
-void AddPointCommand::execute()
+void AddPointCommand::redo()
 {
   _coordpos = _areaSelection->addCoord(_point);
   _areaSelection->setMoving(false);
@@ -235,7 +235,7 @@ void AddPointCommand::execute()
 	_document->slotAreaChanged( _areaSelection );
 }
 
-void AddPointCommand::unexecute()
+void AddPointCommand::undo()
 {
 //  QRect *selectionPoint = _areaSelection->onSelectionPoint(_point);
   Area* repaintArea = _areaSelection->clone();
@@ -251,7 +251,7 @@ void AddPointCommand::unexecute()
 
 RemovePointCommand::RemovePointCommand(KImageMapEditor *document, 
        AreaSelection *a, Area *oldArea)
-  : K3NamedCommand(i18n( "Remove point from %1", a->typeString() ))
+  : QUndoCommand(i18n( "Remove point from %1", a->typeString() ))
 {
   if (a->type()!=Area::Polygon)
   {
@@ -274,7 +274,7 @@ RemovePointCommand::~RemovePointCommand ()
 	delete _areaSelection;
 }
 
-void RemovePointCommand::execute()
+void RemovePointCommand::redo()
 {
   _areaSelection->setArea ( *_newArea);
   _areaSelection->setMoving(false);
@@ -285,7 +285,7 @@ void RemovePointCommand::execute()
 
 }
 
-void RemovePointCommand::unexecute()
+void RemovePointCommand::undo()
 {
   _areaSelection->setArea ( *_oldArea);
   _areaSelection->setMoving(false);
@@ -298,7 +298,7 @@ void RemovePointCommand::unexecute()
 
 
 CreateCommand::CreateCommand (KImageMapEditor *document, Area *area)
-	: K3NamedCommand(i18n( "Create %1", area->typeString() ))
+	: QUndoCommand(i18n( "Create %1", area->typeString() ))
 {
 	_document=document;
 	_area=area;
@@ -313,7 +313,7 @@ CreateCommand::~CreateCommand ()
  		delete _area;
 }
 
-void CreateCommand::execute()
+void CreateCommand::redo()
 {
 	if (_document) {
 
@@ -331,7 +331,7 @@ void CreateCommand::execute()
 
 }
 
-void CreateCommand::unexecute()
+void CreateCommand::undo()
 {
 	if (_document) {
 		_document->deleteArea( _area );

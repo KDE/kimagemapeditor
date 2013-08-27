@@ -39,7 +39,7 @@
 #include <QLinkedList>
 
 // KDE
-#include <k3command.h>
+#include <kundostack.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kaction.h>
@@ -386,7 +386,9 @@ void KImageMapEditor::slotConfigChanged()
   int newHeight=group.readEntry("maximum-preview-height",50);
   group = config()->group("General Options");
   _commandHistory->setUndoLimit(group.readEntry("undo-level",100));
+#if 0
   _commandHistory->setRedoLimit(group.readEntry("redo-level",100));
+#endif
   Area::highlightArea = group.readEntry("highlightareas",true);
   highlightAreasAction->setChecked(Area::highlightArea);
   Area::showAlt = group.readEntry("showalt",true);
@@ -502,7 +504,9 @@ void KImageMapEditor::setupActions()
   deleteAction->setEnabled(false);
 
   // Edit Undo/Redo
-  _commandHistory = new K3CommandHistory( actionCollection(), true);
+  _commandHistory = new KUndoStack(this);
+  _commandHistory->createUndoAction(actionCollection());
+  _commandHistory->createRedoAction(actionCollection());
 
   // Edit Properties
     areaPropertiesAction  = new KAction(i18n("Pr&operties"), this);
@@ -2451,8 +2455,8 @@ void KImageMapEditor::slotCut()
 
   copyArea= static_cast< AreaSelection* > (currentSelected->clone());
   pasteAction->setEnabled(true);
-  K3Command *command= new CutCommand(this,*currentSelected);
-  commandHistory()->addCommand( command ,true);
+  QUndoCommand *command= new CutCommand(this,*currentSelected);
+  commandHistory()->push(command);
 }
 
 
@@ -2461,8 +2465,8 @@ void KImageMapEditor::slotDelete()
   if ( 0 == currentSelected->count() )
     return;
 
-  K3Command *command= new DeleteCommand(this,*currentSelected);
-  commandHistory()->addCommand( command ,true);
+  QUndoCommand *command= new DeleteCommand(this,*currentSelected);
+  commandHistory()->push(command);
 }
 
 void KImageMapEditor::slotCopy()
@@ -2488,7 +2492,7 @@ void KImageMapEditor::slotPaste()
       return;
 
   AreaSelection *a=static_cast< AreaSelection* > (copyArea->clone());
-  commandHistory()->addCommand( new PasteCommand(this,*a),true);
+  commandHistory()->push(new PasteCommand(this,*a));
   delete a;
 //	addAreaAndEdit(a);
 }
@@ -2572,8 +2576,8 @@ void KImageMapEditor::slotMoveUp()
   selected()->setMoving(true);
   selected()->moveBy(0,-1);
 
-  commandHistory()->addCommand(
-    new MoveCommand( this, selected(), r.topLeft() ) ,true );
+  commandHistory()->push(
+    new MoveCommand( this, selected(), r.topLeft() ));
   selected()->setMoving(false);
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
@@ -2585,8 +2589,8 @@ void KImageMapEditor::slotMoveDown()
   selected()->setMoving(true);
   selected()->moveBy(0,1);
 
-  commandHistory()->addCommand(
-    new MoveCommand( this, selected(), r.topLeft() ) ,true );
+  commandHistory()->push(
+    new MoveCommand( this, selected(), r.topLeft() ));
   selected()->setMoving(false);
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
@@ -2599,8 +2603,8 @@ void KImageMapEditor::slotMoveLeft()
   selected()->setMoving(true);
   selected()->moveBy(-1,0);
 
-  commandHistory()->addCommand(
-    new MoveCommand( this, selected(), r.topLeft() ) ,true );
+  commandHistory()->push(
+    new MoveCommand( this, selected(), r.topLeft() ));
   selected()->setMoving(false);
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
@@ -2612,8 +2616,8 @@ void KImageMapEditor::slotMoveRight()
   selected()->setMoving(true);
   selected()->moveBy(1,0);
 
-  commandHistory()->addCommand(
-    new MoveCommand( this, selected(), r.topLeft() ) ,true );
+  commandHistory()->push(
+    new MoveCommand( this, selected(), r.topLeft() ));
   selected()->setMoving(false);
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
@@ -2634,8 +2638,8 @@ void KImageMapEditor::slotIncreaseHeight()
 
   selected()->setRect(r);
 
-  commandHistory()->addCommand(
-    new ResizeCommand( this, selected(), oldArea ) ,true );
+  commandHistory()->push(
+    new ResizeCommand( this, selected(), oldArea ));
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
 }
@@ -2650,8 +2654,8 @@ void KImageMapEditor::slotDecreaseHeight()
 
   selected()->setRect(r);
 
-  commandHistory()->addCommand(
-    new ResizeCommand( this, selected(), oldArea ) ,true );
+  commandHistory()->push(
+    new ResizeCommand( this, selected(), oldArea ));
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
 }
@@ -2665,8 +2669,8 @@ void KImageMapEditor::slotIncreaseWidth()
 
   selected()->setRect(r);
 
-  commandHistory()->addCommand(
-    new ResizeCommand( this, selected(), oldArea ) ,true );
+  commandHistory()->push(
+    new ResizeCommand( this, selected(), oldArea ));
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
 }
@@ -2680,8 +2684,8 @@ void KImageMapEditor::slotDecreaseWidth()
 
   selected()->setRect(r);
 
-  commandHistory()->addCommand(
-    new ResizeCommand( this, selected(), oldArea ) ,true );
+  commandHistory()->push(
+    new ResizeCommand( this, selected(), oldArea ));
   slotAreaChanged(selected());
   slotUpdateSelectionCoords();
 }

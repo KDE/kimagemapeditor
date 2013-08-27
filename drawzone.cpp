@@ -33,6 +33,7 @@
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kmimetype.h>
+#include <kundostack.h>
 
 // Local
 #include "drawzone.h"
@@ -461,10 +462,9 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
   case DrawCircle:
   case DrawRectangle:
     currentAction = None;
-    imageMapEditor->commandHistory()->addCommand(
+    imageMapEditor->commandHistory()->push(
 	  new CreateCommand( imageMapEditor, 
-			     currentArea ), 
-	  true);
+			     currentArea ));
     break;
   case DrawPolygon:
     // If the number of Polygonpoints is more than 2
@@ -476,8 +476,8 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
     {
       currentArea->setFinished(true);
       currentAction=None;
-      imageMapEditor->commandHistory()->addCommand(
-	  new CreateCommand( imageMapEditor, currentArea ), true);
+      imageMapEditor->commandHistory()->push(
+	  new CreateCommand( imageMapEditor, currentArea ));
     } else {
       currentArea->insertCoord(currentArea->countSelectionPoints()-1, drawEnd);
       currentSelectionPoint=currentArea->selectionPoints().last();
@@ -487,19 +487,18 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
     currentArea->setFinished(true,false);
     currentArea->simplifyCoords();
     currentAction=None;
-    imageMapEditor->commandHistory()->addCommand(
-	new CreateCommand( imageMapEditor, currentArea ), true);
+    imageMapEditor->commandHistory()->push(
+	new CreateCommand( imageMapEditor, currentArea ));
     break;
   case MoveArea: {
     QPoint p1 = oldArea->rect().topLeft();
     QPoint p2 = imageMapEditor->selected()->rect().topLeft();
 
     if (p1 != p2) {
-      imageMapEditor->commandHistory()->addCommand(
+      imageMapEditor->commandHistory()->push(
 	new MoveCommand( imageMapEditor, 
 			 imageMapEditor->selected(), 
-			 oldArea->rect().topLeft()),
-	true);
+			 oldArea->rect().topLeft()));
       imageMapEditor->slotAreaChanged(currentArea);
     } else {
       imageMapEditor->updateSelection();
@@ -509,11 +508,10 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
     break;
   }
   case MoveSelectionPoint:
-    imageMapEditor->commandHistory()->addCommand(
+    imageMapEditor->commandHistory()->push(
 	new ResizeCommand( imageMapEditor, 
 			   imageMapEditor->selected(), 
-			   oldArea),
-	true);
+			   oldArea));
     imageMapEditor->slotAreaChanged(currentArea);
     currentAction=None;
     break;
@@ -522,22 +520,20 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
 	currentArea->onSelectionPoint(zoomedPoint,_zoom)) 
     {
       currentArea->removeSelectionPoint(currentSelectionPoint);
-      imageMapEditor->commandHistory()->addCommand(
+      imageMapEditor->commandHistory()->push(
 	new RemovePointCommand( imageMapEditor, 
 				imageMapEditor->selected(), 
-				oldArea),
-	true);
+				oldArea));
       imageMapEditor->slotAreaChanged(currentArea);
     }
     currentAction=None;
     break;
   case AddPoint:
     if (currentArea == imageMapEditor->onArea(drawEnd)) {
-      imageMapEditor->commandHistory()->addCommand(
+      imageMapEditor->commandHistory()->push(
          new AddPointCommand( imageMapEditor, 
 			      imageMapEditor->selected(), 
-			      drawEnd),
-	 true);
+			      drawEnd));
       imageMapEditor->slotAreaChanged(currentArea);
     }
     currentAction=None;

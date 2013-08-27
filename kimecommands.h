@@ -19,7 +19,7 @@
 #define KIMECOMMANDS_H
 
 
-#include <k3command.h>
+#include <qundostack.h>
 
 #include <kdeversion.h>
 
@@ -28,15 +28,15 @@ class AreaSelection;
 
 
 
-class CutCommand : public K3NamedCommand
+class CutCommand : public QUndoCommand
 
 {
 	public:
   	CutCommand (KImageMapEditor * document, const AreaSelection & selection);
   	virtual ~CutCommand();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
   	AreaSelection *_cutAreaSelection;
@@ -54,14 +54,14 @@ class DeleteCommand : public CutCommand
  	 DeleteCommand (KImageMapEditor * document, const AreaSelection & selection);
 };
 
-class PasteCommand : public K3NamedCommand
+class PasteCommand : public QUndoCommand
 {
 	public:
   	PasteCommand (KImageMapEditor * document, const AreaSelection & selection);
   	~PasteCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
   	AreaSelection *_pasteAreaSelection;
@@ -71,14 +71,14 @@ class PasteCommand : public K3NamedCommand
 
 };
 
-class MoveCommand : public K3NamedCommand
+class MoveCommand : public QUndoCommand
 {
 	public:
   	MoveCommand (KImageMapEditor *document, AreaSelection *a,const QPoint & oldPoint);
   	~MoveCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
 		QPoint _newPoint;
@@ -89,14 +89,14 @@ class MoveCommand : public K3NamedCommand
 //-		Area *_oldArea;
 };
 
-class ResizeCommand : public K3NamedCommand
+class ResizeCommand : public QUndoCommand
 {
 	public:
   	ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
   	~ResizeCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
 
@@ -106,14 +106,14 @@ class ResizeCommand : public K3NamedCommand
 		Area *_newArea;
 };
 
-class AddPointCommand : public K3NamedCommand
+class AddPointCommand : public QUndoCommand
 {
 	public:
   	AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p);
   	~AddPointCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
 
@@ -123,14 +123,14 @@ class AddPointCommand : public K3NamedCommand
     int _coordpos;
 };
 
-class RemovePointCommand : public K3NamedCommand
+class RemovePointCommand : public QUndoCommand
 {
 	public:
   	RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
   	~RemovePointCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
 
@@ -141,14 +141,14 @@ class RemovePointCommand : public K3NamedCommand
 };
 
 
-class CreateCommand : public K3NamedCommand
+class CreateCommand : public QUndoCommand
 {
 	public:
   	CreateCommand (KImageMapEditor *document, Area *area);
   	~CreateCommand ();
 
-  	virtual void execute();
-  	virtual void unexecute();
+  	virtual void redo();
+  	virtual void undo();
 
   protected:
 

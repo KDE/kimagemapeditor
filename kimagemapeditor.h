@@ -115,7 +115,7 @@ class KAction;
 class KRecentFilesAction;
 class KAction;
 ///class QListViewItem;
-class K3CommandHistory;
+class KUndoStack;
 class KApplication;
 class QTabWidget;
 class AreaListView;
@@ -176,7 +176,7 @@ public :
     AreaSelection* selected() const;
     void setPicture(const QImage & pix);
     int showTagEditor(Area *);
-    K3CommandHistory *commandHistory() const;
+    KUndoStack *commandHistory() const;
 
     KApplication* app() const;
 
@@ -318,7 +318,7 @@ private:
     QDockWidget* mapsDock;
     QDockWidget* imagesDock;
 
-    K3CommandHistory *_commandHistory;
+    KUndoStack *_commandHistory;
     int maxAreaPreviewHeight;
 
     QString cursorStatusText;
@@ -447,7 +447,7 @@ inline QString KImageMapEditor::mapName() const {
     return _mapName;
 }
 
-inline K3CommandHistory* KImageMapEditor::commandHistory() const {
+inline KUndoStack* KImageMapEditor::commandHistory() const {
     return _commandHistory;
 }
 

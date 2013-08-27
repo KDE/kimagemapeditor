@@ -25,7 +25,6 @@
 #include <qbrush.h>
 #include <qpalette.h>
 #include <qcolor.h>
-#include <q3listview.h>
 
 #include <kdebug.h>
 

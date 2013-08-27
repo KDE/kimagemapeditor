@@ -28,7 +28,6 @@
 #include <qcombobox.h>
 #include <qsplitter.h>
 #include <qfileinfo.h>
-#include <q3multilineedit.h>
 #include <qtextstream.h>
 #include <QMenu>
 #include <qtooltip.h>
@@ -37,6 +36,7 @@
 #include <qfontdatabase.h>
 #include <qfile.h>
 #include <QLinkedList>
+#include <q3mimefactory.h>
 
 // KDE
 #include <kundostack.h>

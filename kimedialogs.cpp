@@ -17,14 +17,12 @@
 
 // QT
 #include <qcheckbox.h>
-#include <q3multilineedit.h>
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <QListWidget>
 #include <QTableWidget>
 #include <QHeaderView>
-#include <q3groupbox.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
 #include <qimage.h>

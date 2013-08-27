@@ -18,7 +18,6 @@
 // QT
 #include <qbitmap.h>
 #include <qpainter.h>
-#include <q3dragobject.h>
 #include <qpixmap.h>
 //Added by qt3to4:
 #include <QDropEvent>
@@ -28,7 +27,6 @@
 
 // KDE
 #include <kdebug.h>
-#include <k3urldrag.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>

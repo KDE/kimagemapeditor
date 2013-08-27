@@ -675,23 +675,18 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QS
 //  htmlView->setHScrollBarMode(QScrollView::Auto);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
+  htmlPart->openUrl(KUrl( tempFile->fileName() ));
   QLabel* lbl = new QLabel( page );
   lbl->setObjectName( "urllabel" );
 
   connect( htmlPart, SIGNAL( onURL(const QString&)), lbl, SLOT( setText(const QString&)));
+
+  resize(800,600);
 }
 
 HTMLPreviewDialog::~HTMLPreviewDialog() {
   delete tempFile;
   delete htmlPart;
-}
-
-void HTMLPreviewDialog::show() {
-  KDialog::show();
-  htmlPart->openUrl(KUrl( tempFile->fileName() ));
-//  htmlView->layout();
-//  htmlView->repaint();
-  resize(800,600);
 }
 
 #include "kimedialogs.moc"

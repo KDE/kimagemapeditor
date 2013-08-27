@@ -175,7 +175,6 @@ class HTMLPreviewDialog : public KDialog{
   public:
     HTMLPreviewDialog(QWidget *, const KUrl &, const QString &);
     ~HTMLPreviewDialog();
-    virtual void show();
   private:
     KHTMLPart* htmlPart;
     KTemporaryFile* tempFile;

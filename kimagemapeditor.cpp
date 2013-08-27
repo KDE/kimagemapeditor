@@ -343,16 +343,14 @@ KConfig *KImageMapEditor::config()
 }
 
 void KImageMapEditor::readConfig(const KConfigGroup &config) {
-  KConfigGroup data = config;
-  data.changeGroup( "Data" );
+  KConfigGroup data = config.parent().group( "Data" );
   recentFilesAction->loadEntries( data );
 }
 
 void KImageMapEditor::writeConfig(KConfigGroup& config) {
   config.writeEntry("highlightareas",highlightAreasAction->isChecked());
   config.writeEntry("showalt",showAltAction->isChecked());
-  KConfigGroup data = config;
-  data.changeGroup( "Data" );
+  KConfigGroup data = config.parent().group( "Data" );
   recentFilesAction->saveEntries( data );
   saveLastURL(config);
 

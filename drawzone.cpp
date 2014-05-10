@@ -67,16 +67,16 @@ DrawZone::DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor)
   rectangleCursor = createRectangleCursor();
   circleCursor = createCircleCursor();
 
-  QString path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/polygoncursor.png" ) + "kimagemapeditor/polygoncursor.png";
+  QString path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/polygoncursor.png" );
   polygonCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/freehandcursor.png" ) + "kimagemapeditor/freehandcursor.png";
+  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/freehandcursor.png" );
   freehandCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/addpointcursor.png" ) + "kimagemapeditor/addpointcursor.png";
+  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/addpointcursor.png" );
   addPointCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResourceDir( "data", "kimagemapeditor/removepointcursor.png" ) + "kimagemapeditor/removepointcursor.png";
+  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/removepointcursor.png" );
   removePointCursor = QCursor(QPixmap(path),8,8);
 }
 

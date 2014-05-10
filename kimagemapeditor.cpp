@@ -36,7 +36,6 @@
 #include <qfontdatabase.h>
 #include <qfile.h>
 #include <QLinkedList>
-#include <q3mimefactory.h>
 
 // KDE
 #include <kundostack.h>
@@ -444,8 +443,6 @@ void KImageMapEditor::setupActions()
   QAction *temp =
     KStandardAction::open(this, SLOT(fileOpen()),
 			  actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap("openimage",
-						   SmallIcon("document-open") );
   temp->setWhatsThis(i18n("<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."));
   temp->setToolTip(i18n("Open new picture or HTML file"));
 
@@ -454,7 +451,6 @@ void KImageMapEditor::setupActions()
                                       actionCollection());
 	// File Save
   temp =KStandardAction::save(this, SLOT(fileSave()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "saveimage", SmallIcon("document-save") );
 	temp->setWhatsThis(i18n("<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."));
 	temp->setToolTip(i18n("Save HTML file"));
 
@@ -464,27 +460,23 @@ void KImageMapEditor::setupActions()
 
 	// File Close
   temp=KStandardAction::close(this, SLOT(fileClose()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "closeimage", SmallIcon("window-close") );
 	temp->setWhatsThis(i18n("<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."));
 	temp->setToolTip(i18n("Close HTML file"));
 
   // Edit Copy
   copyAction=KStandardAction::copy(this, SLOT(slotCopy()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcopyimage", SmallIcon("edit-copy") );
   copyAction->setWhatsThis(i18n("<h3>Copy</h3>"
                           "Click this to <em>copy</em> the selected area."));
   copyAction->setEnabled(false);
 
   // Edit Cut
   cutAction=KStandardAction::cut(this, SLOT(slotCut()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editcutimage", SmallIcon("edit-cut") );
   cutAction->setWhatsThis(i18n("<h3>Cut</h3>"
                           "Click this to <em>cut</em> the selected area."));
   cutAction->setEnabled(false);
 
   // Edit Paste
   pasteAction=KStandardAction::paste(this, SLOT(slotPaste()), actionCollection());
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editpasteimage", SmallIcon("edit-paste") );
   pasteAction->setWhatsThis(i18n("<h3>Paste</h3>"
                           "Click this to <em>paste</em> the copied area."));
   pasteAction->setEnabled(false);
@@ -496,7 +488,6 @@ void KImageMapEditor::setupActions()
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
   deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "editdeleteimage", SmallIcon("edit-delete") );
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
   deleteAction->setEnabled(false);
@@ -600,7 +591,6 @@ void KImageMapEditor::setupActions()
   arrowAction->setShortcut(QKeySequence("s"));
   actionCollection()->addAction("tool_arrow", arrowAction);
   connect(arrowAction, SIGNAL(triggered(bool)), SLOT (slotDrawArrow()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "arrowimage", SmallIcon("arrow") );
   arrowAction->setWhatsThis(i18n("<h3>Selection</h3>"
                           "Click this to select areas."));
   drawingGroup->addAction(arrowAction);
@@ -612,7 +602,6 @@ void KImageMapEditor::setupActions()
 
   actionCollection()->addAction("tool_circle", circleAction);
   connect(circleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawCircle()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "circleimage", SmallIcon("drawcircle") );
   circleAction->setWhatsThis(i18n("<h3>Circle</h3>"
                           "Click this to start drawing a circle."));
   drawingGroup->addAction(circleAction);
@@ -622,7 +611,6 @@ void KImageMapEditor::setupActions()
   rectangleAction->setShortcut(QKeySequence("r"));
     actionCollection()->addAction("tool_rectangle", rectangleAction);
   connect(rectangleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawRectangle()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "rectangleimage", SmallIcon("drawrectangle") );
   rectangleAction->setWhatsThis(i18n("<h3>Rectangle</h3>"
                           "Click this to start drawing a rectangle."));
   drawingGroup->addAction(rectangleAction);
@@ -632,7 +620,6 @@ void KImageMapEditor::setupActions()
   polygonAction->setShortcut(QKeySequence("p"));
     actionCollection()->addAction("tool_polygon", polygonAction);
   connect(polygonAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "polygonimage", SmallIcon("drawpolygon") );
   polygonAction->setWhatsThis(i18n("<h3>Polygon</h3>"
                           "Click this to start drawing a polygon."));
   drawingGroup->addAction(polygonAction);
@@ -642,7 +629,6 @@ void KImageMapEditor::setupActions()
   freehandAction->setShortcut(QKeySequence("f"));
     actionCollection()->addAction("tool_freehand", freehandAction);
   connect(freehandAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "freehandimage", SmallIcon("freehand") );
   freehandAction->setWhatsThis(i18n("<h3>Freehandpolygon</h3>"
                           "Click this to start drawing a freehand polygon."));
   drawingGroup->addAction(freehandAction);
@@ -652,7 +638,6 @@ void KImageMapEditor::setupActions()
   addPointAction->setShortcut(QKeySequence("a"));
     actionCollection()->addAction("tool_addpoint", addPointAction);
   connect(addPointAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "addpointimage", SmallIcon("addpoint") );
   addPointAction->setWhatsThis(i18n("<h3>Add Point</h3>"
                           "Click this to add points to a polygon."));
   drawingGroup->addAction(addPointAction);
@@ -663,8 +648,6 @@ void KImageMapEditor::setupActions()
   actionCollection()->addAction("tool_removepoint", removePointAction);
   connect(removePointAction, SIGNAL(triggered(bool)), 
           SLOT(slotDrawRemovePoint()));
-  Q3MimeSourceFactory::defaultFactory()->setPixmap( "removepointimage",
-       SmallIcon("removepoint") );
   removePointAction->setWhatsThis(i18n("<h3>Remove Point</h3>"
                           "Click this to remove points from a polygon."));
   drawingGroup->addAction(removePointAction);

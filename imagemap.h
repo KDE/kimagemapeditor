@@ -18,7 +18,7 @@
 #ifndef IMAGEMAP_H
 #define IMAGEMAP_H
 
-#include <q3scrollview.h>
+#include <QScrollArea>
 #include <qimage.h>
 #include <qpoint.h>
 #include <qrect.h>
@@ -35,7 +35,7 @@
 class KImageMapEditor;
 class Area;
 
-class ImageMap : public Q3ScrollView  {
+class ImageMap : public QScrollArea  {
 public:
 	enum DrawAction { None, DrawCircle, DrawRectangle, DrawPolygon, MoveSelectionPoint, MoveArea };
 private:
@@ -65,10 +65,10 @@ public:
 	QPoint translateToZoom(const QPoint & p) const;
 	QRect translateToZoom(const QRect & p) const;
 protected:
-	virtual void contentsMousePressEvent(QMouseEvent* e);
-	virtual void contentsMouseDoubleClickEvent(QMouseEvent* e);
-	virtual void contentsMouseReleaseEvent(QMouseEvent *e);
-	virtual void contentsMouseMoveEvent(QMouseEvent *e);
+	virtual void mousePressEvent(QMouseEvent* e);
+	virtual void mouseDoubleClickEvent(QMouseEvent* e);
+	virtual void mouseReleaseEvent(QMouseEvent *e);
+	virtual void mouseMoveEvent(QMouseEvent *e);
 	virtual void resizeEvent(QResizeEvent* e);
 	virtual void drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph);
 };

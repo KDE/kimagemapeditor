@@ -33,7 +33,7 @@ int round(double d) {
 }
 
 ImageMap::ImageMap(QWidget *parent,KImageMapEditor* _imageMapEditor)
-	: Q3ScrollView(parent)
+	: QScrollArea(parent)
 {
 	imageMapEditor=_imageMapEditor;
 //	setPicture(QImage());
@@ -42,7 +42,7 @@ ImageMap::ImageMap(QWidget *parent,KImageMapEditor* _imageMapEditor)
 	eraseOldArea=false;
 	oldArea=0L;
 	_zoom=1;
-	viewport()->setMouseTracking(true);
+	widget()->setMouseTracking(true);
 
 
 }
@@ -97,7 +97,7 @@ QRect ImageMap::translateToZoom(const QRect & r) const {
 							 round(r.width()*_zoom),round(r.height()*_zoom));
 }
 
-void ImageMap::contentsMouseDoubleClickEvent(QMouseEvent* e) {
+void ImageMap::mouseDoubleClickEvent(QMouseEvent* e) {
 	QPoint point=e->pos();
 	point-=imageRect.topLeft();
 	point=translateFromZoom(point);
@@ -107,7 +107,7 @@ void ImageMap::contentsMouseDoubleClickEvent(QMouseEvent* e) {
 
 }
 
-void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
+void ImageMap::mousePressEvent(QMouseEvent* e) {
 	drawStart=e->pos();
 	// Check if it's on picture if not
 	// move it to the picture's border
@@ -181,7 +181,7 @@ void ImageMap::contentsMousePressEvent(QMouseEvent* e) {
 
 }
 
-void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
+void ImageMap::mouseReleaseEvent(QMouseEvent *e) {
 	drawEnd=e->pos();
 
 	// Check if it's on picture if not
@@ -242,7 +242,7 @@ void ImageMap::contentsMouseReleaseEvent(QMouseEvent *e) {
 }
 
 
-void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
+void ImageMap::mouseMoveEvent(QMouseEvent *e) {
 		drawCurrent=e->pos();
 
 		// If outside the image
@@ -308,7 +308,7 @@ void ImageMap::contentsMouseMoveEvent(QMouseEvent *e) {
 }
 
 void ImageMap::resizeEvent(QResizeEvent* e) {
-	Q3ScrollView::resizeEvent(e);
+	QScrollArea::resizeEvent(e);
 	int width=(int) (image.width()*_zoom);
 	int height=(int) (image.height()*_zoom);
 	if (visibleWidth()>width)

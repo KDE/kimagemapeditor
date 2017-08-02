@@ -1,8 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kimagemapeditor "<application>KImageMapEditor</application>">
-  <!ENTITY kappname "&kimagemapeditor;"><!-- Do *not* replace kappname-->
-  <!ENTITY package "kdewebdev"><!-- kdebase, kdeadmin, etc -->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -37,7 +35,7 @@
 
 <abstract>
 <para>
-&kimagemapeditor; is an &HTML; imagemap editor for &kde;.
+&kimagemapeditor; is an &HTML; imagemap editor by &kde;.
 </para>
 </abstract>
 
@@ -46,7 +44,6 @@
 <keyword>KImageMapEditor</keyword>
 <keyword>imagemap</keyword>
 <keyword>usemap</keyword>
-<keyword>kdewebdev</keyword>
 <keyword>html</keyword>
 </keywordset>
 
@@ -56,7 +53,7 @@
 <title>Using &kimagemapeditor;</title>
 
 <para>
-&kimagemapeditor; is a &HTML; imagemap editor for &kde;.
+&kimagemapeditor; is a &HTML; imagemap editor developed by the &kde; community.
 It allows you to create and modify &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap">Imagemaps.</ulink>
 </para>
 

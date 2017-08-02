@@ -18,33 +18,35 @@
 #include <iostream>
 #include <assert.h>
 
-// QT
-#include <QScrollArea>
-
+// Qt
+#include <QAction>
 #include <qlayout.h>
-#include <QListWidget>
 #include <qpushbutton.h>
-#include <qpixmap.h>
 #include <qcombobox.h>
-#include <qsplitter.h>
-#include <qfileinfo.h>
-#include <qtextstream.h>
-#include <QMenu>
-#include <qtooltip.h>
-#include <qpainter.h>
-#include <qtabwidget.h>
 #include <qfontdatabase.h>
 #include <qfile.h>
+#include <qfileinfo.h>
 #include <QLinkedList>
+#include <QListWidget>
+#include <QMenu>
+#include <qpixmap.h>
+#include <qpainter.h>
+#include <QScrollArea>
+#include <qsplitter.h>
+#include <QStandardPaths>
+#include <qtabwidget.h>
+#include <QTextEdit>
+#include <qtextstream.h>
+#include <qtooltip.h>
 
-// KDE
+// KDE Frameworks
 #include <kundostack.h>
 #include <kdebug.h>
-#include <klocale.h>
-#include <kaction.h>
+#include <klocalizedstring.h>
 #include <kstandardaction.h>
 #include <kiconloader.h>
 #include <kfiledialog.h>
+#include <kicon.h>
 #include <kmessagebox.h>
 #include <kapplication.h>
 #include <kedittoolbar.h>
@@ -58,34 +60,34 @@
 #include <ktoggleaction.h>
 #include <krecentfilesaction.h>
 #include <kxmlguiwindow.h>
+#include <KGenericFactory>
+#include <KSharedConfig>
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
 #include "drawzone.h"
 #include "kimedialogs.h"
 #include "kimecommands.h"
-#include <kicon.h>
 #include "areacreator.h"
 #include "arealistview.h"
 #include "imageslistview.h"
 #include "mapslistview.h"
 #include "kimecommon.h"
 #include "imagemapchoosedialog.h"
+#include "version.h"
 
-#include <QTextEdit>
-
-#include <kparts/genericfactory.h>
-#include <kcomponentdata.h>
-
-// Factory code for KDE 3
-typedef KParts::GenericFactory<KImageMapEditor> KimeFactory;
+typedef KGenericFactory<KImageMapEditor> KimeFactory;
 K_EXPORT_COMPONENT_FACTORY( libkimagemapeditor , KimeFactory )
 
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
             QObject *parent, const QStringList & )
   : KParts::ReadWritePart(parent)
 {
-  setComponentData( KimeFactory::componentData() );
+  KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
+              KIMAGEMAPEDITOR_VERSION, i18n( "An HTML imagemap editor" ),
+              KAboutLicense::GPL,
+              i18n("(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</email>"));
+  setComponentData(aboutData, false);
 
 //  KDockMainWindow* mainWidget;
 
@@ -249,17 +251,6 @@ void KImageMapEditor::init()
   setImageActionsEnabled(false);
 }
 
-KAboutData* KImageMapEditor::createAboutData()
-{
-    KAboutData* aboutData =
-              new KAboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
-              "1.0", ki18n( "An HTML imagemap editor" ),
-              KAboutData::License_GPL,
-              ki18n("(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</email>"));
-    return aboutData;
-}
-
-
 void KImageMapEditor::setReadWrite(bool)
 {
 
@@ -337,8 +328,11 @@ void KImageMapEditor::setModified(bool modified)
 
 KConfig *KImageMapEditor::config()
 {
+    /* TODO KF5
     KSharedConfigPtr tmp = KimeFactory::componentData().config();
     return tmp.data();
+    */
+    return new KConfig();
 }
 
 void KImageMapEditor::readConfig(const KConfigGroup &config) {
@@ -447,7 +441,7 @@ void KImageMapEditor::setupActions()
   temp->setToolTip(i18n("Open new picture or HTML file"));
 
   // File Open Recent
-  recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(const KUrl&)),
+  recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(const QUrl&)),
                                       actionCollection());
 	// File Save
   temp =KStandardAction::save(this, SLOT(fileSave()), actionCollection());
@@ -483,7 +477,7 @@ void KImageMapEditor::setupActions()
 
 
   // Edit Delete
-  deleteAction = new KAction(KIcon("edit-delete"),
+  deleteAction = new QAction(KIcon("edit-delete"),
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
@@ -498,7 +492,7 @@ void KImageMapEditor::setupActions()
   _commandHistory->createRedoAction(actionCollection());
 
   // Edit Properties
-    areaPropertiesAction  = new KAction(i18n("Pr&operties"), this);
+    areaPropertiesAction  = new QAction(i18n("Pr&operties"), this);
     actionCollection()->addAction("edit_properties", areaPropertiesAction );
   connect(areaPropertiesAction, SIGNAL(triggered(bool)), SLOT(showTagEditor()));
   areaPropertiesAction->setEnabled(false);
@@ -538,26 +532,26 @@ void KImageMapEditor::setupActions()
   showAltAction->setText(i18n("Show Alt Tag"));
   connect(showAltAction, SIGNAL(toggled(bool)),this, SLOT (slotShowAltTag(bool)));
 
-    mapNameAction  = new KAction(i18n("Map &Name..."), this);
+    mapNameAction  = new QAction(i18n("Map &Name..."), this);
     actionCollection()->addAction("map_name", mapNameAction );
   connect(mapNameAction, SIGNAL(triggered(bool)), SLOT(mapEditName()));
 
-    mapNewAction  = new KAction(i18n("Ne&w Map..."), this);
+    mapNewAction  = new QAction(i18n("Ne&w Map..."), this);
     actionCollection()->addAction("map_new", mapNewAction );
   connect(mapNewAction, SIGNAL(triggered(bool)), SLOT(mapNew()));
   mapNewAction->setToolTip(i18n("Create a new map"));
 
-    mapDeleteAction  = new KAction(i18n("D&elete Map"), this);
+    mapDeleteAction  = new QAction(i18n("D&elete Map"), this);
     actionCollection()->addAction("map_delete", mapDeleteAction );
   connect(mapDeleteAction, SIGNAL(triggered(bool)), SLOT(mapDelete()));
   mapDeleteAction->setToolTip(i18n("Delete the current active map"));
 
-    mapDefaultAreaAction  = new KAction(i18n("Edit &Default Area..."), this);
+    mapDefaultAreaAction  = new QAction(i18n("Edit &Default Area..."), this);
     actionCollection()->addAction("map_defaultarea", mapDefaultAreaAction );
   connect(mapDefaultAreaAction, SIGNAL(triggered(bool)), SLOT(mapDefaultArea()));
   mapDefaultAreaAction->setToolTip(i18n("Edit the default area of the current active map"));
 
-    temp  = new KAction(i18n("&Preview"), this);
+    temp  = new QAction(i18n("&Preview"), this);
     actionCollection()->addAction("map_preview", temp );
   connect(temp, SIGNAL(triggered(bool)), SLOT(mapPreview()));
   temp->setToolTip(i18n("Show a preview"));
@@ -565,22 +559,22 @@ void KImageMapEditor::setupActions()
   // IMAGE
   i18n("&Image");
 
-  imageAddAction  = new KAction(i18n("Add Image..."), this);
+  imageAddAction  = new QAction(i18n("Add Image..."), this);
   actionCollection()->addAction("image_add", imageAddAction );
   connect(imageAddAction, SIGNAL(triggered(bool)), SLOT(imageAdd()));
   imageAddAction->setToolTip(i18n("Add a new image"));
 
-    imageRemoveAction  = new KAction(i18n("Remove Image"), this);
+    imageRemoveAction  = new QAction(i18n("Remove Image"), this);
     actionCollection()->addAction("image_remove", imageRemoveAction );
   connect(imageRemoveAction, SIGNAL(triggered(bool)), SLOT(imageRemove()));
   imageRemoveAction->setToolTip(i18n("Remove the current visible image"));
 
-    imageUsemapAction  = new KAction(i18n("Edit Usemap..."), this);
+    imageUsemapAction  = new QAction(i18n("Edit Usemap..."), this);
     actionCollection()->addAction("image_usemap", imageUsemapAction );
   connect(imageUsemapAction, SIGNAL(triggered(bool)), SLOT(imageUsemap()));
   imageUsemapAction->setToolTip(i18n("Edit the usemap tag of the current visible image"));
 
-    temp  = new KAction(i18n("Show &HTML"), this);
+    temp  = new QAction(i18n("Show &HTML"), this);
     actionCollection()->addAction("map_showhtml", temp );
   connect(temp, SIGNAL(triggered(bool)), SLOT(mapShowHTML()));
 
@@ -652,64 +646,64 @@ void KImageMapEditor::setupActions()
                           "Click this to remove points from a polygon."));
   drawingGroup->addAction(removePointAction);
 
-    KAction *action  = new KAction(i18n("Cancel Drawing"), this);
+    QAction *action  = new QAction(i18n("Cancel Drawing"), this);
     actionCollection()->addAction("canceldrawing", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
   action->setShortcut(QKeySequence(Qt::Key_Escape));
 
-  moveLeftAction  = new KAction(i18n("Move Left"), this);
+  moveLeftAction  = new QAction(i18n("Move Left"), this);
   actionCollection()->addAction("moveleft", moveLeftAction );
   connect(moveLeftAction, SIGNAL(triggered(bool)),
          SLOT( slotMoveLeft() ));
-  moveLeftAction->setShortcut(KShortcut(QKeySequence(Qt::Key_Left)));
+  moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
 
-    moveRightAction  = new KAction(i18n("Move Right"), this);
+    moveRightAction  = new QAction(i18n("Move Right"), this);
     actionCollection()->addAction("moveright", moveRightAction );
   connect(moveRightAction, SIGNAL(triggered(bool)), SLOT( slotMoveRight() ));
   moveRightAction->setShortcut(QKeySequence(Qt::Key_Right));
 
-    moveUpAction  = new KAction(i18n("Move Up"), this);
+    moveUpAction  = new QAction(i18n("Move Up"), this);
     actionCollection()->addAction("moveup", moveUpAction );
   connect(moveUpAction, SIGNAL(triggered(bool)), SLOT( slotMoveUp() ));
   moveUpAction->setShortcut(QKeySequence(Qt::Key_Up));
 
-    moveDownAction  = new KAction(i18n("Move Down"), this);
+    moveDownAction  = new QAction(i18n("Move Down"), this);
     actionCollection()->addAction("movedown", moveDownAction );
   connect(moveDownAction, SIGNAL(triggered(bool)), SLOT( slotMoveDown() ));
   moveDownAction->setShortcut(QKeySequence(Qt::Key_Down));
 
-    increaseWidthAction  = new KAction(i18n("Increase Width"), this);
+    increaseWidthAction  = new QAction(i18n("Increase Width"), this);
     actionCollection()->addAction("increasewidth", increaseWidthAction );
   connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseWidth() ));
   increaseWidthAction->setShortcut(QKeySequence(Qt::Key_Right + Qt::SHIFT));
 
-    decreaseWidthAction  = new KAction(i18n("Decrease Width"), this);
+    decreaseWidthAction  = new QAction(i18n("Decrease Width"), this);
     actionCollection()->addAction("decreasewidth", decreaseWidthAction );
   connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseWidth() ));
   decreaseWidthAction->setShortcut(QKeySequence(Qt::Key_Left + Qt::SHIFT));
 
-    increaseHeightAction  = new KAction(i18n("Increase Height"), this);
+    increaseHeightAction  = new QAction(i18n("Increase Height"), this);
     actionCollection()->addAction("increaseheight", increaseHeightAction );
   connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseHeight() ));
   increaseHeightAction->setShortcut(QKeySequence(Qt::Key_Up + Qt::SHIFT));
 
-    decreaseHeightAction  = new KAction(i18n("Decrease Height"), this);
+    decreaseHeightAction  = new QAction(i18n("Decrease Height"), this);
     actionCollection()->addAction("decreaseheight", decreaseHeightAction );
   connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseHeight() ));
   decreaseHeightAction->setShortcut(QKeySequence(Qt::Key_Down + Qt::SHIFT));
 
-    toFrontAction  = new KAction(i18n("Bring to Front"), this);
+    toFrontAction  = new QAction(i18n("Bring to Front"), this);
     actionCollection()->addAction("tofront", toFrontAction );
   connect(toFrontAction, SIGNAL(triggered(bool)), SLOT( slotToFront() ));
 
-    toBackAction  = new KAction(i18n("Send to Back"), this);
+    toBackAction  = new QAction(i18n("Send to Back"), this);
     actionCollection()->addAction("toback", toBackAction );
   connect(toBackAction, SIGNAL(triggered(bool)), SLOT( slotToBack() ));
 
-    forwardOneAction  = new KAction(KIcon("raise"), i18n("Bring Forward One"), this);
+    forwardOneAction  = new QAction(KIcon("raise"), i18n("Bring Forward One"), this);
     actionCollection()->addAction("forwardone", forwardOneAction );
   connect(forwardOneAction, SIGNAL(triggered(bool) ), SLOT( slotForwardOne() ));
-    backOneAction  = new KAction(KIcon("lower"), i18n("Send Back One"), this);
+    backOneAction  = new QAction(KIcon("lower"), i18n("Send Back One"), this);
     actionCollection()->addAction("backone", backOneAction );
   connect(backOneAction, SIGNAL(triggered(bool) ), SLOT( slotBackOne() ));
 
@@ -719,7 +713,7 @@ void KImageMapEditor::setupActions()
   connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(trigger()));
   connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(trigger()));
 
-    action  = new KAction(KIcon("configure"), i18n("Configure KImageMapEditor..."), this);
+    action  = new QAction(KIcon("configure"), i18n("Configure KImageMapEditor..."), this);
     actionCollection()->addAction("configure_kimagemapeditor", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 
@@ -862,12 +856,6 @@ void KImageMapEditor::slotUpdateSelectionCoords( const QRect & r )
   kapp->processEvents();
 }
 
-KApplication* KImageMapEditor::app() const
-{
-  return kapp;
-}
-
-
 void KImageMapEditor::drawToCenter(QPainter* p, const QString & str, int y, int width) {
   int xmid = width / 2;
 
@@ -968,7 +956,7 @@ QImage KImageMapEditor::getBackgroundImage() {
     }
 
 
-    path = KGlobal::dirs()->saveLocation( "data", "kimagemapeditor/" ) +filename;
+    path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kimagemapeditor/" ) +filename;
     kDebug() << "getBackgroundPic : save new image to : " << path;
     pix.save(path,"PNG",100);
   }
@@ -1602,7 +1590,7 @@ void KImageMapEditor::openFile(const KUrl & url) {
   }
 }
 
-bool KImageMapEditor::openURL(const KUrl & url) {
+bool KImageMapEditor::openURL(const QUrl & url) {
     // If a local file does not exist
     // we start with an empty file, so
     // that we can return true here.
@@ -2794,7 +2782,7 @@ void KImageMapEditor::addImage(const KUrl & imgUrl) {
     if (imgUrl.isEmpty())
         return;
 
-    QString relativePath ( toRelative(imgUrl, KUrl( url().directory() )).path() );
+    QString relativePath ( toRelative(imgUrl, KUrl( url().adjusted(QUrl::RemoveFilename).path() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
     ImageTag* imgTag = new ImageTag();

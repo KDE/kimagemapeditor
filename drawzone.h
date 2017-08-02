@@ -29,8 +29,6 @@
 #include <QResizeEvent>
 #include <QDropEvent>
 
-#include "kdeversion.h"
-
 #include "kimagemapeditor.h"
 
 class Area;

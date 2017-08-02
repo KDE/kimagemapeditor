@@ -15,7 +15,7 @@
 *                                                                         *
 ***************************************************************************/
 
-// QT
+// Qt
 #include <qcheckbox.h>
 #include <qlayout.h>
 #include <qlabel.h>
@@ -32,10 +32,10 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-// KDE
+// KDE Frameworks
 #include <kiconloader.h>
 #include <kfiledialog.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 #include <kdebug.h>
 #include <kapplication.h>
 #include <khtmlview.h>
@@ -43,8 +43,8 @@
 #include <ktemporaryfile.h>
 #include <kpushbutton.h>
 #include <kstandardguiitem.h>
-#include <kglobal.h>
 #include <kvbox.h>
+#include <KSharedConfig>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -610,14 +610,14 @@ PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
 
   colorizeAreaChk = new QCheckBox(hbox);
   colorizeAreaChk->setFixedWidth(60);
-  colorizeAreaChk->setChecked(KGlobal::config()->readEntry("highlightareas",true));
+  colorizeAreaChk->setChecked(KSharedConfig::openConfig()->readEntry("highlightareas",true));
 
   hbox= new QHBox(page);
   (void)new QLabel(i18n("Show alternative text")+" ",hbox);
 
   showAltChk = new QCheckBox(hbox);
   showAltChk->setFixedWidth(60);
-  showAltChk->setChecked(KGlobal::config()->readEntry("showalt",true));
+  showAltChk->setChecked(KSharedConfig::openConfig()->readEntry("showalt",true));
 */
   connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
   connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));

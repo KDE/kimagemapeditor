@@ -19,6 +19,8 @@
 #define KIMESHELL_H
 
 #include <kparts/mainwindow.h>
+#include <KConfigGroup>
+#include <kurl.h>
 
 class KImageMapEditor;
 

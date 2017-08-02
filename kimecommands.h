@@ -21,8 +21,6 @@
 
 #include <qundostack.h>
 
-#include <kdeversion.h>
-
 class KImageMapEditor;
 class AreaSelection;
 

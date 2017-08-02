@@ -18,6 +18,7 @@
 #ifndef KIMEDIALOGS_H
 #define KIMEDIALOGS_H
 
+#include <QGridLayout>
 #include <QLabel>
 #include <QLinkedList>
 
@@ -25,8 +26,6 @@
 #include <kurl.h>
 
 #include "kimagemapeditor.h"
-#include "kdeversion.h"
-
 
 class QLineEdit;
 class QSpinBox;

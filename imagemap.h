@@ -27,8 +27,6 @@
 #include <QMouseEvent>
 #include <QResizeEvent>
 
-#include "kdeversion.h"
-
 /**
   *@author Jan Schäfer
   */

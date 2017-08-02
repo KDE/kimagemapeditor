@@ -16,7 +16,7 @@
  ***************************************************************************/
 #include <qstring.h>
 #include <kdebug.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 #include "kimagemapeditor.h"
 #include "kimecommands.h"

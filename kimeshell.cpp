@@ -18,11 +18,11 @@
 
 #include <iostream>
 
+#include <QAction>
 #include <QDockWidget>
 #include <QScrollArea>
 
-#include <kaction.h>
-#include <kstandarddirs.h>
+#include <kparts/guiactivateevent.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kshortcutsdialog.h>
@@ -43,6 +43,7 @@
 #include "kimeshell.h"
 #include "kimeshell.moc"
 #include <kactioncollection.h>
+#include <KSharedConfig>
 KimeShell::KimeShell(const char * )
   : KParts::MainWindow()
 {
@@ -116,7 +117,7 @@ bool KimeShell::queryExit()
 #ifdef __GNUC__
 #warning what group is correct here? A random one?
 #endif
-  KConfigGroup cg( KGlobal::config(), QString() );
+  KConfigGroup cg( KSharedConfig::openConfig(), QString() );
   saveProperties( cg );
 
   return true;
@@ -205,7 +206,7 @@ void KimeShell::fileOpen()
 
 
 void KimeShell::readConfig() {
-  KSharedConfigPtr config = KGlobal::config();
+  KSharedConfigPtr config = KSharedConfig::openConfig();
   readConfig(config->group("General Options") );
 }
 
@@ -216,7 +217,7 @@ void KimeShell::readConfig(const KConfigGroup &) {
 }
 
 void KimeShell::writeConfig() {
-  KConfigGroup config( KGlobal::config(), "General Options");
+  KConfigGroup config( KSharedConfig::openConfig(), "General Options");
   writeConfig( config );
 }
 
@@ -257,7 +258,8 @@ void KimeShell::optionsConfigureKeys() {
 
 void KimeShell::optionsConfigureToolbars()
 {
-    saveMainWindowSettings(KGlobal::config()->group( autoSaveGroup()) );
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group(autoSaveGroup());
+    saveMainWindowSettings(configGroup);
 
     // use the standard toolbar editor
     KEditToolBar dlg(factory());
@@ -268,7 +270,8 @@ void KimeShell::optionsConfigureToolbars()
 
 void KimeShell::applyNewToolbarConfig()
 {
-    applyMainWindowSettings(KGlobal::config()->group( autoSaveGroup()) );
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group(autoSaveGroup());
+    applyMainWindowSettings(configGroup);
 }
 
 

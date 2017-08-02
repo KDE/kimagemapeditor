@@ -15,12 +15,12 @@
  *                                                                         *
  ***************************************************************************/
 
-// QT
+// Qt
 #include <QLinkedList>
 
 
-// KDE
-#include <klocale.h>
+// KDE Frameworks
+#include <klocalizedstring.h>
 #include <kdebug.h>
 
 // locale

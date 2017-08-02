@@ -26,12 +26,9 @@
 #include <QPixmap>
 #include <QTextStream>
 
+#include <KConfig>
+#include <KParts/ReadWritePart>
 #include <kurl.h>
-#include <kparts/part.h>
-#include <kparts/browserextension.h>
-#include <kparts/factory.h>
-
-#include <kdeversion.h>
 
 #include "kimearea.h"
 
@@ -111,12 +108,11 @@ typedef QList<HtmlElement*> HtmlContent;
 
 
 class KSelectAction;
-class KAction;
+class QAction;
 class KRecentFilesAction;
-class KAction;
+class QAction;
 ///class QListViewItem;
 class KUndoStack;
-class KApplication;
 class QTabWidget;
 class AreaListView;
 class ImagesListView;
@@ -142,7 +138,6 @@ public :
                     QObject *parent, const QStringList & args = QStringList());
     virtual ~KImageMapEditor();
 
-    static KAboutData *createAboutData();
     static KConfig *config();
 
     /**
@@ -177,8 +172,6 @@ public :
     void setPicture(const QImage & pix);
     int showTagEditor(Area *);
     KUndoStack *commandHistory() const;
-
-    KApplication* app() const;
 
     // Only refreshes the listView
     void updateSelection() const;
@@ -262,49 +255,49 @@ private:
     // Actions
     //
     KSelectAction* zoomAction;
-    KAction *arrowAction;
-    KAction *circleAction;
-    KAction *rectangleAction;
-    KAction *polygonAction;
-    KAction *freehandAction;
-    KAction *addPointAction;
-    KAction *removePointAction;
+    QAction *arrowAction;
+    QAction *circleAction;
+    QAction *rectangleAction;
+    QAction *polygonAction;
+    QAction *freehandAction;
+    QAction *addPointAction;
+    QAction *removePointAction;
 
-    KAction *cutAction;
-    KAction *deleteAction;
-    KAction *copyAction;
-    KAction *pasteAction;
-    KAction *zoomInAction;
-    KAction *zoomOutAction;
+    QAction *cutAction;
+    QAction *deleteAction;
+    QAction *copyAction;
+    QAction *pasteAction;
+    QAction *zoomInAction;
+    QAction *zoomOutAction;
 
-    KAction *mapNewAction;
-    KAction *mapDeleteAction;
-    KAction *mapNameAction;
-    KAction *mapDefaultAreaAction;
+    QAction *mapNewAction;
+    QAction *mapDeleteAction;
+    QAction *mapNameAction;
+    QAction *mapDefaultAreaAction;
 
-    KAction *imageAddAction;
-    KAction *imageRemoveAction;
-    KAction *imageUsemapAction;
+    QAction *imageAddAction;
+    QAction *imageRemoveAction;
+    QAction *imageUsemapAction;
 
     KToggleAction *highlightAreasAction;
     KToggleAction *showAltAction;
 
-    KAction *areaPropertiesAction;
+    QAction *areaPropertiesAction;
 
-    KAction *moveLeftAction;
-    KAction *moveRightAction;
-    KAction *moveUpAction;
-    KAction *moveDownAction;
+    QAction *moveLeftAction;
+    QAction *moveRightAction;
+    QAction *moveUpAction;
+    QAction *moveDownAction;
 
-    KAction *increaseWidthAction;
-    KAction *decreaseWidthAction;
-    KAction *increaseHeightAction;
-    KAction *decreaseHeightAction;
+    QAction *increaseWidthAction;
+    QAction *decreaseWidthAction;
+    QAction *increaseHeightAction;
+    QAction *decreaseHeightAction;
 
-    KAction *toFrontAction;
-    KAction *toBackAction;
-    KAction *forwardOneAction;
-    KAction *backOneAction;
+    QAction *toFrontAction;
+    QAction *toBackAction;
+    QAction *forwardOneAction;
+    QAction *backOneAction;
 
     KToggleAction* configureShowAreaListAction;
     KToggleAction* configureShowMapListAction;
@@ -352,7 +345,7 @@ private:
     void drawToCenter(QPainter* p, const QString & str, int y, int width);
 
 public slots:
-    virtual bool openURL(const KUrl & url);
+    virtual bool openURL(const QUrl & url);
     void slotChangeStatusCoords(int x,int y);
     void slotUpdateSelectionCoords();
     void slotUpdateSelectionCoords( const QRect &);

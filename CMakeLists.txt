@@ -1,14 +1,43 @@
 project(kimagemapeditor)
 
-find_package(KDE4 REQUIRED)
-include (KDE4Defaults)
-include (MacroLibrary)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+set (QT_MIN_VERSION "5.7.0")
+set (KF5_MIN_VERSION "5.15.0")
 
-add_definitions( ${QT_QTDBUS_DEFINITIONS} ${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
+    Gui
+    Widgets
+)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Config
+    ConfigWidgets
+    CoreAddons
+    Crash
+    DBusAddons
+    DocTools
+    GuiAddons
+    KHtml
+    Parts
+    I18n
+    WidgetsAddons
+    XmlGui
+    KDELibs4Support
+)
+
+include(FeatureSummary)
+include(ECMInstallIcons)
+include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+include(ECMOptionalAddSubdirectory)
+
+include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 add_subdirectory( pics )
-macro_optional_add_subdirectory(doc)
+ecm_optional_add_subdirectory(doc)
 
 set(libkimagemapeditorcommon_SRC
     areacreator.cpp 
@@ -21,7 +50,7 @@ set(libkimagemapeditorcommon_SRC
     imageslistview.cpp 
     mapslistview.cpp
     imagemapchoosedialog.cpp
-	)
+)
 
 
 ########### next target ###############
@@ -29,11 +58,11 @@ set(libkimagemapeditorcommon_SRC
 set(kimagemapeditor_bin_SRCS main.cpp kimeshell.cpp ${libkimagemapeditorcommon_SRC})
 
 
-kde4_add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
+add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-target_link_libraries(kimagemapeditor_bin ${KDE4_KHTML_LIBS} )
+target_link_libraries(kimagemapeditor_bin KF5::KHtml KF5::KDELibs4Support)
 
 install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -43,11 +72,10 @@ install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
 
 
-kde4_add_plugin(kimagemapeditor WITH_PREFIX ${kimagemapeditor_PART_SRCS})
+add_library(kimagemapeditor MODULE ${kimagemapeditor_PART_SRCS})
 
 
-
-target_link_libraries(kimagemapeditor ${KDE4_KHTML_LIBS} )
+target_link_libraries(kimagemapeditor KF5::KHtml KF5::KDELibs4Support)
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -57,7 +85,8 @@ install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
-install( FILES  kimagemapeditorpart.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
-install( FILES  kimagemapeditorui.rc            kimagemapeditorpartui.rc  DESTINATION ${DATA_INSTALL_DIR}/kimagemapeditor)
+install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
+install( FILES  kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install( FILES  kimagemapeditorui.rc kimagemapeditorpartui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kimagemapeditor)
 
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

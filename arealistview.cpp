@@ -15,16 +15,16 @@
  *                                                                         *
  ***************************************************************************/
 
-// QT
+// Qt
 #include <QTreeWidget>
 #include <qpushbutton.h>
 
 
 #include <qtooltip.h>
 
-// KDE
+// KDE Frameworks
 #include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 #include <kvbox.h>
 
 // local

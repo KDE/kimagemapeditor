@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-// QT
+// Qt
 #include <qbitmap.h>
 #include <qpainter.h>
 #include <qpixmap.h>
@@ -25,13 +25,14 @@
 #include <QDragEnterEvent>
 #include <QMouseEvent>
 
-// KDE
+// KDE Frameworks
 #include <kdebug.h>
 #include <kglobal.h>
-#include <kstandarddirs.h>
+
 #include <kapplication.h>
 #include <kmimetype.h>
 #include <kundostack.h>
+#include <QStandardPaths>
 
 // Local
 #include "drawzone.h"
@@ -67,16 +68,16 @@ DrawZone::DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor)
   rectangleCursor = createRectangleCursor();
   circleCursor = createCircleCursor();
 
-  QString path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/polygoncursor.png" );
+  QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kimagemapeditor/polygoncursor.png" );
   polygonCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/freehandcursor.png" );
+  path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kimagemapeditor/freehandcursor.png" );
   freehandCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/addpointcursor.png" );
+  path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kimagemapeditor/addpointcursor.png" );
   addPointCursor = QCursor(QPixmap(path),8,8);
 
-  path = KGlobal::dirs()->findResource( "data", "kimagemapeditor/removepointcursor.png" );
+  path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kimagemapeditor/removepointcursor.png" );
   removePointCursor = QCursor(QPixmap(path),8,8);
 }
 

@@ -15,54 +15,57 @@
 *                                                                         *
 ***************************************************************************/
 
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <klocale.h>
-#include <kapplication.h>
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+
+#include <KAboutData>
+#include <KLocalizedString>
 
 #include "kimeshell.h"
 #include "version.h"
 
 static const char *description =
   I18N_NOOP("An HTML imagemap editor");
-// INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
 int main(int argc, char *argv[])
 {
+  QApplication app(argc, argv);
+  KLocalizedString::setApplicationDomain("kimagemapeditor");
 
-  KAboutData aboutData( "kimagemapeditor", 0, ki18n("KImageMapEditor"),
-    KIMAGEMAPEDITOR_VERSION, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 2001-2007 Jan Schaefer"), KLocalizedString(), "http://kde.org/applications/development/kimagemapeditor/", "janschaefer@users.sourceforge.net");
-  aboutData.addAuthor(ki18n("Jan Schaefer"),KLocalizedString(), "janschaefer@users.sourceforge.net");
-  aboutData.addCredit(ki18n("Joerg Jaspert"),ki18n("For helping me with the Makefiles, and creating the Debian package"));
-  aboutData.addCredit(ki18n("Aaron Seigo and Michael"),ki18n("For helping me fixing --enable-final mode"));
-  aboutData.addCredit(ki18n("Antonio Crevillen"),ki18n("For the Spanish translation"));
-  aboutData.addCredit(ki18n("Fabrice Mous"),ki18n("For the Dutch translation"));
-  aboutData.addCredit(ki18n("Germain Chazot"),ki18n("For the French translation"));
-  KCmdLineArgs::init( argc, argv, &aboutData );
+  KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
+    KIMAGEMAPEDITOR_VERSION, i18n(description), KAboutLicense::GPL,
+    i18n("(c) 2001-2007 Jan Schaefer"), QString(),
+    QStringLiteral("http://kde.org/applications/development/kimagemapeditor/"), QStringLiteral("janschaefer@users.sourceforge.net"));
+  aboutData.addAuthor(i18n("Jan Schaefer"),QString(), "janschaefer@users.sourceforge.net");
+  aboutData.addCredit(i18n("Joerg Jaspert"),i18n("For helping me with the Makefiles, and creating the Debian package"));
+  aboutData.addCredit(i18n("Aaron Seigo and Michael"),i18n("For helping me fixing --enable-final mode"));
+  aboutData.addCredit(i18n("Antonio Crevillen"),i18n("For the Spanish translation"));
+  aboutData.addCredit(i18n("Fabrice Mous"),i18n("For the Dutch translation"));
+  aboutData.addCredit(i18n("Germain Chazot"),i18n("For the French translation"));
 
-  KCmdLineOptions options;
-  options.add("c");
-  options.add("stdout", ki18n("Write HTML-Code to stdout on exit"));
-  options.add("+[File]", ki18n("File to open"));
-  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
+  QCommandLineParser parser;
+  aboutData.setupCommandLine(&parser);
+  KAboutData::setApplicationData(aboutData);
+  parser.addVersionOption();
+  parser.addHelpOption();
 
+  parser.addOption(QCommandLineOption(QStringList() << QLatin1String("c") << QLatin1String("stdout"), i18n("Write HTML-Code to stdout on exit")));
+  parser.addPositionalArgument(QLatin1String("[File]"), i18n("File to open"));
+  parser.process(app);
+  aboutData.processCommandLine(&parser);
 
-
-  KApplication a;
-
-  if (a.isSessionRestored())
+  if (app.isSessionRestored())
   {
       RESTORE(KimeShell);
   }
   else
   {
-      KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-      if ( args->count() == 0 )
+      if ( parser.positionalArguments().count() == 0 )
       {
         KimeShell *kimeShell = new KimeShell();
-        kimeShell->setStdout(args->isSet("stdout"));
+        kimeShell->setStdout(parser.isSet("stdout"));
         kimeShell->readConfig();
         kimeShell->show();
         kimeShell->openLastFile();
@@ -70,17 +73,17 @@ int main(int argc, char *argv[])
       else
       {
           int i = 0;
-          for (; i < args->count(); i++ )
+          for (; i < parser.positionalArguments().count(); i++ )
           {
             KimeShell *kimeShell = new KimeShell();
-            kimeShell->setStdout(args->isSet("stdout"));
+            kimeShell->setStdout(parser.isSet("stdout"));
             kimeShell->readConfig();
             kimeShell->show();
-            kimeShell->openFile(args->url(i));
+            kimeShell->openFile(parser.positionalArguments().at(i));
           }
       }
-      args->clear();
-  }           
 
-  return a.exec();
+  }
+
+  return app.exec();
 }

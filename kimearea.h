@@ -18,17 +18,16 @@
 #ifndef KIMEAREA_H
 #define KIMEAREA_H
 
+#include <QHash>
 #include <qrect.h>
 #include <qpoint.h>
 #include <QList>
-
 #include <QPixmap>
 #include <QLinkedList>
 #include <QHashIterator>
 #include <QTreeWidgetItem>
-#include <klocale.h>
-#include <qhash.h>
-#include "kdeversion.h"
+
+#include <klocalizedstring.h>
 
 class QPainter;
 class QPolygon;

@@ -29,7 +29,7 @@
 #include <kedittoolbar.h>
 #include <kstatusbar.h>
 #include <kapplication.h>
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 #include <kxmlguifactory.h>
 #include <kstandardaction.h>
 
@@ -63,15 +63,15 @@ KimeShell::KimeShell(const char * )
   //  mainDock->setEnableDocking(K3DockWidget::DockNone);
   //  setView( mainDock); // central widget in a KDE mainwindow
   //  setMainDockWidget( mainDock); // master dockwidget
-  kDebug() << "KimeShell starting 0";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 0";
 
   m_part = new KImageMapEditor((QWidget*)0L, this);
 
 //	setCentralWidget( part->widget() );
 
-  kDebug() << "KimeShell starting 1";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 1";
   setupActions();
-  kDebug() << "KimeShell starting 2";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 2";
 
 	_stdout=false;
 
@@ -81,7 +81,7 @@ KimeShell::KimeShell(const char * )
   KParts::GUIActivateEvent ev( true );
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
-  kDebug() << "KimeShell starting 3";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 3";
   if (!initialGeometrySet())
     resize( QSize(725, 525).expandedTo(minimumSizeHint()));
 
@@ -92,7 +92,7 @@ KimeShell::KimeShell(const char * )
            this, SLOT(setCaption( const QString &)));
 
   setAutoSaveSettings( "General Options" );
-  kDebug() << "KimeShell starting 4";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 4";
 
 }
 

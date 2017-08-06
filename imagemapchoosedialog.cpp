@@ -22,7 +22,7 @@
 #include <QGridLayout>
 #include <QHeaderView>
 
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 
 #include "imagemapchoosedialog.h"
 
@@ -33,8 +33,10 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     const KUrl & _baseUrl)
   : KDialog(parent)
 {
-  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog";
-  kWarning(parent == 0) << "ImageMapChooseDialog: parent is null!";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog";
+  if (parent == 0) {
+    qCWarning(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog: parent is null!";
+  }
 
   setCaption(i18n( "Choose Map & Image to Edit" ));
   setModal(true);
@@ -103,11 +105,11 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     for (int i = 0; i < maps.count(); i++) {
       mapListBox->addItem(maps.at(i)->name);
     }
-    kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before connect ";
+    qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog: before connect ";
     // UNSOLVED CRASH: connect(mapListBox, SIGNAL(currentRowChanged(int)), this, SLOT(slotMapChanged(int)));
   }
 
-  kDebug() << "ImageMapChooseDialog::ImageMapChooseDialog: before call initImageListTable ";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog: before call initImageListTable ";
   initImageListTable(page);
 
   if (! maps.isEmpty()) {
@@ -119,7 +121,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
 }
 
 void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
-  kDebug() << "ImageMapChooseDialog::initImageListTable ";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::initImageListTable ";
 
 
   if (images.isEmpty()) {
@@ -183,7 +185,7 @@ ImageMapChooseDialog::~ImageMapChooseDialog() {
 
 void ImageMapChooseDialog::slotImageChanged()
 {
-  kDebug() << "ImageMapChooseDialog::slotImageChanged";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::slotImageChanged";
   int i=imageListTable->currentRow();
   if (i < 0 || i > images.count()) 
     i = 0;
@@ -216,7 +218,7 @@ void ImageMapChooseDialog::slotImageChanged()
 
 
 void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
-  kDebug() << "ImageMapChooseDialog::selectImageWithUsemap: " << usemap;
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::selectImageWithUsemap: " << usemap;
 
   for (int i=0; i<imageListTable->rowCount(); i++) {
     QTableWidgetItem *item = imageListTable->item(i,1);
@@ -229,7 +231,7 @@ void ImageMapChooseDialog::selectImageWithUsemap(const QString & usemap) {
 }
 
 void ImageMapChooseDialog::slotMapChanged(int i) {
-  kDebug() << "ImageMapChooseDialog::slotMapChanged: " << i;
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::slotMapChanged: " << i;
   currentMap=maps.at(i);
   selectImageWithUsemap(currentMap->name);
 }

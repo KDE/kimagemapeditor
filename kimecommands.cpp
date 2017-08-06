@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 #include <qstring.h>
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 #include <klocalizedstring.h>
 
 #include "kimagemapeditor.h"
@@ -211,7 +211,7 @@ AddPointCommand::AddPointCommand (KImageMapEditor *document, AreaSelection *a, c
 {
   if (a->type()!=Area::Polygon)
   {
-     kDebug() << "trying to add a point to a " << a->typeString();
+     qCDebug(KIMAGEMAPEDITOR_LOG) << "trying to add a point to a " << a->typeString();
      return;
   }
 
@@ -255,7 +255,7 @@ RemovePointCommand::RemovePointCommand(KImageMapEditor *document,
 {
   if (a->type()!=Area::Polygon)
   {
-     kDebug() << "trying to remove a point to a " << a->typeString();
+     qCDebug(KIMAGEMAPEDITOR_LOG) << "trying to remove a point to a " << a->typeString();
      return;
   }
 

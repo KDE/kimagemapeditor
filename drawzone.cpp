@@ -26,7 +26,7 @@
 #include <QMouseEvent>
 
 // KDE Frameworks
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 #include <kglobal.h>
 
 #include <kapplication.h>
@@ -371,7 +371,7 @@ void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {
 
 
 void DrawZone::mousePressLeftNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoint) {
-  kDebug() << "mousePressLeftNone";
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "mousePressLeftNone";
   Area* a;
   if ((a = imageMapEditor->selected()) &&
       (currentSelectionPoint=a->onSelectionPoint(zoomedPoint,_zoom)))
@@ -866,7 +866,7 @@ void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
     return;
 
   KMimeType::Ptr ptr = KMimeType::findByUrl(uris.first());
-//  kDebug() << "***** " << ptr.data()->name();
+//  qCDebug(KIMAGEMAPEDITOR_LOG) << "***** " << ptr.data()->name();
   if ((ptr.data()->name() == "text/html")
       || (ptr.data()->name().left(6) == "image/"))
     e->accept();

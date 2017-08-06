@@ -18,7 +18,7 @@
 
 // KDE Frameworks
 #include <klocalizedstring.h>
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 
 // locale
 #include "mapslistview.h"
@@ -50,10 +50,10 @@ MapsListView::~MapsListView() {
 }
 
 void MapsListView::addMap(const QString & name = "") {
-  kDebug() << "MapsListView::addMap: " << name;
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::addMap: " << name;
   QStringList list(name);
   new QTreeWidgetItem(_listView,list);
-    //kDebug() << "MapsListView::addMap : Added map '" << name << "'";
+    //qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::addMap : Added map '" << name << "'";
 
 }
 
@@ -62,7 +62,7 @@ void MapsListView::addMaps(const QList<MapTag*> & maps) {
     while (it.hasNext()) {
       MapTag *tag = it.next();
       QString s = tag->name;
-      kDebug() << "MapsListView::addMaps:" << s;
+      qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::addMaps:" << s;
       addMap(s);
     }
 }
@@ -72,7 +72,7 @@ void MapsListView::selectMap(const QString & name) {
     if (items.count()>0) {
        selectMap(items[0]);
     } else {
-       kWarning() << "MapsListView::selectMap : Couldn't found map '" << name << "'";
+       qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::selectMap : Couldn't found map '" << name << "'";
     }
 
 }
@@ -91,7 +91,7 @@ QString MapsListView::selectedMap() {
     if (items.count()>0)
         result = items[0]->text(0);
     else
-        kWarning() << "MapsListView::selectedMap : No map selected !";
+        qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::selectedMap : No map selected !";
 
     return result;
 }
@@ -103,9 +103,9 @@ void MapsListView::removeMap(const QString & name) {
         _listView->takeTopLevelItem(i);
         if (_listView->currentItem())
             _listView->currentItem()->setSelected(true);
-//        kDebug() << "MapsListView::removeMap : Removed map '" << name << "'";
+//        qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::removeMap : Removed map '" << name << "'";
     } else
-        kWarning() << "MapsListView::removeMap : Couldn't found map '" << name << "'";
+        qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::removeMap : Couldn't found map '" << name << "'";
 }
 
 void MapsListView::clear() {
@@ -126,14 +126,14 @@ void MapsListView::slotItemRenamed(QTreeWidgetItem* item) {
 }
 
 void MapsListView::changeMapName(const QString & oldName, const QString & newName) {
-//    kDebug() << "MapsListView::changeMapName : " << oldName << " to " << newName;
+//    qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : " << oldName << " to " << newName;
     QList<QTreeWidgetItem *> items = _listView->findItems(oldName,Qt::MatchExactly);
     if (items.count()>0) {
         items[0]->setText(0,newName);
-//        kDebug() << "MapsListView::changeMapName : successful";
+//        qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : successful";
     }
     else {
-        kWarning() << "MapsListView::changeMapName : Chouldn't find map with name '" << oldName << "'";
+        qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : Chouldn't find map with name '" << oldName << "'";
     }
 
 }
@@ -167,7 +167,7 @@ QString MapsListView::getUnusedMapName() {
         result = attempt;
     }
 
-//    kDebug() << "MapsListView::getUnusedMapName : Found an unused name : '" << result << "'";
+//    qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::getUnusedMapName : Found an unused name : '" << result << "'";
     return result;
 }
 

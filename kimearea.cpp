@@ -26,7 +26,7 @@
 #include <qpalette.h>
 #include <qcolor.h>
 
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 
 #include "kimearea.h"
 #include "kimecommon.h"
@@ -349,7 +349,7 @@ void Area::removeCoord(int pos) {
   int count =_coords.size();
 
   if (count<4){
-    kDebug() << "Danger : trying to remove coordinate from Area with less than 4 coordinates !";
+    qCDebug(KIMAGEMAPEDITOR_LOG) << "Danger : trying to remove coordinate from Area with less than 4 coordinates !";
     return;
   }
 
@@ -552,7 +552,7 @@ QPixmap Area::cutOut(const QImage & image)
 
 //  partOfMask = partOfMask.normalize();
 	if (!partOfMask.isValid())
-	   kDebug() << "PartofMask not valid : " << partOfMask.x() << "," << partOfMask.y() << ","
+	   qCDebug(KIMAGEMAPEDITOR_LOG) << "PartofMask not valid : " << partOfMask.x() << "," << partOfMask.y() << ","
 	            << partOfMask.width() << "," << partOfMask.height() << "," << endl;
 
 /*
@@ -1073,13 +1073,13 @@ void PolyArea::simplifyCoords()
 
     if ( angle2==angle1 )
     {
-      kDebug() << "removing " << i-1;
+      qCDebug(KIMAGEMAPEDITOR_LOG) << "removing " << i-1;
       removeCoord(i-1);
     }
     else
     {
       i++;
-      kDebug() << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2;
+      qCDebug(KIMAGEMAPEDITOR_LOG) << "skipping " << i-1 << " cause " << angle1 << "!= " << angle2;
       angle1 = angle2;
 
     }
@@ -1100,7 +1100,7 @@ int PolyArea::addCoord(const QPoint & p)
 
   if (_coords.point(_coords.size()-1) == p)
   {
-     kDebug() << "equal Point added";
+     qCDebug(KIMAGEMAPEDITOR_LOG) << "equal Point added";
      return -1;
 
   }

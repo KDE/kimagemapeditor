@@ -22,7 +22,6 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QResizeEvent>
-#include "kdebug.h"
 #include <qbitmap.h>
 
 int round(double d) {
@@ -330,7 +329,7 @@ void ImageMap::repaintArea(const Area & a) {
 }
 
 void ImageMap::drawContents(QPainter* p,int clipx,int clipy,int clipw,int cliph) {
-//	kDebug() << "drawing\n";
+//	qCDebug(KIMAGEMAPEDITOR_LOG) << "drawing\n";
 //	p.scale(rect.width()*2,rect.height()*2);
 //	if (e->rect()!=rect()) {
 //		p.setClipping(true);

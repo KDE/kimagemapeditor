@@ -36,7 +36,7 @@
 #include <kiconloader.h>
 #include <kfiledialog.h>
 #include <klocalizedstring.h>
-#include <kdebug.h>
+#include "kimagemapeditor_debug.h"
 #include <kapplication.h>
 #include <khtmlview.h>
 #include <khtml_part.h>
@@ -661,7 +661,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QS
   setModal(true);
   QTextStream stream(tempFile);
   stream << htmlCode;
-  kDebug() << "HTMLPreviewDialog: TempFile : " << tempFile->fileName();
+  qCDebug(KIMAGEMAPEDITOR_LOG) << "HTMLPreviewDialog: TempFile : " << tempFile->fileName();
   stream.flush();
 
   KVBox *page = new KVBox(this);

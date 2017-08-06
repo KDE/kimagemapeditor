@@ -33,6 +33,7 @@ include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMOptionalAddSubdirectory)
+include(ECMQtDeclareLoggingCategory)
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
@@ -52,6 +53,12 @@ set(libkimagemapeditorcommon_SRC
     imagemapchoosedialog.cpp
 )
 
+ecm_qt_declare_logging_category(libkimagemapeditorcommon_SRC
+    HEADER kimagemapeditor_debug.h
+    IDENTIFIER KIMAGEMAPEDITOR_LOG
+    CATEGORY_NAME org.kde.kimagemapeditor
+    DEFAULT_SEVERITY Warning
+)
 
 ########### next target ###############
 
@@ -88,5 +95,6 @@ install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install( FILES  kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install( FILES  kimagemapeditorui.rc kimagemapeditorpartui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kimagemapeditor)
+install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

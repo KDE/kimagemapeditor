@@ -45,9 +45,16 @@ int main(int argc, char *argv[])
   aboutData.addCredit(i18n("Fabrice Mous"),i18n("For the Dutch translation"));
   aboutData.addCredit(i18n("Germain Chazot"),i18n("For the French translation"));
 
+  aboutData.setOrganizationDomain("kde.org");
+  aboutData.setDesktopFileName(QStringLiteral("org.kde.kimagemapeditor"));
+  KAboutData::setApplicationData(aboutData);
+
+  app.setOrganizationName(QStringLiteral("KDE"));
+
+  app.setWindowIcon(QIcon::fromTheme("kimagemapeditor", app.windowIcon()));
+
   QCommandLineParser parser;
   aboutData.setupCommandLine(&parser);
-  KAboutData::setApplicationData(aboutData);
   parser.addVersionOption();
   parser.addHelpOption();
 

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 MimeType=text/html;
-Exec=kimagemapeditor -caption %c %i
+Exec=kimagemapeditor -qwindowtitle %c %i
 Icon=kimagemapeditor
 Terminal=false
 Name=KImageMapEditor

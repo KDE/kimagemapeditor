@@ -21,6 +21,7 @@
 #include <qlabel.h>
 #include <qlineedit.h>
 #include <QListWidget>
+#include <QPushButton>
 #include <QTableWidget>
 #include <QHeaderView>
 #include <qspinbox.h>
@@ -41,7 +42,6 @@
 #include <khtmlview.h>
 #include <khtml_part.h>
 #include <ktemporaryfile.h>
-#include <kpushbutton.h>
 #include <kstandardguiitem.h>
 #include <kvbox.h>
 #include <KSharedConfig>

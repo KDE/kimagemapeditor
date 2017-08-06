@@ -26,6 +26,7 @@
 #include <qfontdatabase.h>
 #include <qfile.h>
 #include <qfileinfo.h>
+#include <QIcon>
 #include <QLinkedList>
 #include <QListWidget>
 #include <QMenu>
@@ -46,7 +47,6 @@
 #include <kstandardaction.h>
 #include <kiconloader.h>
 #include <kfiledialog.h>
-#include <kicon.h>
 #include <kmessagebox.h>
 #include <kapplication.h>
 #include <kedittoolbar.h>
@@ -477,7 +477,7 @@ void KImageMapEditor::setupActions()
 
 
   // Edit Delete
-  deleteAction = new QAction(KIcon("edit-delete"),
+  deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")),
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
@@ -581,7 +581,7 @@ void KImageMapEditor::setupActions()
 
   QActionGroup *drawingGroup = new QActionGroup(this);
   // Selection Tool
-  arrowAction = new KToggleAction(KIcon("arrow"), i18n("&Selection"), this);
+  arrowAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("arrow")), i18n("&Selection"), this);
   arrowAction->setShortcut(QKeySequence("s"));
   actionCollection()->addAction("tool_arrow", arrowAction);
   connect(arrowAction, SIGNAL(triggered(bool)), SLOT (slotDrawArrow()));
@@ -591,7 +591,7 @@ void KImageMapEditor::setupActions()
   arrowAction->setChecked(true);
 
   // Circle
-  circleAction = new KToggleAction(KIcon( "circle"), i18n("&Circle"), this);
+  circleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("circle")), i18n("&Circle"), this);
   circleAction->setShortcut(QKeySequence("c"));
 
   actionCollection()->addAction("tool_circle", circleAction);
@@ -601,7 +601,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(circleAction);
 
   // Rectangle
-    rectangleAction = new KToggleAction(KIcon("rectangle"), i18n("&Rectangle"), this);
+    rectangleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("rectangle")), i18n("&Rectangle"), this);
   rectangleAction->setShortcut(QKeySequence("r"));
     actionCollection()->addAction("tool_rectangle", rectangleAction);
   connect(rectangleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawRectangle()));
@@ -610,7 +610,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(rectangleAction);
 
   // Polygon
-    polygonAction = new KToggleAction(KIcon("polygon"), i18n("&Polygon"), this);
+    polygonAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("polygon")), i18n("&Polygon"), this);
   polygonAction->setShortcut(QKeySequence("p"));
     actionCollection()->addAction("tool_polygon", polygonAction);
   connect(polygonAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
@@ -619,7 +619,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(polygonAction);
 
   // Freehand
-    freehandAction = new KToggleAction(KIcon("freehand"), i18n("&Freehand Polygon"), this);
+    freehandAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("freehand")), i18n("&Freehand Polygon"), this);
   freehandAction->setShortcut(QKeySequence("f"));
     actionCollection()->addAction("tool_freehand", freehandAction);
   connect(freehandAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
@@ -628,7 +628,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(freehandAction);
 
   // Add Point
-    addPointAction = new KToggleAction(KIcon("addpoint"), i18n("&Add Point"), this);
+    addPointAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("addpoint")), i18n("&Add Point"), this);
   addPointAction->setShortcut(QKeySequence("a"));
     actionCollection()->addAction("tool_addpoint", addPointAction);
   connect(addPointAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
@@ -637,7 +637,7 @@ void KImageMapEditor::setupActions()
   drawingGroup->addAction(addPointAction);
 
   // Remove Point
-  removePointAction = new KToggleAction(KIcon("removepoint"), i18n("&Remove Point"), this);
+  removePointAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("removepoint")), i18n("&Remove Point"), this);
   removePointAction->setShortcut(QKeySequence("e"));
   actionCollection()->addAction("tool_removepoint", removePointAction);
   connect(removePointAction, SIGNAL(triggered(bool)), 
@@ -700,10 +700,10 @@ void KImageMapEditor::setupActions()
     actionCollection()->addAction("toback", toBackAction );
   connect(toBackAction, SIGNAL(triggered(bool)), SLOT( slotToBack() ));
 
-    forwardOneAction  = new QAction(KIcon("raise"), i18n("Bring Forward One"), this);
+    forwardOneAction  = new QAction(QIcon::fromTheme(QStringLiteral("raise")), i18n("Bring Forward One"), this);
     actionCollection()->addAction("forwardone", forwardOneAction );
   connect(forwardOneAction, SIGNAL(triggered(bool) ), SLOT( slotForwardOne() ));
-    backOneAction  = new QAction(KIcon("lower"), i18n("Send Back One"), this);
+    backOneAction  = new QAction(QIcon::fromTheme(QStringLiteral("lower")), i18n("Send Back One"), this);
     actionCollection()->addAction("backone", backOneAction );
   connect(backOneAction, SIGNAL(triggered(bool) ), SLOT( slotBackOne() ));
 
@@ -713,7 +713,7 @@ void KImageMapEditor::setupActions()
   connect( areaListView->upBtn, SIGNAL(pressed()), forwardOneAction, SLOT(trigger()));
   connect( areaListView->downBtn, SIGNAL(pressed()), backOneAction, SLOT(trigger()));
 
-    action  = new QAction(KIcon("configure"), i18n("Configure KImageMapEditor..."), this);
+    action  = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure KImageMapEditor..."), this);
     actionCollection()->addAction("configure_kimagemapeditor", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
 

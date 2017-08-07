@@ -110,9 +110,8 @@ typedef QList<HtmlElement*> HtmlContent;
 class KSelectAction;
 class QAction;
 class KRecentFilesAction;
-class QAction;
 ///class QListViewItem;
-class KUndoStack;
+class QUndoStack;
 class QTabWidget;
 class AreaListView;
 class ImagesListView;
@@ -171,7 +170,7 @@ public :
     AreaSelection* selected() const;
     void setPicture(const QImage & pix);
     int showTagEditor(Area *);
-    KUndoStack *commandHistory() const;
+    QUndoStack *commandHistory() const;
 
     // Only refreshes the listView
     void updateSelection() const;
@@ -311,7 +310,7 @@ private:
     QDockWidget* mapsDock;
     QDockWidget* imagesDock;
 
-    KUndoStack *_commandHistory;
+    QUndoStack *_commandHistory;
     int maxAreaPreviewHeight;
 
     QString cursorStatusText;
@@ -440,7 +439,7 @@ inline QString KImageMapEditor::mapName() const {
     return _mapName;
 }
 
-inline KUndoStack* KImageMapEditor::commandHistory() const {
+inline QUndoStack* KImageMapEditor::commandHistory() const {
     return _commandHistory;
 }
 

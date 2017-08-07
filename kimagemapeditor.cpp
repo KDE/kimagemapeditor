@@ -39,9 +39,9 @@
 #include <QTextEdit>
 #include <qtextstream.h>
 #include <qtooltip.h>
+#include <QUndoStack>
 
 // KDE Frameworks
-#include <kundostack.h>
 #include "kimagemapeditor_debug.h"
 #include <klocalizedstring.h>
 #include <kstandardaction.h>
@@ -62,6 +62,7 @@
 #include <kxmlguiwindow.h>
 #include <KGenericFactory>
 #include <KSharedConfig>
+#include <KUndoActions>
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
@@ -481,15 +482,15 @@ void KImageMapEditor::setupActions()
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
   connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
-  deleteAction->setShortcut(QKeySequence(Qt::Key_Delete));
+  actionCollection()->setDefaultShortcut(deleteAction, QKeySequence(Qt::Key_Delete));
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
   deleteAction->setEnabled(false);
 
   // Edit Undo/Redo
-  _commandHistory = new KUndoStack(this);
-  _commandHistory->createUndoAction(actionCollection());
-  _commandHistory->createRedoAction(actionCollection());
+  _commandHistory = new QUndoStack(this);
+  KUndoActions::createUndoAction(_commandHistory, actionCollection());
+  KUndoActions::createRedoAction(_commandHistory, actionCollection());
 
   // Edit Properties
     areaPropertiesAction  = new QAction(i18n("Pr&operties"), this);
@@ -582,7 +583,7 @@ void KImageMapEditor::setupActions()
   QActionGroup *drawingGroup = new QActionGroup(this);
   // Selection Tool
   arrowAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("arrow")), i18n("&Selection"), this);
-  arrowAction->setShortcut(QKeySequence("s"));
+  actionCollection()->setDefaultShortcut(arrowAction, QKeySequence("s"));
   actionCollection()->addAction("tool_arrow", arrowAction);
   connect(arrowAction, SIGNAL(triggered(bool)), SLOT (slotDrawArrow()));
   arrowAction->setWhatsThis(i18n("<h3>Selection</h3>"
@@ -592,7 +593,7 @@ void KImageMapEditor::setupActions()
 
   // Circle
   circleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("circle")), i18n("&Circle"), this);
-  circleAction->setShortcut(QKeySequence("c"));
+  actionCollection()->setDefaultShortcut(circleAction, QKeySequence("c"));
 
   actionCollection()->addAction("tool_circle", circleAction);
   connect(circleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawCircle()));
@@ -602,7 +603,7 @@ void KImageMapEditor::setupActions()
 
   // Rectangle
     rectangleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("rectangle")), i18n("&Rectangle"), this);
-  rectangleAction->setShortcut(QKeySequence("r"));
+  actionCollection()->setDefaultShortcut(rectangleAction, QKeySequence("r"));
     actionCollection()->addAction("tool_rectangle", rectangleAction);
   connect(rectangleAction, SIGNAL(triggered(bool)), this, SLOT(slotDrawRectangle()));
   rectangleAction->setWhatsThis(i18n("<h3>Rectangle</h3>"
@@ -611,7 +612,7 @@ void KImageMapEditor::setupActions()
 
   // Polygon
     polygonAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("polygon")), i18n("&Polygon"), this);
-  polygonAction->setShortcut(QKeySequence("p"));
+  actionCollection()->setDefaultShortcut(polygonAction, QKeySequence("p"));
     actionCollection()->addAction("tool_polygon", polygonAction);
   connect(polygonAction, SIGNAL(triggered(bool)), SLOT(slotDrawPolygon()));
   polygonAction->setWhatsThis(i18n("<h3>Polygon</h3>"
@@ -620,7 +621,7 @@ void KImageMapEditor::setupActions()
 
   // Freehand
     freehandAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("freehand")), i18n("&Freehand Polygon"), this);
-  freehandAction->setShortcut(QKeySequence("f"));
+  actionCollection()->setDefaultShortcut(freehandAction, QKeySequence("f"));
     actionCollection()->addAction("tool_freehand", freehandAction);
   connect(freehandAction, SIGNAL(triggered(bool)), SLOT(slotDrawFreehand()));
   freehandAction->setWhatsThis(i18n("<h3>Freehandpolygon</h3>"
@@ -629,7 +630,7 @@ void KImageMapEditor::setupActions()
 
   // Add Point
     addPointAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("addpoint")), i18n("&Add Point"), this);
-  addPointAction->setShortcut(QKeySequence("a"));
+  actionCollection()->setDefaultShortcut(addPointAction, QKeySequence("a"));
     actionCollection()->addAction("tool_addpoint", addPointAction);
   connect(addPointAction, SIGNAL(triggered(bool)), SLOT(slotDrawAddPoint()));
   addPointAction->setWhatsThis(i18n("<h3>Add Point</h3>"
@@ -638,7 +639,7 @@ void KImageMapEditor::setupActions()
 
   // Remove Point
   removePointAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("removepoint")), i18n("&Remove Point"), this);
-  removePointAction->setShortcut(QKeySequence("e"));
+  actionCollection()->setDefaultShortcut(removePointAction, QKeySequence("e"));
   actionCollection()->addAction("tool_removepoint", removePointAction);
   connect(removePointAction, SIGNAL(triggered(bool)), 
           SLOT(slotDrawRemovePoint()));
@@ -649,48 +650,48 @@ void KImageMapEditor::setupActions()
     QAction *action  = new QAction(i18n("Cancel Drawing"), this);
     actionCollection()->addAction("canceldrawing", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
-  action->setShortcut(QKeySequence(Qt::Key_Escape));
+  actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::Key_Escape));
 
   moveLeftAction  = new QAction(i18n("Move Left"), this);
   actionCollection()->addAction("moveleft", moveLeftAction );
   connect(moveLeftAction, SIGNAL(triggered(bool)),
          SLOT( slotMoveLeft() ));
-  moveLeftAction->setShortcut(QKeySequence(Qt::Key_Left));
+  actionCollection()->setDefaultShortcut(moveLeftAction, QKeySequence(Qt::Key_Left));
 
     moveRightAction  = new QAction(i18n("Move Right"), this);
     actionCollection()->addAction("moveright", moveRightAction );
   connect(moveRightAction, SIGNAL(triggered(bool)), SLOT( slotMoveRight() ));
-  moveRightAction->setShortcut(QKeySequence(Qt::Key_Right));
+  actionCollection()->setDefaultShortcut(moveRightAction, QKeySequence(Qt::Key_Right));
 
     moveUpAction  = new QAction(i18n("Move Up"), this);
     actionCollection()->addAction("moveup", moveUpAction );
   connect(moveUpAction, SIGNAL(triggered(bool)), SLOT( slotMoveUp() ));
-  moveUpAction->setShortcut(QKeySequence(Qt::Key_Up));
+  actionCollection()->setDefaultShortcut(moveUpAction, QKeySequence(Qt::Key_Up));
 
     moveDownAction  = new QAction(i18n("Move Down"), this);
     actionCollection()->addAction("movedown", moveDownAction );
   connect(moveDownAction, SIGNAL(triggered(bool)), SLOT( slotMoveDown() ));
-  moveDownAction->setShortcut(QKeySequence(Qt::Key_Down));
+  actionCollection()->setDefaultShortcut(moveDownAction, QKeySequence(Qt::Key_Down));
 
     increaseWidthAction  = new QAction(i18n("Increase Width"), this);
     actionCollection()->addAction("increasewidth", increaseWidthAction );
   connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseWidth() ));
-  increaseWidthAction->setShortcut(QKeySequence(Qt::Key_Right + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(increaseWidthAction, QKeySequence(Qt::Key_Right + Qt::SHIFT));
 
     decreaseWidthAction  = new QAction(i18n("Decrease Width"), this);
     actionCollection()->addAction("decreasewidth", decreaseWidthAction );
   connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseWidth() ));
-  decreaseWidthAction->setShortcut(QKeySequence(Qt::Key_Left + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(decreaseWidthAction, QKeySequence(Qt::Key_Left + Qt::SHIFT));
 
     increaseHeightAction  = new QAction(i18n("Increase Height"), this);
     actionCollection()->addAction("increaseheight", increaseHeightAction );
   connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseHeight() ));
-  increaseHeightAction->setShortcut(QKeySequence(Qt::Key_Up + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(increaseHeightAction, QKeySequence(Qt::Key_Up + Qt::SHIFT));
 
     decreaseHeightAction  = new QAction(i18n("Decrease Height"), this);
     actionCollection()->addAction("decreaseheight", decreaseHeightAction );
   connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseHeight() ));
-  decreaseHeightAction->setShortcut(QKeySequence(Qt::Key_Down + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(decreaseHeightAction, QKeySequence(Qt::Key_Down + Qt::SHIFT));
 
     toFrontAction  = new QAction(i18n("Bring to Front"), this);
     actionCollection()->addAction("tofront", toFrontAction );

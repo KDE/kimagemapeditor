@@ -31,7 +31,6 @@
 
 #include <kapplication.h>
 #include <kmimetype.h>
-#include <kundostack.h>
 #include <QStandardPaths>
 
 // Local

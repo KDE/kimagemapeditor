@@ -23,7 +23,6 @@
 #include <QScrollArea>
 
 #include <kparts/guiactivateevent.h>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kshortcutsdialog.h>
 #include <kedittoolbar.h>
@@ -44,6 +43,7 @@
 #include "kimeshell.moc"
 #include <kactioncollection.h>
 #include <KSharedConfig>
+#include <QFileDialog>
 KimeShell::KimeShell(const char * )
   : KParts::MainWindow()
 {
@@ -176,13 +176,9 @@ void KimeShell::openLastFile()
 
 void KimeShell::fileOpen()
 {
-  KUrl url=KFileDialog::getOpenUrl(KUrl(),
-          "*.png *.jpg *.jpeg *.gif *.htm *.html|" + i18n( "Web Files" ) + '\n' +
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|" + i18n( "Images" ) + '\n' +
-          "*.htm *.html|" + i18n( "HTML Files" ) + '\n' +
-          "*.png|" + i18n( "PNG Images" ) + "\n*.jpg *.jpeg|" + i18n( "JPEG Images" ) + "\n*.gif|" + i18n( "GIF Images" ) + "\n*|" + i18n( "All Files" )
-          ,this,i18n("Choose Picture to Open"));
-
+  KUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QString(),
+             i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
+                  "HTML Files (*.htm *.html);;All Files(*)"));
   if (!url.isEmpty()) {
         // About this function, the style guide (
         // http://developer.kde.org/documentation/standards/kde/style/basics/index.html )

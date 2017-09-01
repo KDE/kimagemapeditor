@@ -35,7 +35,6 @@
 
 // KDE Frameworks
 #include <kiconloader.h>
-#include <kfiledialog.h>
 #include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
 #include <kapplication.h>
@@ -45,6 +44,7 @@
 #include <kstandardguiitem.h>
 #include <kvbox.h>
 #include <KSharedConfig>
+#include <QFileDialog>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -489,7 +489,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  KUrl url=KFileDialog::getOpenUrl(KUrl(), "*|" + i18n( "All Files" ), this, i18n("Choose File"));
+  KUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose File"), QString(), i18n("All Files (*)"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }

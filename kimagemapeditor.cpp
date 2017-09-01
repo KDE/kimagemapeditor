@@ -25,6 +25,7 @@
 #include <qcombobox.h>
 #include <qfontdatabase.h>
 #include <qfile.h>
+#include <QFileDialog>
 #include <qfileinfo.h>
 #include <QIcon>
 #include <QLinkedList>
@@ -46,7 +47,6 @@
 #include <klocalizedstring.h>
 #include <kstandardaction.h>
 #include <kiconloader.h>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kapplication.h>
 #include <kedittoolbar.h>
@@ -1605,12 +1605,9 @@ bool KImageMapEditor::openURL(const QUrl & url) {
 
 void KImageMapEditor::fileOpen() {
 
-  QString fileName = KFileDialog::getOpenFileName(KUrl(),
-          i18n("*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
-          "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
-          "*.htm *.html|HTML Files\n"
-          "*.png|PNG Images\n*.jpg *.jpeg|JPEG Images\n*.gif|GIF-Images\n*|All Files"),
-          widget(),i18n("Choose File to Open"));
+  QString fileName = QFileDialog::getOpenFileName(widget(), i18n("Choose File to Open"), QString(),
+                     i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
+                          "HTML Files (*.htm *.html);;All Files(*)"));
 
   openFile(KUrl( fileName ));
 }
@@ -1647,8 +1644,7 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KUrl url = KFileDialog::getSaveUrl(KUrl(),"*.htm *.html|" + i18n( "HTML File" ) +
-                                     "\n*.txt|" + i18n( "Text File" ) + "\n*|" + i18n( "All Files" ),widget());
+  KUrl url = QFileDialog::getSaveFileUrl(widget(), QString(), QUrl(), i18n("HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)" ));
   if (url.isEmpty() || !url.isValid()) {
     return;
   }
@@ -2822,7 +2818,8 @@ void KImageMapEditor::setImageActionsEnabled(bool b) {
 
 
 void KImageMapEditor::imageAdd() {
-    KUrl imgUrl = KFileDialog::getImageOpenUrl();
+    KUrl imgUrl = QFileDialog::getOpenFileUrl(widget(), i18n("Select image"),
+                  QUrl(), i18n("Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files (*)"));
     addImage(imgUrl);
 }
 

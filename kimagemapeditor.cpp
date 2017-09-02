@@ -19,6 +19,7 @@
 #include <assert.h>
 
 // Qt
+#include <QApplication>
 #include <QAction>
 #include <qlayout.h>
 #include <qpushbutton.h>
@@ -48,7 +49,6 @@
 #include <kstandardaction.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#include <kapplication.h>
 #include <kedittoolbar.h>
 #include <kactioncollection.h>
 #include <kglobal.h>
@@ -842,7 +842,7 @@ void KImageMapEditor::slotUpdateSelectionCoords() {
     selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ", r.left(), r.top(), r.width(), r.height());
 
 //		  ,STATUS_SELECTION);
-    kapp->processEvents();
+    qApp->processEvents();
   } else
     selectionStatusText = i18n(" Selection: - ");
     //statusBar()->changeItem(" Selection : - ",STATUS_SELECTION);
@@ -854,7 +854,7 @@ void KImageMapEditor::slotUpdateSelectionCoords( const QRect & r )
 {
   selectionStatusText = i18n(" Selection: x: %1, y: %2, w: %3, h: %4 ", r.left(), r.top(), r.width(), r.height());
   updateStatusBar();
-  kapp->processEvents();
+  qApp->processEvents();
 }
 
 void KImageMapEditor::drawToCenter(QPainter* p, const QString & str, int y, int width) {

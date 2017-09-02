@@ -37,7 +37,6 @@
 #include <kiconloader.h>
 #include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
-#include <kapplication.h>
 #include <khtmlview.h>
 #include <khtml_part.h>
 #include <ktemporaryfile.h>

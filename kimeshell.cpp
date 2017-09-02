@@ -19,6 +19,7 @@
 #include <iostream>
 
 #include <QAction>
+#include <QApplication>
 #include <QDockWidget>
 #include <QScrollArea>
 
@@ -27,7 +28,6 @@
 #include <kshortcutsdialog.h>
 #include <kedittoolbar.h>
 #include <kstatusbar.h>
-#include <kapplication.h>
 #include "kimagemapeditor_debug.h"
 #include <kxmlguifactory.h>
 #include <kstandardaction.h>

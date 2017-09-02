@@ -29,7 +29,6 @@
 #include "kimagemapeditor_debug.h"
 #include <kglobal.h>
 
-#include <kapplication.h>
 #include <kmimetype.h>
 #include <QStandardPaths>
 

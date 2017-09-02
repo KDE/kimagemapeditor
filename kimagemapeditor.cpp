@@ -2703,7 +2703,7 @@ void KImageMapEditor::mapDelete()
          " <br /><b>There is no way to undo this.</b></qt>", selectedMap),
     i18n("Delete Map?"),KGuiItem(i18n("&Delete"),"edit-delete"));
 
-  if (result == KMessageBox::No)
+  if (result == KMessageBox::Cancel)
      return;
 
 

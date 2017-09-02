@@ -29,6 +29,7 @@
 #include <QFileDialog>
 #include <qfileinfo.h>
 #include <QIcon>
+#include <QInputDialog>
 #include <QLinkedList>
 #include <QListWidget>
 #include <QMenu>
@@ -56,7 +57,6 @@
 #include <kstatusbar.h>
 #include <kxmlguifactory.h>
 #include <kio/job.h>
-#include <kinputdialog.h>
 #include <ktoggleaction.h>
 #include <krecentfilesaction.h>
 #include <kxmlguiwindow.h>
@@ -1545,9 +1545,9 @@ void KImageMapEditor::mapDefaultArea()
 void KImageMapEditor::mapEditName()
 {
   bool ok=false;
-  QString input = KInputDialog::getText(i18n("Enter Map Name"),
-    i18n("Enter the name of the map:"),
-    _mapName,&ok,widget());
+  QString input = QInputDialog::getText(widget(),
+    i18n("Enter Map Name"), i18n("Enter the name of the map:"),
+    QLineEdit::Normal, _mapName, &ok);
   if (ok) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
@@ -2865,9 +2865,9 @@ void KImageMapEditor::imageUsemap() {
   }
 
   QString input =
-    KInputDialog::getItem(i18n("Enter Usemap"),
+    QInputDialog::getItem(widget(), i18n("Enter Usemap"),
 			  i18n("Enter the usemap value:"),
-			  maps,index,true,&ok,widget());
+			  maps, index, true, &ok);
   if (ok) {
      imageTag->insert("usemap", input);
      imagesListView->updateImage(imageTag);

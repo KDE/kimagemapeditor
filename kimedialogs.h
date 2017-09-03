@@ -23,7 +23,6 @@
 #include <QLinkedList>
 
 #include <kdialog.h>
-#include <kurl.h>
 
 #include "kimagemapeditor.h"
 
@@ -168,15 +167,15 @@ Q_OBJECT
 };
 
 class KHTMLPart;
-class KTemporaryFile;
+class QTemporaryFile;
 
 class HTMLPreviewDialog : public KDialog{
   public:
-    HTMLPreviewDialog(QWidget *, const KUrl &, const QString &);
+    HTMLPreviewDialog(QWidget *, const QString &);
     ~HTMLPreviewDialog();
   private:
     KHTMLPart* htmlPart;
-    KTemporaryFile* tempFile;
+    QTemporaryFile* tempFile;
 };
 
 #endif

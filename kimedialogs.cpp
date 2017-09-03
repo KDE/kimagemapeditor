@@ -31,6 +31,7 @@
 #include <QGridLayout>
 #include <QLinkedList>
 #include <QFrame>
+#include <QTemporaryFile>
 #include <QVBoxLayout>
 
 // KDE Frameworks
@@ -39,7 +40,6 @@
 #include "kimagemapeditor_debug.h"
 #include <khtmlview.h>
 #include <khtml_part.h>
-#include <ktemporaryfile.h>
 #include <kstandardguiitem.h>
 #include <kvbox.h>
 #include <KSharedConfig>
@@ -647,12 +647,10 @@ void PreferencesDialog::slotApply( void ) {
   emit preferencesChanged();
 }
 
-HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QString & htmlCode)
+HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
   : KDialog(parent)
 {
-  tempFile = new KTemporaryFile();
-  tempFile->setPrefix(url.directory(KUrl::AppendTrailingSlash));
-  tempFile->setSuffix(".html");
+  tempFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/kime_preview_XXXXXX.html"));
   tempFile->open();
   setCaption(i18n("Preview"));
   setButtons(Ok);
@@ -672,7 +670,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const KUrl & url, const QS
 //  htmlView->setHScrollBarMode(QScrollView::Auto);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
-  htmlPart->openUrl(KUrl( tempFile->fileName() ));
+  htmlPart->openUrl(QUrl::fromLocalFile(tempFile->fileName()));
   QLabel* lbl = new QLabel( page );
   lbl->setObjectName( "urllabel" );
 

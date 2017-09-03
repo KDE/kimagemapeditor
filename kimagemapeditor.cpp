@@ -2706,7 +2706,7 @@ void KImageMapEditor::mapDelete()
 }
 
 void KImageMapEditor::mapPreview() {
-  HTMLPreviewDialog dialog(widget(), url(), getHtmlCode());
+  HTMLPreviewDialog dialog(widget(), getHtmlCode());
   dialog.exec();
 }
 

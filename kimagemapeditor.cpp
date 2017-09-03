@@ -1548,7 +1548,7 @@ void KImageMapEditor::mapEditName()
   QString input = QInputDialog::getText(widget(),
     i18n("Enter Map Name"), i18n("Enter the name of the map:"),
     QLineEdit::Normal, _mapName, &ok);
-  if (ok) {
+  if (ok && !input.isEmpty()) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
             KMessageBox::sorry(this->widget(), i18n("The name <em>%1</em> already exists.", input));

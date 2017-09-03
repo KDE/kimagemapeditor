@@ -27,7 +27,6 @@
 
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
-#include <kglobal.h>
 
 #include <kmimetype.h>
 #include <QStandardPaths>

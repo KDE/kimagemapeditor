@@ -22,18 +22,17 @@
 #include <QApplication>
 #include <QDockWidget>
 #include <QScrollArea>
+#include <QStatusBar>
 
 #include <kparts/guiactivateevent.h>
 #include <kmessagebox.h>
 #include <kshortcutsdialog.h>
 #include <kedittoolbar.h>
-#include <kstatusbar.h>
 #include "kimagemapeditor_debug.h"
 #include <kxmlguifactory.h>
 #include <kstandardaction.h>
 
 #include <khbox.h>
-#include <kglobal.h>
 #include <ktoolbar.h>
 #include <kvbox.h>
 

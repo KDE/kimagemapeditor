@@ -52,9 +52,6 @@
 #include <kmessagebox.h>
 #include <kedittoolbar.h>
 #include <kactioncollection.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
-#include <kstatusbar.h>
 #include <kxmlguifactory.h>
 #include <kio/job.h>
 #include <ktoggleaction.h>

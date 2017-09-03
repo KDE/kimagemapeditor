@@ -17,19 +17,18 @@
 
 // Qt
 #include <qbitmap.h>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMimeDatabase>
+#include <QMimeType>
+#include <QResizeEvent>
 #include <qpainter.h>
 #include <qpixmap.h>
-//Added by qt3to4:
-#include <QDropEvent>
-#include <QResizeEvent>
-#include <QDragEnterEvent>
 #include <QMouseEvent>
-
+#include <QStandardPaths>
+#
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
-
-#include <kmimetype.h>
-#include <QStandardPaths>
 
 // Local
 #include "drawzone.h"
@@ -862,10 +861,11 @@ void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
   if ( uris.isEmpty() )
     return;
 
-  KMimeType::Ptr ptr = KMimeType::findByUrl(uris.first());
-//  qCDebug(KIMAGEMAPEDITOR_LOG) << "***** " << ptr.data()->name();
-  if ((ptr.data()->name() == "text/html")
-      || (ptr.data()->name().left(6) == "image/"))
+  QMimeDatabase db;
+  QMimeType draggedMIME = db.mimeTypeForUrl(uris.first());
+  // qCDebug(KIMAGEMAPEDITOR_LOG) << "***** " << draggedMIME.name();
+  if ((draggedMIME.name() == "text/html")
+      || (draggedMIME.name().left(6) == "image/"))
     e->accept();
 }
 

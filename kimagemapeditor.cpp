@@ -34,6 +34,8 @@
 #include <QLinkedList>
 #include <QListWidget>
 #include <QMenu>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <QPushButton>
@@ -1591,13 +1593,13 @@ void KImageMapEditor::mapShowHTML()
 
 void KImageMapEditor::openFile(const KUrl & url) {
   if ( ! url.isEmpty()) {
-    QString ext=QFileInfo(url.path()).completeSuffix().toLower();
-
-    if (ext=="png" || ext=="jpg" || ext=="jpeg" || ext=="gif" ||
-        ext=="bmp" || ext=="xbm" || ext=="xpm" || ext=="mng" || ext=="pnm")
+    QMimeDatabase db;
+    QMimeType openedFileType = db.mimeTypeForUrl(url);
+    if (openedFileType.name().left(6) == "image/") {
         addImage(url);
-    else
+    } else {
         openURL(url);
+    }
   }
 }
 

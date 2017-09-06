@@ -21,6 +21,7 @@
 #include <QAction>
 #include <QApplication>
 #include <QDockWidget>
+#include <QFileDialog>
 #include <QScrollArea>
 #include <QStatusBar>
 
@@ -31,18 +32,16 @@
 #include "kimagemapeditor_debug.h"
 #include <kxmlguifactory.h>
 #include <kstandardaction.h>
-
-#include <khbox.h>
 #include <ktoolbar.h>
-#include <kvbox.h>
+#include <kactioncollection.h>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
 #include "kimeshell.h"
 #include "kimeshell.moc"
-#include <kactioncollection.h>
-#include <KSharedConfig>
-#include <QFileDialog>
+
 KimeShell::KimeShell(const char * )
   : KParts::MainWindow()
 {
@@ -88,7 +87,7 @@ KimeShell::KimeShell(const char * )
            this, SLOT(slotSetStatusBarText ( const QString & )));
 
   connect( m_part, SIGNAL(setWindowCaption(const QString &)),
-           this, SLOT(setCaption( const QString &)));
+           this, SLOT(setWindowTitle( const QString &)));
 
   setAutoSaveSettings( "General Options" );
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 4";

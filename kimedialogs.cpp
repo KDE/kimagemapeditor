@@ -17,6 +17,9 @@
 
 // Qt
 #include <qcheckbox.h>
+#include <QDialogButtonBox>
+#include <QFileDialog>
+#include <QFormLayout>
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qlineedit.h>
@@ -28,7 +31,6 @@
 #include <qtabwidget.h>
 #include <qimage.h>
 #include <QPixmap>
-#include <QGridLayout>
 #include <QLinkedList>
 #include <QFrame>
 #include <QTemporaryFile>
@@ -41,9 +43,8 @@
 #include <khtmlview.h>
 #include <khtml_part.h>
 #include <kstandardguiitem.h>
-#include <kvbox.h>
 #include <KSharedConfig>
-#include <QFileDialog>
+#include <KConfigGroup>
 
 // LOCAL
 #include "kimedialogs.h"
@@ -70,53 +71,35 @@ CoordsEdit::~CoordsEdit()
 RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this); //,5,2,5,5);
+  QFormLayout *layout= new QFormLayout(this);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaximum(INT_MAX);
   topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
-  layout->addWidget(topXSpin,0,1);
   connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  QLabel *lbl= new QLabel(i18n("Top &X:"),this);
-  lbl->setBuddy(topXSpin);
-  layout->addWidget(lbl,0,0);
+  layout->addRow(i18n("Top &X:"), topXSpin);
 
   topYSpin = new QSpinBox(this);
   topYSpin->setMaximum(INT_MAX);
   topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
-  layout->addWidget(topYSpin,1,1);
   connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  lbl= new QLabel(i18n("Top &Y:"),this);
-  lbl->setBuddy(topYSpin);
-  layout->addWidget(lbl,1,0);
+  layout->addRow(i18n("Top &Y:"), topYSpin);
 
   widthSpin = new QSpinBox(this);
   widthSpin->setMaximum(INT_MAX);
   widthSpin->setMinimum(0);
   widthSpin->setValue(a->rect().width());
-  layout->addWidget(widthSpin,2,1);
   connect( widthSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  lbl= new QLabel(i18n("&Width:"),this);
-  lbl->setBuddy(widthSpin);
-  layout->addWidget(lbl,2,0);
+  layout->addRow(i18n("&Width:"), widthSpin);
 
   heightSpin = new QSpinBox(this);
   heightSpin->setMaximum(INT_MAX);
   heightSpin->setMinimum(0);
   heightSpin->setValue(a->rect().height());
-  layout->addWidget(heightSpin,3,1);
   connect( heightSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  lbl= new QLabel(i18n("Hei&ght:"),this);
-  lbl->setBuddy(heightSpin);
-  layout->addWidget(lbl,3,0);
-
-  layout->setRowStretch(4,10);
+  layout->addRow(i18n("Hei&ght:"), heightSpin);
 }
 
 void RectCoordsEdit::applyChanges() {
@@ -131,44 +114,28 @@ void RectCoordsEdit::applyChanges() {
 CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this);
+  QFormLayout *layout = new QFormLayout(this);
 
   centerXSpin = new QSpinBox(this);
   centerXSpin->setMaximum(INT_MAX);
   centerXSpin->setMinimum(0);
   centerXSpin->setValue(a->rect().center().x());
-  layout->addWidget(centerXSpin,0,1);
   connect( centerXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  QLabel *lbl= new QLabel(i18n("Center &X:"),this);
-  lbl->setBuddy(centerXSpin);
-  layout->addWidget(lbl,0,0);
+  layout->addRow(i18n("Center &X:"), centerXSpin);
 
   centerYSpin = new QSpinBox(this);
   centerYSpin->setMaximum(INT_MAX);
   centerYSpin->setMinimum(0);
   centerYSpin->setValue(a->rect().center().y());
-  layout->addWidget(centerYSpin,1,1);
   connect( centerYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-
-  lbl= new QLabel(i18n("Center &Y:"),this);
-  lbl->setBuddy(centerYSpin);
-  layout->addWidget(lbl,1,0);
+  layout->addRow(i18n("Center &Y:"), centerYSpin);
 
   radiusSpin = new QSpinBox(this);
   radiusSpin->setMaximum(INT_MAX);
   radiusSpin->setMinimum(0);
   radiusSpin->setValue(a->rect().width()/2);
-  layout->addWidget(radiusSpin,2,1);
   connect( radiusSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-
-  lbl= new QLabel(i18n("&Radius:"),this);
-  lbl->setBuddy(radiusSpin);
-  layout->addWidget(lbl,2,0);
-
-  layout->setRowStretch(3,10);
+  layout->addRow(i18n("&Radius::"), radiusSpin);
 
 }
 
@@ -185,10 +152,10 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
   if (!a) return;
-  QVBoxLayout *layout= new QVBoxLayout(this);
-  coordsTable= new QTableWidget(0,2,this);
+  QVBoxLayout *layout = new QVBoxLayout(this);
+
+  coordsTable = new QTableWidget(0, 2);
   coordsTable->verticalHeader()->hide();
-  // PORT: coordsTable->setLeftMargin(0);
   coordsTable->setSelectionMode( QTableWidget::SingleSelection );
   connect( coordsTable, SIGNAL(currentChanged(int,int)), this, SLOT(slotHighlightPoint(int)));
 
@@ -196,16 +163,20 @@ PolyCoordsEdit::PolyCoordsEdit(QWidget *parent, Area* a)
 //	coordsTable->setMinimumHeight(50);
 //	coordsTable->setMaximumHeight(400);
 //	coordsTable->resizeContents(100,100);
-  coordsTable->resize(coordsTable->width(),100);
+  coordsTable->resize(coordsTable->width(), 100);
   layout->addWidget(coordsTable);
-  layout->setStretchFactor(coordsTable,-1);
-  KHBox *hbox= new KHBox(this);
-  QPushButton *addBtn=new QPushButton(i18n("Add"),hbox);
+  layout->setStretchFactor(coordsTable, -1);
+
+  QHBoxLayout *hbox = new QHBoxLayout;
+  QPushButton *addBtn = new QPushButton(i18n("Add"));
+  hbox->addWidget(addBtn);
   connect( addBtn, SIGNAL(pressed()), this, SLOT(slotAddPoint()));
-  QPushButton *removeBtn=new QPushButton(i18n("Remove"),hbox);
+  QPushButton *removeBtn = new QPushButton(i18n("Remove"));
+  hbox->addWidget(removeBtn);
   connect( removeBtn, SIGNAL(pressed()), this, SLOT(slotRemovePoint()));
 
-  layout->addWidget(hbox);
+  layout->addLayout(hbox);
+
   slotHighlightPoint(1);
 }
 
@@ -237,7 +208,7 @@ void PolyCoordsEdit::updatePoints() {
 
 void PolyCoordsEdit::slotAddPoint() {
   int newPos= coordsTable->currentRow();
-  if (newPos < 0 || newPos >= area->coords().size()) 
+  if (newPos < 0 || newPos >= area->coords().size())
     newPos = area->coords().size();
 
   QPoint currentPoint=area->coords().point(newPos);
@@ -268,29 +239,22 @@ void PolyCoordsEdit::applyChanges() {
 SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   : CoordsEdit(parent,a)
 {
-  QGridLayout *layout= new QGridLayout(this);//,2,2);
+  QFormLayout *layout = new QFormLayout(this);
 
   topXSpin = new QSpinBox(this);
   topXSpin->setMaximum(INT_MAX);
   topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
-  layout->addWidget(topXSpin,0,1);
   connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-
-  QLabel *lbl= new QLabel(i18n("Top &X"),this);
-  lbl->setBuddy(topXSpin);
-  layout->addWidget(lbl,0,0);
+  layout->addRow(i18n("Top &X"), topXSpin);
 
   topYSpin = new QSpinBox(this);
   topYSpin->setMaximum(INT_MAX);
   topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
-  layout->addWidget(topYSpin,1,1);
   connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
 
-  lbl= new QLabel(i18n("Top &Y"),this);
-  lbl->setBuddy(topYSpin);
-  layout->addWidget(lbl,1,0);
+  layout->addRow(i18n("Top &Y"), topYSpin);
 }
 
 void SelectionCoordsEdit::applyChanges() {
@@ -299,55 +263,51 @@ void SelectionCoordsEdit::applyChanges() {
 
 
 
-QLineEdit* AreaDialog::createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name)
+QLineEdit* AreaDialog::createLineEdit(QFormLayout *layout, const QString &value, const QString &name)
 {
-  QLineEdit* edit=new QLineEdit(value,parent);
-  layout->addWidget(edit,y,2);
-  QLabel* lbl=new QLabel(name,parent);
-  lbl->setBuddy(edit);
-  layout->addWidget(lbl,y,1);
-
+  QLineEdit *edit = new QLineEdit(value);
+  layout->addRow(name, edit);
   return edit;
 }
 
 QWidget* AreaDialog::createGeneralPage()
 {
-  QFrame* page = new QFrame(this);
-  QGridLayout* layout = new QGridLayout(page);//,5,2,5,5);
+  QFrame *page = new QFrame(this);
+  QFormLayout *layout = new QFormLayout(page);
 
-
-  KHBox *hbox= new KHBox(page);
-  hrefEdit = new QLineEdit(area->attribute("href"),hbox);
-  QPushButton *btn = new QPushButton("",hbox);
+  // A separate widget, not just a layout, is needed so that
+  // the accelerator for the row is working
+  QWidget *hbox = new QWidget;
+  QHBoxLayout *hboxLayout = new QHBoxLayout(hbox);
+  hboxLayout->setMargin(0);
+  hrefEdit = new QLineEdit(area->attribute("href"));
+  hboxLayout->addWidget(hrefEdit);
+  QPushButton *btn = new QPushButton;
   btn->setIcon(SmallIcon("document-open"));
   connect( btn, SIGNAL(pressed()), this, SLOT(slotChooseHref()));
-  hbox->setMinimumHeight(hbox->height());
+  hboxLayout->addWidget(btn);
 
-  layout->addWidget(hbox,0,2);
-  QLabel *lbl=new QLabel(i18n( "&HREF:" ),page);
-  lbl->setBuddy(hrefEdit);
-  layout->addWidget(lbl,0,1);
+  QLabel *lblHREF = new QLabel(i18n("&HREF:"));
+  lblHREF->setBuddy(hrefEdit);
+  layout->addRow(lblHREF, hbox);
 
-  altEdit = createLineEdit(page,layout,1,
+  altEdit = createLineEdit(layout,
 			   area->attribute("alt"),
 			   i18n("Alt. &Text:"));
-  targetEdit = createLineEdit(page,layout,2,
+  targetEdit = createLineEdit(layout,
 			      area->attribute("target"),
 			      i18n("Tar&get:"));
-  titleEdit = createLineEdit(page,layout,3,
+  titleEdit = createLineEdit(layout,
 			     area->attribute("title"),
 			     i18n("Tit&le:"));
 
-  if (area->type()==Area::Default)
-  {
-    defaultAreaChk = new QCheckBox(i18n("Enable default map"),page);
-    if (area->finished())
+  if (area->type() == Area::Default) {
+    defaultAreaChk = new QCheckBox(i18n("On"));
+    if (area->finished()) {
       defaultAreaChk->setChecked(true);
-    layout->addWidget(defaultAreaChk,4,2);
+    }
+    layout->addRow(i18n("Enable default map"), defaultAreaChk);
   }
-
-
-  layout->setRowStretch(4,10);
 
   return page;
 }
@@ -358,7 +318,7 @@ QWidget* AreaDialog::createCoordsPage()
   QVBoxLayout *layout = new QVBoxLayout(page);
   layout->setMargin(5);
 
-  coordsEdit = createCoordsEdit(page,area);
+  coordsEdit = createCoordsEdit(page, area);
   layout->addWidget(coordsEdit);
   connect( coordsEdit, SIGNAL(update()), this, SLOT(slotUpdateArea()));
 
@@ -367,97 +327,87 @@ QWidget* AreaDialog::createCoordsPage()
 
 QWidget* AreaDialog::createJavascriptPage()
 {
-  QFrame* page = new QFrame(this);
-  QGridLayout* layout = new QGridLayout(page);//,8,2,5,5);
+  QFrame *page = new QFrame(this);
+  QFormLayout *layout = new QFormLayout(page);
 
-  onClickEdit = createLineEdit(page,layout,0,area->attribute("onClick"),i18n("OnClick:"));
-  onDblClickEdit = createLineEdit(page,layout,1,area->attribute("onDblClick"),i18n("OnDblClick:"));
-  onMouseDownEdit = createLineEdit(page,layout,2,area->attribute("onMouseDown"),i18n("OnMouseDown:"));
-  onMouseUpEdit = createLineEdit(page,layout,3,area->attribute("onMouseUp"),i18n("OnMouseUp:"));
-  onMouseOverEdit = createLineEdit(page,layout,4,area->attribute("onMouseOver"),i18n("OnMouseOver:"));
-  onMouseMoveEdit = createLineEdit(page,layout,5,area->attribute("onMouseMove"),i18n("OnMouseMove:"));
-  onMouseOutEdit = createLineEdit(page,layout,6,area->attribute("onMouseOut"),i18n("OnMouseOut:"));
-
-  layout->setRowStretch(7,10);
-
+  onClickEdit = createLineEdit(layout, area->attribute("onClick"), i18n("OnClick:"));
+  onDblClickEdit = createLineEdit(layout, area->attribute("onDblClick"), i18n("OnDblClick:"));
+  onMouseDownEdit = createLineEdit(layout, area->attribute("onMouseDown"), i18n("OnMouseDown:"));
+  onMouseUpEdit = createLineEdit(layout, area->attribute("onMouseUp"), i18n("OnMouseUp:"));
+  onMouseOverEdit = createLineEdit(layout, area->attribute("onMouseOver"), i18n("OnMouseOver:"));
+  onMouseMoveEdit = createLineEdit(layout, area->attribute("onMouseMove"), i18n("OnMouseMove:"));
+  onMouseOutEdit = createLineEdit(layout, area->attribute("onMouseOut"), i18n("OnMouseOut:"));
 
   return page;
 }
 
-AreaDialog::AreaDialog(KImageMapEditor* parent,Area * a)
-  : KDialog(parent->widget())
-// : KDialogBase(Tabbed,i18n("Area Tag Editor"),Ok|Apply|Cancel,Ok,parent,"")
-//	: KDialogBase(parent,"",true,"Area Tag Editor",Ok|Apply|Cancel,Ok,true)
+AreaDialog::AreaDialog(KImageMapEditor* parent, Area* a)
+  : QDialog(parent->widget())
 {
-  setCaption(i18n("Area Tag Editor"));
-  setButtons(Ok|Apply|Cancel);
-  setDefaultButton(Ok);
+  setWindowTitle(i18n("Area Tag Editor"));
   //  setFaceType( KPageDialog::Tabbed );
   setObjectName( "Area Tag Editor" );
   setModal(true);
-  
-  _document=parent;
+
+  _document = parent;
 
   if (!a) {
       slotCancel();
       return;
   }
 
-
-  area=a;
-  QString shape="Default";
-  areaCopy= a->clone();
-  oldArea= new Area();
+  area = a;
+  QString shape("Default");
+  areaCopy = a->clone();
+  oldArea = new Area();
   oldArea->setRect( a->rect() );
 
   switch (a->type()) {
-    case Area::Rectangle : shape=i18n("Rectangle");break;
-    case Area::Circle : shape=i18n("Circle");break;
-    case Area::Polygon : shape=i18n("Polygon");break;
-    case Area::Selection : shape=i18n("Selection");break;
-    default : break;
+    case Area::Rectangle: shape = i18n("Rectangle"); break;
+    case Area::Circle: shape = i18n("Circle"); break;
+    case Area::Polygon: shape = i18n("Polygon"); break;
+    case Area::Selection: shape = i18n("Selection"); break;
+    default: break;
   }
 
+  QVBoxLayout *layout = new QVBoxLayout(this);
 
   // To get a margin around everything
-
-  QWidget* w = mainWidget();
-
-  QVBoxLayout *layout = new QVBoxLayout(w);
-
   layout->setMargin(5);
 
-  QLabel *lbl = new QLabel("<b>"+shape+"</b>",w);
+  QLabel *lbl = new QLabel("<b>"+shape+"</b>");
   lbl->setTextFormat(Qt::RichText);
   layout->addWidget(lbl);
 
-  QFrame *line = new QFrame(w);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  QFrame *line = new QFrame;
+  line->setFrameStyle(QFrame::HLine | QFrame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line);
 
-  QTabWidget *tab = new QTabWidget(w);
-
+  QTabWidget *tab = new QTabWidget;
+  tab->addTab(createGeneralPage(), i18n("&General"));
   layout->addWidget(tab);
 
-  tab->addTab(createGeneralPage(),i18n("&General"));
-
-  if (a->type()==Area::Default)
-  {
-      shape=i18n("Default");
+  if (a->type() == Area::Default) {
+    // FIXME? Why this useless assignement?
+    shape = i18n("Default");
+  } else {
+    tab->addTab(createCoordsPage(), i18n("Coor&dinates"));
   }
-  else
-    tab->addTab(createCoordsPage(),i18n("Coor&dinates"));
+  tab->addTab(createJavascriptPage(), i18n("&JavaScript"));
 
-  tab->addTab(createJavascriptPage(),i18n("&JavaScript"));
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  layout->addWidget(buttonBox);
+
+  connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotOk()));
+  connect(buttonBox, SIGNAL(rejected()), this, SLOT(slotCancel()));
+  connect(buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(slotApply()));
 
   setMinimumHeight(360);
   setMinimumWidth(327);
-
-  connect(this, SIGNAL(okClicked()), this, SLOT(slotOk()));
-  connect(this, SIGNAL(applyClicked()), this, SLOT(slotApply()));
-  connect(this, SIGNAL(cancelClicked()), this, SLOT(slotCancel()));
-
 
   resize(327,360);
 }
@@ -554,72 +504,66 @@ void AreaDialog::slotUpdateArea() {
 
 
 PreferencesDialog::PreferencesDialog(QWidget *parent, KConfig* conf)
-  : KDialog(parent)
+  : QDialog(parent)
 {
   config = conf;
-  setCaption(i18n("Preferences"));
-  setButtons(Ok|Apply|Cancel);
-  setDefaultButton(Ok);
+  setWindowTitle(i18n("Preferences"));
   setModal(true);
-  showButtonSeparator(true);
-  KVBox *page=new KVBox(this);
-  page->setSpacing(6);
-  setMainWidget(page);
 
-  KHBox *hbox= new KHBox(page);
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-  QLabel *lbl = new QLabel(i18n("&Maximum image preview height:")+' ',hbox);
-  rowHeightSpinBox = new QSpinBox(hbox);
-  lbl->setBuddy(rowHeightSpinBox);
+  QFormLayout *optionsLayout = new QFormLayout;
+  mainLayout->addLayout(optionsLayout);
 
+  rowHeightSpinBox = new QSpinBox;
   int maxPrevHeight = config->group("Appearance").readEntry("maximum-preview-height",50);
   rowHeightSpinBox->setMaximum(1000);
   rowHeightSpinBox->setMinimum(15);
   rowHeightSpinBox->setFixedWidth(60);
   rowHeightSpinBox->setValue(maxPrevHeight);
+  optionsLayout->addRow(i18n("&Maximum image preview height:"), rowHeightSpinBox);
 
   KConfigGroup general = config->group("General");
 
-  hbox= new KHBox(page);
-  lbl = new QLabel(i18n("&Undo limit:")+' ',hbox);
-  undoSpinBox = new QSpinBox(hbox);
+  undoSpinBox = new QSpinBox;
   undoSpinBox->setFixedWidth(60);
-  lbl->setBuddy(undoSpinBox);
-
   undoSpinBox->setMaximum(100);
   undoSpinBox->setMinimum(1);
   undoSpinBox->setValue(general.readEntry("undo-level",20));
+  optionsLayout->addRow(i18n("&Undo limit:"), undoSpinBox);
 
-  hbox= new KHBox(page);
-  lbl = new QLabel(i18n("&Redo limit:")+' ',hbox);
-
-  redoSpinBox = new QSpinBox(hbox);
+  redoSpinBox = new QSpinBox;
   redoSpinBox->setFixedWidth(60);
   redoSpinBox->setMaximum(100);
   redoSpinBox->setMinimum(1);
   redoSpinBox->setValue(general.readEntry("redo-level",20));
-  lbl->setBuddy(redoSpinBox);
+  optionsLayout->addRow(i18n("&Redo limit:"), redoSpinBox);
 
-  startWithCheck = new QCheckBox(i18n("&Start with last used document"),page);
+  startWithCheck = new QCheckBox(i18n("On"));
   startWithCheck->setChecked(general.readEntry("start-with-last-used-document",true));
+  optionsLayout->addRow(i18n("&Start with last used document"), startWithCheck);
 
 /*
-  hbox= new QHBox(page);
-  (void)new QLabel(i18n("Highlight Areas")+" ",hbox);
-
-  colorizeAreaChk = new QCheckBox(hbox);
+  colorizeAreaChk = new QCheckBox(i18n("On"));
   colorizeAreaChk->setFixedWidth(60);
   colorizeAreaChk->setChecked(KSharedConfig::openConfig()->readEntry("highlightareas",true));
+  optionsLayout->addRow(i18n("Highlight Areas"), colorizeAreaChk);
 
-  hbox= new QHBox(page);
-  (void)new QLabel(i18n("Show alternative text")+" ",hbox);
-
-  showAltChk = new QCheckBox(hbox);
+  showAltChk = new QCheckBox(i18n("On"));
   showAltChk->setFixedWidth(60);
   showAltChk->setChecked(KSharedConfig::openConfig()->readEntry("showalt",true));
+  optionsLayout->addRow(i18n("Show alternative text"), showAltChk);
 */
-  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-  connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  mainLayout->addWidget(buttonBox);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotOk()));
+  connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+  connect(buttonBox->button(QDialogButtonBox::Apply),SIGNAL(clicked()),this,SLOT(slotApply()));
+
 }
 
 PreferencesDialog::~PreferencesDialog() {
@@ -642,37 +586,44 @@ void PreferencesDialog::slotApply( void ) {
   group.writeEntry("undo-level",undoSpinBox->cleanText().toInt());
   group.writeEntry("redo-level",redoSpinBox->cleanText().toInt());
   group.writeEntry("start-with-last-used-document", startWithCheck->isChecked());
- 
+
   config->sync();
   emit preferencesChanged();
 }
 
 HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
-  : KDialog(parent)
+  : QDialog(parent)
 {
   tempFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/kime_preview_XXXXXX.html"));
   tempFile->open();
-  setCaption(i18n("Preview"));
-  setButtons(Ok);
-  setDefaultButton(Ok);
+  setWindowTitle(i18n("Preview"));
   setModal(true);
   QTextStream stream(tempFile);
   stream << htmlCode;
   qCDebug(KIMAGEMAPEDITOR_LOG) << "HTMLPreviewDialog: TempFile : " << tempFile->fileName();
   stream.flush();
 
-  KVBox *page = new KVBox(this);
-  setMainWidget(page);
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-  htmlPart = new KHTMLPart(page);
+  htmlPart = new KHTMLPart;
+  mainLayout->addWidget(htmlPart->widget());
 //  htmlView = new KHTMLView(htmlPart, page);
+//  mainLayout->addWidget(htmlView);
 //  htmlView->setVScrollBarMode(QScrollView::Auto);
 //  htmlView->setHScrollBarMode(QScrollView::Auto);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
   htmlPart->openUrl(QUrl::fromLocalFile(tempFile->fileName()));
-  QLabel* lbl = new QLabel( page );
+  QLabel *lbl = new QLabel;
   lbl->setObjectName( "urllabel" );
+  mainLayout->addWidget(lbl);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+  mainLayout->addWidget(buttonBox);
 
   connect( htmlPart, SIGNAL( onURL(const QString&)), lbl, SLOT( setText(const QString&)));
 

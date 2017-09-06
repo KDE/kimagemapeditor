@@ -20,7 +20,6 @@
 
 #include <QTreeWidget>
 #include <qwidget.h>
-#include <kvbox.h>
 
 
 class QPushButton;
@@ -31,7 +30,7 @@ class Area;
  * It shows all Areas of the current map.
  * Jan Schaefer
  **/
-class AreaListView : public KVBox
+class AreaListView : public QWidget
 {
   Q_OBJECT
 
@@ -40,8 +39,8 @@ public:
   ~AreaListView();
 
   QTreeWidget* listView;
-	QPushButton *upBtn;
-	QPushButton *downBtn;
+  QPushButton *upBtn;
+  QPushButton *downBtn;
 
 };
 

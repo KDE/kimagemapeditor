@@ -18,11 +18,11 @@
 #ifndef KIMEDIALOGS_H
 #define KIMEDIALOGS_H
 
-#include <QGridLayout>
+#include <QFormLayout>
 #include <QLabel>
 #include <QLinkedList>
 
-#include <kdialog.h>
+#include <QDialog>
 
 #include "kimagemapeditor.h"
 
@@ -97,7 +97,7 @@ Q_OBJECT
 
 class QCheckBox;
 
-class AreaDialog : public KDialog {
+class AreaDialog : public QDialog {
 Q_OBJECT
 	private:
 		Area *area;
@@ -132,10 +132,10 @@ Q_OBJECT
 		void slotChooseHref();
 		void slotUpdateArea();
 		
-    QLineEdit* createLineEdit(QWidget* parent, QGridLayout *layout, int y, const QString & value, const QString & name);
-	  QWidget* createGeneralPage();
-	  QWidget* createCoordsPage();
-	  QWidget* createJavascriptPage();
+		QLineEdit* createLineEdit(QFormLayout *layout, const QString &value, const QString &name);
+		QWidget* createGeneralPage();
+		QWidget* createCoordsPage();
+		QWidget* createJavascriptPage();
 	signals:
 		void areaChanged(Area* a);
 };
@@ -145,7 +145,7 @@ Q_OBJECT
 
 class KConfig;
 
-class PreferencesDialog : public KDialog {
+class PreferencesDialog : public QDialog {
 Q_OBJECT
 	public:
 		PreferencesDialog(QWidget *parent,KConfig*);
@@ -169,7 +169,7 @@ Q_OBJECT
 class KHTMLPart;
 class QTemporaryFile;
 
-class HTMLPreviewDialog : public KDialog{
+class HTMLPreviewDialog : public QDialog{
   public:
     HTMLPreviewDialog(QWidget *, const QString &);
     ~HTMLPreviewDialog();

@@ -20,7 +20,7 @@
 
 #include <QLinkedList>
 
-#include <kdialog.h>
+#include <QDialog>
 #include <kurl.h>
 
 #include "kimagemapeditor.h"
@@ -28,10 +28,11 @@
 class QLineEdit;
 class QListWidget;
 class QLabel;
+class QLayout;
 class QTableWidget;
 
 
-class ImageMapChooseDialog : public KDialog {
+class ImageMapChooseDialog : public QDialog {
 Q_OBJECT
   private:
     QTableWidget *imageListTable;
@@ -41,7 +42,7 @@ Q_OBJECT
     QList<MapTag*> maps;
     QList<ImageTag*> images;
     KUrl baseUrl;
-  void initImageListTable(QWidget*);    
+    void initImageListTable(QLayout*);
  public:
     ImageMapChooseDialog(QWidget* parent,QList<MapTag*> _maps,
 			 QList<ImageTag*> _images, const KUrl & _baseUrl);

@@ -18,11 +18,10 @@
 #ifndef _MAPSLISTVIEW_H_
 #define _MAPSLISTVIEW_H_
 
-#include <kvbox.h>
-
 #include <QTreeWidgetItem>
 #include <QTreeWidget>
 #include <QLinkedList>
+#include <QWidget>
 
 #include "kimagemapeditor.h"
 
@@ -31,7 +30,7 @@
  *
  * Jan Schaefer
  **/
-class MapsListView : public KVBox
+class MapsListView : public QWidget
 {
 Q_OBJECT
 public:

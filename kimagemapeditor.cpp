@@ -21,6 +21,7 @@
 // Qt
 #include <QApplication>
 #include <QAction>
+#include <QDialogButtonBox>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <qcombobox.h>
@@ -35,6 +36,7 @@
 #include <QMenu>
 #include <qpixmap.h>
 #include <qpainter.h>
+#include <QPushButton>
 #include <QScrollArea>
 #include <qsplitter.h>
 #include <QStandardPaths>
@@ -43,6 +45,7 @@
 #include <qtextstream.h>
 #include <qtooltip.h>
 #include <QUndoStack>
+#include <QVBoxLayout>
 
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
@@ -60,6 +63,8 @@
 #include <KGenericFactory>
 #include <KSharedConfig>
 #include <KUndoActions>
+#include <KConfigGroup>
+
 // local
 #include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
@@ -1558,19 +1563,27 @@ void KImageMapEditor::mapEditName()
 
 void KImageMapEditor::mapShowHTML()
 {
-  KDialog *dialog= new KDialog(widget());
+  QDialog *dialog = new QDialog(widget());
   dialog->setModal(true);
-  dialog->setCaption(i18n("HTML Code of Map"));
-  dialog->setButtons(KDialog::Ok);
-  dialog->setDefaultButton(KDialog::Ok);
-  QTextEdit *edit = new QTextEdit(dialog);
+  dialog->setWindowTitle(i18n("HTML Code of Map"));
+  QVBoxLayout *mainLayout = new QVBoxLayout(dialog);
+
+  QTextEdit *edit = new QTextEdit;
 
   edit->setPlainText(getHtmlCode());
   edit->setReadOnly(true);
   edit->setLineWrapMode(QTextEdit::NoWrap);
-  dialog->setMainWidget(edit);
+  mainLayout->addWidget(edit);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, SIGNAL(accepted()), dialog, SLOT(accept()));
+  mainLayout->addWidget(buttonBox);
+
   dialog->resize(600,400);
   dialog->exec();
   delete dialog;

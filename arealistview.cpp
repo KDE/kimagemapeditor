@@ -16,16 +16,14 @@
  ***************************************************************************/
 
 // Qt
-#include <QTreeWidget>
 #include <qpushbutton.h>
-
-
 #include <qtooltip.h>
+#include <QTreeWidget>
+#include <QVBoxLayout>
 
 // KDE Frameworks
 #include <kiconloader.h>
 #include <klocalizedstring.h>
-#include <kvbox.h>
 
 // local
 #include "kimearea.h"
@@ -33,8 +31,12 @@
 
 
 AreaListView::AreaListView(QWidget *parent)
-  : KVBox(parent)
+  : QWidget(parent)
 {
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
+  mainLayout->setSpacing(0);
+  mainLayout->setMargin(0);
+
   listView = new QTreeWidget(this);
   listView->setColumnCount(2);
   listView->setHeaderLabels(QStringList() 
@@ -51,13 +53,18 @@ AreaListView::AreaListView(QWidget *parent)
                                   "The maximum size of the preview images can be configured."));
     */                                  
   //listView->setToolTip( i18n("A list of all areas"));
+  mainLayout->addWidget(listView);
 
-  KHBox *hbox= new KHBox(this);
-  upBtn= new QPushButton("",hbox);
+  QHBoxLayout *buttonsLayout = new QHBoxLayout;
+  upBtn = new QPushButton;
   upBtn->setIcon(SmallIcon("go-up"));
+  buttonsLayout->addWidget(upBtn);
 
-  downBtn= new QPushButton("",hbox);
+  downBtn = new QPushButton;
   downBtn->setIcon(SmallIcon("go-down"));
+  buttonsLayout->addWidget(downBtn);
+
+  mainLayout->addLayout(buttonsLayout);
 
 }
 

@@ -14,13 +14,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+#include <QDialogButtonBox>
 #include <QLineEdit>
 #include <QListWidget>
 #include <QLabel>
+#include <QPushButton>
 #include <QTableWidget>
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QHeaderView>
+
+#include <KConfigGroup>
 
 #include "kimagemapeditor_debug.h"
 
@@ -31,55 +35,50 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     QList<MapTag*> _maps,
     QList<ImageTag*> _images,
     const KUrl & _baseUrl)
-  : KDialog(parent)
+  : QDialog(parent)
 {
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog";
   if (parent == 0) {
     qCWarning(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog: parent is null!";
   }
 
-  setCaption(i18n( "Choose Map & Image to Edit" ));
+  setWindowTitle(i18n( "Choose Map & Image to Edit" ));
   setModal(true);
-  setButtons(Ok);
-  setDefaultButton(Ok);
-  showButtonSeparator(true);
-  baseUrl=_baseUrl;
-  maps=_maps;
-  images=_images;
+  baseUrl = _baseUrl;
+  maps = _maps;
+  images = _images;
 //  currentMap;
-  QWidget *page=new QWidget(this);
-  setMainWidget(page);
-  setCaption(baseUrl.fileName());
-  QVBoxLayout *layout = new QVBoxLayout(page);//,5,5);
+  setWindowTitle(baseUrl.fileName());
+  QVBoxLayout *layout = new QVBoxLayout(this);
 
-  QLabel *lbl= new QLabel(i18n("Select an image and/or a map that you want to edit"),page);
+  QLabel *lbl = new QLabel(i18n("Select an image and/or a map that you want to edit"));
   lbl->setFont(QFont("Sans Serif",12, QFont::Bold));
   layout->addWidget(lbl);
-  QFrame *line= new QFrame(page);
-  line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
+  QFrame *line = new QFrame;
+  line->setFrameStyle(QFrame::HLine | QFrame::Sunken);
   line->setFixedHeight(10);
   layout->addWidget(line,0);
 
-  QGridLayout *gridLayout= new QGridLayout();
+  QGridLayout *gridLayout = new QGridLayout;
   layout->addLayout(gridLayout);
-  gridLayout->setRowStretch(0,0);
-  gridLayout->setRowStretch(1,100);
-  lbl=new QLabel(i18n("&Maps"),page);
-  mapListBox= new QListWidget(page);
+  gridLayout->setRowStretch(0, 0);
+  gridLayout->setRowStretch(1, 100);
+  lbl = new QLabel(i18n("&Maps"));
+  mapListBox = new QListWidget;
   lbl->setBuddy(mapListBox);
-  gridLayout->addWidget(lbl,0,0);
-  gridLayout->addWidget(mapListBox,1,0);
+  gridLayout->addWidget(lbl, 0, 0);
+  gridLayout->addWidget(mapListBox, 1, 0);
 
-  line= new QFrame(page);
+  line = new QFrame;
   line->setFrameStyle(QFrame::VLine | QFrame::Sunken);
   line->setFixedWidth(10);
 //	line->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
-  gridLayout->addWidget(line,1,1);
+  gridLayout->addWidget(line, 1, 1);
 
-  lbl=new QLabel(i18n("Image Preview"),page);
-  gridLayout->addWidget(lbl,0,2);
+  lbl = new QLabel(i18n("Image Preview"));
+  gridLayout->addWidget(lbl, 0, 2);
 
-  imagePreview= new QLabel(page);
+  imagePreview = new QLabel;
   imagePreview->setFixedSize(310,210);
   imagePreview->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding));
   imagePreview->setFrameStyle(QLabel::Panel | QLabel::Sunken);
@@ -87,15 +86,17 @@ ImageMapChooseDialog::ImageMapChooseDialog(
   //imagePreview->setBackground(QBrush(QColor("white")));
 //	imagePreview->setLineWidth(2);
 //	imagePreview->setScaledContents(true);
-//	lbl= new QLabel(i18n("&Maps"),page);
+//	lbl = new QLabel(i18n("&Maps"),page);
+//	layout->addWidget(lbl);
 //	lbl->setBuddy(mapListBox);
-  gridLayout->addWidget(imagePreview,1,2);
+  gridLayout->addWidget(imagePreview, 1, 2);
 //	layout->addLayout(gridLayout,1);
 
-  line= new QFrame(page);
+  line = new QFrame;
+  layout->addWidget(line);
   line->setFrameStyle(QFrame::HLine  | QFrame::Sunken);
   line->setFixedHeight(10);
-  layout->addWidget(line,0);
+  layout->addWidget(line, 0);
 
 
   if (maps.isEmpty()) {
@@ -110,40 +111,49 @@ ImageMapChooseDialog::ImageMapChooseDialog(
   }
 
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog: before call initImageListTable ";
-  initImageListTable(page);
+  initImageListTable(layout);
 
   if (! maps.isEmpty()) {
     mapListBox->setCurrentItem(0);
     slotMapChanged(0);
   }
 
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+  connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+  okButton->setDefault(true);
+  layout->addWidget(buttonBox);
+
   resize(510,460);
 }
 
-void ImageMapChooseDialog::initImageListTable(QWidget* parent) {
+void ImageMapChooseDialog::initImageListTable(QLayout* layout) {
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::initImageListTable ";
 
 
   if (images.isEmpty()) {
-    imageListTable= new QTableWidget(1,1,parent);
+    imageListTable = new QTableWidget(1, 1);
     imageListTable->setItem(0,0, new QTableWidgetItem(i18n("No images found")));
     imageListTable->setEnabled(false);
     imageListTable->horizontalHeader()->hide();
     // PORT: imageListTable->setTopMargin(0);
     // PORT: imageListTable->setColumnStretchable(0,true);
   } else {
-    imageListTable= new QTableWidget(images.count(),2,parent);
+    imageListTable = new QTableWidget(images.count(), 2);
     // PORT: imageListTable->setColumnStretchable(0,true);
   }
 
   imageListTable->verticalHeader()->hide();
   // PORT imageListTable->setLeftMargin(0);
 
-  QLabel *lbl= new QLabel(i18n("&Images"),parent);
+  QLabel *lbl = new QLabel(i18n("&Images"));
   lbl->setBuddy(imageListTable);
 
-  parent->layout()->addWidget(lbl);
-  parent->layout()->addWidget(imageListTable);
+  layout->addWidget(lbl);
+  layout->addWidget(imageListTable);
 
   if (images.isEmpty())
     return;

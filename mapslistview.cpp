@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 #include <QListWidget>
+#include <QVBoxLayout>
 
 // KDE Frameworks
 #include <klocalizedstring.h>
@@ -22,24 +23,27 @@
 
 // locale
 #include "mapslistview.h"
-//Added by qt3to4:
-#include <kvbox.h>
 
 
 MapsListView::MapsListView(QWidget *parent)
-: KVBox(parent) {
-    _listView = new QTreeWidget(this);
-    _listView->setColumnCount(1);
-    _listView->setHeaderLabel(i18n("Maps"));
-    _listView->setRootIsDecorated(false);
+: QWidget(parent) {
+
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
+  mainLayout->setSpacing(0);
+  mainLayout->setMargin(0);
+
+  _listView = new QTreeWidget(this);
+  _listView->setColumnCount(1);
+  _listView->setHeaderLabel(i18n("Maps"));
+  _listView->setRootIsDecorated(false);
 //FIXME:    _listView->setFullWidth(true);
 //    _listView->setItemsRenameable(true);
   _listView->setSelectionMode(QAbstractItemView::SingleSelection);
   _listView->setSortingEnabled(false);
-    
+  mainLayout->addWidget(_listView);
 
-    connect( _listView, SIGNAL( itemSelectionChanged()),
-             this, SLOT( slotSelectionChanged()));
+  connect( _listView, SIGNAL( itemSelectionChanged()),
+           this, SLOT( slotSelectionChanged()));
 
   connect( _listView, SIGNAL( itemChanged( QTreeWidgetItem*,int)),
            this, SLOT( slotItemRenamed(QTreeWidgetItem*)));

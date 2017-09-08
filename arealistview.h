@@ -2,7 +2,7 @@
                           arealistview.h  -  description
                              -------------------
     begin                : Weg Feb 26 2003
-    copyright            : (C) 2003 by Jan SchÃ¤fer
+    copyright            : (C) 2003 by Jan Schäfer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

@@ -2,7 +2,7 @@
                           imagemapeditor.h  -  description
                              -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan SchÃÂ?fer
+    copyright            : (C) 2001 by Jan Schäfer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

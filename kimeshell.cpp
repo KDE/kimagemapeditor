@@ -2,7 +2,7 @@
                           kimepart.cpp  -  description
                              -------------------
     begin                : Mon Aug 5 2002
-    copyright            : (C) 2002 by Jan SchÃ¯Â¿Â½er
+    copyright            : (C) 2002 by Jan Schäfer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

@@ -2,7 +2,7 @@
                           main.cpp  -  description
                             -------------------
     begin                : Die Apr 10 19:46:49 CEST 2001
-    copyright            : (C) 2001 by Jan Sch�er
+    copyright            : (C) 2001 by Jan Schäfer
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 

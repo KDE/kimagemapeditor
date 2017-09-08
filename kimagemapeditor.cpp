@@ -2,7 +2,7 @@
                           imagemapeditor.cpp  -  description
                             -------------------
     begin                : Wed Apr 4 2001
-    copyright            : (C) 2001 by Jan SchÃÂ¯ÃÂ¿ÃÂ½er
+    copyright            : (C) 2001 by Jan Schäfer
     email                : j_schaef@informatik.uni-kl.de
 ***************************************************************************/
 

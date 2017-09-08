@@ -2,7 +2,7 @@
                           kimedialogs.h  -  description
                              -------------------
     begin                : Tue Apr 17 2001
-    copyright            : (C) 2001 by Jan SchÃ¤fer
+    copyright            : (C) 2001 by Jan Schäfer
     email                : janschaefer@users.sourceforge.net
  ***************************************************************************/
 

@@ -176,7 +176,7 @@ void KimeShell::fileOpen()
 {
   KUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QString(),
              i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
-                  "HTML Files (*.htm *.html);;All Files(*)"));
+                  "HTML Files (*.htm *.html);;All Files (*)"));
   if (!url.isEmpty()) {
         // About this function, the style guide (
         // http://developer.kde.org/documentation/standards/kde/style/basics/index.html )

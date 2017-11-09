@@ -135,7 +135,7 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   radiusSpin->setMinimum(0);
   radiusSpin->setValue(a->rect().width()/2);
   connect( radiusSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
-  layout->addRow(i18n("&Radius::"), radiusSpin);
+  layout->addRow(i18n("&Radius:"), radiusSpin);
 
 }
 

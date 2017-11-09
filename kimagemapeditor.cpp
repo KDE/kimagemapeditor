@@ -1619,7 +1619,7 @@ void KImageMapEditor::fileOpen() {
 
   QString fileName = QFileDialog::getOpenFileName(widget(), i18n("Choose File to Open"), QString(),
                      i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
-                          "HTML Files (*.htm *.html);;All Files(*)"));
+                          "HTML Files (*.htm *.html);;All Files (*)"));
 
   openFile(KUrl( fileName ));
 }

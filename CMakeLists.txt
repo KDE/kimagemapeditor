@@ -93,6 +93,7 @@ install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 ########### install files ###############
 
 install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
+install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install( FILES  kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install( FILES  kimagemapeditorui.rc kimagemapeditorpartui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kimagemapeditor)
 install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_CONFDIR} )

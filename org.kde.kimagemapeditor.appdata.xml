@@ -4,10 +4,21 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KImageMapEditor</name>
+  <name xml:lang="cs">KImageMapEditor</name>
+  <name xml:lang="nl">KImageMapEditor</name>
+  <name xml:lang="pt">KImageMapEditor</name>
+  <name xml:lang="x-test">xxKImageMapEditorxx</name>
   <summary>HTML Image Map Editor</summary>
+  <summary xml:lang="cs">Editor HTML map</summary>
+  <summary xml:lang="nl">HTML bewerker van afbeeldingskaarten</summary>
+  <summary xml:lang="pt">Editor de Mapas de Imagens HTML</summary>
+  <summary xml:lang="x-test">xxHTML Image Map Editorxx</summary>
   <description>
     <p>KImageMapEditor is an editor of image maps embedded inside HTML files,
     based on the &lt;map&gt; tag.</p>
+    <p xml:lang="nl">KImageMapEditor is een bewerker van afbeeldingskaarten ingebed in HTML-bestanden, gebaseerd op de tag &lt;map&gt;.</p>
+    <p xml:lang="pt">O KImageMapEditor é um editor de mapas de imagens incorporados dentro dos ficheiros HTML, baseado na marca &lt;map&gt;.</p>
+    <p xml:lang="x-test">xxKImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.xx</p>
   </description>
   <screenshots>
     <screenshot type="default">

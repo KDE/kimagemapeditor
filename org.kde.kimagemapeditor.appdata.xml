@@ -53,6 +53,7 @@
     <p xml:lang="sv">Kimagemapeditor är en editor av bildkartor inbäddade i HTML-filer, baserade på taggen &lt;map&gt;.</p>
     <p xml:lang="uk">KImageMapEditor — редактор карт зображень, які вбудовуються до файлів HTML і працюють на основі теґу &lt;map&gt;.</p>
     <p xml:lang="x-test">xxKImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.xx</p>
+    <p xml:lang="zh-CN">KImageMapEditor 是一个编辑 HTML 文件中的映射图 (image map) 的编辑器，它们用 &lt;map&gt; 标签表示。</p>
   </description>
   <screenshots>
     <screenshot type="default">

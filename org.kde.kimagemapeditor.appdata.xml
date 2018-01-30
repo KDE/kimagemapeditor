@@ -24,6 +24,7 @@
   <name xml:lang="sv">Kimagemapeditor</name>
   <name xml:lang="uk">KImageMapEditor</name>
   <name xml:lang="x-test">xxKImageMapEditorxx</name>
+  <name xml:lang="zh-CN">KImageMapEditor</name>
   <summary>HTML Image Map Editor</summary>
   <summary xml:lang="ca">Un editor de correspondències a imatges amb HTML</summary>
   <summary xml:lang="ca-valencia">Un editor de correspondències a imatges amb HTML</summary>
@@ -43,6 +44,7 @@
   <summary xml:lang="sv">Redigering av HTML-bildkartor</summary>
   <summary xml:lang="uk">Редактор карт зображень HTML</summary>
   <summary xml:lang="x-test">xxHTML Image Map Editorxx</summary>
+  <summary xml:lang="zh-CN">HTML 图像映射编辑器</summary>
   <description>
     <p>KImageMapEditor is an editor of image maps embedded inside HTML files,
     based on the &lt;map&gt; tag.</p>

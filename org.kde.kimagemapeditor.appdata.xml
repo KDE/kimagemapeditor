@@ -12,6 +12,7 @@
   <name xml:lang="es">KImageMapEditor</name>
   <name xml:lang="fi">KImageMapEditor</name>
   <name xml:lang="fr">KImageMapEditor</name>
+  <name xml:lang="it">KImageMapEditor</name>
   <name xml:lang="ko">KImageMapEditor</name>
   <name xml:lang="nl">KImageMapEditor</name>
   <name xml:lang="pl">KImageMapEditor</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="es">Editor de mapas de imágenes en HTML</summary>
   <summary xml:lang="fi">HTML-kuvamuokkain</summary>
   <summary xml:lang="fr">Éditeur de carte d'images HTML</summary>
+  <summary xml:lang="it">Editor di mappe immagine HTML</summary>
   <summary xml:lang="ko">HTML 이미지 맵 편집기</summary>
   <summary xml:lang="nl">HTML bewerker van afbeeldingskaarten</summary>
   <summary xml:lang="pl">Edytor mapy obrazu HTML</summary>
@@ -51,6 +53,7 @@
     <p xml:lang="en-GB">KImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.</p>
     <p xml:lang="es">KImageMapEditor es un editor de mapas de imágenes integradas en el interior de archivos HTML que usan la etiqueta &lt;map&gt;.</p>
     <p xml:lang="fr">KImageMapEditor est un éditeur de cartes d'images intégrées au sein de fichiers HTML, faisant appel à la balise &lt;map&gt;.</p>
+    <p xml:lang="it">KImageMapEditor è un editor di mappe immagine incorporate all'interno dei file HTML e basate sul tag &lt;map&gt;.</p>
     <p xml:lang="ko">KImageMapEditor는 HTML 파일의 &lt;map&gt; 태그를 기반으로 한 이미지 맵 편집기입니다.</p>
     <p xml:lang="nl">KImageMapEditor is een bewerker van afbeeldingskaarten ingebed in HTML-bestanden, gebaseerd op de tag &lt;map&gt;.</p>
     <p xml:lang="pl">KImageMapEditor jest edytorem map obrazów osadzonych wewnątrz plików HTML i opartym na znaczniku &lt;map&gt;.</p>

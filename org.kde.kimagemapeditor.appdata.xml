@@ -59,6 +59,7 @@
     <p xml:lang="de">KImageMapEditor ist ein Editor für Bildkarten, die in HTML eingebettet sind.  </p>
     <p xml:lang="en-GB">KImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.</p>
     <p xml:lang="es">KImageMapEditor es un editor de mapas de imágenes integradas en el interior de archivos HTML que usan la etiqueta &lt;map&gt;.</p>
+    <p xml:lang="fi">KImageMapEditor on HTML-tiedostoihin upotettujen &lt;map&gt;-tunnisteeseen perustuvien kuvakarttojen muokkain.</p>
     <p xml:lang="fr">KImageMapEditor est un éditeur de cartes d'images intégrées au sein de fichiers HTML, faisant appel à la balise &lt;map&gt;.</p>
     <p xml:lang="gl">KImageMapEditor é un editor de mapas de imaxe incrustados dentro de ficheiros HTML, baseado na etiqueta &lt;map&gt;.</p>
     <p xml:lang="it">KImageMapEditor è un editor di mappe immagine incorporate all'interno dei file HTML e basate sul tag &lt;map&gt;.</p>

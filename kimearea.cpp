@@ -15,20 +15,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QPolygon>
+#include "kimearea.h"
 
-#include <qbitmap.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qimage.h>
-#include <qpen.h>
-#include <qbrush.h>
-#include <qpalette.h>
-#include <qcolor.h>
+#include <QPolygon>
+#include <QBitmap>
+#include <QPainter>
+#include <QPixmap>
+#include <QImage>
+#include <QPen>
+#include <QBrush>
+#include <QPalette>
+#include <QColor>
 
 #include "kimagemapeditor_debug.h"
 
-#include "kimearea.h"
 #include "kimecommon.h"
 
 

@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "kimeshell.h"
 
 #include <iostream>
 
@@ -39,7 +40,6 @@
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
-#include "kimeshell.h"
 #include "kimeshell.moc"
 
 KimeShell::KimeShell(const char * )
@@ -83,11 +83,11 @@ KimeShell::KimeShell(const char * )
   if (!initialGeometrySet())
     resize( QSize(725, 525).expandedTo(minimumSizeHint()));
 
-  connect( m_part, SIGNAL(setStatusBarText(const QString &)),
-           this, SLOT(slotSetStatusBarText ( const QString & )));
+  connect( m_part, SIGNAL(setStatusBarText(QString)),
+           this, SLOT(slotSetStatusBarText(QString)));
 
-  connect( m_part, SIGNAL(setWindowCaption(const QString &)),
-           this, SLOT(setWindowTitle( const QString &)));
+  connect( m_part, SIGNAL(setWindowCaption(QString)),
+           this, SLOT(setWindowTitle(QString)));
 
   setAutoSaveSettings( "General Options" );
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 4";

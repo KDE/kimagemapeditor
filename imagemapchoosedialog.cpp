@@ -14,6 +14,8 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+#include "imagemapchoosedialog.h"
+
 #include <QDialogButtonBox>
 #include <QLineEdit>
 #include <QListWidget>
@@ -27,8 +29,6 @@
 #include <KConfigGroup>
 
 #include "kimagemapeditor_debug.h"
-
-#include "imagemapchoosedialog.h"
 
 ImageMapChooseDialog::ImageMapChooseDialog(
     QWidget* parent,

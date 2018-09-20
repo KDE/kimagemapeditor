@@ -15,9 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "arealistview.h"
+
 // Qt
-#include <qpushbutton.h>
-#include <qtooltip.h>
+#include <QPushButton>
+#include <QToolTip>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -27,7 +29,6 @@
 
 // local
 #include "kimearea.h"
-#include "arealistview.h"
 
 
 AreaListView::AreaListView(QWidget *parent)

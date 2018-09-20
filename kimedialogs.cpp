@@ -15,21 +15,24 @@
 *                                                                         *
 ***************************************************************************/
 
+// LOCAL
+#include "kimedialogs.h"
+
 // Qt
-#include <qcheckbox.h>
+#include <QCheckBox>
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QFormLayout>
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qlineedit.h>
+#include <QLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QListWidget>
 #include <QPushButton>
 #include <QTableWidget>
 #include <QHeaderView>
-#include <qspinbox.h>
-#include <qtabwidget.h>
-#include <qimage.h>
+#include <QSpinBox>
+#include <QTableWidget>
+#include <QImage>
 #include <QPixmap>
 #include <QLinkedList>
 #include <QFrame>
@@ -45,9 +48,6 @@
 #include <kstandardguiitem.h>
 #include <KSharedConfig>
 #include <KConfigGroup>
-
-// LOCAL
-#include "kimedialogs.h"
 
 CoordsEdit::CoordsEdit(QWidget *parent, Area* a)
   : QWidget(parent)
@@ -77,28 +77,28 @@ RectCoordsEdit::RectCoordsEdit(QWidget *parent, Area* a)
   topXSpin->setMaximum(INT_MAX);
   topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
-  connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( topXSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Top &X:"), topXSpin);
 
   topYSpin = new QSpinBox(this);
   topYSpin->setMaximum(INT_MAX);
   topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
-  connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( topYSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Top &Y:"), topYSpin);
 
   widthSpin = new QSpinBox(this);
   widthSpin->setMaximum(INT_MAX);
   widthSpin->setMinimum(0);
   widthSpin->setValue(a->rect().width());
-  connect( widthSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( widthSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("&Width:"), widthSpin);
 
   heightSpin = new QSpinBox(this);
   heightSpin->setMaximum(INT_MAX);
   heightSpin->setMinimum(0);
   heightSpin->setValue(a->rect().height());
-  connect( heightSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( heightSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Hei&ght:"), heightSpin);
 }
 
@@ -120,21 +120,21 @@ CircleCoordsEdit::CircleCoordsEdit(QWidget *parent, Area* a)
   centerXSpin->setMaximum(INT_MAX);
   centerXSpin->setMinimum(0);
   centerXSpin->setValue(a->rect().center().x());
-  connect( centerXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( centerXSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Center &X:"), centerXSpin);
 
   centerYSpin = new QSpinBox(this);
   centerYSpin->setMaximum(INT_MAX);
   centerYSpin->setMinimum(0);
   centerYSpin->setValue(a->rect().center().y());
-  connect( centerYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( centerYSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Center &Y:"), centerYSpin);
 
   radiusSpin = new QSpinBox(this);
   radiusSpin->setMaximum(INT_MAX);
   radiusSpin->setMinimum(0);
   radiusSpin->setValue(a->rect().width()/2);
-  connect( radiusSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( radiusSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("&Radius:"), radiusSpin);
 
 }
@@ -245,14 +245,14 @@ SelectionCoordsEdit::SelectionCoordsEdit(QWidget *parent, Area* a)
   topXSpin->setMaximum(INT_MAX);
   topXSpin->setMinimum(0);
   topXSpin->setValue(a->rect().left());
-  connect( topXSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( topXSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
   layout->addRow(i18n("Top &X"), topXSpin);
 
   topYSpin = new QSpinBox(this);
   topYSpin->setMaximum(INT_MAX);
   topYSpin->setMinimum(0);
   topYSpin->setValue(a->rect().top());
-  connect( topYSpin, SIGNAL(valueChanged(const QString &)), this, SLOT(slotTriggerUpdate()));
+  connect( topYSpin, SIGNAL(valueChanged(QString)), this, SLOT(slotTriggerUpdate()));
 
   layout->addRow(i18n("Top &Y"), topYSpin);
 }
@@ -625,7 +625,7 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
   connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
   mainLayout->addWidget(buttonBox);
 
-  connect( htmlPart, SIGNAL( onURL(const QString&)), lbl, SLOT( setText(const QString&)));
+  connect( htmlPart, SIGNAL(onURL(QString)), lbl, SLOT(setText(QString)));
 
   resize(800,600);
 }

@@ -18,6 +18,7 @@
 #ifndef KIMECOMMANDS_H
 #define KIMECOMMANDS_H
 
+#include "kimagemapeditor.h"
 
 #include <qundostack.h>
 

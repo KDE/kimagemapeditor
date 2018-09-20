@@ -14,12 +14,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <qstring.h>
-#include "kimagemapeditor_debug.h"
-#include <klocalizedstring.h>
-
-#include "kimagemapeditor.h"
 #include "kimecommands.h"
+
+#include <QString>
+#include "kimagemapeditor_debug.h"
+#include <KLocalizedString>
+
 #include "drawzone.h"
 
 CutCommand::CutCommand(KImageMapEditor * document, const AreaSelection & a)

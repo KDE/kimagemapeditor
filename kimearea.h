@@ -344,7 +344,7 @@ public :
   bool isEmpty() const;
 
   /**
-   * Overiden Methods of the Area class
+   * Overridden Methods of the Area class
    */
   virtual bool contains(const QPoint & p) const;
 

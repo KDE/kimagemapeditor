@@ -15,6 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
+// local
+#include "imageslistview.h"
+
 // Qt
 #include <QLinkedList>
 
@@ -22,9 +25,6 @@
 // KDE Frameworks
 #include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
-
-// locale
-#include "imageslistview.h"
 
 ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag)
   : QTreeWidgetItem(parent)
@@ -67,8 +67,8 @@ ImagesListView::ImagesListView(QWidget *parent)
 //  setFullWidth(true);
 
 
-  connect( this, SIGNAL( itemSelectionChanged()),
-           this, SLOT( slotSelectionChanged()));
+  connect( this, SIGNAL(itemSelectionChanged()),
+           this, SLOT(slotSelectionChanged()));
 }
 
 

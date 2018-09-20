@@ -15,23 +15,24 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "drawzone.h"
+
 // Qt
-#include <qbitmap.h>
+#include <QBitmap>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QResizeEvent>
-#include <qpainter.h>
-#include <qpixmap.h>
+#include <QPainter>
+#include <QPixmap>
 #include <QMouseEvent>
 #include <QStandardPaths>
-#
+
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
 
 // Local
-#include "drawzone.h"
 #include "kimagemapeditor.h"
 #include "kimecommands.h"
 #include "areacreator.h"

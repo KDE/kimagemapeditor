@@ -14,15 +14,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+// local
+#include "mapslistview.h"
+
 #include <QListWidget>
 #include <QVBoxLayout>
 
 // KDE Frameworks
 #include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
-
-// locale
-#include "mapslistview.h"
 
 
 MapsListView::MapsListView(QWidget *parent)
@@ -42,11 +42,11 @@ MapsListView::MapsListView(QWidget *parent)
   _listView->setSortingEnabled(false);
   mainLayout->addWidget(_listView);
 
-  connect( _listView, SIGNAL( itemSelectionChanged()),
-           this, SLOT( slotSelectionChanged()));
+  connect( _listView, SIGNAL(itemSelectionChanged()),
+           this, SLOT(slotSelectionChanged()));
 
-  connect( _listView, SIGNAL( itemChanged( QTreeWidgetItem*,int)),
-           this, SLOT( slotItemRenamed(QTreeWidgetItem*)));
+  connect( _listView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
+           this, SLOT(slotItemRenamed(QTreeWidgetItem*)));
 }
 
 

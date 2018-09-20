@@ -15,6 +15,8 @@
 *                                                                         *
 ***************************************************************************/
 
+#include "kimagemapeditor.h"
+
 #include <iostream>
 #include <assert.h>
 
@@ -22,13 +24,13 @@
 #include <QApplication>
 #include <QAction>
 #include <QDialogButtonBox>
-#include <qlayout.h>
-#include <qpushbutton.h>
-#include <qcombobox.h>
-#include <qfontdatabase.h>
-#include <qfile.h>
+#include <QLayout>
+#include <QPushButton>
+#include <QComboBox>
+#include <QFontDatabase>
+#include <QFile>
 #include <QFileDialog>
-#include <qfileinfo.h>
+#include <QFileInfo>
 #include <QIcon>
 #include <QInputDialog>
 #include <QLinkedList>
@@ -36,16 +38,16 @@
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QMimeType>
-#include <qpixmap.h>
-#include <qpainter.h>
+#include <QPixmap>
+#include <QPainter>
 #include <QPushButton>
 #include <QScrollArea>
-#include <qsplitter.h>
+#include <QSplitter>
 #include <QStandardPaths>
-#include <qtabwidget.h>
+#include <QTabWidget>
 #include <QTextEdit>
-#include <qtextstream.h>
-#include <qtooltip.h>
+#include <QTextStream>
+#include <QToolTip>
 #include <QUndoStack>
 #include <QVBoxLayout>
 
@@ -68,7 +70,6 @@
 #include <KConfigGroup>
 
 // local
-#include "kimagemapeditor.h"
 #include "kimagemapeditor.moc"
 #include "drawzone.h"
 #include "kimedialogs.h"
@@ -149,28 +150,28 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
            this,
            SLOT(showTagEditor(QTreeWidgetItem*)));
   connect( areaListView->listView,
-           SIGNAL(customContextMenuRequested(const QPoint&)),
+           SIGNAL(customContextMenuRequested(QPoint)),
            this,
-           SLOT(slotShowPopupMenu(const QPoint &)));
+           SLOT(slotShowPopupMenu(QPoint)));
 
-  connect( mapsListView, SIGNAL( mapSelected(const QString &)),
-           this, SLOT( setMap(const QString &)));
+  connect( mapsListView, SIGNAL(mapSelected(QString)),
+           this, SLOT(setMap(QString)));
 
-  connect( mapsListView, SIGNAL( mapRenamed(const QString &)),
-           this, SLOT( setMapName(const QString &)));
+  connect( mapsListView, SIGNAL(mapRenamed(QString)),
+           this, SLOT(setMapName(QString)));
 
   connect( mapsListView->listView(),
-           SIGNAL(customContextMenuRequested(const QPoint &)),
+           SIGNAL(customContextMenuRequested(QPoint)),
            this,
-           SLOT(slotShowMapPopupMenu(const QPoint &)));
+           SLOT(slotShowMapPopupMenu(QPoint)));
 
-  connect( imagesListView, SIGNAL( imageSelected(const KUrl &)),
-           this, SLOT( setPicture(const KUrl &)));
+  connect( imagesListView, SIGNAL(imageSelected(KUrl)),
+           this, SLOT(setPicture(KUrl)));
 
   connect( imagesListView,
-           SIGNAL(customContextMenuRequested(const QPoint &)),
+           SIGNAL(customContextMenuRequested(QPoint)),
            this,
-           SLOT(slotShowImagePopupMenu(const QPoint &)));
+           SLOT(slotShowImagePopupMenu(QPoint)));
 
   if (splitter) {
     drawZone = new DrawZone(splitter,this);
@@ -446,7 +447,7 @@ void KImageMapEditor::setupActions()
   temp->setToolTip(i18n("Open new picture or HTML file"));
 
   // File Open Recent
-  recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(const QUrl&)),
+  recentFilesAction = KStandardAction::openRecent(this, SLOT(openURL(QUrl)),
                                       actionCollection());
 	// File Save
   temp =KStandardAction::save(this, SLOT(fileSave()), actionCollection());
@@ -485,7 +486,7 @@ void KImageMapEditor::setupActions()
   deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")),
       i18n("&Delete"), this);
   actionCollection()->addAction("edit_delete", deleteAction );
-  connect(deleteAction, SIGNAL(triggered(bool) ), SLOT (slotDelete()));
+  connect(deleteAction, SIGNAL(triggered(bool)), SLOT (slotDelete()));
   actionCollection()->setDefaultShortcut(deleteAction, QKeySequence(Qt::Key_Delete));
   deleteAction->setWhatsThis(i18n("<h3>Delete</h3>"
                           "Click this to <em>delete</em> the selected area."));
@@ -653,64 +654,64 @@ void KImageMapEditor::setupActions()
 
     QAction *action  = new QAction(i18n("Cancel Drawing"), this);
     actionCollection()->addAction("canceldrawing", action );
-  connect(action, SIGNAL(triggered(bool)), SLOT( slotCancelDrawing() ));
+  connect(action, SIGNAL(triggered(bool)), SLOT(slotCancelDrawing()));
   actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::Key_Escape));
 
   moveLeftAction  = new QAction(i18n("Move Left"), this);
   actionCollection()->addAction("moveleft", moveLeftAction );
   connect(moveLeftAction, SIGNAL(triggered(bool)),
-         SLOT( slotMoveLeft() ));
+         SLOT(slotMoveLeft()));
   actionCollection()->setDefaultShortcut(moveLeftAction, QKeySequence(Qt::Key_Left));
 
     moveRightAction  = new QAction(i18n("Move Right"), this);
     actionCollection()->addAction("moveright", moveRightAction );
-  connect(moveRightAction, SIGNAL(triggered(bool)), SLOT( slotMoveRight() ));
+  connect(moveRightAction, SIGNAL(triggered(bool)), SLOT(slotMoveRight()));
   actionCollection()->setDefaultShortcut(moveRightAction, QKeySequence(Qt::Key_Right));
 
     moveUpAction  = new QAction(i18n("Move Up"), this);
     actionCollection()->addAction("moveup", moveUpAction );
-  connect(moveUpAction, SIGNAL(triggered(bool)), SLOT( slotMoveUp() ));
+  connect(moveUpAction, SIGNAL(triggered(bool)), SLOT(slotMoveUp()));
   actionCollection()->setDefaultShortcut(moveUpAction, QKeySequence(Qt::Key_Up));
 
     moveDownAction  = new QAction(i18n("Move Down"), this);
     actionCollection()->addAction("movedown", moveDownAction );
-  connect(moveDownAction, SIGNAL(triggered(bool)), SLOT( slotMoveDown() ));
+  connect(moveDownAction, SIGNAL(triggered(bool)), SLOT(slotMoveDown()));
   actionCollection()->setDefaultShortcut(moveDownAction, QKeySequence(Qt::Key_Down));
 
     increaseWidthAction  = new QAction(i18n("Increase Width"), this);
     actionCollection()->addAction("increasewidth", increaseWidthAction );
-  connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseWidth() ));
+  connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT(slotIncreaseWidth()));
   actionCollection()->setDefaultShortcut(increaseWidthAction, QKeySequence(Qt::Key_Right + Qt::SHIFT));
 
     decreaseWidthAction  = new QAction(i18n("Decrease Width"), this);
     actionCollection()->addAction("decreasewidth", decreaseWidthAction );
-  connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseWidth() ));
+  connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT(slotDecreaseWidth()));
   actionCollection()->setDefaultShortcut(decreaseWidthAction, QKeySequence(Qt::Key_Left + Qt::SHIFT));
 
     increaseHeightAction  = new QAction(i18n("Increase Height"), this);
     actionCollection()->addAction("increaseheight", increaseHeightAction );
-  connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotIncreaseHeight() ));
+  connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT(slotIncreaseHeight()));
   actionCollection()->setDefaultShortcut(increaseHeightAction, QKeySequence(Qt::Key_Up + Qt::SHIFT));
 
     decreaseHeightAction  = new QAction(i18n("Decrease Height"), this);
     actionCollection()->addAction("decreaseheight", decreaseHeightAction );
-  connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT( slotDecreaseHeight() ));
+  connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT(slotDecreaseHeight()));
   actionCollection()->setDefaultShortcut(decreaseHeightAction, QKeySequence(Qt::Key_Down + Qt::SHIFT));
 
     toFrontAction  = new QAction(i18n("Bring to Front"), this);
     actionCollection()->addAction("tofront", toFrontAction );
-  connect(toFrontAction, SIGNAL(triggered(bool)), SLOT( slotToFront() ));
+  connect(toFrontAction, SIGNAL(triggered(bool)), SLOT(slotToFront()));
 
     toBackAction  = new QAction(i18n("Send to Back"), this);
     actionCollection()->addAction("toback", toBackAction );
-  connect(toBackAction, SIGNAL(triggered(bool)), SLOT( slotToBack() ));
+  connect(toBackAction, SIGNAL(triggered(bool)), SLOT(slotToBack()));
 
     forwardOneAction  = new QAction(QIcon::fromTheme(QStringLiteral("raise")), i18n("Bring Forward One"), this);
     actionCollection()->addAction("forwardone", forwardOneAction );
-  connect(forwardOneAction, SIGNAL(triggered(bool) ), SLOT( slotForwardOne() ));
+  connect(forwardOneAction, SIGNAL(triggered(bool)), SLOT(slotForwardOne()));
     backOneAction  = new QAction(QIcon::fromTheme(QStringLiteral("lower")), i18n("Send Back One"), this);
     actionCollection()->addAction("backone", backOneAction );
-  connect(backOneAction, SIGNAL(triggered(bool) ), SLOT( slotBackOne() ));
+  connect(backOneAction, SIGNAL(triggered(bool)), SLOT(slotBackOne()));
 
   areaListView->upBtn->addAction(forwardOneAction);
   areaListView->downBtn->addAction(backOneAction);
@@ -720,7 +721,7 @@ void KImageMapEditor::setupActions()
 
     action  = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure KImageMapEditor..."), this);
     actionCollection()->addAction("configure_kimagemapeditor", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT(slotShowPreferences()));
+  connect(action, SIGNAL(triggered(bool)), SLOT(slotShowPreferences()));
 
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KImageMapEditor: 1";
 

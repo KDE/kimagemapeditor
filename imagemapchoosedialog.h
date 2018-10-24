@@ -21,7 +21,7 @@
 #include <QLinkedList>
 
 #include <QDialog>
-#include <kurl.h>
+#include <QUrl>
 
 #include "kimagemapeditor.h"
 
@@ -41,13 +41,13 @@ Q_OBJECT
     QLineEdit *mapNameEdit;
     QList<MapTag*> maps;
     QList<ImageTag*> images;
-    KUrl baseUrl;
+    QUrl baseUrl;
     void initImageListTable(QLayout*);
  public:
     ImageMapChooseDialog(QWidget* parent,QList<MapTag*> _maps,
-			 QList<ImageTag*> _images, const KUrl & _baseUrl);
+			 QList<ImageTag*> _images, const QUrl & _baseUrl);
     ~ImageMapChooseDialog();
-    KUrl pixUrl;
+    QUrl pixUrl;
     MapTag* currentMap;
  protected slots:
    void slotImageChanged();

@@ -28,7 +28,7 @@
 
 #include <KConfig>
 #include <KParts/ReadWritePart>
-#include <kurl.h>
+#include <QUrl>
 
 #include "kimearea.h"
 
@@ -196,7 +196,7 @@ public :
      * If it's an HTML file openURL is called
      * If it's an Image, the image is added to the image list
      */
-    void openFile(const KUrl &);
+    void openFile(const QUrl &);
 
     /**
      * Opens the last URL the user worked with.
@@ -210,8 +210,8 @@ public :
 
 protected:
     void init();
-    bool openHTMLFile(const KUrl &);
-    void saveImageMap(const KUrl &);
+    bool openHTMLFile(const QUrl &);
+    void saveImageMap(const QUrl &);
 
     /**
      * Returns a language dependent background picture, with
@@ -232,7 +232,7 @@ private:
     HtmlContent _htmlContent;
 
     // the url of the working image;
-    KUrl _imageUrl;
+    QUrl _imageUrl;
     QString _mapName;
     QImage _backgroundImage;
 
@@ -335,7 +335,7 @@ private:
     HtmlImgElement* findHtmlImgElement(ImageTag*);
     HtmlMapElement* findHtmlMapElement(const QString &);
     void deleteAllMaps();
-    void addImage(const KUrl &);
+    void addImage(const QUrl &);
     void setImageActionsEnabled(bool);
     void setMapActionsEnabled(bool);
 
@@ -353,7 +353,7 @@ public slots:
     void slotShowMapPopupMenu(const QPoint &);
     void slotShowImagePopupMenu(const QPoint &);
     void slotConfigChanged();
-    void setPicture(const KUrl & url);
+    void setPicture(const QUrl & url);
     void setMap(const QString &);
     void setMapName(const QString & s);
 

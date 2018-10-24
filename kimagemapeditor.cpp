@@ -165,8 +165,8 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
            this,
            SLOT(slotShowMapPopupMenu(QPoint)));
 
-  connect( imagesListView, SIGNAL(imageSelected(KUrl)),
-           this, SLOT(setPicture(KUrl)));
+  connect( imagesListView, &ImagesListView::imageSelected,
+           this, QOverload<const QUrl &>::of(&KImageMapEditor::setPicture));
 
   connect( imagesListView,
            SIGNAL(customContextMenuRequested(QPoint)),
@@ -402,7 +402,7 @@ void KImageMapEditor::slotConfigChanged()
 }
 
 void KImageMapEditor::openLastURL(const KConfigGroup & config) {
-  KUrl lastURL ( config.readPathEntry("lastopenurl", QString()) );
+  QUrl lastURL ( config.readPathEntry("lastopenurl", QString()) );
   QString lastMap = config.readEntry("lastactivemap");
   QString lastImage = config.readPathEntry("lastactiveimage", QString());
 
@@ -1436,7 +1436,7 @@ void KImageMapEditor::setMapName(const QString & s) {
 }
 
 
-void KImageMapEditor::setPicture(const KUrl & url) {
+void KImageMapEditor::setPicture(const QUrl & url) {
   _imageUrl=url;
   if (QFileInfo(url.path()).exists()) {
      QImage img(url.path());
@@ -1592,7 +1592,7 @@ void KImageMapEditor::mapShowHTML()
   delete dialog;
 }
 
-void KImageMapEditor::openFile(const KUrl & url) {
+void KImageMapEditor::openFile(const QUrl & url) {
   if ( ! url.isEmpty()) {
     QMimeDatabase db;
     QMimeType openedFileType = db.mimeTypeForUrl(url);
@@ -1622,7 +1622,7 @@ void KImageMapEditor::fileOpen() {
                      i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
                           "HTML Files (*.htm *.html);;All Files (*)"));
 
-  openFile(KUrl( fileName ));
+  openFile(QUrl::fromUserInput( fileName ));
 }
 
 
@@ -1657,27 +1657,13 @@ void KImageMapEditor::fileSave()
 
 void KImageMapEditor::fileSaveAs() {
 
-  KUrl url = QFileDialog::getSaveFileUrl(widget(), QString(), QUrl(), i18n("HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)" ));
+  QUrl url = QFileDialog::getSaveFileUrl(widget(), QString(), QUrl(), i18n("HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)" ));
   if (url.isEmpty() || !url.isValid()) {
     return;
   }
 
 
   QFileInfo fileInfo(url.path());
-
-  if ( fileInfo.exists() )
-  {
-  	if (KMessageBox::warningContinueCancel(widget(),
-      i18n("<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?</qt>", fileInfo.fileName()),
-      i18n("Overwrite File?"), KGuiItem(i18n("Overwrite")))==KMessageBox::Cancel)
-      return;
-
-    if(!fileInfo.isWritable()) {
-      KMessageBox::sorry(widget(), i18n("<qt>You do not have write permission for the file <em>%1</em>.</qt>", fileInfo.fileName()));
-      return;
-    }
-  }
-
 
   saveAs(url);
   recentFilesAction->addUrl(url);
@@ -1687,7 +1673,7 @@ void KImageMapEditor::fileSaveAs() {
 
 bool KImageMapEditor::openFile()
 {
-  KUrl u = url();
+  QUrl u = url();
   QFileInfo fileInfo(u.path());
 
   if ( !fileInfo.exists() )
@@ -1873,7 +1859,7 @@ QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QStrin
 }
 
 
-bool KImageMapEditor::openHTMLFile(const KUrl & url)
+bool KImageMapEditor::openHTMLFile(const QUrl & url)
 {
   QFile f(url.path());
   if ( !f.exists () )
@@ -1957,7 +1943,7 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url)
 
   f.close();
 
-  KUrl imageUrl;
+  QUrl imageUrl;
 
   map = 0L;
 
@@ -1970,8 +1956,14 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url)
     if (images.count() > 1) {
       ImageTag* imgTag = images.first();
       if (imgTag) {
-        if (imgTag->contains("src"))
-          imageUrl = KUrl(url,imgTag->value("src"));
+        if (imgTag->contains("src")) {
+            if (url.path().isEmpty() | !url.path().endsWith('/')) {
+                imageUrl = QUrl(url.path() + '/').resolved(QUrl(imgTag->value("src")));
+            }
+            else {
+                imageUrl = url.resolved(QUrl(imgTag->value("src")));
+            }
+        }
       }
     }
 
@@ -1989,7 +1981,12 @@ bool KImageMapEditor::openHTMLFile(const KUrl & url)
                 QString usemapName = usemap.right(usemap.length()-1);
                 if (usemapName == mapTag->name) {
 		  if (imageTag->contains("src")) {
-                      imageUrl = KUrl(url,imageTag->value("src"));
+                      if (url.path().isEmpty() | !url.path().endsWith('/')) {
+                          imageUrl = QUrl(url.path() + '/').resolved(QUrl(imageTag->value("src")));
+                      }
+                      else {
+                          imageUrl = url.resolved(QUrl(imageTag->value("src")));
+                      }
 		      found = true;
 		  }
                 }
@@ -2331,14 +2328,14 @@ QString KImageMapEditor::getHtmlCode() {
  the Free Software Foundation; either version 2 of the License, or
  (at your option) any later version.
 */
-static KUrl toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
+static QUrl toRelative(const QUrl& urlToConvert,const QUrl& baseURL)
 {
-  KUrl resultURL = urlToConvert;
-  if (urlToConvert.protocol() == baseURL.protocol())
+  QUrl resultURL = urlToConvert;
+  if (urlToConvert.scheme() == baseURL.scheme())
   {
     QString path = urlToConvert.path();
-    QString basePath = baseURL.path(KUrl::AddTrailingSlash);
-    if (path.startsWith("/"))
+    QString basePath = baseURL.path().endsWith('/') ? baseURL.path() : baseURL.path() + '/';
+    if (path.startsWith("/") && basePath != "/")
     {
       path.remove(0, 1);
       basePath.remove(0, 1);
@@ -2371,16 +2368,16 @@ static KUrl toRelative(const KUrl& urlToConvert,const KUrl& baseURL)
     resultURL.setPath(QDir::cleanPath(path));
   }
 
-  if (urlToConvert.path().endsWith('/')) resultURL.adjustPath(KUrl::AddTrailingSlash);
+  if (urlToConvert.path().endsWith('/')) resultURL.setPath(resultURL.path() + '/');
   return resultURL;
 }
 
 
-void KImageMapEditor::saveImageMap(const KUrl & url)
+void KImageMapEditor::saveImageMap(const QUrl & url)
 {
   QFileInfo fileInfo(url.path());
 
-  if (!QFileInfo(url.directory()).isWritable()) {
+  if (!QFileInfo(url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path()).isWritable()) {
     KMessageBox::error(widget(),
       i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the required write permissions.</qt>", url.path()));
     return;
@@ -2388,7 +2385,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
 
   if (!backupFileCreated) {
     QString backupFile = url.path()+'~';
-    KIO::file_copy(url, KUrl(backupFile ), -1, KIO::Overwrite | KIO::HideProgressInfo);
+    KIO::file_copy(url, QUrl::fromUserInput(backupFile ), -1, KIO::Overwrite | KIO::HideProgressInfo);
     backupFileCreated = true;
   }
 
@@ -2410,7 +2407,7 @@ void KImageMapEditor::saveImageMap(const KUrl & url)
       << "<body>\n"
       << "  " << getHTMLImageMap()
       << "\n"
-      << "  <img src=\"" << toRelative(_imageUrl,KUrl( url.directory() )).path() << "\""
+      << "  <img src=\"" << toRelative(_imageUrl,QUrl( url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path() )).path() << "\""
       << " usemap=\"#" << _mapName << "\""
       << " width=\"" << drawZone->picture().width() << "\""
       << " height=\"" << drawZone->picture().height() << "\">\n"
@@ -2788,11 +2785,11 @@ bool KImageMapEditor::closeUrl()
 
 }
 
-void KImageMapEditor::addImage(const KUrl & imgUrl) {
+void KImageMapEditor::addImage(const QUrl & imgUrl) {
     if (imgUrl.isEmpty())
         return;
 
-    QString relativePath ( toRelative(imgUrl, KUrl( url().adjusted(QUrl::RemoveFilename).path() )).path() );
+    QString relativePath ( toRelative(imgUrl, QUrl( url().adjusted(QUrl::RemoveFilename).path() )).path() );
 
     QString imgHtml = QString("<img src=\"")+relativePath+QString("\">");
     ImageTag* imgTag = new ImageTag();
@@ -2831,7 +2828,7 @@ void KImageMapEditor::setImageActionsEnabled(bool b) {
 
 
 void KImageMapEditor::imageAdd() {
-    KUrl imgUrl = QFileDialog::getOpenFileUrl(widget(), i18n("Select image"),
+    QUrl imgUrl = QFileDialog::getOpenFileUrl(widget(), i18n("Select image"),
                   QUrl(), i18n("Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files (*)"));
     addImage(imgUrl);
 }
@@ -2850,7 +2847,7 @@ void KImageMapEditor::imageRemove() {
       ImageTag* selected = imagesListView->selectedImage();
       if (selected) {
 	if (selected->contains("src")) {
-	  setPicture(KUrl(selected->value("src")));
+	  setPicture(QUrl(selected->value("src")));
 	}
       }
     }

@@ -23,6 +23,7 @@
 #include <QDropEvent>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QMimeData>
 #include <QResizeEvent>
 #include <QPainter>
 #include <QPixmap>
@@ -857,7 +858,7 @@ void DrawZone::paintEvent(QPaintEvent*) {
 }
 
 void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
-  KUrl::List uris = KUrl::List::fromMimeData( e->mimeData() );
+  QList<QUrl> uris = e->mimeData()->urls();
 
   if ( uris.isEmpty() )
     return;
@@ -871,7 +872,7 @@ void DrawZone::dragEnterEvent(QDragEnterEvent*e) {
 }
 
 void DrawZone::dropEvent( QDropEvent* e) {
-  KUrl::List urlList = KUrl::List::fromMimeData( e->mimeData() );
+  QList<QUrl> urlList = e->mimeData()->urls();
   // A file from konqueror was dropped
 	if (!urlList.isEmpty()) {
 		imageMapEditor->openFile(urlList.first());

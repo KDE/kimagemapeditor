@@ -37,6 +37,7 @@
 #include <kactioncollection.h>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KWindowConfig>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
@@ -80,8 +81,7 @@ KimeShell::KimeShell(const char * )
   QApplication::sendEvent( m_part, &ev );
   //setCentralWidget(part->widget());
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 3";
-  if (!initialGeometrySet())
-    resize( QSize(725, 525).expandedTo(minimumSizeHint()));
+  resize( QSize(725, 525).expandedTo(minimumSizeHint()));
 
   connect( m_part, SIGNAL(setStatusBarText(QString)),
            this, SLOT(slotSetStatusBarText(QString)));
@@ -157,7 +157,7 @@ void KimeShell::fileNew()
     };
 }
 
-void KimeShell::openFile(const KUrl & url)
+void KimeShell::openFile(const QUrl & url)
 {
 	m_part->openFile(url);
 }
@@ -174,7 +174,7 @@ void KimeShell::openLastFile()
 
 void KimeShell::fileOpen()
 {
-  KUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QString(),
+  QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QString(),
              i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
                   "HTML Files (*.htm *.html);;All Files (*)"));
   if (!url.isEmpty()) {
@@ -217,7 +217,7 @@ void KimeShell::writeConfig() {
 
 void KimeShell::writeConfig(KConfigGroup &config) {
 	saveMainWindowSettings(config);
-	saveWindowSize(config);
+	KWindowConfig::saveWindowSize(windowHandle(), config);
 	//  writeDockConfig(config);
   config.sync();
 

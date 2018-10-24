@@ -17,6 +17,7 @@
 #include "imagemapchoosedialog.h"
 
 #include <QDialogButtonBox>
+#include <QDir>
 #include <QLineEdit>
 #include <QListWidget>
 #include <QLabel>
@@ -34,7 +35,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
     QWidget* parent,
     QList<MapTag*> _maps,
     QList<ImageTag*> _images,
-    const KUrl & _baseUrl)
+    const QUrl & _baseUrl)
   : QDialog(parent)
 {
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog";
@@ -203,7 +204,12 @@ void ImageMapChooseDialog::slotImageChanged()
   if (images.at(i)->contains("src")) {
     QString str = images.at(i)->value("src");
     // relative url
-    pixUrl=KUrl(baseUrl,str);
+    if (baseUrl.path().isEmpty() | !baseUrl.path().endsWith('/')) {
+        pixUrl=QUrl(baseUrl.path() + '/').resolved(QUrl(str));
+    }
+    else {
+        pixUrl=baseUrl.resolved(QUrl(str));
+    }
     pix=QImage(pixUrl.path());
     double zoom1=1;
     double zoom2=1;

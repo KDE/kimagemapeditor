@@ -21,7 +21,6 @@
 // Qt
 #include <QLinkedList>
 
-
 // KDE Frameworks
 #include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
@@ -139,7 +138,12 @@ void ImagesListView::slotSelectionChanged() {
   QTreeWidgetItem* item = selectedItems().first();
   QString src = item->text(0);
 
-  emit imageSelected(KUrl(_baseUrl,src));
+  if (_baseUrl.path().isEmpty() | !_baseUrl.path().endsWith('/')) {
+      emit imageSelected(QUrl(_baseUrl.path() + '/').resolved(QUrl(src)));
+  }
+  else {
+      emit imageSelected(_baseUrl.resolved(QUrl(src)));
+  }
 }
 
 ImageTag* ImagesListView::selectedImage() {

@@ -18,6 +18,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QDir>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -86,7 +87,7 @@ int main(int argc, char *argv[])
             kimeShell->setStdout(parser.isSet("stdout"));
             kimeShell->readConfig();
             kimeShell->show();
-            kimeShell->openFile(parser.positionalArguments().at(i));
+            kimeShell->openFile(QUrl::fromUserInput(parser.positionalArguments().at(i), QDir::currentPath(), QUrl::AssumeLocalFile));
           }
       }
 

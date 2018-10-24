@@ -21,7 +21,7 @@
 #include <QTreeWidget>
 #include <QLinkedList>
 
-#include <kurl.h>
+#include <QUrl>
 
 #include "kimagemapeditor.h"
 
@@ -92,16 +92,16 @@ public:
   /**
    * Sets the base URL of all images
    */
-  void setBaseUrl(const KUrl & url) { _baseUrl = url; };
+  void setBaseUrl(const QUrl & url) { _baseUrl = url; };
 
 protected slots:
   void slotSelectionChanged();
 
 signals:
-  void imageSelected(const KUrl &);
+  void imageSelected(const QUrl &);
 
 protected:
-  KUrl _baseUrl;
+  QUrl _baseUrl;
 
   /**
    * Finds the first ImageListViewItem with the given ImageTag

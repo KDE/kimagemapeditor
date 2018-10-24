@@ -20,7 +20,7 @@
 
 #include <kparts/mainwindow.h>
 #include <KConfigGroup>
-#include <kurl.h>
+#include <QUrl>
 
 class KImageMapEditor;
 
@@ -33,7 +33,7 @@ public:
   virtual ~KimeShell();
 
   void setStdout(bool b);
-  void openFile(const KUrl & url);
+  void openFile(const QUrl & url);
 
   /**
    * Opens the last open file, if the

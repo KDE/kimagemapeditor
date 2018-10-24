@@ -1792,9 +1792,10 @@ QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QStrin
     } else
     // finished ?
     if (w=='>') {
-      if (valueRead)
+      if (valueRead) {
         dict.insert(attr,value);
-        return dict;
+      }
+      return dict;
     } else
     // currently reading an attribute ?
     if (attrRead) {

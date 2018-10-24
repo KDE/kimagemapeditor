@@ -41,7 +41,6 @@
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
-#include "kimeshell.moc"
 
 KimeShell::KimeShell(const char * )
   : KParts::MainWindow()

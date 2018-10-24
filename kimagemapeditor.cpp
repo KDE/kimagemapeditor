@@ -70,7 +70,6 @@
 #include <KConfigGroup>
 
 // local
-#include "kimagemapeditor.moc"
 #include "drawzone.h"
 #include "kimedialogs.h"
 #include "kimecommands.h"

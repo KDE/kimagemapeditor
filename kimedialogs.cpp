@@ -635,4 +635,3 @@ HTMLPreviewDialog::~HTMLPreviewDialog() {
   delete htmlPart;
 }
 
-#include "kimedialogs.moc"

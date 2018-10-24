@@ -252,4 +252,3 @@ void ImageMapChooseDialog::slotMapChanged(int i) {
   selectImageWithUsemap(currentMap->name);
 }
 
-#include "imagemapchoosedialog.moc"

@@ -166,5 +166,3 @@ void ImagesListView::selectImage(ImageTag* tag) {
   }
 }
 
-#include "imageslistview.moc"
-

@@ -179,4 +179,3 @@ int MapsListView::count() {
     return _listView->topLevelItemCount();
 }
 
-#include "mapslistview.moc"

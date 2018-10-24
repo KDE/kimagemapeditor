@@ -73,5 +73,3 @@ AreaListView::AreaListView(QWidget *parent)
 AreaListView::~AreaListView()
 {
 }
-
-#include "arealistview.moc"

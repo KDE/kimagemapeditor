@@ -12,6 +12,7 @@ ecm_install_icons(ICONS
     22-actions-raise.png
     22-actions-rectangle.png
     22-actions-removepoint.png
+    22-apps-kimagemapeditor.png
     32-apps-kimagemapeditor.png
     48-apps-kimagemapeditor.png
     64-apps-kimagemapeditor.png

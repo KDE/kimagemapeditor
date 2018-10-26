@@ -14,6 +14,9 @@ ecm_install_icons(ICONS
     22-actions-removepoint.png
     32-apps-kimagemapeditor.png
     48-apps-kimagemapeditor.png
+    64-apps-kimagemapeditor.png
+    128-apps-kimagemapeditor.png
+    sc-apps-kimagemapeditor.svgz
     DESTINATION ${ICON_INSTALL_DIR}
     THEME hicolor
 )

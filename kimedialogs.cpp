@@ -40,14 +40,13 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include <kiconloader.h>
-#include <klocalizedstring.h>
 #include "kimagemapeditor_debug.h"
-#include <khtmlview.h>
-#include <khtml_part.h>
-#include <kstandardguiitem.h>
-#include <KSharedConfig>
 #include <KConfigGroup>
+#include <KHTMLPart>
+#include <KHTMLView>
+#include <KIconLoader>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
 CoordsEdit::CoordsEdit(QWidget *parent, Area* a)
   : QWidget(parent)

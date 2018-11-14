@@ -19,16 +19,16 @@
 #define KIMAGEMAPEDITOR_H
 
 #include <QDockWidget>
-#include <QLinkedList>
-#include <QObject>
 #include <QHash>
 #include <QImage>
+#include <QLinkedList>
+#include <QObject>
 #include <QPixmap>
 #include <QTextStream>
+#include <QUrl>
 
 #include <KConfig>
 #include <KParts/ReadWritePart>
-#include <QUrl>
 
 #include "kimearea.h"
 
@@ -134,7 +134,7 @@ public :
 		    RemovePoint };
 
     KImageMapEditor(QWidget *parentWidget,
-                    QObject *parent, const QStringList & args = QStringList());
+                    QObject *parent, const QVariantList &args = QVariantList());
     virtual ~KImageMapEditor();
 
     static KConfig *config();

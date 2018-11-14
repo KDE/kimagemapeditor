@@ -19,12 +19,12 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     DocTools
     GuiAddons
+    IconThemes
     KHtml
     Parts
     I18n
     WidgetsAddons
     XmlGui
-    KDELibs4Support
 )
 
 include(FeatureSummary)
@@ -69,7 +69,7 @@ add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-target_link_libraries(kimagemapeditor_bin KF5::KHtml KF5::KDELibs4Support)
+target_link_libraries(kimagemapeditor_bin KF5::KHtml KF5::IconThemes)
 
 install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -82,7 +82,7 @@ set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
 add_library(kimagemapeditor MODULE ${kimagemapeditor_PART_SRCS})
 
 
-target_link_libraries(kimagemapeditor KF5::KHtml KF5::KDELibs4Support)
+target_link_libraries(kimagemapeditor KF5::KHtml KF5::IconThemes)
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 

@@ -53,21 +53,17 @@
 
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
-#include <klocalizedstring.h>
-#include <kstandardaction.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
-#include <kedittoolbar.h>
-#include <kactioncollection.h>
-#include <kxmlguifactory.h>
-#include <kio/job.h>
-#include <ktoggleaction.h>
-#include <krecentfilesaction.h>
-#include <kxmlguiwindow.h>
-#include <KGenericFactory>
+#include <KAboutData>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KIO/Job>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KPluginFactory>
 #include <KSharedConfig>
 #include <KUndoActions>
-#include <KConfigGroup>
+#include <KXMLGUIFactory>
+#include <KXmlGuiWindow>
 
 // local
 #include "drawzone.h"
@@ -81,11 +77,10 @@
 #include "imagemapchoosedialog.h"
 #include "version.h"
 
-typedef KGenericFactory<KImageMapEditor> KimeFactory;
-K_EXPORT_COMPONENT_FACTORY( libkimagemapeditor , KimeFactory )
+K_PLUGIN_FACTORY(KImageMapEditorFactory, registerPlugin<KImageMapEditor>();)
 
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
-            QObject *parent, const QStringList & )
+            QObject *parent, const QVariantList & )
   : KParts::ReadWritePart(parent)
 {
   KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
@@ -2906,3 +2901,4 @@ void KImageMapEditor::imageUsemap() {
   }
 }
 
+#include "kimagemapeditor.moc"

@@ -80,6 +80,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
+      <caption>Editing HTML image map in KImageMapEditor</caption>
       <image width="1367" height="680">https://www.kde.org/images/screenshots/kimagemapeditor.png</image>
     </screenshot>
   </screenshots>

@@ -82,6 +82,7 @@
     <screenshot type="default">
       <caption>Editing HTML image map in KImageMapEditor</caption>
       <caption xml:lang="ca">Editant una correspondència a imatge amb HTML al KImageMapEditor</caption>
+      <caption xml:lang="ca-valencia">Editant una correspondència a imatge amb HTML al KImageMapEditor</caption>
       <caption xml:lang="de">Bearbeitung von HTML-Bildkarten (Imagemaps) in KImageMapEditor</caption>
       <caption xml:lang="es">Editando un mapa de imagen HTML en KImageMapEditor</caption>
       <caption xml:lang="gl">Editando un mapa de imaxe de HTML en KImageMapEditor</caption>

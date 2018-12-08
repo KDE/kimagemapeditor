@@ -387,7 +387,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent, Area* a)
   layout->addWidget(tab);
 
   if (a->type() == Area::Default) {
-    // FIXME? Why this useless assignement?
+    // FIXME? Why this useless assignment?
     shape = i18n("Default");
   } else {
     tab->addTab(createCoordsPage(), i18n("Coor&dinates"));

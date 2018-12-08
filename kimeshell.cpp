@@ -57,7 +57,7 @@ KimeShell::KimeShell(const char * )
 //  mainDock->setWidget( w );
   // allow others to dock to the 4 sides
   //  mainDock->setDockSite(K3DockWidget::DockCorner);
-  // forbit docking abilities of mainDock itself
+  // forbid docking abilities of mainDock itself
   //  mainDock->setEnableDocking(K3DockWidget::DockNone);
   //  setView( mainDock); // central widget in a KDE mainwindow
   //  setMainDockWidget( mainDock); // master dockwidget

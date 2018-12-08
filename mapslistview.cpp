@@ -137,7 +137,7 @@ void MapsListView::changeMapName(const QString & oldName, const QString & newNam
 //        qCDebug(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : successful";
     }
     else {
-        qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : Chouldn't find map with name '" << oldName << "'";
+        qCWarning(KIMAGEMAPEDITOR_LOG) << "MapsListView::changeMapName : Couldn't find map with name '" << oldName << "'";
     }
 
 }

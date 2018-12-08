@@ -18,16 +18,15 @@
 #ifndef DRAWZONE_H
 #define DRAWZONE_H
 
-#include <qimage.h>
-#include <qpoint.h>
-#include <qrect.h>
-#include <qcursor.h>
-//Added by qt3to4:
-#include <QMouseEvent>
+#include <QCursor>
 #include <QDragEnterEvent>
-#include <QPixmap>
-#include <QResizeEvent>
 #include <QDropEvent>
+#include <QImage>
+#include <QMouseEvent>
+#include <QPixmap>
+#include <QPoint>
+#include <QRect>
+#include <QResizeEvent>
 
 #include "kimagemapeditor.h"
 

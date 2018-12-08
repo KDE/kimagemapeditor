@@ -18,11 +18,10 @@
 #ifndef KIMEDIALOGS_H
 #define KIMEDIALOGS_H
 
+#include <QDialog>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLinkedList>
-
-#include <QDialog>
 
 #include "kimagemapeditor.h"
 

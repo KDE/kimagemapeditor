@@ -18,9 +18,8 @@
 #ifndef KIMAGEMAPCHOOSEDIALOG_H
 #define KIMAGEMAPCHOOSEDIALOG_H
 
-#include <QLinkedList>
-
 #include <QDialog>
+#include <QLinkedList>
 #include <QUrl>
 
 #include "kimagemapeditor.h"

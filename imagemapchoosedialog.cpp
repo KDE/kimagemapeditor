@@ -18,14 +18,14 @@
 
 #include <QDialogButtonBox>
 #include <QDir>
+#include <QGridLayout>
+#include <QHeaderView>
+#include <QLabel>
 #include <QLineEdit>
 #include <QListWidget>
-#include <QLabel>
 #include <QPushButton>
 #include <QTableWidget>
 #include <QVBoxLayout>
-#include <QGridLayout>
-#include <QHeaderView>
 
 #include <KConfigGroup>
 

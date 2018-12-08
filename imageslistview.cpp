@@ -22,7 +22,7 @@
 #include <QLinkedList>
 
 // KDE Frameworks
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "kimagemapeditor_debug.h"
 
 ImagesListViewItem::ImagesListViewItem(ImagesListView* parent, ImageTag* tag)

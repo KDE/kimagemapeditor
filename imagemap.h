@@ -18,14 +18,13 @@
 #ifndef IMAGEMAP_H
 #define IMAGEMAP_H
 
-#include <QScrollArea>
-#include <qimage.h>
-#include <qpoint.h>
-#include <qrect.h>
-//Added by qt3to4:
-#include <QPixmap>
+#include <QImage>
 #include <QMouseEvent>
+#include <QPixmap>
+#include <QPoint>
+#include <QRect>
 #include <QResizeEvent>
+#include <QScrollArea>
 
 /**
   *@author Jan Schäfer

@@ -20,7 +20,7 @@
 
 #include "kimagemapeditor.h"
 
-#include <qundostack.h>
+#include <QUndoStack>
 
 class KImageMapEditor;
 class AreaSelection;

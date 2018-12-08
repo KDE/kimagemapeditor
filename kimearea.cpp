@@ -17,15 +17,15 @@
 
 #include "kimearea.h"
 
-#include <QPolygon>
 #include <QBitmap>
-#include <QPainter>
-#include <QPixmap>
-#include <QImage>
-#include <QPen>
 #include <QBrush>
-#include <QPalette>
 #include <QColor>
+#include <QImage>
+#include <QPainter>
+#include <QPalette>
+#include <QPen>
+#include <QPixmap>
+#include <QPolygon>
 
 #include "kimagemapeditor_debug.h"
 

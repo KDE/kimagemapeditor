@@ -17,12 +17,12 @@
 
 #include "imagemap.h"
 #include "kimagemapeditor.h"
-#include "qpainter.h"
-//Added by qt3to4:
-#include <QPixmap>
+
+#include <QBitmap>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QPixmap>
 #include <QResizeEvent>
-#include <qbitmap.h>
 
 int round(double d) {
 	if ( (d-((int) d)) < 0.5 )

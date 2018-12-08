@@ -19,12 +19,12 @@
 #define KIMEAREA_H
 
 #include <QHash>
-#include <qrect.h>
-#include <qpoint.h>
+#include <QHashIterator>
+#include <QLinkedList>
 #include <QList>
 #include <QPixmap>
-#include <QLinkedList>
-#include <QHashIterator>
+#include <QPoint>
+#include <QRect>
 #include <QTreeWidgetItem>
 
 #include <klocalizedstring.h>

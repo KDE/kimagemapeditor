@@ -19,7 +19,7 @@
 #define _AREALISTVIEW_H_
 
 #include <QTreeWidget>
-#include <qwidget.h>
+#include <QWidget>
 
 
 class QPushButton;

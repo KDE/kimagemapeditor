@@ -18,9 +18,8 @@
 #ifndef _IMAGESLISTVIEW_H_
 #define _IMAGESLISTVIEW_H_
 
-#include <QTreeWidget>
 #include <QLinkedList>
-
+#include <QTreeWidget>
 #include <QUrl>
 
 #include "kimagemapeditor.h"

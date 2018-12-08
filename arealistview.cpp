@@ -24,8 +24,8 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include <kiconloader.h>
-#include <klocalizedstring.h>
+#include <KIconLoader>
+#include <KLocalizedString>
 
 // local
 #include "kimearea.h"

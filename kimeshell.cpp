@@ -26,18 +26,18 @@
 #include <QScrollArea>
 #include <QStatusBar>
 
-#include <kparts/guiactivateevent.h>
-#include <kmessagebox.h>
-#include <kshortcutsdialog.h>
-#include <kedittoolbar.h>
 #include "kimagemapeditor_debug.h"
-#include <kxmlguifactory.h>
-#include <kstandardaction.h>
-#include <ktoolbar.h>
-#include <kactioncollection.h>
-#include <KSharedConfig>
+#include <KActionCollection>
 #include <KConfigGroup>
+#include <KEditToolBar>
+#include <KMessageBox>
+#include <KParts/GUIActivateEvent>
+#include <KSharedConfig>
+#include <KShortcutsDialog>
+#include <KStandardAction>
+#include <KToolBar>
 #include <KWindowConfig>
+#include <KXMLGUIFactory>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart

@@ -18,7 +18,7 @@
 #ifndef KIMESHELL_H
 #define KIMESHELL_H
 
-#include <kparts/mainwindow.h>
+#include <KParts/MainWindow>
 #include <KConfigGroup>
 #include <QUrl>
 

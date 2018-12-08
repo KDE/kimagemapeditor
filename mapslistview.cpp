@@ -21,7 +21,7 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include "kimagemapeditor_debug.h"
 
 

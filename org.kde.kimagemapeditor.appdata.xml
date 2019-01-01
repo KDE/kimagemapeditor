@@ -14,6 +14,7 @@
   <name xml:lang="fi">KImageMapEditor</name>
   <name xml:lang="fr">KImageMapEditor</name>
   <name xml:lang="gl">KImageMapEditor</name>
+  <name xml:lang="id">KImageMapEditor</name>
   <name xml:lang="it">KImageMapEditor</name>
   <name xml:lang="ko">KImageMapEditor</name>
   <name xml:lang="nl">KImageMapEditor</name>
@@ -39,6 +40,7 @@
   <summary xml:lang="fi">HTML-kuvamuokkain</summary>
   <summary xml:lang="fr">Éditeur de carte d'images HTML</summary>
   <summary xml:lang="gl">Editor de mapas de imaxes HTML</summary>
+  <summary xml:lang="id">Pengedit Peta Image HTML</summary>
   <summary xml:lang="it">Editor di mappe immagine HTML</summary>
   <summary xml:lang="ko">HTML 이미지 맵 편집기</summary>
   <summary xml:lang="nl">HTML bewerker van afbeeldingskaarten</summary>
@@ -64,6 +66,7 @@
     <p xml:lang="fi">KImageMapEditor on HTML-tiedostoihin upotettujen &lt;map&gt;-tunnisteeseen perustuvien kuvakarttojen muokkain.</p>
     <p xml:lang="fr">KImageMapEditor est un éditeur de cartes d'images intégrées au sein de fichiers HTML, faisant appel à la balise &lt;map&gt;.</p>
     <p xml:lang="gl">KImageMapEditor é un editor de mapas de imaxe incrustados dentro de ficheiros HTML, baseado na etiqueta &lt;map&gt;.</p>
+    <p xml:lang="id">KImageMapEditor adalah editor peta image yang disematkan dalam file HTML, berdasarkan pada tag &lt;map&gt;.</p>
     <p xml:lang="it">KImageMapEditor è un editor di mappe immagine incorporate all'interno dei file HTML e basate sul tag &lt;map&gt;.</p>
     <p xml:lang="ko">KImageMapEditor는 HTML 파일의 &lt;map&gt; 태그를 기반으로 한 이미지 맵 편집기입니다.</p>
     <p xml:lang="nl">KImageMapEditor is een bewerker van afbeeldingskaarten ingebed in HTML-bestanden, gebaseerd op de tag &lt;map&gt;.</p>
@@ -88,6 +91,7 @@
       <caption xml:lang="es">Editando un mapa de imagen HTML en KImageMapEditor</caption>
       <caption xml:lang="fr">Édition d'une carte d'image HTML dans KImageMapEditor</caption>
       <caption xml:lang="gl">Editando un mapa de imaxe de HTML en KImageMapEditor</caption>
+      <caption xml:lang="id">Mengedit peta image HTML di KImageMapEditor</caption>
       <caption xml:lang="nl">HTML imagemap bewerken in KImageMapEditor</caption>
       <caption xml:lang="nn">Redigering av HTML-biletkart med KImageMapEditor</caption>
       <caption xml:lang="pt">Edição de um mapa de imagens HTML no KImageMapEditor</caption>

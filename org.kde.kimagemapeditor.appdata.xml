@@ -7,6 +7,7 @@
   <name xml:lang="ca">KImageMapEditor</name>
   <name xml:lang="ca-valencia">KImageMapEditor</name>
   <name xml:lang="cs">KImageMapEditor</name>
+  <name xml:lang="da">KImageMapEditor</name>
   <name xml:lang="de">KImageMapEditor</name>
   <name xml:lang="en-GB">KImageMapEditor</name>
   <name xml:lang="es">KImageMapEditor</name>
@@ -34,6 +35,7 @@
   <summary xml:lang="ca">Un editor de correspondències a imatges amb HTML</summary>
   <summary xml:lang="ca-valencia">Un editor de correspondències a imatges amb HTML</summary>
   <summary xml:lang="cs">Editor HTML map</summary>
+  <summary xml:lang="da">HTML-billedkortredigering</summary>
   <summary xml:lang="de">Editor für HTML-Bildkarten (Imagemaps)</summary>
   <summary xml:lang="en-GB">HTML Image Map Editor</summary>
   <summary xml:lang="es">Editor de mapas de imágenes en HTML</summary>
@@ -62,6 +64,7 @@
     based on the &lt;map&gt; tag.</p>
     <p xml:lang="ca">El KImageMapEditor és un editor de correspondències a imatges incrustades dins de fitxers HTML, basat en l'etiqueta &lt;map&gt;.</p>
     <p xml:lang="ca-valencia">El KImageMapEditor és un editor de correspondències a imatges incrustades dins de fitxers HTML, basat en l'etiqueta &lt;map&gt;.</p>
+    <p xml:lang="da">KImageMapEditor er en editor til billedkort som er indlejret i HTML-filer, baseret på &lt;map&gt;-opmærkning.</p>
     <p xml:lang="de">KImageMapEditor ist ein Editor für Bildkarten, die in HTML eingebettet sind.  </p>
     <p xml:lang="en-GB">KImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.</p>
     <p xml:lang="es">KImageMapEditor es un editor de mapas de imágenes integradas en el interior de archivos HTML que usan la etiqueta &lt;map&gt;.</p>
@@ -92,6 +95,7 @@
       <caption xml:lang="ca">Editant una correspondència a imatge amb HTML al KImageMapEditor</caption>
       <caption xml:lang="ca-valencia">Editant una correspondència a imatge amb HTML al KImageMapEditor</caption>
       <caption xml:lang="cs">Úprava obrázkových map HTML pomocí KImageMapEditor</caption>
+      <caption xml:lang="da">Redigering af HTML-billedkort i KImageMapEditor</caption>
       <caption xml:lang="de">Bearbeitung von HTML-Bildkarten (Imagemaps) in KImageMapEditor</caption>
       <caption xml:lang="en-GB">Editing HTML image map in KImageMapEditor</caption>
       <caption xml:lang="es">Editando un mapa de imagen HTML en KImageMapEditor</caption>

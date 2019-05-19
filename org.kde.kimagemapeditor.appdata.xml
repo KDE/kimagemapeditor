@@ -68,7 +68,7 @@
     <p xml:lang="de">KImageMapEditor ist ein Editor für Bildkarten, die in HTML eingebettet sind.  </p>
     <p xml:lang="en-GB">KImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.</p>
     <p xml:lang="es">KImageMapEditor es un editor de mapas de imágenes integradas en el interior de archivos HTML que usan la etiqueta &lt;map&gt;.</p>
-    <p xml:lang="eu">KImageMapEditor HTML fitxategien barruan kapsulatutako irudi mapen editore bat da, &lt;map&gt; etiketa du jomuga.</p>
+    <p xml:lang="eu">KImageMapEditor HTML fitxategien barruan txertatutako irudi-mapen editore bat da, &lt;map&gt; etiketa du jomuga.</p>
     <p xml:lang="fi">KImageMapEditor on HTML-tiedostoihin upotettujen &lt;map&gt;-tunnisteeseen perustuvien kuvakarttojen muokkain.</p>
     <p xml:lang="fr">KImageMapEditor est un éditeur de cartes d'images intégrées au sein de fichiers HTML, faisant appel à la balise &lt;map&gt;.</p>
     <p xml:lang="gl">KImageMapEditor é un editor de mapas de imaxe incrustados dentro de ficheiros HTML, baseado na etiqueta &lt;map&gt;.</p>
@@ -99,6 +99,7 @@
       <caption xml:lang="de">Bearbeitung von HTML-Bildkarten (Imagemaps) in KImageMapEditor</caption>
       <caption xml:lang="en-GB">Editing HTML image map in KImageMapEditor</caption>
       <caption xml:lang="es">Editando un mapa de imagen HTML en KImageMapEditor</caption>
+      <caption xml:lang="eu">KImageMapEditor erabiliz HTML irudi-mapa editatzea</caption>
       <caption xml:lang="fr">Édition d'une carte d'image HTML dans KImageMapEditor</caption>
       <caption xml:lang="gl">Editando un mapa de imaxe de HTML en KImageMapEditor</caption>
       <caption xml:lang="id">Mengedit peta image HTML di KImageMapEditor</caption>

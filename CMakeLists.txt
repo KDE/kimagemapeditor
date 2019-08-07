@@ -97,7 +97,7 @@ install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_ME
 install( FILES  kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install( FILES  kimagemapeditorui.rc kimagemapeditorpartui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kimagemapeditor)
 
-if (ECM_VERSION VERSION_GREATER_EQUAL "5.59.0")
+if (NOT ECM_VERSION VERSION_LESS "5.59.0")
     install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
 else()
     install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_CONFDIR} )

@@ -98,10 +98,6 @@ void SelectionPoint::draw(QPainter* p, double scalex) {
     break;
   }
 
-  int d = 1;
-  if (scalex > 2) 
-    d = 0;
-
   QPoint scaledCenter((int)(point.x()*scalex),
 		      (int)(point.y()*scalex));
 

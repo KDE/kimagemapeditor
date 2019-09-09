@@ -41,8 +41,6 @@
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
 #include <KConfigGroup>
-#include <KHTMLPart>
-#include <KHTMLView>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -603,15 +601,15 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
 
   QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-  htmlPart = new KHTMLPart;
-  mainLayout->addWidget(htmlPart->widget());
+  htmlPart = new QWebEngineView;
+  mainLayout->addWidget(htmlPart);
 //  htmlView = new KHTMLView(htmlPart, page);
 //  mainLayout->addWidget(htmlView);
 //  htmlView->setVScrollBarMode(QScrollView::Auto);
 //  htmlView->setHScrollBarMode(QScrollView::Auto);
 //  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
 //	dialog->adjustSize();
-  htmlPart->openUrl(QUrl::fromLocalFile(tempFile->fileName()));
+  htmlPart->load(QUrl::fromLocalFile(tempFile->fileName()));
   QLabel *lbl = new QLabel;
   lbl->setObjectName( "urllabel" );
   mainLayout->addWidget(lbl);
@@ -623,13 +621,12 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
   connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
   mainLayout->addWidget(buttonBox);
 
-  connect( htmlPart, SIGNAL(onURL(QString)), lbl, SLOT(setText(QString)));
+  connect( htmlPart->page(), &QWebEnginePage::linkHovered, lbl, &QLabel::setText);
 
   resize(800,600);
 }
 
 HTMLPreviewDialog::~HTMLPreviewDialog() {
   delete tempFile;
-  delete htmlPart;
 }
 

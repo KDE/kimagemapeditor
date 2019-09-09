@@ -12,6 +12,7 @@ add_compile_definitions(QURL_NO_CAST_FROM_STRING)
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Gui
     Widgets
+    WebEngineWidgets
 )
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
@@ -22,7 +23,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DocTools
     GuiAddons
     IconThemes
-    KHtml
     Parts
     I18n
     WidgetsAddons
@@ -72,7 +72,7 @@ add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-target_link_libraries(kimagemapeditor_bin KF5::KHtml KF5::IconThemes)
+target_link_libraries(kimagemapeditor_bin KF5::CoreAddons KF5::I18n KF5::ConfigCore KF5::IconThemes KF5::Parts Qt5::WebEngineWidgets)
 
 install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -85,7 +85,7 @@ set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
 add_library(kimagemapeditor MODULE ${kimagemapeditor_PART_SRCS})
 
 
-target_link_libraries(kimagemapeditor KF5::KHtml KF5::IconThemes)
+target_link_libraries(kimagemapeditor KF5::CoreAddons KF5::IconThemes KF5::I18n KF5::ConfigCore KF5::Parts Qt5::WebEngineWidgets)
 
 install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
 

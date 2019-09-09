@@ -22,6 +22,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLinkedList>
+#include <QWebEngineView>
 
 #include "kimagemapeditor.h"
 
@@ -173,7 +174,7 @@ class HTMLPreviewDialog : public QDialog{
     HTMLPreviewDialog(QWidget *, const QString &);
     ~HTMLPreviewDialog();
   private:
-    KHTMLPart* htmlPart;
+    QWebEngineView* htmlPart;
     QTemporaryFile* tempFile;
 };
 

@@ -1,0 +1,6 @@
+<RCC>
+<qresource prefix="/kxmlgui5/kimagemapeditor">
+<file>kimagemapeditorpartui.rc</file>
+<file>kimagemapeditorui.rc</file>
+</qresource>
+</RCC>

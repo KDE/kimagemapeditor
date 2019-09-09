@@ -409,7 +409,7 @@ void KImageMapEditor::openLastURL(const KConfigGroup & config) {
     if (!lastMap.isEmpty())
       mapsListView->selectMap(lastMap);
     if (!lastImage.isEmpty())
-      setPicture(lastImage);
+      setPicture(QUrl::fromLocalFile(lastImage));
 //    qCDebug(KIMAGEMAPEDITOR_LOG) << "opening HTML file with map " << lastMap << " and image " << lastImage;
 //    if (! openHTMLFile(lastURL, lastMap, lastImage) )
 //      closeUrl();

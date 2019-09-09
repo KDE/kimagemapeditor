@@ -436,7 +436,7 @@ CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
 }
 
 void AreaDialog::slotChooseHref() {
-  QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose File"), QString(), i18n("All Files (*)"));
+  QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose File"), QUrl(), i18n("All Files (*)"));
   if (!url.isEmpty()) {
     hrefEdit->setText(url.url());
   }

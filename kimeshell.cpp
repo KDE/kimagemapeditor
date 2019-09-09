@@ -173,7 +173,7 @@ void KimeShell::openLastFile()
 
 void KimeShell::fileOpen()
 {
-  QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QString(),
+  QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Choose Picture to Open"), QUrl(),
              i18n("Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;"
                   "HTML Files (*.htm *.html);;All Files (*)"));
   if (!url.isEmpty()) {

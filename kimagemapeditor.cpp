@@ -1431,7 +1431,7 @@ void KImageMapEditor::setMapName(const QString & s) {
 
 void KImageMapEditor::setPicture(const QUrl & url) {
   _imageUrl=url;
-  if (QFileInfo(url.path()).exists()) {
+  if (QFileInfo::exists(url.path())) {
      QImage img(url.path());
 
      if (!img.isNull()) {

@@ -1656,8 +1656,6 @@ void KImageMapEditor::fileSaveAs() {
   }
 
 
-  QFileInfo fileInfo(url.path());
-
   saveAs(url);
   recentFilesAction->addUrl(url);
 
@@ -1860,7 +1858,6 @@ bool KImageMapEditor::openHTMLFile(const QUrl & url)
       return false;
   f.open(QIODevice::ReadOnly);
   QTextStream s(&f);
-  QString str;
   QChar w;
   QHash<QString,QString> *attr=0L;
   QList<ImageTag*> images;
@@ -2369,8 +2366,6 @@ static QUrl toRelative(const QUrl& urlToConvert,const QUrl& baseURL)
 
 void KImageMapEditor::saveImageMap(const QUrl & url)
 {
-  QFileInfo fileInfo(url.path());
-
   if (!QFileInfo(url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path()).isWritable()) {
     KMessageBox::error(widget(),
       i18n("<qt>The file <i>%1</i> could not be saved, because you do not have the required write permissions.</qt>", url.path()));

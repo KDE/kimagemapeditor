@@ -51,7 +51,7 @@ class ImagesListView : public QTreeWidget
 
 public:
   ImagesListView(QWidget *parent);
-  virtual ~ImagesListView();
+  ~ImagesListView() override;
 
   /**
    * Adds an image

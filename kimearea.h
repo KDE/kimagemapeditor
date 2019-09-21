@@ -219,18 +219,18 @@ class RectArea : public Area
 {
 	public:
 		RectArea();
-		virtual ~RectArea();
+		~RectArea() override;
 
-		virtual Area* clone() const;
-		virtual bool contains(const QPoint & p) const;
-		virtual QString coordsToString() const;
-		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
-		virtual bool setCoords(const QString & s);
-		virtual QString typeString() const { return i18n("Rectangle"); }
-		virtual QBitmap getMask() const;
-		virtual	QString getHTMLCode() const;
-		virtual void updateSelectionPoints();
+		Area* clone() const override;
+		bool contains(const QPoint & p) const override;
+		QString coordsToString() const override;
+		void draw(QPainter*) override;
+		void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p) override;
+		bool setCoords(const QString & s) override;
+		QString typeString() const override { return i18n("Rectangle"); }
+		QBitmap getMask() const override;
+			QString getHTMLCode() const override;
+		void updateSelectionPoints() override;
 };
 
 
@@ -241,19 +241,19 @@ class CircleArea : public Area
 {
 	public:
 		CircleArea();
-		virtual ~CircleArea();
+		~CircleArea() override;
 
-		virtual Area* clone() const;
-		virtual bool contains(const QPoint & p) const;
-		virtual QString coordsToString() const;
-		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
-		virtual bool setCoords(const QString & s);
-		virtual void setRect(const QRect & r);
-		virtual QString typeString() const { return i18n("Circle"); }
-		virtual QBitmap getMask() const;
-		virtual QString getHTMLCode() const;
-		virtual void updateSelectionPoints();
+		Area* clone() const override;
+		bool contains(const QPoint & p) const override;
+		QString coordsToString() const override;
+		void draw(QPainter*) override;
+		void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p) override;
+		bool setCoords(const QString & s) override;
+		void setRect(const QRect & r) override;
+		QString typeString() const override { return i18n("Circle"); }
+		QBitmap getMask() const override;
+		QString getHTMLCode() const override;
+		void updateSelectionPoints() override;
 
 };
 
@@ -264,22 +264,22 @@ class PolyArea :public Area
 {
 	public:
 		PolyArea();
-		virtual ~PolyArea();
+		~PolyArea() override;
 
-		virtual Area* clone() const;
-		virtual bool contains(const QPoint & p) const;
-		virtual QString coordsToString() const;
-		virtual void draw(QPainter*);
-		virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
-		virtual void simplifyCoords();
-  	virtual int addCoord(const QPoint & p);
-		virtual bool setCoords(const QString & s);
-		virtual QRect selectionRect() const;
-		virtual void setFinished(bool b, bool removeLast);
-		virtual QString typeString() const { return i18n("Polygon"); }
-		virtual QBitmap getMask() const;
-		virtual QString getHTMLCode() const;
-		virtual void updateSelectionPoints();
+		Area* clone() const override;
+		bool contains(const QPoint & p) const override;
+		QString coordsToString() const override;
+		void draw(QPainter*) override;
+		void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p) override;
+		void simplifyCoords() override;
+  	int addCoord(const QPoint & p) override;
+		bool setCoords(const QString & s) override;
+		QRect selectionRect() const override;
+		void setFinished(bool b, bool removeLast) override;
+		QString typeString() const override { return i18n("Polygon"); }
+		QBitmap getMask() const override;
+		QString getHTMLCode() const override;
+		void updateSelectionPoints() override;
 
   private:
    static int distance(const QPoint &p1, const QPoint &p2);
@@ -294,15 +294,15 @@ class DefaultArea :public Area
 {
  public:
   DefaultArea();
-  virtual ~DefaultArea();
+  ~DefaultArea() override;
 
-  virtual Area* clone() const;
+  Area* clone() const override;
   // the default area isn't drawn
-  virtual void draw(QPainter*);
-  virtual QString typeString() const { 
+  void draw(QPainter*) override;
+  QString typeString() const override { 
     return i18n("Default"); 
   }
-  virtual QString getHTMLCode() const;
+  QString getHTMLCode() const override;
 
 };
 
@@ -320,7 +320,7 @@ typedef QListIterator<Area*> AreaListIterator;
 class AreaSelection : public Area {
 public :
   AreaSelection();
-  virtual ~AreaSelection();
+  ~AreaSelection() override;
 
   /**
    * New Methods
@@ -346,25 +346,25 @@ public :
   /**
    * Overridden Methods of the Area class
    */
-  virtual bool contains(const QPoint & p) const;
+  bool contains(const QPoint & p) const override;
 
   /**
    *
    **/
-  virtual SelectionPoint* onSelectionPoint(const QPoint & p, double zoom) const;
+  SelectionPoint* onSelectionPoint(const QPoint & p, double zoom) const override;
 
   /**
    * Only if one Area is selected the moveSelectionPoint method
    * of that Area will be called
    **/
-  virtual void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p);
+  void moveSelectionPoint(SelectionPoint* selectionPoint, const QPoint & p) override;
 
-  virtual const SelectionPointList & selectionPoints() const;
+  const SelectionPointList & selectionPoints() const override;
 
   /**
    * All Areas will be moved by dx and dy
    **/
-  virtual void moveBy(int dx, int dy);
+  void moveBy(int dx, int dy) override;
 
   /**
    * Calls for every selected Area the setArea with the
@@ -372,51 +372,51 @@ public :
    * IMPORTANT : works only if the copy Area is an AreaSelection
    * and have the same number of Areas
    **/
-  virtual void setArea(const Area & copy);
+  void setArea(const Area & copy) override;
   virtual void setAreaSelection(const AreaSelection & copy);
 
   /**
    * If only one Area is selected the setRect method of that Area
    * will be called
    **/
-  virtual void setRect(const QRect & r);
-  virtual QRect rect() const;
+  void setRect(const QRect & r) override;
+  QRect rect() const override;
 
 
-  virtual QString typeString() const;
-  virtual ShapeType type() const;
+  QString typeString() const override;
+  ShapeType type() const override;
 
   // The selection is only a container
   // so it is never drawn
-  virtual void draw(QPainter*);
+  void draw(QPainter*) override;
 
 
   /**
    * A deep copy of the Areas
    **/
-  virtual Area* clone() const;
+  Area* clone() const override;
 
-  virtual void resetSelectionPointState();
-  virtual void setSelectionPointStates(SelectionPoint::State st);
+  void resetSelectionPointState() override;
+  void setSelectionPointStates(SelectionPoint::State st) override;
   void updateSelectionPointStates();
 
-  virtual void updateSelectionPoints();
-  virtual int addCoord(const QPoint & p);
-  virtual void insertCoord(int pos, const QPoint & p);
-  virtual void removeCoord(int pos);
-  virtual bool removeSelectionPoint(SelectionPoint *);
-  virtual void moveCoord(int pos,const QPoint & p);
-  virtual QPolygon coords() const;
-  virtual void highlightSelectionPoint(int);
+  void updateSelectionPoints() override;
+  int addCoord(const QPoint & p) override;
+  void insertCoord(int pos, const QPoint & p) override;
+  void removeCoord(int pos) override;
+  bool removeSelectionPoint(SelectionPoint *) override;
+  void moveCoord(int pos,const QPoint & p) override;
+  QPolygon coords() const override;
+  void highlightSelectionPoint(int) override;
 
-  virtual QRect selectionRect() const;
+  QRect selectionRect() const override;
 
-  virtual QString attribute(const QString & name) const;
-  virtual void setAttribute(const QString & name, const QString & value);
-  virtual AttributeIterator attributeIterator() const;
+  QString attribute(const QString & name) const override;
+  void setAttribute(const QString & name, const QString & value) override;
+  AttributeIterator attributeIterator() const override;
 
-  virtual void setMoving(bool b);
-  virtual bool isMoving() const;
+  void setMoving(bool b) override;
+  bool isMoving() const override;
 
 
   bool allAreasWithin(const QRect & r) const;

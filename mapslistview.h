@@ -35,7 +35,7 @@ class MapsListView : public QWidget
 Q_OBJECT
 public:
   explicit MapsListView(QWidget *parent);
-  ~MapsListView();
+  ~MapsListView() override;
 
   /**
    * Adds the given map to the ListView

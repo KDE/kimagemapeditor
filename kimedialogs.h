@@ -34,7 +34,7 @@ class CoordsEdit : public QWidget {
 Q_OBJECT
 	public :
 		CoordsEdit(QWidget *parent, Area* a);
-		virtual ~CoordsEdit();
+		~CoordsEdit() override;
 		virtual void applyChanges();
 	protected:
 		Area *area;   // The working area
@@ -47,7 +47,7 @@ Q_OBJECT
 class RectCoordsEdit : public CoordsEdit {
 	public:
 		RectCoordsEdit(QWidget *parent, Area* a);
-		virtual void applyChanges();
+		void applyChanges() override;
 	private:
 		QSpinBox *topXSpin;
 		QSpinBox *topYSpin;
@@ -58,7 +58,7 @@ class RectCoordsEdit : public CoordsEdit {
 class CircleCoordsEdit : public CoordsEdit {
 	public:
 		CircleCoordsEdit(QWidget *parent, Area* a);
-		virtual void applyChanges();
+		void applyChanges() override;
 	private:
 		QSpinBox *centerXSpin;
 		QSpinBox *centerYSpin;
@@ -71,8 +71,8 @@ class PolyCoordsEdit : public CoordsEdit {
 Q_OBJECT	
 	public:
 		PolyCoordsEdit(QWidget *parent, Area* a);
-		~PolyCoordsEdit();
-		virtual void applyChanges();
+		~PolyCoordsEdit() override;
+		void applyChanges() override;
 	private:
 		QTableWidget *coordsTable;
 		void updatePoints();
@@ -87,7 +87,7 @@ class SelectionCoordsEdit : public CoordsEdit {
 Q_OBJECT	
 	public:
 		SelectionCoordsEdit(QWidget *parent, Area* a);
-		virtual void applyChanges();
+		void applyChanges() override;
 	private:
 		QSpinBox *topXSpin;
 		QSpinBox *topYSpin;
@@ -124,7 +124,7 @@ Q_OBJECT
 
 	public:
 		AreaDialog(KImageMapEditor* parent,Area * a);
-		~AreaDialog();
+		~AreaDialog() override;
 	protected slots:
 		virtual void slotOk();
 		virtual void slotApply();
@@ -149,7 +149,7 @@ class PreferencesDialog : public QDialog {
 Q_OBJECT
 	public:
 		PreferencesDialog(QWidget *parent,KConfig*);
-		~PreferencesDialog();
+		~PreferencesDialog() override;
 	protected slots:
 	  virtual void slotDefault( void );
   	virtual void slotOk( void );
@@ -172,7 +172,7 @@ class QTemporaryFile;
 class HTMLPreviewDialog : public QDialog{
   public:
     HTMLPreviewDialog(QWidget *, const QString &);
-    ~HTMLPreviewDialog();
+    ~HTMLPreviewDialog() override;
   private:
     QWebEngineView* htmlPart;
     QTemporaryFile* tempFile;

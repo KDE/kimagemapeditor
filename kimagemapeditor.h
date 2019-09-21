@@ -86,7 +86,7 @@ public:
       mapTag = 0L;
     };
 
-    virtual ~HtmlMapElement() {};
+    ~HtmlMapElement() override {};
 
     MapTag* mapTag;
 };
@@ -96,7 +96,7 @@ public:
 HtmlImgElement(const QString & s) : HtmlElement(s) {
       imgTag = 0L;
     };
-    virtual ~HtmlImgElement() {}
+    ~HtmlImgElement() override {}
     ;
     ImageTag* imgTag;
 };
@@ -135,7 +135,7 @@ public :
 
     KImageMapEditor(QWidget *parentWidget,
                     QObject *parent, const QVariantList &args = QVariantList());
-    virtual ~KImageMapEditor();
+    ~KImageMapEditor() override;
 
     static KConfig *config();
 
@@ -181,15 +181,15 @@ public :
     virtual void readProperties(const KConfigGroup &);
     virtual void saveProperties(KConfigGroup &);
     using KParts::ReadWritePart::closeUrl;
-    virtual bool closeUrl();
-    bool queryClose();
-    virtual void setReadWrite(bool);
+    bool closeUrl() override;
+    bool queryClose() override;
+    void setReadWrite(bool) override;
     QString getHtmlCode();
 
     /**
      * Reimplemented to disable and enable Save action
      */
-    virtual void setModified(bool);
+    void setModified(bool) override;
 
     /**
      * Opens the given file.
@@ -360,9 +360,9 @@ public slots:
 
 protected slots:
     // overridden from KReadWritePart
-    virtual bool openFile();
+    bool openFile() override;
 
-    virtual bool saveFile() {
+    bool saveFile() override {
         saveImageMap( url() );
 //        setModified(false);
         return true;

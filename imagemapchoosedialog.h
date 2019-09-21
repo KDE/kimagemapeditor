@@ -45,7 +45,7 @@ Q_OBJECT
  public:
     ImageMapChooseDialog(QWidget* parent,QList<MapTag*> _maps,
 			 QList<ImageTag*> _images, const QUrl & _baseUrl);
-    ~ImageMapChooseDialog();
+    ~ImageMapChooseDialog() override;
     QUrl pixUrl;
     MapTag* currentMap;
  protected slots:

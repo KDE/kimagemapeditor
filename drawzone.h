@@ -42,7 +42,7 @@ class DrawZone : public QWidget  {
 public:
 
   DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor);
-  ~DrawZone();
+  ~DrawZone() override;
 
   QImage picture() const;
   void repaintArea(const Area & a);
@@ -61,19 +61,19 @@ public:
     return image.rect(); 
   }
 
-  virtual QSize sizeHint () const;
+  QSize sizeHint () const override;
   virtual QSize minimumSize () const;
 
 protected:
 
-  virtual void mouseDoubleClickEvent(QMouseEvent*);
-  virtual void mousePressEvent(QMouseEvent*);
-  virtual void mouseReleaseEvent(QMouseEvent*);
-  virtual void mouseMoveEvent(QMouseEvent*);
+  void mouseDoubleClickEvent(QMouseEvent*) override;
+  void mousePressEvent(QMouseEvent*) override;
+  void mouseReleaseEvent(QMouseEvent*) override;
+  void mouseMoveEvent(QMouseEvent*) override;
   //virtual void resizeEvent(QResizeEvent*);
-  virtual void paintEvent(QPaintEvent*);//,int,int,int,int);
-  virtual void dropEvent(QDropEvent*);
-  virtual void dragEnterEvent(QDragEnterEvent*);
+  void paintEvent(QPaintEvent*) override;//,int,int,int,int);
+  void dropEvent(QDropEvent*) override;
+  void dragEnterEvent(QDragEnterEvent*) override;
   
   /**
   * Represents whats currently going on

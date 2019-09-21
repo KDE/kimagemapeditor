@@ -30,7 +30,7 @@ class KimeShell : public KParts::MainWindow
 
 public:
   KimeShell( const char *name=0 );
-  virtual ~KimeShell();
+  ~KimeShell() override;
 
   void setStdout(bool b);
   void openFile(const QUrl & url);
@@ -50,10 +50,10 @@ protected:
   void writeConfig(KConfigGroup&);
 
 //  virtual bool queryClose();
-  virtual void readProperties(const KConfigGroup &config);
-  virtual void saveProperties(KConfigGroup &config);
+  void readProperties(const KConfigGroup &config) override;
+  void saveProperties(KConfigGroup &config) override;
 
-  virtual bool queryClose();
+  bool queryClose() override;
   virtual bool queryExit();
 
 

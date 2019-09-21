@@ -36,7 +36,7 @@ class AreaListView : public QWidget
 
 public:
   explicit AreaListView(QWidget *parent);
-  ~AreaListView();
+  ~AreaListView() override;
 
   QTreeWidget* listView;
   QPushButton *upBtn;

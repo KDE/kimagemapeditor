@@ -32,10 +32,10 @@ class CutCommand : public QUndoCommand
 {
 	public:
   	CutCommand (KImageMapEditor * document, const AreaSelection & selection);
-  	virtual ~CutCommand();
+  	~CutCommand() override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
   	AreaSelection *_cutAreaSelection;
@@ -57,10 +57,10 @@ class PasteCommand : public QUndoCommand
 {
 	public:
   	PasteCommand (KImageMapEditor * document, const AreaSelection & selection);
-  	~PasteCommand ();
+  	~PasteCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
   	AreaSelection *_pasteAreaSelection;
@@ -74,10 +74,10 @@ class MoveCommand : public QUndoCommand
 {
 	public:
   	MoveCommand (KImageMapEditor *document, AreaSelection *a,const QPoint & oldPoint);
-  	~MoveCommand ();
+  	~MoveCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
 		QPoint _newPoint;
@@ -92,10 +92,10 @@ class ResizeCommand : public QUndoCommand
 {
 	public:
   	ResizeCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
-  	~ResizeCommand ();
+  	~ResizeCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
 
@@ -109,10 +109,10 @@ class AddPointCommand : public QUndoCommand
 {
 	public:
   	AddPointCommand (KImageMapEditor *document, AreaSelection *a, const QPoint & p);
-  	~AddPointCommand ();
+  	~AddPointCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
 
@@ -126,10 +126,10 @@ class RemovePointCommand : public QUndoCommand
 {
 	public:
   	RemovePointCommand (KImageMapEditor *document, AreaSelection *a, Area *oldArea);
-  	~RemovePointCommand ();
+  	~RemovePointCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
 
@@ -144,10 +144,10 @@ class CreateCommand : public QUndoCommand
 {
 	public:
   	CreateCommand (KImageMapEditor *document, Area *area);
-  	~CreateCommand ();
+  	~CreateCommand () override;
 
-  	virtual void redo();
-  	virtual void undo();
+  	void redo() override;
+  	void undo() override;
 
   protected:
 

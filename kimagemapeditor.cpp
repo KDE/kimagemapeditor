@@ -74,7 +74,7 @@
 #include "mapslistview.h"
 #include "kimecommon.h"
 #include "imagemapchoosedialog.h"
-#include "version.h"
+#include "kimagemapeditor_version.h"
 
 K_PLUGIN_FACTORY(KImageMapEditorFactory, registerPlugin<KImageMapEditor>();)
 
@@ -83,7 +83,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   : KParts::ReadWritePart(parent)
 {
   KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
-              KIMAGEMAPEDITOR_VERSION, i18n( "An HTML imagemap editor" ),
+              KIMAGEMAPEDITOR_VERSION_STRING, i18n( "An HTML imagemap editor" ),
               KAboutLicense::GPL,
               i18n("(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</email>"));
   setComponentData(aboutData, false);

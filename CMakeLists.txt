@@ -1,6 +1,13 @@
-project(kimagemapeditor)
+cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
-cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+# KDE Application Version, managed by release script
+set(KDE_APPLICATIONS_VERSION_MAJOR "19")
+set(KDE_APPLICATIONS_VERSION_MINOR "11")
+set(KDE_APPLICATIONS_VERSION_MICRO "70")
+set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIONS_VERSION_MINOR}.${KDE_APPLICATIONS_VERSION_MICRO}")
+
+project(kimagemapeditor VERSION ${KDE_APPLICATIONS_VERSION})
+
 set (QT_MIN_VERSION "5.7.0")
 set (KF5_MIN_VERSION "5.15.0")
 
@@ -36,6 +43,9 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMOptionalAddSubdirectory)
 include(ECMQtDeclareLoggingCategory)
+include(ECMSetupVersion)
+
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KIMAGEMAPEDITOR VERSION_HEADER kimagemapeditor_version.h)
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 

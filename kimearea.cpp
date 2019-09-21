@@ -415,19 +415,19 @@ void Area::drawAlt(QPainter* p)
 {
   double x,y;
 
-  double scalex = p->matrix().m11();
+  const double scalex = p->transform().m11();
 //  double scaley = p.matrix().m12();
 
-  QMatrix oldMatrix = p->matrix();
+  const QTransform oldTransform = p->transform();
 
-  p->setMatrix(QMatrix(1,oldMatrix.m12(), oldMatrix.m21(), 1, oldMatrix.dx(), oldMatrix.dy() ));
+  p->setTransform(QTransform(1,oldTransform.m12(), oldTransform.m21(), 1, oldTransform.dx(), oldTransform.dy() ));
 
   x = (rect().x()+rect().width()/2)*scalex;
   y = (rect().y()+rect().height()/2)*scalex;
 
-  QFontMetrics metrics = p->fontMetrics();
+  const QFontMetrics metrics = p->fontMetrics();
 
-  int w = metrics.width(attribute("alt"));
+  const int w = metrics.boundingRect(attribute("alt")).width();
   x -= w/2;
   y += metrics.height()/4;
 
@@ -441,7 +441,7 @@ void Area::drawAlt(QPainter* p)
 
   p->drawText(myround(x),myround(y),attribute("alt"));
 
-  p->setMatrix(oldMatrix);
+  p->setTransform(oldTransform);
 }
 
 void Area::draw(QPainter * p)
@@ -452,17 +452,17 @@ void Area::draw(QPainter * p)
   if (_isSelected)  {
     // We do not want to have the selection points 
     // scaled, so calculate the unscaled version
-    double scalex = p->matrix().m11();
-    QMatrix oldMatrix = p->matrix();
-    p->setMatrix(QMatrix(1,oldMatrix.m12(), 
-			 oldMatrix.m21(), 1, 
-			 oldMatrix.dx(), 
-			 oldMatrix.dy() ));
+    const double scalex = p->transform().m11();
+    const QTransform oldTransform = p->transform();
+    p->setTransform(QTransform(1,oldTransform.m12(),
+			 oldTransform.m21(), 1,
+			 oldTransform.dx(),
+			 oldTransform.dy() ));
 
     for (int i=0; i<_selectionPoints.size(); i++) {
       _selectionPoints.at(i)->draw(p,scalex);
     }
-    p->setMatrix(oldMatrix);
+    p->setTransform(oldTransform);
   }
 
   if (showAlt) {

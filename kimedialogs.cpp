@@ -279,7 +279,7 @@ QWidget* AreaDialog::createGeneralPage()
   hrefEdit = new QLineEdit(area->attribute("href"));
   hboxLayout->addWidget(hrefEdit);
   QPushButton *btn = new QPushButton;
-  btn->setIcon(SmallIcon("document-open"));
+  btn->setIcon(QIcon::fromTheme("document-open"));
   connect( btn, SIGNAL(pressed()), this, SLOT(slotChooseHref()));
   hboxLayout->addWidget(btn);
 

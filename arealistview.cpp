@@ -58,11 +58,11 @@ AreaListView::AreaListView(QWidget *parent)
 
   QHBoxLayout *buttonsLayout = new QHBoxLayout;
   upBtn = new QPushButton;
-  upBtn->setIcon(SmallIcon("go-up"));
+  upBtn->setIcon(QIcon::fromTheme("go-up"));
   buttonsLayout->addWidget(upBtn);
 
   downBtn = new QPushButton;
-  downBtn->setIcon(SmallIcon("go-down"));
+  downBtn->setIcon(QIcon::fromTheme("go-down"));
   buttonsLayout->addWidget(downBtn);
 
   mainLayout->addLayout(buttonsLayout);

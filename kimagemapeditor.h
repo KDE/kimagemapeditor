@@ -72,7 +72,7 @@ public:
 
 class HtmlElement {
 public:
-    HtmlElement(const QString & s) {
+    explicit HtmlElement(const QString & s) {
         htmlCode = s;
     };
     virtual ~HtmlElement() {}
@@ -93,7 +93,7 @@ public:
 
 class HtmlImgElement : public HtmlElement {
 public:
-HtmlImgElement(const QString & s) : HtmlElement(s) {
+    explicit HtmlImgElement(const QString & s) : HtmlElement(s) {
       imgTag = 0L;
     };
     ~HtmlImgElement() override {}

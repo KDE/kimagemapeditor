@@ -50,7 +50,7 @@ class ImagesListView : public QTreeWidget
   Q_OBJECT
 
 public:
-  ImagesListView(QWidget *parent);
+  explicit ImagesListView(QWidget *parent);
   ~ImagesListView() override;
 
   /**

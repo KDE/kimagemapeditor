@@ -896,7 +896,7 @@ QImage KImageMapEditor::getBackgroundImage() {
     // The translated string must be divided into
     // parts with about the same size that fit to the image
     QString str = i18n("Drop an image or HTML file");
-    const QStringList strList = str.split(" ");
+    const QStringList strList = str.split(' ');
 
     // Get the string parts
     QString tmp;
@@ -1718,7 +1718,7 @@ QHash<QString,QString> KImageMapEditor::getTagAttributes(QTextStream & s, QStrin
   if (value.right(3)=="-->")
     return dict;
 
-  if (value.startsWith("!--")) {
+  if (value.startsWith(QLatin1String("!--"))) {
     while (!s.atEnd()) {
       s >> w;
       readText.append(w);
@@ -2326,7 +2326,7 @@ static QUrl toRelative(const QUrl& urlToConvert,const QUrl& baseURL)
   {
     QString path = urlToConvert.path();
     QString basePath = baseURL.path().endsWith('/') ? baseURL.path() : baseURL.path() + '/';
-    if (path.startsWith("/") && basePath != "/")
+    if (path.startsWith(QLatin1String("/")) && basePath != "/")
     {
       path.remove(0, 1);
       basePath.remove(0, 1);
@@ -2875,7 +2875,7 @@ void KImageMapEditor::imageUsemap() {
      // Update the htmlCode of the HtmlElement
      HtmlImgElement* imgEl = findHtmlImgElement(imageTag);
 
-     imgEl->htmlCode = "<";
+     imgEl->htmlCode = QLatin1String("<");
      QString tagName = imgEl->imgTag->value("tagname");
      imgEl->htmlCode += QString(tagName);
      QHashIterator<QString, QString> it( *imgEl->imgTag );

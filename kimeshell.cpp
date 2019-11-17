@@ -144,7 +144,6 @@ void KimeShell::fileNew()
     // button is clicked
 
     // About this function, the style guide (
-    // http://developer.kde.org/documentation/standards/kde/style/basics/index.html )
     // says that it should open a new window if the document is _not_
     // in its initial state.  This is what we do here..
     if ( ! m_part->url().isEmpty() || m_part->isModified() )
@@ -178,7 +177,6 @@ void KimeShell::fileOpen()
                   "HTML Files (*.htm *.html);;All Files (*)"));
   if (!url.isEmpty()) {
         // About this function, the style guide (
-        // http://developer.kde.org/documentation/standards/kde/style/basics/index.html )
         // says that it should open a new window if the document is _not_
         // in its initial state.  This is what we do here..
         if ( m_part->url().isEmpty() && ! m_part->isModified() )

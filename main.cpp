@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
   if (app.isSessionRestored())
   {
-      RESTORE(KimeShell);
+      kRestoreMainWindows<KimeShell>();
   }
   else
   {

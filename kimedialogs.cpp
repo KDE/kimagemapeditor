@@ -275,7 +275,7 @@ QWidget* AreaDialog::createGeneralPage()
   // the accelerator for the row is working
   QWidget *hbox = new QWidget;
   QHBoxLayout *hboxLayout = new QHBoxLayout(hbox);
-  hboxLayout->setMargin(0);
+  hboxLayout->setContentsMargins(0, 0, 0, 0);
   hrefEdit = new QLineEdit(area->attribute("href"));
   hboxLayout->addWidget(hrefEdit);
   QPushButton *btn = new QPushButton;
@@ -312,7 +312,7 @@ QWidget* AreaDialog::createCoordsPage()
 {
   QFrame* page = new QFrame(this);
   QVBoxLayout *layout = new QVBoxLayout(page);
-  layout->setMargin(5);
+  layout->setContentsMargins(5, 5, 5, 5);
 
   coordsEdit = createCoordsEdit(page, area);
   layout->addWidget(coordsEdit);
@@ -369,7 +369,7 @@ AreaDialog::AreaDialog(KImageMapEditor* parent, Area* a)
   QVBoxLayout *layout = new QVBoxLayout(this);
 
   // To get a margin around everything
-  layout->setMargin(5);
+  layout->setContentsMargins(5, 5, 5, 5);
 
   QLabel *lbl = new QLabel("<b>"+shape+"</b>");
   lbl->setTextFormat(Qt::RichText);

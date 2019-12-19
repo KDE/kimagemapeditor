@@ -36,7 +36,7 @@ AreaListView::AreaListView(QWidget *parent)
 {
   QVBoxLayout *mainLayout = new QVBoxLayout(this);
   mainLayout->setSpacing(0);
-  mainLayout->setMargin(0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
 
   listView = new QTreeWidget(this);
   listView->setColumnCount(2);

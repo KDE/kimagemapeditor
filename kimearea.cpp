@@ -549,7 +549,7 @@ QPixmap Area::cutOut(const QImage & image)
 //  partOfMask = partOfMask.normalize();
 	if (!partOfMask.isValid())
 	   qCDebug(KIMAGEMAPEDITOR_LOG) << "PartofMask not valid : " << partOfMask.x() << "," << partOfMask.y() << ","
-	            << partOfMask.width() << "," << partOfMask.height() << "," << endl;
+                << partOfMask.width() << "," << partOfMask.height() << ",";
 
 /*
 	QBitmap mask2(partOfMask.width(), partOfMask.height());

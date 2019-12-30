@@ -963,7 +963,7 @@ QImage KImageMapEditor::getBackgroundImage() {
   if ( ! QFileInfo(path).exists() ) {
       qCCritical(KIMAGEMAPEDITOR_LOG) << "Couldn't find needed " << filename << " file in "
                    "the data directory of KImageMapEditor.\n"
-                   "Perhaps you have forgotten to do a make install !" << endl;
+                   "Perhaps you have forgotten to do a make install !";
       exit(1);
   }
 */
@@ -1440,10 +1440,10 @@ void KImageMapEditor::setPicture(const QUrl & url) {
          imageUsemapAction->setEnabled(true);
      }
      else
-         qCCritical(KIMAGEMAPEDITOR_LOG) << QString("The image %1 could not be opened.").arg(url.path()) << endl;
+         qCCritical(KIMAGEMAPEDITOR_LOG) << QString("The image %1 could not be opened.").arg(url.path());
   }
   else
-     qCCritical(KIMAGEMAPEDITOR_LOG) << QString("The image %1 does not exist.").arg(url.path()) << endl;
+     qCCritical(KIMAGEMAPEDITOR_LOG) << QString("The image %1 does not exist.").arg(url.path());
 }
 
 void KImageMapEditor::setPicture(const QImage & pix) {

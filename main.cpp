@@ -56,8 +56,6 @@ int main(int argc, char *argv[])
 
   QCommandLineParser parser;
   aboutData.setupCommandLine(&parser);
-  parser.addVersionOption();
-  parser.addHelpOption();
 
   parser.addOption(QCommandLineOption(QStringList() << QLatin1String("c") << QLatin1String("stdout"), i18n("Write HTML-Code to stdout on exit")));
   parser.addPositionalArgument(QLatin1String("[File]"), i18n("File to open"));

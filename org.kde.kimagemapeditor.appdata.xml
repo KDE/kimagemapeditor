@@ -120,6 +120,7 @@
       <caption xml:lang="pt">Edição de um mapa de imagens HTML no KImageMapEditor</caption>
       <caption xml:lang="pt-BR">Editando mapeamento de imagem HTML no KImageMapEditor</caption>
       <caption xml:lang="ru">Редактирование HTML-разметки карты изображения в KImageMapEditor</caption>
+      <caption xml:lang="sk">Editovanie HTML mapy obrázkov v KImageMapEditor</caption>
       <caption xml:lang="sv">Redigering av HTML-bildkarta i KImagemapeditor</caption>
       <caption xml:lang="uk">Редагування HTML-карти зображення у KImageMapEditor</caption>
       <caption xml:lang="x-test">xxEditing HTML image map in KImageMapEditorxx</caption>
@@ -129,7 +130,7 @@
   </screenshots>
   <url type="homepage">https://www.kde.org/applications/development/kimagemapeditor/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kimagemapeditor</url>
-  <url type="help">http://docs.kde.org/?application=kimagemapeditor</url>
+  <url type="help">https://docs.kde.org/?application=kimagemapeditor</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>kimagemapeditor</binary>

@@ -130,7 +130,7 @@
   </screenshots>
   <url type="homepage">https://www.kde.org/applications/development/kimagemapeditor/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kimagemapeditor</url>
-  <url type="help">http://docs.kde.org/?application=kimagemapeditor</url>
+  <url type="help">https://docs.kde.org/?application=kimagemapeditor</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>kimagemapeditor</binary>

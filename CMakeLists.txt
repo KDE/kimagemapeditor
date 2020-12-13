@@ -9,7 +9,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(kimagemapeditor VERSION ${RELEASE_SERVICE_VERSION})
 
 set (QT_MIN_VERSION "5.7.0")
-set (KF5_MIN_VERSION "5.15.0")
+set (KF5_MIN_VERSION "5.44.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -91,14 +91,19 @@ install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
 
+add_library(kimagemapeditorpart MODULE ${kimagemapeditor_PART_SRCS})
+kcoreaddons_desktop_to_json(kimagemapeditorpart kimagemapeditorpart.desktop)
 
-add_library(kimagemapeditor MODULE ${kimagemapeditor_PART_SRCS})
+target_link_libraries(kimagemapeditorpart
+    KF5::CoreAddons
+    KF5::IconThemes
+    KF5::I18n
+    KF5::ConfigCore
+    KF5::Parts
+    Qt5::WebEngineWidgets
+)
 
-
-target_link_libraries(kimagemapeditor KF5::CoreAddons KF5::IconThemes KF5::I18n KF5::ConfigCore KF5::Parts Qt5::WebEngineWidgets)
-
-install(TARGETS kimagemapeditor  DESTINATION ${PLUGIN_INSTALL_DIR})
-
+install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)
 
 ########### next target ###############
 

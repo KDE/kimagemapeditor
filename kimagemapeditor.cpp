@@ -76,7 +76,7 @@
 #include "imagemapchoosedialog.h"
 #include "kimagemapeditor_version.h"
 
-K_PLUGIN_FACTORY(KImageMapEditorFactory, registerPlugin<KImageMapEditor>();)
+K_PLUGIN_FACTORY_WITH_JSON(KImageMapEditorFactory, "kimagemapeditorpart.json", registerPlugin<KImageMapEditor>();)
 
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
             QObject *parent, const QVariantList & )

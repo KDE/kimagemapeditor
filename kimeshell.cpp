@@ -38,6 +38,9 @@
 #include <KToolBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
+#include <KPluginLoader>
+#include <KPluginFactory>
+#include <KPluginMetaData>
 
 #include "drawzone.h"
 #include "kimagemapeditor.h"	// the KPart
@@ -63,17 +66,45 @@ KimeShell::KimeShell(const char * )
   //  setMainDockWidget( mainDock); // master dockwidget
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 0";
 
-  m_part = new KImageMapEditor((QWidget*)nullptr, this);
-
-//	setCentralWidget( part->widget() );
-
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 1";
   setupActions();
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 2";
 
+  const auto plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/parts"),
+                                                  [](const KPluginMetaData& metaData) {
+      return metaData.pluginId() == QLatin1String("kimagemapeditorpart");
+  });
+
+  KPluginFactory *factory = plugins.isEmpty() ? nullptr : KPluginLoader(plugins.first().fileName()).factory();
+
+  if (!factory) {
+    // can't do anything useful without part, thus quit the app
+    KMessageBox::error(this, i18n("Could not find kimagemapeditorpart part!"));
+
+    qApp->quit();
+    // return here, because qApp->quit() only means "exit the
+    // next time we enter the event loop...
+    return;
+  }
+
+  m_part = factory->create<KParts::ReadWritePart>(this);
+  m_editorInterface = qobject_cast<KImageMapEditorInterface*>(m_part);
+
+  if (!m_part || !m_editorInterface) {
+    // can't do anything useful without part, thus quit the app
+    KMessageBox::error(this, i18n("Could not create kimagemapeditorpart part!"));
+
+    qApp->quit();
+    // return here, because qApp->quit() only means "exit the
+    // next time we enter the event loop...
+    return;
+  }
+
+//	setCentralWidget( part->widget() );
+
 	_stdout=false;
 
-//  createGUI( part );
+//  createGUI( m_part );
 	createShellGUI( true );
   guiFactory()->addClient( m_part );
   KParts::GUIActivateEvent ev( true );
@@ -157,7 +188,7 @@ void KimeShell::fileNew()
 
 void KimeShell::openFile(const QUrl & url)
 {
-	m_part->openFile(url);
+	m_editorInterface->openFile(url);
 }
 
 void KimeShell::openLastFile()
@@ -165,9 +196,9 @@ void KimeShell::openLastFile()
 #ifdef __GNUC__
 #warning there is no group defined
 #endif
-    KConfigGroup cg( m_part->config(), QString() );
+    KConfigGroup cg( KSharedConfig::openConfig(), QString() );
     if (cg.readEntry("start-with-last-used-document",true))
-        m_part->openLastURL( cg );
+        m_editorInterface->openLastURL( cg );
 }
 
 void KimeShell::fileOpen()
@@ -182,7 +213,7 @@ void KimeShell::fileOpen()
         if ( m_part->url().isEmpty() && ! m_part->isModified() )
         {
             // we open the file in this window...
-            m_part->openURL(url);
+            m_editorInterface->openURL(url);
         }
         else
         {
@@ -224,7 +255,7 @@ void KimeShell::writeConfig(KConfigGroup &config) {
 void KimeShell::saveProperties(KConfigGroup &config)
 {
   //writeConfig(config);
-  m_part->saveProperties(config);
+  m_editorInterface->saveProperties(config);
   writeConfig();
 
 }
@@ -232,7 +263,7 @@ void KimeShell::saveProperties(KConfigGroup &config)
 void KimeShell::readProperties(const KConfigGroup &config)
 {
   readConfig();
-  m_part->readProperties(config);
+  m_editorInterface->readProperties(config);
 
 
 }

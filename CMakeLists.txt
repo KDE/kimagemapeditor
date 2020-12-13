@@ -52,21 +52,7 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 add_subdirectory( pics )
 ecm_optional_add_subdirectory(doc)
 
-set(libkimagemapeditorcommon_SRC
-    areacreator.cpp
-    kimearea.cpp
-    kimecommands.cpp
-    kimedialogs.cpp
-    kimagemapeditor.cpp
-    drawzone.cpp
-    arealistview.cpp
-    imageslistview.cpp
-    mapslistview.cpp
-    imagemapchoosedialog.cpp
-)
-qt5_add_resources(libkimagemapeditorcommon_SRC kimagemapeditor.qrc)
-
-ecm_qt_declare_logging_category(libkimagemapeditorcommon_SRC
+ecm_qt_declare_logging_category(kimagemapeditor_LOG_SRC
     HEADER kimagemapeditor_debug.h
     IDENTIFIER KIMAGEMAPEDITOR_LOG
     CATEGORY_NAME org.kde.kimagemapeditor
@@ -75,8 +61,12 @@ ecm_qt_declare_logging_category(libkimagemapeditorcommon_SRC
 
 ########### next target ###############
 
-set(kimagemapeditor_bin_SRCS main.cpp kimeshell.cpp ${libkimagemapeditorcommon_SRC})
-
+set(kimagemapeditor_bin_SRCS
+    main.cpp
+    kimeshell.cpp
+    ${kimagemapeditor_LOG_SRC}
+)
+qt5_add_resources(kimagemapeditor_bin_SRCS kimagemapeditor.qrc)
 
 add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
@@ -89,7 +79,20 @@ install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### next target ###############
 
-set(kimagemapeditor_PART_SRCS ${libkimagemapeditorcommon_SRC})
+set(kimagemapeditor_PART_SRCS
+    areacreator.cpp
+    kimearea.cpp
+    kimecommands.cpp
+    kimedialogs.cpp
+    kimagemapeditor.cpp
+    drawzone.cpp
+    arealistview.cpp
+    imageslistview.cpp
+    mapslistview.cpp
+    imagemapchoosedialog.cpp
+    ${kimagemapeditor_LOG_SRC}
+)
+qt5_add_resources(kimagemapeditor_PART_SRCS kimagemapeditorpart.qrc)
 
 add_library(kimagemapeditorpart MODULE ${kimagemapeditor_PART_SRCS})
 kcoreaddons_desktop_to_json(kimagemapeditorpart kimagemapeditorpart.desktop)

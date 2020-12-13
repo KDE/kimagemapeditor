@@ -22,7 +22,10 @@
 #include <KConfigGroup>
 #include <QUrl>
 
-class KImageMapEditor;
+namespace KParts {
+class ReadWritePart;
+}
+class KImageMapEditorInterface;
 
 class KimeShell : public KParts::MainWindow
 {
@@ -66,8 +69,10 @@ private slots:
   void optionsConfigureToolbars();
 
   void applyNewToolbarConfig();
+
 private:
-  KImageMapEditor *m_part;
+  KParts::ReadWritePart *m_part;
+  KImageMapEditorInterface *m_editorInterface;
 
 	bool _stdout; // write HTML-Code to stdout on exit ?
 

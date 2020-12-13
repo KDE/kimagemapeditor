@@ -31,6 +31,7 @@
 #include <KParts/ReadWritePart>
 
 #include "kimearea.h"
+#include "kimagemapeditorinterface.h"
 
 /**
   *@author Jan Schaefer
@@ -122,8 +123,11 @@ class KAboutData;
 #define STATUS_CURSOR 1000
 #define STATUS_SELECTION 1001
 
-class KImageMapEditor : public KParts::ReadWritePart {
+class KImageMapEditor : public KParts::ReadWritePart, public KImageMapEditorInterface
+{
     Q_OBJECT
+    Q_INTERFACES(KImageMapEditorInterface)
+
 public :
     enum ToolType { Selection,
 		    Rectangle,
@@ -178,8 +182,8 @@ public :
     void readConfig();
     void writeConfig();
 
-    virtual void readProperties(const KConfigGroup &);
-    virtual void saveProperties(KConfigGroup &);
+    void readProperties(const KConfigGroup &) override;
+    void saveProperties(KConfigGroup &) override;
     using KParts::ReadWritePart::closeUrl;
     bool closeUrl() override;
     bool queryClose() override;
@@ -196,13 +200,13 @@ public :
      * If it's an HTML file openURL is called
      * If it's an Image, the image is added to the image list
      */
-    void openFile(const QUrl &);
+    void openFile(const QUrl &) override;
 
     /**
      * Opens the last URL the user worked with.
      * Sets also, the last map and the last image
      */
-    void openLastURL(const KConfigGroup &);
+    void openLastURL(const KConfigGroup &) override;
 
     void readConfig(const KConfigGroup &);
     void writeConfig(KConfigGroup &);
@@ -344,7 +348,7 @@ private:
     void drawToCenter(QPainter* p, const QString & str, int y, int width);
 
 public slots:
-    virtual bool openURL(const QUrl & url);
+    bool openURL(const QUrl & url) override;
     void slotChangeStatusCoords(int x,int y);
     void slotUpdateSelectionCoords();
     void slotUpdateSelectionCoords( const QRect &);

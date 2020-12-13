@@ -414,7 +414,7 @@ AreaDialog::~AreaDialog() {
 }
 
 CoordsEdit* AreaDialog::createCoordsEdit(QWidget *parent, Area *a) {
-  if (!a) return 0;
+  if (!a) return nullptr;
   switch (a->type()) {
     case Area::Rectangle :
         return new RectCoordsEdit(parent,a);
@@ -479,7 +479,7 @@ void AreaDialog::slotApply() {
 
 void AreaDialog::slotCancel() {
   if (area) {
-    AreaSelection *selection=0L;
+    AreaSelection *selection = nullptr;
     if ( (selection=dynamic_cast<AreaSelection*>(areaCopy)) )
       area->setArea(*selection);
     else

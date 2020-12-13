@@ -127,7 +127,7 @@ ImagesListViewItem* ImagesListView::findListViewItem(ImageTag* tag) {
   }
 
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageListView::findListViewItem: found nothing ";
-  return 0L;
+  return nullptr;
 
 }
 
@@ -149,7 +149,7 @@ void ImagesListView::slotSelectionChanged() {
 ImageTag* ImagesListView::selectedImage() {
   if (selectedItems().isEmpty()) {
      qCDebug(KIMAGEMAPEDITOR_LOG) << "ImagesListView::selectedImage: No Image is selected !";
-     return 0L;
+     return nullptr;
   }
 
   ImagesListViewItem* item = static_cast<ImagesListViewItem*>(selectedItems().first());

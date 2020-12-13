@@ -91,8 +91,8 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
 //  KDockMainWindow* mainWidget;
 
   mainWindow = dynamic_cast<KXmlGuiWindow*>(parent) ;
-  QSplitter * splitter = 0L;
-  tabWidget = 0L;
+  QSplitter * splitter = nullptr;
+  tabWidget = nullptr;
 
   if (mainWindow) {
 //    qCDebug(KIMAGEMAPEDITOR_LOG) << "KImageMapEditor: We got a KDockMainWindow !";
@@ -122,9 +122,9 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   }
   else
   {
-    areaDock = 0L;
-    mapsDock = 0L;
-    imagesDock = 0L;
+    areaDock = nullptr;
+    mapsDock = nullptr;
+    imagesDock = nullptr;
     splitter = new QSplitter(parentWidget);
     tabWidget = new QTabWidget(splitter);
     areaListView = new AreaListView(tabWidget);
@@ -173,7 +173,7 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
     setWidget(splitter);
   } else {
     QScrollArea *sa = new QScrollArea(mainWindow);
-    drawZone = new DrawZone(0L,this);
+    drawZone = new DrawZone(nullptr,this);
     mainWindow->setCentralWidget(sa);
     sa->setWidget(drawZone);
     setWidget(mainWindow);
@@ -184,9 +184,9 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
   areas = new AreaList();
   currentSelected= new AreaSelection();
   _currentToolType=KImageMapEditor::Selection;
-  copyArea=0L;
-  defaultArea=0L;
-  currentMapElement = 0L;
+  copyArea = nullptr;
+  defaultArea = nullptr;
+  currentMapElement = nullptr;
 
   setupActions();
   setupStatusBar();
@@ -976,7 +976,7 @@ void KImageMapEditor::addArea(Area* area) {
   // Perhaps we've got a selection of areas
   // so test it and add all areas of the selection
   // nested selections are possible but doesn't exist
-  AreaSelection *selection=0L;
+  AreaSelection *selection = nullptr;
   if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
     AreaListIterator it = selection->getAreaListIterator();
@@ -1028,7 +1028,7 @@ void KImageMapEditor::deleteArea( Area * area )
   // Perhaps we've got a selection of areas
   // so test it and delete the whole selection
   // nested selections are possible but doesn't exist
-  AreaSelection *selection=0L;
+  AreaSelection *selection = nullptr;
     if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
     AreaListIterator it = selection->getAreaListIterator();
@@ -1173,7 +1173,7 @@ void KImageMapEditor::slotAreaChanged(Area *area)
 
   setModified(true);
 
-  AreaSelection *selection=0L;
+  AreaSelection *selection = nullptr;
   if ( (selection = dynamic_cast <AreaSelection*> ( area ) ) )
   {
     AreaListIterator it = selection->getAreaListIterator();
@@ -1347,7 +1347,7 @@ Area* KImageMapEditor::onArea(const QPoint & p) const {
     if (s->contains(p))
       return s;
   }
-  return 0L;
+  return nullptr;
 }
 
 
@@ -1859,13 +1859,13 @@ bool KImageMapEditor::openHTMLFile(const QUrl & url)
   f.open(QIODevice::ReadOnly);
   QTextStream s(&f);
   QChar w;
-  QHash<QString,QString> *attr=0L;
+  QHash<QString,QString> *attr = nullptr;
   QList<ImageTag*> images;
-  MapTag *map=0L;
+  MapTag *map = nullptr;
   QList<MapTag*> maps;
 
   _htmlContent.clear();
-  currentMapElement = 0L;
+  currentMapElement = nullptr;
 
   QString temp;
   QString origcode;
@@ -1936,7 +1936,7 @@ bool KImageMapEditor::openHTMLFile(const QUrl & url)
 
   QUrl imageUrl;
 
-  map = 0L;
+  map = nullptr;
 
     // If we have more than on map or more than one image
     // Let the user choose, otherwise take the only ones
@@ -2056,7 +2056,7 @@ HtmlElement* KImageMapEditor::findHtmlElement(const QString & containingText) {
       return el;
     }
   }
-  return 0L;
+  return nullptr;
 }
 
 /**
@@ -2072,7 +2072,7 @@ HtmlImgElement* KImageMapEditor::findHtmlImgElement(ImageTag* tag) {
     if (imgEl && imgEl->imgTag == tag)
        return imgEl;
   }
-  return 0L;
+  return nullptr;
 }
 
 void KImageMapEditor::addMap(const QString & name = QString()) {
@@ -2121,7 +2121,7 @@ HtmlMapElement* KImageMapEditor::findHtmlMapElement(const QString & mapName) {
   }
 
   qCWarning(KIMAGEMAPEDITOR_LOG) << "KImageMapEditor::findHtmlMapElement: couldn't find map '" << mapName << "'";
-  return 0L;
+  return nullptr;
 }
 
 /**
@@ -2215,7 +2215,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
   // Remove old areas only if a new map is loaded
   deleteAllAreas();
   delete defaultArea;
-  defaultArea = 0L;
+  defaultArea = nullptr;
 //    qCDebug(KIMAGEMAPEDITOR_LOG) << "KImageMapEditor::setMap : Setting new map : " << map->name;
     _mapName = map->name;
     AreaTag tag;
@@ -2472,7 +2472,7 @@ void KImageMapEditor::slotBackOne()
   AreaList list = currentSelected->getAreaList();
 
 
-  Area *a = 0L;
+  Area *a = nullptr;
   // move every selected Area one step lower
   for (int i=areas->count()-2; i > -1; i--)
   {
@@ -2498,7 +2498,7 @@ void KImageMapEditor::slotForwardOne()
 
   AreaList list = currentSelected->getAreaList();
 
-  Area *a = 0L;
+  Area *a = nullptr;
   // move every selected Area one step higher
   for (int i=1; i < (int)areas->count(); i++)
   {
@@ -2697,7 +2697,7 @@ void KImageMapEditor::mapDelete()
   _htmlContent.removeAll(mapEl);
   if (mapsListView->count() == 0) {
 
-      currentMapElement = 0L;
+      currentMapElement = nullptr;
       deleteAllAreas();
       setMapActionsEnabled(false);
   }
@@ -2760,12 +2760,12 @@ bool KImageMapEditor::closeUrl()
   imagesListView->clear();
 
   delete copyArea;
-  copyArea=0L;
+  copyArea = nullptr;
 
   delete defaultArea;
-  defaultArea=0L;
+  defaultArea = nullptr;
 
-  currentMapElement = 0L;
+  currentMapElement = nullptr;
 
   init();
   emit setWindowCaption("");

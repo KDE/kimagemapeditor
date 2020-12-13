@@ -140,7 +140,7 @@ Area::Area()
 	_finished=false;
 	_isSelected=false;
 	_name=i18n("noname");
-	_listViewItem=0L;
+	_listViewItem = nullptr;
 	currentHighlighted=-1;
 	_type=Area::None;
 }
@@ -276,7 +276,7 @@ void Area::setListViewItem(QTreeWidgetItem* item) {
 void Area::deleteListViewItem()
 {
 	delete _listViewItem;
-	_listViewItem = 0L;
+	_listViewItem = nullptr;
 }
 
 
@@ -487,7 +487,7 @@ SelectionPoint* Area::onSelectionPoint(const QPoint & p, double zoom) const
     }
   }
 
-  return 0L;
+  return nullptr;
 }
 
 
@@ -1286,7 +1286,7 @@ Area* AreaSelection::clone() const
 void AreaSelection::add(Area *a)
 {
   // if a selection of areas was added get the areas of it
-  AreaSelection *selection=0L;
+  AreaSelection *selection = nullptr;
   if ( (selection = dynamic_cast <AreaSelection*> ( a ) ) ) {
     AreaList list = selection->getAreaList();
     Area* area;
@@ -1361,7 +1361,7 @@ SelectionPoint* AreaSelection::onSelectionPoint(const QPoint & p, double zoom) c
 {
 
   if (_areas->count() != 1)
-    return 0L;
+    return nullptr;
 
   return _areas->first()->onSelectionPoint(p,zoom);
 }

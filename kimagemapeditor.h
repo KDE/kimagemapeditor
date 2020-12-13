@@ -83,7 +83,7 @@ public:
 class HtmlMapElement : public HtmlElement {
 public:
     explicit HtmlMapElement(const QString & s) : HtmlElement(s) {
-      mapTag = 0L;
+      mapTag = nullptr;
     };
 
     ~HtmlMapElement() override {};
@@ -94,7 +94,7 @@ public:
 class HtmlImgElement : public HtmlElement {
 public:
     explicit HtmlImgElement(const QString & s) : HtmlElement(s) {
-      imgTag = 0L;
+      imgTag = nullptr;
     };
     ~HtmlImgElement() override {}
     ;

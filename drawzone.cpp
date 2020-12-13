@@ -50,8 +50,8 @@ DrawZone::DrawZone(QWidget *parent,KImageMapEditor* _imageMapEditor)
   imageMapEditor=_imageMapEditor;
 //	setPicture(QImage());
   currentAction=None;
-  currentArea=0L;
-  oldArea=0L;
+  currentArea = nullptr;
+  oldArea = nullptr;
   _zoom=1;
   //  QWidget* w = new QWidget(this);
   //  setWidget(w);
@@ -358,7 +358,7 @@ void DrawZone::mousePressLeftNoneOnBackground(QMouseEvent*, QPoint drawStart) {
     // leftclicked with the arrow at an areafree position
     if (toolType==KImageMapEditor::Selection)
     {
-      currentArea=0L;
+      currentArea = nullptr;
       imageMapEditor->deselectAll();
       // Start drawing a selection rectangle
       currentAction=DoSelect;
@@ -422,7 +422,7 @@ void DrawZone::mousePressEvent(QMouseEvent* e)
   drawStart=translateFromZoom(drawStart);
 
   delete oldArea;
-  oldArea=0L;
+  oldArea = nullptr;
 
   if (currentArea) {
     oldArea = currentArea->clone();
@@ -573,7 +573,7 @@ void DrawZone::mouseReleaseEvent(QMouseEvent *e) {
   }
   
   delete oldArea;
-  oldArea=0L;
+  oldArea = nullptr;
   imageMapEditor->slotUpdateSelectionCoords();
 }
 
@@ -786,7 +786,7 @@ void DrawZone::cancelDrawing()
     currentAction = None;
     QRect r = translateToZoom(currentArea->selectionRect());
     delete currentArea;
-    currentArea = 0L;
+    currentArea = nullptr;
     repaint(r);
     imageMapEditor->slotUpdateSelectionCoords();
   }

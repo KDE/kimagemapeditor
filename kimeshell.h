@@ -29,7 +29,7 @@ class KimeShell : public KParts::MainWindow
   Q_OBJECT
 
 public:
-  explicit KimeShell( const char *name=0 );
+  explicit KimeShell( const char *name=nullptr );
   ~KimeShell() override;
 
   void setStdout(bool b);

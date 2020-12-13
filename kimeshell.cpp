@@ -63,7 +63,7 @@ KimeShell::KimeShell(const char * )
   //  setMainDockWidget( mainDock); // master dockwidget
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 0";
 
-  m_part = new KImageMapEditor((QWidget*)0L, this);
+  m_part = new KImageMapEditor((QWidget*)nullptr, this);
 
 //	setCentralWidget( part->widget() );
 

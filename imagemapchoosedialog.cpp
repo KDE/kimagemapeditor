@@ -39,7 +39,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
   : QDialog(parent)
 {
   qCDebug(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog::ImageMapChooseDialog";
-  if (parent == 0) {
+  if (parent == nullptr) {
     qCWarning(KIMAGEMAPEDITOR_LOG) << "ImageMapChooseDialog: parent is null!";
   }
 
@@ -115,7 +115,7 @@ ImageMapChooseDialog::ImageMapChooseDialog(
   initImageListTable(layout);
 
   if (! maps.isEmpty()) {
-    mapListBox->setCurrentItem(0);
+    mapListBox->setCurrentItem(nullptr);
     slotMapChanged(0);
   }
 

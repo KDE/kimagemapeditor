@@ -79,6 +79,8 @@ install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### next target ###############
 
+configure_file(kimagemapeditorpart.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)
+
 set(kimagemapeditor_PART_SRCS
     areacreator.cpp
     kimearea.cpp
@@ -95,7 +97,7 @@ set(kimagemapeditor_PART_SRCS
 qt5_add_resources(kimagemapeditor_PART_SRCS kimagemapeditorpart.qrc)
 
 add_library(kimagemapeditorpart MODULE ${kimagemapeditor_PART_SRCS})
-kcoreaddons_desktop_to_json(kimagemapeditorpart kimagemapeditorpart.desktop)
+kcoreaddons_desktop_to_json(kimagemapeditorpart ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)
 
 target_link_libraries(kimagemapeditorpart
     KF5::CoreAddons
@@ -115,7 +117,7 @@ install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/par
 
 install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install( FILES  kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 if (NOT ECM_VERSION VERSION_LESS "5.59.0")
     install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )

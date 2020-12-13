@@ -109,3 +109,10 @@ Name[x-test]=xxKImageMapEditorxx
 Name[zh_CN]=KImageMapEditor
 Name[zh_HK]=KImageMapEditor
 Name[zh_TW]=KImageMapEditor
+
+X-KDE-PluginInfo-Name=kimagemapeditorpart
+X-KDE-PluginInfo-Version=@kimagemapeditor_VERSION@
+X-KDE-PluginInfo-License=GPLv2+
+X-KDE-PluginInfo-Copyright=Copyright 2001-2003 Jan Schäfer
+X-KDE-PluginInfo-Author=Jan Schäfer
+X-KDE-PluginInfo-Email=janschaefer@users.sourceforge.net

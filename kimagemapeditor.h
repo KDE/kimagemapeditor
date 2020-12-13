@@ -27,6 +27,7 @@
 #include <QTextStream>
 #include <QUrl>
 
+#include <kparts_version.h>
 #include <KConfig>
 #include <KParts/ReadWritePart>
 
@@ -137,9 +138,17 @@ public :
 		    AddPoint,
 		    RemovePoint };
 
-    KImageMapEditor(QWidget *parentWidget,
-                    QObject *parent, const QVariantList &args = QVariantList());
+    KImageMapEditor(QWidget *parentWidget, QObject *parent,
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+                    const KPluginMetaData &metaData,
+#endif
+                    const QVariantList &args = QVariantList());
     ~KImageMapEditor() override;
+
+    /**
+     * Return custom componentName for KXMLGUIClient, as for historical reasons the plugin id is not used
+     */
+    QString componentName() const override;
 
     static KConfig *config();
 

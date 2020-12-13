@@ -52,7 +52,11 @@
 
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+#include <KPluginMetaData>
+#else
 #include <KAboutData>
+#endif
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KIO/Job>
@@ -78,15 +82,22 @@
 
 K_PLUGIN_FACTORY_WITH_JSON(KImageMapEditorFactory, "kimagemapeditorpart.json", registerPlugin<KImageMapEditor>();)
 
-KImageMapEditor::KImageMapEditor(QWidget *parentWidget,
-            QObject *parent, const QVariantList & )
+KImageMapEditor::KImageMapEditor(QWidget *parentWidget, QObject *parent,
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+                                 const KPluginMetaData &metaData,
+#endif
+                                 const QVariantList & )
   : KParts::ReadWritePart(parent)
 {
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+  setMetaData(metaData);
+#else
   KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
               KIMAGEMAPEDITOR_VERSION_STRING, i18n( "An HTML imagemap editor" ),
               KAboutLicense::GPL,
-              i18n("(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</email>"));
+              i18n("Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"));
   setComponentData(aboutData, false);
+#endif
 
 //  KDockMainWindow* mainWidget;
 
@@ -219,6 +230,16 @@ KImageMapEditor::~KImageMapEditor() {
     delete imagesDock;
   }
 
+}
+
+QString KImageMapEditor::componentName() const
+{
+    // the part ui.rc file is in the program folder, not a separate one
+    // TODO: change the component name to "kimagemapeditorpart" by removing this method and
+    // adapting the folder where the file is placed.
+    // Needs a way to also move any potential custom user ui.rc files
+    // from kimagemapeditor/ to kimagemapeditorpart/
+    return QStringLiteral("kimagemapeditor");
 }
 
 MapTag::MapTag() {

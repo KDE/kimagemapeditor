@@ -51,7 +51,7 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include "kimagemapeditor_debug.h"
+#include <kwidgetsaddons_version.h>
 #if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
 #include <KPluginMetaData>
 #else
@@ -69,6 +69,7 @@
 #include <KXmlGuiWindow>
 
 // local
+#include "kimagemapeditor_debug.h"
 #include "drawzone.h"
 #include "kimedialogs.h"
 #include "kimecommands.h"
@@ -525,7 +526,11 @@ void KImageMapEditor::setupActions()
   // View Zoom
   zoomAction  = new KSelectAction(i18n("Zoom"), this);
   actionCollection()->addAction("view_zoom", zoomAction );
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
+  connect(zoomAction, &KSelectAction::indexTriggered, this, &KImageMapEditor::slotZoom);
+#else
   connect(zoomAction, SIGNAL(triggered(int)), this, SLOT (slotZoom()));
+#endif
   zoomAction->setWhatsThis(i18n("<h3>Zoom</h3>"
                           "Choose the desired zoom level."));
   zoomAction->setItems(QStringList()

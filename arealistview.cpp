@@ -24,7 +24,6 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include <KIconLoader>
 #include <KLocalizedString>
 
 // local

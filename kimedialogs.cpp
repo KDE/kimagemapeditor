@@ -41,7 +41,6 @@
 // KDE Frameworks
 #include "kimagemapeditor_debug.h"
 #include <KConfigGroup>
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KSharedConfig>
 

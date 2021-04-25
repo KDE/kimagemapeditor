@@ -29,7 +29,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     DocTools
     GuiAddons
-    IconThemes
     Parts
     I18n
     WidgetsAddons
@@ -72,7 +71,7 @@ add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
 set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
 
-target_link_libraries(kimagemapeditor_bin KF5::CoreAddons KF5::I18n KF5::ConfigCore KF5::IconThemes KF5::Parts Qt5::WebEngineWidgets)
+target_link_libraries(kimagemapeditor_bin KF5::CoreAddons KF5::I18n KF5::ConfigCore KF5::Parts Qt5::WebEngineWidgets)
 
 install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -101,7 +100,6 @@ kcoreaddons_desktop_to_json(kimagemapeditorpart ${CMAKE_CURRENT_BINARY_DIR}/kima
 
 target_link_libraries(kimagemapeditorpart
     KF5::CoreAddons
-    KF5::IconThemes
     KF5::I18n
     KF5::ConfigCore
     KF5::Parts

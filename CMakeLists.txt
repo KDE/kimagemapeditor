@@ -81,7 +81,7 @@ target_link_libraries(kimagemapeditor_bin
     Qt5::WebEngineWidgets
 )
 
-install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kimagemapeditor_bin  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############

@@ -1,4 +1,4 @@
-install( FILES  addpointcursor.png freehandcursor.png polygoncursor.png removepointcursor.png  DESTINATION ${DATA_INSTALL_DIR}/kimagemapeditor)
+install( FILES  addpointcursor.png freehandcursor.png polygoncursor.png removepointcursor.png  DESTINATION ${KDE_INSTALL_DATADIR}/kimagemapeditor)
 
 ecm_install_icons(ICONS
     16-apps-kimagemapeditor.png
@@ -18,7 +18,7 @@ ecm_install_icons(ICONS
     64-apps-kimagemapeditor.png
     128-apps-kimagemapeditor.png
     sc-apps-kimagemapeditor.svgz
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
 

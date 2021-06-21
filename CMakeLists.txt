@@ -56,6 +56,8 @@ ecm_qt_declare_logging_category(kimagemapeditor_LOG_SRC
     IDENTIFIER KIMAGEMAPEDITOR_LOG
     CATEGORY_NAME org.kde.kimagemapeditor
     DEFAULT_SEVERITY Warning
+    DESCRIPTION "KImageMapEditor"
+    EXPORT KIMAGEMAPEDITOR
 )
 
 ########### next target ###############
@@ -117,6 +119,10 @@ install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDI
 install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
-install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
+ecm_qt_install_logging_categories(
+    EXPORT KIMAGEMAPEDITOR
+    FILE kimagemapeditor.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

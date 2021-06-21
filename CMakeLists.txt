@@ -40,7 +40,6 @@ include(ECMInstallIcons)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
-include(ECMOptionalAddSubdirectory)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
 
@@ -49,7 +48,7 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KIMAGEMAPEDITOR VER
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} )
 
 add_subdirectory( pics )
-ecm_optional_add_subdirectory(doc)
+add_subdirectory( doc )
 
 ecm_qt_declare_logging_category(kimagemapeditor_LOG_SRC
     HEADER kimagemapeditor_debug.h

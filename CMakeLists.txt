@@ -61,7 +61,11 @@ ecm_qt_declare_logging_category(kimagemapeditor_LOG_SRC
 
 ########### next target ###############
 
-set(kimagemapeditor_bin_SRCS
+add_executable(kimagemapeditor_bin)
+
+set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
+
+target_sources(kimagemapeditor_bin PRIVATE
     main.cpp
     kimeshell.cpp
     ${kimagemapeditor_LOG_SRC}
@@ -69,11 +73,13 @@ set(kimagemapeditor_bin_SRCS
     kimagemapeditor.qrc
 )
 
-add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
-
-set_target_properties(kimagemapeditor_bin PROPERTIES OUTPUT_NAME kimagemapeditor)
-
-target_link_libraries(kimagemapeditor_bin KF5::CoreAddons KF5::I18n KF5::ConfigCore KF5::Parts Qt5::WebEngineWidgets)
+target_link_libraries(kimagemapeditor_bin
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::ConfigCore
+    KF5::Parts
+    Qt5::WebEngineWidgets
+)
 
 install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -82,7 +88,9 @@ install(TARGETS kimagemapeditor_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 configure_file(kimagemapeditorpart.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)
 
-set(kimagemapeditor_PART_SRCS
+add_library(kimagemapeditorpart MODULE)
+
+target_sources(kimagemapeditorpart PRIVATE
     areacreator.cpp
     kimearea.cpp
     kimecommands.cpp
@@ -98,7 +106,6 @@ set(kimagemapeditor_PART_SRCS
     kimagemapeditorpart.qrc
 )
 
-add_library(kimagemapeditorpart MODULE ${kimagemapeditor_PART_SRCS})
 kcoreaddons_desktop_to_json(kimagemapeditorpart ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)
 
 target_link_libraries(kimagemapeditorpart
@@ -110,9 +117,6 @@ target_link_libraries(kimagemapeditorpart
 )
 
 install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)
-
-########### next target ###############
-
 
 ########### install files ###############
 

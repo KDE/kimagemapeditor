@@ -27,7 +27,6 @@
 #include <QTextStream>
 #include <QUrl>
 
-#include <kparts_version.h>
 #include <KConfig>
 #include <KParts/ReadWritePart>
 
@@ -139,9 +138,7 @@ public :
 		    RemovePoint };
 
     KImageMapEditor(QWidget *parentWidget, QObject *parent,
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
                     const KPluginMetaData &metaData,
-#endif
                     const QVariantList &args = QVariantList());
     ~KImageMapEditor() override;
 

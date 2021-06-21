@@ -51,12 +51,7 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
-#include <kwidgetsaddons_version.h>
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
 #include <KPluginMetaData>
-#else
-#include <KAboutData>
-#endif
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KIO/Job>
@@ -84,21 +79,11 @@
 K_PLUGIN_FACTORY_WITH_JSON(KImageMapEditorFactory, "kimagemapeditorpart.json", registerPlugin<KImageMapEditor>();)
 
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget, QObject *parent,
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
                                  const KPluginMetaData &metaData,
-#endif
                                  const QVariantList & )
   : KParts::ReadWritePart(parent)
 {
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
   setMetaData(metaData);
-#else
-  KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
-              KIMAGEMAPEDITOR_VERSION_STRING, i18n( "An HTML imagemap editor" ),
-              KAboutLicense::GPL,
-              i18n("Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"));
-  setComponentData(aboutData, false);
-#endif
 
 //  KDockMainWindow* mainWidget;
 
@@ -526,11 +511,7 @@ void KImageMapEditor::setupActions()
   // View Zoom
   zoomAction  = new KSelectAction(i18n("Zoom"), this);
   actionCollection()->addAction("view_zoom", zoomAction );
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
   connect(zoomAction, &KSelectAction::indexTriggered, this, &KImageMapEditor::slotZoom);
-#else
-  connect(zoomAction, SIGNAL(triggered(int)), this, SLOT (slotZoom()));
-#endif
   zoomAction->setWhatsThis(i18n("<h3>Zoom</h3>"
                           "Choose the desired zoom level."));
   zoomAction->setItems(QStringList()

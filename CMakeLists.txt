@@ -117,10 +117,6 @@ install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDI
 install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
-if (NOT ECM_VERSION VERSION_LESS "5.59.0")
-    install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
-else()
-    install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
-endif()
+install( FILES  kimagemapeditor.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

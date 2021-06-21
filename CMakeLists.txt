@@ -65,8 +65,9 @@ set(kimagemapeditor_bin_SRCS
     main.cpp
     kimeshell.cpp
     ${kimagemapeditor_LOG_SRC}
+
+    kimagemapeditor.qrc
 )
-qt5_add_resources(kimagemapeditor_bin_SRCS kimagemapeditor.qrc)
 
 add_executable(kimagemapeditor_bin ${kimagemapeditor_bin_SRCS})
 
@@ -93,8 +94,9 @@ set(kimagemapeditor_PART_SRCS
     mapslistview.cpp
     imagemapchoosedialog.cpp
     ${kimagemapeditor_LOG_SRC}
+
+    kimagemapeditorpart.qrc
 )
-qt5_add_resources(kimagemapeditor_PART_SRCS kimagemapeditorpart.qrc)
 
 add_library(kimagemapeditorpart MODULE ${kimagemapeditor_PART_SRCS})
 kcoreaddons_desktop_to_json(kimagemapeditorpart ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)

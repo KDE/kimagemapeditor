@@ -124,6 +124,9 @@ install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDI
 install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
+ki18n_install(po)
+kdoctools_install(po)
+
 ecm_qt_install_logging_categories(
     EXPORT KIMAGEMAPEDITOR
     FILE kimagemapeditor.categories

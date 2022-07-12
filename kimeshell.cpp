@@ -38,7 +38,6 @@
 #include <KToolBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
-#include <KPluginLoader>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 
@@ -70,14 +69,9 @@ KimeShell::KimeShell(const char * )
   setupActions();
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 2";
 
-  const auto plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/parts"),
-                                                  [](const KPluginMetaData& metaData) {
-      return metaData.pluginId() == QLatin1String("kimagemapeditorpart");
-  });
+  const auto result = KPluginFactory::instantiatePlugin<KParts::ReadWritePart>(KPluginMetaData(QStringLiteral("kf5/parts/kimagemapeditorpart")), this);
 
-  KPluginFactory *factory = plugins.isEmpty() ? nullptr : KPluginLoader(plugins.first().fileName()).factory();
-
-  if (!factory) {
+  if (!result) {
     // can't do anything useful without part, thus quit the app
     KMessageBox::error(this, i18n("Could not find kimagemapeditorpart part!"));
 
@@ -87,10 +81,10 @@ KimeShell::KimeShell(const char * )
     return;
   }
 
-  m_part = factory->create<KParts::ReadWritePart>(this);
+  m_part = result.plugin;
   m_editorInterface = qobject_cast<KImageMapEditorInterface*>(m_part);
 
-  if (!m_part || !m_editorInterface) {
+  if (!m_editorInterface) {
     // can't do anything useful without part, thus quit the app
     KMessageBox::error(this, i18n("Could not create kimagemapeditorpart part!"));
 

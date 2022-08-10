@@ -1556,7 +1556,7 @@ void KImageMapEditor::mapEditName()
   if (ok && !input.isEmpty()) {
     if (input != _mapName) {
         if (mapsListView->nameAlreadyExists(input))
-            KMessageBox::sorry(this->widget(), i18n("The name <em>%1</em> already exists.", input));
+            KMessageBox::error(this->widget(), i18n("The name <em>%1</em> already exists.", input));
         else {
             setMapName(input);
         }

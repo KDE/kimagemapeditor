@@ -4,6 +4,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KImageMapEditor</name>
+  <name xml:lang="ar">محرر خريطة الصور ك</name>
   <name xml:lang="bg">KImageMapEditor</name>
   <name xml:lang="ca">KImageMapEditor</name>
   <name xml:lang="ca-valencia">KImageMapEditor</name>
@@ -37,6 +38,7 @@
   <name xml:lang="zh-CN">KImageMapEditor</name>
   <name xml:lang="zh-TW">KImageMapEditor</name>
   <summary>HTML Image Map Editor</summary>
+  <summary xml:lang="ar">محرر خريطة الصورة اتش تي ام ال</summary>
   <summary xml:lang="bg">Редактор на HTML маркирани изображения</summary>
   <summary xml:lang="ca">Un editor de correspondències a imatges amb HTML</summary>
   <summary xml:lang="ca-valencia">Un editor de correspondències a imatges amb HTML</summary>
@@ -72,6 +74,7 @@
   <description>
     <p>KImageMapEditor is an editor of image maps embedded inside HTML files,
     based on the &lt;map&gt; tag.</p>
+    <p xml:lang="ar">محرر خريطة الصور ك هو محرر للخرائط المضمنة في ملفات اتش تي ام ال بالاعتماد على وسم &lt;map&gt;.</p>
     <p xml:lang="bg">KImageMapEditor е редактор на маркирани изображения, вграден в HTML файлове, базиран на  етикет &lt;map&gt; </p>
     <p xml:lang="ca">El KImageMapEditor és un editor de correspondències a imatges incrustades dins de fitxers HTML, basat en l'etiqueta &lt;map&gt;.</p>
     <p xml:lang="ca-valencia">KImageMapEditor és un editor de correspondències a imatges incrustades dins de fitxers HTML, basat en l'etiqueta &lt;map&gt;.</p>
@@ -107,6 +110,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Editing HTML image map in KImageMapEditor</caption>
+      <caption xml:lang="ar">يحرر محرر خريطة الصورة اتش تي ام ال في المحرر</caption>
       <caption xml:lang="bg">Редактиране на HTML маркирани изображения с KImageMapEditor</caption>
       <caption xml:lang="ca">Editant una correspondència a imatge amb HTML al KImageMapEditor</caption>
       <caption xml:lang="ca-valencia">Editant una correspondència a imatge amb HTML a KImageMapEditor</caption>

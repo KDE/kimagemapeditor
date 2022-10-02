@@ -1,0 +1,1065 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan@computer.org>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2011-10-26 03:21+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, kde-format
+msgid "Areas"
+msgstr "Аумақтар"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, kde-format
+msgid "Preview"
+msgstr "Қарап-шығу"
+
+#: imagemapchoosedialog.cpp:46
+#, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "Өңдеу үшін құрақ & кескінді таңдау"
+
+#: imagemapchoosedialog.cpp:55
+#, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr "Өңдейтін кескін немесе/және сілтеме-құрағын таңдаңыз"
+
+#: imagemapchoosedialog.cpp:67
+#, kde-format
+msgid "&Maps"
+msgstr "&Сілтеме-құрақтар"
+
+#: imagemapchoosedialog.cpp:79
+#, kde-format
+msgid "Image Preview"
+msgstr "Кескінді қарау"
+
+#: imagemapchoosedialog.cpp:104
+#, kde-format
+msgid "No maps found"
+msgstr "Сілтеме-құрақтар жоқ"
+
+#: imagemapchoosedialog.cpp:140
+#, kde-format
+msgid "No images found"
+msgstr "Кескіндер жоқ"
+
+#: imagemapchoosedialog.cpp:153
+#, kde-format
+msgid "&Images"
+msgstr "Кескіндер"
+
+#: imagemapchoosedialog.cpp:162
+#, kde-format
+msgid "Path"
+msgstr "Жолы"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, kde-format
+msgid "Images"
+msgstr "Кескіндер"
+
+#: imageslistview.cpp:60
+#, kde-format
+msgid "Usemap"
+msgstr "Жұмсалу кестесі"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, kde-format
+msgid "Maps"
+msgstr "Сілтеме-құрақтар"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, kde-format
+msgid "unnamed"
+msgstr "атаусыз"
+
+#: kimagemapeditor.cpp:446
+#, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr ""
+"<h3>Файлды ашу</h3>Жаңа сурет не HTML файлын <em>ашу</em> үшін осыны "
+"түртіңіз."
+
+#: kimagemapeditor.cpp:447
+#, kde-format
+msgid "Open new picture or HTML file"
+msgstr "Жаңа сурет не HTML файлын ашу"
+
+#: kimagemapeditor.cpp:454
+#, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr ""
+"<h3>Файлды сақтау</h3>Өзгерістерді HTML файлға <em>сақтау</em> үшін осыны "
+"түртіңіз."
+
+#: kimagemapeditor.cpp:455
+#, kde-format
+msgid "Save HTML file"
+msgstr "HTML файлын сақтау"
+
+#: kimagemapeditor.cpp:463
+#, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr ""
+"<h3>Файлды жабу</h3>Ашық тұрған HTML файлын <em>жабу</em> үшін осыны "
+"түртіңіз."
+
+#: kimagemapeditor.cpp:464
+#, kde-format
+msgid "Close HTML file"
+msgstr "HTML файлын жабу"
+
+#: kimagemapeditor.cpp:468
+#, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr ""
+"<h3>Көшіріп алу</h3>Таңдалған аумақты <em>көшіріп алу</em> үшін осыны "
+"түртіңіз."
+
+#: kimagemapeditor.cpp:474
+#, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr ""
+"<h3>Қиып алу</h3>Таңдалған аумақты <em>қиып алу</em> үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:480
+#, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr ""
+"<h3>Орналастыру</h3>Көшіріп алынған аумақты <em>орналастыру</em> үшін осыны "
+"түртіңіз."
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, kde-format
+msgid "&Delete"
+msgstr "Ө&шіру"
+
+#: kimagemapeditor.cpp:491
+#, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr "<h3>Өшіру</h3>Таңдалған аумақты <em>өшіру</em> үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:501
+#, kde-format
+msgid "Pr&operties"
+msgstr "Қ&асиеттері"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr "Масштабы"
+
+#: kimagemapeditor.cpp:515
+#, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>Масштабы</h3>Керек масштабын таңдаңыз."
+
+#: kimagemapeditor.cpp:518
+#, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, kde-format
+msgid "Highlight Areas"
+msgstr "Аумақтарды белгілеу"
+
+#: kimagemapeditor.cpp:538
+#, kde-format
+msgid "Show Alt Tag"
+msgstr "Alt тек-белгісін көрсету"
+
+#: kimagemapeditor.cpp:541
+#, kde-format
+msgid "Map &Name..."
+msgstr "Құрақ &атауы..."
+
+#: kimagemapeditor.cpp:545
+#, kde-format
+msgid "Ne&w Map..."
+msgstr "&Жаңа құрақ..."
+
+#: kimagemapeditor.cpp:548
+#, kde-format
+msgid "Create a new map"
+msgstr "Жаңа сілтеме құрақты құру"
+
+#: kimagemapeditor.cpp:550
+#, kde-format
+msgid "D&elete Map"
+msgstr "Құрақты ө&шіру"
+
+#: kimagemapeditor.cpp:553
+#, kde-format
+msgid "Delete the current active map"
+msgstr "Назардағы сілтеме-құрақты өшіру"
+
+#: kimagemapeditor.cpp:555
+#, kde-format
+msgid "Edit &Default Area..."
+msgstr "&Әдетті аумақты өзгерту..."
+
+#: kimagemapeditor.cpp:558
+#, kde-format
+msgid "Edit the default area of the current active map"
+msgstr "Назардағы сілтеме-құрақтың әдетті аумағын өзгерту"
+
+#: kimagemapeditor.cpp:560
+#, kde-format
+msgid "&Preview"
+msgstr "&Қарап-шығу"
+
+#: kimagemapeditor.cpp:563
+#, kde-format
+msgid "Show a preview"
+msgstr "Нобайын көрсету"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, kde-format
+msgid "&Image"
+msgstr "&Кескін"
+
+#: kimagemapeditor.cpp:568
+#, kde-format
+msgid "Add Image..."
+msgstr "Кескінді қосу..."
+
+#: kimagemapeditor.cpp:571
+#, kde-format
+msgid "Add a new image"
+msgstr "Жаңа кескінді қосу"
+
+#: kimagemapeditor.cpp:573
+#, kde-format
+msgid "Remove Image"
+msgstr "Кескінді өшіру"
+
+#: kimagemapeditor.cpp:576
+#, kde-format
+msgid "Remove the current visible image"
+msgstr "Назардағы кескінді өшіру"
+
+#: kimagemapeditor.cpp:578
+#, kde-format
+msgid "Edit Usemap..."
+msgstr "Жұмсалу кестесін тізімін өзгерту"
+
+#: kimagemapeditor.cpp:581
+#, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "Назардағы кескіннің жұмсалу кестесінің тег-белгісін өзгерту"
+
+#: kimagemapeditor.cpp:583
+#, kde-format
+msgid "Show &HTML"
+msgstr "&HTML-ді көрсету"
+
+#: kimagemapeditor.cpp:590
+#, kde-format
+msgid "&Selection"
+msgstr "&Таңдау"
+
+#: kimagemapeditor.cpp:594
+#, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>Таңдау</h3>Аумақтарды таңдау үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:600
+#, kde-format
+msgid "&Circle"
+msgstr "&Шеңбер"
+
+#: kimagemapeditor.cpp:605
+#, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>Шеңбер</h3>Шеңбер салуды бастау үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:610
+#, kde-format
+msgid "&Rectangle"
+msgstr "&Тіктөртбұрыш"
+
+#: kimagemapeditor.cpp:614
+#, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>Тіктөртбұрыш</h3>Тіктөртбұрыш салуды бастау үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:619
+#, kde-format
+msgid "&Polygon"
+msgstr "&Көпбұрыш"
+
+#: kimagemapeditor.cpp:623
+#, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>Көпбұрыш</h3>Көпбұрыш салуды бастау үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:628
+#, kde-format
+msgid "&Freehand Polygon"
+msgstr "Қ&ол-көпбұрыш"
+
+#: kimagemapeditor.cpp:632
+#, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr ""
+"<h3>Қол-көпбұрыш</h3>Көпбұрышты қолмен салуды бастау үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:637
+#, kde-format
+msgid "&Add Point"
+msgstr "&Нүктені қосу"
+
+#: kimagemapeditor.cpp:641
+#, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr "<h3>Нүктені қосу</h3>Көпбұрышқа нүктені қосу үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:646
+#, kde-format
+msgid "&Remove Point"
+msgstr "Нүктені ө&шіру"
+
+#: kimagemapeditor.cpp:651
+#, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr "<h3>Нүктені өшіру</h3>Көпбұрыштың нүктесін өшіру үшін осыны түртіңіз."
+
+#: kimagemapeditor.cpp:655
+#, kde-format
+msgid "Cancel Drawing"
+msgstr "Салудан айну"
+
+#: kimagemapeditor.cpp:660
+#, kde-format
+msgid "Move Left"
+msgstr "Солға жылжыту"
+
+#: kimagemapeditor.cpp:666
+#, kde-format
+msgid "Move Right"
+msgstr "Оңға жылжыту"
+
+#: kimagemapeditor.cpp:671
+#, kde-format
+msgid "Move Up"
+msgstr "Жоғарлату"
+
+#: kimagemapeditor.cpp:676
+#, kde-format
+msgid "Move Down"
+msgstr "Төмендету"
+
+#: kimagemapeditor.cpp:681
+#, kde-format
+msgid "Increase Width"
+msgstr "Енің үлкейту"
+
+#: kimagemapeditor.cpp:686
+#, kde-format
+msgid "Decrease Width"
+msgstr "Енің кішірейту"
+
+#: kimagemapeditor.cpp:691
+#, kde-format
+msgid "Increase Height"
+msgstr "Биіктігін үлкейту"
+
+#: kimagemapeditor.cpp:696
+#, kde-format
+msgid "Decrease Height"
+msgstr "Биіктігін кішірейту"
+
+#: kimagemapeditor.cpp:701
+#, kde-format
+msgid "Bring to Front"
+msgstr "Алға шығару"
+
+#: kimagemapeditor.cpp:705
+#, kde-format
+msgid "Send to Back"
+msgstr "Артқа &тығу"
+
+#: kimagemapeditor.cpp:709
+#, kde-format
+msgid "Bring Forward One"
+msgstr "Жоғарлату"
+
+#: kimagemapeditor.cpp:712
+#, kde-format
+msgid "Send Back One"
+msgstr "Төмендету"
+
+#: kimagemapeditor.cpp:722
+#, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "KImageMapEditor-ды баптау..."
+
+#: kimagemapeditor.cpp:731
+#, kde-format
+msgid "Show Area List"
+msgstr "Аумақтар тізімін көрсету"
+
+#: kimagemapeditor.cpp:736
+#, kde-format
+msgid "Show Map List"
+msgstr "Құрақтар тізімін көрсету"
+
+#: kimagemapeditor.cpp:740
+#, kde-format
+msgid "Show Image List"
+msgstr "Кескіндер тізімін көрсету"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " Таңдау: -  Меңзер: x: 0, y: 0 "
+
+#: kimagemapeditor.cpp:839
+#, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " Меңзер: x: %1, y: %2 "
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " Таңдау: x: %1, y: %2, е: %3, б: %4 "
+
+#: kimagemapeditor.cpp:852
+#, kde-format
+msgid " Selection: - "
+msgstr " Таңдау: - "
+
+#: kimagemapeditor.cpp:905
+#, kde-format
+msgid "Drop an image or HTML file"
+msgstr "Кескін не HTML файлды әкеліңіз"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter Map Name"
+msgstr "Сілтеме-құрақтың атауын келтіріңіз"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter the name of the map:"
+msgstr "Сілтеме-құрақтың атауы:"
+
+#: kimagemapeditor.cpp:1559
+#, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "<em>%1</em> деген бар екен."
+
+#: kimagemapeditor.cpp:1571
+#, kde-format
+msgid "HTML Code of Map"
+msgstr "Сілтеме-құрақтың HTML коды"
+
+#: kimagemapeditor.cpp:1621
+#, kde-format
+msgid "Choose File to Open"
+msgstr "Ашатын файлды таңдаңыз"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
+#| "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
+#| "*.htm *.html|HTML Files\n"
+#| "*.png|PNG Images\n"
+#| "*.jpg *.jpeg|JPEG Images\n"
+#| "*.gif|GIF-Images\n"
+#| "*|All Files"
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"*.png *.jpg *.jpeg *.gif *.htm *.html|Веб файлы\n"
+"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Кескіндер\n"
+"*.htm *.html|HTML файлдар\n"
+"*.png|PNG кескіндері\n"
+"*.jpg *.jpeg|JPEG кескіндері\n"
+"*.gif|GIF кескіндері\n"
+"*|Бүкіл файлдар"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:1680
+#, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt><b>%1</b> деген файл жоқ.</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "Файл жоқ"
+
+#: kimagemapeditor.cpp:2378
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr ""
+"<qt><i>%1</i> деген файл сақталмайды, өйткені оны жазу рұқсатыңыз жоқ.</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>Шынымен <i>%1</i> сілтеме-құрағын өшірмексіз бе?<br /><b>Бұл амалдан "
+"қайтуға мүмкіндік болмайды.</b></qt>"
+
+#: kimagemapeditor.cpp:2695
+#, kde-format
+msgid "Delete Map?"
+msgstr "Сілтеме-құрақ өшірілсін бе?"
+
+#: kimagemapeditor.cpp:2743
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr "<qt><i>%1</i> файлы өзгертілген.<br />Сақтауды қалайсыз ба?</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, fuzzy, kde-format
+#| msgid "Selection"
+msgid "Select image"
+msgstr "Таңдау"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:2874
+#, kde-format
+msgid "Enter Usemap"
+msgstr "Жұмсалу кестесін келтіріңіз"
+
+#: kimagemapeditor.cpp:2875
+#, kde-format
+msgid "Enter the usemap value:"
+msgstr "Жұмсалған мәнін келтіріңіз ..."
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "Өңд&еу"
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, kde-format
+msgid "&View"
+msgstr "&Көрініс"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr "&Құралдар"
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, kde-format
+msgid "&Map"
+msgstr "Құ&рақ"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, kde-format
+msgid "&Settings"
+msgstr "&Баптау"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "KImageMapEditor негізгі құралдары"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "KImageMapEditor сызу құралдары"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#: kimearea.cpp:142
+#, kde-format
+msgid "noname"
+msgstr "атаусыз"
+
+#: kimearea.cpp:1401
+#, kde-format
+msgid "Number of Areas"
+msgstr "Аумақтар саны"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, kde-format
+msgid "Rectangle"
+msgstr "Тіктөртбұрыш"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, kde-format
+msgid "Circle"
+msgstr "Шеңбер"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, kde-format
+msgid "Polygon"
+msgstr "Көпбұрыш"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr "Әдетті"
+
+#: kimecommands.cpp:26
+#, kde-format
+msgid "Cut %1"
+msgstr "%1 дегенді қиып алу"
+
+#: kimecommands.cpp:70
+#, kde-format
+msgid "Delete %1"
+msgstr "%1 дегенді өшіру"
+
+#: kimecommands.cpp:74
+#, kde-format
+msgid "Paste %1"
+msgstr "%1 дегенді орналастыру"
+
+#: kimecommands.cpp:113
+#, kde-format
+msgid "Move %1"
+msgstr "%1 орнын ауыстыру"
+
+#: kimecommands.cpp:169
+#, kde-format
+msgid "Resize %1"
+msgstr "%1 өлшемін өзгерту"
+
+#: kimecommands.cpp:210
+#, kde-format
+msgid "Add point to %1"
+msgstr "%1 нүктесін қосу"
+
+#: kimecommands.cpp:254
+#, kde-format
+msgid "Remove point from %1"
+msgstr "%1 нүктесін кетіру"
+
+#: kimecommands.cpp:301
+#, kde-format
+msgid "Create %1"
+msgstr "%1 дегенді құру"
+
+#: kimedialogs.cpp:76
+#, kde-format
+msgid "Top &X:"
+msgstr "Жоғарғы &X:"
+
+#: kimedialogs.cpp:83
+#, kde-format
+msgid "Top &Y:"
+msgstr "Жоғарғы &Y:"
+
+#: kimedialogs.cpp:90
+#, kde-format
+msgid "&Width:"
+msgstr "&Ені:"
+
+#: kimedialogs.cpp:97
+#, kde-format
+msgid "Hei&ght:"
+msgstr "Б&иіктігі:"
+
+#: kimedialogs.cpp:119
+#, kde-format
+msgid "Center &X:"
+msgstr "Ортасы, &X:"
+
+#: kimedialogs.cpp:126
+#, kde-format
+msgid "Center &Y:"
+msgstr "Ортасы, &Y:"
+
+#: kimedialogs.cpp:133
+#, fuzzy, kde-format
+#| msgid "&Radius:"
+msgid "&Radius:"
+msgstr "&Радиусы:"
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr "Қосу"
+
+#: kimedialogs.cpp:169
+#, kde-format
+msgid "Remove"
+msgstr "Өшіру"
+
+#: kimedialogs.cpp:244
+#, kde-format
+msgid "Top &X"
+msgstr "Жоғарғы &X"
+
+#: kimedialogs.cpp:252
+#, kde-format
+msgid "Top &Y"
+msgstr "Жоғарғы &Y"
+
+#: kimedialogs.cpp:285
+#, kde-format
+msgid "&HREF:"
+msgstr "&HREF:"
+
+#: kimedialogs.cpp:291
+#, kde-format
+msgid "Alt. &Text:"
+msgstr "Alt. &жазуы:"
+
+#: kimedialogs.cpp:294
+#, kde-format
+msgid "Tar&get:"
+msgstr "Мақ&сат:"
+
+#: kimedialogs.cpp:297
+#, kde-format
+msgid "Tit&le:"
+msgstr "А&тауы:"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr ""
+
+#: kimedialogs.cpp:304
+#, kde-format
+msgid "Enable default map"
+msgstr "Әдеттіге қайту"
+
+#: kimedialogs.cpp:328
+#, kde-format
+msgid "OnClick:"
+msgstr "OnClick:"
+
+#: kimedialogs.cpp:329
+#, kde-format
+msgid "OnDblClick:"
+msgstr "OnDblClick:"
+
+#: kimedialogs.cpp:330
+#, kde-format
+msgid "OnMouseDown:"
+msgstr "OnMouseDown:"
+
+#: kimedialogs.cpp:331
+#, kde-format
+msgid "OnMouseUp:"
+msgstr "OnMouseUp:"
+
+#: kimedialogs.cpp:332
+#, kde-format
+msgid "OnMouseOver:"
+msgstr "OnMouseOver:"
+
+#: kimedialogs.cpp:333
+#, kde-format
+msgid "OnMouseMove:"
+msgstr "OnMouseMove:"
+
+#: kimedialogs.cpp:334
+#, kde-format
+msgid "OnMouseOut:"
+msgstr "OnMouseOut:"
+
+#: kimedialogs.cpp:342
+#, kde-format
+msgid "Area Tag Editor"
+msgstr "Аумақ тег-белгісінің редакторы"
+
+#: kimedialogs.cpp:364
+#, kde-format
+msgid "Selection"
+msgstr "Таңдау"
+
+#: kimedialogs.cpp:383
+#, kde-format
+msgid "&General"
+msgstr "&Жалпы"
+
+#: kimedialogs.cpp:390
+#, kde-format
+msgid "Coor&dinates"
+msgstr "Коор&динаттары"
+
+#: kimedialogs.cpp:392
+#, kde-format
+msgid "&JavaScript"
+msgstr "&JavaScript"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "Choose File"
+msgstr "Файлды таңдаңыз"
+
+#: kimedialogs.cpp:436
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgid "All Files (*)"
+msgstr "Бүкіл файлдар"
+
+#: kimedialogs.cpp:505
+#, kde-format
+msgid "Preferences"
+msgstr "Параметрлер"
+
+#: kimedialogs.cpp:519
+#, kde-format
+msgid "&Maximum image preview height:"
+msgstr "Нобай кескіннің макс. биіктігі:"
+
+#: kimedialogs.cpp:528
+#, kde-format
+msgid "&Undo limit:"
+msgstr "&Қайта алатын тереңдігі:"
+
+#: kimedialogs.cpp:535
+#, kde-format
+msgid "&Redo limit:"
+msgstr "Қайтудан &айну тереңдігі:"
+
+#: kimedialogs.cpp:539
+#, kde-format
+msgid "&Start with last used document"
+msgstr "&Өткендегі құжаттан басталсын"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:200
+#, kde-format
+msgid "Choose Picture to Open"
+msgstr "Ашатын кескінді таңдаңыз"
+
+#: main.cpp:30
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "HTML сілтеме-құрақ редакторы"
+
+#: main.cpp:38
+#, kde-format
+msgid "KImageMapEditor"
+msgstr "KImageMapEditor"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr "(c) 2001-2007 Jan Schaefer"
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr "Jan Schaefer"
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr "Joerg Jaspert"
+
+#: main.cpp:43
+#, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "Makefile-ды жазуға және Debian дестесін құруға көмек үшін"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr "Aaron Seigo and Michael"
+
+#: main.cpp:44
+#, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr "--enable-final режімінің жөндңге көмек үшін"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr "Antonio Crevillen"
+
+#: main.cpp:45
+#, kde-format
+msgid "For the Spanish translation"
+msgstr "Испан тіліне аударған үшін"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr "Fabrice Mous"
+
+#: main.cpp:46
+#, kde-format
+msgid "For the Dutch translation"
+msgstr "Голланд тіліне аударған үшін"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr "Germain Chazot"
+
+#: main.cpp:47
+#, kde-format
+msgid "For the French translation"
+msgstr "Француз тіліне аударған үшін"
+
+#: main.cpp:60
+#, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "Шыққанда стандарты шығысына HTML-кодты жазу"
+
+#: main.cpp:61
+#, kde-format
+msgid "File to open"
+msgstr "Ашатын файл"
+
+#, fuzzy
+#~| msgid ""
+#~| "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
+#~| "email>"
+#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+#~ msgstr ""
+#~ "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
+#~ "email>"
+
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><em>%1</em> деген файл бар екен.<br />Үстінен жаза берейік пе?</qt>"
+
+#~ msgid "Overwrite File?"
+#~ msgstr "Үстінен жазбақсыз ба?"
+
+#~ msgid "Overwrite"
+#~ msgstr "Үстінен жазу"
+
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr "<qt><em>%1</em> деген файлға жазу рұқсатыңыз жоқ.</qt> "
+
+#~ msgid "HTML File"
+#~ msgstr "HTML файлы"
+
+#~ msgid "Text File"
+#~ msgstr "Мәтін файлы"
+
+#~ msgid "Web Files"
+#~ msgstr "Веб-файлдар"
+
+#~ msgid "HTML Files"
+#~ msgstr "HTML файлдар"
+
+#~ msgid "PNG Images"
+#~ msgstr "PNG кескіндер"
+
+#~ msgid "JPEG Images"
+#~ msgstr "JPEG кескіндер"
+
+#~ msgid "GIF Images"
+#~ msgstr "GIF кескіндер"

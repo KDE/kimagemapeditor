@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; är en editor av &HTML;-bildkartor av &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kimagemapeditor</keyword>
+<keyword
+>bildkarta</keyword>
+<keyword
+>användningsavbildning</keyword>
+<keyword
+>HTML</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Använda &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; är en editor av &HTML;-bildkartor utvecklad av &kde;-gemenskapen. Den låter dig skapa och ändra &HTML;-<ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>bildkartor</ulink
+>. </para>
+
+<screenshot>
+<screeninfo
+>Här är en skärmbild av &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Skärmbild</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Huvudfönstret i &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Ett vanligt användarfall är en världskarta där varje land är en bildkarta. Genom att klicka på ett land på världskartan kan en länk till det valda landet öppnas.</para>
+
+<para
+>Att skapa en bildkarta kräver följande steg:</para>
+
+<para
+>Läs in en bildfil  (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) eller en &HTML;-fil från disk, eller dra den till bildområdet. Välj en bild i panelen <guilabel
+>Bilder</guilabel
+>.</para>
+
+<para
+>Lägg till en bildkarta genom att använda <menuchoice
+><guimenu
+>Karta</guimenu
+><guimenuitem
+>Ny karta</guimenuitem
+></menuchoice
+> i menyn och lägga till ett kartnamn.</para>
+
+<para
+>Nu är menyn <guimenu
+>Verktyg</guimenu
+> aktiverad och du kan välja en lämplig geometrisk form, som <guimenuitem
+>Cirkel</guimenuitem
+>, <guimenuitem
+>Rektangel</guimenuitem
+>, <guimenuitem
+>Polygon</guimenuitem
+> eller <guimenuitem
+>Frihandspolygon</guimenuitem
+> och definiera ett klickbart område på bilden.</para>
+
+<para
+>Dialogrutan <guilabel
+>Områdestaggeditor</guilabel
+> visas. Ange egenskaperna <guilabel
+>HREF</guilabel
+> (länkens målwebbadress), <guilabel
+>Alt.Text</guilabel
+>, <guilabel
+>Mål</guilabel
+> och <guilabel
+>Titel</guilabel
+> under fliken <guilabel
+>Allmänt</guilabel
+>.</para
+> 
+
+<para
+>Fliken <guilabel
+>Koordinater</guilabel
+> visar formens geometriska data. Genom att redigera värdet kan du justera storlek och position på bilden, eftersom ändringarna omedelbart syns på bilden. Storlek och position kan också ändras genom att använda musen.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>För att visa dialogrutan <guilabel
+>Områdestaggeditor</guilabel
+> för en bildkarta som redan är definierad, använd <guimenuitem
+>Egenskaper</guimenuitem
+> i menyn <guimenu
+>Redigera</guimenu
+> eller områdets sammanhangsberoende meny.</para>
+
+<para
+>Använd <menuchoice
+><guimenu
+>Avbildning</guimenu
+> <guimenuitem
+>Visa HTML</guimenuitem
+></menuchoice
+> för att visa &HTML;-koden som skapats för avbildningen.</para>
+
+<para
+>Öppna därefter <menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Redigera användningsavbildning...</guimenuitem
+></menuchoice
+> och ange avbildningsnamnet som en användningsavbildning (usemap). Spara arbetet med <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Spara</guimenuitem
+></menuchoice
+>. Öppna &HTML;-filen i &konqueror; för att kontrollera att bildkartan fungerar som förväntat.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Inställningsalternativ i &kimagemapeditor; kan kommas åt genom att öppna inställningsdialogrutan från menyn <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa &kimagemapeditor;</guimenuitem
+></menuchoice
+>. </para>
+<screenshot>
+<screeninfo
+>Inställningsdialogrutan i &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Inställningsdialogrutan i &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Inställningsdialogrutan i &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Program copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Dokumentation copyright 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

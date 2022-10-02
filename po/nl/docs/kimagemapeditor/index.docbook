@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; is een &HTML; imagemap-editor door &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>afbeeldingmap</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>HTML</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>&kimagemapeditor; gebruiken</title>
+
+<para
+>&kimagemapeditor; is een &HTML; imagemap-editor ontwikkeld door de &kde; gemeenschap. Het stelt u in staat om &HTML;-<ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>imagemaps</ulink
+> aan te maken en te wijzigen. </para>
+
+<screenshot>
+<screeninfo
+>Hier is een schermafdruk van &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Schermafdruk</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Hoofdvenster van &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Een algemeen geval is een wereldkaart waar elk land een kaartafbeelding is. Door op een land op de kaart te klikken kunt u een koppeling naar het geselecteerde land openen.</para>
+
+<para
+>Het maken van een kaartafbeelding vereist de volgende stappen:</para>
+
+<para
+>Laad een afbeeldingsbestand (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) of een &HTML;-bestand van uw schijf of sleep deze naar het afbeeldingsgebied. Selecteer een afbeelding in het verankeringsgebied <guilabel
+>Afbeeldingen</guilabel
+>.</para>
+
+<para
+>Voeg een kaartafbeelding in met <menuchoice
+><guimenu
+>Kaart</guimenu
+><guimenuitem
+>Nieuwe kaart</guimenuitem
+></menuchoice
+> uit het menu en voer een kaartnaam in.</para>
+
+<para
+>Nu is het menu <guimenu
+>Hulpmiddelen</guimenu
+> actief en kunt u de juiste geometrische vorm zoals <guimenuitem
+>Cirkel</guimenuitem
+>, <guimenuitem
+>Rechthoek</guimenuitem
+>, <guimenuitem
+>Veelhoek</guimenuitem
+> of <guimenuitem
+>Vrije hand veelhoek</guimenuitem
+> en definieer een aan te klikken gebied in de afbeelding.</para>
+
+<para
+>De dialoog <guilabel
+>Bewerker van gebiedstag</guilabel
+> wordt getoond. Op het tabblad <guilabel
+>Algemeen</guilabel
+> voert u de attributen <guilabel
+>HREF</guilabel
+> (de doel-&URL; van de koppeling), <guilabel
+>Alt. tekst</guilabel
+>, <guilabel
+>Doel</guilabel
+> en <guilabel
+>Titel</guilabel
+> in.</para
+> 
+
+<para
+>Het tabblad <guilabel
+>Coördinaten</guilabel
+> toont de geometrische gegevens van de vorm. Bewerken van de waarde kunt u de grootte en positie op de afbeelding aanpassen omdat uw wijzigingen onmiddellijk zichtbaar zijn in de afbeelding. Grootte en positie kunnen ook met de muis worden veranderd.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Om de dialoog <guilabel
+>Bewerker van gebiedstag</guilabel
+> te openen voor een al gedefinieerde afbeeldingskaart gebruikt u <guimenuitem
+>Eigenschappen</guimenuitem
+> uit het menu <guimenu
+>Bewerken</guimenu
+> of het contextmenu van de regio.</para>
+
+<para
+>Gebruik <menuchoice
+><guimenu
+>Kaart</guimenu
+><guimenuitem
+>HTML tonen</guimenuitem
+></menuchoice
+> om de gegenereerde &HTML;-code van de kaart te bekijken.</para>
+
+<para
+>Open vervolgens <menuchoice
+><guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Gebruikskaart bewerken...</guimenuitem
+></menuchoice
+> en voer de kaartnaam in als waarde van de gebruikskaart. Sla uw werk op met <menuchoice
+><guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Opslaan</guimenuitem
+></menuchoice
+>. Open het &HTML;-bestand in &konqueror; om te controleren of de afbeeldingskaart naar verwachting werkt.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Toegang krijgen tot de configuratie-opties van &kimagemapeditor; kan door het openen van de configuratiedialog door <menuchoice
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>&kimagemapeditor; instellen...</guimenuitem
+> </menuchoice
+> uit het menu te selecteren. </para>
+<screenshot>
+<screeninfo
+>Configuratiedialoog van &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Configuratiedialoog van &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Configuratiedialoog van &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Programma copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Documentatie copyright 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

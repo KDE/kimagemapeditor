@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; — это редактор &HTML; imagemap, разработанный &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>imagemap</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Использование &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; — это редактор карт изображений &HTML;, разработанный сообществом &kde;. С его помощью возможно создавать и изменять <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>табличные изображения</ulink
+> &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>Снимок приложения &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Снимок</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Главное окно &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Примером использования может служить карта мира, на которой каждая страна является объектом карты изображений. Щелчок по какой-либо стране на карте позволяет открыть ссылку на эту страну.</para>
+
+<para
+>Для создания карты изображений необходимо выполнить следующие действия:</para>
+
+<para
+>Загрузить файл изображения (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) или &HTML;-файл; с диска или перетащить его в область изображения. Выбрать изображение на панели <guilabel
+>Изображения</guilabel
+>.</para>
+
+<para
+>Добавить изображение для создания карты изображений с помощью пункта меню <menuchoice
+><guimenu
+>Таблица</guimenu
+><guimenuitem
+>Создать таблицу...</guimenuitem
+></menuchoice
+> и указать название таблицы.</para>
+
+<para
+>Далее выберите в меню <guimenu
+>Сервис</guimenu
+> подходящую геометрическую фигуру, например <guimenuitem
+>Круг</guimenuitem
+>, <guimenuitem
+>Прямоугольник</guimenuitem
+>, <guimenuitem
+>Многоугольник</guimenuitem
+> или <guimenuitem
+>Произвольный многоугольник</guimenuitem
+> и задайте доступную для нажатия область на изображении.</para>
+
+<para
+>Будет открыт диалог <guilabel
+>Редактор тега области</guilabel
+>. На вкладке <guilabel
+>Общие</guilabel
+> следует указать атрибуты <guilabel
+>HREF</guilabel
+> (&URL;-адрес ссылки для области), <guilabel
+>Альт. текст</guilabel
+>, <guilabel
+>Цель</guilabel
+> и <guilabel
+>Заголовок</guilabel
+>.</para
+> 
+
+<para
+>На вкладке <guilabel
+>Координаты</guilabel
+> показаны геометрические данные фигуры. Изменение значений позволяет корректировать размер и положение области на изображении (изменения отображаются сразу). Размер и положение также возможно изменять с помощью мыши.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Чтобы открыть диалог <guilabel
+>Редактор тега области</guilabel
+> для уже заданной карты изображения, выберите пункт <guimenuitem
+>Свойства</guimenuitem
+> в меню <guimenu
+> Правка</guimenu
+> или в контекстном меню области.</para>
+
+<para
+>Для просмотра сформированного &HTML;-кода таблицы выберите пункт меню  <menuchoice
+><guimenu
+>Таблица</guimenu
+><guimenuitem
+>Показать HTML</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Затем выберите пункт меню <menuchoice
+><guimenu
+>Изображение</guimenu
+><guimenuitem
+>Изменить таблицу использования...</guimenuitem
+></menuchoice
+> и укажите название таблицы в качестве значения таблицы использования. Чтобы сохранить изменения, выберите пункт меню <menuchoice
+><guimenu
+>Файл</guimenu
+> <guimenuitem
+>Сохранить</guimenuitem
+></menuchoice
+>. Затем откройте сохранённый файл &HTML; в браузере &konqueror; и убедитесь, что карта изображения работает правильно.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Параметры настройки &kimagemapeditor; доступны в диалоге настройки: выберите пункт меню <menuchoice
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить &kimagemapeditor;...</guimenuitem
+> </menuchoice
+>. </para>
+<screenshot>
+<screeninfo
+>Диалог настройки &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Диалог настройки &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Диалог настройки &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Благодарности и лицензия</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Авторское право на программу: Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+>,  2003—2007  </para>
+
+<para
+>Авторское право на документацию: Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+>, 2007 </para>
+
+<para
+>Олеся Герасименко<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

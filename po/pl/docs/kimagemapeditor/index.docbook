@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY kappname "&kimagemapeditor;"
+><!-- Do *not* replace kappname-->
+  <!ENTITY package "kde-module"
+><!-- kdebase, kdeadmin, etc -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Polish "INCLUDE"
+><!-- change language only here -->
+  
+  
+  <!-- Do not define any other entities; instead, use the entities
+       from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- ................................................................ -->
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+
+<!-- This header contains all of the meta-information for the document such
+as Authors, publish date, the abstract, and Keywords -->
+
+<bookinfo>
+<title
+>Podręcznik &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Tomasz</firstname
+><surname
+>Walach</surname
+><affiliation
+><address
+><email
+>tomasz_rysz@o2.pl</email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<!--<year
+>2004</year
+>-->
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (YYYY-MM-DD) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2007-06-02</date>
+<releaseinfo
+>0&#46;0&#46;1</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kimagemapeditor; jest edytorem map obrazkowych &HTML; dla &kde;. </para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+ of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>mapa obrazkowa</keyword>
+<keyword
+>użyj mapę</keyword>
+<keyword
+>kdewebdev</keyword>
+<keyword
+>Quanta</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<!-- The contents of the documentation begin here.  Label
+each chapter so with the id attribute. This is necessary for two reasons: it
+allows you to easily reference the chapter from other chapters of your
+document, and if there is no ID, the name of the generated HTML files will vary
+from time to time making it hard to manage for maintainers and for the CVS
+system. Any chapter labelled (OPTIONAL) may be left out at the author's
+discretion. Other chapters should not be left out in order to maintain a
+consistent documentation style across all KDE apps. -->
+
+<chapter id="introduction">
+<title
+>Wprowadzenie</title>
+
+<!-- The introduction chapter contains a brief introduction for the
+application that explains what it does and where to report
+problems. Basically a long version of the abstract.  Don't include a
+revision history. (see installation appendix comment) -->
+
+<para
+>&kimagemapeditor; jest edytorem map obrazkowych &HTML; dla &kde;. Umożliwia stworzenie i modyfikowanie mapy obrazkowej &HTML;. </para>
+</chapter>
+
+<chapter id="credits">
+<title
+>Zasługi i licencja</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Program copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Dokumentacja copyright 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Tomasz Walach<email
+>tomasz_rysz@o2.pl</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

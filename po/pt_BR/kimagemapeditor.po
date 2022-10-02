@@ -1,0 +1,1052 @@
+# Copyright (C) 2008-2013 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Translation of kimagemapeditor.po to Brazilian Portuguese
+#
+# Joao Emanuel <gnulinuxdf@aol.com>, 2004.
+# Marcus Gama <marcus_gama@uol.com.br>, 2005.
+# Fernando Boaglio <boaglio@kde.org>, 2008.
+# Henrique Marks <henriquemarks@gmail.com>, 2008.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2011, 2012, 2013.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kimagemapeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2021-01-11 14:38-0300\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "João Emanuel, André Marcelo Alvarenga"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "gnulinuxdf@aol.com, andrealvarenga@gmx.net"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, kde-format
+msgid "Areas"
+msgstr "Áreas"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, kde-format
+msgid "Preview"
+msgstr "Visualização"
+
+#: imagemapchoosedialog.cpp:46
+#, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "Escolha o mapa e imagem para editar"
+
+#: imagemapchoosedialog.cpp:55
+#, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr "Selecionar uma imagem e/ou um mapa que deseja editar"
+
+#: imagemapchoosedialog.cpp:67
+#, kde-format
+msgid "&Maps"
+msgstr "&Mapas"
+
+#: imagemapchoosedialog.cpp:79
+#, kde-format
+msgid "Image Preview"
+msgstr "Visualização da imagem"
+
+#: imagemapchoosedialog.cpp:104
+#, kde-format
+msgid "No maps found"
+msgstr "Mapas não encontrados"
+
+#: imagemapchoosedialog.cpp:140
+#, kde-format
+msgid "No images found"
+msgstr "Nenhuma imagem encontrada"
+
+#: imagemapchoosedialog.cpp:153
+#, kde-format
+msgid "&Images"
+msgstr "&Imagens"
+
+#: imagemapchoosedialog.cpp:162
+#, kde-format
+msgid "Path"
+msgstr "Caminho"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, kde-format
+msgid "Images"
+msgstr "Imagens"
+
+#: imageslistview.cpp:60
+#, kde-format
+msgid "Usemap"
+msgstr "Mapa de uso"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, kde-format
+msgid "Maps"
+msgstr "Mapas"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, kde-format
+msgid "unnamed"
+msgstr "sem nome"
+
+#: kimagemapeditor.cpp:446
+#, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr ""
+"<h3>Abrir arquivo</h3>Clique para <em>abrir</em> uma nova imagem ou arquivo "
+"HTML."
+
+#: kimagemapeditor.cpp:447
+#, kde-format
+msgid "Open new picture or HTML file"
+msgstr "Abrir nova imagem ou arquivo HTML"
+
+#: kimagemapeditor.cpp:454
+#, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr ""
+"<h3>Salvar arquivo</h3>Clique para <em>salvar</em> as alterações para o "
+"arquivo HTML."
+
+#: kimagemapeditor.cpp:455
+#, kde-format
+msgid "Save HTML file"
+msgstr "Salvar arquivo HTML"
+
+#: kimagemapeditor.cpp:463
+#, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr ""
+"<h3>Fechar arquivo</h3>Clique para <em>fechar</em> o arquivo HTML atualmente "
+"aberto."
+
+#: kimagemapeditor.cpp:464
+#, kde-format
+msgid "Close HTML file"
+msgstr "Fechar arquivo HTML"
+
+#: kimagemapeditor.cpp:468
+#, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr "<h3>Copiar</h3>Clique para <em>copiar</em> a área selecionada."
+
+#: kimagemapeditor.cpp:474
+#, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr "<h3>Recortar</h3>Clique para <em>recortar</em> a área selecionada."
+
+#: kimagemapeditor.cpp:480
+#, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr "<h3>Colar</h3>Clique para <em>colar</em> a área selecionada."
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, kde-format
+msgid "&Delete"
+msgstr "E&xcluir"
+
+#: kimagemapeditor.cpp:491
+#, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr "<h3>Excluir</h3>Clique para <em>excluir</em> a área selecionada."
+
+#: kimagemapeditor.cpp:501
+#, kde-format
+msgid "Pr&operties"
+msgstr "Pr&opriedades"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr "Zoom"
+
+#: kimagemapeditor.cpp:515
+#, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>Zoom</h3>Escolha o nível de zoom desejado."
+
+#: kimagemapeditor.cpp:518
+#, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, kde-format
+msgid "Highlight Areas"
+msgstr "Áreas realçadas"
+
+#: kimagemapeditor.cpp:538
+#, kde-format
+msgid "Show Alt Tag"
+msgstr "Mostrar marca Alt"
+
+#: kimagemapeditor.cpp:541
+#, kde-format
+msgid "Map &Name..."
+msgstr "&Mapear nome..."
+
+#: kimagemapeditor.cpp:545
+#, kde-format
+msgid "Ne&w Map..."
+msgstr "No&vo mapa..."
+
+#: kimagemapeditor.cpp:548
+#, kde-format
+msgid "Create a new map"
+msgstr "Criar um novo mapa"
+
+#: kimagemapeditor.cpp:550
+#, kde-format
+msgid "D&elete Map"
+msgstr "&Excluir mapa"
+
+#: kimagemapeditor.cpp:553
+#, kde-format
+msgid "Delete the current active map"
+msgstr "Excluir o mapa atualmente ativado"
+
+#: kimagemapeditor.cpp:555
+#, kde-format
+msgid "Edit &Default Area..."
+msgstr "Editar área &padrão..."
+
+#: kimagemapeditor.cpp:558
+#, kde-format
+msgid "Edit the default area of the current active map"
+msgstr "Editar a área padrão do mapa atualmente ativado"
+
+#: kimagemapeditor.cpp:560
+#, kde-format
+msgid "&Preview"
+msgstr "&Visualização"
+
+#: kimagemapeditor.cpp:563
+#, kde-format
+msgid "Show a preview"
+msgstr "Mostrar uma visualização"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, kde-format
+msgid "&Image"
+msgstr "&Imagem"
+
+#: kimagemapeditor.cpp:568
+#, kde-format
+msgid "Add Image..."
+msgstr "Adicionar imagem..."
+
+#: kimagemapeditor.cpp:571
+#, kde-format
+msgid "Add a new image"
+msgstr "Adicionar uma nova imagem"
+
+#: kimagemapeditor.cpp:573
+#, kde-format
+msgid "Remove Image"
+msgstr "Remover imagem"
+
+#: kimagemapeditor.cpp:576
+#, kde-format
+msgid "Remove the current visible image"
+msgstr "Remover a imagem atualmente visível"
+
+#: kimagemapeditor.cpp:578
+#, kde-format
+msgid "Edit Usemap..."
+msgstr "Editar mapa de uso..."
+
+#: kimagemapeditor.cpp:581
+#, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "Editar a marca do mapa de uso da imagem atualmente visível"
+
+#: kimagemapeditor.cpp:583
+#, kde-format
+msgid "Show &HTML"
+msgstr "Mostrar &HTML"
+
+#: kimagemapeditor.cpp:590
+#, kde-format
+msgid "&Selection"
+msgstr "&Seleção"
+
+#: kimagemapeditor.cpp:594
+#, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>Seleção</h3>Clique para selecionar as áreas."
+
+#: kimagemapeditor.cpp:600
+#, kde-format
+msgid "&Circle"
+msgstr "&Círculo"
+
+#: kimagemapeditor.cpp:605
+#, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>Círculo </h3>Clique para iniciar a desenhar um círculo."
+
+#: kimagemapeditor.cpp:610
+#, kde-format
+msgid "&Rectangle"
+msgstr "&Retângulo"
+
+#: kimagemapeditor.cpp:614
+#, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>Retângulo</h3>Clique para iniciar o desenho de um retângulo."
+
+#: kimagemapeditor.cpp:619
+#, kde-format
+msgid "&Polygon"
+msgstr "&Polígono"
+
+#: kimagemapeditor.cpp:623
+#, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>Polígono </h3>Clique para iniciar o desenho de um polígono."
+
+#: kimagemapeditor.cpp:628
+#, kde-format
+msgid "&Freehand Polygon"
+msgstr "&Polígono a mão livre"
+
+#: kimagemapeditor.cpp:632
+#, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr ""
+"<h3>Polígono a mão livre</h3>Clique para iniciar o desenho de um polígono à "
+"mão livre."
+
+#: kimagemapeditor.cpp:637
+#, kde-format
+msgid "&Add Point"
+msgstr "&Adicionar ponto"
+
+#: kimagemapeditor.cpp:641
+#, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr "<h3>Adicionar ponto </h3>Clique para adicionar pontos a um polígono."
+
+#: kimagemapeditor.cpp:646
+#, kde-format
+msgid "&Remove Point"
+msgstr "&Remover ponto"
+
+#: kimagemapeditor.cpp:651
+#, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr "<h3>Remover ponto </h3>Clique para remover pontos de um polígono."
+
+#: kimagemapeditor.cpp:655
+#, kde-format
+msgid "Cancel Drawing"
+msgstr "Cancelar desenho"
+
+#: kimagemapeditor.cpp:660
+#, kde-format
+msgid "Move Left"
+msgstr "Mover à esquerda"
+
+#: kimagemapeditor.cpp:666
+#, kde-format
+msgid "Move Right"
+msgstr "Mover à direita"
+
+#: kimagemapeditor.cpp:671
+#, kde-format
+msgid "Move Up"
+msgstr "Mover para cima"
+
+#: kimagemapeditor.cpp:676
+#, kde-format
+msgid "Move Down"
+msgstr "Mover para baixo"
+
+#: kimagemapeditor.cpp:681
+#, kde-format
+msgid "Increase Width"
+msgstr "Acrescentar largura"
+
+#: kimagemapeditor.cpp:686
+#, kde-format
+msgid "Decrease Width"
+msgstr "Diminuir largura"
+
+#: kimagemapeditor.cpp:691
+#, kde-format
+msgid "Increase Height"
+msgstr "Acrescentar altura"
+
+#: kimagemapeditor.cpp:696
+#, kde-format
+msgid "Decrease Height"
+msgstr "Diminuir altura"
+
+#: kimagemapeditor.cpp:701
+#, kde-format
+msgid "Bring to Front"
+msgstr "Trazer para frente"
+
+#: kimagemapeditor.cpp:705
+#, kde-format
+msgid "Send to Back"
+msgstr "Enviar para trás"
+
+#: kimagemapeditor.cpp:709
+#, kde-format
+msgid "Bring Forward One"
+msgstr "Trazer primeiro plano"
+
+#: kimagemapeditor.cpp:712
+#, kde-format
+msgid "Send Back One"
+msgstr "Enviar para trás do primeiro plano"
+
+#: kimagemapeditor.cpp:722
+#, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "Configurar KImageMapEditor..."
+
+#: kimagemapeditor.cpp:731
+#, kde-format
+msgid "Show Area List"
+msgstr "Mostrar lista de áreas"
+
+#: kimagemapeditor.cpp:736
+#, kde-format
+msgid "Show Map List"
+msgstr "Mostrar lista de mapas"
+
+#: kimagemapeditor.cpp:740
+#, kde-format
+msgid "Show Image List"
+msgstr "Mostrar lista de imagens"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " Seleção: -  Cursor: x: 0, y: 0 "
+
+#: kimagemapeditor.cpp:839
+#, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " Cursor: x: %1, y: %2 "
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " Seleção: x: %1, y: %2, w: %3, h: %4 "
+
+#: kimagemapeditor.cpp:852
+#, kde-format
+msgid " Selection: - "
+msgstr " Seleção: - "
+
+#: kimagemapeditor.cpp:905
+#, kde-format
+msgid "Drop an image or HTML file"
+msgstr "Arraste uma imagem ou arquivo HTML"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter Map Name"
+msgstr "Digite o nome do mapa"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter the name of the map:"
+msgstr "Digite o nome do mapa:"
+
+#: kimagemapeditor.cpp:1559
+#, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "O nome <em>%1</em> já existe."
+
+#: kimagemapeditor.cpp:1571
+#, kde-format
+msgid "HTML Code of Map"
+msgstr "Código HTML do mapa"
+
+#: kimagemapeditor.cpp:1621
+#, kde-format
+msgid "Choose File to Open"
+msgstr "Escolha um arquivo para abrir"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, kde-format
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"Arquivos da Web (*.png *.jpg *.jpeg *.gif *.htm *.html);;Imagens (*.png *."
+"jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Arquivos HTML (*.htm *."
+"html);;Todos os arquivos (*)"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr ""
+"Arquivos HTML (*.htm *.html);;Arquivos de texto (*.txt);;Todos os arquivos "
+"(*)"
+
+#: kimagemapeditor.cpp:1680
+#, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>O arquivo <b>%1</b> não existe.</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "O arquivo não existe"
+
+#: kimagemapeditor.cpp:2378
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr ""
+"<qt>O arquivo <i>%1</i> não pode ser salvo, porque você não tem as "
+"permissões de escrita necessárias.</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>Tem certeza de que deseja excluir o mapa <i>%1</i>? <br /><b>Não é "
+"possível desfazer isto.</b></qt>"
+
+#: kimagemapeditor.cpp:2695
+#, kde-format
+msgid "Delete Map?"
+msgstr "Excluir mapa?"
+
+#: kimagemapeditor.cpp:2743
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr "<qt>O arquivo <i>%1</i> foi modificado.<br />Deseja salvá-lo?</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, kde-format
+msgid "Select image"
+msgstr "Selecionar imagem"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+"Imagens (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Todos os "
+"arquivos (*)"
+
+#: kimagemapeditor.cpp:2874
+#, kde-format
+msgid "Enter Usemap"
+msgstr "Entrar com o mapa de uso"
+
+#: kimagemapeditor.cpp:2875
+#, kde-format
+msgid "Enter the usemap value:"
+msgstr "Digite o valor do mapa de uso:"
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "&Editar"
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, kde-format
+msgid "&View"
+msgstr "E&xibir"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr "Ferramen&tas"
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, kde-format
+msgid "&Map"
+msgstr "&Mapa"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, kde-format
+msgid "&Settings"
+msgstr "&Configurações"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "Barra de ferramenta principal do editor de mapeamento de imagens"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "Barra de ferramentas de desenho do editor de mapeamento de imagens"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Arquivo"
+
+#: kimearea.cpp:142
+#, kde-format
+msgid "noname"
+msgstr "sem nome"
+
+#: kimearea.cpp:1401
+#, kde-format
+msgid "Number of Areas"
+msgstr "Número de áreas"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, kde-format
+msgid "Rectangle"
+msgstr "Retângulo"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, kde-format
+msgid "Circle"
+msgstr "Círculo"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, kde-format
+msgid "Polygon"
+msgstr "Polígono"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr "Padrão"
+
+#: kimecommands.cpp:26
+#, kde-format
+msgid "Cut %1"
+msgstr "Recortar %1"
+
+#: kimecommands.cpp:70
+#, kde-format
+msgid "Delete %1"
+msgstr "Excluir %1"
+
+#: kimecommands.cpp:74
+#, kde-format
+msgid "Paste %1"
+msgstr "Colar %1"
+
+#: kimecommands.cpp:113
+#, kde-format
+msgid "Move %1"
+msgstr "Mover %1"
+
+#: kimecommands.cpp:169
+#, kde-format
+msgid "Resize %1"
+msgstr "Redimensionar %1"
+
+#: kimecommands.cpp:210
+#, kde-format
+msgid "Add point to %1"
+msgstr "Adicionar ponto em %1"
+
+#: kimecommands.cpp:254
+#, kde-format
+msgid "Remove point from %1"
+msgstr "Remover ponto de %1"
+
+#: kimecommands.cpp:301
+#, kde-format
+msgid "Create %1"
+msgstr "Criar %1"
+
+#: kimedialogs.cpp:76
+#, kde-format
+msgid "Top &X:"
+msgstr "Topo &X:"
+
+#: kimedialogs.cpp:83
+#, kde-format
+msgid "Top &Y:"
+msgstr "Topo &Y:"
+
+#: kimedialogs.cpp:90
+#, kde-format
+msgid "&Width:"
+msgstr "&Largura:"
+
+#: kimedialogs.cpp:97
+#, kde-format
+msgid "Hei&ght:"
+msgstr "A&ltura:"
+
+#: kimedialogs.cpp:119
+#, kde-format
+msgid "Center &X:"
+msgstr "Centro &X:"
+
+#: kimedialogs.cpp:126
+#, kde-format
+msgid "Center &Y:"
+msgstr "Centro &Y:"
+
+#: kimedialogs.cpp:133
+#, kde-format
+msgid "&Radius:"
+msgstr "&Radianos:"
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr "Adicionar"
+
+#: kimedialogs.cpp:169
+#, kde-format
+msgid "Remove"
+msgstr "Remover"
+
+#: kimedialogs.cpp:244
+#, kde-format
+msgid "Top &X"
+msgstr "Topo &X"
+
+#: kimedialogs.cpp:252
+#, kde-format
+msgid "Top &Y"
+msgstr "Topo &Y"
+
+#: kimedialogs.cpp:285
+#, kde-format
+msgid "&HREF:"
+msgstr "&HREF:"
+
+#: kimedialogs.cpp:291
+#, kde-format
+msgid "Alt. &Text:"
+msgstr "Alt. &texto:"
+
+#: kimedialogs.cpp:294
+#, kde-format
+msgid "Tar&get:"
+msgstr "Al&vo:"
+
+#: kimedialogs.cpp:297
+#, kde-format
+msgid "Tit&le:"
+msgstr "Títu&lo:"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr "Ligado"
+
+#: kimedialogs.cpp:304
+#, kde-format
+msgid "Enable default map"
+msgstr "Habilitar mapa padrão"
+
+#: kimedialogs.cpp:328
+#, kde-format
+msgid "OnClick:"
+msgstr "No clique:"
+
+#: kimedialogs.cpp:329
+#, kde-format
+msgid "OnDblClick:"
+msgstr "No clique duplo:"
+
+#: kimedialogs.cpp:330
+#, kde-format
+msgid "OnMouseDown:"
+msgstr "No mouse:"
+
+#: kimedialogs.cpp:331
+#, kde-format
+msgid "OnMouseUp:"
+msgstr "Quando o mouse sobe:"
+
+#: kimedialogs.cpp:332
+#, kde-format
+msgid "OnMouseOver:"
+msgstr "Sobre o mouse:"
+
+#: kimedialogs.cpp:333
+#, kde-format
+msgid "OnMouseMove:"
+msgstr "Ao mover o mouse:"
+
+#: kimedialogs.cpp:334
+#, kde-format
+msgid "OnMouseOut:"
+msgstr "Quando mouse sai:"
+
+#: kimedialogs.cpp:342
+#, kde-format
+msgid "Area Tag Editor"
+msgstr "Editor marca de área"
+
+#: kimedialogs.cpp:364
+#, kde-format
+msgid "Selection"
+msgstr "Seleção"
+
+#: kimedialogs.cpp:383
+#, kde-format
+msgid "&General"
+msgstr "&Geral"
+
+#: kimedialogs.cpp:390
+#, kde-format
+msgid "Coor&dinates"
+msgstr "Coor&denadas"
+
+#: kimedialogs.cpp:392
+#, kde-format
+msgid "&JavaScript"
+msgstr "&JavaScript"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "Choose File"
+msgstr "Escolher arquivo"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "All Files (*)"
+msgstr "Todos os arquivos (*)"
+
+#: kimedialogs.cpp:505
+#, kde-format
+msgid "Preferences"
+msgstr "Preferências"
+
+#: kimedialogs.cpp:519
+#, kde-format
+msgid "&Maximum image preview height:"
+msgstr "Largura &máxima da visualização da imagem:"
+
+#: kimedialogs.cpp:528
+#, kde-format
+msgid "&Undo limit:"
+msgstr "Limite do &Desfazer:"
+
+#: kimedialogs.cpp:535
+#, kde-format
+msgid "&Redo limit:"
+msgstr "Limite do &Refazer:"
+
+#: kimedialogs.cpp:539
+#, kde-format
+msgid "&Start with last used document"
+msgstr "&Iniciar com último documento usado"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr "Não foi possível encontrar a parte kimagemapeditorpart!"
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr "Não foi possível criar a parte kimagemapeditorpart!"
+
+#: kimeshell.cpp:200
+#, kde-format
+msgid "Choose Picture to Open"
+msgstr "Escolher uma figura para abrir"
+
+#: main.cpp:30
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "Um editor de mapeamento de imagem HTML"
+
+#: main.cpp:38
+#, kde-format
+msgid "KImageMapEditor"
+msgstr "Editor de mapeamento de imagem"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr "(c) 2001-2007 Jan Schaefer"
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr "Jan Schaefer"
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr "Joerg Jaspert"
+
+#: main.cpp:43
+#, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "Pela ajuda com os Makefiles e criação do pacote Debian"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr "Aaron Seigo e Michael"
+
+#: main.cpp:44
+#, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr "Por me ajudar a corrigir o modo --enable-final"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr "Antonio Crevillen"
+
+#: main.cpp:45
+#, kde-format
+msgid "For the Spanish translation"
+msgstr "Pela tradução para o idioma espanhol"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr "Fabrice Mous"
+
+#: main.cpp:46
+#, kde-format
+msgid "For the Dutch translation"
+msgstr "Pela tradução para o idioma holandês"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr "Germain Chazot"
+
+#: main.cpp:47
+#, kde-format
+msgid "For the French translation"
+msgstr "Pela tradução para o idioma francês"
+
+#: main.cpp:60
+#, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "Escrever código HTML na saída padrão ao finalizar"
+
+#: main.cpp:61
+#, kde-format
+msgid "File to open"
+msgstr "Arquivo para abrir"
+
+#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+#~ msgstr "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>O arquivo <em>%1</em> já existe.<br />Deseja sobrescrevê-lo?</qt>"
+
+#~ msgid "Overwrite File?"
+#~ msgstr "Sobrescrever o arquivo?"
+
+#~ msgid "Overwrite"
+#~ msgstr "Sobrescrever"
+
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr ""
+#~ "<qt>Você não tem a permissão de escrita para o arquivo <em>%1</em>.</qt>"
+
+#~ msgid "HTML File"
+#~ msgstr "Arquivo HTML"
+
+#~ msgid "Text File"
+#~ msgstr "Arquivo de texto"
+
+#~ msgid "Web Files"
+#~ msgstr "Arquivos Web"
+
+#~ msgid "HTML Files"
+#~ msgstr "Arquivos HTML"
+
+#~ msgid "PNG Images"
+#~ msgstr "Imagens PNG"
+
+#~ msgid "JPEG Images"
+#~ msgstr "Imagens JPEG"
+
+#~ msgid "GIF Images"
+#~ msgstr "Imagens GIF"

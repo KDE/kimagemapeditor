@@ -1,0 +1,1061 @@
+# translation of kimagemapeditor.po to greek
+#
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007.
+# Thiodor Deligiannidis <thiodor@gmail.com>, 2005.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2005, 2007.
+# Stelios <sstavra@gmail.com>, 2017, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kimagemapeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2021-06-16 18:06+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς,Τούσης Μανώλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr,manolis@koppermind.homelinux.org"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, kde-format
+msgid "Areas"
+msgstr "Περιοχές"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, kde-format
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+#: imagemapchoosedialog.cpp:46
+#, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "Επιλογή χαρτογράφησης και αρχείου για επεξεργασία"
+
+#: imagemapchoosedialog.cpp:55
+#, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr ""
+"Επιλέξτε μια εικόνα και/ή μία χαρτογράφηση που θέλετε να επεξεργαστείτε"
+
+#: imagemapchoosedialog.cpp:67
+#, kde-format
+msgid "&Maps"
+msgstr "&Χαρτογραφήσεις"
+
+#: imagemapchoosedialog.cpp:79
+#, kde-format
+msgid "Image Preview"
+msgstr "Προεπισκόπηση εικόνας"
+
+#: imagemapchoosedialog.cpp:104
+#, kde-format
+msgid "No maps found"
+msgstr "Δε βρέθηκαν χαρτογραφήσεις"
+
+#: imagemapchoosedialog.cpp:140
+#, kde-format
+msgid "No images found"
+msgstr "Δε βρέθηκαν εικόνες"
+
+#: imagemapchoosedialog.cpp:153
+#, kde-format
+msgid "&Images"
+msgstr "&Εικόνες"
+
+#: imagemapchoosedialog.cpp:162
+#, kde-format
+msgid "Path"
+msgstr "Διαδρομή"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, kde-format
+msgid "Images"
+msgstr "Εικόνες"
+
+#: imageslistview.cpp:60
+#, kde-format
+msgid "Usemap"
+msgstr "Usemap"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, kde-format
+msgid "Maps"
+msgstr "Χαρτογραφήσεις"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, kde-format
+msgid "unnamed"
+msgstr "unnamed"
+
+#: kimagemapeditor.cpp:446
+#, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr ""
+"<h3>Άνοιγμα αρχείου</h3>Κάντε κλικ για να <em>ανοίξετε</em> ένα νέο αρχείο "
+"εικόνας ή HTML."
+
+#: kimagemapeditor.cpp:447
+#, kde-format
+msgid "Open new picture or HTML file"
+msgstr "Άνοιγμα νέου αρχείου εικόνας ή HTML"
+
+#: kimagemapeditor.cpp:454
+#, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr ""
+"<h3>Αποθήκευση αρχείου</h3>Κάντε κλικ για να <em>αποθηκεύσετε</em> τις "
+"αλλαγές στο αρχείο HTML."
+
+#: kimagemapeditor.cpp:455
+#, kde-format
+msgid "Save HTML file"
+msgstr "Αποθήκευση αρχείου HTML"
+
+#: kimagemapeditor.cpp:463
+#, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr ""
+"<h3>Κλείσιμο αρχείου</h3> Κάντε κλικ για να <em>κλείσετε</em> το τρέχον HTML "
+"αρχείο."
+
+#: kimagemapeditor.cpp:464
+#, kde-format
+msgid "Close HTML file"
+msgstr "Κλείσιμο αρχείου HTML"
+
+#: kimagemapeditor.cpp:468
+#, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr ""
+"<h3>Αντιγραφή</h3> Κάντε κλικ για <em>αντιγραφή</em> της επιλεγμένης "
+"περιοχής."
+
+#: kimagemapeditor.cpp:474
+#, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr ""
+"<h3>Αποκοπή</h3> Κάντε κλικ για <em>αποκοπή</em> της επιλεγμένης περιοχής."
+
+#: kimagemapeditor.cpp:480
+#, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr ""
+"<h3>Επικόλληση</h3> Κάντε κλικ για <em>επικόλληση</em> της επιλεγμένης "
+"περιοχής."
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, kde-format
+msgid "&Delete"
+msgstr "&Διαγραφή"
+
+#: kimagemapeditor.cpp:491
+#, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr ""
+"<h3>Διαγραφή</h3> Κάντε κλικ για <em>διαγραφή</em> της επιλεγμένης περιοχής."
+
+#: kimagemapeditor.cpp:501
+#, kde-format
+msgid "Pr&operties"
+msgstr "Ι&διότητες"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr "Εστίαση"
+
+#: kimagemapeditor.cpp:515
+#, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>Εστίαση</h3> Επιλέξτε το επιθυμητό επίπεδο εστίασης."
+
+#: kimagemapeditor.cpp:518
+#, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, kde-format
+msgid "Highlight Areas"
+msgstr "Περιοχές έμφασης"
+
+#: kimagemapeditor.cpp:538
+#, kde-format
+msgid "Show Alt Tag"
+msgstr "Εμφάνιση εναλλακτικής ετικέτας"
+
+#: kimagemapeditor.cpp:541
+#, kde-format
+msgid "Map &Name..."
+msgstr "Όνομα &χαρτογράφησης..."
+
+#: kimagemapeditor.cpp:545
+#, kde-format
+msgid "Ne&w Map..."
+msgstr "&Νέα χαρτογράφηση..."
+
+#: kimagemapeditor.cpp:548
+#, kde-format
+msgid "Create a new map"
+msgstr "Δημιουργία νέας χαρτογράφησης"
+
+#: kimagemapeditor.cpp:550
+#, kde-format
+msgid "D&elete Map"
+msgstr "&Διαγραφή χαρτογράφησης"
+
+#: kimagemapeditor.cpp:553
+#, kde-format
+msgid "Delete the current active map"
+msgstr "Διαγραφή της τρέχουσας ενεργού χαρτογράφησης"
+
+#: kimagemapeditor.cpp:555
+#, kde-format
+msgid "Edit &Default Area..."
+msgstr "Επεξεργασία &προεπιλεγμένης περιοχής..."
+
+#: kimagemapeditor.cpp:558
+#, kde-format
+msgid "Edit the default area of the current active map"
+msgstr ""
+"Επεξεργασία της προεπιλεγμένης περιοχής της τρέχουσας ενεργού χαρτογράφησης"
+
+#: kimagemapeditor.cpp:560
+#, kde-format
+msgid "&Preview"
+msgstr "&Προεπισκόπηση"
+
+#: kimagemapeditor.cpp:563
+#, kde-format
+msgid "Show a preview"
+msgstr "Εμφάνιση μιας προεπισκόπησης"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, kde-format
+msgid "&Image"
+msgstr "&Εικόνα"
+
+#: kimagemapeditor.cpp:568
+#, kde-format
+msgid "Add Image..."
+msgstr "Προσθήκη εικόνας..."
+
+#: kimagemapeditor.cpp:571
+#, kde-format
+msgid "Add a new image"
+msgstr "Προσθήκη νέας εικόνας"
+
+#: kimagemapeditor.cpp:573
+#, kde-format
+msgid "Remove Image"
+msgstr "Αφαίρεση εικόνας"
+
+#: kimagemapeditor.cpp:576
+#, kde-format
+msgid "Remove the current visible image"
+msgstr "Αφαίρεση της τρέχουσας ορατής εικόνας"
+
+#: kimagemapeditor.cpp:578
+#, kde-format
+msgid "Edit Usemap..."
+msgstr "Επεξεργασία Usemap..."
+
+#: kimagemapeditor.cpp:581
+#, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "Επεξεργασία της ετικέτας usemap της τρέχουσας ορατής εικόνας"
+
+#: kimagemapeditor.cpp:583
+#, kde-format
+msgid "Show &HTML"
+msgstr "Εμφάνιση &HTML"
+
+#: kimagemapeditor.cpp:590
+#, kde-format
+msgid "&Selection"
+msgstr "Ε&πιλογή"
+
+#: kimagemapeditor.cpp:594
+#, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>Επιλογή</h3> Κάντε κλικ εδώ για να επιλογή των περιοχών."
+
+#: kimagemapeditor.cpp:600
+#, kde-format
+msgid "&Circle"
+msgstr "&Κύκλος"
+
+#: kimagemapeditor.cpp:605
+#, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>Κύκλος</h3> Κάντε κλικ για έναρξη σχεδίασης ενός κύκλου."
+
+#: kimagemapeditor.cpp:610
+#, kde-format
+msgid "&Rectangle"
+msgstr "Τετρά&γωνο"
+
+#: kimagemapeditor.cpp:614
+#, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>Τετράγωνο</h3> Κάντε κλικ για έναρξη σχεδίασης ενός τετραγώνου."
+
+#: kimagemapeditor.cpp:619
+#, kde-format
+msgid "&Polygon"
+msgstr "&Πολύγωνο"
+
+#: kimagemapeditor.cpp:623
+#, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>Πολύγωνο</h3> Κάντε κλικ για έναρξη σχεδίασης ενός πολυγώνου."
+
+#: kimagemapeditor.cpp:628
+#, kde-format
+msgid "&Freehand Polygon"
+msgstr "&Πολύγωνο με ελεύθερο χέρι"
+
+#: kimagemapeditor.cpp:632
+#, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr ""
+"<h3>Πολύγωνο με ελεύθερο χέρι</h3> Κάντε κλικ για έναρξη σχεδίασης ενός "
+"πολυγώνου με ελεύθερο χέρι."
+
+#: kimagemapeditor.cpp:637
+#, kde-format
+msgid "&Add Point"
+msgstr "&Προσθήκη σημείου"
+
+#: kimagemapeditor.cpp:641
+#, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr ""
+"<h3>Προσθήκη σημείου</h3> Κάντε κλικ για να προσθέσετε σημεία σε ένα "
+"πολύγωνο."
+
+#: kimagemapeditor.cpp:646
+#, kde-format
+msgid "&Remove Point"
+msgstr "&Αφαίρεση σημείου"
+
+#: kimagemapeditor.cpp:651
+#, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr ""
+"<h3>Αφαίρεση σημείου</h3> Κάντε κλικ για να αφαιρέσετε σημεία από ένα "
+"πολύγωνο."
+
+#: kimagemapeditor.cpp:655
+#, kde-format
+msgid "Cancel Drawing"
+msgstr "Ακύρωση σχεδίασης"
+
+#: kimagemapeditor.cpp:660
+#, kde-format
+msgid "Move Left"
+msgstr "Μετακίνηση αριστερά"
+
+#: kimagemapeditor.cpp:666
+#, kde-format
+msgid "Move Right"
+msgstr "Μετακίνηση δεξιά"
+
+#: kimagemapeditor.cpp:671
+#, kde-format
+msgid "Move Up"
+msgstr "Μετακίνηση πάνω"
+
+#: kimagemapeditor.cpp:676
+#, kde-format
+msgid "Move Down"
+msgstr "Μετακίνηση κάτω"
+
+#: kimagemapeditor.cpp:681
+#, kde-format
+msgid "Increase Width"
+msgstr "Αύξηση πλάτους"
+
+#: kimagemapeditor.cpp:686
+#, kde-format
+msgid "Decrease Width"
+msgstr "Μείωση πλάτους"
+
+#: kimagemapeditor.cpp:691
+#, kde-format
+msgid "Increase Height"
+msgstr "Αύξηση ύψους"
+
+#: kimagemapeditor.cpp:696
+#, kde-format
+msgid "Decrease Height"
+msgstr "Μείωση ύψους"
+
+#: kimagemapeditor.cpp:701
+#, kde-format
+msgid "Bring to Front"
+msgstr "Μεταφορά μπροστά"
+
+#: kimagemapeditor.cpp:705
+#, kde-format
+msgid "Send to Back"
+msgstr "Αποστολή πίσω"
+
+#: kimagemapeditor.cpp:709
+#, kde-format
+msgid "Bring Forward One"
+msgstr "Μεταφορά ένα βήμα μπροστά"
+
+#: kimagemapeditor.cpp:712
+#, kde-format
+msgid "Send Back One"
+msgstr "Αποστολή ένα βήμα πίσω"
+
+#: kimagemapeditor.cpp:722
+#, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "Ρύθμιση του KImageMapEditor..."
+
+#: kimagemapeditor.cpp:731
+#, kde-format
+msgid "Show Area List"
+msgstr "Εμφάνιση λίστας περιοχών"
+
+#: kimagemapeditor.cpp:736
+#, kde-format
+msgid "Show Map List"
+msgstr "Εμφάνιση λίστας χαρτογραφήσεων"
+
+#: kimagemapeditor.cpp:740
+#, kde-format
+msgid "Show Image List"
+msgstr "Εμφάνιση λίστας εικόνων"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " Επιλογή: -  Δρομέας: x: 0, y: 0 "
+
+#: kimagemapeditor.cpp:839
+#, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " Δρομέας: x: %1, y: %2 "
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " Επιλογή: x: %1, y: %2, w: %3, h: %4 "
+
+#: kimagemapeditor.cpp:852
+#, kde-format
+msgid " Selection: - "
+msgstr "Επιλογή: -"
+
+#: kimagemapeditor.cpp:905
+#, kde-format
+msgid "Drop an image or HTML file"
+msgstr "Αφήστε μια εικόνας ή αρχείο HTML"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter Map Name"
+msgstr "Εισάγετε το όνομα της χαρτογράφησης"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter the name of the map:"
+msgstr "Εισάγετε όνομα χαρτογράφησης:"
+
+#: kimagemapeditor.cpp:1559
+#, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "Η ονομασία <em>%1</em> ήδη υπάρχει."
+
+#: kimagemapeditor.cpp:1571
+#, kde-format
+msgid "HTML Code of Map"
+msgstr "HTML κώδικας χαρτογράφησης"
+
+#: kimagemapeditor.cpp:1621
+#, kde-format
+msgid "Choose File to Open"
+msgstr "Επιλογή αρχείου για άνοιγμα"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, kde-format
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"Αρχείο ιστού (*.png *.jpg *.jpeg *.gif *.htm *.html);;Εικόνες (*.png *.jpg *."
+"jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML αρχεία (*.htm *.html);;Όλα "
+"τα αρχεία (*)"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr "HTML αρχείο (*.htm *.html);;Αρχείο κειμένου (*.txt);;Όλα τα αρχεία (*)"
+
+#: kimagemapeditor.cpp:1680
+#, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Το αρχείο <b>%1</b> δεν υπάρχει.</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "Το αρχείο δεν υπάρχει"
+
+#: kimagemapeditor.cpp:2378
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr ""
+"<qt>Το αρχείο <i>%1</i> δεν μπορεί να αποθηκευτεί, επειδή δεν έχετε τις "
+"απαιτούμενες άδειες εγγραφής.</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>Είστε σίγουροι για τη διαγραφή της χαρτογράφησης <i>%1</i>; <br /><b> "
+"Δεν υπάρχει τρόπος να αναιρεθεί.</b></qt>"
+
+#: kimagemapeditor.cpp:2695
+#, kde-format
+msgid "Delete Map?"
+msgstr "Διαγραφή χαρτογράφησης;"
+
+#: kimagemapeditor.cpp:2743
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr ""
+"<qt>Το αρχείο <i>%1</i> έχει τροποποιηθεί. <br /> Επιθυμείτε την αποθήκευσή "
+"του;</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, kde-format
+msgid "Select image"
+msgstr "Επιλογή εικόνας"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+"Εικόνες (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Όλα τα "
+"αρχεία (*)"
+
+#: kimagemapeditor.cpp:2874
+#, kde-format
+msgid "Enter Usemap"
+msgstr "Εισαγωγή Usemap"
+
+#: kimagemapeditor.cpp:2875
+#, kde-format
+msgid "Enter the usemap value:"
+msgstr "Εισαγωγή τιμής usemap:"
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "&Επεξεργασία"
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, kde-format
+msgid "&View"
+msgstr "Π&ροβολή"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr "Ερ&γαλεία"
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, kde-format
+msgid "&Map"
+msgstr "&Χαρτογράφηση"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, kde-format
+msgid "&Settings"
+msgstr "Ρ&υθμίσεις"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων του KImageMapEditor"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "Γραμμή εργαλείων σχεδίασης του KImageMapEditor"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Αρχείο"
+
+#: kimearea.cpp:142
+#, kde-format
+msgid "noname"
+msgstr "χωρίς όνομα"
+
+#: kimearea.cpp:1401
+#, kde-format
+msgid "Number of Areas"
+msgstr "Αριθμός περιοχών"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, kde-format
+msgid "Rectangle"
+msgstr "Τετράγωνο"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, kde-format
+msgid "Circle"
+msgstr "Κύκλος"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, kde-format
+msgid "Polygon"
+msgstr "Πολύγωνο"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr "Προκαθορισμένο"
+
+#: kimecommands.cpp:26
+#, kde-format
+msgid "Cut %1"
+msgstr "Αποκοπή του %1"
+
+#: kimecommands.cpp:70
+#, kde-format
+msgid "Delete %1"
+msgstr "Διαγραφή του %1"
+
+#: kimecommands.cpp:74
+#, kde-format
+msgid "Paste %1"
+msgstr "Επικόλληση του %1"
+
+#: kimecommands.cpp:113
+#, kde-format
+msgid "Move %1"
+msgstr "Μετακίνηση του %1"
+
+#: kimecommands.cpp:169
+#, kde-format
+msgid "Resize %1"
+msgstr "Αλλαγή μεγέθους του %1"
+
+#: kimecommands.cpp:210
+#, kde-format
+msgid "Add point to %1"
+msgstr "Προσθήκη σημείου στο %1"
+
+#: kimecommands.cpp:254
+#, kde-format
+msgid "Remove point from %1"
+msgstr "Αφαίρεση σημείου από το %1"
+
+#: kimecommands.cpp:301
+#, kde-format
+msgid "Create %1"
+msgstr "Δημιουργία του %1"
+
+#: kimedialogs.cpp:76
+#, kde-format
+msgid "Top &X:"
+msgstr "Πάνω &Χ:"
+
+#: kimedialogs.cpp:83
+#, kde-format
+msgid "Top &Y:"
+msgstr "Πάνω &Υ:"
+
+#: kimedialogs.cpp:90
+#, kde-format
+msgid "&Width:"
+msgstr "&Πλάτος:"
+
+#: kimedialogs.cpp:97
+#, kde-format
+msgid "Hei&ght:"
+msgstr "Ύ&ψος:"
+
+#: kimedialogs.cpp:119
+#, kde-format
+msgid "Center &X:"
+msgstr "Κέντρο &Χ:"
+
+#: kimedialogs.cpp:126
+#, kde-format
+msgid "Center &Y:"
+msgstr "Κέντρο &Υ:"
+
+#: kimedialogs.cpp:133
+#, kde-format
+msgid "&Radius:"
+msgstr "Α&κτίνα:"
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr "Προσθήκη"
+
+#: kimedialogs.cpp:169
+#, kde-format
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: kimedialogs.cpp:244
+#, kde-format
+msgid "Top &X"
+msgstr "Πάνω &Χ"
+
+#: kimedialogs.cpp:252
+#, kde-format
+msgid "Top &Y"
+msgstr "Πάνω &Υ"
+
+#: kimedialogs.cpp:285
+#, kde-format
+msgid "&HREF:"
+msgstr "&HREF:"
+
+#: kimedialogs.cpp:291
+#, kde-format
+msgid "Alt. &Text:"
+msgstr "Εναλλ. &κείμενο (alt):"
+
+#: kimedialogs.cpp:294
+#, kde-format
+msgid "Tar&get:"
+msgstr "Προο&ρισμός (target):"
+
+#: kimedialogs.cpp:297
+#, kde-format
+msgid "Tit&le:"
+msgstr "Τί&τλος (title):"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr "On"
+
+#: kimedialogs.cpp:304
+#, kde-format
+msgid "Enable default map"
+msgstr "Ενεργοποίηση προεπιλεγμένης χαρτογράφησης"
+
+#: kimedialogs.cpp:328
+#, kde-format
+msgid "OnClick:"
+msgstr "OnClick:"
+
+#: kimedialogs.cpp:329
+#, kde-format
+msgid "OnDblClick:"
+msgstr "OnDblClick:"
+
+#: kimedialogs.cpp:330
+#, kde-format
+msgid "OnMouseDown:"
+msgstr "OnMouseDown:"
+
+#: kimedialogs.cpp:331
+#, kde-format
+msgid "OnMouseUp:"
+msgstr "OnMouseUp:"
+
+#: kimedialogs.cpp:332
+#, kde-format
+msgid "OnMouseOver:"
+msgstr "OnMouseOver:"
+
+#: kimedialogs.cpp:333
+#, kde-format
+msgid "OnMouseMove:"
+msgstr "OnMouseMove:"
+
+#: kimedialogs.cpp:334
+#, kde-format
+msgid "OnMouseOut:"
+msgstr "OnMouseOut:"
+
+#: kimedialogs.cpp:342
+#, kde-format
+msgid "Area Tag Editor"
+msgstr "Επεξεργαστής ετικέτας περιοχής"
+
+#: kimedialogs.cpp:364
+#, kde-format
+msgid "Selection"
+msgstr "Επιλογή"
+
+#: kimedialogs.cpp:383
+#, kde-format
+msgid "&General"
+msgstr "&Γενικά"
+
+#: kimedialogs.cpp:390
+#, kde-format
+msgid "Coor&dinates"
+msgstr "&Συντεταγμένες"
+
+#: kimedialogs.cpp:392
+#, kde-format
+msgid "&JavaScript"
+msgstr "&JavaScript"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "Choose File"
+msgstr "Επιλογή αρχείου"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "All Files (*)"
+msgstr "Όλα τα αρχεία (*)"
+
+#: kimedialogs.cpp:505
+#, kde-format
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: kimedialogs.cpp:519
+#, kde-format
+msgid "&Maximum image preview height:"
+msgstr "&Μέγιστο ύψος εικόνας προεπισκόπησης:"
+
+#: kimedialogs.cpp:528
+#, kde-format
+msgid "&Undo limit:"
+msgstr "Όριο &αναιρέσεων:"
+
+#: kimedialogs.cpp:535
+#, kde-format
+msgid "&Redo limit:"
+msgstr "Όριο &επαναλήψεων:"
+
+#: kimedialogs.cpp:539
+#, kde-format
+msgid "&Start with last used document"
+msgstr "&Εκκίνηση με το τελευταίο χρησιμοποιημένο έγγραφο"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr "Αδυναμία εύρεσης του τμήματος kimagemapeditorpart!"
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr "Αδυναμία δημιουργίας του τμήματος kimagemapeditorpart!"
+
+#: kimeshell.cpp:200
+#, kde-format
+msgid "Choose Picture to Open"
+msgstr "Επιλογή εικόνας για άνοιγμα"
+
+#: main.cpp:30
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "Ένας επεξεργαστής χαρτογραφήσεων εικόνων για HTML"
+
+#: main.cpp:38
+#, kde-format
+msgid "KImageMapEditor"
+msgstr "KImageMapEditor"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr "(c) 2001-2007 Jan Schaefer"
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr "Jan Schaefer"
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr "Joerg Jaspert"
+
+#: main.cpp:43
+#, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "Για τη βοήθεια με τα Makefiles, και τη δημιουργία των πακέτων Debian"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr "Aaron Seigo και Michael"
+
+#: main.cpp:44
+#, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr ""
+"Για τη βοήθεια σχετικά με την επιδιόρθωση της λειτουργίας --enable-final"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr "Antonio Crevillen"
+
+#: main.cpp:45
+#, kde-format
+msgid "For the Spanish translation"
+msgstr "Για την Ισπανική μετάφραση"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr "Fabrice Mous"
+
+#: main.cpp:46
+#, kde-format
+msgid "For the Dutch translation"
+msgstr "Για την Ολλανδική μετάφραση"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr "Germain Chazot"
+
+#: main.cpp:47
+#, kde-format
+msgid "For the French translation"
+msgstr "Για την Γαλλική μετάφραση"
+
+#: main.cpp:60
+#, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "Εγγραφή κώδικα HTML στο stdout κατά την έξοδο"
+
+#: main.cpp:61
+#, kde-format
+msgid "File to open"
+msgstr "Αρχείο για άνοιγμα"
+
+#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+#~ msgstr "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Το αρχείο <em>%1</em> ήδη υπάρχει.<br />Επιθυμείτε την αντικατάστασή "
+#~ "του;</qt>"
+
+#~ msgid "Overwrite File?"
+#~ msgstr "Αντικατάσταση αρχείου;"
+
+#~ msgid "Overwrite"
+#~ msgstr "Αντικατάσταση"
+
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr "<qt>Δεν έχετε άδεια εγγραφής στο αρχείο <em>%1</em>.</qt>"
+
+#~ msgid "HTML File"
+#~ msgstr "Αρχείο HTML"
+
+#~ msgid "Text File"
+#~ msgstr "Αρχείο κειμένου"
+
+#~ msgid "Web Files"
+#~ msgstr "Αρχεία Ιστού"
+
+#~ msgid "HTML Files"
+#~ msgstr "Αρχεία HTML"
+
+#~ msgid "PNG Images"
+#~ msgstr "Εικόνες PNG"
+
+#~ msgid "JPEG Images"
+#~ msgstr "Εικόνες JPEG"
+
+#~ msgid "GIF Images"
+#~ msgstr "Εικόνες GIF"

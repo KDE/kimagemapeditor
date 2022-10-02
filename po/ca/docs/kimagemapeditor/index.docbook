@@ -1,0 +1,267 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+&traductor.Manuel.Tortosa; &traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>22 d'agost de 2011</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>El &kimagemapeditor; és un editor de correspondències d'imatge &HTML; creat per la comunitat &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>correspondències d'imatge</keyword>
+<keyword
+>mapa_usuari</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Utilitzar el &kimagemapeditor;</title>
+
+<para
+>El &kimagemapeditor; és un editor de correspondències d'imatge &HTML; creat per la comunitat &kde;. Permet crear i modificar <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>correspondències d'imatge</ulink
+> &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>Aquesta és una captura de pantalla del &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Captura de pantalla</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>La finestra principal del &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Un cas d'ús comú és un mapa del món on cada país és una correspondència d'imatge. En fer clic en un país al mapa, podeu obrir un enllaç cap al país seleccionat.</para>
+
+<para
+>Crear una correspondència d'imatge requereix els passos següents:</para>
+
+<para
+>Carregueu un fitxer d'imatge (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) o un fitxer &HTML; des del vostre disc o arrossegueu-lo cap a l'àrea d'imatge. Seleccioneu una imatge a l'acoblador <guilabel
+>Imatges</guilabel
+>.</para>
+
+<para
+>Afegiu una correspondència d'imatge utilitzant <menuchoice
+><guimenu
+>Correspondència</guimenu
+><guimenuitem
+>Correspondència nova...</guimenuitem
+></menuchoice
+> des del menú i introduïu un nom de correspondència.</para>
+
+<para
+>Ara el menú <guimenu
+>Eines</guimenu
+> està habilitat i podeu seleccionar les formes geomètriques escaients com <guimenuitem
+>Cercle</guimenuitem
+>, <guimenuitem
+>Rectangle</guimenuitem
+>, <guimenuitem
+>Polígon</guimenuitem
+> o <guimenuitem
+>Polígon a mà alçada</guimenuitem
+> i definir una àrea on fer clic a la imatge.</para>
+
+<para
+>Es mostrarà el diàleg <guilabel
+>Editor d'etiquetes d'àrea</guilabel
+>. A la pestanya <guilabel
+>General</guilabel
+>, introduïu els atributs <guilabel
+>HREF</guilabel
+> (un enllaç &URL; de destinació), <guilabel
+>Text Alt.</guilabel
+>, <guilabel
+>Destinació</guilabel
+> i el <guilabel
+>Títol</guilabel
+>.</para
+> 
+
+<para
+>La pestanya <guilabel
+>Coordenades</guilabel
+> mostra les dades geomètriques de la forma. Editar el valor us permetrà ajustar la mida i la posició sobre la imatge de manera que els canvis seran immediatament visibles a la imatge. També es poden modificar la mida i la posició amb el ratolí.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Per obrir el diàleg <guilabel
+>Editor d'etiquetes d'àrea</guilabel
+> per a una correspondència d'imatge ja definida utilitzeu l'entrada <guimenuitem
+>Propietats</guimenuitem
+> des del menú <guimenu
+>Edita</guimenu
+> o el menú contextual de la regió.</para>
+
+<para
+>Utilitzeu <menuchoice
+><guimenu
+>Correspondència</guimenu
+><guimenuitem
+>Mostra l'HTML</guimenuitem
+></menuchoice
+> per a veure el codi &HTML; generat de la correspondència.</para>
+
+<para
+>A continuació obriu <menuchoice
+><guimenu
+>Imatge</guimenu
+><guimenuitem
+>Edita el mapa_usuari...</guimenuitem
+></menuchoice
+> i introduïu el nom de la correspondència com a valor mapa_usuari. Deseu el treball amb <menuchoice
+><guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Desa</guimenuitem
+></menuchoice
+>. Obriu el fitxer &HTML; al &konqueror; per a verificar que la correspondència d'imatge funciona com s'esperava.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Les opcions de configuració del &kimagemapeditor; són accessibles obrint el diàleg de configuració amb la selecció d'<menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura el &kimagemapeditor;...</guimenuitem
+></menuchoice
+> des del menú. </para>
+<screenshot>
+<screeninfo
+>El diàleg de configuració del &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>El diàleg de configuració del &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>El diàleg de configuració del &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Copyright del programa 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Copyright de la documentació 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Traductor de la documentació: &credits.Manuel.Tortosa;</para
+><para
+>Traductor/Revisor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

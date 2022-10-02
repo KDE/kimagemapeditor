@@ -1,0 +1,273 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Manuel de &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Lucas</firstname
+><surname
+>Baudin</surname
+><contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>22/08/2011</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; est un éditeur de cartes &HTML; pour &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>imagemap</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Utilisation de &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; est un éditeur de cartes (aussi appelées hyperimages) &HTML; pour la communauté &kde;. Il vous permet de créer et modifier des <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>hyperimages</ulink
+> &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>Voici une capture d'écran de &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Capture d'écran</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Fenêtre principale de &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>On utilise souvent les cartes &HTML; pour un planisphère du monde, où chaque pays est une carte. En cliquant sur un pays du planisphère, on peut ouvrir un lien correspondant au pays sélectionné.</para>
+
+<para
+>Créer une carte nécessite les étapes suivantes :</para>
+
+<para
+>Ouvrez une image (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) ou un fichier &HTML; en parcourant vos fichiers ou en déposant le fichier dans la zone d'image. Sélectionnez une image dans le docker <guilabel
+>Images</guilabel
+>.</para>
+
+<para
+>Ajoutez une carte en utilisant le menu <menuchoice
+><guimenu
+>Carte</guimenu
+><guimenuitem
+>Nouvelle carte</guimenuitem
+></menuchoice
+> et saisissez le nom de la carte.</para>
+
+<para
+>Maintenant, le menu <guimenu
+>Outils</guimenu
+> est activé et vous pouvez sélectionner la forme géométrique appropriée, telle que <guimenuitem
+>Cercle</guimenuitem
+>, <guimenuitem
+>Rectangle</guimenuitem
+>, <guimenuitem
+>Polygone</guimenuitem
+> ou <guimenuitem
+>Polygone à main levée</guimenuitem
+> et définir une zone cliquable dans l'image.</para>
+
+<para
+>La boîte de dialogue <guilabel
+>Éditeur de balises de zone</guilabel
+> est ouverte. Dans l'onglet <guilabel
+>Général</guilabel
+>, saisissez les attributs <guilabel
+>HREF</guilabel
+> (un lien vers une &URL; cible), <guilabel
+>Texte alternatif</guilabel
+>, <guilabel
+>Cible</guilabel
+> et <guilabel
+>Titre</guilabel
+>.</para
+> 
+
+<para
+>L'onglet <guilabel
+>Coordonnées</guilabel
+> affiche les données géométriques de la forme. Vous pouvez ajuster la taille et la position sur l'image en modifiant les valeurs, puisque vos changements sont visibles immédiatement. La taille et la position peuvent également être modifiées en utilisant également la souris.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Pour ouvrir la boîte de dialogue <guilabel
+>Éditeur de balise de zone</guilabel
+> pour une carte déjà définie, utilisez <guimenuitem
+>Propriétés</guimenuitem
+> depuis le menu <guimenu
+>Édition</guimenu
+> ou le menu contextuel de la zone.</para>
+
+<para
+>Utilisez <menuchoice
+><guimenu
+>Carte</guimenu
+><guimenuitem
+>Afficher le HTML</guimenuitem
+></menuchoice
+> pour voir le code &HTML; généré de la carte.</para>
+
+<para
+>Puis ouvrez <menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Changer la carte à utiliser...</guimenuitem
+></menuchoice
+> et saisissez le nom de la carte dans le champ de la carte à utiliser. Enregistrer votre travail avec <menuchoice
+><guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer</guimenuitem
+></menuchoice
+>. Ouvrez le fichier &HTML; dans &konqueror; pour vérifier que la carte fonctionne comme prévu.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Vous pouvez accéder aux options de configurations de &kimagemapeditor; en ouvrant la fenêtre de configuration en sélectionnant le menu <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer &kimagemapeditor;...</guimenuitem
+> </menuchoice
+>. </para>
+<screenshot>
+<screeninfo
+>Boîte de dialogue de configuration de &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Boîte de dialogue de configuration de &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Boîte de dialogue de configuration de &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Programme sous copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Documentation sous copyright 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Traduction française par Lucas Baudin.</para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

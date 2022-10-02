@@ -1,0 +1,1024 @@
+# translation of kimagemapeditor.po to Japanese
+# This file is distributed under the same license as the kdewebdev package.
+# Fumiaki Okushi <fumiaki@okushi.com>, 2005, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kimagemapeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2006-03-04 02:12-0800\n"
+"Last-Translator: Fumiaki Okushi <fumiaki@okushi.com>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Fumiaki Okushi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "fumiaki@okushi.com"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, kde-format
+msgid "Areas"
+msgstr "領域"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, kde-format
+msgid "Preview"
+msgstr "プレビュー"
+
+#: imagemapchoosedialog.cpp:46
+#, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "編集するマップとイメージを選択"
+
+#: imagemapchoosedialog.cpp:55
+#, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr "編集するイメージかマップを選択"
+
+#: imagemapchoosedialog.cpp:67
+#, kde-format
+msgid "&Maps"
+msgstr "マップ(&M)"
+
+#: imagemapchoosedialog.cpp:79
+#, kde-format
+msgid "Image Preview"
+msgstr "イメージのプレビュー"
+
+#: imagemapchoosedialog.cpp:104
+#, kde-format
+msgid "No maps found"
+msgstr "マップがありません"
+
+#: imagemapchoosedialog.cpp:140
+#, kde-format
+msgid "No images found"
+msgstr "イメージがありません"
+
+#: imagemapchoosedialog.cpp:153
+#, kde-format
+msgid "&Images"
+msgstr "イメージ(&I)"
+
+#: imagemapchoosedialog.cpp:162
+#, kde-format
+msgid "Path"
+msgstr "パス"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, kde-format
+msgid "Images"
+msgstr "イメージ"
+
+#: imageslistview.cpp:60
+#, kde-format
+msgid "Usemap"
+msgstr "Usemap"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, kde-format
+msgid "Maps"
+msgstr "マップ"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, kde-format
+msgid "unnamed"
+msgstr "未定"
+
+#: kimagemapeditor.cpp:446
+#, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr ""
+"<h3>ファイルを開く</h3>ここをクリックして新しいピクチャか HTML ファイルを開き"
+"ます。"
+
+#: kimagemapeditor.cpp:447
+#, kde-format
+msgid "Open new picture or HTML file"
+msgstr "新しいピクチャか HTML ファイルを開く"
+
+#: kimagemapeditor.cpp:454
+#, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr ""
+"<h3>ファイルを保存</h3>ここをクリックして HTML ファイルへの変更を保存します。"
+
+#: kimagemapeditor.cpp:455
+#, kde-format
+msgid "Save HTML file"
+msgstr "HTML ファイルを保存"
+
+#: kimagemapeditor.cpp:463
+#, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr ""
+"<h3>ファイルを閉じる</h3>ここをクリックして現在開いている HTML ファイルを閉じ"
+"ます。"
+
+#: kimagemapeditor.cpp:464
+#, kde-format
+msgid "Close HTML file"
+msgstr "HTML ファイルを閉じる"
+
+#: kimagemapeditor.cpp:468
+#, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr "<h3>コピー</h3>ここをクリックして選択したエリアをコピーします。"
+
+#: kimagemapeditor.cpp:474
+#, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr "<h3>切り取り</h3>ここをクリックして選択したエリアを切り取ります。"
+
+#: kimagemapeditor.cpp:480
+#, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr "<h3>貼り付け</h3>ここをクリックしてコピーしたエリアを貼り付けます。"
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, kde-format
+msgid "&Delete"
+msgstr "削除(&D)"
+
+#: kimagemapeditor.cpp:491
+#, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr "<h3>削除</h3>ここをクリックして選択したエリアを削除します。"
+
+#: kimagemapeditor.cpp:501
+#, kde-format
+msgid "Pr&operties"
+msgstr "プロパティ(&O)"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr "ズーム"
+
+#: kimagemapeditor.cpp:515
+#, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>ズーム</h3>ズームレベルを選びます。"
+
+#: kimagemapeditor.cpp:518
+#, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, kde-format
+msgid "Highlight Areas"
+msgstr "エリアをハイライトする"
+
+#: kimagemapeditor.cpp:538
+#, kde-format
+msgid "Show Alt Tag"
+msgstr "Alt タグを表示"
+
+#: kimagemapeditor.cpp:541
+#, kde-format
+msgid "Map &Name..."
+msgstr "マップ名(&N)..."
+
+#: kimagemapeditor.cpp:545
+#, kde-format
+msgid "Ne&w Map..."
+msgstr "新規マップ(&W)..."
+
+#: kimagemapeditor.cpp:548
+#, kde-format
+msgid "Create a new map"
+msgstr "新しいマップを作成"
+
+#: kimagemapeditor.cpp:550
+#, kde-format
+msgid "D&elete Map"
+msgstr "マップを削除(&E)"
+
+#: kimagemapeditor.cpp:553
+#, kde-format
+msgid "Delete the current active map"
+msgstr "現在のアクティブマップを削除"
+
+#: kimagemapeditor.cpp:555
+#, kde-format
+msgid "Edit &Default Area..."
+msgstr "デフォルトエリアを編集(&D)..."
+
+#: kimagemapeditor.cpp:558
+#, kde-format
+msgid "Edit the default area of the current active map"
+msgstr "現在のアクティブマップのデフォルトエリアを編集"
+
+#: kimagemapeditor.cpp:560
+#, kde-format
+msgid "&Preview"
+msgstr "プレビュー(&P)"
+
+#: kimagemapeditor.cpp:563
+#, kde-format
+msgid "Show a preview"
+msgstr "プレビューを表示"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, kde-format
+msgid "&Image"
+msgstr "イメージ(&I)"
+
+#: kimagemapeditor.cpp:568
+#, kde-format
+msgid "Add Image..."
+msgstr "イメージを追加..."
+
+#: kimagemapeditor.cpp:571
+#, kde-format
+msgid "Add a new image"
+msgstr "新しいイメージを追加"
+
+#: kimagemapeditor.cpp:573
+#, kde-format
+msgid "Remove Image"
+msgstr "イメージを削除"
+
+#: kimagemapeditor.cpp:576
+#, kde-format
+msgid "Remove the current visible image"
+msgstr "現在表示中のイメージを削除"
+
+#: kimagemapeditor.cpp:578
+#, kde-format
+msgid "Edit Usemap..."
+msgstr "Usemap を編集..."
+
+#: kimagemapeditor.cpp:581
+#, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "現在表示中のイメージの usemap タグを編集"
+
+#: kimagemapeditor.cpp:583
+#, kde-format
+msgid "Show &HTML"
+msgstr "HTML を表示(&H)"
+
+#: kimagemapeditor.cpp:590
+#, kde-format
+msgid "&Selection"
+msgstr "選択(&S)"
+
+#: kimagemapeditor.cpp:594
+#, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>選択</h3>ここをクリックしてエリアを選択します。"
+
+#: kimagemapeditor.cpp:600
+#, kde-format
+msgid "&Circle"
+msgstr "丸(&C)"
+
+#: kimagemapeditor.cpp:605
+#, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>丸</h3>ここをクリックして丸を描画します。"
+
+#: kimagemapeditor.cpp:610
+#, kde-format
+msgid "&Rectangle"
+msgstr "長方形(&R)"
+
+#: kimagemapeditor.cpp:614
+#, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>長方形</h3>ここをクリックして長方形を描画します。"
+
+#: kimagemapeditor.cpp:619
+#, kde-format
+msgid "&Polygon"
+msgstr "多角形(&P)"
+
+#: kimagemapeditor.cpp:623
+#, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>多角形</h3>ここをクリックして多角形を描画します。"
+
+#: kimagemapeditor.cpp:628
+#, kde-format
+msgid "&Freehand Polygon"
+msgstr "フリーハンド多角形(&F)"
+
+#: kimagemapeditor.cpp:632
+#, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr ""
+"<h3>フリーハンド多角形</h3>ここをクリックしてフリーハンド多角形を描画します。"
+
+#: kimagemapeditor.cpp:637
+#, kde-format
+msgid "&Add Point"
+msgstr "点を追加(&A)"
+
+#: kimagemapeditor.cpp:641
+#, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr "<h3>点を追加</h3>ここをクリックして多角形に点を追加します。"
+
+#: kimagemapeditor.cpp:646
+#, kde-format
+msgid "&Remove Point"
+msgstr "点を削除(&R)"
+
+#: kimagemapeditor.cpp:651
+#, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr "<h3>点を削除</h3>ここをクリックして多角形から点を削除します。"
+
+#: kimagemapeditor.cpp:655
+#, kde-format
+msgid "Cancel Drawing"
+msgstr "描画をキャンセル"
+
+#: kimagemapeditor.cpp:660
+#, kde-format
+msgid "Move Left"
+msgstr "左へ移動"
+
+#: kimagemapeditor.cpp:666
+#, kde-format
+msgid "Move Right"
+msgstr "右へ移動"
+
+#: kimagemapeditor.cpp:671
+#, kde-format
+msgid "Move Up"
+msgstr "上へ移動"
+
+#: kimagemapeditor.cpp:676
+#, kde-format
+msgid "Move Down"
+msgstr "下へ移動"
+
+#: kimagemapeditor.cpp:681
+#, kde-format
+msgid "Increase Width"
+msgstr "幅を増やす"
+
+#: kimagemapeditor.cpp:686
+#, kde-format
+msgid "Decrease Width"
+msgstr "幅を減らす"
+
+#: kimagemapeditor.cpp:691
+#, kde-format
+msgid "Increase Height"
+msgstr "高さを増やす"
+
+#: kimagemapeditor.cpp:696
+#, kde-format
+msgid "Decrease Height"
+msgstr "高さを減らす"
+
+#: kimagemapeditor.cpp:701
+#, kde-format
+msgid "Bring to Front"
+msgstr "前へ移動"
+
+#: kimagemapeditor.cpp:705
+#, kde-format
+msgid "Send to Back"
+msgstr "後ろへ移動"
+
+#: kimagemapeditor.cpp:709
+#, kde-format
+msgid "Bring Forward One"
+msgstr "一つ前へ移動"
+
+#: kimagemapeditor.cpp:712
+#, kde-format
+msgid "Send Back One"
+msgstr "一つ後ろへ移動"
+
+#: kimagemapeditor.cpp:722
+#, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "KImageMapEditor を設定..."
+
+#: kimagemapeditor.cpp:731
+#, kde-format
+msgid "Show Area List"
+msgstr "エリアリストを表示"
+
+#: kimagemapeditor.cpp:736
+#, kde-format
+msgid "Show Map List"
+msgstr "マップリストを表示"
+
+#: kimagemapeditor.cpp:740
+#, kde-format
+msgid "Show Image List"
+msgstr "イメージリストを表示"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " 選択範囲: -  カーソル: x: 0, y: 0 "
+
+#: kimagemapeditor.cpp:839
+#, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " カーソル: x: %1, y: %2 "
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " 選択範囲: x: %1, y: %2, w: %3, h: %4 "
+
+#: kimagemapeditor.cpp:852
+#, kde-format
+msgid " Selection: - "
+msgstr " 選択範囲: - "
+
+#: kimagemapeditor.cpp:905
+#, kde-format
+msgid "Drop an image or HTML file"
+msgstr "イメージか HTML ファイルをドロップ"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter Map Name"
+msgstr "マップ名を入力"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter the name of the map:"
+msgstr "マップの名前を入力:"
+
+#: kimagemapeditor.cpp:1559
+#, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "名前 “%1” は既に存在します。"
+
+#: kimagemapeditor.cpp:1571
+#, kde-format
+msgid "HTML Code of Map"
+msgstr "マップの HTML コード"
+
+#: kimagemapeditor.cpp:1621
+#, kde-format
+msgid "Choose File to Open"
+msgstr "開くファイルを選択"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
+#| "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
+#| "*.htm *.html|HTML Files\n"
+#| "*.png|PNG Images\n"
+#| "*.jpg *.jpeg|JPEG Images\n"
+#| "*.gif|GIF-Images\n"
+#| "*|All Files"
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"*.png *.jpg *.jpeg *.gif *.htm *.html|ウェブファイル\n"
+"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|イメージ\n"
+"*.htm *.html|HTML ファイル\n"
+"*.png|PNG イメージ\n"
+"*.jpg *.jpeg|JPEG イメージ\n"
+"*.gif|GIF イメージ\n"
+"*|すべてのファイル"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:1680
+#, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>ファイル ‘%1’ が存在しません。</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "ファイルが存在しません"
+
+#: kimagemapeditor.cpp:2378
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr ""
+"<qt>ファイル ‘%1’ に保存できませんでした。書き込み許可がありません。</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>本当にマップ “%1” を削除しますか？<br />【警告】 この操作は元に戻せません"
+"ができません。</qt>"
+
+#: kimagemapeditor.cpp:2695
+#, kde-format
+msgid "Delete Map?"
+msgstr "マップを削除？"
+
+#: kimagemapeditor.cpp:2743
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr "<qt>ファイル ‘%1’ は変更されています。<br />保存しますか？</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, fuzzy, kde-format
+#| msgid "Selection"
+msgid "Select image"
+msgstr "選択"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:2874
+#, kde-format
+msgid "Enter Usemap"
+msgstr "Usemap を入力"
+
+#: kimagemapeditor.cpp:2875
+#, kde-format
+msgid "Enter the usemap value:"
+msgstr "usemap の値を入力:"
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "編集(&E)"
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, kde-format
+msgid "&View"
+msgstr "表示(&V)"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr "ツール(&T)"
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, kde-format
+msgid "&Map"
+msgstr "マップ(&M)"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, kde-format
+msgid "&Settings"
+msgstr "設定(&S)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "KImageMapEditor メインツールバー"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "KImageMapEditor ドローツールバー"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, kde-format
+msgid "&File"
+msgstr "ファイル(&F)"
+
+#: kimearea.cpp:142
+#, kde-format
+msgid "noname"
+msgstr "noname"
+
+#: kimearea.cpp:1401
+#, kde-format
+msgid "Number of Areas"
+msgstr "エリアの数"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, kde-format
+msgid "Rectangle"
+msgstr "長方形"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, kde-format
+msgid "Circle"
+msgstr "丸"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, kde-format
+msgid "Polygon"
+msgstr "多角形"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr "デフォルト"
+
+#: kimecommands.cpp:26
+#, kde-format
+msgid "Cut %1"
+msgstr "%1 を切り取り"
+
+#: kimecommands.cpp:70
+#, kde-format
+msgid "Delete %1"
+msgstr "%1 を削除"
+
+#: kimecommands.cpp:74
+#, kde-format
+msgid "Paste %1"
+msgstr "%1 を貼り付け"
+
+#: kimecommands.cpp:113
+#, kde-format
+msgid "Move %1"
+msgstr "%1 を移動"
+
+#: kimecommands.cpp:169
+#, kde-format
+msgid "Resize %1"
+msgstr "%1 をリサイズ"
+
+#: kimecommands.cpp:210
+#, kde-format
+msgid "Add point to %1"
+msgstr "%1 に点を追加"
+
+#: kimecommands.cpp:254
+#, kde-format
+msgid "Remove point from %1"
+msgstr "%1 から点を削除"
+
+#: kimecommands.cpp:301
+#, kde-format
+msgid "Create %1"
+msgstr "%1 を作成"
+
+#: kimedialogs.cpp:76
+#, kde-format
+msgid "Top &X:"
+msgstr "上 &X:"
+
+#: kimedialogs.cpp:83
+#, kde-format
+msgid "Top &Y:"
+msgstr "上 &Y:"
+
+#: kimedialogs.cpp:90
+#, kde-format
+msgid "&Width:"
+msgstr "幅(&W):"
+
+#: kimedialogs.cpp:97
+#, kde-format
+msgid "Hei&ght:"
+msgstr "高さ(&G):"
+
+#: kimedialogs.cpp:119
+#, kde-format
+msgid "Center &X:"
+msgstr "中心 &X:"
+
+#: kimedialogs.cpp:126
+#, kde-format
+msgid "Center &Y:"
+msgstr "中心 &Y:"
+
+#: kimedialogs.cpp:133
+#, kde-format
+msgid "&Radius:"
+msgstr "半径(&R):"
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr "追加"
+
+#: kimedialogs.cpp:169
+#, kde-format
+msgid "Remove"
+msgstr "削除"
+
+#: kimedialogs.cpp:244
+#, kde-format
+msgid "Top &X"
+msgstr "上 &X"
+
+#: kimedialogs.cpp:252
+#, kde-format
+msgid "Top &Y"
+msgstr "上 &Y"
+
+#: kimedialogs.cpp:285
+#, kde-format
+msgid "&HREF:"
+msgstr "&HREF:"
+
+#: kimedialogs.cpp:291
+#, kde-format
+msgid "Alt. &Text:"
+msgstr "Alt テキスト(&T):"
+
+#: kimedialogs.cpp:294
+#, kde-format
+msgid "Tar&get:"
+msgstr "tar&get:"
+
+#: kimedialogs.cpp:297
+#, kde-format
+msgid "Tit&le:"
+msgstr "Tit&le:"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr ""
+
+#: kimedialogs.cpp:304
+#, kde-format
+msgid "Enable default map"
+msgstr "デフォルトマップを有効にする"
+
+#: kimedialogs.cpp:328
+#, kde-format
+msgid "OnClick:"
+msgstr "OnClick:"
+
+#: kimedialogs.cpp:329
+#, kde-format
+msgid "OnDblClick:"
+msgstr "OnDblClick:"
+
+#: kimedialogs.cpp:330
+#, kde-format
+msgid "OnMouseDown:"
+msgstr "OnMouseDown:"
+
+#: kimedialogs.cpp:331
+#, kde-format
+msgid "OnMouseUp:"
+msgstr "OnMouseUp:"
+
+#: kimedialogs.cpp:332
+#, kde-format
+msgid "OnMouseOver:"
+msgstr "OnMouseOver:"
+
+#: kimedialogs.cpp:333
+#, kde-format
+msgid "OnMouseMove:"
+msgstr "OnMouseMove:"
+
+#: kimedialogs.cpp:334
+#, kde-format
+msgid "OnMouseOut:"
+msgstr "OnMouseOut:"
+
+#: kimedialogs.cpp:342
+#, kde-format
+msgid "Area Tag Editor"
+msgstr "エリアタグエディタ"
+
+#: kimedialogs.cpp:364
+#, kde-format
+msgid "Selection"
+msgstr "選択"
+
+#: kimedialogs.cpp:383
+#, kde-format
+msgid "&General"
+msgstr "一般(&G)"
+
+#: kimedialogs.cpp:390
+#, kde-format
+msgid "Coor&dinates"
+msgstr "座標(&D)"
+
+#: kimedialogs.cpp:392
+#, kde-format
+msgid "&JavaScript"
+msgstr "&JavaScript"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "Choose File"
+msgstr "ファイルを選択"
+
+#: kimedialogs.cpp:436
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgid "All Files (*)"
+msgstr "すべてのファイル"
+
+#: kimedialogs.cpp:505
+#, kde-format
+msgid "Preferences"
+msgstr "設定"
+
+#: kimedialogs.cpp:519
+#, kde-format
+msgid "&Maximum image preview height:"
+msgstr "イメージプレビューの最大高(&M):"
+
+#: kimedialogs.cpp:528
+#, kde-format
+msgid "&Undo limit:"
+msgstr "元に戻す上限回数(&U):"
+
+#: kimedialogs.cpp:535
+#, kde-format
+msgid "&Redo limit:"
+msgstr "やり直す上限回数(&R):"
+
+#: kimedialogs.cpp:539
+#, kde-format
+msgid "&Start with last used document"
+msgstr "最後に使った文書で始める(&S)"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:200
+#, kde-format
+msgid "Choose Picture to Open"
+msgstr "開くピクチャを選択"
+
+#: main.cpp:30
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "HTML imagemap エディタ"
+
+#: main.cpp:38
+#, kde-format
+msgid "KImageMapEditor"
+msgstr "KImageMapEditor"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr "(c) 2001-2007 Jan Schaefer"
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr "Jan Schaefer"
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr "Joerg Jaspert"
+
+#: main.cpp:43
+#, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "Makefile の作成を手伝ってくれた他、Debian のパッケージを作成"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr "Aaron Seigo, Michael"
+
+#: main.cpp:44
+#, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr "--enable-final モードを直すのを手伝ってくれた"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr "Antonio Crevillen"
+
+#: main.cpp:45
+#, kde-format
+msgid "For the Spanish translation"
+msgstr "スペイン語訳"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr "Fabrice Mous"
+
+#: main.cpp:46
+#, kde-format
+msgid "For the Dutch translation"
+msgstr "オランダ語訳"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr "Germain Chazot"
+
+#: main.cpp:47
+#, kde-format
+msgid "For the French translation"
+msgstr "フランス語訳"
+
+#: main.cpp:60
+#, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "終了時に標準出力に HTML を出力"
+
+#: main.cpp:61
+#, kde-format
+msgid "File to open"
+msgstr "開くファイル"
+
+#, fuzzy
+#~| msgid ""
+#~| "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
+#~| "email>"
+#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+#~ msgstr ""
+#~ "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
+#~ "email>"

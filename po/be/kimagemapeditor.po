@@ -1,0 +1,1078 @@
+# translation of kimagemapeditor.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kimagemapeditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2007-10-28 14:03+0200\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сяржук Лянцэвіч"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "serzh.by@gmail.com"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, fuzzy, kde-format
+msgid "Areas"
+msgstr "Вобласці"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, fuzzy, kde-format
+msgid "Preview"
+msgstr "Прагляд"
+
+#: imagemapchoosedialog.cpp:46
+#, fuzzy, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "Вылучыце табліцу і малюнак для праўкі"
+
+#: imagemapchoosedialog.cpp:55
+#, fuzzy, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr "Вылучыце малюнак і/або табліцу, якую жадаеце змяніць"
+
+#: imagemapchoosedialog.cpp:67
+#, fuzzy, kde-format
+msgid "&Maps"
+msgstr "Табліцы"
+
+#: imagemapchoosedialog.cpp:79
+#, fuzzy, kde-format
+msgid "Image Preview"
+msgstr "Прагляд малюнка"
+
+#: imagemapchoosedialog.cpp:104
+#, fuzzy, kde-format
+msgid "No maps found"
+msgstr "Табліцы не знойдзеныя"
+
+#: imagemapchoosedialog.cpp:140
+#, fuzzy, kde-format
+msgid "No images found"
+msgstr "Малюнкі не знойдзены"
+
+#: imagemapchoosedialog.cpp:153
+#, fuzzy, kde-format
+msgid "&Images"
+msgstr "Малюнкі"
+
+#: imagemapchoosedialog.cpp:162
+#, fuzzy, kde-format
+msgid "Path"
+msgstr "Шлях"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, fuzzy, kde-format
+msgid "Images"
+msgstr "Малюнкі"
+
+#: imageslistview.cpp:60
+#, fuzzy, kde-format
+msgid "Usemap"
+msgstr "Табліца выкарыстання"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, fuzzy, kde-format
+msgid "Maps"
+msgstr "Табліцы"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, fuzzy, kde-format
+msgid "unnamed"
+msgstr "без імя"
+
+#: kimagemapeditor.cpp:446
+#, fuzzy, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr "<h3>Адкрыць файл</h3>Адкрыць новы малюнак або HTML."
+
+#: kimagemapeditor.cpp:447
+#, fuzzy, kde-format
+msgid "Open new picture or HTML file"
+msgstr "Адкрыць новы малюнак або HTML-файл"
+
+#: kimagemapeditor.cpp:454
+#, fuzzy, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr "<h3>Захаваць файл</h3>Захаваць змены ў HTML-файл."
+
+#: kimagemapeditor.cpp:455
+#, fuzzy, kde-format
+msgid "Save HTML file"
+msgstr "Захаваць HTML-файл"
+
+#: kimagemapeditor.cpp:463
+#, fuzzy, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr "<h3>Зачыніць файл</h3>Зачыніць файл."
+
+#: kimagemapeditor.cpp:464
+#, fuzzy, kde-format
+msgid "Close HTML file"
+msgstr "Зачыніць HTML-файл"
+
+#: kimagemapeditor.cpp:468
+#, fuzzy, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr "<h3>Капіяваць</h3>Скапіраваць вылучаную вобласць."
+
+#: kimagemapeditor.cpp:474
+#, fuzzy, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr "<h3>Выразаць</h3>Выразаць вылучаную вобласць."
+
+#: kimagemapeditor.cpp:480
+#, fuzzy, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr "<h3>Уставіць</h3>Уставіць скапіраваную вобласць."
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, fuzzy, kde-format
+msgid "&Delete"
+msgstr "Выдаліць %1"
+
+#: kimagemapeditor.cpp:491
+#, fuzzy, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr "<h3>Выдаліць</h3>Выдаліць вылучаную вобласць."
+
+#: kimagemapeditor.cpp:501
+#, fuzzy, kde-format
+msgid "Pr&operties"
+msgstr "Уласцівасці"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr ""
+
+#: kimagemapeditor.cpp:515
+#, fuzzy, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>Маштаб</h3>.Вылучыце маштаб"
+
+#: kimagemapeditor.cpp:518
+#, fuzzy, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, fuzzy, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, fuzzy, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, fuzzy, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, fuzzy, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, fuzzy, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, fuzzy, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, fuzzy, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, fuzzy, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, fuzzy, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, fuzzy, kde-format
+msgid "Highlight Areas"
+msgstr "Вылучыць вобласці"
+
+#: kimagemapeditor.cpp:538
+#, fuzzy, kde-format
+msgid "Show Alt Tag"
+msgstr "Паказаць Alt Tag"
+
+#: kimagemapeditor.cpp:541
+#, fuzzy, kde-format
+msgid "Map &Name..."
+msgstr "Назоў табліцы..."
+
+#: kimagemapeditor.cpp:545
+#, fuzzy, kde-format
+msgid "Ne&w Map..."
+msgstr "Стварыць табліцу..."
+
+#: kimagemapeditor.cpp:548
+#, fuzzy, kde-format
+msgid "Create a new map"
+msgstr "Стварыць новую табліцу"
+
+#: kimagemapeditor.cpp:550
+#, fuzzy, kde-format
+msgid "D&elete Map"
+msgstr "Выдаліць табліцу"
+
+#: kimagemapeditor.cpp:553
+#, fuzzy, kde-format
+msgid "Delete the current active map"
+msgstr "Выдаліць табліцу"
+
+#: kimagemapeditor.cpp:555
+#, fuzzy, kde-format
+msgid "Edit &Default Area..."
+msgstr "Змяніць вобласць па змаўчанні..."
+
+#: kimagemapeditor.cpp:558
+#, fuzzy, kde-format
+msgid "Edit the default area of the current active map"
+msgstr "Змяніць вобласць па змаўчанні бягучай табліцы"
+
+#: kimagemapeditor.cpp:560
+#, fuzzy, kde-format
+msgid "&Preview"
+msgstr "Прагляд"
+
+#: kimagemapeditor.cpp:563
+#, fuzzy, kde-format
+msgid "Show a preview"
+msgstr "Прагляд"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, fuzzy, kde-format
+msgid "&Image"
+msgstr "Малюнак"
+
+#: kimagemapeditor.cpp:568
+#, fuzzy, kde-format
+msgid "Add Image..."
+msgstr "Дадаць малюнак..."
+
+#: kimagemapeditor.cpp:571
+#, fuzzy, kde-format
+msgid "Add a new image"
+msgstr "дадаць малюнак"
+
+#: kimagemapeditor.cpp:573
+#, fuzzy, kde-format
+msgid "Remove Image"
+msgstr "Выдаліць малюнак"
+
+#: kimagemapeditor.cpp:576
+#, fuzzy, kde-format
+msgid "Remove the current visible image"
+msgstr "Выдаліць малюнак"
+
+#: kimagemapeditor.cpp:578
+#, fuzzy, kde-format
+msgid "Edit Usemap..."
+msgstr "Змяніць табліцу выкарыстання..."
+
+#: kimagemapeditor.cpp:581
+#, fuzzy, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "Змяніць табліцу выкарыстання"
+
+#: kimagemapeditor.cpp:583
+#, fuzzy, kde-format
+msgid "Show &HTML"
+msgstr "паказаць HTML"
+
+#: kimagemapeditor.cpp:590
+#, fuzzy, kde-format
+msgid "&Selection"
+msgstr "Вылучэнне"
+
+#: kimagemapeditor.cpp:594
+#, fuzzy, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>Вылучэнне</h3> Вылучыць вобласць."
+
+#: kimagemapeditor.cpp:600
+#, fuzzy, kde-format
+msgid "&Circle"
+msgstr "Круг"
+
+#: kimagemapeditor.cpp:605
+#, fuzzy, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>Круг</h3>Націсніце каб намаляваць круг."
+
+#: kimagemapeditor.cpp:610
+#, fuzzy, kde-format
+msgid "&Rectangle"
+msgstr "Прастакутнік"
+
+#: kimagemapeditor.cpp:614
+#, fuzzy, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>Прастакутнік</h3>Націсніце каб намаляваць прастакутнік."
+
+#: kimagemapeditor.cpp:619
+#, fuzzy, kde-format
+msgid "&Polygon"
+msgstr "Шматкутнік"
+
+#: kimagemapeditor.cpp:623
+#, fuzzy, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>Шматкутнік</h3>Націсніце каб намаляваць шматкутнік."
+
+#: kimagemapeditor.cpp:628
+#, fuzzy, kde-format
+msgid "&Freehand Polygon"
+msgstr "Адвольны шматкутнік"
+
+#: kimagemapeditor.cpp:632
+#, fuzzy, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr ""
+"<h3>Адвольны шматкутнік</h3>Націсніце каб намаляваць адвольны шматкутнік."
+
+#: kimagemapeditor.cpp:637
+#, fuzzy, kde-format
+msgid "&Add Point"
+msgstr "Дадаць кропку"
+
+#: kimagemapeditor.cpp:641
+#, fuzzy, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr "<h3>Дадаць кропку</h3>Дадаць кропку шматкутніка."
+
+#: kimagemapeditor.cpp:646
+#, fuzzy, kde-format
+msgid "&Remove Point"
+msgstr "Выдаліць кропку"
+
+#: kimagemapeditor.cpp:651
+#, fuzzy, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr "<h3>Выдаліць кропку</h3>Выдаліць кропку з шматкутніка."
+
+#: kimagemapeditor.cpp:655
+#, fuzzy, kde-format
+msgid "Cancel Drawing"
+msgstr "Адмяніць маляванне"
+
+#: kimagemapeditor.cpp:660
+#, fuzzy, kde-format
+msgid "Move Left"
+msgstr "Налева"
+
+#: kimagemapeditor.cpp:666
+#, fuzzy, kde-format
+msgid "Move Right"
+msgstr "Направа"
+
+#: kimagemapeditor.cpp:671
+#, fuzzy, kde-format
+msgid "Move Up"
+msgstr "Уверх"
+
+#: kimagemapeditor.cpp:676
+#, fuzzy, kde-format
+msgid "Move Down"
+msgstr "Уніз"
+
+#: kimagemapeditor.cpp:681
+#, fuzzy, kde-format
+msgid "Increase Width"
+msgstr "Павялічыць шырыню"
+
+#: kimagemapeditor.cpp:686
+#, fuzzy, kde-format
+msgid "Decrease Width"
+msgstr "Паменшыць шырыню"
+
+#: kimagemapeditor.cpp:691
+#, fuzzy, kde-format
+msgid "Increase Height"
+msgstr "Павялічыць вышыню"
+
+#: kimagemapeditor.cpp:696
+#, fuzzy, kde-format
+msgid "Decrease Height"
+msgstr "Паменшыць вышыню"
+
+#: kimagemapeditor.cpp:701
+#, fuzzy, kde-format
+msgid "Bring to Front"
+msgstr "На пярэдні план"
+
+#: kimagemapeditor.cpp:705
+#, fuzzy, kde-format
+msgid "Send to Back"
+msgstr "На задні план"
+
+#: kimagemapeditor.cpp:709
+#, fuzzy, kde-format
+msgid "Bring Forward One"
+msgstr "На пярэдні план"
+
+#: kimagemapeditor.cpp:712
+#, fuzzy, kde-format
+msgid "Send Back One"
+msgstr "На задні план"
+
+#: kimagemapeditor.cpp:722
+#, fuzzy, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "Наладзіць KImageMapEditor..."
+
+#: kimagemapeditor.cpp:731
+#, fuzzy, kde-format
+msgid "Show Area List"
+msgstr "Паказаць спіс абласцей"
+
+#: kimagemapeditor.cpp:736
+#, fuzzy, kde-format
+msgid "Show Map List"
+msgstr "Паказаць спіс табліц"
+
+#: kimagemapeditor.cpp:740
+#, fuzzy, kde-format
+msgid "Show Image List"
+msgstr "Паказаць спіс малюнкаў"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, fuzzy, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " Вылучэнне: -  Курсор: x: 0, y: 0 "
+
+#: kimagemapeditor.cpp:839
+#, fuzzy, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " Курсор: x: %1, y: %2 "
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, fuzzy, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " Вылучэнне: x: %1, y: %2, w: %3, h: %4 "
+
+#: kimagemapeditor.cpp:852
+#, fuzzy, kde-format
+msgid " Selection: - "
+msgstr " Вылучэнне: - "
+
+#: kimagemapeditor.cpp:905
+#, fuzzy, kde-format
+msgid "Drop an image or HTML file"
+msgstr "Перанясіце сюды малюнак або HTML-файл"
+
+#: kimagemapeditor.cpp:1554
+#, fuzzy, kde-format
+msgid "Enter Map Name"
+msgstr "Увесці імя табліцы"
+
+#: kimagemapeditor.cpp:1554
+#, fuzzy, kde-format
+msgid "Enter the name of the map:"
+msgstr "Увядзіце імя табліцы:"
+
+#: kimagemapeditor.cpp:1559
+#, fuzzy, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "Імя <em>%1</em> ужо існуе."
+
+#: kimagemapeditor.cpp:1571
+#, fuzzy, kde-format
+msgid "HTML Code of Map"
+msgstr "HTML-код або табліца"
+
+#: kimagemapeditor.cpp:1621
+#, fuzzy, kde-format
+msgid "Choose File to Open"
+msgstr "Вылучыце файл для адкрыцця"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, fuzzy, kde-format
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"*.png *.jpg *.jpeg *.gif *.htm *.html|Web-файлы\n"
+"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Малюнкі\n"
+"*.htm *.html|HTML-файлы\n"
+"*.png|PNG-малюнкі\n"
+"*.jpg *.jpeg|JPEG-малюнкі\n"
+"*.gif|GIF-малюнкі\n"
+"*|Усе файлы"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:1680
+#, fuzzy, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Файл <b>%1</b> не існуе.</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, fuzzy, kde-format
+msgid "File Does Not Exist"
+msgstr "Файл не існуе"
+
+#: kimagemapeditor.cpp:2378
+#, fuzzy, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr ""
+"<qt>Файл <i>%1</i> не можа быць захаваны, т.к. у вас няма адпаведных мае "
+"рацыю.</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, fuzzy, kde-format
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>Вы сапраўды жадаеце выдаліць табліцу <i>%1</i>? <br><b>Гэта нельга "
+"адмяніць.</b></qt>"
+
+#: kimagemapeditor.cpp:2695
+#, fuzzy, kde-format
+msgid "Delete Map?"
+msgstr "Выдаліць табліцу?"
+
+#: kimagemapeditor.cpp:2743
+#, fuzzy, kde-format
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr "<qt>Файл <i>%1</i> быў зменены.<br>Захаваць яго?</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, fuzzy, kde-format
+msgid "Select image"
+msgstr "Вылучэнне"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:2874
+#, fuzzy, kde-format
+msgid "Enter Usemap"
+msgstr "Увядзіце табліцу выкарыстання"
+
+#: kimagemapeditor.cpp:2875
+#, fuzzy, kde-format
+msgid "Enter the usemap value:"
+msgstr "Увядзіце значэнне табліцы выкарыстання:"
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, fuzzy, kde-format
+msgid "&View"
+msgstr "Прагляд"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, fuzzy, kde-format
+msgid "&Map"
+msgstr "Табліца"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, fuzzy, kde-format
+msgid "&Settings"
+msgstr "Вылучэнне"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, fuzzy, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "Панель прылад KImageMapEditor"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, fuzzy, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "Панель малявання KImageMapEditor"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, fuzzy, kde-format
+msgid "&File"
+msgstr "Круг"
+
+#: kimearea.cpp:142
+#, fuzzy, kde-format
+msgid "noname"
+msgstr "без імя"
+
+#: kimearea.cpp:1401
+#, fuzzy, kde-format
+msgid "Number of Areas"
+msgstr "Колькасць абласцей"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, fuzzy, kde-format
+msgid "Rectangle"
+msgstr "Прастакутнік"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, fuzzy, kde-format
+msgid "Circle"
+msgstr "Круг"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, fuzzy, kde-format
+msgid "Polygon"
+msgstr "Шматкутнік"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr ""
+
+#: kimecommands.cpp:26
+#, fuzzy, kde-format
+msgid "Cut %1"
+msgstr "Выразаць %1"
+
+#: kimecommands.cpp:70
+#, fuzzy, kde-format
+msgid "Delete %1"
+msgstr "Выдаліць %1"
+
+#: kimecommands.cpp:74
+#, fuzzy, kde-format
+msgid "Paste %1"
+msgstr "Уставіць %1"
+
+#: kimecommands.cpp:113
+#, fuzzy, kde-format
+msgid "Move %1"
+msgstr "Перамясціць %1"
+
+#: kimecommands.cpp:169
+#, fuzzy, kde-format
+msgid "Resize %1"
+msgstr "Змяніць памер %1"
+
+#: kimecommands.cpp:210
+#, fuzzy, kde-format
+msgid "Add point to %1"
+msgstr "Дадаць кропку ў %1"
+
+#: kimecommands.cpp:254
+#, fuzzy, kde-format
+msgid "Remove point from %1"
+msgstr "Выдаліць кропку з %1"
+
+#: kimecommands.cpp:301
+#, fuzzy, kde-format
+msgid "Create %1"
+msgstr "Стварыць %1"
+
+#: kimedialogs.cpp:76
+#, fuzzy, kde-format
+msgid "Top &X:"
+msgstr "Верхні X:"
+
+#: kimedialogs.cpp:83
+#, fuzzy, kde-format
+msgid "Top &Y:"
+msgstr "Верхні Y:"
+
+#: kimedialogs.cpp:90
+#, fuzzy, kde-format
+msgid "&Width:"
+msgstr "Шырыня:"
+
+#: kimedialogs.cpp:97
+#, fuzzy, kde-format
+msgid "Hei&ght:"
+msgstr "Вышыня:"
+
+#: kimedialogs.cpp:119
+#, fuzzy, kde-format
+msgid "Center &X:"
+msgstr "Сярэдні X:"
+
+#: kimedialogs.cpp:126
+#, fuzzy, kde-format
+msgid "Center &Y:"
+msgstr "Сярэдні Y:"
+
+#: kimedialogs.cpp:133
+#, fuzzy, kde-format
+msgid "&Radius:"
+msgstr "Радыўс:"
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: kimedialogs.cpp:169
+#, fuzzy, kde-format
+msgid "Remove"
+msgstr "Выдаліць малюнак"
+
+#: kimedialogs.cpp:244
+#, fuzzy, kde-format
+msgid "Top &X"
+msgstr "Верхні X"
+
+#: kimedialogs.cpp:252
+#, fuzzy, kde-format
+msgid "Top &Y"
+msgstr "Верхні Y"
+
+#: kimedialogs.cpp:285
+#, fuzzy, kde-format
+msgid "&HREF:"
+msgstr "HREF:"
+
+#: kimedialogs.cpp:291
+#, fuzzy, kde-format
+msgid "Alt. &Text:"
+msgstr "Alt:"
+
+#: kimedialogs.cpp:294
+#, fuzzy, kde-format
+msgid "Tar&get:"
+msgstr "Мэта:"
+
+#: kimedialogs.cpp:297
+#, fuzzy, kde-format
+msgid "Tit&le:"
+msgstr "Заголовокe:"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr ""
+
+#: kimedialogs.cpp:304
+#, fuzzy, kde-format
+msgid "Enable default map"
+msgstr "Уключыць табліцу па змаўчанні"
+
+#: kimedialogs.cpp:328
+#, fuzzy, kde-format
+msgid "OnClick:"
+msgstr "OnClick:"
+
+#: kimedialogs.cpp:329
+#, fuzzy, kde-format
+msgid "OnDblClick:"
+msgstr "OnDblClick:"
+
+#: kimedialogs.cpp:330
+#, fuzzy, kde-format
+msgid "OnMouseDown:"
+msgstr "OnMouseDown:"
+
+#: kimedialogs.cpp:331
+#, fuzzy, kde-format
+msgid "OnMouseUp:"
+msgstr "OnMouseUp:"
+
+#: kimedialogs.cpp:332
+#, fuzzy, kde-format
+msgid "OnMouseOver:"
+msgstr "OnMouseOver:"
+
+#: kimedialogs.cpp:333
+#, fuzzy, kde-format
+msgid "OnMouseMove:"
+msgstr "OnMouseMove:"
+
+#: kimedialogs.cpp:334
+#, fuzzy, kde-format
+msgid "OnMouseOut:"
+msgstr "OnMouseOut:"
+
+#: kimedialogs.cpp:342
+#, fuzzy, kde-format
+msgid "Area Tag Editor"
+msgstr "Рэдактар тэга вобласці"
+
+#: kimedialogs.cpp:364
+#, fuzzy, kde-format
+msgid "Selection"
+msgstr "Вылучэнне"
+
+#: kimedialogs.cpp:383
+#, fuzzy, kde-format
+msgid "&General"
+msgstr "агульныя"
+
+#: kimedialogs.cpp:390
+#, fuzzy, kde-format
+msgid "Coor&dinates"
+msgstr "Каардынаты"
+
+#: kimedialogs.cpp:392
+#, fuzzy, kde-format
+msgid "&JavaScript"
+msgstr "JavaScript"
+
+#: kimedialogs.cpp:436
+#, fuzzy, kde-format
+msgid "Choose File"
+msgstr "Вылучыце файл"
+
+#: kimedialogs.cpp:436
+#, fuzzy, kde-format
+msgid "All Files (*)"
+msgstr "Усе файлы"
+
+#: kimedialogs.cpp:505
+#, fuzzy, kde-format
+msgid "Preferences"
+msgstr "Налады"
+
+#: kimedialogs.cpp:519
+#, fuzzy, kde-format
+msgid "&Maximum image preview height:"
+msgstr "Максімальная вышыня прагляду:"
+
+#: kimedialogs.cpp:528
+#, fuzzy, kde-format
+msgid "&Undo limit:"
+msgstr "Колькасць дзеянняў для адмены:"
+
+#: kimedialogs.cpp:535
+#, fuzzy, kde-format
+msgid "&Redo limit:"
+msgstr "Колькасць дзеянняў для паўтору:"
+
+#: kimedialogs.cpp:539
+#, fuzzy, kde-format
+msgid "&Start with last used document"
+msgstr "Адкрыюць апошні дакумент пры запуску"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:200
+#, fuzzy, kde-format
+msgid "Choose Picture to Open"
+msgstr "Вылучыце малюнак"
+
+#: main.cpp:30
+#, fuzzy, kde-format
+msgid "An HTML imagemap editor"
+msgstr "Рэдактар таблічных малюнкаў HTML"
+
+#: main.cpp:38
+#, fuzzy, kde-format
+msgid "KImageMapEditor"
+msgstr "KImageMapEditor"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr ""
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr ""
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr ""
+
+#: main.cpp:43
+#, fuzzy, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "Дапамога з Makefile, пакет Debian"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr ""
+
+#: main.cpp:44
+#, fuzzy, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr "Выпраўленне ключа --enable-final"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr ""
+
+#: main.cpp:45
+#, fuzzy, kde-format
+msgid "For the Spanish translation"
+msgstr "Пераклад"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr ""
+
+#: main.cpp:46
+#, fuzzy, kde-format
+msgid "For the Dutch translation"
+msgstr "Пераклад"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr ""
+
+#: main.cpp:47
+#, fuzzy, kde-format
+msgid "For the French translation"
+msgstr "Пераклад"
+
+#: main.cpp:60
+#, fuzzy, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "Пісаць HTML-код у stdout пры выхадзе"
+
+#: main.cpp:61
+#, fuzzy, kde-format
+msgid "File to open"
+msgstr "Адкрыць файл"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr "<qt>Файл <em>%1</em> ужо існуе.<br>Замяніць яго?</qt>"
+
+#, fuzzy
+#~ msgid "Overwrite File?"
+#~ msgstr "Замяніць файл?"
+
+#, fuzzy
+#~ msgid "Overwrite"
+#~ msgstr "Замяніць"
+
+#, fuzzy
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr "<qt>У вас няма мае рацыю на запіс <em>%1</em>.</qt>"
+
+#, fuzzy
+#~ msgid "HTML File"
+#~ msgstr "HTML-файл"
+
+#, fuzzy
+#~ msgid "Text File"
+#~ msgstr "Тэкставы файл"
+
+#, fuzzy
+#~ msgid "Web Files"
+#~ msgstr "Web-файлы"
+
+#, fuzzy
+#~ msgid "HTML Files"
+#~ msgstr "HTML-файлы"
+
+#, fuzzy
+#~ msgid "PNG Images"
+#~ msgstr "Малюнкі PNG"
+
+#, fuzzy
+#~ msgid "JPEG Images"
+#~ msgstr "Малюнкі JPEG"
+
+#, fuzzy
+#~ msgid "GIF Images"
+#~ msgstr "Малюнкі GIF"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h3>Area List</h3>The area list shows you all areas of the map.<br>The "
+#~ "left column shows the link associated with the area; the right column "
+#~ "shows the part of the image that is covered by the area.<br>The maximum "
+#~ "size of the preview images can be configured."
+#~ msgstr ""
+#~ "<h3>Спіс абласцей</h3>Показывае т усе вобласці табліцы.<br>Левы стобец "
+#~ "утрымоўвае спасылкі на вобласці; правая - часткі малюнкаў вобласці."
+#~ "<br>Максімальны памер мініяцюр можна наладзіць."
+
+#, fuzzy
+#~ msgid "A list of all areas"
+#~ msgstr "Спіс абласцей"
+
+#, fuzzy
+#~ msgid "Hide Alt Tag"
+#~ msgstr "Схаваць Alt Tag"
+
+#, fuzzy
+#~ msgid "Hide Area List"
+#~ msgstr "Схаваць спіс абласцей"
+
+#, fuzzy
+#~ msgid "Hide Map List"
+#~ msgstr "Схаваць спіс табліц"
+
+#, fuzzy
+#~ msgid "Hide Image List"
+#~ msgstr "Схаваць спіс малюнкаў"

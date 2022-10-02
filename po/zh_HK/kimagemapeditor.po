@@ -1,0 +1,1073 @@
+# translation of kimagemapeditor.po to Chinese Traditional
+# Stanley Wong <stanley18fan0k@yahoo.com.hk>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: KImageMapEditor\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"PO-Revision-Date: 2006-02-26 05:42+0800\n"
+"Last-Translator: Stanley Wong <stanley18fan0k@yahoo.com.hk>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
+"Language: zh_HK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stanley Wong"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stanley18fan0k@yahoo.com.hk"
+
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#, kde-format
+msgid "Areas"
+msgstr "區域"
+
+#: arealistview.cpp:44 kimedialogs.cpp:594
+#, kde-format
+msgid "Preview"
+msgstr "預覽"
+
+#: imagemapchoosedialog.cpp:46
+#, kde-format
+msgid "Choose Map & Image to Edit"
+msgstr "選擇要編輯的地圖和圖片"
+
+#: imagemapchoosedialog.cpp:55
+#, kde-format
+msgid "Select an image and/or a map that you want to edit"
+msgstr "請選擇一張您要編輯的地圖／圖片"
+
+#: imagemapchoosedialog.cpp:67
+#, kde-format
+msgid "&Maps"
+msgstr "地圖(&M)"
+
+#: imagemapchoosedialog.cpp:79
+#, kde-format
+msgid "Image Preview"
+msgstr "圖片預覽"
+
+#: imagemapchoosedialog.cpp:104
+#, kde-format
+msgid "No maps found"
+msgstr "找不到地圖"
+
+#: imagemapchoosedialog.cpp:140
+#, kde-format
+msgid "No images found"
+msgstr "找不到圖片"
+
+#: imagemapchoosedialog.cpp:153
+#, kde-format
+msgid "&Images"
+msgstr "圖片(&I)"
+
+#: imagemapchoosedialog.cpp:162
+#, kde-format
+msgid "Path"
+msgstr "路徑"
+
+#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#, kde-format
+msgid "Images"
+msgstr "圖片"
+
+#: imageslistview.cpp:60
+#, kde-format
+msgid "Usemap"
+msgstr "Usemap"
+
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#, kde-format
+msgid "Maps"
+msgstr "地圖"
+
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#, kde-format
+msgid "unnamed"
+msgstr "未命名"
+
+#: kimagemapeditor.cpp:446
+#, kde-format
+msgid ""
+"<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
+msgstr "<h3>開啟檔案</h3>按這裏來<em>開啟</em>一張新圖片或 HTML 檔案。"
+
+#: kimagemapeditor.cpp:447
+#, kde-format
+msgid "Open new picture or HTML file"
+msgstr "開啟新圖片或 HTML 檔案"
+
+#: kimagemapeditor.cpp:454
+#, kde-format
+msgid ""
+"<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
+msgstr "<h3>儲存檔案</h3>按這裏來<em>儲存</em> HTML 檔案的變更。"
+
+#: kimagemapeditor.cpp:455
+#, kde-format
+msgid "Save HTML file"
+msgstr "儲存 HTML 檔案"
+
+#: kimagemapeditor.cpp:463
+#, kde-format
+msgid ""
+"<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
+msgstr "<h3>關閉檔案</h3>按這裏來<em>關閉</em>目前開啟的 HTML 檔案。"
+
+#: kimagemapeditor.cpp:464
+#, kde-format
+msgid "Close HTML file"
+msgstr "關閉 HTML 檔案"
+
+#: kimagemapeditor.cpp:468
+#, kde-format
+msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
+msgstr "<h3>複製</h3>按這裏來<em>複製</em>選擇的區域。"
+
+#: kimagemapeditor.cpp:474
+#, kde-format
+msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
+msgstr "<h3>剪下</h3>按這裏來<em>剪下</em>選擇的區域。"
+
+#: kimagemapeditor.cpp:480
+#, kde-format
+msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
+msgstr "<h3>貼上</h3>按這裏來<em>貼上</em>選擇的區域。"
+
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#, fuzzy, kde-format
+msgid "&Delete"
+msgstr "刪除 %1"
+
+#: kimagemapeditor.cpp:491
+#, kde-format
+msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
+msgstr "<h3>刪除</h3>按這裏來<em>刪除</em>選擇的區域。"
+
+#: kimagemapeditor.cpp:501
+#, kde-format
+msgid "Pr&operties"
+msgstr "屬性(&O)"
+
+#: kimagemapeditor.cpp:512
+#, kde-format
+msgid "Zoom"
+msgstr ""
+
+#: kimagemapeditor.cpp:515
+#, kde-format
+msgid "<h3>Zoom</h3>Choose the desired zoom level."
+msgstr "<h3>縮放</h3>選擇想要的縮放程度。"
+
+#: kimagemapeditor.cpp:518
+#, kde-format
+msgid "25%"
+msgstr "25%"
+
+#: kimagemapeditor.cpp:519
+#, kde-format
+msgid "50%"
+msgstr "50%"
+
+#: kimagemapeditor.cpp:520
+#, kde-format
+msgid "100%"
+msgstr "100%"
+
+#: kimagemapeditor.cpp:521
+#, kde-format
+msgid "150%"
+msgstr "150%"
+
+#: kimagemapeditor.cpp:522
+#, kde-format
+msgid "200%"
+msgstr "200%"
+
+#: kimagemapeditor.cpp:523
+#, kde-format
+msgid "250%"
+msgstr "250%"
+
+#: kimagemapeditor.cpp:524
+#, kde-format
+msgid "300%"
+msgstr "300%"
+
+#: kimagemapeditor.cpp:525
+#, kde-format
+msgid "500%"
+msgstr "500%"
+
+#: kimagemapeditor.cpp:526
+#, kde-format
+msgid "750%"
+msgstr "750%"
+
+#: kimagemapeditor.cpp:527
+#, kde-format
+msgid "1000%"
+msgstr "1000%"
+
+#: kimagemapeditor.cpp:532
+#, kde-format
+msgid "Highlight Areas"
+msgstr "高亮區域"
+
+#: kimagemapeditor.cpp:538
+#, kde-format
+msgid "Show Alt Tag"
+msgstr "顯示替代文字"
+
+#: kimagemapeditor.cpp:541
+#, kde-format
+msgid "Map &Name..."
+msgstr "地圖名稱(&N)..."
+
+#: kimagemapeditor.cpp:545
+#, kde-format
+msgid "Ne&w Map..."
+msgstr "新增地圖(&W)..."
+
+#: kimagemapeditor.cpp:548
+#, kde-format
+msgid "Create a new map"
+msgstr "建立一張新地圖"
+
+#: kimagemapeditor.cpp:550
+#, kde-format
+msgid "D&elete Map"
+msgstr "刪除地圖(&E)"
+
+#: kimagemapeditor.cpp:553
+#, kde-format
+msgid "Delete the current active map"
+msgstr "刪除目前的地圖"
+
+#: kimagemapeditor.cpp:555
+#, kde-format
+msgid "Edit &Default Area..."
+msgstr "編輯預設區域(&D)..."
+
+#: kimagemapeditor.cpp:558
+#, kde-format
+msgid "Edit the default area of the current active map"
+msgstr "編輯目前地圖中的預設區域"
+
+#: kimagemapeditor.cpp:560
+#, kde-format
+msgid "&Preview"
+msgstr "預覽(&P)"
+
+#: kimagemapeditor.cpp:563
+#, kde-format
+msgid "Show a preview"
+msgstr "顯示預覽"
+
+#. i18n: ectx: Menu (images)
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#, kde-format
+msgid "&Image"
+msgstr "圖片(&I)"
+
+#: kimagemapeditor.cpp:568
+#, kde-format
+msgid "Add Image..."
+msgstr "加入圖片..."
+
+#: kimagemapeditor.cpp:571
+#, kde-format
+msgid "Add a new image"
+msgstr "加入一張新圖片"
+
+#: kimagemapeditor.cpp:573
+#, kde-format
+msgid "Remove Image"
+msgstr "移除圖片"
+
+#: kimagemapeditor.cpp:576
+#, kde-format
+msgid "Remove the current visible image"
+msgstr "移除目前可見的圖片"
+
+#: kimagemapeditor.cpp:578
+#, kde-format
+msgid "Edit Usemap..."
+msgstr "編輯 Usemap..."
+
+#: kimagemapeditor.cpp:581
+#, kde-format
+msgid "Edit the usemap tag of the current visible image"
+msgstr "編輯目前可見圖片的 Usemap 標籤"
+
+#: kimagemapeditor.cpp:583
+#, kde-format
+msgid "Show &HTML"
+msgstr "顯示 &HTML"
+
+#: kimagemapeditor.cpp:590
+#, kde-format
+msgid "&Selection"
+msgstr "選取(&S)"
+
+#: kimagemapeditor.cpp:594
+#, kde-format
+msgid "<h3>Selection</h3>Click this to select areas."
+msgstr "<h3>選取</h3>按這裏來選取區域。"
+
+#: kimagemapeditor.cpp:600
+#, kde-format
+msgid "&Circle"
+msgstr "圓形(&C)"
+
+#: kimagemapeditor.cpp:605
+#, kde-format
+msgid "<h3>Circle</h3>Click this to start drawing a circle."
+msgstr "<h3>圓形</h3>按這裏來畫一個圓形。"
+
+#: kimagemapeditor.cpp:610
+#, kde-format
+msgid "&Rectangle"
+msgstr "長方形(&R)"
+
+#: kimagemapeditor.cpp:614
+#, kde-format
+msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
+msgstr "<h3>長方形</h3>按這裏來畫一個長方形。"
+
+#: kimagemapeditor.cpp:619
+#, kde-format
+msgid "&Polygon"
+msgstr "多邊形(&P)"
+
+#: kimagemapeditor.cpp:623
+#, kde-format
+msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
+msgstr "<h3>多邊形</h3>按這裏來畫一個多邊形。"
+
+#: kimagemapeditor.cpp:628
+#, kde-format
+msgid "&Freehand Polygon"
+msgstr "手繪多邊形(&F)"
+
+#: kimagemapeditor.cpp:632
+#, kde-format
+msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
+msgstr "<h3>手繪多邊形</h3>按這裏來白手畫一個多邊形。"
+
+#: kimagemapeditor.cpp:637
+#, kde-format
+msgid "&Add Point"
+msgstr "加入點(&A)"
+
+#: kimagemapeditor.cpp:641
+#, kde-format
+msgid "<h3>Add Point</h3>Click this to add points to a polygon."
+msgstr "<h3>加入點</h3>按這裏在多邊形中加入一點。"
+
+#: kimagemapeditor.cpp:646
+#, kde-format
+msgid "&Remove Point"
+msgstr "移除點(&R)"
+
+#: kimagemapeditor.cpp:651
+#, kde-format
+msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
+msgstr "<h3>移除點</h3>按這裏從多邊形中移除一點。"
+
+#: kimagemapeditor.cpp:655
+#, kde-format
+msgid "Cancel Drawing"
+msgstr "取消繪畫"
+
+#: kimagemapeditor.cpp:660
+#, kde-format
+msgid "Move Left"
+msgstr "左移"
+
+#: kimagemapeditor.cpp:666
+#, kde-format
+msgid "Move Right"
+msgstr "右移"
+
+#: kimagemapeditor.cpp:671
+#, kde-format
+msgid "Move Up"
+msgstr "上移"
+
+#: kimagemapeditor.cpp:676
+#, kde-format
+msgid "Move Down"
+msgstr "下移"
+
+#: kimagemapeditor.cpp:681
+#, kde-format
+msgid "Increase Width"
+msgstr "增加闊度"
+
+#: kimagemapeditor.cpp:686
+#, kde-format
+msgid "Decrease Width"
+msgstr "減低闊度"
+
+#: kimagemapeditor.cpp:691
+#, kde-format
+msgid "Increase Height"
+msgstr "增加高度"
+
+#: kimagemapeditor.cpp:696
+#, kde-format
+msgid "Decrease Height"
+msgstr "減低高度"
+
+#: kimagemapeditor.cpp:701
+#, kde-format
+msgid "Bring to Front"
+msgstr "移至最上層"
+
+#: kimagemapeditor.cpp:705
+#, kde-format
+msgid "Send to Back"
+msgstr "移至最底層"
+
+#: kimagemapeditor.cpp:709
+#, kde-format
+msgid "Bring Forward One"
+msgstr "移上一層"
+
+#: kimagemapeditor.cpp:712
+#, kde-format
+msgid "Send Back One"
+msgstr "移後一層"
+
+#: kimagemapeditor.cpp:722
+#, kde-format
+msgid "Configure KImageMapEditor..."
+msgstr "設定 KImageMapEditor..."
+
+#: kimagemapeditor.cpp:731
+#, kde-format
+msgid "Show Area List"
+msgstr "顯示區域列表"
+
+#: kimagemapeditor.cpp:736
+#, kde-format
+msgid "Show Map List"
+msgstr "顯示地圖列表"
+
+#: kimagemapeditor.cpp:740
+#, kde-format
+msgid "Show Image List"
+msgstr "顯示圖片列表"
+
+#. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
+#. i18n(" Selection")+" : - ",STATUS_SELECTION);
+#: kimagemapeditor.cpp:755
+#, kde-format
+msgid " Selection: -  Cursor: x: 0, y: 0 "
+msgstr " 選取：-  座標: x: 0, y: 0"
+
+#: kimagemapeditor.cpp:839
+#, kde-format
+msgid " Cursor: x: %1, y: %2 "
+msgstr " 座標: x: %1, y: %2"
+
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#, kde-format
+msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
+msgstr " 選取：  x: %1, y: %2, w: %3, h: %4 "
+
+#: kimagemapeditor.cpp:852
+#, kde-format
+msgid " Selection: - "
+msgstr " 選取：- "
+
+#: kimagemapeditor.cpp:905
+#, kde-format
+msgid "Drop an image or HTML file"
+msgstr "把圖片或 HTML 檔拖來這裏"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter Map Name"
+msgstr "輸入地圖名稱"
+
+#: kimagemapeditor.cpp:1554
+#, kde-format
+msgid "Enter the name of the map:"
+msgstr "輸入地圖的名稱："
+
+#: kimagemapeditor.cpp:1559
+#, kde-format
+msgid "The name <em>%1</em> already exists."
+msgstr "名稱 <em>%1</em> 已經存在。"
+
+#: kimagemapeditor.cpp:1571
+#, kde-format
+msgid "HTML Code of Map"
+msgstr "地圖的 HTML 代碼"
+
+#: kimagemapeditor.cpp:1621
+#, kde-format
+msgid "Choose File to Open"
+msgstr "請選擇要開啟的檔案"
+
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
+#| "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
+#| "*.htm *.html|HTML Files\n"
+#| "*.png|PNG Images\n"
+#| "*.jpg *.jpeg|JPEG Images\n"
+#| "*.gif|GIF-Images\n"
+#| "*|All Files"
+msgid ""
+"Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
+"*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
+"(*)"
+msgstr ""
+"*.png *.jpg *.jpeg *.gif *.htm *.html|網站檔案\n"
+"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|圖片\n"
+"*.htm *.html|HTML 檔案\n"
+"*.png|PNG 圖片\n"
+"*.jpg *.jpeg|JPEG 圖片\n"
+"*.gif|GIF 圖片\n"
+"*|所有檔案"
+
+#: kimagemapeditor.cpp:1660
+#, kde-format
+msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:1680
+#, kde-format
+msgid "<qt>The file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>檔案 <b>%1</b> 不存在。</qt>"
+
+#: kimagemapeditor.cpp:1681
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "檔案不存在"
+
+#: kimagemapeditor.cpp:2378
+#, kde-format
+msgid ""
+"<qt>The file <i>%1</i> could not be saved, because you do not have the "
+"required write permissions.</qt>"
+msgstr "<qt>無法儲存檔案 <i>%1</i>，因為您沒有需要的寫入權限。</qt>"
+
+#: kimagemapeditor.cpp:2693
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Are you sure you want to delete the map <i>%1</i>? <br><b>There is no "
+#| "way to undo this.</b></qt>"
+msgid ""
+"<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
+"way to undo this.</b></qt>"
+msgstr ""
+"<qt>您真的要刪除地圖 <i>%1</i> 嗎? <br><b>這個動作是不可復原的。</b></qt>"
+
+#: kimagemapeditor.cpp:2695
+#, kde-format
+msgid "Delete Map?"
+msgstr "刪除地圖?"
+
+#: kimagemapeditor.cpp:2743
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>"
+msgid ""
+"<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
+msgstr "<qt>檔案 <i>%1</i> 已被修改。<br>您要儲存它嗎?</qt>"
+
+#: kimagemapeditor.cpp:2827
+#, fuzzy, kde-format
+#| msgid "Selection"
+msgid "Select image"
+msgstr "選取"
+
+#: kimagemapeditor.cpp:2828
+#, kde-format
+msgid ""
+"Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
+msgstr ""
+
+#: kimagemapeditor.cpp:2874
+#, kde-format
+msgid "Enter Usemap"
+msgstr "輸入 Usemap"
+
+#: kimagemapeditor.cpp:2875
+#, kde-format
+msgid "Enter the usemap value:"
+msgstr "請輸入 Usemap 值："
+
+#. i18n: ectx: Menu (edit)
+#: kimagemapeditorpartui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: kimagemapeditorpartui.rc:31
+#, fuzzy, kde-format
+msgid "&View"
+msgstr "預覽(&P)"
+
+#. i18n: ectx: Menu (tools)
+#: kimagemapeditorpartui.rc:40
+#, kde-format
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: Menu (map)
+#: kimagemapeditorpartui.rc:50
+#, kde-format
+msgid "&Map"
+msgstr "地圖(&M)"
+
+#. i18n: ectx: Menu (settings)
+#: kimagemapeditorpartui.rc:66
+#, fuzzy, kde-format
+msgid "&Settings"
+msgstr "選取(&S)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
+#, kde-format
+msgid "KImageMapEditor Main Toolbar"
+msgstr "KImageMapEditor 主工具列"
+
+#. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
+#: kimagemapeditorpartui.rc:96
+#, kde-format
+msgid "KImageMapEditor Draw Toolbar"
+msgstr "KImageMapEditor 繪圖工具列"
+
+#. i18n: ectx: Menu (file)
+#: kimagemapeditorui.rc:4
+#, fuzzy, kde-format
+msgid "&File"
+msgstr "圓形(&C)"
+
+#: kimearea.cpp:142
+#, kde-format
+msgid "noname"
+msgstr "noname"
+
+#: kimearea.cpp:1401
+#, kde-format
+msgid "Number of Areas"
+msgstr "區域總數"
+
+#: kimearea.h:230 kimedialogs.cpp:361
+#, kde-format
+msgid "Rectangle"
+msgstr "長方形"
+
+#: kimearea.h:253 kimedialogs.cpp:362
+#, kde-format
+msgid "Circle"
+msgstr "圓形"
+
+#: kimearea.h:279 kimedialogs.cpp:363
+#, kde-format
+msgid "Polygon"
+msgstr "多邊形"
+
+#: kimearea.h:303 kimedialogs.cpp:388
+#, kde-format
+msgid "Default"
+msgstr ""
+
+#: kimecommands.cpp:26
+#, kde-format
+msgid "Cut %1"
+msgstr "剪下 %1"
+
+#: kimecommands.cpp:70
+#, kde-format
+msgid "Delete %1"
+msgstr "刪除 %1"
+
+#: kimecommands.cpp:74
+#, kde-format
+msgid "Paste %1"
+msgstr "貼上 %1"
+
+#: kimecommands.cpp:113
+#, kde-format
+msgid "Move %1"
+msgstr "移動 %1"
+
+#: kimecommands.cpp:169
+#, kde-format
+msgid "Resize %1"
+msgstr "重新調整 %1 的大小"
+
+#: kimecommands.cpp:210
+#, kde-format
+msgid "Add point to %1"
+msgstr "為 %1 加入點"
+
+#: kimecommands.cpp:254
+#, kde-format
+msgid "Remove point from %1"
+msgstr "為 %1 移除點"
+
+#: kimecommands.cpp:301
+#, kde-format
+msgid "Create %1"
+msgstr "建立 %1"
+
+#: kimedialogs.cpp:76
+#, kde-format
+msgid "Top &X:"
+msgstr "最大 &X 值："
+
+#: kimedialogs.cpp:83
+#, kde-format
+msgid "Top &Y:"
+msgstr "最大 &Y 值："
+
+#: kimedialogs.cpp:90
+#, kde-format
+msgid "&Width:"
+msgstr "闊度(&W)："
+
+#: kimedialogs.cpp:97
+#, kde-format
+msgid "Hei&ght:"
+msgstr "高度(&G)："
+
+#: kimedialogs.cpp:119
+#, kde-format
+msgid "Center &X:"
+msgstr "中心 &X 值："
+
+#: kimedialogs.cpp:126
+#, kde-format
+msgid "Center &Y:"
+msgstr "中心 &Y 值："
+
+#: kimedialogs.cpp:133
+#, fuzzy, kde-format
+#| msgid "&Radius:"
+msgid "&Radius:"
+msgstr "半徑(&R)："
+
+#: kimedialogs.cpp:166
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#: kimedialogs.cpp:169
+#, fuzzy, kde-format
+msgid "Remove"
+msgstr "移除圖片"
+
+#: kimedialogs.cpp:244
+#, kde-format
+msgid "Top &X"
+msgstr "最大 &X 值"
+
+#: kimedialogs.cpp:252
+#, kde-format
+msgid "Top &Y"
+msgstr "最大 &Y 值"
+
+#: kimedialogs.cpp:285
+#, kde-format
+msgid "&HREF:"
+msgstr "&HREF:"
+
+#: kimedialogs.cpp:291
+#, kde-format
+msgid "Alt. &Text:"
+msgstr "替代文字(&T):"
+
+#: kimedialogs.cpp:294
+#, kde-format
+msgid "Tar&get:"
+msgstr "Tar&get:"
+
+#: kimedialogs.cpp:297
+#, kde-format
+msgid "Tit&le:"
+msgstr "Tit&le:"
+
+#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#, kde-format
+msgid "On"
+msgstr ""
+
+#: kimedialogs.cpp:304
+#, kde-format
+msgid "Enable default map"
+msgstr "啟用預設的地圖"
+
+#: kimedialogs.cpp:328
+#, kde-format
+msgid "OnClick:"
+msgstr "OnClick:"
+
+#: kimedialogs.cpp:329
+#, kde-format
+msgid "OnDblClick:"
+msgstr "OnDblClick:"
+
+#: kimedialogs.cpp:330
+#, kde-format
+msgid "OnMouseDown:"
+msgstr "OnMouseDown:"
+
+#: kimedialogs.cpp:331
+#, kde-format
+msgid "OnMouseUp:"
+msgstr "OnMouseUp:"
+
+#: kimedialogs.cpp:332
+#, kde-format
+msgid "OnMouseOver:"
+msgstr "OnMouseOver:"
+
+#: kimedialogs.cpp:333
+#, kde-format
+msgid "OnMouseMove:"
+msgstr "OnMouseMove:"
+
+#: kimedialogs.cpp:334
+#, kde-format
+msgid "OnMouseOut:"
+msgstr "OnMouseOut:"
+
+#: kimedialogs.cpp:342
+#, kde-format
+msgid "Area Tag Editor"
+msgstr "Area 標籤編緝器"
+
+#: kimedialogs.cpp:364
+#, kde-format
+msgid "Selection"
+msgstr "選取"
+
+#: kimedialogs.cpp:383
+#, kde-format
+msgid "&General"
+msgstr "一般(&G)"
+
+#: kimedialogs.cpp:390
+#, kde-format
+msgid "Coor&dinates"
+msgstr "座標(&D)"
+
+#: kimedialogs.cpp:392
+#, kde-format
+msgid "&JavaScript"
+msgstr "&JavaScript"
+
+#: kimedialogs.cpp:436
+#, kde-format
+msgid "Choose File"
+msgstr "選擇檔案"
+
+#: kimedialogs.cpp:436
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgid "All Files (*)"
+msgstr "所有檔案"
+
+#: kimedialogs.cpp:505
+#, kde-format
+msgid "Preferences"
+msgstr "偏好設定"
+
+#: kimedialogs.cpp:519
+#, kde-format
+msgid "&Maximum image preview height:"
+msgstr "預覽圖高度上限(&M)："
+
+#: kimedialogs.cpp:528
+#, kde-format
+msgid "&Undo limit:"
+msgstr "復原次數上限(&U)："
+
+#: kimedialogs.cpp:535
+#, kde-format
+msgid "&Redo limit:"
+msgstr "取消復原次數上限(&R)："
+
+#: kimedialogs.cpp:539
+#, kde-format
+msgid "&Start with last used document"
+msgstr "啟動時開啟上一次使用的文件(&S)"
+
+#: kimeshell.cpp:76
+#, kde-format
+msgid "Could not find kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:89
+#, kde-format
+msgid "Could not create kimagemapeditorpart part!"
+msgstr ""
+
+#: kimeshell.cpp:200
+#, kde-format
+msgid "Choose Picture to Open"
+msgstr "請選擇要開啟的圖片"
+
+#: main.cpp:30
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "一個 HTML 影像地圖的編輯器"
+
+#: main.cpp:38
+#, kde-format
+msgid "KImageMapEditor"
+msgstr "KImageMapEditor"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2001-2007 Jan Schaefer"
+msgstr ""
+
+#: main.cpp:42
+#, kde-format
+msgid "Jan Schaefer"
+msgstr ""
+
+#: main.cpp:43
+#, kde-format
+msgid "Joerg Jaspert"
+msgstr ""
+
+#: main.cpp:43
+#, kde-format
+msgid "For helping me with the Makefiles, and creating the Debian package"
+msgstr "幫助我寫好 Makefiles，又做了 Debian 套件"
+
+#: main.cpp:44
+#, kde-format
+msgid "Aaron Seigo and Michael"
+msgstr ""
+
+#: main.cpp:44
+#, kde-format
+msgid "For helping me fixing --enable-final mode"
+msgstr "幫助我修正 --enable-final 模式"
+
+#: main.cpp:45
+#, kde-format
+msgid "Antonio Crevillen"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "For the Spanish translation"
+msgstr "翻譯成西班牙文"
+
+#: main.cpp:46
+#, kde-format
+msgid "Fabrice Mous"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "For the Dutch translation"
+msgstr "翻譯成荷蘭文"
+
+#: main.cpp:47
+#, kde-format
+msgid "Germain Chazot"
+msgstr ""
+
+#: main.cpp:47
+#, kde-format
+msgid "For the French translation"
+msgstr "翻譯成法文"
+
+#: main.cpp:60
+#, kde-format
+msgid "Write HTML-Code to stdout on exit"
+msgstr "結束時把 HTML 碼傳至標準輸出"
+
+#: main.cpp:61
+#, kde-format
+msgid "File to open"
+msgstr "要開啟的檔案"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>The file <em>%1</em> already exists.<br>Do you want to overwrite it?"
+#~| "</qt>"
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr "<qt>檔案 <em>%1</em> 已經存在。<br>您要覆寫它嗎?</qt>"
+
+#~ msgid "Overwrite File?"
+#~ msgstr "覆寫檔案?"
+
+#~ msgid "Overwrite"
+#~ msgstr "覆寫"
+
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr "<qt>您並沒有權限寫入檔案 <em>%1</em>。</qt>"
+
+#~ msgid "HTML File"
+#~ msgstr "HTML 檔案"
+
+#~ msgid "Text File"
+#~ msgstr "文字檔案"
+
+#~ msgid "Web Files"
+#~ msgstr "網站檔案"
+
+#~ msgid "HTML Files"
+#~ msgstr "HTML 檔案"
+
+#~ msgid "PNG Images"
+#~ msgstr "PNG 圖片"
+
+#~ msgid "JPEG Images"
+#~ msgstr "JPEG 圖片"
+
+#~ msgid "GIF Images"
+#~ msgstr "GIF 圖片"
+
+#~ msgid ""
+#~ "<h3>Area List</h3>The area list shows you all areas of the map.<br>The "
+#~ "left column shows the link associated with the area; the right column "
+#~ "shows the part of the image that is covered by the area.<br>The maximum "
+#~ "size of the preview images can be configured."
+#~ msgstr ""
+#~ "<h3>區域列表</h3>區域列表會告訴您地圖上所有的區域。<br>左邊一欄顯示該區域"
+#~ "指向的連結；右邊一欄顯示這區域覆蓋的圖片範圍。<br>預覽圖的大小上限是可以設"
+#~ "定的。"
+
+#~ msgid "A list of all areas"
+#~ msgstr "所有區域的列表"
+
+#~ msgid "Hide Alt Tag"
+#~ msgstr "隱藏替代文字"
+
+#~ msgid "Hide Area List"
+#~ msgstr "隱藏區域列表"
+
+#~ msgid "Hide Map List"
+#~ msgstr "隱藏地圖列表"
+
+#~ msgid "Hide Image List"
+#~ msgstr "隱藏圖片列表"

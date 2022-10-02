@@ -1,0 +1,282 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>22 серпня 2011 року</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; — це редактор карт зображень &HTML; від &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>карта зображення</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Користування &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; — це редактор карт зображень &HTML; від &kde;. Він надає вам змогу створювати і змінювати <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>карти зображень &HTML;</ulink
+>. </para>
+
+<screenshot>
+<screeninfo
+>Знімок вікна &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Знімок вікна</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Головне вікно &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Типовим призначенням програми є створення карти світу, на якій кожна країна є певною придатною до натискання ділянкою. Натисканням цієї ділянки користувач зможе відкривати посилання, пов’язане з відповідною країною.</para>
+
+<para
+>Для створення карти зображення слід виконати такі дії:</para>
+
+<para
+>Завантажте файл зображення (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) або файл &HTML; з вашого диска або перетягніть його позначку до області зображення. Позначте зображення на панелі <guilabel
+>Зображення</guilabel
+>.</para>
+
+<para
+>Додати карту зображення за допомогою пункту меню <menuchoice
+><guimenu
+>Карта</guimenu
+><guimenuitem
+>Нова карта</guimenuitem
+></menuchoice
+> і вказати назву карти.</para>
+
+<para
+>Після цього буде увімкнено меню <guimenu
+>Інструменти</guimenu
+> і ви зможете вибрати відповідну геометричну форму, зокрема <guimenuitem
+>Коло</guimenuitem
+>, <guimenuitem
+>Прямокутник</guimenuitem
+>, <guimenuitem
+>Багатокутник</guimenuitem
+> або <guimenuitem
+>Довільний багатокутник</guimenuitem
+>, а потім визначити ділянку на зображенні.</para>
+
+<para
+>Після вибору ділянки буде показано діалогове вікно <guilabel
+>Редактор теґів областей</guilabel
+>. На вкладці <guilabel
+>Загальне</guilabel
+> вкажіть атрибути <guilabel
+>HREF</guilabel
+> (адресу посилання-призначення), <guilabel
+>Alt.-текст</guilabel
+>, <guilabel
+>Ціль</guilabel
+> та <guilabel
+>Заголовок</guilabel
+>.</para
+> 
+
+<para
+>На вкладці <guilabel
+>Координати</guilabel
+> буде показано геометричні дані форми. За допомогою редагування значень ви можете змінити розмір і позицію ділянки. Зміни буде негайно показано на зображенні. Крім того, розмір і позицію можна змінювати за допомогою миші.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Щоб відкрити діалогове вікно <guilabel
+>Редактора теґів області</guilabel
+> для вже створеної карти зображення, скористайтеся пунктом <guimenuitem
+>Властивості</guimenuitem
+> з меню <guimenu
+>Зміни</guimenu
+> або контекстного меню ділянки.</para>
+
+<para
+>Для перегляду коду &HTML; карти зображення скористайтеся пунктом меню <menuchoice
+><guimenu
+>Карта</guimenu
+><guimenuitem
+>Показати HTML</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Далі, скористайтеся пунктом меню <menuchoice
+><guimenu
+>Зображення</guimenu
+><guimenuitem
+>Редагувати таблицю використання...</guimenuitem
+></menuchoice
+> і вкажіть назву карти у форматі значення карти використання. Збережіть вашу роботу за допомогою пункту меню <menuchoice
+><guimenu
+>Файл</guimenu
+> <guimenuitem
+>Зберегти</guimenuitem
+></menuchoice
+>. Відкрийте файл &HTML; у &konqueror;, щоб перевірити, чи працює карта зображення належним чином.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Доступ до параметрів налаштування &kimagemapeditor; можна отримати у діалоговому вікні налаштування, яке відкривається пунктом меню <menuchoice
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати &kimagemapeditor;...</guimenuitem
+> </menuchoice
+>. </para>
+<screenshot>
+<screeninfo
+>Діалогове вікно налаштування &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Діалогове вікно налаштування &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Діалогове вікно налаштування &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Авторські права на програму Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+>, ©2003–2007 </para>
+
+<para
+>Авторські права на документацію належать Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+>, ©2007 </para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

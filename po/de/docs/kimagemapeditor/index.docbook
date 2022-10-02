@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Das Handbuch zu &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Georg</firstname
+><surname
+>Schuster</surname
+><affiliation
+><address
+><email
+>gschuster@utanet.at</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; ist ein Editor für &HTML;-Imagemaps von &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>imagemap</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Arbeiten mit &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; ist ein Editor für &HTML;-Imagemaps von der &kde;-Gemeinschaft. Mit dieser Anwendung können Sie &HTML;-<ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>Bildermaps</ulink
+> erstellen und bearbeiten. </para>
+
+<screenshot>
+<screeninfo
+>Ein Bildschirmfoto von &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Bildschirmfoto</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Hauptfenster von &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Ein häufiger Anwendungsfall ist zum Beispiel eine Weltkarte, auf der die Länder als Imagemap definiert sind. Durch Klicken auf ein Land in der Karte wird eine Verknüpfung zum ausgewählten Land geöffnet.</para>
+
+<para
+>Ein Imagemap wird mit folgenden Schritten erstellt:</para>
+
+<para
+>Laden Sie eine Bilddatei (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) oder eine &HTML;-Datei von der Festplatte oder ziehen Sie eine Datei in den Bildbereich. Wählen Sie dann ein Bild im Abschnitt <guilabel
+>Bilder</guilabel
+>.</para>
+
+<para
+>Fügen Sie ein Imagemap mit <menuchoice
+><guimenu
+>Karte</guimenu
+><guimenuitem
+>Neue Karte</guimenuitem
+></menuchoice
+> aus dem Menü hinzu und geben Sie einen Namen für die Karte ein.</para>
+
+<para
+>Nun ist das Menü <guimenu
+>Extras</guimenu
+> aktiviert und Sie können eine passende geometrische Form wie zum Beispiel <guimenuitem
+>Kreis</guimenuitem
+>, <guimenuitem
+>Rechteck</guimenuitem
+>, <guimenuitem
+>Vieleck</guimenuitem
+> oder <guimenuitem
+>Freihand-Vieleck</guimenuitem
+> auswählen und einen anklickbaren Bereich im Bild festlegen.</para>
+
+<para
+>Der Dialog <guilabel
+>Bereichs-Tag-Editor</guilabel
+> wird jetzt angezeigt. Auf der Karteikarte <guilabel
+>Allgemein</guilabel
+> geben Sie die Attribute <guilabel
+>HREF</guilabel
+> (die Zieladresse einer Verknüpfung), <guilabel
+>Ersatz.Text</guilabel
+>, <guilabel
+>Ziel</guilabel
+> und <guilabel
+>Titel</guilabel
+> ein.</para
+> 
+
+<para
+>Die Karteikarte <guilabel
+>Koordinaten</guilabel
+> zeigt die geometrischen Daten des Objekts. Durch Ändern der geometrischen Werte passen Sie die Größe und Position im Bild an, alle Änderungen werden sofort im Bild sichtbar. Größe und Position können Sie auch mit der Maus verändern.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Um den Dialog <guilabel
+>Bereichs-Tag-Editor</guilabel
+> für ein bereits definiertes Imagemap zu öffnen, wählen Sie <guimenuitem
+>Eigenschaften</guimenuitem
+> aus dem Menü <guimenu
+>Bearbeiten</guimenu
+> oder aus dem Kontextmenü des ausgewählten Bereichs der Karte.</para>
+
+<para
+>Benutzen Sie <menuchoice
+><guimenu
+>Karte</guimenu
+><guimenuitem
+>HTML anzeigen</guimenuitem
+></menuchoice
+>, um den generierten &HTML;-Quelltext der Karte anzuzeigen.</para>
+
+<para
+>Dann wählen Sie <menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Usemap bearbeiten ...</guimenuitem
+></menuchoice
+> und geben den Namen der Karte als Wert des Usemap-Attributs ein. Speichern Sie Ihre Arbeit mit <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+>. Öffnen Sie die &HTML;-Datei in &konqueror; und überprüfen Sie, ob die Verknüpfungen wie geplant funktionieren.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Alle Einstellungen für &kimagemapeditor; können Sie im Einrichtungsdialog bearbeiten. Öffnen Sie diesen Dialog mit <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>&kimagemapeditor; einrichten ...</guimenuitem
+> </menuchoice
+> aus dem Menü. </para>
+<screenshot>
+<screeninfo
+>Einrichtungsdialog von &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Einrichtungsdialog von &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Einrichtungsdialog von &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Danksagungen und Lizenz</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Programm Copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Copyright der Dokumentation 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Übersetzung Georg Schuster<email
+>gschuster@utanet.at</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

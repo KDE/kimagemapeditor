@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Valter</firstname
+><surname
+>Mura</surname
+><affiliation
+><address
+><email
+>valtermura@gmail.com</email
+></address
+></affiliation
+><firstname
+>Pierluigi</firstname
+><surname
+>Andreoli</surname
+><affiliation
+><address
+><email
+>pier_andreit@yahoo.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; è un editor di mappe immagine &HTML; di &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>mappa immagine</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Uso di &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; è un editor di mappe immagine &HTML; sviluppato dalla comunità di &kde;. Permette di creare e modificare <ulink url="http://it.wikipedia.org/wiki/Mappa_immagine"
+>mappe immagine</ulink
+> &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>Ecco una schermata di &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Schermata</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Finestra principale di &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Un esempio comune di come usare &kimagemapeditor; è un planisfero in cui ogni paese è una mappa immagine. Facendo clic su un paese nella mappa puoi aprire un collegamento relativo a quel paese.</para>
+
+<para
+>Creare una mappa immagine richiede i seguenti passi:</para>
+
+<para
+>Caricare un file d'immagine (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) o un file &HTML;, dal disco o trascinato sull'area dell'immagine. Seleziona un'immagine nel gancio <guilabel
+>Immagini</guilabel
+>.</para>
+
+<para
+>Aggiungi una mappa immagine seguendo il menu <menuchoice
+><guimenu
+>Mappa</guimenu
+><guimenuitem
+>Nuova mappa</guimenuitem
+></menuchoice
+> e inserisci un nome.</para>
+
+<para
+>Adesso il menu <guimenu
+>Strumenti</guimenu
+> è abilitato e puoi selezionare le forme geometriche appropriate come <guimenuitem
+>Cerchio</guimenuitem
+>, <guimenuitem
+>Rettangolo</guimenuitem
+>, <guimenuitem
+>Poligono</guimenuitem
+> o <guimenuitem
+>Poligono a mano libera</guimenuitem
+>, e definire un'area attiva nell'immagine.</para>
+
+<para
+>La finestra <guilabel
+>Editor dei tag di area</guilabel
+> è visualizzata. Nella scheda <guilabel
+>Generale</guilabel
+> inserisci gli attributi <guilabel
+>HREF</guilabel
+> (l'&URL; di destinazione di un collegamento), <guilabel
+>Testo alternativo</guilabel
+>, <guilabel
+>Destinazione</guilabel
+> e <guilabel
+>Titolo</guilabel
+>.</para
+> 
+
+<para
+>La scheda <guilabel
+>Coordinate</guilabel
+> mostra i dati geometrici della forma. Modificarne i valori permette di regolare le dimensioni e la posizione sull'immagine e le modifiche vengono immediatamente visualizzate nell'immagine. Le dimensioni e la posizione possono venir alterate anche usando il mouse.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Per aprire la finestra <guilabel
+>Editor dei tag di area</guilabel
+> per una mappa immagine già definita usa <guimenuitem
+>Proprietà</guimenuitem
+> dal menu <guimenu
+>Modifica</guimenu
+> o il menu contestuale della regione.</para>
+
+<para
+>Usa <menuchoice
+><guimenu
+>Mappa</guimenu
+><guimenuitem
+>Mostra HTML</guimenuitem
+></menuchoice
+> per vedere il codice &HTML; generato per la mappa.</para>
+
+<para
+>Adesso apri <menuchoice
+><guimenu
+>Immagine</guimenu
+><guimenuitem
+>Modifica usemap</guimenuitem
+></menuchoice
+> e inserisci il nome della mappa come un valore usemap. Salva il lavoro con <menuchoice
+><guimenu
+>File</guimenu
+><guimenuitem
+>Salva</guimenuitem
+></menuchoice
+>. Apri il file &HTML; in &konqueror; per verificare che la mappa d'immagine funzioni come inteso.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Le opzioni di configurazione di &kimagemapeditor; sono accessibili aprendo la finestra di configurazione selezionando <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guimenuitem
+>Configura &kimagemapeditor;</guimenuitem
+></menuchoice
+> dal menu. </para>
+<screenshot>
+<screeninfo
+>Finestra di configurazione di &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Finestra di configurazione di &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Finestra di configurazione di &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Copyright del programma 2003-2007 Jan Schäfer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Copyright della documentazione 2007 Jan Schäfer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Traduzione di Pierluigi Andreoli <email
+>pier_andreit@yahoo.it</email
+> e Valter Mura <email
+>valtermura@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

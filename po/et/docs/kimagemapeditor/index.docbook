@@ -1,0 +1,289 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY kappname "&kimagemapeditor;"
+><!-- Do *not* replace kappname-->
+  <!ENTITY package "kdewebdev"
+><!-- kdebase, kdeadmin, etc -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kimagemapeditor;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+> <surname
+>Laane</surname
+> <affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; on &kde; &HTML;-hüperpiltide redaktor. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>hüperpilt</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>kdewebdev</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>&kimagemapeditor;i kasutamine</title>
+
+<para
+>&kimagemapeditor; on &kde; &HTML;-hüperpiltide redaktor. See võimaldab luua ja muuta &HTML;-<ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>hüperpilte</ulink
+>. </para>
+
+<screenshot>
+<screeninfo
+>&kimagemapeditor;i pilt</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Pilt</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>&kimagemapeditor;i peaaken </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Üks levinud kasutamisviise on maailmakaart, millel iga riik on omaette hüperpilt. Kaardil riigile klõpsates avatakse link valitud riigi juurde.</para>
+
+<para
+>Hüperpildi loomine nõuab järgmisi samme:</para>
+
+<para
+>Pildifaili (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) või &HTML;-faili laadimine kettalt või lohistamine pildialasse. Vali pilt dokis <guilabel
+>Pildid</guilabel
+>.</para>
+
+<para
+>Hüperpildi lisamine, valides menüükäsu <menuchoice
+><guimenu
+>Hüperpilt</guimenu
+><guimenuitem
+>Uus hüperpilt</guimenuitem
+></menuchoice
+> ja sisestades hüperpildi nime.</para>
+
+<para
+>Nüüd on aktiivne ka menüü <guimenu
+>Tööriistad</guimenu
+>, mille abil saab valida sobiva geomeetrilise kujundi, näiteks <guimenuitem
+>ringjoon</guimenuitem
+>, <guimenuitem
+>ristkülik</guimenuitem
+>, <guimenuitem
+>hulknurk</guimenuitem
+> või <guimenuitem
+>vabakäehulknurk</guimenuitem
+> ja määratleda pildil klõpsatava ala.</para>
+
+<para
+>Avaneb <guilabel
+>Ala sildi redaktor</guilabel
+>. Kaardil <guilabel
+>Üldine</guilabel
+> tuleb sisestada atribuudid <guilabel
+>HREF</guilabel
+> (lingi sihtmärgi &URL;), <guilabel
+>Alt. tekst</guilabel
+>, <guilabel
+>Sihtmärk</guilabel
+> ja <guilabel
+>Tiitel</guilabel
+>.</para
+> 
+
+<para
+>Kaardil <guilabel
+>Koordinaadid</guilabel
+> on näha kujundi geomeetrilised andmed. Väärtusi muutes saab kohandada pildi suurust ja asukohta ning muutused on otsekohe näha. Suurust ja asukohta saab muuta küll ka hiire abil.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+><guilabel
+>Ala sildi redaktori</guilabel
+> avamiseks juba defineeritud hüperpildi korral vali menüüst <guimenu
+>Redigeerimine</guimenu
+> või ala kontekstimenüüst käsk <guimenuitem
+>Omadused</guimenuitem
+>.</para>
+
+<para
+>Menüükäsuga <menuchoice
+><guimenu
+>Hüperpilt</guimenu
+><guimenuitem
+>Näita HTML-i</guimenuitem
+></menuchoice
+> saab näha hüperpildi genereeritud &HTML;-koodi.</para>
+
+<para
+>Seejärel vali menüükäsk <menuchoice
+><guimenu
+>Pilt</guimenu
+><guimenuitem
+>Redigeeri usemap'i...</guimenuitem
+></menuchoice
+> ja sisesta usemap'i väärtusena hüperpildi nimi. Salvesta oma töö menüükäsuga <menuchoice
+><guimenu
+>Fail</guimenu
+> <guimenuitem
+>Salvesta</guimenuitem
+></menuchoice
+>. Ava &HTML;-fail &konqueror;is kontrollimaks, et hüperpilt toimib nii nagu vaja.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>&kimagemapeditor;i seadistuvalikuid pakub seadistustedialoog, mille saab avada menüükäsuga <menuchoice
+> <guimenu
+>Seadistused</guimenu
+> <guimenuitem
+>&kimagemapeditor;i seadistamine...</guimenuitem
+> </menuchoice
+> </para>
+<screenshot>
+<screeninfo
+>&kimagemapeditor;i seadistustedialoog</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>&kimagemapeditor;i seadistustedialoog</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>&kimagemapeditor;i seadistustedialoog </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Autorid ja litsents</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Rakenduse autoriõigus 2003-2007: Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+>
+> </para>
+
+<para
+>Dokumentatsiooni autoriõigus 2007: Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

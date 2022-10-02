@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Korean "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>&kimagemapeditor; 도움말</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+><othername
+></othername
+><surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Lee</firstname
+><surname
+>JungHee</surname
+><affiliation
+><address
+><email
+>daemul72@gmail.com</email
+></address
+></affiliation
+><contrib
+>문서 번역</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor;는 &HTML; &kde;의 이미지 맵 편집기입니다. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>이미지 맵</keyword>
+<keyword
+>유즈맵</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>&kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor;은 &kde; 커뮤니티에 의해 개발된 &HTML; 이미지 맵 편집기입니다. &HTML; <ulink url="https://ko.wikipedia.org/wiki/이미지_맵"
+>이미지 맵</ulink
+>을 작성하고 수정할 수 있습니다. </para>
+
+<screenshot>
+<screeninfo
+>&kimagemapeditor;의 스크린샷은 다음과 같습니다.</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>스크린샷</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>&kimagemapeditor; 주 창입니다. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>일반적인 사용 사례는 각 국가가 이미지 맵인 세계지도입니다. 지도에서 국가를 클릭하면 선택한 국가에 대한 링크를 열 수 있습니다.</para>
+
+<para
+>이미지 맵을 만들려면 다음 단계가 필요합니다.</para>
+
+<para
+>이미지 파일(<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) 또는 &HTML; 파일을 디스크에서 불러오거나 이미지 영역으로 드래그하십시오. 또는 <guilabel
+>이미지</guilabel
+>도커에서 이미지를 선택하십시오.</para>
+
+<para
+><menuchoice
+><guimenu
+>맵</guimenu
+><guimenuitem
+>새 맵</guimenuitem
+></menuchoice
+> 메뉴 항목을 사용하여 이미지 맵을 추가하고 맵 이름을 입력하십시오.</para>
+
+<para
+>이제 <guimenu
+>도구</guimenu
+>메뉴가 활성화될 것입니다. <guimenuitem
+>원</guimenuitem
+>, <guimenuitem
+>직사각형</guimenuitem
+>, <guimenuitem
+>다각형</guimenuitem
+> 또는 <guimenuitem
+>자유형</guimenuitem
+>을 클릭하고 이미지에서 클릭 가능한 영역을 정의할 수 있습니다.</para>
+
+<para
+><guilabel
+>영역 태그 편집기</guilabel
+>대화 상자가 표시됩니다. <guilabel
+>일반</guilabel
+>탭에서 <guilabel
+>링크 주소</guilabel
+>(대상 &URL;), <guilabel
+>대체 텍스트</guilabel
+>, <guilabel
+>대상</guilabel
+> 및 <guilabel
+>제목</guilabel
+> 속성을 편집할 수 있습니다.</para
+> 
+
+<para
+><guilabel
+>좌표</guilabel
+>탭에는 도형의 기하학적 데이터가 표시됩니다. 값을 편집하면 이미지에 변경 사항이 즉시 표시되므로 이미지의 크기와 위치를 조정할 수 있습니다. 마우스를 사용하여 크기와 위치를 변경할 수 있습니다.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>이미 정의된 이미지 맵에 대한 <guilabel
+>영역 태그 편집기</guilabel
+>대화 상자를 열려면 <guimenu
+>편집</guimenu
+>메뉴 또는 해당 영역의 콘텍스트 메뉴에서 <guimenuitem
+>속성</guimenuitem
+>을 사용하십시오.</para>
+
+<para
+><menuchoice
+><guimenu
+>맵</guimenu
+><guimenuitem
+>HTML 보기</guimenuitem
+></menuchoice
+>를 사용하여 맵의 생성된 &HTML; 코드를 볼 수 있습니다.</para>
+
+<para
+>그런 다음 <menuchoice
+><guimenu
+>그림</guimenu
+><guimenuitem
+>Usemap 편집 ...</guimenuitem
+></menuchoice
+>을 열고 맵 이름을 유즈맵 값으로 입력하십시오. <menuchoice
+><guimenu
+>파일</guimenu
+><guimenuitem
+>저장</guimenuitem
+></menuchoice
+>으로 작업을 저장하십시오. &konqueror;에서 &HTML; 파일을 열어 이미지맵이 예상대로 작동하는지 확인하십시오.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>&kimagemapeditor;의 환경설정 옵션은 메뉴에서 <menuchoice
+><guimenu
+>설정</guimenu
+><guimenuitem
+>&kimagemapeditor; 설정...</guimenuitem
+></menuchoice
+>을 선택하여 설정 대화 상자를 열어 액세스할 수 있습니다. </para>
+<screenshot>
+<screeninfo
+>&kimagemapeditor;의 설정 대화 상자</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>&kimagemapeditor;의 설정 대화 상자</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>&kimagemapeditor;의 설정 대화 상자. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>작성자 및 라이선스</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Program copyright 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Documentation copyright 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>이정희 (JungHee Lee) <email
+>daemul72@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

@@ -1,0 +1,312 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Rocío</firstname
+><surname
+>Gallego</surname
+><affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+><contrib
+>Traductora</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Santiago</firstname
+><surname
+>Fernández Sancho</surname
+><affiliation
+><address
+><email
+>santi@kde-es.org</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Cristina Yenyxe</firstname
+> <surname
+>González García</surname
+> <affiliation
+><address
+><email
+>the.blue.valkyrie@gmail.com</email
+></address
+> </affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>&kimagemapeditor; es un editor de mapas de imágenes &HTML; creado por &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>mapa de imagen</keyword>
+<keyword
+>mapa de imagen de cliente</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Uso de &kimagemapeditor;</title>
+
+<para
+>&kimagemapeditor; es un editor de mapas de imágenes &HTML; desarrollado por la comunidad &kde; que le permite crear y modificar mapas de imágenes &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>Mapas de imagen.</ulink
+> </para>
+
+<screenshot>
+<screeninfo
+>Aquí hay una captura de pantalla de &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Captura de pantalla</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Pantalla principal de &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Un caso de uso común es un mapa del mundo en el que cada país es un mapa de imagen. Haciendo clic en un país del mapa, se abre un enlace al país seleccionado.</para>
+
+<para
+>Para crear un mapa de imagen, hay que seguir los siguientes pasos:</para>
+
+<para
+>Cargue un archivo de imagen (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif </filename
+>) o un archivo &HTML; de su disco o arrástrelo en el área de imagen. Seleccione una imagen en el panel <guilabel
+>imágenes</guilabel
+>.</para>
+
+<para
+>Añadir un mapa de imagen mediante la opción de menú <menuchoice
+><guimenu
+>Mapa</guimenu
+><guimenuitem
+>Nuevo Mapa</guimenuitem
+></menuchoice
+> e introducir un nombre para el mapa.</para>
+
+<para
+>Ahora, el menú <guimenu
+>Herramientas</guimenu
+> está activo y puede seleccionar la forma geométrica adecuada como <guimenuitem
+>Círculo</guimenuitem
+>, <guimenuitem
+>Rectángulo</guimenuitem
+>, <guimenuitem
+>Polígono</guimenuitem
+> o <guimenuitem
+>Polígono a mano alzada</guimenuitem
+> y defina un área en la imagen.</para>
+
+<para
+>Aparece el cuadro de diálogo <guilabel
+>Editor de etiquetas de área </guilabel
+>. En la pestaña <guilabel
+>General</guilabel
+>, introduzca <guilabel
+>URL</guilabel
+> (la &URL; destino de un enlace), <guilabel
+> Text alternativo</guilabel
+>, <guilabel
+>Destino</guilabel
+> y <guilabel
+> Título</guilabel
+>.</para
+> 
+
+<para
+>Las pestaña <guilabel
+>Coordenadas</guilabel
+> muestra los datos geométricos de la forma. Modificando sus valores, se puede ajustar el tamaño y la posición de la imagen, ya que los cambios se ven en la imagen de manera inmediata. El tamaño y la posición también se pueden modificar utilizando el ratón.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Para abrir el cuadro de diálogo <guilabel
+>Editor de etiquetas de área </guilabel
+>para un mapa de imagen ya definido, utilice la opción <guimenuitem
+>Propiedades</guimenuitem
+> del menú <guimenu
+>Editar </guimenu
+> o el menú de contexto.</para>
+
+<para
+>Utilice <menuchoice
+><guimenu
+>Mapa</guimenu
+><guimenuitem
+>Mostrar HTML</guimenuitem
+></menuchoice
+> para ver el código &HTML; generado para el mapa.</para>
+
+<para
+>A continuación, seleccione la opción de menú <menuchoice
+><guimenu
+>Imagen</guimenu
+><guimenuitem
+>Editar usemap...</guimenuitem
+></menuchoice
+> e introduzca el nombre del mapa como valor de usemap. Guarde su trabajo mediante <menuchoice
+><guimenu
+>Archivo</guimenu
+><guimenuitem
+>Guardar </guimenuitem
+></menuchoice
+>. Abra el archivo &HTML; en &konqueror; para verificar que el mapa de imagen funciona como se esperaba.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>Las opciones de configuración de &kimagemapeditor; se pueden editar abriendo el cuadro de diálogo de configuración, al cual se accede seleccionado la opción de menú <menuchoice
+> <guimenu
+>Preferencias</guimenu
+><guimenuitem
+>Configuración &kimagemapeditor;...</guimenuitem
+></menuchoice
+>. </para>
+<screenshot>
+<screeninfo
+>Cuadro de diálogo de configuración de &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Cuadro de diálogo de configuración de &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Cuadro de diálogo de configuración de &kimagemapeditor; </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Derechos de autor del programa 2003-2007 Jan Sch&auml;fer <email
+>j_schaef@informatik.uni-kl.de</email
+> </para>
+
+<para
+>Derechos de autor de la documentación 2007 Jan Sch&auml;fer <email
+>j_schaef@informatik.uni-kl.de</email
+> </para>
+
+<para
+>Traducido por Santiago Fernández Sancho <email
+>santi@kde-es.org</email
+> y Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

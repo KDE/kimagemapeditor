@@ -1,0 +1,288 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY kappname "&kimagemapeditor;"
+><!-- Do *not* replace kappname-->
+  <!ENTITY package "kdewebdev"
+><!-- kdebase, kdeadmin, etc -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>Manual do &kimagemapeditor;</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Luiz Fernando</firstname
+><surname
+>Ranghetti</surname
+><affiliation
+><address
+><email
+>elchevive@opensuse.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>22/08/2011</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>O &kimagemapeditor; é um editor de mapas de imagens de &HTML; para o &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KImageMapEditor</keyword>
+<keyword
+>mapa da imagem</keyword>
+<keyword
+>usemap</keyword>
+<keyword
+>kdewebdev</keyword>
+<keyword
+>html</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>Usando o &kimagemapeditor;</title>
+
+<para
+>O &kimagemapeditor; é um editor de mapas de imagens em &HTML; para o &kde;. Ele permite criar e modificar os <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>mapas de imagens</ulink
+> em &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>Aqui está uma imagem do &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Imagem</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Janela principal do &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>Um caso de uso comum é um mapa múndi onde cada país é um mapa de imagem. Ao clicar em um país no mapa, você pode abrir um link para o país selecionado.</para>
+
+<para
+>Criar um mapa de imagem requer os seguintes passos:</para>
+
+<para
+>Carregar um arquivo de imagem (<filename class="extension"
+>png</filename
+>, <filename class="extension"
+>jpg</filename
+>, <filename class="extension"
+>gif</filename
+>) ou um arquivo &HTML; do seu disco e arrastá-lo para a área de imagem. Selecionar uma imagem no acoplador <guilabel
+>Imagens</guilabel
+>.</para>
+
+<para
+>Adicionar um mapa de imagem usando <menuchoice
+><guimenu
+>Mapa</guimenu
+><guimenuitem
+>Novo mapa</guimenuitem
+></menuchoice
+> no menu e inserir um nome de mapa.</para>
+
+<para
+>Agora o menu <guimenu
+>Ferramentas</guimenu
+> fica ativo e você pode selecionar a forma geométrica apropriada como o <guimenuitem
+>Círculo</guimenuitem
+>, <guimenuitem
+>Retângulo</guimenuitem
+>, <guimenuitem
+>Polígono</guimenuitem
+> ou <guimenuitem
+>Polígono à mão livre</guimenuitem
+> e definir a área clicável na imagem.</para>
+
+<para
+>A janela <guilabel
+>Editor da marca da área</guilabel
+> é exibida. Na aba <guilabel
+>Geral</guilabel
+> insira os atributos <guilabel
+>HREF</guilabel
+> (um &URL; alvo para o link), <guilabel
+>Alt.Text</guilabel
+>, <guilabel
+>Alvo</guilabel
+> e <guilabel
+>Título</guilabel
+>.</para
+> 
+
+<para
+>A aba <guilabel
+>Coordenadas</guilabel
+> mostra os dados geométricos da forma. Editar os valores permite que você ajuste o tamanho e posição na imagem com as mudanças ficando imediatamente visíveis na image,. O tamanho e posição podem ser alterados usando também o mouse.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>Para abrir a janela <guilabel
+>Editor de marca da área</guilabel
+> para um mapa de imagem já definido, use <guimenuitem
+>Propriedades</guimenuitem
+> no menu <guimenu
+>Editar</guimenu
+> ou no menu de contexto da região.</para>
+
+<para
+>Use o <menuchoice
+><guimenu
+>Mapa</guimenu
+><guimenuitem
+>Mostrar HTML</guimenuitem
+></menuchoice
+> para ver o código &HTML; gerado para o mapa.</para>
+
+<para
+>A seguir, abra <menuchoice
+><guimenu
+>Imagem</guimenu
+><guimenuitem
+>Editar mapa de uso...</guimenuitem
+></menuchoice
+> e insira o nome do mapa como valor do mapa de uso. Salve seu trabalho com <menuchoice
+><guimenu
+>Arquivo</guimenu
+> <guimenuitem
+>Salvar</guimenuitem
+></menuchoice
+>. Abra o arquivo &HTML; no &konqueror; para verificar se o mapa de imagem está funcionando como esperado.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>As opções de configuração do &kimagemapeditor; podem ser acessadas abrindo a janela de configuração ao selecionar <menuchoice
+> <guimenu
+>Configurações</guimenu
+> <guimenuitem
+>Configurar o &kimagemapeditor;...</guimenuitem
+> </menuchoice
+> no menu. </para>
+<screenshot>
+<screeninfo
+>Janela de configuração do &kimagemapeditor;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Janela de configuração do &kimagemapeditor;</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>Janela de configuração do &kimagemapeditor;. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos e licença</title>
+
+<para
+>&kimagemapeditor; </para>
+<para
+>Direitos autorais do programa 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Direitos autorais da documentação 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>Tradução de Luiz Fernando Ranghetti <email
+>elchevive@opensuse.org</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

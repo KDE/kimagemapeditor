@@ -383,7 +383,7 @@ msgstr ""
 #: kimagemapeditor.cpp:637
 #, kde-format
 msgid "&Add Point"
-msgstr "&Afig un punt"
+msgstr "Afi&g un punt"
 
 #: kimagemapeditor.cpp:641
 #, kde-format
@@ -628,7 +628,7 @@ msgstr "&Edita"
 #: kimagemapeditorpartui.rc:31
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (tools)
 #: kimagemapeditorpartui.rc:40
@@ -646,7 +646,7 @@ msgstr "&Correspondència"
 #: kimagemapeditorpartui.rc:66
 #, kde-format
 msgid "&Settings"
-msgstr "&Configuració"
+msgstr "Con&figuració"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
@@ -664,7 +664,7 @@ msgstr "Barra d'eines de dibuix de KImageMapEditor"
 #: kimagemapeditorui.rc:4
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #: kimearea.cpp:142
 #, kde-format
@@ -749,7 +749,7 @@ msgstr "&Y superior:"
 #: kimedialogs.cpp:90
 #, kde-format
 msgid "&Width:"
-msgstr "&Amplària:"
+msgstr "A&mplària:"
 
 #: kimedialogs.cpp:97
 #, kde-format
@@ -914,7 +914,7 @@ msgstr "Límit de &refer:"
 #: kimedialogs.cpp:539
 #, kde-format
 msgid "&Start with last used document"
-msgstr "&Inicia amb l'últim document utilitzat"
+msgstr "I&nicia amb l'últim document utilitzat"
 
 #: kimeshell.cpp:76
 #, kde-format

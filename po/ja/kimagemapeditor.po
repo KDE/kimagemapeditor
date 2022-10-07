@@ -1013,12 +1013,3 @@ msgstr "終了時に標準出力に HTML を出力"
 #, kde-format
 msgid "File to open"
 msgstr "開くファイル"
-
-#, fuzzy
-#~| msgid ""
-#~| "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
-#~| "email>"
-#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
-#~ msgstr ""
-#~ "(c) 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge.net</"
-#~ "email>"

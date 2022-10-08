@@ -26,17 +26,13 @@
 #include "kimeshell.h"
 #include "kimagemapeditor_version.h"
 
-static const char *description =
-  I18N_NOOP("An HTML imagemap editor");
-
-
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
   KLocalizedString::setApplicationDomain("kimagemapeditor");
 
   KAboutData aboutData( "kimagemapeditor", i18n("KImageMapEditor"),
-    KIMAGEMAPEDITOR_VERSION_STRING, i18n(description), KAboutLicense::GPL,
+    KIMAGEMAPEDITOR_VERSION_STRING, i18n("An HTML imagemap editor"), KAboutLicense::GPL,
     i18n("(c) 2001-2007 Jan Schaefer"), QString(),
     QStringLiteral("https://kde.org/applications/development/org.kde.kimagemapeditor"), QStringLiteral("janschaefer@users.sourceforge.net"));
   aboutData.addAuthor(i18n("Jan Schaefer"),QString(), "janschaefer@users.sourceforge.net");

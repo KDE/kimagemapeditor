@@ -398,7 +398,7 @@ void DrawZone::mousePressNone(QMouseEvent* e, QPoint drawStart, QPoint zoomedPoi
   if (e->button()==Qt::RightButton) {
     mousePressRightNone(e,drawStart);
   } else {
-    if (e->button()==Qt::MidButton) {
+    if (e->button() == Qt::MiddleButton) {
       mouseDoubleClickEvent(e);
     } else {
       mousePressLeftNone(e,drawStart,zoomedPoint);

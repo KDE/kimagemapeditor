@@ -601,12 +601,6 @@ HTMLPreviewDialog::HTMLPreviewDialog(QWidget* parent, const QString & htmlCode)
 
   htmlPart = new QWebEngineView;
   mainLayout->addWidget(htmlPart);
-//  htmlView = new KHTMLView(htmlPart, page);
-//  mainLayout->addWidget(htmlView);
-//  htmlView->setVScrollBarMode(QScrollView::Auto);
-//  htmlView->setHScrollBarMode(QScrollView::Auto);
-//  dialog->resize(dialog->calculateSize(edit->maxLineWidth(),edit->numLines()*));
-//	dialog->adjustSize();
   htmlPart->load(QUrl::fromLocalFile(tempFile->fileName()));
   QLabel *lbl = new QLabel;
   lbl->setObjectName( "urllabel" );

@@ -681,22 +681,22 @@ void KImageMapEditor::setupActions()
     increaseWidthAction  = new QAction(i18n("Increase Width"), this);
     actionCollection()->addAction("increasewidth", increaseWidthAction );
   connect(increaseWidthAction, SIGNAL(triggered(bool)), SLOT(slotIncreaseWidth()));
-  actionCollection()->setDefaultShortcut(increaseWidthAction, QKeySequence(Qt::Key_Right + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(increaseWidthAction, QKeySequence(Qt::Key_Right | Qt::SHIFT));
 
     decreaseWidthAction  = new QAction(i18n("Decrease Width"), this);
     actionCollection()->addAction("decreasewidth", decreaseWidthAction );
   connect(decreaseWidthAction, SIGNAL(triggered(bool)), SLOT(slotDecreaseWidth()));
-  actionCollection()->setDefaultShortcut(decreaseWidthAction, QKeySequence(Qt::Key_Left + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(decreaseWidthAction, QKeySequence(Qt::Key_Left | Qt::SHIFT));
 
     increaseHeightAction  = new QAction(i18n("Increase Height"), this);
     actionCollection()->addAction("increaseheight", increaseHeightAction );
   connect(increaseHeightAction, SIGNAL(triggered(bool)), SLOT(slotIncreaseHeight()));
-  actionCollection()->setDefaultShortcut(increaseHeightAction, QKeySequence(Qt::Key_Up + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(increaseHeightAction, QKeySequence(Qt::Key_Up | Qt::SHIFT));
 
     decreaseHeightAction  = new QAction(i18n("Decrease Height"), this);
     actionCollection()->addAction("decreaseheight", decreaseHeightAction );
   connect(decreaseHeightAction, SIGNAL(triggered(bool)), SLOT(slotDecreaseHeight()));
-  actionCollection()->setDefaultShortcut(decreaseHeightAction, QKeySequence(Qt::Key_Down + Qt::SHIFT));
+  actionCollection()->setDefaultShortcut(decreaseHeightAction, QKeySequence(Qt::Key_Down | Qt::SHIFT));
 
     toFrontAction  = new QAction(i18n("Bring to Front"), this);
     actionCollection()->addAction("tofront", toFrontAction );

@@ -17,7 +17,15 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 add_definitions(-DQURL_NO_CAST_FROM_STRING)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
+include(FeatureSummary)
+include(ECMInstallIcons)
+include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+include(ECMQtDeclareLoggingCategory)
+include(ECMSetupVersion)
+
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Gui
     Widgets
     WebEngineWidgets
@@ -35,14 +43,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     WidgetsAddons
     XmlGui
 )
-
-include(FeatureSummary)
-include(ECMInstallIcons)
-include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(ECMQtDeclareLoggingCategory)
-include(ECMSetupVersion)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KIMAGEMAPEDITOR VERSION_HEADER kimagemapeditor_version.h)
 
@@ -79,7 +79,7 @@ target_link_libraries(kimagemapeditor_bin
     KF5::I18n
     KF5::ConfigCore
     KF5::Parts
-    Qt5::WebEngineWidgets
+    Qt::WebEngineWidgets
 )
 
 install(TARGETS kimagemapeditor_bin  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
@@ -114,7 +114,7 @@ target_link_libraries(kimagemapeditorpart
     KF5::I18n
     KF5::ConfigCore
     KF5::Parts
-    Qt5::WebEngineWidgets
+    Qt::WebEngineWidgets
 )
 
 install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)

@@ -30,6 +30,8 @@
 #include <KConfig>
 #include <KParts/ReadWritePart>
 
+#include <list>
+
 #include "kimearea.h"
 #include "kimagemapeditorinterface.h"
 
@@ -63,7 +65,7 @@ typedef QHash<QString,QString> ImageTag;
 /**
  * Only a small class to give a list of AreaTags a name
  */
-class MapTag : public QLinkedList<AreaTag> {
+class MapTag : public std::list<AreaTag> {
 public:
     MapTag();
     QString name;

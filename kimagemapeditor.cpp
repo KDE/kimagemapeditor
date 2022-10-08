@@ -1921,7 +1921,7 @@ bool KImageMapEditor::openHTMLFile(const QUrl & url)
         } else
         if (readMap) {
           if (tagName=="area") {
-             map->prepend(*attr);
+             map->push_front(*attr);
           }
         } else {
           _htmlContent.append(new HtmlElement(origcode));
@@ -2184,7 +2184,7 @@ void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
 
     dict.insert("coords",a->coordsToString());
 
-    map->append(dict);
+    map->push_back(dict);
 
   }
 
@@ -2199,7 +2199,7 @@ void KImageMapEditor::saveAreasToMapTag(MapTag* map) {
       dict.insert(it.key(),it.value());
     }
 
-    map->append(dict);
+    map->push_back(dict);
   }
 
 }
@@ -2227,9 +2227,7 @@ void KImageMapEditor::setMap(HtmlMapElement* mapElement) {
     _mapName = map->name;
     AreaTag tag;
 
-    QLinkedListIterator<AreaTag> it(*map);
-    while (it.hasNext()) {
-        tag = it.next();
+    for (const AreaTag &tag : *map) {
         QString shape="rect";
         if (tag.contains("shape"))
           shape=tag.value("shape");

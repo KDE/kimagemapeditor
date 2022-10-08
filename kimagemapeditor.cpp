@@ -22,6 +22,7 @@
 
 // Qt
 #include <QAction>
+#include <QActionGroup>
 #include <QApplication>
 #include <QComboBox>
 #include <QDialogButtonBox>

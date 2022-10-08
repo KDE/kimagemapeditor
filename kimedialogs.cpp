@@ -29,7 +29,6 @@
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
-#include <QLinkedList>
 #include <QListWidget>
 #include <QPixmap>
 #include <QPushButton>

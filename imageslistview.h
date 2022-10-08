@@ -18,7 +18,6 @@
 #ifndef _IMAGESLISTVIEW_H_
 #define _IMAGESLISTVIEW_H_
 
-#include <QLinkedList>
 #include <QTreeWidget>
 #include <QUrl>
 

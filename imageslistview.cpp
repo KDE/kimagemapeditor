@@ -18,9 +18,6 @@
 // local
 #include "imageslistview.h"
 
-// Qt
-#include <QLinkedList>
-
 // KDE Frameworks
 #include <KLocalizedString>
 #include "kimagemapeditor_debug.h"

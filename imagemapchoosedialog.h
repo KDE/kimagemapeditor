@@ -19,7 +19,6 @@
 #define KIMAGEMAPCHOOSEDIALOG_H
 
 #include <QDialog>
-#include <QLinkedList>
 #include <QUrl>
 
 #include "kimagemapeditor.h"

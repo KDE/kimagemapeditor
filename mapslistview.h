@@ -18,7 +18,6 @@
 #ifndef _MAPSLISTVIEW_H_
 #define _MAPSLISTVIEW_H_
 
-#include <QLinkedList>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QWidget>

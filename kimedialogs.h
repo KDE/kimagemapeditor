@@ -21,7 +21,6 @@
 #include <QDialog>
 #include <QFormLayout>
 #include <QLabel>
-#include <QLinkedList>
 #include <QWebEngineView>
 
 #include "kimagemapeditor.h"

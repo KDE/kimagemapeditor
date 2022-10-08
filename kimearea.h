@@ -20,7 +20,6 @@
 
 #include <QHash>
 #include <QHashIterator>
-#include <QLinkedList>
 #include <QList>
 #include <QPixmap>
 #include <QPoint>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"POT-Creation-Date: 2022-10-09 00:45+0000\n"
 "PO-Revision-Date: 2007-08-23 12:17+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kazemi@itland.ir"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
 #, kde-format
 msgid "Areas"
 msgstr "نواحی"
 
-#: arealistview.cpp:44 kimedialogs.cpp:594
+#: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
 msgstr "پیش‌نمایش"
@@ -77,27 +77,27 @@ msgstr "&تصاویر"
 msgid "Path"
 msgstr "مسیر"
 
-#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
 #, kde-format
 msgid "Images"
 msgstr "تصاویر"
 
-#: imageslistview.cpp:60
+#: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
 msgstr ""
 
-#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "نگاشتها"
 
-#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#: kimagemapeditor.cpp:251 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "بی‌نام"
 
-#: kimagemapeditor.cpp:446
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -105,12 +105,12 @@ msgstr ""
 "<h3>باز کردن پرونده</h3>برای <em>باز کردن</em> یک عکس جدید یا پرونده زنگام، "
 "این را فشار دهید."
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:448
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "باز کردن عکس جدید یا پرونده زنگام"
 
-#: kimagemapeditor.cpp:454
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
@@ -118,12 +118,12 @@ msgstr ""
 "<h3>ذخیره کردن پرونده</h3>برای <em>ذخیره کردن</em> تغییرات در پرونده زنگام، "
 "این را فشار دهید"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:456
 #, kde-format
 msgid "Save HTML file"
 msgstr "ذخیره کردن پرونده زنگام"
 
-#: kimagemapeditor.cpp:463
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -131,407 +131,407 @@ msgstr ""
 "<h3>بستن پرونده</h3>برای <em>بستن</em> پرونده زنگام اخیراً بازشده، این را "
 "فشار دهید."
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:465
 #, kde-format
 msgid "Close HTML file"
 msgstr "بستن پرونده زنگام"
 
-#: kimagemapeditor.cpp:468
+#: kimagemapeditor.cpp:469
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr "<h3>رونوشت</h3>برای <em>رونوشت</em> ناحیه برگزیده، این را فشار دهید."
 
-#: kimagemapeditor.cpp:474
+#: kimagemapeditor.cpp:475
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr "<h3>برش</h3>برای <em>برش</em> ناحیه برگزیده، این را فشار دهید."
 
-#: kimagemapeditor.cpp:480
+#: kimagemapeditor.cpp:481
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 "<h3>چسباندن</h3>برای <em>چسباندن</em> ناحیه رونوشت شده، این را فشار دهید."
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
 #, kde-format
 msgid "&Delete"
 msgstr "&حذف‌"
 
-#: kimagemapeditor.cpp:491
+#: kimagemapeditor.cpp:492
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr "<h3>حذف</h3>برای <em>حذف</em> ناحیه برگزیده، این را فشار دهید."
 
-#: kimagemapeditor.cpp:501
+#: kimagemapeditor.cpp:502
 #, kde-format
 msgid "Pr&operties"
 msgstr "&ویژگیها‌"
 
-#: kimagemapeditor.cpp:512
+#: kimagemapeditor.cpp:513
 #, kde-format
 msgid "Zoom"
 msgstr "بزرگ‌نمایی"
 
-#: kimagemapeditor.cpp:515
+#: kimagemapeditor.cpp:516
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>بزرگ‌نمایی</h3>انتخاب سطح بزرگ‌نمایی دلخواه."
 
-#: kimagemapeditor.cpp:518
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "25%"
 msgstr "۲۵٪"
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "50%"
 msgstr "۵۰٪"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "100%"
 msgstr "۱۰۰٪"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "150%"
 msgstr "۱۵۰٪"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "200%"
 msgstr "۲۰۰٪"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "250%"
 msgstr "۲۵۰٪"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "300%"
 msgstr "۳۰۰٪"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "500%"
 msgstr "۵۰۰٪"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "750%"
 msgstr "۷۵۰٪"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "1000%"
 msgstr "۱۰۰۰٪"
 
-#: kimagemapeditor.cpp:532
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "Highlight Areas"
 msgstr "مشخص کردن نواحی"
 
-#: kimagemapeditor.cpp:538
+#: kimagemapeditor.cpp:539
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "نمایش برچسب دگرساز"
 
-#: kimagemapeditor.cpp:541
+#: kimagemapeditor.cpp:542
 #, kde-format
 msgid "Map &Name..."
 msgstr "&نام نگاشت...‌"
 
-#: kimagemapeditor.cpp:545
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "نگاشت &جدید...‌"
 
-#: kimagemapeditor.cpp:548
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Create a new map"
 msgstr "ایجاد یک نگاشت جدید"
 
-#: kimagemapeditor.cpp:550
+#: kimagemapeditor.cpp:551
 #, kde-format
 msgid "D&elete Map"
 msgstr "&حذف نگاشت‌"
 
-#: kimagemapeditor.cpp:553
+#: kimagemapeditor.cpp:554
 #, kde-format
 msgid "Delete the current active map"
 msgstr "حذف نگاشت فعال جاری"
 
-#: kimagemapeditor.cpp:555
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "ویرایش ناحیه &پیش‌فرض...‌"
 
-#: kimagemapeditor.cpp:558
+#: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "ویرایش ناحیه پیش‌فرض نگاشت فعال جاری"
 
-#: kimagemapeditor.cpp:560
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "&Preview"
 msgstr "&پیش‌نمایش‌"
 
-#: kimagemapeditor.cpp:563
+#: kimagemapeditor.cpp:564
 #, kde-format
 msgid "Show a preview"
 msgstr "نمایش یک پیش‌نمایش"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&تصویر‌"
 
-#: kimagemapeditor.cpp:568
+#: kimagemapeditor.cpp:569
 #, kde-format
 msgid "Add Image..."
 msgstr "افزودن تصویر..."
 
-#: kimagemapeditor.cpp:571
+#: kimagemapeditor.cpp:572
 #, kde-format
 msgid "Add a new image"
 msgstr "افزودن تصویری جدید"
 
-#: kimagemapeditor.cpp:573
+#: kimagemapeditor.cpp:574
 #, kde-format
 msgid "Remove Image"
 msgstr "حذف تصویر"
 
-#: kimagemapeditor.cpp:576
+#: kimagemapeditor.cpp:577
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "حذف تصویر مرئی جاری"
 
-#: kimagemapeditor.cpp:578
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "ویرایش Usemap..."
 
-#: kimagemapeditor.cpp:581
+#: kimagemapeditor.cpp:582
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "ویرایش برچسب usemap تصویر مرئی جاری"
 
-#: kimagemapeditor.cpp:583
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Show &HTML"
 msgstr "نمایش &زنگام‌"
 
-#: kimagemapeditor.cpp:590
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "&Selection"
 msgstr "&گزینش‌"
 
-#: kimagemapeditor.cpp:594
+#: kimagemapeditor.cpp:595
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>گزینش</h3>برای برگزیدن نواحی، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:600
+#: kimagemapeditor.cpp:601
 #, kde-format
 msgid "&Circle"
 msgstr "&دایره‌"
 
-#: kimagemapeditor.cpp:605
+#: kimagemapeditor.cpp:606
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>دایره</h3>برای آغاز ترسیم دایره، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:610
+#: kimagemapeditor.cpp:611
 #, kde-format
 msgid "&Rectangle"
 msgstr "&مستطیل‌"
 
-#: kimagemapeditor.cpp:614
+#: kimagemapeditor.cpp:615
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>مستطیل</h3>برای آغاز ترسیم مستطیل، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:619
+#: kimagemapeditor.cpp:620
 #, kde-format
 msgid "&Polygon"
 msgstr "&چند ضلعی‌"
 
-#: kimagemapeditor.cpp:623
+#: kimagemapeditor.cpp:624
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>چند ضلعی</h3>برای آغاز ترسیم چند ضلعی، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:628
+#: kimagemapeditor.cpp:629
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "&چند ضلعی دستی‌"
 
-#: kimagemapeditor.cpp:632
+#: kimagemapeditor.cpp:633
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>چند ضلعی دستی</h3>برای آغاز ترسیم چند ضلعی دستی، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:637
+#: kimagemapeditor.cpp:638
 #, kde-format
 msgid "&Add Point"
 msgstr "&افزودن نقطه‌"
 
-#: kimagemapeditor.cpp:641
+#: kimagemapeditor.cpp:642
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "<h3>افزودن نقطه</h3>برای افزودن نقاط به چند ضلعی، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:646
+#: kimagemapeditor.cpp:647
 #, kde-format
 msgid "&Remove Point"
 msgstr "&حذف نقطه‌"
 
-#: kimagemapeditor.cpp:651
+#: kimagemapeditor.cpp:652
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr "<h3>حذف نقطه</h3>برای حذف نقاط از چند ضلعی، اینجا را فشار دهید."
 
-#: kimagemapeditor.cpp:655
+#: kimagemapeditor.cpp:656
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "لغو ترسیم"
 
-#: kimagemapeditor.cpp:660
+#: kimagemapeditor.cpp:661
 #, kde-format
 msgid "Move Left"
 msgstr "حرکت به چپ"
 
-#: kimagemapeditor.cpp:666
+#: kimagemapeditor.cpp:667
 #, kde-format
 msgid "Move Right"
 msgstr "حرکت به راست"
 
-#: kimagemapeditor.cpp:671
+#: kimagemapeditor.cpp:672
 #, kde-format
 msgid "Move Up"
 msgstr "حرکت به بالا"
 
-#: kimagemapeditor.cpp:676
+#: kimagemapeditor.cpp:677
 #, kde-format
 msgid "Move Down"
 msgstr "حرکت به پایین"
 
-#: kimagemapeditor.cpp:681
+#: kimagemapeditor.cpp:682
 #, kde-format
 msgid "Increase Width"
 msgstr "افزایش عرض"
 
-#: kimagemapeditor.cpp:686
+#: kimagemapeditor.cpp:687
 #, kde-format
 msgid "Decrease Width"
 msgstr "کاهش عرض"
 
-#: kimagemapeditor.cpp:691
+#: kimagemapeditor.cpp:692
 #, kde-format
 msgid "Increase Height"
 msgstr "افزایش ارتفاع"
 
-#: kimagemapeditor.cpp:696
+#: kimagemapeditor.cpp:697
 #, kde-format
 msgid "Decrease Height"
 msgstr "کاهش ارتفاع"
 
-#: kimagemapeditor.cpp:701
+#: kimagemapeditor.cpp:702
 #, kde-format
 msgid "Bring to Front"
 msgstr "به جلو آوردن"
 
-#: kimagemapeditor.cpp:705
+#: kimagemapeditor.cpp:706
 #, kde-format
 msgid "Send to Back"
 msgstr "به عقب فرستادن"
 
-#: kimagemapeditor.cpp:709
+#: kimagemapeditor.cpp:710
 #, kde-format
 msgid "Bring Forward One"
 msgstr "یک مرحله جلو آوردن"
 
-#: kimagemapeditor.cpp:712
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send Back One"
 msgstr "یک مرحله عقب فرستادن"
 
-#: kimagemapeditor.cpp:722
+#: kimagemapeditor.cpp:723
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "پیکربندی KImageMapEditor..."
 
-#: kimagemapeditor.cpp:731
+#: kimagemapeditor.cpp:732
 #, kde-format
 msgid "Show Area List"
 msgstr "نمایش فهرست ناحیه"
 
-#: kimagemapeditor.cpp:736
+#: kimagemapeditor.cpp:737
 #, kde-format
 msgid "Show Map List"
 msgstr "نمایش فهرست نگاشت"
 
-#: kimagemapeditor.cpp:740
+#: kimagemapeditor.cpp:741
 #, kde-format
 msgid "Show Image List"
 msgstr "نمایش فهرست تصویر"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:755
+#: kimagemapeditor.cpp:756
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " گزینش: - مکان‌نما: x: ۰ ، y:۰ "
 
-#: kimagemapeditor.cpp:839
+#: kimagemapeditor.cpp:840
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr "مکان‌نما: x: %1، y: %2 "
 
-#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " گزینش:  x: %1، y: %2، w: %3، h: %4 "
 
-#: kimagemapeditor.cpp:852
+#: kimagemapeditor.cpp:853
 #, kde-format
 msgid " Selection: - "
 msgstr " گزینش: - "
 
-#: kimagemapeditor.cpp:905
+#: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "افت یک تصویر یا پرونده زنگام"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter Map Name"
 msgstr "وارد کردن نام نگاشت"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "نام نگاشت را وارد کنید:"
 
-#: kimagemapeditor.cpp:1559
+#: kimagemapeditor.cpp:1560
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "نام <em>%1</em> از قبل وجود دارد."
 
-#: kimagemapeditor.cpp:1571
+#: kimagemapeditor.cpp:1572
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "کد زنگام نگاشت"
 
-#: kimagemapeditor.cpp:1621
+#: kimagemapeditor.cpp:1622
 #, kde-format
 msgid "Choose File to Open"
 msgstr "انتخاب پرونده برای باز کردن"
 
-#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
@@ -554,22 +554,22 @@ msgstr ""
 "*.gif|تصاویر GIF\n"
 "*|همه پرونده‌ها"
 
-#: kimagemapeditor.cpp:1660
+#: kimagemapeditor.cpp:1661
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1680
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>پرونده <b>%1</b> موجود نیست.</qt>"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1682
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "پرونده موجود نیست"
 
-#: kimagemapeditor.cpp:2378
+#: kimagemapeditor.cpp:2377
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -578,7 +578,7 @@ msgstr ""
 "<qt>پرونده <i>%1</i> نتوانست ذخیره شود، زیرا مجوزهای نوشتن مورد نیاز را "
 "ندارید.</qt>"
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2692
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -587,37 +587,37 @@ msgstr ""
 "<qt>مطمئنید که می‌خواهید نگاشت <i>%1</i> را پاک کنید؟ <br /><b>راهی برای "
 "واگرد آن نیست.</b></qt>"
 
-#: kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:2694
 #, kde-format
 msgid "Delete Map?"
 msgstr "نگاشت حذف شود؟"
 
-#: kimagemapeditor.cpp:2743
+#: kimagemapeditor.cpp:2742
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr ""
 "<qt>پرونده <i>%1</i> تغییر یافته است.<br />می‌خواهید آن را ذخیره کنید؟</qt>"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2826
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "گزینش"
 
-#: kimagemapeditor.cpp:2828
+#: kimagemapeditor.cpp:2827
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter Usemap"
 msgstr "وارد کردن Usemap"
 
-#: kimagemapeditor.cpp:2875
+#: kimagemapeditor.cpp:2874
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "مقدار Usemap را وارد کنید:"
@@ -680,22 +680,22 @@ msgstr "بدون نام"
 msgid "Number of Areas"
 msgstr "تعداد نواحی"
 
-#: kimearea.h:230 kimedialogs.cpp:361
+#: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
 msgstr "مستطیل"
 
-#: kimearea.h:253 kimedialogs.cpp:362
+#: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
 msgstr "دایره"
 
-#: kimearea.h:279 kimedialogs.cpp:363
+#: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
 msgstr "چند ضلعی"
 
-#: kimearea.h:303 kimedialogs.cpp:388
+#: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
 msgstr "پبش‌فرض"
@@ -740,184 +740,184 @@ msgstr "حذف نقطه از %1"
 msgid "Create %1"
 msgstr "ایجاد %1"
 
-#: kimedialogs.cpp:76
+#: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
 msgstr "&X بالا:‌"
 
-#: kimedialogs.cpp:83
+#: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
 msgstr "&Y بالا:‌‌"
 
-#: kimedialogs.cpp:90
+#: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
 msgstr "&عرض:‌"
 
-#: kimedialogs.cpp:97
+#: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
 msgstr "&ارتفاع:‌"
 
-#: kimedialogs.cpp:119
+#: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
 msgstr "&X مرکز:‌‌"
 
-#: kimedialogs.cpp:126
+#: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
 msgstr "&Y مرکز:‌"
 
-#: kimedialogs.cpp:133
+#: kimedialogs.cpp:132
 #, fuzzy, kde-format
 #| msgid "&Radius:"
 msgid "&Radius:"
 msgstr "&شعاع:‌"
 
-#: kimedialogs.cpp:166
+#: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
 msgstr "افزودن"
 
-#: kimedialogs.cpp:169
+#: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
 msgstr "حذف"
 
-#: kimedialogs.cpp:244
+#: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
 msgstr "&X بالا‌‌"
 
-#: kimedialogs.cpp:252
+#: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
 msgstr "&Y بالا‌‌"
 
-#: kimedialogs.cpp:285
+#: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
 msgstr "&مقصد پیوند:"
 
-#: kimedialogs.cpp:291
+#: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
 msgstr "&متن دگرساز:‌"
 
-#: kimedialogs.cpp:294
+#: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
 msgstr "&هدف:‌"
 
-#: kimedialogs.cpp:297
+#: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
 msgstr "&عنوان:‌"
 
-#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
 msgstr ""
 
-#: kimedialogs.cpp:304
+#: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
 msgstr "فعال‌سازی نگاشت پیش‌فرض"
 
-#: kimedialogs.cpp:328
+#: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
 msgstr "هنگام فشار:"
 
-#: kimedialogs.cpp:329
+#: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
 msgstr "هنگام دو بار فشار:"
 
-#: kimedialogs.cpp:330
+#: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
 msgstr "هنگام پایین بودن موشی:"
 
-#: kimedialogs.cpp:331
+#: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
 msgstr "هنگام بالا بودن موشی:"
 
-#: kimedialogs.cpp:332
+#: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
 msgstr "هنگام حرکت موشی روی:"
 
-#: kimedialogs.cpp:333
+#: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
 msgstr "هنگام حرکت موشی:"
 
-#: kimedialogs.cpp:334
+#: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
 msgstr "هنگام خروج موشی:"
 
-#: kimedialogs.cpp:342
+#: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
 msgstr "ویرایشگر برچسب ناحیه"
 
-#: kimedialogs.cpp:364
+#: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
 msgstr "گزینش"
 
-#: kimedialogs.cpp:383
+#: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
 msgstr "&عمومی‌"
 
-#: kimedialogs.cpp:390
+#: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
 msgstr "&مختصات‌"
 
-#: kimedialogs.cpp:392
+#: kimedialogs.cpp:391
 #, kde-format
 msgid "&JavaScript"
 msgstr "&جاوااسکریپت "
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
 msgstr "انتخاب پرونده"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgid "All Files (*)"
 msgstr "همه پرونده‌ها"
 
-#: kimedialogs.cpp:505
+#: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
 msgstr "تنظیمات"
 
-#: kimedialogs.cpp:519
+#: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
 msgstr "ارتفاع &بیشینه پیش‌نمایش تصویر:‌"
 
-#: kimedialogs.cpp:528
+#: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
 msgstr "حد &واگرد:‌"
 
-#: kimedialogs.cpp:535
+#: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
 msgstr "حد &از نو:‌"
 
-#: kimedialogs.cpp:539
+#: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
 msgstr "&آغاز با آخرین سند استفاده‌شده‌"
@@ -937,82 +937,82 @@ msgstr ""
 msgid "Choose Picture to Open"
 msgstr "انتخاب عکس برای باز کردن"
 
-#: main.cpp:30
-#, kde-format
-msgid "An HTML imagemap editor"
-msgstr "یک ویرایشگر نگاشت تصویر زنگام"
-
-#: main.cpp:38
+#: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
 msgstr ""
 
-#: main.cpp:40
+#: main.cpp:35
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "یک ویرایشگر نگاشت تصویر زنگام"
+
+#: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
 msgstr "برای کمک به من توسط Makefileها، و ایجاد بسته Debian"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
 msgstr "برای کمک به من با ثابت کردن حالت --enable-final"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
 msgstr "برای ترجمه اسپانیایی"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
 msgstr "برای ترجمه هلندی"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "For the French translation"
 msgstr "برای ترجمه فرانسوی"
 
-#: main.cpp:60
+#: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
 msgstr "نوشتن کد زنگام در stdout هنگام خروج"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "File to open"
 msgstr "پرونده برای باز کردن"

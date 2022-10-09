@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"POT-Creation-Date: 2022-10-09 00:45+0000\n"
 "PO-Revision-Date: 2007-08-24 21:09+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nabin@mpp.org.np"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
 #, kde-format
 msgid "Areas"
 msgstr "क्षेत्रहरू"
 
-#: arealistview.cpp:44 kimedialogs.cpp:594
+#: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
 msgstr "पूर्वावलोकन"
@@ -77,27 +77,27 @@ msgstr "छविहरू"
 msgid "Path"
 msgstr "मार्ग"
 
-#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
 #, kde-format
 msgid "Images"
 msgstr "छविहरू"
 
-#: imageslistview.cpp:60
+#: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
 msgstr "मानचित्र प्रयोग गर्नुहोस्"
 
-#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "मानचित्रहरू"
 
-#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#: kimagemapeditor.cpp:251 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "बेनामी"
 
-#: kimagemapeditor.cpp:446
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -105,12 +105,12 @@ msgstr ""
 "नयाँ तस्वीर वा एचटीएमएल फाइल <em>खोल्न</em> <h3>फाइल खोल्नुहोस्</h3> मा क्लिक "
 "गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:448
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "नयाँ तस्वीर वा एचटीएमएल फाइल खोल्नुहोस्"
 
-#: kimagemapeditor.cpp:454
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
@@ -118,12 +118,12 @@ msgstr ""
 "एचटीएमएल फाइलका परिवर्तनहरू <em>बचत</em> गर्न <h3>फाइल बचत गर्नुहोस्</h3> क्लिक "
 "गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:456
 #, kde-format
 msgid "Save HTML file"
 msgstr "एचटीएमएल फाइल बचत गर्नुहोस्"
 
-#: kimagemapeditor.cpp:463
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -131,406 +131,406 @@ msgstr ""
 "हालै खोलिएको एचटीएमएल फाइल <em>बन्द</em> गर्न <h3> फाइल बन्द गर्नुहोस्</h3> क्लिक "
 "गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:465
 #, kde-format
 msgid "Close HTML file"
 msgstr "एचटीएमएल फाइल बन्द गर्नुहोस्"
 
-#: kimagemapeditor.cpp:468
+#: kimagemapeditor.cpp:469
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr ""
 "चयन गरिएका क्षेत्र <h3>प्रतिलिपि</h3> गर्न <em>प्रतिलिपि गर्नुहोस्</em> क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:474
+#: kimagemapeditor.cpp:475
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr "चयन गरिएका क्षेत्र <em>काट्न</em> <h3>काट्नुहोस्</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:480
+#: kimagemapeditor.cpp:481
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr "प्रतिलिपि गरिएका क्षेत्र <em>टाँस्न</em> <h3>टाँस्नुहोस्</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
 #, kde-format
 msgid "&Delete"
 msgstr "मेट्नुहोस्"
 
-#: kimagemapeditor.cpp:491
+#: kimagemapeditor.cpp:492
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr "चयन गरिएका क्षेत्र <em>मेट्न</em> <h3>मेट्नुहोस्</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:501
+#: kimagemapeditor.cpp:502
 #, kde-format
 msgid "Pr&operties"
 msgstr "विशेषताहरू"
 
-#: kimagemapeditor.cpp:512
+#: kimagemapeditor.cpp:513
 #, kde-format
 msgid "Zoom"
 msgstr "जुम गर्नुहोस्"
 
-#: kimagemapeditor.cpp:515
+#: kimagemapeditor.cpp:516
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>जूम गर्नुहोस्</h3> चाहेको जूम स्तर रोज्नुहोस् ।"
 
-#: kimagemapeditor.cpp:518
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "25%"
 msgstr "२५%"
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "50%"
 msgstr "५०%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "100%"
 msgstr "१००%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "150%"
 msgstr "१५०%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "200%"
 msgstr "२००%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "250%"
 msgstr "२५०%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "300%"
 msgstr "३००%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "500%"
 msgstr "५००%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "750%"
 msgstr "७५०%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "1000%"
 msgstr "१०००%"
 
-#: kimagemapeditor.cpp:532
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "Highlight Areas"
 msgstr "क्षेत्र हाइलाट गर्नुहोस्"
 
-#: kimagemapeditor.cpp:538
+#: kimagemapeditor.cpp:539
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Alt ट्याग देखाउनुहोस्"
 
-#: kimagemapeditor.cpp:541
+#: kimagemapeditor.cpp:542
 #, kde-format
 msgid "Map &Name..."
 msgstr "मानचित्र नाम..."
 
-#: kimagemapeditor.cpp:545
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "नयाँ मानचित्र..."
 
-#: kimagemapeditor.cpp:548
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Create a new map"
 msgstr "नयाँ मानचित्र सिर्जना गर्नुहोस्"
 
-#: kimagemapeditor.cpp:550
+#: kimagemapeditor.cpp:551
 #, kde-format
 msgid "D&elete Map"
 msgstr "मानचित्र मेट्नुहोस्"
 
-#: kimagemapeditor.cpp:553
+#: kimagemapeditor.cpp:554
 #, kde-format
 msgid "Delete the current active map"
 msgstr "हालको सक्रिय मानचित्र मेट्नुहोस्"
 
-#: kimagemapeditor.cpp:555
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "पूर्वनिर्धारित क्षेत्र सम्पादन गर्नुहोस्..."
 
-#: kimagemapeditor.cpp:558
+#: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "हालको सक्रिय मानचित्रको पूर्वनिर्धारित क्षेत्र सम्पादन गर्नुहोस्"
 
-#: kimagemapeditor.cpp:560
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "&Preview"
 msgstr "पूर्वावलोकन"
 
-#: kimagemapeditor.cpp:563
+#: kimagemapeditor.cpp:564
 #, kde-format
 msgid "Show a preview"
 msgstr "पूर्वावलोकन देखाउनुहोस्"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "छवि"
 
-#: kimagemapeditor.cpp:568
+#: kimagemapeditor.cpp:569
 #, kde-format
 msgid "Add Image..."
 msgstr "छवि थप्नुहोस्..."
 
-#: kimagemapeditor.cpp:571
+#: kimagemapeditor.cpp:572
 #, kde-format
 msgid "Add a new image"
 msgstr "नयाँ छवि थप्नुहोस्"
 
-#: kimagemapeditor.cpp:573
+#: kimagemapeditor.cpp:574
 #, kde-format
 msgid "Remove Image"
 msgstr "छवि हटाउनुहोस्"
 
-#: kimagemapeditor.cpp:576
+#: kimagemapeditor.cpp:577
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "हालको दृश्य छवि हटाउनुहोस्"
 
-#: kimagemapeditor.cpp:578
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "मानचित्र प्रयोग सम्पादन गर्नुहोस्..."
 
-#: kimagemapeditor.cpp:581
+#: kimagemapeditor.cpp:582
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "हालको दृश्य छविको मानचित्र प्रयोग गर्नुहोस् ट्याब सम्पादन गर्नुहोस्"
 
-#: kimagemapeditor.cpp:583
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Show &HTML"
 msgstr "एचटीएमएल देखाउनुहोस्"
 
-#: kimagemapeditor.cpp:590
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "&Selection"
 msgstr "चयन"
 
-#: kimagemapeditor.cpp:594
+#: kimagemapeditor.cpp:595
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>चयन</h3> यसलाई क्षेत्रहरू चयन गर्न क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:600
+#: kimagemapeditor.cpp:601
 #, kde-format
 msgid "&Circle"
 msgstr "वृत्त"
 
-#: kimagemapeditor.cpp:605
+#: kimagemapeditor.cpp:606
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "वृत्त कोर्न सुरुआत गर्न <h3>वृत्त</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:610
+#: kimagemapeditor.cpp:611
 #, kde-format
 msgid "&Rectangle"
 msgstr "आयत"
 
-#: kimagemapeditor.cpp:614
+#: kimagemapeditor.cpp:615
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "आयत कोर्न सुरुआत गर्न <h3>आयत</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:619
+#: kimagemapeditor.cpp:620
 #, kde-format
 msgid "&Polygon"
 msgstr "बहुभुज"
 
-#: kimagemapeditor.cpp:623
+#: kimagemapeditor.cpp:624
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "बहुभुज कोर्न सुरुआत गर्न <h3>बहुभुज</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:628
+#: kimagemapeditor.cpp:629
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "फ्रिह्यान्ड बहुभुज"
 
-#: kimagemapeditor.cpp:632
+#: kimagemapeditor.cpp:633
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr "फ्रिह्यान्ड बहुभुज कोर्न सुरु गर्न <h3>फ्रिह्यान्ड बहुभुज</h3> क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:637
+#: kimagemapeditor.cpp:638
 #, kde-format
 msgid "&Add Point"
 msgstr "बिन्दु थप्नुहोस्"
 
-#: kimagemapeditor.cpp:641
+#: kimagemapeditor.cpp:642
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "बहुभुजमा बिन्दुहरू थप्न <h3>बिन्दु थप्नुहोस्</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:646
+#: kimagemapeditor.cpp:647
 #, kde-format
 msgid "&Remove Point"
 msgstr "बिन्दु हटाउनुहोस्"
 
-#: kimagemapeditor.cpp:651
+#: kimagemapeditor.cpp:652
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr "बहुभुजबाट बिन्दुहरू हटाउन <h3>बिन्दु हटाउनुहोस्</h3> मा क्लिक गर्नुहोस् ।"
 
-#: kimagemapeditor.cpp:655
+#: kimagemapeditor.cpp:656
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "रेखाचित्र रद्द गर्नुहोस्"
 
-#: kimagemapeditor.cpp:660
+#: kimagemapeditor.cpp:661
 #, kde-format
 msgid "Move Left"
 msgstr "बायाँ सार्नुहोस्"
 
-#: kimagemapeditor.cpp:666
+#: kimagemapeditor.cpp:667
 #, kde-format
 msgid "Move Right"
 msgstr "दायाँ सार्नुहोस्"
 
-#: kimagemapeditor.cpp:671
+#: kimagemapeditor.cpp:672
 #, kde-format
 msgid "Move Up"
 msgstr "माथि सार्नुहोस्"
 
-#: kimagemapeditor.cpp:676
+#: kimagemapeditor.cpp:677
 #, kde-format
 msgid "Move Down"
 msgstr "तल सार्नुहोस्"
 
-#: kimagemapeditor.cpp:681
+#: kimagemapeditor.cpp:682
 #, kde-format
 msgid "Increase Width"
 msgstr "चौडाइ बढाउनुहोस्"
 
-#: kimagemapeditor.cpp:686
+#: kimagemapeditor.cpp:687
 #, kde-format
 msgid "Decrease Width"
 msgstr "चौडाइ घटाउनुहोस्"
 
-#: kimagemapeditor.cpp:691
+#: kimagemapeditor.cpp:692
 #, kde-format
 msgid "Increase Height"
 msgstr "उचाइ बढाउनुहोस्"
 
-#: kimagemapeditor.cpp:696
+#: kimagemapeditor.cpp:697
 #, kde-format
 msgid "Decrease Height"
 msgstr "उचाइ घटाउनुहोस्"
 
-#: kimagemapeditor.cpp:701
+#: kimagemapeditor.cpp:702
 #, kde-format
 msgid "Bring to Front"
 msgstr "अगाडि ल्याउनुहोस्"
 
-#: kimagemapeditor.cpp:705
+#: kimagemapeditor.cpp:706
 #, kde-format
 msgid "Send to Back"
 msgstr "पछाडि पठाउनुहोस्"
 
-#: kimagemapeditor.cpp:709
+#: kimagemapeditor.cpp:710
 #, kde-format
 msgid "Bring Forward One"
 msgstr "एउटालाई अगाडि ल्याउनुहोस्"
 
-#: kimagemapeditor.cpp:712
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send Back One"
 msgstr "एउटालाई पछाडि पठाउनुहोस्"
 
-#: kimagemapeditor.cpp:722
+#: kimagemapeditor.cpp:723
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "केडीई छवि मानचित्र सम्पादक कन्फिगर गर्नुहोस्..."
 
-#: kimagemapeditor.cpp:731
+#: kimagemapeditor.cpp:732
 #, kde-format
 msgid "Show Area List"
 msgstr "क्षेत्र सूची देखाउनुहोस्"
 
-#: kimagemapeditor.cpp:736
+#: kimagemapeditor.cpp:737
 #, kde-format
 msgid "Show Map List"
 msgstr "मानचित्र सूची देखाउनुहोस्"
 
-#: kimagemapeditor.cpp:740
+#: kimagemapeditor.cpp:741
 #, kde-format
 msgid "Show Image List"
 msgstr "छवि सूची देखाउनुहोस्"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:755
+#: kimagemapeditor.cpp:756
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " चयन: -  कर्सर: x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:839
+#: kimagemapeditor.cpp:840
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr " कर्सर: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " चयन: x: %1, y: %2, w: %3, h: %4 "
 
-#: kimagemapeditor.cpp:852
+#: kimagemapeditor.cpp:853
 #, kde-format
 msgid " Selection: - "
 msgstr " चयन: - "
 
-#: kimagemapeditor.cpp:905
+#: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "एउटा छवि वा एचटीएमएल फाइल छोड्नुहोस्"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter Map Name"
 msgstr "मानचित्र नाम प्रविष्ट गर्नुहोस्"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "मानचित्रको नाम प्रविष्ट गर्नुहोस्:"
 
-#: kimagemapeditor.cpp:1559
+#: kimagemapeditor.cpp:1560
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "नाम <em>%1</em> पहलै अवस्थित छ ।"
 
-#: kimagemapeditor.cpp:1571
+#: kimagemapeditor.cpp:1572
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "मानचित्रको एचटीएमएल कोड"
 
-#: kimagemapeditor.cpp:1621
+#: kimagemapeditor.cpp:1622
 #, kde-format
 msgid "Choose File to Open"
 msgstr "खोल्नका लागि फाइल रोज्नुहोस्"
 
-#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
@@ -553,22 +553,22 @@ msgstr ""
 "*.gif|जीआईएफ-छविहरू\n"
 "*|सबै फाइलहरू"
 
-#: kimagemapeditor.cpp:1660
+#: kimagemapeditor.cpp:1661
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1680
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>फाइल <b>%1</b> अवस्थित छैन ।</qt>"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1682
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "फाइल अवस्थित छैन"
 
-#: kimagemapeditor.cpp:2378
+#: kimagemapeditor.cpp:2377
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -576,7 +576,7 @@ msgid ""
 msgstr ""
 "<qt>फाइल <i>%1</i> बचत गर्न सकिने छैन, किनभने तपाईँलाई आवश्यक लेख्ने अनुमति छैन ।</qt>"
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2692
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Are you sure you want to delete the map <i>%1</i>? <br><b>There is no "
@@ -588,12 +588,12 @@ msgstr ""
 "<qt>तपाईँ मानचित्र <i>%1</i> मेट्ने चाहानामा निश्चित हुनुहुन्छ ? <br><b>त्यहाँ "
 "पूर्वावस्थामा फर्काउने कुनै तरिका छैन ।</b></qt>"
 
-#: kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:2694
 #, kde-format
 msgid "Delete Map?"
 msgstr "मानचित्र मेट्नुहुन्छ ?"
 
-#: kimagemapeditor.cpp:2743
+#: kimagemapeditor.cpp:2742
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>"
@@ -602,25 +602,25 @@ msgid ""
 msgstr ""
 "<qt>फाइल <i>%1</i> परिमार्जन गरिएको छ ।<br>तपाईँ यसलाई बचत गर्न चाहनुहुन्छ?</qt>"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2826
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "चयन"
 
-#: kimagemapeditor.cpp:2828
+#: kimagemapeditor.cpp:2827
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter Usemap"
 msgstr "मानचित्र प्रयोग प्रविष्ट गर्नुहोस्"
 
-#: kimagemapeditor.cpp:2875
+#: kimagemapeditor.cpp:2874
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "मानचित्र प्रयोग मान प्रविष्ट गर्नुहोस्:"
@@ -683,22 +683,22 @@ msgstr "नाम छैन"
 msgid "Number of Areas"
 msgstr "क्षेत्रको नम्बर"
 
-#: kimearea.h:230 kimedialogs.cpp:361
+#: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
 msgstr "आयात"
 
-#: kimearea.h:253 kimedialogs.cpp:362
+#: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
 msgstr "वृत्त"
 
-#: kimearea.h:279 kimedialogs.cpp:363
+#: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
 msgstr "बहुभुज"
 
-#: kimearea.h:303 kimedialogs.cpp:388
+#: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
 msgstr "पूर्वनिर्धारण"
@@ -743,184 +743,184 @@ msgstr "%1 बाट बिन्दु हटाउनुहोस्"
 msgid "Create %1"
 msgstr "%1 सिर्जना गर्नुहोस्"
 
-#: kimedialogs.cpp:76
+#: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
 msgstr "माथि X:"
 
-#: kimedialogs.cpp:83
+#: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
 msgstr "माथि Y:"
 
-#: kimedialogs.cpp:90
+#: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
 msgstr "चौडाइ:"
 
-#: kimedialogs.cpp:97
+#: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
 msgstr "उचाइ:"
 
-#: kimedialogs.cpp:119
+#: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
 msgstr "केन्द्र X:"
 
-#: kimedialogs.cpp:126
+#: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
 msgstr "केन्द्र Y:"
 
-#: kimedialogs.cpp:133
+#: kimedialogs.cpp:132
 #, fuzzy, kde-format
 #| msgid "&Radius:"
 msgid "&Radius:"
 msgstr "अर्धव्यास:"
 
-#: kimedialogs.cpp:166
+#: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
 msgstr "थप्नुहोस्"
 
-#: kimedialogs.cpp:169
+#: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
 msgstr "हटाउनुहोस्"
 
-#: kimedialogs.cpp:244
+#: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
 msgstr "माथि X"
 
-#: kimedialogs.cpp:252
+#: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
 msgstr "माथि Y"
 
-#: kimedialogs.cpp:285
+#: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
 msgstr "एचआरईएफ:"
 
-#: kimedialogs.cpp:291
+#: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
 msgstr "Alt. पाठ:"
 
-#: kimedialogs.cpp:294
+#: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
 msgstr "लक्ष्य:"
 
-#: kimedialogs.cpp:297
+#: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
 msgstr "शीर्षक:"
 
-#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
 msgstr ""
 
-#: kimedialogs.cpp:304
+#: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
 msgstr "पूर्वनिर्धारित मान सक्षम पार्नुहोस्"
 
-#: kimedialogs.cpp:328
+#: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
 msgstr "क्लिकमा:"
 
-#: kimedialogs.cpp:329
+#: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
 msgstr "डबल क्लिकमा:"
 
-#: kimedialogs.cpp:330
+#: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
 msgstr "माउस तल झार्दा:"
 
-#: kimedialogs.cpp:331
+#: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
 msgstr "माउस माथि सार्दा:"
 
-#: kimedialogs.cpp:332
+#: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
 msgstr "माउस माथि हुँदा:"
 
-#: kimedialogs.cpp:333
+#: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
 msgstr "माउस सार्दा:"
 
-#: kimedialogs.cpp:334
+#: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
 msgstr "माउस बाहिरिदा:"
 
-#: kimedialogs.cpp:342
+#: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
 msgstr "क्षेत्र ट्याग सम्पादक"
 
-#: kimedialogs.cpp:364
+#: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
 msgstr "चयन"
 
-#: kimedialogs.cpp:383
+#: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
 msgstr "साधारण"
 
-#: kimedialogs.cpp:390
+#: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
 msgstr "समन्वय गर्दछ"
 
-#: kimedialogs.cpp:392
+#: kimedialogs.cpp:391
 #, kde-format
 msgid "&JavaScript"
 msgstr "जाभा स्क्रिप्ट"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
 msgstr "फाइल रोज्नुहोस्"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgid "All Files (*)"
 msgstr "सबै फाइलहरू"
 
-#: kimedialogs.cpp:505
+#: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
 msgstr "प्राथमिकता"
 
-#: kimedialogs.cpp:519
+#: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
 msgstr "अधिकतम छवि पूर्वावलोकन उचाइ:"
 
-#: kimedialogs.cpp:528
+#: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
 msgstr "पूर्वावस्थामा फर्काउने सीमा:"
 
-#: kimedialogs.cpp:535
+#: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
 msgstr "रिडू सीमा:"
 
-#: kimedialogs.cpp:539
+#: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
 msgstr "अन्त्यमा प्रयोग गरिएको कागजातसँग सुरु गर्नुहोस्"
@@ -940,82 +940,82 @@ msgstr ""
 msgid "Choose Picture to Open"
 msgstr "खोल्नका लागि तस्वीर रोज्नुहोस्"
 
-#: main.cpp:30
-#, kde-format
-msgid "An HTML imagemap editor"
-msgstr "एउटा एचटीएमएलल छवि मानचित्र सम्पादक"
-
-#: main.cpp:38
+#: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
 msgstr "केडीई छवि मानचित्र सम्पादक"
 
-#: main.cpp:40
+#: main.cpp:35
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "एउटा एचटीएमएलल छवि मानचित्र सम्पादक"
+
+#: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
 msgstr "(c) 2001-2007 जान स्कायफर"
 
-#: main.cpp:42
+#: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
 msgstr "जान स्कायफर"
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
 msgstr "जोएर्ग जासपर्ट"
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
 msgstr "मलाई फाइलहरू बनाउन, र डेबियन प्याकेज सिर्जना गर्दा मद्दत गर्नुहोस्"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
 msgstr "आरोन सेइगो र माइकल"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
 msgstr "निश्चय गर्न-सक्षम पार्न-अन्तिम मोडका लागि मलाई मद्दत गर्नुहोस्"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
 msgstr "एन्टोनियो क्रिभिलेन"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
 msgstr "स्पेनिस अनुवादका लागि"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
 msgstr "फ्याब्रिस मोउस"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
 msgstr "डच अनुवादका लागि"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
 msgstr "जर्मेन चाजोट"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "For the French translation"
 msgstr "फ्रेन्च अनुवादका लागि"
 
-#: main.cpp:60
+#: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
 msgstr "बाहिरिदा मानक निर्गतका लागि एचटीएमएल-कोड लेख्नुहोस्"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "File to open"
 msgstr "फाइल खोल्नका लागि"

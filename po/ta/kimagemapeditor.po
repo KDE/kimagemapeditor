@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"POT-Creation-Date: 2022-10-09 00:45+0000\n"
 "PO-Revision-Date: 2005-04-04 05:08-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -24,12 +24,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "augustin_raj@hotmail.com"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
 #, kde-format
 msgid "Areas"
 msgstr "பரப்புகள்"
 
-#: arealistview.cpp:44 kimedialogs.cpp:594
+#: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
 msgstr "முன்பார்வை"
@@ -74,51 +74,51 @@ msgstr "&தோற்றங்கள்"
 msgid "Path"
 msgstr "பாதை"
 
-#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
 #, kde-format
 msgid "Images"
 msgstr "தோற்றங்கள்"
 
-#: imageslistview.cpp:60
+#: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
 msgstr "வரைபடத்தை பயன்படுத்து"
 
-#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "வரைபடங்கள்"
 
-#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#: kimagemapeditor.cpp:251 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "பெயரில்லா"
 
-#: kimagemapeditor.cpp:446
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:448
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "புதிய படம் அல்லது HTML கோப்பினை திற"
 
-#: kimagemapeditor.cpp:454
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
 "<h3>கோப்பினை சேமி</h3>இதை சொடுக்கு <em>சேமிப்பதற்கு</em> HTML கோப்பிற்கு மாற்றும்."
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:456
 #, kde-format
 msgid "Save HTML file"
 msgstr "HTML கோப்பினை சேமி"
 
-#: kimagemapeditor.cpp:463
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -126,405 +126,405 @@ msgstr ""
 "<h3>கோப்பினை மூடு</h3>இதை சொடுக்கு <em>மூடுவதற்கு</em> தற்போது திறந்துள்ள HTML "
 "கோப்பு."
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:465
 #, kde-format
 msgid "Close HTML file"
 msgstr "HTML கோப்பினை மூடு"
 
-#: kimagemapeditor.cpp:468
+#: kimagemapeditor.cpp:469
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr "<h3>நகல்</h3>இதை சொடுக்கவும்<em>நகலிட</em> தேர்வு செய்த பரப்பு."
 
-#: kimagemapeditor.cpp:474
+#: kimagemapeditor.cpp:475
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr "<h3>வெட்டு</h3>இதை சொடுக்கவும் <em>வேட்டு</em> தேர்வு செய்யப்பட்ட பரப்பு."
 
-#: kimagemapeditor.cpp:480
+#: kimagemapeditor.cpp:481
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr "<h3>ஒட்டு</h3>இதை சொடுக்கவும் <em>ஒட்டு</em> தேர்வு செய்த பரப்பு."
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
 #, fuzzy, kde-format
 msgid "&Delete"
 msgstr "நீக்கு %1"
 
-#: kimagemapeditor.cpp:491
+#: kimagemapeditor.cpp:492
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr "<h3>நீக்கு</h3>இதை சொடுக்கவும் <em>நீக்கு</em> தேர்வு செய்த பரப்பு."
 
-#: kimagemapeditor.cpp:501
+#: kimagemapeditor.cpp:502
 #, kde-format
 msgid "Pr&operties"
 msgstr "பண்&புகள்"
 
-#: kimagemapeditor.cpp:512
+#: kimagemapeditor.cpp:513
 #, kde-format
 msgid "Zoom"
 msgstr ""
 
-#: kimagemapeditor.cpp:515
+#: kimagemapeditor.cpp:516
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>பெரிதாக்கு</h3>விருப்பப்பட்ட பெரிதாக்கி அளவை தேர்வு செய்யவும்."
 
-#: kimagemapeditor.cpp:518
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "25%"
 msgstr "25%"
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "50%"
 msgstr "50%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "100%"
 msgstr "100%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "150%"
 msgstr "150%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "200%"
 msgstr "200%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "250%"
 msgstr "250%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "300%"
 msgstr "300%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "500%"
 msgstr "500%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "750%"
 msgstr "750%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "1000%"
 msgstr "1000%"
 
-#: kimagemapeditor.cpp:532
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "Highlight Areas"
 msgstr "தனிகாட்டி பரப்புகள்"
 
-#: kimagemapeditor.cpp:538
+#: kimagemapeditor.cpp:539
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "அனைத்து ஒட்டையும் காண்பி"
 
-#: kimagemapeditor.cpp:541
+#: kimagemapeditor.cpp:542
 #, kde-format
 msgid "Map &Name..."
 msgstr "வரைபடம் &பெயர்..."
 
-#: kimagemapeditor.cpp:545
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "புதி&ய வரைபடம்..."
 
-#: kimagemapeditor.cpp:548
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Create a new map"
 msgstr "புதிய வரைபடத்தை உருவாக்கு"
 
-#: kimagemapeditor.cpp:550
+#: kimagemapeditor.cpp:551
 #, kde-format
 msgid "D&elete Map"
 msgstr "வரைபடத்தை நீ&க்கு"
 
-#: kimagemapeditor.cpp:553
+#: kimagemapeditor.cpp:554
 #, kde-format
 msgid "Delete the current active map"
 msgstr "தற்பொது செயலில் உள்ள வரைபடத்தை நீக்கு"
 
-#: kimagemapeditor.cpp:555
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "&முன்னிருப்பு பரப்பை தொகு..."
 
-#: kimagemapeditor.cpp:558
+#: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "தற்போது செயலில் உள்ள வரைபடத்தின் முன்னிருப்பு பரப்பை தொகு "
 
-#: kimagemapeditor.cpp:560
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "&Preview"
 msgstr "&முன்பார்வை"
 
-#: kimagemapeditor.cpp:563
+#: kimagemapeditor.cpp:564
 #, kde-format
 msgid "Show a preview"
 msgstr "முன்பார்வையை காண்பி"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&தோற்றம்"
 
-#: kimagemapeditor.cpp:568
+#: kimagemapeditor.cpp:569
 #, kde-format
 msgid "Add Image..."
 msgstr "தோற்றத்தை சேர்"
 
-#: kimagemapeditor.cpp:571
+#: kimagemapeditor.cpp:572
 #, kde-format
 msgid "Add a new image"
 msgstr "புதிய தோற்றத்தை சேர்"
 
-#: kimagemapeditor.cpp:573
+#: kimagemapeditor.cpp:574
 #, kde-format
 msgid "Remove Image"
 msgstr "தோற்றத்தை நீக்கு"
 
-#: kimagemapeditor.cpp:576
+#: kimagemapeditor.cpp:577
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "தற்போதுள்ள தெரியும் தோற்றத்தை நீக்கு"
 
-#: kimagemapeditor.cpp:578
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "பயன்படுத்திய வரைபடத்தை தொகு"
 
-#: kimagemapeditor.cpp:581
+#: kimagemapeditor.cpp:582
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "தற்போதுள்ள தெரியும் தோற்றத்தின் பயன்படுத்திய வரைபட ஒட்டை தொகு"
 
-#: kimagemapeditor.cpp:583
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Show &HTML"
 msgstr "&HTMLஐ காண்பி"
 
-#: kimagemapeditor.cpp:590
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "&Selection"
 msgstr "தேர்வு"
 
-#: kimagemapeditor.cpp:594
+#: kimagemapeditor.cpp:595
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>தேர்வுகள்</h3>பரப்பை தேர்வு செய்ய சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:600
+#: kimagemapeditor.cpp:601
 #, kde-format
 msgid "&Circle"
 msgstr "&வட்டம்"
 
-#: kimagemapeditor.cpp:605
+#: kimagemapeditor.cpp:606
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>வட்டம்</h3>வட்டத்தை வரைய தொடங்க இதை சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:610
+#: kimagemapeditor.cpp:611
 #, kde-format
 msgid "&Rectangle"
 msgstr "&நீள்சதுரம்"
 
-#: kimagemapeditor.cpp:614
+#: kimagemapeditor.cpp:615
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>நீள்சதுரம்</h3>நீள்சதுரத்தை வரைய தொடங்க இதை சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:619
+#: kimagemapeditor.cpp:620
 #, kde-format
 msgid "&Polygon"
 msgstr "&பலகோணம்"
 
-#: kimagemapeditor.cpp:623
+#: kimagemapeditor.cpp:624
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>பலகோணம்</h3>பலகோணத்தை வரைய தொடங்க இதை சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:628
+#: kimagemapeditor.cpp:629
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "வெறுங்கை பலகோணம்"
 
-#: kimagemapeditor.cpp:632
+#: kimagemapeditor.cpp:633
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr "<h3>வெறுங்கை பலகோணம்</h3>வெறுங்கை பலகோணத்தை வரைய தொடங்க இதை சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:637
+#: kimagemapeditor.cpp:638
 #, kde-format
 msgid "&Add Point"
 msgstr "&சேர் புள்ளி"
 
-#: kimagemapeditor.cpp:641
+#: kimagemapeditor.cpp:642
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "<h3>சேர் புள்ளி</h3>பலகோணத்தில் சேர் புள்ளியை இணைக்க சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:646
+#: kimagemapeditor.cpp:647
 #, kde-format
 msgid "&Remove Point"
 msgstr "புள்ளியை நீக்கு"
 
-#: kimagemapeditor.cpp:651
+#: kimagemapeditor.cpp:652
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr "<h3>புள்ளி நீக்கு</h3>பலகோணத்தில் இருந்து புள்ளியை நீக்க இதை சொடுக்கவும்."
 
-#: kimagemapeditor.cpp:655
+#: kimagemapeditor.cpp:656
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "வரை நீக்க"
 
-#: kimagemapeditor.cpp:660
+#: kimagemapeditor.cpp:661
 #, kde-format
 msgid "Move Left"
 msgstr "இடதுபக்க நகர்த்து"
 
-#: kimagemapeditor.cpp:666
+#: kimagemapeditor.cpp:667
 #, kde-format
 msgid "Move Right"
 msgstr "வலதுபக்க நகர்த்து"
 
-#: kimagemapeditor.cpp:671
+#: kimagemapeditor.cpp:672
 #, kde-format
 msgid "Move Up"
 msgstr "&மேலே நகர்த்து"
 
-#: kimagemapeditor.cpp:676
+#: kimagemapeditor.cpp:677
 #, kde-format
 msgid "Move Down"
 msgstr "&கீழ் நகர்த்து"
 
-#: kimagemapeditor.cpp:681
+#: kimagemapeditor.cpp:682
 #, kde-format
 msgid "Increase Width"
 msgstr "அகலத்தை அதிகரி"
 
-#: kimagemapeditor.cpp:686
+#: kimagemapeditor.cpp:687
 #, kde-format
 msgid "Decrease Width"
 msgstr "அகலத்தை குறை"
 
-#: kimagemapeditor.cpp:691
+#: kimagemapeditor.cpp:692
 #, kde-format
 msgid "Increase Height"
 msgstr "உயரத்தை அதிகரி"
 
-#: kimagemapeditor.cpp:696
+#: kimagemapeditor.cpp:697
 #, kde-format
 msgid "Decrease Height"
 msgstr "உயரத்தை குறை"
 
-#: kimagemapeditor.cpp:701
+#: kimagemapeditor.cpp:702
 #, kde-format
 msgid "Bring to Front"
 msgstr "முன்னே கொண்டுவா"
 
-#: kimagemapeditor.cpp:705
+#: kimagemapeditor.cpp:706
 #, kde-format
 msgid "Send to Back"
 msgstr "பின் அனுப்பு"
 
-#: kimagemapeditor.cpp:709
+#: kimagemapeditor.cpp:710
 #, kde-format
 msgid "Bring Forward One"
 msgstr "ஒன்றை முன் கொண்டுவா"
 
-#: kimagemapeditor.cpp:712
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send Back One"
 msgstr "ஒன்றை பின் அனுப்பு"
 
-#: kimagemapeditor.cpp:722
+#: kimagemapeditor.cpp:723
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Kதோற்றவரைபடதொகுப்பியை உருவமை..."
 
-#: kimagemapeditor.cpp:731
+#: kimagemapeditor.cpp:732
 #, kde-format
 msgid "Show Area List"
 msgstr "பரப்பு பட்டியலை காண்பி"
 
-#: kimagemapeditor.cpp:736
+#: kimagemapeditor.cpp:737
 #, kde-format
 msgid "Show Map List"
 msgstr "வரைபட பட்டியலை காண்பி"
 
-#: kimagemapeditor.cpp:740
+#: kimagemapeditor.cpp:741
 #, kde-format
 msgid "Show Image List"
 msgstr "தோற்ற பட்டியலை காண்பி"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:755
+#: kimagemapeditor.cpp:756
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr "தேர்வுகள்: -  காட்டி: x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:839
+#: kimagemapeditor.cpp:840
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr "காட்டி: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " தேர்வுகள்: x: %1, y: %2, w: %3, h: %4 "
 
-#: kimagemapeditor.cpp:852
+#: kimagemapeditor.cpp:853
 #, kde-format
 msgid " Selection: - "
 msgstr " தேர்வுகள்: - "
 
-#: kimagemapeditor.cpp:905
+#: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "தோற்றம் அல்லது HTML கோப்பினை விடு"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter Map Name"
 msgstr "வரைபட பெயரை உள்ளிடவும்"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "வரைபட பெயரை உள்ளிடவும்:"
 
-#: kimagemapeditor.cpp:1559
+#: kimagemapeditor.cpp:1560
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "பெயர் <em>%1</em> ஏற்கனவே உள்ளது."
 
-#: kimagemapeditor.cpp:1571
+#: kimagemapeditor.cpp:1572
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "வரைபடத்தின் HTML குறிமுறை"
 
-#: kimagemapeditor.cpp:1621
+#: kimagemapeditor.cpp:1622
 #, kde-format
 msgid "Choose File to Open"
 msgstr "திறப்பதற்கு ஒரு கோப்பினை தேர்வு செய்"
 
-#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
@@ -547,22 +547,22 @@ msgstr ""
 "*.gif|GIF-Images\n"
 "*|All Files"
 
-#: kimagemapeditor.cpp:1660
+#: kimagemapeditor.cpp:1661
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1680
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>கோப்பு <b>%1</b> இல்லை.</qt>"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1682
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "கோப்பு இல்லை"
 
-#: kimagemapeditor.cpp:2378
+#: kimagemapeditor.cpp:2377
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -571,7 +571,7 @@ msgstr ""
 "<qt>கோப்பு <i>%1</i> சேமிக்க முடியாது, ஏனென்றால் உங்களிடம் தேவையான எழுது உரிமை "
 "இல்லை.</qt>"
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2692
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Are you sure you want to delete the map <i>%1</i>? <br><b>There is no "
@@ -583,12 +583,12 @@ msgstr ""
 "<qt>வரைபடத்தை கண்டிப்பாக அழிக்க நீங்கள் விரும்புகிறீர்களா<i>%1</i>? <br><b>இதை நீக்க "
 "வழியே இல்லை.</b></qt>"
 
-#: kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:2694
 #, kde-format
 msgid "Delete Map?"
 msgstr "வரைபடத்தை நீக்கு"
 
-#: kimagemapeditor.cpp:2743
+#: kimagemapeditor.cpp:2742
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>"
@@ -596,25 +596,25 @@ msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt>கோப்பு <i>%1</i> மாற்றப்பட்டது.<br>நீங்கள் அதை சேமிக்க வேண்டுமா?</qt>"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2826
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "தேர்வுகள்"
 
-#: kimagemapeditor.cpp:2828
+#: kimagemapeditor.cpp:2827
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter Usemap"
 msgstr "பயன்வரைபடத்தை உள்ளிடு"
 
-#: kimagemapeditor.cpp:2875
+#: kimagemapeditor.cpp:2874
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "பயன்வரைபடத்தை மதிப்பை உள்ளிடவும்:"
@@ -677,22 +677,22 @@ msgstr "பெயரில்லை"
 msgid "Number of Areas"
 msgstr "பரப்பிகளின் எண்ணிக்கை"
 
-#: kimearea.h:230 kimedialogs.cpp:361
+#: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
 msgstr "நீள்சதுரம்"
 
-#: kimearea.h:253 kimedialogs.cpp:362
+#: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
 msgstr "வட்டம்"
 
-#: kimearea.h:279 kimedialogs.cpp:363
+#: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
 msgstr "பலகோணம்"
 
-#: kimearea.h:303 kimedialogs.cpp:388
+#: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -737,184 +737,184 @@ msgstr "%1ல் இருந்து புள்ளியை நீக்க�
 msgid "Create %1"
 msgstr "உருவாக்கு %1"
 
-#: kimedialogs.cpp:76
+#: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
 msgstr "மேல் &X:"
 
-#: kimedialogs.cpp:83
+#: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
 msgstr "மேல் &Y:"
 
-#: kimedialogs.cpp:90
+#: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
 msgstr "&அகலம்:"
 
-#: kimedialogs.cpp:97
+#: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
 msgstr "உய&ரம்:"
 
-#: kimedialogs.cpp:119
+#: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
 msgstr "மத்தியில் &X:"
 
-#: kimedialogs.cpp:126
+#: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
 msgstr "மத்தியில் &Y:"
 
-#: kimedialogs.cpp:133
+#: kimedialogs.cpp:132
 #, fuzzy, kde-format
 #| msgid "&Radius:"
 msgid "&Radius:"
 msgstr "&ஆரங்கள்:"
 
-#: kimedialogs.cpp:166
+#: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: kimedialogs.cpp:169
+#: kimedialogs.cpp:168
 #, fuzzy, kde-format
 msgid "Remove"
 msgstr "தோற்றத்தை நீக்கு"
 
-#: kimedialogs.cpp:244
+#: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
 msgstr "மேல் &X"
 
-#: kimedialogs.cpp:252
+#: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
 msgstr "மேல் &Y"
 
-#: kimedialogs.cpp:285
+#: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
 msgstr "&HREF:"
 
-#: kimedialogs.cpp:291
+#: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
 msgstr "Alt. &உரை:"
 
-#: kimedialogs.cpp:294
+#: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
 msgstr "இல&க்கு:"
 
-#: kimedialogs.cpp:297
+#: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
 msgstr "தலை&ப்பு:"
 
-#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
 msgstr ""
 
-#: kimedialogs.cpp:304
+#: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
 msgstr "முன்னிருப்பு வரைபடத்தை செயலாக்கு"
 
-#: kimedialogs.cpp:328
+#: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
 msgstr "சொடுக்கு:"
 
-#: kimedialogs.cpp:329
+#: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
 msgstr "இருசொடுக்கு:"
 
-#: kimedialogs.cpp:330
+#: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
 msgstr "சுட்டிகீழ்:"
 
-#: kimedialogs.cpp:331
+#: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
 msgstr "சுட்டிமேலே:"
 
-#: kimedialogs.cpp:332
+#: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
 msgstr "சுட்டிஅதன்மேலே:"
 
-#: kimedialogs.cpp:333
+#: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
 msgstr "சுட்டிநகர்த்து:"
 
-#: kimedialogs.cpp:334
+#: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
 msgstr "சுட்டிவெளியே:"
 
-#: kimedialogs.cpp:342
+#: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
 msgstr "பரப்பு ஒட்டு தொகுப்பு"
 
-#: kimedialogs.cpp:364
+#: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
 msgstr "தேர்வுகள்"
 
-#: kimedialogs.cpp:383
+#: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
 msgstr "&பொது"
 
-#: kimedialogs.cpp:390
+#: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
 msgstr "ஒருங்கிணைப்புகள்"
 
-#: kimedialogs.cpp:392
+#: kimedialogs.cpp:391
 #, kde-format
 msgid "&JavaScript"
 msgstr "&ஜாவா ஸ்கிரிபட்"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
 msgstr "ஒரு கோப்பினை தேர்வு செய்"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgid "All Files (*)"
 msgstr "அனைத்து கோப்பு"
 
-#: kimedialogs.cpp:505
+#: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
 msgstr "முன்னுரிமைகள்"
 
-#: kimedialogs.cpp:519
+#: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
 msgstr "&அதிகபட்ச தோற்றம் முன்பார்வை உயரம்:"
 
-#: kimedialogs.cpp:528
+#: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
 msgstr "எல்லையை செயல்நீக்கு:"
 
-#: kimedialogs.cpp:535
+#: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
 msgstr "எல்லையை மீண்டும் செய்"
 
-#: kimedialogs.cpp:539
+#: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
 msgstr "கடைசியாக பயன்படுத்திய ஆவணங்களை துவக்கு"
@@ -934,82 +934,82 @@ msgstr ""
 msgid "Choose Picture to Open"
 msgstr "திறப்பதற்கு படத்தைத் தேர்வு செய்யவும்"
 
-#: main.cpp:30
-#, kde-format
-msgid "An HTML imagemap editor"
-msgstr "ஒரு HTML தோற்றவரைபட தொகுப்பி"
-
-#: main.cpp:38
+#: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
 msgstr "Kதோற்றவரைபடதொகுப்பி"
 
-#: main.cpp:40
+#: main.cpp:35
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "ஒரு HTML தோற்றவரைபட தொகுப்பி"
+
+#: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
 msgstr "கோப்பு அமை, மற்றும் டிபியன் தொகுப்பு உருவாக்குதலுக்காக எனக்கு உதவி செய்தது"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
 msgstr "ஒட்டவைத்தல் --செயலாக்க- இறுதி நிலைக்காக உதவி எனக்கு செய்தது"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
 msgstr "ஸ்பேனிஷ் மொழிபெயர்ப்புக்காக"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
 msgstr "டச்சு மொழிபெயர்ப்புக்காக"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "For the French translation"
 msgstr "பிரஞ்ச் மொழிபெயர்ப்புக்காக"
 
-#: main.cpp:60
+#: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
 msgstr "வெளியேறும் பொது HTML-குறிமுறையை stdoutவுக்கு எழுதவும்"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "File to open"
 msgstr "திறக்கவேண்டிய கோப்பு"

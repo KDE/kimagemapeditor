@@ -33,7 +33,6 @@
 #include <QIcon>
 #include <QInputDialog>
 #include <QLayout>
-#include <QLinkedList>
 #include <QListWidget>
 #include <QMenu>
 #include <QMimeDatabase>

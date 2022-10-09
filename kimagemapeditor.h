@@ -21,7 +21,6 @@
 #include <QDockWidget>
 #include <QHash>
 #include <QImage>
-#include <QLinkedList>
 #include <QObject>
 #include <QPixmap>
 #include <QTextStream>

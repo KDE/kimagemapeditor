@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:45+0000\n"
+"POT-Creation-Date: 2022-10-11 00:43+0000\n"
 "PO-Revision-Date: 2021-07-17 20:03+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -34,7 +34,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "igaztanaga@gmail.com"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
 #, kde-format
 msgid "Areas"
 msgstr "Areak"
@@ -84,7 +84,7 @@ msgstr "&Irudiak"
 msgid "Path"
 msgstr "Bide-izena"
 
-#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
+#: imageslistview.cpp:56 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
 #, kde-format
 msgid "Images"
 msgstr "Irudiak"
@@ -94,17 +94,17 @@ msgstr "Irudiak"
 msgid "Usemap"
 msgstr "\"Usemap\" atributua"
 
-#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "Mapak"
 
-#: kimagemapeditor.cpp:251 mapslistview.cpp:166
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "izengabea"
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:446
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -112,12 +112,12 @@ msgstr ""
 "<h3>Ireki fitxategia</h3>Klikatu hau irudi berri bat edo HTML fitxategi bat "
 "<em>irekitzeko</em>."
 
-#: kimagemapeditor.cpp:448
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "Ireki irudi berria edo HTML fitxategia"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:454
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
@@ -125,12 +125,12 @@ msgstr ""
 "<h3>Gorde fitxategia</h3>Klikatu hau aldaketak HTML fitxategi batean "
 "<em>gordetzeko</em>."
 
-#: kimagemapeditor.cpp:456
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Save HTML file"
 msgstr "Gorde HTML fitxategia"
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:463
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -138,407 +138,407 @@ msgstr ""
 "<h3>Itxi fitxategia</h3>Klikatu hau uneko irekitako HTML fitxategia "
 "<em>ixteko</em>."
 
-#: kimagemapeditor.cpp:465
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid "Close HTML file"
 msgstr "Itxi HTML fitxategia"
 
-#: kimagemapeditor.cpp:469
+#: kimagemapeditor.cpp:468
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr "<h3>Kopiatu</h3>Klikatu hau hautatutako area <em>kopiatzeko</em>."
 
-#: kimagemapeditor.cpp:475
+#: kimagemapeditor.cpp:474
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr "<h3>Moztu</h3>Klikatu hau hautatutako area <em>mozteko</em>."
 
-#: kimagemapeditor.cpp:481
+#: kimagemapeditor.cpp:480
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr "<h3>Itsatsi</h3>Klikatu hau hautatutako area <em>itsasteko</em>."
 
-#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2693
 #, kde-format
 msgid "&Delete"
 msgstr "&Ezabatu"
 
-#: kimagemapeditor.cpp:492
+#: kimagemapeditor.cpp:491
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr "<h3>Ezabatu</h3>Klikatu hau hautatutako area <em>ezabatzeko</em>."
 
-#: kimagemapeditor.cpp:502
+#: kimagemapeditor.cpp:501
 #, kde-format
 msgid "Pr&operties"
 msgstr "Pr&opietateak"
 
-#: kimagemapeditor.cpp:513
+#: kimagemapeditor.cpp:512
 #, kde-format
 msgid "Zoom"
 msgstr "Zoom"
 
-#: kimagemapeditor.cpp:516
+#: kimagemapeditor.cpp:515
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>Zooma</h3>Hautatu nahien duzun zoom maila."
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:518
 #, kde-format
 msgid "25%"
 msgstr "% 25"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "50%"
 msgstr "% 50"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "100%"
 msgstr "% 75"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "150%"
 msgstr "% 150"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "200%"
 msgstr "% 200"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "250%"
 msgstr "% 250"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "300%"
 msgstr "% 300"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "500%"
 msgstr "% 500"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "750%"
 msgstr "% 750"
 
-#: kimagemapeditor.cpp:528
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "1000%"
 msgstr "% 1000"
 
-#: kimagemapeditor.cpp:533
+#: kimagemapeditor.cpp:532
 #, kde-format
 msgid "Highlight Areas"
 msgstr "Nabarmendutako areak"
 
-#: kimagemapeditor.cpp:539
+#: kimagemapeditor.cpp:538
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Erakutsi \"alt\" etiketa"
 
-#: kimagemapeditor.cpp:542
+#: kimagemapeditor.cpp:541
 #, kde-format
 msgid "Map &Name..."
 msgstr "Maparen ize&na..."
 
-#: kimagemapeditor.cpp:546
+#: kimagemapeditor.cpp:545
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "Mapa be&rria..."
 
-#: kimagemapeditor.cpp:549
+#: kimagemapeditor.cpp:548
 #, kde-format
 msgid "Create a new map"
 msgstr "Sortu mapa berri bat"
 
-#: kimagemapeditor.cpp:551
+#: kimagemapeditor.cpp:550
 #, kde-format
 msgid "D&elete Map"
 msgstr "&Ezabatu mapa"
 
-#: kimagemapeditor.cpp:554
+#: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Delete the current active map"
 msgstr "Ezabatu uneko mapa aktiboa"
 
-#: kimagemapeditor.cpp:556
+#: kimagemapeditor.cpp:555
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "Editatu area &lehenetsia..."
 
-#: kimagemapeditor.cpp:559
+#: kimagemapeditor.cpp:558
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "Editatu uneko mapa aktiboko area lehenetsia"
 
-#: kimagemapeditor.cpp:561
+#: kimagemapeditor.cpp:560
 #, kde-format
 msgid "&Preview"
 msgstr "&Aurrebista"
 
-#: kimagemapeditor.cpp:564
+#: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Show a preview"
 msgstr "Erakutsi aurrebista bat"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&Irudia"
 
-#: kimagemapeditor.cpp:569
+#: kimagemapeditor.cpp:568
 #, kde-format
 msgid "Add Image..."
 msgstr "Gehitu irudia..."
 
-#: kimagemapeditor.cpp:572
+#: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Add a new image"
 msgstr "Gehitu irudi berri bat"
 
-#: kimagemapeditor.cpp:574
+#: kimagemapeditor.cpp:573
 #, kde-format
 msgid "Remove Image"
 msgstr "Kendu irudia"
 
-#: kimagemapeditor.cpp:577
+#: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "Kendu uneko irudi ikusgaia"
 
-#: kimagemapeditor.cpp:579
+#: kimagemapeditor.cpp:578
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "Editatu \"usemap\" atributua..."
 
-#: kimagemapeditor.cpp:582
+#: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "Editatu uneko irudi ikusgaiaren \"usemap\" atributua"
 
-#: kimagemapeditor.cpp:584
+#: kimagemapeditor.cpp:583
 #, kde-format
 msgid "Show &HTML"
 msgstr "Erakutsi &HTML-a"
 
-#: kimagemapeditor.cpp:591
+#: kimagemapeditor.cpp:590
 #, kde-format
 msgid "&Selection"
 msgstr "&Hautapena"
 
-#: kimagemapeditor.cpp:595
+#: kimagemapeditor.cpp:594
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>Hautapena</h3>Klikatu hau areak hautatzeko."
 
-#: kimagemapeditor.cpp:601
+#: kimagemapeditor.cpp:600
 #, kde-format
 msgid "&Circle"
 msgstr "&Zirkulua"
 
-#: kimagemapeditor.cpp:606
+#: kimagemapeditor.cpp:605
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>Zirkulua</h3>Klikatu hau zirkulu bat marrazten hasteko."
 
-#: kimagemapeditor.cpp:611
+#: kimagemapeditor.cpp:610
 #, kde-format
 msgid "&Rectangle"
 msgstr "E&rrektangelua"
 
-#: kimagemapeditor.cpp:615
+#: kimagemapeditor.cpp:614
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>Errektangelua</h3>Klikatu hau errektangelu bat marrazten hasteko."
 
-#: kimagemapeditor.cpp:620
+#: kimagemapeditor.cpp:619
 #, kde-format
 msgid "&Polygon"
 msgstr "&Poligonoa"
 
-#: kimagemapeditor.cpp:624
+#: kimagemapeditor.cpp:623
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>Poligonoa</h3>Klikatu hau poligono bat marrazten hasteko."
 
-#: kimagemapeditor.cpp:629
+#: kimagemapeditor.cpp:628
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "&Eskuhutsezko Poligonoa"
 
-#: kimagemapeditor.cpp:633
+#: kimagemapeditor.cpp:632
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>Eskuhutsezko Poligonoa</h3>Klikatu hau eskuhutsezko poligono bat "
 "marrazten hasteko."
 
-#: kimagemapeditor.cpp:638
+#: kimagemapeditor.cpp:637
 #, kde-format
 msgid "&Add Point"
 msgstr "&Gehitu poligonoa"
 
-#: kimagemapeditor.cpp:642
+#: kimagemapeditor.cpp:641
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "<h3>Gehitu puntua</h3>Klikatu hau poligono bati puntu bat gehitzeko."
 
-#: kimagemapeditor.cpp:647
+#: kimagemapeditor.cpp:646
 #, kde-format
 msgid "&Remove Point"
 msgstr "&Kendu puntua"
 
-#: kimagemapeditor.cpp:652
+#: kimagemapeditor.cpp:651
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr "<h3>Kendu puntua</h3>Klikatu hau poligono bati puntu bat kentzeko."
 
-#: kimagemapeditor.cpp:656
+#: kimagemapeditor.cpp:655
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "Ezeztatu marrazketa"
 
-#: kimagemapeditor.cpp:661
+#: kimagemapeditor.cpp:660
 #, kde-format
 msgid "Move Left"
 msgstr "Mugitu ezkerrera"
 
-#: kimagemapeditor.cpp:667
+#: kimagemapeditor.cpp:666
 #, kde-format
 msgid "Move Right"
 msgstr "Mugitu eskuinera"
 
-#: kimagemapeditor.cpp:672
+#: kimagemapeditor.cpp:671
 #, kde-format
 msgid "Move Up"
 msgstr "Mugitu gorantz"
 
-#: kimagemapeditor.cpp:677
+#: kimagemapeditor.cpp:676
 #, kde-format
 msgid "Move Down"
 msgstr "Mugitu behera"
 
-#: kimagemapeditor.cpp:682
+#: kimagemapeditor.cpp:681
 #, kde-format
 msgid "Increase Width"
 msgstr "Handitu zabalera"
 
-#: kimagemapeditor.cpp:687
+#: kimagemapeditor.cpp:686
 #, kde-format
 msgid "Decrease Width"
 msgstr "Txikiagotu zabalera"
 
-#: kimagemapeditor.cpp:692
+#: kimagemapeditor.cpp:691
 #, kde-format
 msgid "Increase Height"
 msgstr "Handitu altuera"
 
-#: kimagemapeditor.cpp:697
+#: kimagemapeditor.cpp:696
 #, kde-format
 msgid "Decrease Height"
 msgstr "Txikiagotu altuera"
 
-#: kimagemapeditor.cpp:702
+#: kimagemapeditor.cpp:701
 #, kde-format
 msgid "Bring to Front"
 msgstr "Ekarri aurrera"
 
-#: kimagemapeditor.cpp:706
+#: kimagemapeditor.cpp:705
 #, kde-format
 msgid "Send to Back"
 msgstr "Bidali atzera"
 
-#: kimagemapeditor.cpp:710
+#: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring Forward One"
 msgstr "Ekarri pauso bat aurrera"
 
-#: kimagemapeditor.cpp:713
+#: kimagemapeditor.cpp:712
 #, kde-format
 msgid "Send Back One"
 msgstr "Bidali pauso bat atzera"
 
-#: kimagemapeditor.cpp:723
+#: kimagemapeditor.cpp:722
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Konfiguratu KImageMapEditor..."
 
-#: kimagemapeditor.cpp:732
+#: kimagemapeditor.cpp:731
 #, kde-format
 msgid "Show Area List"
 msgstr "Erakutsi area-zerrenda"
 
-#: kimagemapeditor.cpp:737
+#: kimagemapeditor.cpp:736
 #, kde-format
 msgid "Show Map List"
 msgstr "Erakutsi mapen zerrenda"
 
-#: kimagemapeditor.cpp:741
+#: kimagemapeditor.cpp:740
 #, kde-format
 msgid "Show Image List"
 msgstr "Erakutsi irudien zerrenda"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:756
+#: kimagemapeditor.cpp:755
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " Hautapena -  Kurtsorea x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:840
+#: kimagemapeditor.cpp:839
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr "Kurtsorea: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " Hautapena: x: %1, y: %2, w: %3, h: %4 "
 
-#: kimagemapeditor.cpp:853
+#: kimagemapeditor.cpp:852
 #, kde-format
 msgid " Selection: - "
 msgstr " Hautapena: - "
 
-#: kimagemapeditor.cpp:906
+#: kimagemapeditor.cpp:905
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "Jaregin irudi bat edo HTML fitxategi bat"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1554
 #, kde-format
 msgid "Enter Map Name"
 msgstr "Sartu maparen izena"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1554
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "Sartu maparen izena:"
 
-#: kimagemapeditor.cpp:1560
+#: kimagemapeditor.cpp:1559
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "<em>%1</em> mapa dagoeneko existitzen da."
 
-#: kimagemapeditor.cpp:1572
+#: kimagemapeditor.cpp:1571
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "Maparen HTML kodea"
 
-#: kimagemapeditor.cpp:1622
+#: kimagemapeditor.cpp:1621
 #, kde-format
 msgid "Choose File to Open"
 msgstr "Hautatu irekitzeko fitxategia"
 
-#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
 #, kde-format
 msgid ""
 "Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
@@ -549,24 +549,24 @@ msgstr ""
 "*.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML fitxategiak (*.htm *."
 "html);;fitxategi guztiak (*)"
 
-#: kimagemapeditor.cpp:1661
+#: kimagemapeditor.cpp:1660
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 "HTML fitxategia (*.htm *.html);;Testu fitxategia (*.txt);;Fitxategi guztiak "
 "(*)"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1680
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt><b>%1</b> fitxategia ez da existitzen.</qt>"
 
-#: kimagemapeditor.cpp:1682
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "Fitxategia ez da existitzen"
 
-#: kimagemapeditor.cpp:2377
+#: kimagemapeditor.cpp:2376
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -575,7 +575,7 @@ msgstr ""
 "<qt>Ezin da <i>%1</i> fitxategia gorde, ez duzulako behar duzun baimenik.</"
 "qt>"
 
-#: kimagemapeditor.cpp:2692
+#: kimagemapeditor.cpp:2691
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -584,23 +584,23 @@ msgstr ""
 "<qt>Ziur zaude <i>%1</i> mapa ezabatu nahi duzula? <br /><b>Ez dago hau "
 "desegiteko modurik.</b></qt>"
 
-#: kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:2693
 #, kde-format
 msgid "Delete Map?"
 msgstr "Ezabatu mapa?"
 
-#: kimagemapeditor.cpp:2742
+#: kimagemapeditor.cpp:2741
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt><i>%1</i> fitxategia aldatu da.<br />Gorde nahi duzu?</qt>"
 
-#: kimagemapeditor.cpp:2826
+#: kimagemapeditor.cpp:2825
 #, kde-format
 msgid "Select image"
 msgstr "Hautatu irudia"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2826
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
@@ -609,12 +609,12 @@ msgstr ""
 "Irudiak (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Fitxategi "
 "guztiak (*)"
 
-#: kimagemapeditor.cpp:2873
+#: kimagemapeditor.cpp:2872
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Sartu \"usemap\" atributua"
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Sartu \"usemap\" atributuaren balioa:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdewebdev\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:45+0000\n"
+"POT-Creation-Date: 2022-10-11 00:43+0000\n"
 "PO-Revision-Date: 2013-10-18 20:28+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Your emails"
 msgstr ""
 "Caslav.ilic@gmx.nit,ssimic@net.te,arne@linux.org.tw,samir.ribic@etf.unsa.ba"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
+#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
 #, kde-format
 msgid "Areas"
 msgstr "Oblasti"
@@ -81,7 +81,7 @@ msgstr "&Slike"
 msgid "Path"
 msgstr "Putanja"
 
-#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
+#: imageslistview.cpp:56 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
 #, kde-format
 msgid "Images"
 msgstr "Slike"
@@ -91,17 +91,17 @@ msgstr "Slike"
 msgid "Usemap"
 msgstr "Mapa upotrebe"
 
-#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
+#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "Mape"
 
-#: kimagemapeditor.cpp:251 mapslistview.cpp:166
+#: kimagemapeditor.cpp:250 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "neimenovano"
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:446
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -109,12 +109,12 @@ msgstr ""
 "<h3>Otvori datoteku</h3>Kliknite ovdje da biste <em>otvorili</em> novu sliku "
 "ili HTML datoteku."
 
-#: kimagemapeditor.cpp:448
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "Otvori novu sliku ili HTML datoteku"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:454
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
@@ -122,12 +122,12 @@ msgstr ""
 "<h3>Snimi datoteku</h3>Kliknite ovdje da biste <em>snimili</em> izmjene u "
 "HTML datoteci."
 
-#: kimagemapeditor.cpp:456
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Save HTML file"
 msgstr "Snimi HTML datoteku"
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:463
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -135,413 +135,413 @@ msgstr ""
 "<h3>Zatvori datoteku</h3>Kliknite ovdje da biste <em>zatvorili</em> trenutno "
 "otvorenu HTML datoteku."
 
-#: kimagemapeditor.cpp:465
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid "Close HTML file"
 msgstr "Zatvori HTML datoteku"
 
-#: kimagemapeditor.cpp:469
+#: kimagemapeditor.cpp:468
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr ""
 "<h3>Kopiraj</h3>Kliknite ovdje da biste <em>kopirali</em> izabranu oblast."
 
-#: kimagemapeditor.cpp:475
+#: kimagemapeditor.cpp:474
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr ""
 "<h3>Isijeci</h3>Kliknite ovdje da biste <em>isjekli</em> izabranu oblast."
 
-#: kimagemapeditor.cpp:481
+#: kimagemapeditor.cpp:480
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 "<h3>Umetni</h3>Kliknite ovdje da biste <em>prenijeli</em> kopiranu oblast."
 
-#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2693
 #, kde-format
 msgid "&Delete"
 msgstr "&Obriši"
 
-#: kimagemapeditor.cpp:492
+#: kimagemapeditor.cpp:491
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr ""
 "<h3>Obriši</h3>Kliknite ovdje da biste <em>obrisali</em> izabranu oblast."
 
-#: kimagemapeditor.cpp:502
+#: kimagemapeditor.cpp:501
 #, kde-format
 msgid "Pr&operties"
 msgstr "&Svojstva"
 
-#: kimagemapeditor.cpp:513
+#: kimagemapeditor.cpp:512
 #, kde-format
 msgid "Zoom"
 msgstr "Uveličanje"
 
-#: kimagemapeditor.cpp:516
+#: kimagemapeditor.cpp:515
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>Uveličanje</h3>Izaberite željeni nivo uveličanja."
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:518
 #, kde-format
 msgid "25%"
 msgstr "25%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "50%"
 msgstr "50%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "100%"
 msgstr "100%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "150%"
 msgstr "150%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "200%"
 msgstr "200%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "250%"
 msgstr "250%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "300%"
 msgstr "300%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "500%"
 msgstr "500%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "750%"
 msgstr "750%"
 
-#: kimagemapeditor.cpp:528
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "1000%"
 msgstr "1000%"
 
-#: kimagemapeditor.cpp:533
+#: kimagemapeditor.cpp:532
 #, kde-format
 msgid "Highlight Areas"
 msgstr "Istakni oblasti"
 
-#: kimagemapeditor.cpp:539
+#: kimagemapeditor.cpp:538
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Prikaži oznaku alt"
 
-#: kimagemapeditor.cpp:542
+#: kimagemapeditor.cpp:541
 #, kde-format
 msgid "Map &Name..."
 msgstr "&Ime mape..."
 
-#: kimagemapeditor.cpp:546
+#: kimagemapeditor.cpp:545
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "&Nova mapa..."
 
-#: kimagemapeditor.cpp:549
+#: kimagemapeditor.cpp:548
 #, kde-format
 msgid "Create a new map"
 msgstr "Napravi novu mapu"
 
-#: kimagemapeditor.cpp:551
+#: kimagemapeditor.cpp:550
 #, kde-format
 msgid "D&elete Map"
 msgstr "&Obriši mapu"
 
-#: kimagemapeditor.cpp:554
+#: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Delete the current active map"
 msgstr "Obriši trenutno aktivnu mapu"
 
-#: kimagemapeditor.cpp:556
+#: kimagemapeditor.cpp:555
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "Izmijeni &podrazumijevanu oblast..."
 
-#: kimagemapeditor.cpp:559
+#: kimagemapeditor.cpp:558
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "Izmijeni podrazumijevanu oblast trenutno aktivne mape"
 
-#: kimagemapeditor.cpp:561
+#: kimagemapeditor.cpp:560
 #, kde-format
 msgid "&Preview"
 msgstr "&Pregled"
 
-#: kimagemapeditor.cpp:564
+#: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Show a preview"
 msgstr "Prikaži pregled"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&Slika"
 
-#: kimagemapeditor.cpp:569
+#: kimagemapeditor.cpp:568
 #, kde-format
 msgid "Add Image..."
 msgstr "Dodaj sliku..."
 
-#: kimagemapeditor.cpp:572
+#: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Add a new image"
 msgstr "Dodaj novu sliku"
 
-#: kimagemapeditor.cpp:574
+#: kimagemapeditor.cpp:573
 #, kde-format
 msgid "Remove Image"
 msgstr "Ukloni sliku"
 
-#: kimagemapeditor.cpp:577
+#: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "Ukloni trenutno vidljivu sliku"
 
-#: kimagemapeditor.cpp:579
+#: kimagemapeditor.cpp:578
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "Izmijeni mapu upotrebe..."
 
-#: kimagemapeditor.cpp:582
+#: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "Uredi oznaku usemap trenutno vidljive slike"
 
-#: kimagemapeditor.cpp:584
+#: kimagemapeditor.cpp:583
 #, kde-format
 msgid "Show &HTML"
 msgstr "Pri&kaži HTML"
 
-#: kimagemapeditor.cpp:591
+#: kimagemapeditor.cpp:590
 #, kde-format
 msgid "&Selection"
 msgstr "&Izbor"
 
-#: kimagemapeditor.cpp:595
+#: kimagemapeditor.cpp:594
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>Izbor</h3>Kliknite ovdje da biste izabrali oblasti."
 
-#: kimagemapeditor.cpp:601
+#: kimagemapeditor.cpp:600
 #, kde-format
 msgid "&Circle"
 msgstr "&Krug"
 
-#: kimagemapeditor.cpp:606
+#: kimagemapeditor.cpp:605
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>Krug</h3>Kliknite ovdje da biste počeli crtanje kruga."
 
-#: kimagemapeditor.cpp:611
+#: kimagemapeditor.cpp:610
 #, kde-format
 msgid "&Rectangle"
 msgstr "&Pravougaonik"
 
-#: kimagemapeditor.cpp:615
+#: kimagemapeditor.cpp:614
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr ""
 "<h3>Pravougaonik</h3>Kliknite ovdje da biste počeli crtanje pravougaonika."
 
-#: kimagemapeditor.cpp:620
+#: kimagemapeditor.cpp:619
 #, kde-format
 msgid "&Polygon"
 msgstr "P&oligon"
 
-#: kimagemapeditor.cpp:624
+#: kimagemapeditor.cpp:623
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>Poligon</h3>Kliknite ovdje da biste počeli crtanje poligona."
 
-#: kimagemapeditor.cpp:629
+#: kimagemapeditor.cpp:628
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "Poligon &slobodnom rukom"
 
-#: kimagemapeditor.cpp:633
+#: kimagemapeditor.cpp:632
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>Poligon slobodnom rukom</h3>Kliknite ovdje da biste počeli crtanje "
 "poligona slobodnom rukom."
 
-#: kimagemapeditor.cpp:638
+#: kimagemapeditor.cpp:637
 #, kde-format
 msgid "&Add Point"
 msgstr "&Dodaj tačku"
 
-#: kimagemapeditor.cpp:642
+#: kimagemapeditor.cpp:641
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "<h3>Dodaj tačku</h3>Kliknite ovdje da biste dodali tačke poligonu."
 
-#: kimagemapeditor.cpp:647
+#: kimagemapeditor.cpp:646
 #, kde-format
 msgid "&Remove Point"
 msgstr "&Ukloni tačku"
 
-#: kimagemapeditor.cpp:652
+#: kimagemapeditor.cpp:651
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr ""
 "<h3>Ukloni tačku</h3>Kliknite ovdje da biste uklonili tačke iz poligona."
 
-#: kimagemapeditor.cpp:656
+#: kimagemapeditor.cpp:655
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "Otkaži crtež"
 
-#: kimagemapeditor.cpp:661
+#: kimagemapeditor.cpp:660
 #, kde-format
 msgid "Move Left"
 msgstr "Pomjeri ulijevo"
 
-#: kimagemapeditor.cpp:667
+#: kimagemapeditor.cpp:666
 #, kde-format
 msgid "Move Right"
 msgstr "Pomjeri udesno"
 
-#: kimagemapeditor.cpp:672
+#: kimagemapeditor.cpp:671
 #, kde-format
 msgid "Move Up"
 msgstr "Pomjeri nagore"
 
-#: kimagemapeditor.cpp:677
+#: kimagemapeditor.cpp:676
 #, kde-format
 msgid "Move Down"
 msgstr "Pomjeri nadolje"
 
-#: kimagemapeditor.cpp:682
+#: kimagemapeditor.cpp:681
 #, kde-format
 msgid "Increase Width"
 msgstr "Povećaj širinu"
 
-#: kimagemapeditor.cpp:687
+#: kimagemapeditor.cpp:686
 #, kde-format
 msgid "Decrease Width"
 msgstr "Smanji širinu"
 
-#: kimagemapeditor.cpp:692
+#: kimagemapeditor.cpp:691
 #, kde-format
 msgid "Increase Height"
 msgstr "Povećaj visinu"
 
-#: kimagemapeditor.cpp:697
+#: kimagemapeditor.cpp:696
 #, kde-format
 msgid "Decrease Height"
 msgstr "Smanji visinu"
 
-#: kimagemapeditor.cpp:702
+#: kimagemapeditor.cpp:701
 #, kde-format
 msgid "Bring to Front"
 msgstr "Dovedi ispred svega"
 
-#: kimagemapeditor.cpp:706
+#: kimagemapeditor.cpp:705
 #, kde-format
 msgid "Send to Back"
 msgstr "Pošalji iza svega"
 
-#: kimagemapeditor.cpp:710
+#: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring Forward One"
 msgstr "Dovedi jedno ispred"
 
-#: kimagemapeditor.cpp:713
+#: kimagemapeditor.cpp:712
 #, kde-format
 msgid "Send Back One"
 msgstr "Pošalji jedno unazad"
 
-#: kimagemapeditor.cpp:723
+#: kimagemapeditor.cpp:722
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Podesi KImageMapEditor..."
 
-#: kimagemapeditor.cpp:732
+#: kimagemapeditor.cpp:731
 #, kde-format
 msgid "Show Area List"
 msgstr "Prikaži listu oblasti"
 
-#: kimagemapeditor.cpp:737
+#: kimagemapeditor.cpp:736
 #, kde-format
 msgid "Show Map List"
 msgstr "Prikaži listu mapa"
 
-#: kimagemapeditor.cpp:741
+#: kimagemapeditor.cpp:740
 #, kde-format
 msgid "Show Image List"
 msgstr "Prikaži listu slika"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:756
+#: kimagemapeditor.cpp:755
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " Izbor: -  Kursor: x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:840
+#: kimagemapeditor.cpp:839
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr " Kursor: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
+#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " Izbor: x: %1, y: %2, v: %3, h: %4 "
 
-#: kimagemapeditor.cpp:853
+#: kimagemapeditor.cpp:852
 #, kde-format
 msgid " Selection: - "
 msgstr " Izbor: - "
 
-#: kimagemapeditor.cpp:906
+#: kimagemapeditor.cpp:905
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "Ispustite sliku ili HTML datoteku"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1554
 #, kde-format
 msgid "Enter Map Name"
 msgstr "Unesite ime mape"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1554
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "Unesite ime za mapu:"
 
-#: kimagemapeditor.cpp:1560
+#: kimagemapeditor.cpp:1559
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "Ime <em>%1</em> već postoji."
 
-#: kimagemapeditor.cpp:1572
+#: kimagemapeditor.cpp:1571
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "HTML kôd mape"
 
-#: kimagemapeditor.cpp:1622
+#: kimagemapeditor.cpp:1621
 #, kde-format
 msgid "Choose File to Open"
 msgstr "Izaberite datoteku za otvaranje"
 
-#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
@@ -564,22 +564,22 @@ msgstr ""
 "*.gif|GIF slike\n"
 "*|Sve datoteke"
 
-#: kimagemapeditor.cpp:1661
+#: kimagemapeditor.cpp:1660
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1680
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Datoteka <b>%1</b> ne postoji.</qt>"
 
-#: kimagemapeditor.cpp:1682
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "Datoteka ne postoji"
 
-#: kimagemapeditor.cpp:2377
+#: kimagemapeditor.cpp:2376
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -588,7 +588,7 @@ msgstr ""
 "<qt>Datoteka <i>%1</i> nije mogla biti snimljena, zato što nemate potrebne "
 "dozvole pisanja.</qt>"
 
-#: kimagemapeditor.cpp:2692
+#: kimagemapeditor.cpp:2691
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -597,36 +597,36 @@ msgstr ""
 "<qt>Želite li obrisati mapu <i>%1</i>? <br /><b>Ovo se ne može poništiti.</"
 "b></qt>"
 
-#: kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:2693
 #, kde-format
 msgid "Delete Map?"
 msgstr "Da li da obrišem mapu?"
 
-#: kimagemapeditor.cpp:2742
+#: kimagemapeditor.cpp:2741
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt>Datoteka <i>%1</i> je izmijenjena.<br />Želite li je snimiti?</qt>"
 
-#: kimagemapeditor.cpp:2826
+#: kimagemapeditor.cpp:2825
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "Izbor"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2826
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2873
+#: kimagemapeditor.cpp:2872
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Unesite mapu upotrebe"
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Unesite vrijednost za usemap:"

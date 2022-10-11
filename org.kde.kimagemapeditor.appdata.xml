@@ -22,6 +22,7 @@
   <name xml:lang="hi">के-इमेज-मैप-एडिटर</name>
   <name xml:lang="id">KCitraMapEditor</name>
   <name xml:lang="it">KImageMapEditor</name>
+  <name xml:lang="ka">KImageMapEditor</name>
   <name xml:lang="ko">KImageMapEditor</name>
   <name xml:lang="nl">KImageMapEditor</name>
   <name xml:lang="nn">KImageMapEditor</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="hi">एचटीएमएल इमेज मैप संपादक</summary>
   <summary xml:lang="id">Pengedit Peta Citra HTML</summary>
   <summary xml:lang="it">Editor di mappe immagine HTML</summary>
+  <summary xml:lang="ka">HTML imagemap-ის რედაქტორი</summary>
   <summary xml:lang="ko">HTML 이미지 맵 편집기</summary>
   <summary xml:lang="nl">HTML bewerker van afbeeldingskaarten</summary>
   <summary xml:lang="nn">HTML-biletkartredigering</summary>

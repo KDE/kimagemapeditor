@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"POT-Creation-Date: 2022-10-11 00:43+0000\n"
 "PO-Revision-Date: 2020-12-14 20:47+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -34,7 +34,7 @@ msgstr "karl@huftis.org"
 msgid "Areas"
 msgstr "Område"
 
-#: arealistview.cpp:44 kimedialogs.cpp:594
+#: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
 msgstr "Førehandsvising"
@@ -79,12 +79,12 @@ msgstr "&Bilete"
 msgid "Path"
 msgstr "Adresse"
 
-#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
 #, kde-format
 msgid "Images"
 msgstr "Bilete"
 
-#: imageslistview.cpp:60
+#: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
 msgstr "Usemap-verdi"
@@ -152,7 +152,7 @@ msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 "<h3>Lim inn</h3>Trykk her for å <em>lima inn</em> det kopierte området."
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2693
 #, kde-format
 msgid "&Delete"
 msgstr "&Slett"
@@ -558,7 +558,7 @@ msgstr "<qt>Fila <em>%1</em> finst ikkje.</qt>"
 msgid "File Does Not Exist"
 msgstr "Fila finst ikkje"
 
-#: kimagemapeditor.cpp:2378
+#: kimagemapeditor.cpp:2376
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -567,7 +567,7 @@ msgstr ""
 "<qt>Klarte ikkje lagra fila <i>%1</i>, då du ikkje har skriveløyve til ho.</"
 "qt>"
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2691
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -576,23 +576,23 @@ msgstr ""
 "<qt>Er du sikker på at du vil sletta kartet <i>%1</i>? <br /><b>Du kan ikkje "
 "angra dette.</b></qt>"
 
-#: kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:2693
 #, kde-format
 msgid "Delete Map?"
 msgstr "Vil du sletta kartet?"
 
-#: kimagemapeditor.cpp:2743
+#: kimagemapeditor.cpp:2741
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt>Fila <i>%1</i> er endra.<br />Vil du lagra ho?</qt>"
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2825
 #, kde-format
 msgid "Select image"
 msgstr "Vel bilete"
 
-#: kimagemapeditor.cpp:2828
+#: kimagemapeditor.cpp:2826
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
@@ -601,12 +601,12 @@ msgstr ""
 "Bilete (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Alle filer "
 "(*)"
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2872
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Skriv inn usemap-verdi"
 
-#: kimagemapeditor.cpp:2875
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Skriv inn usemap-verdi:"
@@ -671,22 +671,22 @@ msgstr "namnlaus"
 msgid "Number of Areas"
 msgstr "Talet på område"
 
-#: kimearea.h:230 kimedialogs.cpp:361
+#: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
 msgstr "Rektangel"
 
-#: kimearea.h:253 kimedialogs.cpp:362
+#: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
 msgstr "Sirkel"
 
-#: kimearea.h:279 kimedialogs.cpp:363
+#: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
 msgstr "Mangekant"
 
-#: kimearea.h:303 kimedialogs.cpp:388
+#: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
 msgstr "Standard"
@@ -731,185 +731,185 @@ msgstr "Fjern punkt frå %1"
 msgid "Create %1"
 msgstr "Legg til %1"
 
-#: kimedialogs.cpp:76
+#: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
 msgstr "Øvre &X:"
 
-#: kimedialogs.cpp:83
+#: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
 msgstr "Øvre &Y:"
 
-#: kimedialogs.cpp:90
+#: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
 msgstr "&Breidd:"
 
-#: kimedialogs.cpp:97
+#: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
 msgstr "&Høgd:"
 
-#: kimedialogs.cpp:119
+#: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
 msgstr "&X-posisjon sentrum:"
 
-#: kimedialogs.cpp:126
+#: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
 msgstr "&Y-posisjon sentrum:"
 
-#: kimedialogs.cpp:133
+#: kimedialogs.cpp:132
 #, kde-format
 msgid "&Radius:"
 msgstr "&Radius:"
 
-#: kimedialogs.cpp:166
+#: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
 msgstr "Legg til"
 
-#: kimedialogs.cpp:169
+#: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
 
-#: kimedialogs.cpp:244
+#: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
 msgstr "Øvre &X"
 
-#: kimedialogs.cpp:252
+#: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
 msgstr "Øvre &Y"
 
 # Er etiketten til eit felt der ein skriv ei nettadresse (ein URL/URI) (som blir til «href»-attributtet til eit «a»-element). «Nettadresse» er derfor ei betre omsetting enn «HREF».
-#: kimedialogs.cpp:285
+#: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
 msgstr "&Nettadresse:"
 
 # Er god nok plass til at me ikkje treng forkorta …
-#: kimedialogs.cpp:291
+#: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
 msgstr "Alternativ tekst:"
 
-#: kimedialogs.cpp:294
+#: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
 msgstr "&Målramme:"
 
-#: kimedialogs.cpp:297
+#: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
 msgstr "&Tittel:"
 
-#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
 msgstr "På"
 
 # Det finst ein avkryssingsboks til dette.
-#: kimedialogs.cpp:304
+#: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
 msgstr "Bruk standardkart"
 
-#: kimedialogs.cpp:328
+#: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
 msgstr "Ved klikk:"
 
-#: kimedialogs.cpp:329
+#: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
 msgstr "Ved dobbeltklikk:"
 
-#: kimedialogs.cpp:330
+#: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
 msgstr "Ved museknapp ned:"
 
-#: kimedialogs.cpp:331
+#: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
 msgstr "Ved museknapp opp:"
 
-#: kimedialogs.cpp:332
+#: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
 msgstr "Ved peikar over:"
 
-#: kimedialogs.cpp:333
+#: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
 msgstr "Ved peikarflytt:"
 
-#: kimedialogs.cpp:334
+#: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
 msgstr "Ved peikar ut:"
 
-#: kimedialogs.cpp:342
+#: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
 msgstr "Redigering av område"
 
-#: kimedialogs.cpp:364
+#: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
 msgstr "Markering"
 
-#: kimedialogs.cpp:383
+#: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
 msgstr "&Generelt"
 
-#: kimedialogs.cpp:390
+#: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
 msgstr "&Koordinatar"
 
-#: kimedialogs.cpp:392
+#: kimedialogs.cpp:391
 #, kde-format
 msgid "&JavaScript"
 msgstr "&JavaScript"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
 msgstr "Vel fil"
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "All Files (*)"
 msgstr "Alle filer (*)"
 
-#: kimedialogs.cpp:505
+#: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
 msgstr "Innstillingar"
 
-#: kimedialogs.cpp:519
+#: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
 msgstr "Største bilet&høgd for førehandsvising:"
 
-#: kimedialogs.cpp:528
+#: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
 msgstr "&Angregrense:"
 
-#: kimedialogs.cpp:535
+#: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
 msgstr "&Omgjeringsgrense:"
 
-#: kimedialogs.cpp:539
+#: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
 msgstr "Start med &sist brukte dokument"
@@ -929,82 +929,82 @@ msgstr "Klarte ikkje oppretta programdelen kimagemapeditorpart"
 msgid "Choose Picture to Open"
 msgstr "Vel bilete som skal opnast"
 
-#: main.cpp:30
-#, kde-format
-msgid "An HTML imagemap editor"
-msgstr "Redigeringsprogram for HTML-biletkart"
-
-#: main.cpp:38
+#: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
 msgstr "KImageMapEditor"
 
-#: main.cpp:40
+#: main.cpp:35
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr "Redigeringsprogram for HTML-biletkart"
+
+#: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
 msgstr "© 2001–2007 Jan Schäfer"
 
-#: main.cpp:42
+#: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
 msgstr "Jan Schäfer"
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
 msgstr "Jörg Jaspert"
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
 msgstr "Hjelp til å laga Makefile-filer, og laga Debian-pakken"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
 msgstr "Aaron Seigo og Michael"
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
 msgstr "Hjelp til å fiksa «--enable-final»-modusen"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
 msgstr "Antonio Crevillen"
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
 msgstr "Omsetjing til spansk"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
 msgstr "Fabrice Mous"
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
 msgstr "Omsetjing til nederlandsk"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
 msgstr "Germain Chazot"
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "For the French translation"
 msgstr "Omsetjing til fransk"
 
-#: main.cpp:60
+#: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
 msgstr "Skriv HTML-kode til standard ut ved avslutting"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "File to open"
 msgstr "Fil som skal opnast"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:42+0000\n"
+"POT-Creation-Date: 2022-10-11 00:43+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Areas"
 msgstr ""
 
-#: arealistview.cpp:44 kimedialogs.cpp:594
+#: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
 msgstr ""
@@ -79,12 +79,12 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
-#: imageslistview.cpp:59 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
 #, kde-format
 msgid "Images"
 msgstr ""
 
-#: imageslistview.cpp:60
+#: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
 msgstr ""
@@ -147,7 +147,7 @@ msgstr ""
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2693
 #, kde-format
 msgid "&Delete"
 msgstr ""
@@ -548,49 +548,49 @@ msgstr ""
 msgid "File Does Not Exist"
 msgstr ""
 
-#: kimagemapeditor.cpp:2378
+#: kimagemapeditor.cpp:2376
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
 msgstr ""
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2691
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
 "way to undo this.</b></qt>"
 msgstr ""
 
-#: kimagemapeditor.cpp:2695
+#: kimagemapeditor.cpp:2693
 #, kde-format
 msgid "Delete Map?"
 msgstr ""
 
-#: kimagemapeditor.cpp:2743
+#: kimagemapeditor.cpp:2741
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr ""
 
-#: kimagemapeditor.cpp:2827
+#: kimagemapeditor.cpp:2825
 #, kde-format
 msgid "Select image"
 msgstr ""
 
-#: kimagemapeditor.cpp:2828
+#: kimagemapeditor.cpp:2826
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2874
+#: kimagemapeditor.cpp:2872
 #, kde-format
 msgid "Enter Usemap"
 msgstr ""
 
-#: kimagemapeditor.cpp:2875
+#: kimagemapeditor.cpp:2873
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr ""
@@ -653,22 +653,22 @@ msgstr ""
 msgid "Number of Areas"
 msgstr ""
 
-#: kimearea.h:230 kimedialogs.cpp:361
+#: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
 msgstr ""
 
-#: kimearea.h:253 kimedialogs.cpp:362
+#: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
 msgstr ""
 
-#: kimearea.h:279 kimedialogs.cpp:363
+#: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
 msgstr ""
 
-#: kimearea.h:303 kimedialogs.cpp:388
+#: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -713,182 +713,182 @@ msgstr ""
 msgid "Create %1"
 msgstr ""
 
-#: kimedialogs.cpp:76
+#: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
 msgstr ""
 
-#: kimedialogs.cpp:83
+#: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
 msgstr ""
 
-#: kimedialogs.cpp:90
+#: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
 msgstr ""
 
-#: kimedialogs.cpp:97
+#: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
 msgstr ""
 
-#: kimedialogs.cpp:119
+#: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
 msgstr ""
 
-#: kimedialogs.cpp:126
+#: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
 msgstr ""
 
-#: kimedialogs.cpp:133
+#: kimedialogs.cpp:132
 #, kde-format
 msgid "&Radius:"
 msgstr ""
 
-#: kimedialogs.cpp:166
+#: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
 msgstr ""
 
-#: kimedialogs.cpp:169
+#: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
 msgstr ""
 
-#: kimedialogs.cpp:244
+#: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
 msgstr ""
 
-#: kimedialogs.cpp:252
+#: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
 msgstr ""
 
-#: kimedialogs.cpp:285
+#: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
 msgstr ""
 
-#: kimedialogs.cpp:291
+#: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
 msgstr ""
 
-#: kimedialogs.cpp:294
+#: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
 msgstr ""
 
-#: kimedialogs.cpp:297
+#: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
 msgstr ""
 
-#: kimedialogs.cpp:300 kimedialogs.cpp:537
+#: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
 msgstr ""
 
-#: kimedialogs.cpp:304
+#: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
 msgstr ""
 
-#: kimedialogs.cpp:328
+#: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
 msgstr ""
 
-#: kimedialogs.cpp:329
+#: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
 msgstr ""
 
-#: kimedialogs.cpp:330
+#: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
 msgstr ""
 
-#: kimedialogs.cpp:331
+#: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
 msgstr ""
 
-#: kimedialogs.cpp:332
+#: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
 msgstr ""
 
-#: kimedialogs.cpp:333
+#: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
 msgstr ""
 
-#: kimedialogs.cpp:334
+#: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
 msgstr ""
 
-#: kimedialogs.cpp:342
+#: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
 msgstr ""
 
-#: kimedialogs.cpp:364
+#: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
 msgstr ""
 
-#: kimedialogs.cpp:383
+#: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
 msgstr ""
 
-#: kimedialogs.cpp:390
+#: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
 msgstr ""
 
-#: kimedialogs.cpp:392
+#: kimedialogs.cpp:391
 #, kde-format
 msgid "&JavaScript"
 msgstr ""
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
 msgstr ""
 
-#: kimedialogs.cpp:436
+#: kimedialogs.cpp:435
 #, kde-format
 msgid "All Files (*)"
 msgstr ""
 
-#: kimedialogs.cpp:505
+#: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
 msgstr ""
 
-#: kimedialogs.cpp:519
+#: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
 msgstr ""
 
-#: kimedialogs.cpp:528
+#: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
 msgstr ""
 
-#: kimedialogs.cpp:535
+#: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
 msgstr ""
 
-#: kimedialogs.cpp:539
+#: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
 msgstr ""
@@ -908,82 +908,82 @@ msgstr ""
 msgid "Choose Picture to Open"
 msgstr ""
 
-#: main.cpp:30
-#, kde-format
-msgid "An HTML imagemap editor"
-msgstr ""
-
-#: main.cpp:38
+#: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
 msgstr ""
 
-#: main.cpp:40
+#: main.cpp:35
+#, kde-format
+msgid "An HTML imagemap editor"
+msgstr ""
+
+#: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:43
 #, kde-format
 msgid "For the French translation"
 msgstr ""
 
-#: main.cpp:60
+#: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "File to open"
 msgstr ""

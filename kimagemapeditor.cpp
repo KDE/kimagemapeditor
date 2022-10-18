@@ -51,6 +51,7 @@
 #include <QVBoxLayout>
 
 // KDE Frameworks
+#include <kwidgetsaddons_version.h>
 #include <KPluginMetaData>
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -2736,7 +2737,11 @@ bool KImageMapEditor::queryClose() {
   if ( ! isModified() )
      return true;
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+  switch ( KMessageBox::warningTwoActionsCancel(
+#else
   switch ( KMessageBox::warningYesNoCancel(
+#endif
               widget(),
 	      i18n("<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>",
 	      url().fileName()),
@@ -2744,10 +2749,18 @@ bool KImageMapEditor::queryClose() {
 	      KStandardGuiItem::save(),
 	      KStandardGuiItem::discard()) )
     {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    case KMessageBox::PrimaryAction :
+#else
     case KMessageBox::Yes :
+#endif
       saveFile();
       return true;
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    case KMessageBox::SecondaryAction :
+#else
     case KMessageBox::No :
+#endif
       return true;
     default:
       return false;

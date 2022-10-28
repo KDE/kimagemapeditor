@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:43+0000\n"
+"POT-Creation-Date: 2022-10-19 00:44+0000\n"
 "PO-Revision-Date: 2008-03-16 18:18+0100\n"
 "Last-Translator: MagicPO 0.3 (automated)\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "bjornst@skogkatt.homelinux.org"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:98 kimagemapeditor.cpp:131
+#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
 #, kde-format
 msgid "Areas"
 msgstr "Områder"
@@ -79,7 +79,7 @@ msgstr "B&ilder"
 msgid "Path"
 msgstr "Sti"
 
-#: imageslistview.cpp:56 kimagemapeditor.cpp:100 kimagemapeditor.cpp:133
+#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
 #, kde-format
 msgid "Images"
 msgstr "Bilder"
@@ -89,17 +89,17 @@ msgstr "Bilder"
 msgid "Usemap"
 msgstr "Brukskart"
 
-#: kimagemapeditor.cpp:99 kimagemapeditor.cpp:132 mapslistview.cpp:37
+#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "Kart"
 
-#: kimagemapeditor.cpp:250 mapslistview.cpp:166
+#: kimagemapeditor.cpp:251 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "uten navn"
 
-#: kimagemapeditor.cpp:446
+#: kimagemapeditor.cpp:447
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -107,435 +107,435 @@ msgstr ""
 "<h3>Åpne fil</h3>Trykk dette for å <em>åpne</em> et nytt bilde eller HTML-"
 "fil."
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:448
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "Åpne nytt bilde eller HTML-fil"
 
-#: kimagemapeditor.cpp:454
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
 "<h3>Lagre fil</h3> Trykk dette for å <em>lagre</em> endringene til HTML-fila."
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:456
 #, kde-format
 msgid "Save HTML file"
 msgstr "Lagre HTML-fil"
 
-#: kimagemapeditor.cpp:463
+#: kimagemapeditor.cpp:464
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
 msgstr "<h3>Lukk fil</h3> Trykk dette for å <em>lukke</em> den åpne HTML-fila."
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:465
 #, kde-format
 msgid "Close HTML file"
 msgstr "Lukk HTML-fil"
 
-#: kimagemapeditor.cpp:468
+#: kimagemapeditor.cpp:469
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr ""
 "<h3>Kopier</h3> Trykk dette for å <em>kopiere</em> det markerte området."
 
-#: kimagemapeditor.cpp:474
+#: kimagemapeditor.cpp:475
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr ""
 "<h3>Klipp ut</h3> Trykk dette for å <em>klippe ut</em> det markerte området."
 
-#: kimagemapeditor.cpp:480
+#: kimagemapeditor.cpp:481
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 "<h3>Lim inn</h3> Trykk dette for å <em>lime inn</em> det koperte området."
 
-#: kimagemapeditor.cpp:487 kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
 #, kde-format
 msgid "&Delete"
 msgstr "&Slett"
 
-#: kimagemapeditor.cpp:491
+#: kimagemapeditor.cpp:492
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr "<h3>Slett</h3> Trykk dette for å <em>slette</em> det markerte området."
 
-#: kimagemapeditor.cpp:501
+#: kimagemapeditor.cpp:502
 #, kde-format
 msgid "Pr&operties"
 msgstr "&Egenskaper"
 
-#: kimagemapeditor.cpp:512
+#: kimagemapeditor.cpp:513
 #, kde-format
 msgid "Zoom"
 msgstr "Zoom"
 
-#: kimagemapeditor.cpp:515
+#: kimagemapeditor.cpp:516
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>Zoom</h3> Velg ønsket forstørring."
 
-#: kimagemapeditor.cpp:518
+#: kimagemapeditor.cpp:519
 #, kde-format
 msgid "25%"
 msgstr "25%"
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "50%"
 msgstr "50%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:521
 #, kde-format
 msgid "100%"
 msgstr "100%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:522
 #, kde-format
 msgid "150%"
 msgstr "150%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "200%"
 msgstr "200%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:524
 #, kde-format
 msgid "250%"
 msgstr "250%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:525
 #, kde-format
 msgid "300%"
 msgstr "300%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "500%"
 msgstr "500%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "750%"
 msgstr "750%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "1000%"
 msgstr "1000%"
 
-#: kimagemapeditor.cpp:532
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "Highlight Areas"
 msgstr "Framhev områder"
 
-#: kimagemapeditor.cpp:538
+#: kimagemapeditor.cpp:539
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Vis ALT-tagg"
 
-#: kimagemapeditor.cpp:541
+#: kimagemapeditor.cpp:542
 #, kde-format
 msgid "Map &Name..."
 msgstr "Kart&navn …"
 
-#: kimagemapeditor.cpp:545
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "N&ytt kart …"
 
-#: kimagemapeditor.cpp:548
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Create a new map"
 msgstr "Opprett et nytt kart"
 
-#: kimagemapeditor.cpp:550
+#: kimagemapeditor.cpp:551
 #, kde-format
 msgid "D&elete Map"
 msgstr "Sl&ett kart"
 
-#: kimagemapeditor.cpp:553
+#: kimagemapeditor.cpp:554
 #, kde-format
 msgid "Delete the current active map"
 msgstr "Slett det aktive kartet"
 
-#: kimagemapeditor.cpp:555
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "Re&diger standardområde …"
 
-#: kimagemapeditor.cpp:558
+#: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "Rediger standardområde i det gjeldende aktive kartet"
 
-#: kimagemapeditor.cpp:560
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "&Preview"
 msgstr "&Forhåndsvis"
 
-#: kimagemapeditor.cpp:563
+#: kimagemapeditor.cpp:564
 #, kde-format
 msgid "Show a preview"
 msgstr "Vis en forhåndsvisning"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:566 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "B&ilde"
 
-#: kimagemapeditor.cpp:568
+#: kimagemapeditor.cpp:569
 #, kde-format
 msgid "Add Image..."
 msgstr "Legg til bilde …"
 
-#: kimagemapeditor.cpp:571
+#: kimagemapeditor.cpp:572
 #, kde-format
 msgid "Add a new image"
 msgstr "Legg til et nytt bilde"
 
-#: kimagemapeditor.cpp:573
+#: kimagemapeditor.cpp:574
 #, kde-format
 msgid "Remove Image"
 msgstr "Fjern bilde"
 
-#: kimagemapeditor.cpp:576
+#: kimagemapeditor.cpp:577
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "Fjern det bildet som er synlig nå"
 
-#: kimagemapeditor.cpp:578
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "Rediger «usemap» …"
 
-#: kimagemapeditor.cpp:581
+#: kimagemapeditor.cpp:582
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "Rediger «usemap»-taggen til det bildet som nå er synlig"
 
-#: kimagemapeditor.cpp:583
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Show &HTML"
 msgstr "Vis &HTML"
 
-#: kimagemapeditor.cpp:590
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "&Selection"
 msgstr "&Markering"
 
-#: kimagemapeditor.cpp:594
+#: kimagemapeditor.cpp:595
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>Markering</h3>Trykk dette for å markere områder."
 
-#: kimagemapeditor.cpp:600
+#: kimagemapeditor.cpp:601
 #, kde-format
 msgid "&Circle"
 msgstr "&Sirkel"
 
-#: kimagemapeditor.cpp:605
+#: kimagemapeditor.cpp:606
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>Sirkel</h3>Trykk dette for å begynne å tegne en sirkel."
 
-#: kimagemapeditor.cpp:610
+#: kimagemapeditor.cpp:611
 #, kde-format
 msgid "&Rectangle"
 msgstr "&Rektangel"
 
-#: kimagemapeditor.cpp:614
+#: kimagemapeditor.cpp:615
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>Rektangel</h3>Trykk her for å begynne å tegne et rektangel."
 
-#: kimagemapeditor.cpp:619
+#: kimagemapeditor.cpp:620
 #, kde-format
 msgid "&Polygon"
 msgstr "&Mangekant"
 
-#: kimagemapeditor.cpp:623
+#: kimagemapeditor.cpp:624
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>Mangekant</h3>Trykk dette for å begynne å tegne en mangekant."
 
-#: kimagemapeditor.cpp:628
+#: kimagemapeditor.cpp:629
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "&Frihånds-mangekant"
 
-#: kimagemapeditor.cpp:632
+#: kimagemapeditor.cpp:633
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>Frihåndsmangekant</h3>Trykk dette for å begynne å tegne en frihånds-"
 "mangekant."
 
-#: kimagemapeditor.cpp:637
+#: kimagemapeditor.cpp:638
 #, kde-format
 msgid "&Add Point"
 msgstr "&Legg til punkt"
 
-#: kimagemapeditor.cpp:641
+#: kimagemapeditor.cpp:642
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr ""
 "<h3>Legg til punkt</h3>Trykk dette for å legge til punkter i en mangekant."
 
-#: kimagemapeditor.cpp:646
+#: kimagemapeditor.cpp:647
 #, kde-format
 msgid "&Remove Point"
 msgstr "Fje&rn punkt"
 
-#: kimagemapeditor.cpp:651
+#: kimagemapeditor.cpp:652
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr ""
 "<h3>Fjern punkt</h3>Trykk dette for å ta vekk punkter fra en mangekant."
 
-#: kimagemapeditor.cpp:655
+#: kimagemapeditor.cpp:656
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "Avbryt tegning"
 
-#: kimagemapeditor.cpp:660
+#: kimagemapeditor.cpp:661
 #, kde-format
 msgid "Move Left"
 msgstr "Flytt til venstre"
 
-#: kimagemapeditor.cpp:666
+#: kimagemapeditor.cpp:667
 #, kde-format
 msgid "Move Right"
 msgstr "Flytt til høyre"
 
-#: kimagemapeditor.cpp:671
+#: kimagemapeditor.cpp:672
 #, kde-format
 msgid "Move Up"
 msgstr "Flytt opp"
 
-#: kimagemapeditor.cpp:676
+#: kimagemapeditor.cpp:677
 #, kde-format
 msgid "Move Down"
 msgstr "Flytt ned"
 
-#: kimagemapeditor.cpp:681
+#: kimagemapeditor.cpp:682
 #, kde-format
 msgid "Increase Width"
 msgstr "Øk bredde"
 
-#: kimagemapeditor.cpp:686
+#: kimagemapeditor.cpp:687
 #, kde-format
 msgid "Decrease Width"
 msgstr "Minsk bredde"
 
-#: kimagemapeditor.cpp:691
+#: kimagemapeditor.cpp:692
 #, kde-format
 msgid "Increase Height"
 msgstr "Øk høyde"
 
-#: kimagemapeditor.cpp:696
+#: kimagemapeditor.cpp:697
 #, kde-format
 msgid "Decrease Height"
 msgstr "Minsk høyde"
 
-#: kimagemapeditor.cpp:701
+#: kimagemapeditor.cpp:702
 #, kde-format
 msgid "Bring to Front"
 msgstr "Flytt fremst"
 
-#: kimagemapeditor.cpp:705
+#: kimagemapeditor.cpp:706
 #, kde-format
 msgid "Send to Back"
 msgstr "Flytt bakerst"
 
-#: kimagemapeditor.cpp:709
+#: kimagemapeditor.cpp:710
 #, kde-format
 msgid "Bring Forward One"
 msgstr "Flytt én forover"
 
-#: kimagemapeditor.cpp:712
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send Back One"
 msgstr "Flytt én bakover"
 
-#: kimagemapeditor.cpp:722
+#: kimagemapeditor.cpp:723
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Sett opp  KImageMapEditor …"
 
-#: kimagemapeditor.cpp:731
+#: kimagemapeditor.cpp:732
 #, kde-format
 msgid "Show Area List"
 msgstr "Vis områdeliste"
 
-#: kimagemapeditor.cpp:736
+#: kimagemapeditor.cpp:737
 #, kde-format
 msgid "Show Map List"
 msgstr "Vis kartliste"
 
-#: kimagemapeditor.cpp:740
+#: kimagemapeditor.cpp:741
 #, kde-format
 msgid "Show Image List"
 msgstr "Vis bildeliste"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:755
+#: kimagemapeditor.cpp:756
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " Utvalg: –  Markør: x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:839
+#: kimagemapeditor.cpp:840
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr " Markør: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:847 kimagemapeditor.cpp:860
+#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " Utvalg: x: %1, y: %2, b: %3, h: %4 "
 
-#: kimagemapeditor.cpp:852
+#: kimagemapeditor.cpp:853
 #, kde-format
 msgid " Selection: - "
 msgstr " Utvalg: – "
 
-#: kimagemapeditor.cpp:905
+#: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "Slipp et bilde eller HTML-fil"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter Map Name"
 msgstr "Oppgi kartnavn"
 
-#: kimagemapeditor.cpp:1554
+#: kimagemapeditor.cpp:1555
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "Oppgi navnet på kartet:"
 
-#: kimagemapeditor.cpp:1559
+#: kimagemapeditor.cpp:1560
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "Navnet <em>%1</em> finnes fra før."
 
-#: kimagemapeditor.cpp:1571
+#: kimagemapeditor.cpp:1572
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "HTML-kode for kartet"
 
-#: kimagemapeditor.cpp:1621
+#: kimagemapeditor.cpp:1622
 #, kde-format
 msgid "Choose File to Open"
 msgstr "Velg fil som skal åpnes"
 
-#: kimagemapeditor.cpp:1622 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
 #, kde-format
 msgid ""
 "Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
@@ -543,22 +543,22 @@ msgid ""
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1660
+#: kimagemapeditor.cpp:1661
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1680
+#: kimagemapeditor.cpp:1681
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Fila <b>%1</b> finnes ikke,</qt>"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1682
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "Fila finnes ikke"
 
-#: kimagemapeditor.cpp:2376
+#: kimagemapeditor.cpp:2377
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -567,7 +567,7 @@ msgstr ""
 "<qt>Klarte ikke ikke lagre fila <i>%1</i>, fordi du ikke har den "
 "skrivetilgangen som kreves.</qt>"
 
-#: kimagemapeditor.cpp:2691
+#: kimagemapeditor.cpp:2692
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -576,35 +576,35 @@ msgstr ""
 "<qt>Er du sikker på at du vil slette kartet <i>%1</i>?<br /><b>Det er ikke "
 "mulig å angre dette.</b></qt>"
 
-#: kimagemapeditor.cpp:2693
+#: kimagemapeditor.cpp:2694
 #, kde-format
 msgid "Delete Map?"
 msgstr "Slette kart?"
 
-#: kimagemapeditor.cpp:2741
+#: kimagemapeditor.cpp:2746
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt>Fila <i>%1</i> er endret. <br />Vil du lagre den?</qt>"
 
-#: kimagemapeditor.cpp:2825
+#: kimagemapeditor.cpp:2838
 #, kde-format
 msgid "Select image"
 msgstr "Velg bilde"
 
-#: kimagemapeditor.cpp:2826
+#: kimagemapeditor.cpp:2839
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2872
+#: kimagemapeditor.cpp:2885
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Skriv inn Usemap"
 
-#: kimagemapeditor.cpp:2873
+#: kimagemapeditor.cpp:2886
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Oppgi Usemap-verdien:"

@@ -275,7 +275,7 @@ msgstr "Edita l'àrea pre&determinada..."
 #: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr "Edita l'àrea per defecte de la correspondència activa"
+msgstr "Edita l'àrea predeterminada de la correspondència activa"
 
 #: kimagemapeditor.cpp:561
 #, kde-format
@@ -819,7 +819,7 @@ msgstr "Actiu"
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr "Habilita la correspondència per defecte"
+msgstr "Habilita la correspondència predeterminada"
 
 #: kimedialogs.cpp:327
 #, kde-format

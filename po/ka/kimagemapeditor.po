@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-12-25 08:04+0100\n"
+"PO-Revision-Date: 2022-12-27 03:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -103,6 +103,8 @@ msgstr "უსახელო"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
+"<h3>ფაილის გახსნა</h3>HTML ფაილის ან ახალი სურათის "
+"გასახსნელად<em>დააწკაპუნეთ </em>."
 
 #: kimagemapeditor.cpp:448
 #, kde-format
@@ -113,7 +115,7 @@ msgstr "ახალი სურათს ან HTML ფაილის გა
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
-msgstr ""
+msgstr "<h3>ფაილის შენახვა</h3>HTML ფაილის <em>შესანახად</em> დააწკაპუნეთ."
 
 #: kimagemapeditor.cpp:456
 #, kde-format
@@ -125,6 +127,8 @@ msgstr "HTML ფაილის შენახვა"
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
 msgstr ""
+"<h3>ფაილის დახურვა</h3> ამჟამად გახსნილი HTML ფაილის <em>დასახურად</em> "
+"დააწკაპუნეთ."
 
 #: kimagemapeditor.cpp:465
 #, kde-format
@@ -265,7 +269,7 @@ msgstr "&ნაგულისხმები ფართობის ჩას
 #: kimagemapeditor.cpp:559
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr ""
+msgstr "ამჟამად აქტიური რუკის ნაგულისხმები ადგილის ჩასწორება"
 
 #: kimagemapeditor.cpp:561
 #, kde-format
@@ -306,12 +310,12 @@ msgstr "ამჟამად ხილული სურათის წაშ
 #: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Edit Usemap..."
-msgstr ""
+msgstr "გამოყენებული რუკის ჩასწორება...."
 
 #: kimagemapeditor.cpp:582
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr ""
+msgstr "ამჟამად ხილული გამოსახულების რუკის ჭდის ჩასწორება"
 
 #: kimagemapeditor.cpp:584
 #, kde-format
@@ -326,7 +330,7 @@ msgstr "მონიშნული"
 #: kimagemapeditor.cpp:595
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
-msgstr ""
+msgstr "<h3>მონიშვნა</h3>დააწკაპუნეთ ადგილების მოსანიშნად."
 
 #: kimagemapeditor.cpp:601
 #, kde-format
@@ -336,7 +340,7 @@ msgstr "&წრე"
 #: kimagemapeditor.cpp:606
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
-msgstr ""
+msgstr "<h3>წრე</h3>დააწკაპუნეთ წრის ხატვის დასაწყებად."
 
 #: kimagemapeditor.cpp:611
 #, kde-format
@@ -346,7 +350,7 @@ msgstr "&მართკუთხედი"
 #: kimagemapeditor.cpp:615
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
-msgstr ""
+msgstr "<h3>მართკუთხედი</h3> მართკუთხედის ხატვის დასაწყებად დააწკაპუნეთ."
 
 #: kimagemapeditor.cpp:620
 #, kde-format
@@ -356,17 +360,19 @@ msgstr "&მრავალკუთხედი"
 #: kimagemapeditor.cpp:624
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr ""
+msgstr "<h3>მრავალკუთხედი</h3>მრავალკუთხედის ხატვის დასაწყებად დააწკაპუნეთ."
 
 #: kimagemapeditor.cpp:629
 #, kde-format
 msgid "&Freehand Polygon"
-msgstr ""
+msgstr "&ხელით დახატული მრავალკუთხედი"
 
 #: kimagemapeditor.cpp:633
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
+"<h3>ხელით დახატული მრავალკუთხედი</h3>ხელით დახატული მრავალკუთხედის ხატვის "
+"დასაწყებად დააწკაპუნეთ."
 
 #: kimagemapeditor.cpp:638
 #, kde-format
@@ -376,7 +382,7 @@ msgstr "&წერტილის დამატება"
 #: kimagemapeditor.cpp:642
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
-msgstr ""
+msgstr "<h3>წერტილის დამატება</h3>მრავალკუთხედისთვის წერტილების დამატება."
 
 #: kimagemapeditor.cpp:647
 #, kde-format
@@ -387,6 +393,7 @@ msgstr "&წერტილის წაშლა"
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr ""
+"<h3>წერტილის წაშლა</h3>დააწკაპუნეთ მრავალკუთხედიდან წერტილის წასაშლელად."
 
 #: kimagemapeditor.cpp:656
 #, kde-format
@@ -478,7 +485,7 @@ msgstr "გამოსახულებებეის სიის ჩვე�
 #: kimagemapeditor.cpp:756
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
-msgstr ""
+msgstr " მონიშვნა: -  კურსორი: x: 0, y: 0 "
 
 #: kimagemapeditor.cpp:840
 #, kde-format
@@ -498,7 +505,7 @@ msgstr " მონიშნული: - "
 #: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
-msgstr ""
+msgstr "დააგდეთ სურათი ან HTML ფაილი"
 
 #: kimagemapeditor.cpp:1555
 #, kde-format
@@ -557,6 +564,7 @@ msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
 msgstr ""
+"<qt>ფაილის <i>%1</i> შენახვა შეუძლებელია. ჩაწერის უფლებები არ გაგაჩნიათ.</qt>"
 
 #: kimagemapeditor.cpp:2692
 #, kde-format
@@ -564,6 +572,8 @@ msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
 "way to undo this.</b></qt>"
 msgstr ""
+"<qt>დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ რუკა <i>%1</i>? <br /"
+"><b>ქმედება შეუქცევადია.</b></qt>"
 
 #: kimagemapeditor.cpp:2694
 #, kde-format
@@ -574,7 +584,7 @@ msgstr "წავშალო რუკა?"
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
-msgstr ""
+msgstr "<qt>ფაილი <i>%1</i> შეიცვალა.<br />გნებავთ, შეინახოთ?</qt>"
 
 #: kimagemapeditor.cpp:2838
 #, kde-format
@@ -593,12 +603,12 @@ msgstr ""
 #: kimagemapeditor.cpp:2885
 #, kde-format
 msgid "Enter Usemap"
-msgstr ""
+msgstr "შეიყვანეთ გამოყენებული რუკა"
 
 #: kimagemapeditor.cpp:2886
 #, kde-format
 msgid "Enter the usemap value:"
-msgstr ""
+msgstr "შეიყვანეთ გამოყენებული რუკის მნიშვნელობა:"
 
 #. i18n: ectx: Menu (edit)
 #: kimagemapeditorpartui.rc:14
@@ -881,37 +891,37 @@ msgstr "პარამეტრები"
 #: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
-msgstr ""
+msgstr "გამოსახულების მინიატურის მაქსიმალური &სიმაღლე:"
 
 #: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
-msgstr ""
+msgstr "&დაბრუნების ლიმიტი:"
 
 #: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
-msgstr ""
+msgstr "&გამეორების ლიმიტი:"
 
 #: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
-msgstr ""
+msgstr "ბოლოს გახსნილი დოკუმენტით &დაწყება"
 
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr ""
+msgstr "ნაწილი kimagemapeditorpart ვერ ვიპოვე!"
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr ""
+msgstr "ნაწილის kimagemapeditorpart შექმნის შეცდომა!"
 
 #: kimeshell.cpp:200
 #, kde-format
 msgid "Choose Picture to Open"
-msgstr ""
+msgstr "აირჩიეთ გასახსნელი სურათი"
 
 #: main.cpp:34
 #, kde-format
@@ -941,7 +951,7 @@ msgstr "Joerg Jaspert"
 #: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
-msgstr ""
+msgstr "Makefile-სთან დახმარებისთვის და Debian-ის პაკეტის შექმნისთვის"
 
 #: main.cpp:40
 #, kde-format
@@ -951,7 +961,7 @@ msgstr "Aaron Seigo and Michael"
 #: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
-msgstr ""
+msgstr "--enable-final -ის გასწორებაში დახმარებისთვის"
 
 #: main.cpp:41
 #, kde-format
@@ -986,7 +996,7 @@ msgstr "ფრანგული თარგმანისთვის"
 #: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
-msgstr ""
+msgstr "გასვლისას HTML კოდის stdout-ზე ჩვენება"
 
 #: main.cpp:57
 #, kde-format

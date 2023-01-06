@@ -1,209 +1,121 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kimagemapeditor "<application
->KImageMapEditor</application
->">
+  <!ENTITY kimagemapeditor "<application>KImageMapEditor</application>">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE"
-><!-- change language only here -->
+  <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
 <book id="kimagemapeditor" lang="&language;">
 
 <bookinfo>
-<title
->Das Handbuch zu &kimagemapeditor;</title>
+<title>The &kimagemapeditor; Handbook</title>
 
 <authorgroup>
-<author
-><firstname
->Jan</firstname
-> <othername
-></othername
-> <surname
->Sch&auml;fer</surname
-> <affiliation
-> <address
-><email
->j_schaef&#64;informatik&#46;uni-kl&#46;de</email
-></address>
+<author>
+<firstname>Jan</firstname>
+<othername></othername>
+<surname>Sch&auml;fer</surname>
+<affiliation>
+<address><email>j_schaef&#64;informatik&#46;uni-kl&#46;de</email></address>
 </affiliation>
 </author>
 
-<othercredit role="translator"
-><firstname
->Georg</firstname
-><surname
->Schuster</surname
-><affiliation
-><address
-><email
->gschuster@utanet.at</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <copyright>
-<year
->2007</year>
-<holder
->Jan Sch&auml;fer</holder>
+<year>2007</year>
+<holder>Jan Sch&auml;fer</holder>
 </copyright>
 
-<legalnotice
->&FDLNotice;</legalnotice>
+<legalnotice>&FDLNotice;</legalnotice>
 
-<date
->2011-08-22</date>
-<releaseinfo
->3.9.0 (&kde; 4.7)</releaseinfo>
+<date>2011-08-22</date>
+<releaseinfo>3.9.0 (&kde; 4.7)</releaseinfo>
 
 <abstract>
-<para
->&kimagemapeditor; ist ein Editor für &HTML;-Imagemaps von &kde;. </para>
+<para>
+&kimagemapeditor; is an &HTML; imagemap editor by &kde;.
+</para>
 </abstract>
 
 <keywordset>
-<keyword
->KDE</keyword>
-<keyword
->KImageMapEditor</keyword>
-<keyword
->imagemap</keyword>
-<keyword
->usemap</keyword>
-<keyword
->html</keyword>
+<keyword>KDE</keyword>
+<keyword>KImageMapEditor</keyword>
+<keyword>imagemap</keyword>
+<keyword>usemap</keyword>
+<keyword>html</keyword>
 </keywordset>
 
 </bookinfo>
 
 <chapter id="using">
-<title
->Arbeiten mit &kimagemapeditor;</title>
+<title>Using &kimagemapeditor;</title>
 
-<para
->&kimagemapeditor; ist ein Editor für &HTML;-Imagemaps von der &kde;-Gemeinschaft. Mit dieser Anwendung können Sie &HTML;-<ulink url="http://en.wikipedia.org/wiki/Imagemap"
->Bildermaps</ulink
-> erstellen und bearbeiten. </para>
+<para>
+&kimagemapeditor; is a &HTML; imagemap editor developed by the &kde; community.
+It allows you to create and modify &HTML; <ulink url="http://en.wikipedia.org/wiki/Imagemap">Imagemaps.</ulink>
+</para>
 
 <screenshot>
-<screeninfo
->Ein Bildschirmfoto von &kimagemapeditor;</screeninfo>
+<screeninfo>Here's a screenshot of &kimagemapeditor;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="mainwindow.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase
->Bildschirmfoto</phrase>
+	    <phrase>Screenshot</phrase>
 	  </textobject>
 	  <caption>
-	    <para
->Hauptfenster von &kimagemapeditor; </para>
+	    <para>
+	      &kimagemapeditor; main window.
+	    </para>
 	  </caption>
 	</mediaobject>
 </screenshot>
 
-<para
->Ein häufiger Anwendungsfall ist zum Beispiel eine Weltkarte, auf der die Länder als Imagemap definiert sind. Durch Klicken auf ein Land in der Karte wird eine Verknüpfung zum ausgewählten Land geöffnet.</para>
+<para>A common use case is a world map where each country is an imagemap. 
+By clicking on a country in the map you can open a link to the selected 
+country.</para>
 
-<para
->Ein Imagemap wird mit folgenden Schritten erstellt:</para>
+<para>Creating an imagemap requires the following steps:</para>
 
-<para
->Laden Sie eine Bilddatei (<filename class="extension"
->png</filename
->, <filename class="extension"
->jpg</filename
->, <filename class="extension"
->gif</filename
->) oder eine &HTML;-Datei von der Festplatte oder ziehen Sie eine Datei in den Bildbereich. Wählen Sie dann ein Bild im Abschnitt <guilabel
->Bilder</guilabel
->.</para>
+<para>Load an image file (<filename class="extension">png</filename>, 
+<filename class="extension">jpg</filename>, <filename class="extension">gif</filename>) 
+or a &HTML; file from your disk or drag 
+it into the image area. Select an image in the <guilabel>Images</guilabel> docker.</para>
 
-<para
->Fügen Sie ein Imagemap mit <menuchoice
-><guimenu
->Karte</guimenu
-><guimenuitem
->Neue Karte</guimenuitem
-></menuchoice
-> aus dem Menü hinzu und geben Sie einen Namen für die Karte ein.</para>
+<para>Add a imagemap using <menuchoice><guimenu>Map</guimenu><guimenuitem>New 
+Map</guimenuitem></menuchoice> from the menu and enter a map name.</para>
 
-<para
->Nun ist das Menü <guimenu
->Extras</guimenu
-> aktiviert und Sie können eine passende geometrische Form wie zum Beispiel <guimenuitem
->Kreis</guimenuitem
->, <guimenuitem
->Rechteck</guimenuitem
->, <guimenuitem
->Vieleck</guimenuitem
-> oder <guimenuitem
->Freihand-Vieleck</guimenuitem
-> auswählen und einen anklickbaren Bereich im Bild festlegen.</para>
+<para>Now the <guimenu>Tools</guimenu> menu is enabled and you can 
+select the appropriate geometric shape like <guimenuitem>Circle</guimenuitem>, 
+<guimenuitem>Rectangle</guimenuitem>, <guimenuitem>Polygon</guimenuitem> or 
+<guimenuitem>Freehand Polygon</guimenuitem> and define a clickable area in 
+the image.</para>
 
-<para
->Der Dialog <guilabel
->Bereichs-Tag-Editor</guilabel
-> wird jetzt angezeigt. Auf der Karteikarte <guilabel
->Allgemein</guilabel
-> geben Sie die Attribute <guilabel
->HREF</guilabel
-> (die Zieladresse einer Verknüpfung), <guilabel
->Ersatz.Text</guilabel
->, <guilabel
->Ziel</guilabel
-> und <guilabel
->Titel</guilabel
-> ein.</para
-> 
+<para>The <guilabel>Area Tag Editor</guilabel> dialog is displayed. On the <guilabel>General</guilabel> 
+tab enter the attributes <guilabel>HREF</guilabel> (a link's target &URL;), <guilabel>Alt.Text</guilabel>, 
+<guilabel>Target</guilabel> and <guilabel>Title</guilabel>.</para> 
 
-<para
->Die Karteikarte <guilabel
->Koordinaten</guilabel
-> zeigt die geometrischen Daten des Objekts. Durch Ändern der geometrischen Werte passen Sie die Größe und Position im Bild an, alle Änderungen werden sofort im Bild sichtbar. Größe und Position können Sie auch mit der Maus verändern.</para>
+<para>The <guilabel>Coordinates</guilabel> tab shows the geometric data of the shape. 
+Editing the value allows you to adjust size and position on the image as your changes 
+are immediately visible in the image. Size and position can be altered using the mouse 
+as well.</para>
 
-<!--para
->JavaScript tab Enter name of funtions defined where? for actions</para-->
+<!--para>JavaScript tab Enter name of funtions defined where? for actions</para-->
 
-<para
->Um den Dialog <guilabel
->Bereichs-Tag-Editor</guilabel
-> für ein bereits definiertes Imagemap zu öffnen, wählen Sie <guimenuitem
->Eigenschaften</guimenuitem
-> aus dem Menü <guimenu
->Bearbeiten</guimenu
-> oder aus dem Kontextmenü des ausgewählten Bereichs der Karte.</para>
+<para>To open the <guilabel>Area Tag Editor</guilabel> dialog for an already defined 
+imagemap use <guimenuitem>Properties</guimenuitem> from the <guimenu>Edit</guimenu> 
+menu or the context menu of the region.</para>
 
-<para
->Benutzen Sie <menuchoice
-><guimenu
->Karte</guimenu
-><guimenuitem
->HTML anzeigen</guimenuitem
-></menuchoice
->, um den generierten &HTML;-Quelltext der Karte anzuzeigen.</para>
+<para>Use <menuchoice><guimenu>Map</guimenu><guimenuitem>Show HTML</guimenuitem></menuchoice> 
+to view the generated &HTML; code of the map.</para>
 
-<para
->Dann wählen Sie <menuchoice
-><guimenu
->Bild</guimenu
-><guimenuitem
->Usemap bearbeiten ...</guimenuitem
-></menuchoice
-> und geben den Namen der Karte als Wert des Usemap-Attributs ein. Speichern Sie Ihre Arbeit mit <menuchoice
-><guimenu
->Datei</guimenu
-> <guimenuitem
->Speichern</guimenuitem
-></menuchoice
->. Öffnen Sie die &HTML;-Datei in &konqueror; und überprüfen Sie, ob die Verknüpfungen wie geplant funktionieren.</para>
+<para>Next open <menuchoice><guimenu>Image</guimenu><guimenuitem>Edit Usemap...</guimenuitem></menuchoice> 
+and enter the map name as usemap value. Save your work with <menuchoice><guimenu>File</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice>. Open the &HTML; file in &konqueror; to verify that 
+the imagemap is working as expected.</para>
 
 <!-- 
 Map-Preview is empty?
@@ -214,54 +126,47 @@ Map-Preview is empty?
   3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
   4) Map->Show HTMl to view the html code of the map
 --> 
-<para
->Alle Einstellungen für &kimagemapeditor; können Sie im Einrichtungsdialog bearbeiten. Öffnen Sie diesen Dialog mit <menuchoice
-> <guimenu
->Einstellungen</guimenu
-> <guimenuitem
->&kimagemapeditor; einrichten ...</guimenuitem
-> </menuchoice
-> aus dem Menü. </para>
+<para>
+    Configuration options of &kimagemapeditor; can be accessed by opening the configuration dialog with selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure &kimagemapeditor;...</guimenuitem> </menuchoice> from the menu.
+</para>
 <screenshot>
-<screeninfo
->Einrichtungsdialog von &kimagemapeditor;</screeninfo>
+<screeninfo>Configuration dialog of &kimagemapeditor;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="configure.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase
->Einrichtungsdialog von &kimagemapeditor;</phrase>
+	    <phrase>Configuration dialog of &kimagemapeditor;</phrase>
 	  </textobject>
 	  <caption>
-	    <para
->Einrichtungsdialog von &kimagemapeditor; </para>
+	    <para>
+	      Configuration dialog of &kimagemapeditor;.
+	    </para>
 	  </caption>
 	</mediaobject>
 </screenshot>
 </chapter>
 
 <chapter id="credits">
-<title
->Danksagungen und Lizenz</title>
+<title>Credits and License</title>
 
-<para
->&kimagemapeditor; </para>
-<para
->Programm Copyright 2003-2007 Jan Sch&auml;fer <email
->j_schaef&#64;informatik&#46;uni-kl&#46;de</email
-> </para>
+<para>
+&kimagemapeditor;
+</para>
+<para>
+Program copyright 2003-2007 Jan Sch&auml;fer <email>j_schaef&#64;informatik&#46;uni-kl&#46;de</email>
+</para>
 
-<para
->Copyright der Dokumentation 2007 Jan Sch&auml;fer <email
->j_schaef&#64;informatik&#46;uni-kl&#46;de</email
-> </para>
+<para>
+Documentation copyright 2007 Jan Sch&auml;fer <email>j_schaef&#64;informatik&#46;uni-kl&#46;de</email>
+</para>
 
-<para
->Übersetzung Georg Schuster<email
->gschuster@utanet.at</email
-></para
-> &underFDL; &underGPL; </chapter>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
+</chapter>
 
 
 &documentation.index;

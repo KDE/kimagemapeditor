@@ -3,10 +3,6 @@
   <!ENTITY kimagemapeditor "<application
 >KImageMapEditor</application
 >">
-  <!ENTITY kappname "&kimagemapeditor;"
-><!-- Do *not* replace kappname-->
-  <!ENTITY package "kdewebdev"
-><!-- kdebase, kdeadmin, etc -->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Brazilian-Portuguese "INCLUDE"
 ><!-- change language only here -->
@@ -68,7 +64,7 @@
 
 <abstract>
 <para
->O &kimagemapeditor; é um editor de mapas de imagens de &HTML; para o &kde;. </para>
+>O &kimagemapeditor; é um editor de mapas de imagens do &kde;. </para>
 </abstract>
 
 <keywordset>
@@ -81,8 +77,6 @@
 <keyword
 >usemap</keyword>
 <keyword
->kdewebdev</keyword>
-<keyword
 >html</keyword>
 </keywordset>
 
@@ -93,7 +87,7 @@
 >Usando o &kimagemapeditor;</title>
 
 <para
->O &kimagemapeditor; é um editor de mapas de imagens em &HTML; para o &kde;. Ele permite criar e modificar os <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>O &kimagemapeditor; é um editor de mapas de imagens em &HTML; desenvolvido pela comunidade &kde;. Ele permite criar e modificar os <ulink url="http://en.wikipedia.org/wiki/Imagemap"
 >mapas de imagens</ulink
 > em &HTML;. </para>
 
@@ -267,8 +261,7 @@ Map-Preview is empty?
 >Tradução de Luiz Fernando Ranghetti <email
 >elchevive@opensuse.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 
 &documentation.index;

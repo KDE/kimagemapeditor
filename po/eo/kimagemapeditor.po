@@ -1,4 +1,5 @@
 # Translation of kimagemapeditor into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-20 22:43+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -316,10 +317,9 @@ msgid "Show &HTML"
 msgstr ""
 
 #: kimagemapeditor.cpp:591
-#, fuzzy, kde-format
-#| msgid "Selection"
+#, kde-format
 msgid "&Selection"
-msgstr "Elekto"
+msgstr "&Selekto"
 
 #: kimagemapeditor.cpp:595
 #, kde-format
@@ -572,10 +572,9 @@ msgid ""
 msgstr ""
 
 #: kimagemapeditor.cpp:2838
-#, fuzzy, kde-format
-#| msgid "Selection"
+#, kde-format
 msgid "Select image"
-msgstr "Elektaĵo"
+msgstr ""
 
 #: kimagemapeditor.cpp:2839
 #, kde-format
@@ -743,8 +742,7 @@ msgid "Center &Y:"
 msgstr ""
 
 #: kimedialogs.cpp:132
-#, fuzzy, kde-format
-#| msgid "&Radius:"
+#, kde-format
 msgid "&Radius:"
 msgstr "&Radiuso:"
 
@@ -864,10 +862,9 @@ msgid "Choose File"
 msgstr "Elekti dosieron"
 
 #: kimedialogs.cpp:435
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgid "All Files (*)"
-msgstr "Ĉiuj dosieroj"
+msgstr "Ĉiuj dosieroj (*)"
 
 #: kimedialogs.cpp:504
 #, kde-format
@@ -988,20 +985,3 @@ msgstr ""
 #, kde-format
 msgid "File to open"
 msgstr "Malfermenda dosiero"
-
-#~ msgid "Overwrite File?"
-#~ msgstr "Ĉu anstataŭigi la dosieron?"
-
-#~ msgid "Overwrite"
-#~ msgstr "Anstataŭigu"
-
-#, fuzzy
-#~| msgid "From &Text File..."
-#~ msgid "Text File"
-#~ msgstr "De &teksto dosiero..."
-
-#~ msgid "HTML Files"
-#~ msgstr "HTML-dosieroj"
-
-#~ msgid "JPEG Images"
-#~ msgstr "JPEG-bildoj"

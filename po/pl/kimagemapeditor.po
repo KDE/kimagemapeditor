@@ -3,20 +3,20 @@
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2005.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2005.
 # Michał Smoczyk <msmoczyk@wp.pl>, 2008.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2015, 2017, 2019, 2021.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2015, 2017, 2019, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2021-02-28 09:02+0100\n"
+"PO-Revision-Date: 2023-04-09 08:14+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -43,12 +43,12 @@ msgstr "Podgląd"
 #: imagemapchoosedialog.cpp:46
 #, kde-format
 msgid "Choose Map & Image to Edit"
-msgstr "Wybierz mapę i obrazek do edycji"
+msgstr "Wybierz mapę i obraz do edycji"
 
 #: imagemapchoosedialog.cpp:55
 #, kde-format
 msgid "Select an image and/or a map that you want to edit"
-msgstr "Wybierz obrazek i/lub mapę, którą chcesz edytować"
+msgstr "Wybierz obraz i/lub mapę, którą chcesz edytować"
 
 #: imagemapchoosedialog.cpp:67
 #, kde-format
@@ -105,13 +105,13 @@ msgstr "bez nazwy"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3>Otwórz plik</h3>Kliknij tutaj aby <em>otworzyć</em> nowy obrazek lub "
-"plik HTML."
+"<h3>Otwórz plik</h3>Kliknij tutaj aby <em>otworzyć</em> nowy obraz lub plik "
+"HTML."
 
 #: kimagemapeditor.cpp:448
 #, kde-format
 msgid "Open new picture or HTML file"
-msgstr "Otwórz nowy obrazek lub plik HTML"
+msgstr "Otwórz nowy obraz lub plik HTML"
 
 #: kimagemapeditor.cpp:455
 #, kde-format
@@ -287,12 +287,12 @@ msgstr "Pokaż podgląd"
 #: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
-msgstr "&Obrazek"
+msgstr "&Obraz"
 
 #: kimagemapeditor.cpp:569
 #, kde-format
 msgid "Add Image..."
-msgstr "Dodaj obrazek..."
+msgstr "Dodaj obraz..."
 
 #: kimagemapeditor.cpp:572
 #, kde-format
@@ -302,12 +302,12 @@ msgstr "Dodaj nowy obraz"
 #: kimagemapeditor.cpp:574
 #, kde-format
 msgid "Remove Image"
-msgstr "Usuń obrazek"
+msgstr "Usuń obraz"
 
 #: kimagemapeditor.cpp:577
 #, kde-format
 msgid "Remove the current visible image"
-msgstr "Usuń aktualnie widoczny obrazek"
+msgstr "Usuń obecnie widoczny obraz"
 
 #: kimagemapeditor.cpp:579
 #, kde-format
@@ -508,7 +508,7 @@ msgstr " Zaznaczenie: - "
 #: kimagemapeditor.cpp:906
 #, kde-format
 msgid "Drop an image or HTML file"
-msgstr "Upuść obrazek lub plik HTML"
+msgstr "Upuść obraz lub plik HTML"
 
 #: kimagemapeditor.cpp:1555
 #, kde-format

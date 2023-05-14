@@ -178,52 +178,52 @@ msgstr "<h3>تكبير</h3> لتختار مستوى التكبير."
 #: kimagemapeditor.cpp:519
 #, kde-format
 msgid "25%"
-msgstr "٢٥٪"
+msgstr "25٪"
 
 #: kimagemapeditor.cpp:520
 #, kde-format
 msgid "50%"
-msgstr "٥٠٪"
+msgstr "50٪"
 
 #: kimagemapeditor.cpp:521
 #, kde-format
 msgid "100%"
-msgstr "١٠٠٪"
+msgstr "100٪"
 
 #: kimagemapeditor.cpp:522
 #, kde-format
 msgid "150%"
-msgstr "١٥٠٪"
+msgstr "150٪"
 
 #: kimagemapeditor.cpp:523
 #, kde-format
 msgid "200%"
-msgstr "٢٠٠٪"
+msgstr "200٪"
 
 #: kimagemapeditor.cpp:524
 #, kde-format
 msgid "250%"
-msgstr "٢٥٠٪"
+msgstr "250٪"
 
 #: kimagemapeditor.cpp:525
 #, kde-format
 msgid "300%"
-msgstr "٣٠٠٪"
+msgstr "300٪"
 
 #: kimagemapeditor.cpp:526
 #, kde-format
 msgid "500%"
-msgstr "٥٠٠٪"
+msgstr "500٪"
 
 #: kimagemapeditor.cpp:527
 #, kde-format
 msgid "750%"
-msgstr "٧٥٠٪"
+msgstr "750٪"
 
 #: kimagemapeditor.cpp:528
 #, kde-format
 msgid "1000%"
-msgstr "١٠٠٠٪"
+msgstr "1000٪"
 
 #: kimagemapeditor.cpp:533
 #, kde-format

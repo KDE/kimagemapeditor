@@ -408,22 +408,22 @@ msgstr "Cancel·la el dibuixat"
 #: kimagemapeditor.cpp:661
 #, kde-format
 msgid "Move Left"
-msgstr "Mou a l'esquerra"
+msgstr "Mou cap a l'esquerra"
 
 #: kimagemapeditor.cpp:667
 #, kde-format
 msgid "Move Right"
-msgstr "Mou a la dreta"
+msgstr "Mou cap a la dreta"
 
 #: kimagemapeditor.cpp:672
 #, kde-format
 msgid "Move Up"
-msgstr "Mou amunt"
+msgstr "Mou cap amunt"
 
 #: kimagemapeditor.cpp:677
 #, kde-format
 msgid "Move Down"
-msgstr "Mou avall"
+msgstr "Mou cap avall"
 
 #: kimagemapeditor.cpp:682
 #, kde-format

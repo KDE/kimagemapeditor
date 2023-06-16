@@ -69,7 +69,7 @@ KimeShell::KimeShell(const char * )
   setupActions();
   qCDebug(KIMAGEMAPEDITOR_LOG) << "KimeShell starting 2";
 
-  const auto result = KPluginFactory::instantiatePlugin<KParts::ReadWritePart>(KPluginMetaData(QStringLiteral("kf5/parts/kimagemapeditorpart")), this);
+  const auto result = KPluginFactory::instantiatePlugin<KParts::ReadWritePart>(KPluginMetaData(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/parts/kimagemapeditorpart")), this);
 
   if (!result) {
     // can't do anything useful without part, thus quit the app

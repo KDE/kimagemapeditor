@@ -138,9 +138,14 @@ public :
 		    AddPoint,
 		    RemovePoint };
 
+# if QT_VERSION_MAJOR < 6
     KImageMapEditor(QWidget *parentWidget, QObject *parent,
                     const KPluginMetaData &metaData,
                     const QVariantList &args = QVariantList());
+#else
+    KImageMapEditor(QWidget *parentWidget, QObject *parent,
+                    const KPluginMetaData &metaData);
+#endif
     ~KImageMapEditor() override;
 
     /**

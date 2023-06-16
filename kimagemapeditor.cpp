@@ -79,6 +79,7 @@
 
 K_PLUGIN_FACTORY_WITH_JSON(KImageMapEditorFactory, "kimagemapeditorpart.json", registerPlugin<KImageMapEditor>();)
 
+# if QT_VERSION_MAJOR < 6
 KImageMapEditor::KImageMapEditor(QWidget *parentWidget, QObject *parent,
                                  const KPluginMetaData &metaData,
                                  const QVariantList & )
@@ -86,6 +87,12 @@ KImageMapEditor::KImageMapEditor(QWidget *parentWidget, QObject *parent,
 {
   setMetaData(metaData);
 
+#else
+KImageMapEditor::KImageMapEditor(QWidget *parentWidget, QObject *parent,
+                                 const KPluginMetaData &metaData)
+  : KParts::ReadWritePart(parent, metaData)
+{
+#endif
 //  KDockMainWindow* mainWidget;
 
   mainWindow = dynamic_cast<KXmlGuiWindow*>(parent) ;

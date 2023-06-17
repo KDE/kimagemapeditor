@@ -13,6 +13,7 @@
   <name xml:lang="de">KImageMapEditor</name>
   <name xml:lang="el">KImageMapEditor</name>
   <name xml:lang="en-GB">KImageMapEditor</name>
+  <name xml:lang="eo">KImageMapEditor</name>
   <name xml:lang="es">KImageMapEditor</name>
   <name xml:lang="et">KImageMapEditor</name>
   <name xml:lang="eu">KImageMapEditor</name>
@@ -48,6 +49,7 @@
   <summary xml:lang="de">Editor für HTML-Bildkarten (Imagemaps)</summary>
   <summary xml:lang="el">Επεξεργαστής χάρτη εικόνας HTML</summary>
   <summary xml:lang="en-GB">HTML Image Map Editor</summary>
+  <summary xml:lang="eo">HTML-bildmapa redaktilo</summary>
   <summary xml:lang="es">Editor de mapas de imágenes en HTML</summary>
   <summary xml:lang="et">Hüperpildiredaktor</summary>
   <summary xml:lang="eu">HTML irudi-mapa editorea</summary>
@@ -122,6 +124,7 @@
       <caption xml:lang="de">Bearbeitung von HTML-Bildkarten (Imagemaps) in KImageMapEditor</caption>
       <caption xml:lang="el">Επεξεργασία χάρτη εικόνας HTML στο KImageMapEditor</caption>
       <caption xml:lang="en-GB">Editing HTML image map in KImageMapEditor</caption>
+      <caption xml:lang="eo">Redaktante HTML-bildmapon en KImageMapEditor</caption>
       <caption xml:lang="es">Editando un mapa de imagen HTML en KImageMapEditor</caption>
       <caption xml:lang="et">Hüperpildi redigeerimine KImageMapEditoriga</caption>
       <caption xml:lang="eu">KImageMapEditor erabiliz HTML irudi-mapa editatzea</caption>

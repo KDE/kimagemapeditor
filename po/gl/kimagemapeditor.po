@@ -239,7 +239,7 @@ msgstr "Realzar áreas"
 #: kimagemapeditor.cpp:539
 #, kde-format
 msgid "Show Alt Tag"
-msgstr "Mostrar a etiqueta Alt"
+msgstr "Amosar a etiqueta Alt"
 
 #: kimagemapeditor.cpp:542
 #, kde-format
@@ -325,7 +325,7 @@ msgstr "Editar a etiqueta usemap da imaxe que está visíbel"
 #: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Show &HTML"
-msgstr "Mostrar o &HTML"
+msgstr "Amosar o &HTML"
 
 #: kimagemapeditor.cpp:591
 #, kde-format
@@ -473,17 +473,17 @@ msgstr "Configurar KImageMapEditor…"
 #: kimagemapeditor.cpp:732
 #, kde-format
 msgid "Show Area List"
-msgstr "Mostrar a lista de áreas"
+msgstr "Amosar a lista de áreas"
 
 #: kimagemapeditor.cpp:737
 #, kde-format
 msgid "Show Map List"
-msgstr "Mostrar a lista de mapas"
+msgstr "Amosar a lista de mapas"
 
 #: kimagemapeditor.cpp:741
 #, kde-format
 msgid "Show Image List"
-msgstr "Mostrar a lista de imaxes"
+msgstr "Amosar a lista de imaxes"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);

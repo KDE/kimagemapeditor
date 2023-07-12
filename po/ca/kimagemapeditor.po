@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-07-12 00:44+0000\n"
 "PO-Revision-Date: 2022-10-14 10:47+0200\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aacid@kde.org,antonibella5@yahoo.com"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
+#: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
 msgid "Areas"
 msgstr "Àrees"
@@ -81,7 +81,7 @@ msgstr "&Imatges"
 msgid "Path"
 msgstr "Camí"
 
-#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
+#: imageslistview.cpp:56 kimagemapeditor.cpp:108 kimagemapeditor.cpp:141
 #, kde-format
 msgid "Images"
 msgstr "Imatges"
@@ -91,17 +91,17 @@ msgstr "Imatges"
 msgid "Usemap"
 msgstr "Correspondència_usuari"
 
-#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
+#: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "Correspondències"
 
-#: kimagemapeditor.cpp:251 mapslistview.cpp:166
+#: kimagemapeditor.cpp:258 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "sense nom"
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:454
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
@@ -109,24 +109,24 @@ msgstr ""
 "<h3>Obre un fitxer</h3>Feu-hi clic per a <em>obrir</em> una imatge nova o un "
 "fitxer HTML."
 
-#: kimagemapeditor.cpp:448
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "Obre una nova imatge o fitxer HTML"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:462
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
 "<h3>Desa el fitxer</h3>Feu-hi clic <em>desar</em> els canvis al fitxer HTML."
 
-#: kimagemapeditor.cpp:456
+#: kimagemapeditor.cpp:463
 #, kde-format
 msgid "Save HTML file"
 msgstr "Desa el fitxer HTML"
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:471
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -134,409 +134,409 @@ msgstr ""
 "<h3>Tanca el fitxer</h3>Feu-hi clic per a <em>tancar</em> el fitxer HTML "
 "actualment obert."
 
-#: kimagemapeditor.cpp:465
+#: kimagemapeditor.cpp:472
 #, kde-format
 msgid "Close HTML file"
 msgstr "Tanca el fitxer HTML"
 
-#: kimagemapeditor.cpp:469
+#: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr "<h3>Copia</h3>Feu-hi clic per a <em>copiar</em> l'àrea seleccionada."
 
-#: kimagemapeditor.cpp:475
+#: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr ""
 "<h3>Retalla</h3>Feu-hi clic per a <em>retallar</em> l'àrea seleccionada."
 
-#: kimagemapeditor.cpp:481
+#: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr "<h3>Enganxa</h3>Feu-hi clic per a <em>enganxar</em> l'àrea copiada."
 
-#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, kde-format
 msgid "&Delete"
 msgstr "Su&primeix"
 
-#: kimagemapeditor.cpp:492
+#: kimagemapeditor.cpp:499
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr ""
 "<h3>Suprimeix</h3>Feu-hi clic per a <em>suprimir</em> l'àrea seleccionada."
 
-#: kimagemapeditor.cpp:502
+#: kimagemapeditor.cpp:509
 #, kde-format
 msgid "Pr&operties"
 msgstr "Pr&opietats"
 
-#: kimagemapeditor.cpp:513
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "Zoom"
 msgstr "Zoom"
 
-#: kimagemapeditor.cpp:516
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>Zoom</h3>Escull el nivell de zoom desitjat."
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
 msgstr "25%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
 msgstr "50%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
 msgstr "100%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
 msgstr "150%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
 msgstr "200%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
 msgstr "250%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
 msgstr "300%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
 msgstr "500%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
 msgstr "750%"
 
-#: kimagemapeditor.cpp:528
+#: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
 msgstr "1000%"
 
-#: kimagemapeditor.cpp:533
+#: kimagemapeditor.cpp:540
 #, kde-format
 msgid "Highlight Areas"
 msgstr "Ressalta les àrees"
 
-#: kimagemapeditor.cpp:539
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Mostra l'etiqueta Alt"
 
-#: kimagemapeditor.cpp:542
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Map &Name..."
 msgstr "&Nom de la correspondència..."
 
-#: kimagemapeditor.cpp:546
+#: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "Correspondència no&va..."
 
-#: kimagemapeditor.cpp:549
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Create a new map"
 msgstr "Crea una correspondència nova"
 
-#: kimagemapeditor.cpp:551
+#: kimagemapeditor.cpp:558
 #, kde-format
 msgid "D&elete Map"
 msgstr "Su&primeix la correspondència"
 
-#: kimagemapeditor.cpp:554
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "Delete the current active map"
 msgstr "Suprimeix la correspondència activa"
 
-#: kimagemapeditor.cpp:556
+#: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "Edita l'àrea per &omissió..."
 
-#: kimagemapeditor.cpp:559
+#: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "Edita l'àrea per omissió de la correspondència activa"
 
-#: kimagemapeditor.cpp:561
+#: kimagemapeditor.cpp:568
 #, kde-format
 msgid "&Preview"
 msgstr "&Vista prèvia"
 
-#: kimagemapeditor.cpp:564
+#: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Show a preview"
 msgstr "Mostra una vista prèvia"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:574 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&Imatge"
 
-#: kimagemapeditor.cpp:569
+#: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Add Image..."
 msgstr "Afegeix una imatge..."
 
-#: kimagemapeditor.cpp:572
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Add a new image"
 msgstr "Afegeix una imatge nova"
 
-#: kimagemapeditor.cpp:574
+#: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
 msgstr "Elimina la imatge"
 
-#: kimagemapeditor.cpp:577
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "Elimina la imatge visible"
 
-#: kimagemapeditor.cpp:579
+#: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "Edita la correspondència_usuari..."
 
-#: kimagemapeditor.cpp:582
+#: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr "Edita l'etiqueta correspondència_usuari de la imatge visible"
 
-#: kimagemapeditor.cpp:584
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "Show &HTML"
 msgstr "Mostra l'&HTML"
 
-#: kimagemapeditor.cpp:591
+#: kimagemapeditor.cpp:598
 #, kde-format
 msgid "&Selection"
 msgstr "&Selecció"
 
-#: kimagemapeditor.cpp:595
+#: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>Selecció</h3>Feu-hi clic per a seleccionar àrees."
 
-#: kimagemapeditor.cpp:601
+#: kimagemapeditor.cpp:608
 #, kde-format
 msgid "&Circle"
 msgstr "&Cercle"
 
-#: kimagemapeditor.cpp:606
+#: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3>Cercle</h3>Feu-hi clic per a començar a dibuixar un cercle."
 
-#: kimagemapeditor.cpp:611
+#: kimagemapeditor.cpp:618
 #, kde-format
 msgid "&Rectangle"
 msgstr "&Rectangle"
 
-#: kimagemapeditor.cpp:615
+#: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>Rectangle</h3>Feu-hi clic per a començar a dibuixar un rectangle."
 
-#: kimagemapeditor.cpp:620
+#: kimagemapeditor.cpp:627
 #, kde-format
 msgid "&Polygon"
 msgstr "&Polígon"
 
-#: kimagemapeditor.cpp:624
+#: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>Polígon</h3>Feu-hi clic per a començar a dibuixar un polígon."
 
-#: kimagemapeditor.cpp:629
+#: kimagemapeditor.cpp:636
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "Polígon a &mà alçada"
 
-#: kimagemapeditor.cpp:633
+#: kimagemapeditor.cpp:640
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>Polígon a mà alçada</h3>Feu-hi clic per a començar a dibuixar un polígon "
 "a mà alçada."
 
-#: kimagemapeditor.cpp:638
+#: kimagemapeditor.cpp:645
 #, kde-format
 msgid "&Add Point"
 msgstr "&Afegeix un punt"
 
-#: kimagemapeditor.cpp:642
+#: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr "<h3>Afegeix un punt</h3>Feu-hi clic per a afegir punts a un polígon."
 
-#: kimagemapeditor.cpp:647
+#: kimagemapeditor.cpp:654
 #, kde-format
 msgid "&Remove Point"
 msgstr "&Elimina el punt"
 
-#: kimagemapeditor.cpp:652
+#: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr "<h3>Elimina el punt</h3>Feu-hi clic per a eliminar punts d'un polígon."
 
-#: kimagemapeditor.cpp:656
+#: kimagemapeditor.cpp:663
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "Cancel·la el dibuixat"
 
-#: kimagemapeditor.cpp:661
+#: kimagemapeditor.cpp:668
 #, kde-format
 msgid "Move Left"
 msgstr "Mou a l'esquerra"
 
-#: kimagemapeditor.cpp:667
+#: kimagemapeditor.cpp:674
 #, kde-format
 msgid "Move Right"
 msgstr "Mou a la dreta"
 
-#: kimagemapeditor.cpp:672
+#: kimagemapeditor.cpp:679
 #, kde-format
 msgid "Move Up"
 msgstr "Mou amunt"
 
-#: kimagemapeditor.cpp:677
+#: kimagemapeditor.cpp:684
 #, kde-format
 msgid "Move Down"
 msgstr "Mou avall"
 
-#: kimagemapeditor.cpp:682
+#: kimagemapeditor.cpp:689
 #, kde-format
 msgid "Increase Width"
 msgstr "Augmenta l'amplada"
 
-#: kimagemapeditor.cpp:687
+#: kimagemapeditor.cpp:694
 #, kde-format
 msgid "Decrease Width"
 msgstr "Disminueix l'amplada"
 
-#: kimagemapeditor.cpp:692
+#: kimagemapeditor.cpp:699
 #, kde-format
 msgid "Increase Height"
 msgstr "Augmenta l'alçada"
 
-#: kimagemapeditor.cpp:697
+#: kimagemapeditor.cpp:704
 #, kde-format
 msgid "Decrease Height"
 msgstr "Disminueix l'alçada"
 
-#: kimagemapeditor.cpp:702
+#: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring to Front"
 msgstr "Porta al davant"
 
-#: kimagemapeditor.cpp:706
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
 msgstr "Envia al darrere"
 
-#: kimagemapeditor.cpp:710
+#: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
 msgstr "Porta un endavant"
 
-#: kimagemapeditor.cpp:713
+#: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
 msgstr "Envia un endarrere"
 
-#: kimagemapeditor.cpp:723
+#: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Configura el KImageMapEditor..."
 
-#: kimagemapeditor.cpp:732
+#: kimagemapeditor.cpp:739
 #, kde-format
 msgid "Show Area List"
 msgstr "Mostra la llista d'àrees"
 
-#: kimagemapeditor.cpp:737
+#: kimagemapeditor.cpp:744
 #, kde-format
 msgid "Show Map List"
 msgstr "Mostra la llista de correspondències"
 
-#: kimagemapeditor.cpp:741
+#: kimagemapeditor.cpp:748
 #, kde-format
 msgid "Show Image List"
 msgstr "Mostra la llista d'imatges"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:756
+#: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr " Selecció: -  Cursor: x: 0, y: 0 "
 
-#: kimagemapeditor.cpp:840
+#: kimagemapeditor.cpp:847
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr " Cursor: x: %1, y: %2 "
 
-#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
+#: kimagemapeditor.cpp:855 kimagemapeditor.cpp:868
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr " Selecció: x: %1, y: %2, w: %3, h: %4 "
 
-#: kimagemapeditor.cpp:853
+#: kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: - "
 msgstr " Selecció: - "
 
-#: kimagemapeditor.cpp:906
+#: kimagemapeditor.cpp:913
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "Deixa anar una imatge o un fitxer HTML"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter Map Name"
 msgstr "Introduïu el nom de la correspondència"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "Introduïu el nom de la correspondència:"
 
-#: kimagemapeditor.cpp:1560
+#: kimagemapeditor.cpp:1567
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "El nom <em>%1</em> ja existeix."
 
-#: kimagemapeditor.cpp:1572
+#: kimagemapeditor.cpp:1579
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "Codi HTML de la correspondència"
 
-#: kimagemapeditor.cpp:1622
+#: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
 msgstr "Escolliu un fitxer per a obrir"
 
-#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1630 kimeshell.cpp:201
 #, kde-format
 msgid ""
 "Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
@@ -547,23 +547,23 @@ msgstr ""
 "jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Fitxers HTML (*.htm *.html);;Tots "
 "els fitxers (*)"
 
-#: kimagemapeditor.cpp:1661
+#: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 "Fitxer HTML (*.htm *.html);;Fitxer de text (*.txt);;Tots els fitxers (*)"
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1688
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>El fitxer <b>%1</b> no existeix.</qt>"
 
-#: kimagemapeditor.cpp:1682
+#: kimagemapeditor.cpp:1689
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "El fitxer no existeix"
 
-#: kimagemapeditor.cpp:2377
+#: kimagemapeditor.cpp:2384
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -572,7 +572,7 @@ msgstr ""
 "<qt>El fitxer <i>%1</i> no s'ha pogut desar, ja que no teniu els permisos "
 "requerits per a escriptura.</qt>"
 
-#: kimagemapeditor.cpp:2692
+#: kimagemapeditor.cpp:2699
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
@@ -581,23 +581,23 @@ msgstr ""
 "<qt>Esteu segur de voler eliminar la correspondència <i>%1</i>? <br /><b>No "
 "hi haurà manera de desfer-ho.</b></qt>"
 
-#: kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:2701
 #, kde-format
 msgid "Delete Map?"
 msgstr "Suprimeixo la correspondència?"
 
-#: kimagemapeditor.cpp:2746
+#: kimagemapeditor.cpp:2753
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr "<qt>El fitxer <i>%1</i> ha estat modificat.<br />El voleu desar?</qt>"
 
-#: kimagemapeditor.cpp:2838
+#: kimagemapeditor.cpp:2845
 #, kde-format
 msgid "Select image"
 msgstr "Seleccioneu una imatge"
 
-#: kimagemapeditor.cpp:2839
+#: kimagemapeditor.cpp:2846
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
@@ -606,12 +606,12 @@ msgstr ""
 "Imatges (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Tots els "
 "fitxers (*)"
 
-#: kimagemapeditor.cpp:2885
+#: kimagemapeditor.cpp:2892
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Introduïu la correspondència_usuari"
 
-#: kimagemapeditor.cpp:2886
+#: kimagemapeditor.cpp:2893
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Introduïu el valor de la correspondència_usuari:"

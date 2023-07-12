@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-07-12 00:44+0000\n"
 "PO-Revision-Date: 2005-09-16 16:28+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -43,7 +43,7 @@ msgstr ""
 ",rkovacs@khujand.org,youth_opportunities@tajikngo.org,MarinaKL@tajikngo."
 "org,,,,,,,,,,,,"
 
-#: arealistview.cpp:43 kimagemapeditor.cpp:99 kimagemapeditor.cpp:132
+#: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
 msgid "Areas"
 msgstr "Ноҳияҳо"
@@ -94,7 +94,7 @@ msgstr "&Тасвирҳо"
 msgid "Path"
 msgstr "Роҳча"
 
-#: imageslistview.cpp:56 kimagemapeditor.cpp:101 kimagemapeditor.cpp:134
+#: imageslistview.cpp:56 kimagemapeditor.cpp:108 kimagemapeditor.cpp:141
 #, kde-format
 msgid "Images"
 msgstr "Тасвирҳо"
@@ -104,29 +104,29 @@ msgstr "Тасвирҳо"
 msgid "Usemap"
 msgstr "Харитаи истифодакунанда"
 
-#: kimagemapeditor.cpp:100 kimagemapeditor.cpp:133 mapslistview.cpp:37
+#: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
 msgstr "Харитаҳо"
 
-#: kimagemapeditor.cpp:251 mapslistview.cpp:166
+#: kimagemapeditor.cpp:258 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
 msgstr "беном"
 
-#: kimagemapeditor.cpp:447
+#: kimagemapeditor.cpp:454
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
 "<h3>Кушодани Файл</h3>Инро пахш карда барои кушодани сурати нав ё файли HTML."
 
-#: kimagemapeditor.cpp:448
+#: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
 msgstr "Кушодани сурати нав ё файли НТМL"
 
-#: kimagemapeditor.cpp:455
+#: kimagemapeditor.cpp:462
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
@@ -134,12 +134,12 @@ msgstr ""
 "<h3>Захира кардани  Файл</h3>Инро пахш намуда <em>захира</em> кардани "
 "дигаргуншудагонро ба файли HTML ."
 
-#: kimagemapeditor.cpp:456
+#: kimagemapeditor.cpp:463
 #, kde-format
 msgid "Save HTML file"
 msgstr "Нигоҳ доштани файли HTML"
 
-#: kimagemapeditor.cpp:464
+#: kimagemapeditor.cpp:471
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
@@ -147,419 +147,419 @@ msgstr ""
 "<h3>Маҳкам кардани Файл</h3>Инро пахш намуда барои маҳкам <em>кардани</em> "
 "файли ҳозира кушодаи НТМL.."
 
-#: kimagemapeditor.cpp:465
+#: kimagemapeditor.cpp:472
 #, kde-format
 msgid "Close HTML file"
 msgstr "Пӯшидани файли HTML"
 
-#: kimagemapeditor.cpp:469
+#: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
 msgstr ""
 "<h3>Нусха</h3>Инро пахш намуда барои <em>нусха кардани</em> ноҳияи "
 "интихобшуда."
 
-#: kimagemapeditor.cpp:475
+#: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr ""
 "<h3>Буридан </h3>Инро пахш намуда барои <em>>буридани</em> ноҳияи интихоб "
 "кардашуда."
 
-#: kimagemapeditor.cpp:481
+#: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
 msgstr ""
 "<h3>Часпондан</h3>Инро пахш карда барои <em>часпондани</em> дар ноҳияи нусха "
 "кардашуда."
 
-#: kimagemapeditor.cpp:488 kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, fuzzy, kde-format
 msgid "&Delete"
 msgstr "Нобуд кардан %1"
 
-#: kimagemapeditor.cpp:492
+#: kimagemapeditor.cpp:499
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr ""
 "<h3>Хориҷ</h3>Инро пахш намуда барои <em>хориҷ</em> кардани ноҳияи интихоб "
 "кардашуда."
 
-#: kimagemapeditor.cpp:502
+#: kimagemapeditor.cpp:509
 #, kde-format
 msgid "Pr&operties"
 msgstr "Хосият&ҳо"
 
-#: kimagemapeditor.cpp:513
+#: kimagemapeditor.cpp:520
 #, kde-format
 msgid "Zoom"
 msgstr ""
 
-#: kimagemapeditor.cpp:516
+#: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
 msgstr "<h3>Тафсил</h3>Интихоби сатҳи тафсили матлуб."
 
-#: kimagemapeditor.cpp:519
+#: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
 msgstr "25%"
 
-#: kimagemapeditor.cpp:520
+#: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
 msgstr "50%"
 
-#: kimagemapeditor.cpp:521
+#: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
 msgstr "100%"
 
-#: kimagemapeditor.cpp:522
+#: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
 msgstr "150%"
 
-#: kimagemapeditor.cpp:523
+#: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
 msgstr "200%"
 
-#: kimagemapeditor.cpp:524
+#: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
 msgstr "250%"
 
-#: kimagemapeditor.cpp:525
+#: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
 msgstr "300%"
 
-#: kimagemapeditor.cpp:526
+#: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
 msgstr "500%"
 
-#: kimagemapeditor.cpp:527
+#: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
 msgstr "750%"
 
-#: kimagemapeditor.cpp:528
+#: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
 msgstr "1000%"
 
-#: kimagemapeditor.cpp:533
+#: kimagemapeditor.cpp:540
 #, kde-format
 msgid "Highlight Areas"
 msgstr "Ноҳияҳои Рӯшансозӣ"
 
-#: kimagemapeditor.cpp:539
+#: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
 msgstr "Намоиши теги Alt"
 
-#: kimagemapeditor.cpp:542
+#: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Map &Name..."
 msgstr "Номи &харита..."
 
-#: kimagemapeditor.cpp:546
+#: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Ne&w Map..."
 msgstr "Харитаи &нав..."
 
-#: kimagemapeditor.cpp:549
+#: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Create a new map"
 msgstr "Сохтани харитаи нав"
 
-#: kimagemapeditor.cpp:551
+#: kimagemapeditor.cpp:558
 #, kde-format
 msgid "D&elete Map"
 msgstr "Нобуд кардани&харита"
 
-#: kimagemapeditor.cpp:554
+#: kimagemapeditor.cpp:561
 #, kde-format
 msgid "Delete the current active map"
 msgstr "Дур кардани  актив харитаи ҷори шуда"
 
-#: kimagemapeditor.cpp:556
+#: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
 msgstr "Вироиш  &Ноияи Default..."
 
-#: kimagemapeditor.cpp:559
+#: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
 msgstr "Вироиш кардани ноҳия default-и харитаи активӣ ҷоришуда."
 
-#: kimagemapeditor.cpp:561
+#: kimagemapeditor.cpp:568
 #, kde-format
 msgid "&Preview"
 msgstr "&Пешнамоиш"
 
-#: kimagemapeditor.cpp:564
+#: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Show a preview"
 msgstr "Намоиши пешнамоиш"
 
 #. i18n: ectx: Menu (images)
-#: kimagemapeditor.cpp:567 kimagemapeditorpartui.rc:61
+#: kimagemapeditor.cpp:574 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
 msgstr "&Тасвир"
 
-#: kimagemapeditor.cpp:569
+#: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Add Image..."
 msgstr "Иловаи тасвир..."
 
-#: kimagemapeditor.cpp:572
+#: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Add a new image"
 msgstr "Иловаи тасвири нав"
 
-#: kimagemapeditor.cpp:574
+#: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
 msgstr "Нест кардани Тасвир"
 
-#: kimagemapeditor.cpp:577
+#: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
 msgstr "Дур кардани тасвири намоиши ҷоришуда"
 
-#: kimagemapeditor.cpp:579
+#: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
 msgstr "Вироиши Usemap..."
 
-#: kimagemapeditor.cpp:582
+#: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
 msgstr " Аломати usemap намоишӣ ҷоришударо намоиш  намудан"
 
-#: kimagemapeditor.cpp:584
+#: kimagemapeditor.cpp:591
 #, kde-format
 msgid "Show &HTML"
 msgstr "Намоиши &HTML"
 
-#: kimagemapeditor.cpp:591
+#: kimagemapeditor.cpp:598
 #, kde-format
 msgid "&Selection"
 msgstr "&Интихоботҳо"
 
-#: kimagemapeditor.cpp:595
+#: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
 msgstr "<h3>Интихобот</h3>Инро пахш намуда барои интихоби ноҳияҳо."
 
-#: kimagemapeditor.cpp:601
+#: kimagemapeditor.cpp:608
 #, kde-format
 msgid "&Circle"
 msgstr "&Доира давра"
 
-#: kimagemapeditor.cpp:606
+#: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
 msgstr "<h3> Давра </h3>  Инро пахш намуда барои оғози кашидани давра."
 
-#: kimagemapeditor.cpp:611
+#: kimagemapeditor.cpp:618
 #, kde-format
 msgid "&Rectangle"
 msgstr "&Росткунҷа"
 
-#: kimagemapeditor.cpp:615
+#: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
 msgstr "<h3>Росткунҷа</h3>Инро пахш намуда барои оғози кашидани росткунҷа."
 
-#: kimagemapeditor.cpp:620
+#: kimagemapeditor.cpp:627
 #, kde-format
 msgid "&Polygon"
 msgstr "&Бисёркунҷа"
 
-#: kimagemapeditor.cpp:624
+#: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
 msgstr "<h3>Бисёркунҷа</h3>Инро пахш намуда барои оғози кашидани бисёркунҷа."
 
-#: kimagemapeditor.cpp:629
+#: kimagemapeditor.cpp:636
 #, kde-format
 msgid "&Freehand Polygon"
 msgstr "&Дастхолии Бисёркунҷа"
 
-#: kimagemapeditor.cpp:633
+#: kimagemapeditor.cpp:640
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
 "<h3>Дастхолии Бисёркунҷа</h3>Инро пахш намуда барои оғози кашидани дастхолии "
 "бисёркунҷа."
 
-#: kimagemapeditor.cpp:638
+#: kimagemapeditor.cpp:645
 #, kde-format
 msgid "&Add Point"
 msgstr "&Иловаи нуқта"
 
-#: kimagemapeditor.cpp:642
+#: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr ""
 "<h3> Нуқтаи Илова </h3> Инро пахш намуда барои илова намудани ба бисёркунҷҳо "
 "нуқтаҳоро."
 
-#: kimagemapeditor.cpp:647
+#: kimagemapeditor.cpp:654
 #, kde-format
 msgid "&Remove Point"
 msgstr "&Нобуд кардани нуқта"
 
-#: kimagemapeditor.cpp:652
+#: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr ""
 "<h3>Беҷо намудани Нуқта</h3> Инро пахш намуда барои беҷо намудани нуқтаҳо аз "
 "бисёркунҷҳо."
 
-#: kimagemapeditor.cpp:656
+#: kimagemapeditor.cpp:663
 #, kde-format
 msgid "Cancel Drawing"
 msgstr "Рад кардани Cурат"
 
-#: kimagemapeditor.cpp:661
+#: kimagemapeditor.cpp:668
 #, kde-format
 msgid "Move Left"
 msgstr "Ҳаракат ба Чап"
 
-#: kimagemapeditor.cpp:667
+#: kimagemapeditor.cpp:674
 #, kde-format
 msgid "Move Right"
 msgstr "Ҳаракат ба Рост"
 
-#: kimagemapeditor.cpp:672
+#: kimagemapeditor.cpp:679
 #, kde-format
 msgid "Move Up"
 msgstr "Ҳаракат ба Боло"
 
-#: kimagemapeditor.cpp:677
+#: kimagemapeditor.cpp:684
 #, kde-format
 msgid "Move Down"
 msgstr "Ҳаракат ба Поён"
 
-#: kimagemapeditor.cpp:682
+#: kimagemapeditor.cpp:689
 #, kde-format
 msgid "Increase Width"
 msgstr "Калон кардани Паҳми"
 
-#: kimagemapeditor.cpp:687
+#: kimagemapeditor.cpp:694
 #, kde-format
 msgid "Decrease Width"
 msgstr "Паст кардани Паҳми "
 
-#: kimagemapeditor.cpp:692
+#: kimagemapeditor.cpp:699
 #, kde-format
 msgid "Increase Height"
 msgstr "Баланд бардоштани Баланди"
 
-#: kimagemapeditor.cpp:697
+#: kimagemapeditor.cpp:704
 #, kde-format
 msgid "Decrease Height"
 msgstr "Паст кардани Баланди"
 
-#: kimagemapeditor.cpp:702
+#: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring to Front"
 msgstr "Ба пеш овардан"
 
-#: kimagemapeditor.cpp:706
+#: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
 msgstr "Ба қафо овардан"
 
-#: kimagemapeditor.cpp:710
+#: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
 msgstr "Як бор ба пеш овардан"
 
-#: kimagemapeditor.cpp:713
+#: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
 msgstr "Як бор ба қафо рафтан"
 
-#: kimagemapeditor.cpp:723
+#: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
 msgstr "Ташкил кардани KImageMapEditor..."
 
-#: kimagemapeditor.cpp:732
+#: kimagemapeditor.cpp:739
 #, kde-format
 msgid "Show Area List"
 msgstr "Намоиши рӯйхати ноҳия"
 
-#: kimagemapeditor.cpp:737
+#: kimagemapeditor.cpp:744
 #, kde-format
 msgid "Show Map List"
 msgstr "Намоиши рӯйхати харита"
 
-#: kimagemapeditor.cpp:741
+#: kimagemapeditor.cpp:748
 #, kde-format
 msgid "Show Image List"
 msgstr "Намоиши рӯйхати тасвир"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
-#: kimagemapeditor.cpp:756
+#: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
 msgstr "Интихоб:-  Курсор: 0, у: 0"
 
-#: kimagemapeditor.cpp:840
+#: kimagemapeditor.cpp:847
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
 msgstr "Курсор:х:%1,у:%2"
 
-#: kimagemapeditor.cpp:848 kimagemapeditor.cpp:861
+#: kimagemapeditor.cpp:855 kimagemapeditor.cpp:868
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
 msgstr "Интихобот:х:%1,у:%2,w:%3,h:%4"
 
-#: kimagemapeditor.cpp:853
+#: kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: - "
 msgstr " Интихобот: - "
 
-#: kimagemapeditor.cpp:906
+#: kimagemapeditor.cpp:913
 #, kde-format
 msgid "Drop an image or HTML file"
 msgstr "Партофтани тасвир ё файли HTML"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter Map Name"
 msgstr "Даромадан ба Номи Харита"
 
-#: kimagemapeditor.cpp:1555
+#: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter the name of the map:"
 msgstr "Даромадан ба номи харита:"
 
-#: kimagemapeditor.cpp:1560
+#: kimagemapeditor.cpp:1567
 #, kde-format
 msgid "The name <em>%1</em> already exists."
 msgstr "Номи <em>%1</em>вуҷуд дорад."
 
-#: kimagemapeditor.cpp:1572
+#: kimagemapeditor.cpp:1579
 #, kde-format
 msgid "HTML Code of Map"
 msgstr "Коди харита HTML"
 
-#: kimagemapeditor.cpp:1622
+#: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
 msgstr "Интихоби Файл барои Кушодан"
 
-#: kimagemapeditor.cpp:1623 kimeshell.cpp:201
+#: kimagemapeditor.cpp:1630 kimeshell.cpp:201
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
@@ -582,22 +582,22 @@ msgstr ""
 "*.gif|Файлҳои GIF\n"
 "*|Ҳама файлҳо"
 
-#: kimagemapeditor.cpp:1661
+#: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:1681
+#: kimagemapeditor.cpp:1688
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файл <b>%1</b>вуҷуд надорад.</qt>"
 
-#: kimagemapeditor.cpp:1682
+#: kimagemapeditor.cpp:1689
 #, kde-format
 msgid "File Does Not Exist"
 msgstr "Файл мавҷуд нест"
 
-#: kimagemapeditor.cpp:2377
+#: kimagemapeditor.cpp:2384
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
@@ -606,7 +606,7 @@ msgstr ""
 "<qt>Файл <i>%1</i> барои сабткуни намешавад,барои он ,ки шумо иҷозати "
 "навиштанро надоред.</qt>"
 
-#: kimagemapeditor.cpp:2692
+#: kimagemapeditor.cpp:2699
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Are you sure you want to delete the map <i>%1</i>? <br><b>There is no "
@@ -618,12 +618,12 @@ msgstr ""
 "<qt>Шумо барои дур кардани харита рози ҳастед<i>%1<i>? <br><b>Инро ботил "
 "кардан номумкин</b></qt>/b>>"
 
-#: kimagemapeditor.cpp:2694
+#: kimagemapeditor.cpp:2701
 #, kde-format
 msgid "Delete Map?"
 msgstr "Дур кардани Харита?"
 
-#: kimagemapeditor.cpp:2746
+#: kimagemapeditor.cpp:2753
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>"
@@ -633,25 +633,25 @@ msgstr ""
 "<qt>Файлро %1 <i>тағир кардан.<br>Шумо мехоҳед инро инро амонатгузори намоед?"
 "</qt>"
 
-#: kimagemapeditor.cpp:2838
+#: kimagemapeditor.cpp:2845
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "Интихоб"
 
-#: kimagemapeditor.cpp:2839
+#: kimagemapeditor.cpp:2846
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2885
+#: kimagemapeditor.cpp:2892
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Ба Usemap даромадан"
 
-#: kimagemapeditor.cpp:2886
+#: kimagemapeditor.cpp:2893
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Ба қиммати usemap даромадан:"

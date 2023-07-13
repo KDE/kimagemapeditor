@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdewebdev-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-12 00:44+0000\n"
-"PO-Revision-Date: 2023-03-29 21:01+0300\n"
+"PO-Revision-Date: 2023-07-12 12:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -23,17 +23,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "CigiCigi Çeviri Grubu, Emir SARI"
+msgstr "Emir SARI"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ceviri@cigicigi.com, emir_sari@icloud.com"
+msgstr "emir_sari@icloud.com"
 
 #: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Önizleme"
 #: imagemapchoosedialog.cpp:46
 #, kde-format
 msgid "Choose Map & Image to Edit"
-msgstr "Düzenlemek İçin Harita ve Görsel Seçin"
+msgstr "Düzenlemek için Harita ve Görsel Seç"
 
 #: imagemapchoosedialog.cpp:55
 #, kde-format
@@ -68,12 +68,12 @@ msgstr "Görsel Önizleme"
 #: imagemapchoosedialog.cpp:104
 #, kde-format
 msgid "No maps found"
-msgstr "Hiç harita bulunamadı"
+msgstr "Bulunan harita yok"
 
 #: imagemapchoosedialog.cpp:140
 #, kde-format
 msgid "No images found"
-msgstr "Hiç görsel bulunamadı"
+msgstr "Bulunan görsel yok"
 
 #: imagemapchoosedialog.cpp:153
 #, kde-format
@@ -93,7 +93,7 @@ msgstr "Görseller"
 #: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
-msgstr "Kullanım haritası"
+msgstr "Kullanım Haritası"
 
 #: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
@@ -110,8 +110,8 @@ msgstr "adsız"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3>Dosya Aç</h3> Yeni bir görsel ya da HTML dosyası <em>açmak</em> için "
-"buna tıklayın."
+"<h3>Dosya Aç</h3> Yeni bir görsel veya HTML dosyası <em>açmak</em> için buna "
+"tıklayın."
 
 #: kimagemapeditor.cpp:455
 #, kde-format
@@ -188,52 +188,52 @@ msgstr "<h3>Yakınlaştırma</h3>İstediğiniz yakınlaştırma düzeyini seçin
 #: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
-msgstr "25%"
+msgstr "%​25"
 
 #: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
-msgstr "50%"
+msgstr "%​50"
 
 #: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
-msgstr "100%"
+msgstr "%​100"
 
 #: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
-msgstr "150%"
+msgstr "%​150"
 
 #: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
-msgstr "200%"
+msgstr "%​200"
 
 #: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
-msgstr "250%"
+msgstr "%​250"
 
 #: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
-msgstr "300%"
+msgstr "%​300"
 
 #: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
-msgstr "500%"
+msgstr "%​500"
 
 #: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
-msgstr "750%"
+msgstr "%​750"
 
 #: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
-msgstr "1000%"
+msgstr "%​1000"
 
 #: kimagemapeditor.cpp:540
 #, kde-format
@@ -243,7 +243,7 @@ msgstr "Vurgulama Alanları"
 #: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
-msgstr "Alternatif Etiket Göster"
+msgstr "Alternatif Etiketi Göster"
 
 #: kimagemapeditor.cpp:549
 #, kde-format
@@ -263,12 +263,12 @@ msgstr "Yeni bir harita oluştur"
 #: kimagemapeditor.cpp:558
 #, kde-format
 msgid "D&elete Map"
-msgstr "Harita &Sil"
+msgstr "Haritayı &Sil"
 
 #: kimagemapeditor.cpp:561
 #, kde-format
 msgid "Delete the current active map"
-msgstr "Mevcut aktif haritayı sil"
+msgstr "Geçerli etkin haritayı sil"
 
 #: kimagemapeditor.cpp:563
 #, kde-format
@@ -278,17 +278,17 @@ msgstr "Ö&ntanımlı Alanı Düzenle..."
 #: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr "Mevcut aktif haritanın öntanımlı alanını düzenle"
+msgstr "Geçerli etkin haritanın öntanımlı alanını düzenle"
 
 #: kimagemapeditor.cpp:568
 #, kde-format
 msgid "&Preview"
-msgstr "Öni&zleme"
+msgstr "Öni&zle"
 
 #: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Show a preview"
-msgstr "Önizleme göster"
+msgstr "Önizlemeyi göster"
 
 #. i18n: ectx: Menu (images)
 #: kimagemapeditor.cpp:574 kimagemapeditorpartui.rc:61
@@ -309,12 +309,12 @@ msgstr "Yeni bir görsel ekle"
 #: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
-msgstr "Görsel kaldır"
+msgstr "Görseli Kaldır"
 
 #: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
-msgstr "Mevcut görünen görseli kaldır"
+msgstr "Şu anda görünür olan görseli kaldır"
 
 #: kimagemapeditor.cpp:586
 #, kde-format
@@ -324,12 +324,12 @@ msgstr "Kullanım Haritasını Düzenle..."
 #: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr "Mevcut görünmez resmin kullanım haritası etiketini düzenle"
+msgstr "Şu anda görünür olan görselin kullanım haritası etiketini düzenle"
 
 #: kimagemapeditor.cpp:591
 #, kde-format
 msgid "Show &HTML"
-msgstr "&HTML Göster"
+msgstr "&HTML Kodunu Göster"
 
 #: kimagemapeditor.cpp:598
 #, kde-format
@@ -369,7 +369,7 @@ msgstr "Ç&okgen"
 #: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr "<h3>Çokgen</h3>Birçokgen çizmeye başlamak için buna tıklayın."
+msgstr "<h3>Çokgen</h3>Bir çokgen çizmeye başlamak için buna tıklayın."
 
 #: kimagemapeditor.cpp:636
 #, kde-format
@@ -380,8 +380,8 @@ msgstr "Serbest Çizim Ç&okgen"
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
-"<h3>Serbestçizimçokgeni</h3>Bir serbest çizim çokgeni çizimine başlamak için "
-"buna tıklayın."
+"<h3>Serbest Çizim Çokgen</h3>Bir serbest çizim çokgeni çizimine başlamak "
+"için buna tıklayın."
 
 #: kimagemapeditor.cpp:645
 #, kde-format
@@ -391,17 +391,18 @@ msgstr "&Nokta Ekle"
 #: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
-msgstr "<h3>Nokta Ekle</h3>Birçokgene noktalar eklemek için buna tıklayın."
+msgstr "<h3>Nokta Ekle</h3>Bir çokgene noktalar eklemek için buna tıklayın."
 
 #: kimagemapeditor.cpp:654
 #, kde-format
 msgid "&Remove Point"
-msgstr "Nokta &Kaldır"
+msgstr "Noktayı &Kaldır"
 
 #: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
-msgstr "<h3>Nokta Kaldır</h3>Birçokgenden noktalar silmek için buna tıklayın."
+msgstr ""
+"<h3>Noktayı Kaldır</h3>Bir çokgenden noktalar silmek için buna tıklayın."
 
 #: kimagemapeditor.cpp:663
 #, kde-format
@@ -456,22 +457,22 @@ msgstr "Öne Getir"
 #: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
-msgstr "Arkaya Götür"
+msgstr "Arkaya Gönder"
 
 #: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
-msgstr "Bir Öne Taşı"
+msgstr "Bir Öne Getir"
 
 #: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
-msgstr "Bir Arkaya Taşı"
+msgstr "Bir Arkaya Gönder"
 
 #: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
-msgstr "KImageMapEditor'u Yapılandır..."
+msgstr "K Görsel Haritacısı'nı Yapılandır..."
 
 #: kimagemapeditor.cpp:739
 #, kde-format
@@ -513,12 +514,12 @@ msgstr " Seçim: - "
 #: kimagemapeditor.cpp:913
 #, kde-format
 msgid "Drop an image or HTML file"
-msgstr "Bir resmi ya da HTML dosyasını tut"
+msgstr "Bir görsel veya HTML dosyası bırakın"
 
 #: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter Map Name"
-msgstr "Harita İsmi Girin"
+msgstr "Harita Adı Girin"
 
 #: kimagemapeditor.cpp:1562
 #, kde-format
@@ -564,7 +565,7 @@ msgstr "<qt><b>%1</b> dosyası bulunamadı.</qt>"
 #: kimagemapeditor.cpp:1689
 #, kde-format
 msgid "File Does Not Exist"
-msgstr "Dosya Mevcut Değil"
+msgstr "Dosya Yok"
 
 #: kimagemapeditor.cpp:2384
 #, kde-format
@@ -613,12 +614,12 @@ msgstr ""
 #: kimagemapeditor.cpp:2892
 #, kde-format
 msgid "Enter Usemap"
-msgstr "Kullanımharitasını Girin"
+msgstr "Kullanım Haritası Gir"
 
 #: kimagemapeditor.cpp:2893
 #, kde-format
 msgid "Enter the usemap value:"
-msgstr "Kullanımharitası değerini girin:"
+msgstr "Kullanım Haritası değerini gir:"
 
 #. i18n: ectx: Menu (edit)
 #: kimagemapeditorpartui.rc:14
@@ -654,13 +655,13 @@ msgstr "Ayar&lar"
 #: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
 #, kde-format
 msgid "KImageMapEditor Main Toolbar"
-msgstr "KImageMapEditor Ana Araç Çubuğu"
+msgstr "K Görsel Haritacısı Ana Araç Çubuğu"
 
 #. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
 #: kimagemapeditorpartui.rc:96
 #, kde-format
 msgid "KImageMapEditor Draw Toolbar"
-msgstr "KImageMapEditor Çizim Araç Çubuğu"
+msgstr "K Görsel Haritacısı Çizim Araç Çubuğu"
 
 #. i18n: ectx: Menu (file)
 #: kimagemapeditorui.rc:4
@@ -701,42 +702,42 @@ msgstr "Öntanımlı"
 #: kimecommands.cpp:26
 #, kde-format
 msgid "Cut %1"
-msgstr "%1 Kes"
+msgstr "Kes: %1"
 
 #: kimecommands.cpp:70
 #, kde-format
 msgid "Delete %1"
-msgstr "%1 Sil"
+msgstr "Sil: %1"
 
 #: kimecommands.cpp:74
 #, kde-format
 msgid "Paste %1"
-msgstr "%1 Yapıştır"
+msgstr "Yapıştır: %1"
 
 #: kimecommands.cpp:113
 #, kde-format
 msgid "Move %1"
-msgstr "%1 Taşı"
+msgstr "Taşı: %1"
 
 #: kimecommands.cpp:169
 #, kde-format
 msgid "Resize %1"
-msgstr "%1 Yeniden boyutlandır"
+msgstr "Yeniden Boyutlandır: %1"
 
 #: kimecommands.cpp:210
 #, kde-format
 msgid "Add point to %1"
-msgstr "%1'e Nokta ekle"
+msgstr "Şuraya Nokta Ekle: %1"
 
 #: kimecommands.cpp:254
 #, kde-format
 msgid "Remove point from %1"
-msgstr "%1'den Nokta sil"
+msgstr "Şuradan Noktayı Kaldır: %1"
 
 #: kimecommands.cpp:301
 #, kde-format
 msgid "Create %1"
-msgstr "%1 Yarat"
+msgstr "Oluştur: %1"
 
 #: kimedialogs.cpp:75
 #, kde-format
@@ -796,12 +797,12 @@ msgstr "Üst &Y"
 #: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
-msgstr "&LINK:"
+msgstr "&BAĞL:"
 
 #: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
-msgstr "Alt. Me&tin:"
+msgstr "Alt. me&tin:"
 
 #: kimedialogs.cpp:293
 #, kde-format
@@ -821,7 +822,7 @@ msgstr "Açık"
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr "Öntanımlı haritayı etkin kıl"
+msgstr "Öntanımlı haritayı etkinleştir"
 
 #: kimedialogs.cpp:327
 #, kde-format
@@ -831,7 +832,7 @@ msgstr "Tıklandığında:"
 #: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
-msgstr "Çift Tıklandığında:"
+msgstr "Çift tıklandığında:"
 
 #: kimedialogs.cpp:329
 #, kde-format
@@ -906,17 +907,17 @@ msgstr "En &yüksek görsel önizleme yüksekliği:"
 #: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
-msgstr "G&eri-alma limiti:"
+msgstr "G&eri al sınırı:"
 
 #: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
-msgstr "&Yineleme sınırı:"
+msgstr "&Yinele sınırı:"
 
 #: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
-msgstr "&Son kullanılan belgeyle başla"
+msgstr "&Son kullanılan belgeyle başlat"
 
 #: kimeshell.cpp:76
 #, kde-format
@@ -926,17 +927,17 @@ msgstr "kimagemapeditor kısmı bulunamadı!"
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr "kimagemapeditorpart oluşturulamadı!"
+msgstr "kimagemapeditor kısmı oluşturulamadı!"
 
 #: kimeshell.cpp:200
 #, kde-format
 msgid "Choose Picture to Open"
-msgstr "Açılacak Resmi Seçin"
+msgstr "Açılacak Resmi Seç"
 
 #: main.cpp:34
 #, kde-format
 msgid "KImageMapEditor"
-msgstr "KImageMapEditor"
+msgstr "K Görsel Haritacısı"
 
 #: main.cpp:35
 #, kde-format

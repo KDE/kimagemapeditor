@@ -4,6 +4,7 @@
             {
                 "Email": "janschaefer@users.sourceforge.net",
                 "Name": "Jan Schäfer",
+                "Name[bg]": "Jan Schäfer",
                 "Name[ca@valencia]": "Jan Schäfer",
                 "Name[ca]": "Jan Schäfer",
                 "Name[eo]": "Jan Schäfer",
@@ -14,10 +15,12 @@
                 "Name[sl]": "Jan Schäfer",
                 "Name[tr]": "Jan Schäfer",
                 "Name[uk]": "Jan Schäfer",
-                "Name[x-test]": "xxJan Schäferxx"
+                "Name[x-test]": "xxJan Schäferxx",
+                "Name[zh_CN]": "Jan Schäfer"
             }
         ],
         "Copyright": "Copyright 2001-2003 Jan Schäfer",
+        "Copyright[bg]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[ca@valencia]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[ca]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[eo]": "Kopirajto 2001-2003 Jan Schäfer",
@@ -29,7 +32,9 @@
         "Copyright[tr]": "Telif hakkı 2001-2003 Jan Schäfer",
         "Copyright[uk]": "© Jan Schäfer, 2001–2003",
         "Copyright[x-test]": "xxCopyright 2001-2003 Jan Schäferxx",
+        "Copyright[zh_CN]": "Copyright 2001-2003 Jan Schäfer",
         "Description": "An HTML imagemap editor",
+        "Description[bg]": "Редактор на HTML маркирани изображения",
         "Description[ca@valencia]": "Un editor de correspondències a imatges (mapes) amb HTML",
         "Description[ca]": "Un editor de correspondències a imatges (mapes) amb HTML",
         "Description[eo]": "HTML-bildmapredaktilo",
@@ -41,6 +46,7 @@
         "Description[tr]": "Bir HTML görsel haritası düzenleyicisi",
         "Description[uk]": "Редактор карт зображень HTML",
         "Description[x-test]": "xxAn HTML imagemap editorxx",
+        "Description[zh_CN]": "HTML 图像映射编辑器",
         "Icon": "kimagemapeditor",
         "License": "GPLv2+",
         "MimeTypes": [

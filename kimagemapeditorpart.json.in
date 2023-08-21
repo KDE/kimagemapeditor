@@ -4,6 +4,7 @@
             {
                 "Email": "janschaefer@users.sourceforge.net",
                 "Name": "Jan Schäfer",
+                "Name[ar]": "جان شيبرد",
                 "Name[bg]": "Jan Schäfer",
                 "Name[ca@valencia]": "Jan Schäfer",
                 "Name[ca]": "Jan Schäfer",
@@ -28,6 +29,7 @@
             }
         ],
         "Copyright": "Copyright 2001-2003 Jan Schäfer",
+        "Copyright[ar]": "حقوق النسخ 2001-2003 جان شيبرد",
         "Copyright[bg]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[ca@valencia]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[ca]": "Copyright 2001-2003 Jan Schäfer",
@@ -50,6 +52,7 @@
         "Copyright[x-test]": "xxCopyright 2001-2003 Jan Schäferxx",
         "Copyright[zh_CN]": "Copyright 2001-2003 Jan Schäfer",
         "Description": "An HTML imagemap editor",
+        "Description[ar]": "محرر خريطة الصورة اتش ام ال",
         "Description[bg]": "Редактор на HTML маркирани изображения",
         "Description[ca@valencia]": "Un editor de correspondències a imatges (mapes) amb HTML",
         "Description[ca]": "Un editor de correspondències a imatges (mapes) amb HTML",

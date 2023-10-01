@@ -919,12 +919,12 @@ msgstr "&Iniciar co último documento usado"
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr "Non se puido atopar a parte kimagemapeditorpart!"
+msgstr "Non foi posíbel atopar a parte kimagemapeditorpart!"
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr "Non se puido crear a parte kimagemapeditorpart!"
+msgstr "Non foi posíbel crear a parte kimagemapeditorpart!"
 
 #: kimeshell.cpp:200
 #, kde-format

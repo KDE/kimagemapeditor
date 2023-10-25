@@ -44,7 +44,7 @@ msgstr "Vista prèvia"
 #: imagemapchoosedialog.cpp:46
 #, kde-format
 msgid "Choose Map & Image to Edit"
-msgstr "Escolliu la correspondència i la imatge a editar"
+msgstr "Escolliu la correspondència i la imatge que s'ha d'editar"
 
 #: imagemapchoosedialog.cpp:55
 #, kde-format

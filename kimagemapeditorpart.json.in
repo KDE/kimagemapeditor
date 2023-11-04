@@ -27,7 +27,6 @@
                 "Name[sv]": "Jan Schäfer",
                 "Name[tr]": "Jan Schäfer",
                 "Name[uk]": "Jan Schäfer",
-                "Name[x-test]": "xxJan Schäferxx",
                 "Name[zh_CN]": "Jan Schäfer"
             }
         ],
@@ -55,7 +54,6 @@
         "Copyright[sv]": "Copyright 2001-2003 Jan Schäfer",
         "Copyright[tr]": "Telif hakkı 2001-2003 Jan Schäfer",
         "Copyright[uk]": "© Jan Schäfer, 2001–2003",
-        "Copyright[x-test]": "xxCopyright 2001-2003 Jan Schäferxx",
         "Copyright[zh_CN]": "Copyright 2001-2003 Jan Schäfer",
         "Description": "An HTML imagemap editor",
         "Description[ar]": "محرر خريطة الصورة اتش ام ال",
@@ -82,7 +80,6 @@
         "Description[sv]": "En editor för HTML-bildkartor",
         "Description[tr]": "Bir HTML görsel haritası düzenleyicisi",
         "Description[uk]": "Редактор карт зображень HTML",
-        "Description[x-test]": "xxAn HTML imagemap editorxx",
         "Description[zh_CN]": "HTML 图像映射编辑器",
         "Icon": "kimagemapeditor",
         "License": "GPLv2+",
@@ -142,7 +139,6 @@
         "Name[tr]": "K Görsel Haritacısı",
         "Name[ug]": "KImageMapEditor",
         "Name[uk]": "KImageMapEditor",
-        "Name[x-test]": "xxKImageMapEditorxx",
         "Name[zh_CN]": "KImageMapEditor",
         "Name[zh_HK]": "KImageMapEditor",
         "Name[zh_TW]": "KImageMapEditor",

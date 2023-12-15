@@ -29,7 +29,8 @@
                 "Name[tr]": "Jan Schäfer",
                 "Name[uk]": "Jan Schäfer",
                 "Name[x-test]": "xxJan Schäferxx",
-                "Name[zh_CN]": "Jan Schäfer"
+                "Name[zh_CN]": "Jan Schäfer",
+                "Name[zh_TW]": "Jan Schäfer"
             }
         ],
         "Copyright": "Copyright 2001-2003 Jan Schäfer",
@@ -59,6 +60,7 @@
         "Copyright[uk]": "© Jan Schäfer, 2001–2003",
         "Copyright[x-test]": "xxCopyright 2001-2003 Jan Schäferxx",
         "Copyright[zh_CN]": "Copyright 2001-2003 Jan Schäfer",
+        "Copyright[zh_TW]": "Copyright 2001-2003 Jan Schäfer",
         "Description": "An HTML imagemap editor",
         "Description[ar]": "محرر خريطة الصورة اتش ام ال",
         "Description[bg]": "Редактор на HTML маркирани изображения",
@@ -87,6 +89,7 @@
         "Description[uk]": "Редактор карт зображень HTML",
         "Description[x-test]": "xxAn HTML imagemap editorxx",
         "Description[zh_CN]": "HTML 图像映射编辑器",
+        "Description[zh_TW]": "一個 HTML 影像地圖的編輯器",
         "Icon": "kimagemapeditor",
         "License": "GPLv2+",
         "MimeTypes": [

@@ -3,9 +3,9 @@
 # Matthieu Robin <kde@macolu.org>, 2004.
 # Matthieu Robin <kde@macolu.org>, 2004, 2005.
 # Yohann Hamon <yohann_hamon@yahoo.fr>, 2007.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020.
+# Xavier Besnard <xavier.besnard@kde.org>, 2012, 2013, 2020.
 # Simon Depiets <sdepiets@gmail.com>, 2018.
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"

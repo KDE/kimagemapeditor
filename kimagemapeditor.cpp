@@ -55,7 +55,7 @@
 #include <KPluginMetaData>
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KIO/Job>
+#include <KIO/FileCopyJob>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPluginFactory>

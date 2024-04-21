@@ -8,8 +8,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kimagemapeditor VERSION ${RELEASE_SERVICE_VERSION})
 
-set (QT_MIN_VERSION "5.15.2")
-set (KF_MIN_VERSION "5.86.0")
+set (QT_MIN_VERSION "6.5.0")
+set (KF_MIN_VERSION "6.0.0")
 set (KDE_COMPILERSETTINGS_LEVEL "5.83.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
@@ -25,12 +25,12 @@ include(KDECMakeSettings)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Gui
     Widgets
     WebEngineWidgets
 )
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Config
     ConfigWidgets
     CoreAddons
@@ -75,10 +75,10 @@ target_sources(kimagemapeditor_bin PRIVATE
 )
 
 target_link_libraries(kimagemapeditor_bin
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::ConfigCore
-    KF${QT_MAJOR_VERSION}::Parts
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::ConfigCore
+    KF6::Parts
     Qt::WebEngineWidgets
 )
 
@@ -88,10 +88,6 @@ install(TARGETS kimagemapeditor_bin  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### next target ###############
 
 configure_file(kimagemapeditorpart.json.in ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.json)
-
-if (QT_MAJOR_VERSION STREQUAL "5")
-    configure_file(kimagemapeditorpart.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop)
-endif()
 
 add_library(kimagemapeditorpart MODULE)
 
@@ -112,23 +108,19 @@ target_sources(kimagemapeditorpart PRIVATE
 )
 
 target_link_libraries(kimagemapeditorpart
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::ConfigCore
-    KF${QT_MAJOR_VERSION}::Parts
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::ConfigCore
+    KF6::Parts
     Qt::WebEngineWidgets
 )
 
-install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/parts)
+install(TARGETS kimagemapeditorpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/parts)
 
 ########### install files ###############
 
 install( FILES  org.kde.kimagemapeditor.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install( FILES  org.kde.kimagemapeditor.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-
-if (QT_MAJOR_VERSION STREQUAL "5")
-    install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/kimagemapeditorpart.desktop  DESTINATION ${KDE_INSTALL_KSERVICESDIR})
-endif()
 
 ki18n_install(po)
 kdoctools_install(po)

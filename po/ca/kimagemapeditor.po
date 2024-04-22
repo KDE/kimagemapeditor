@@ -1008,3 +1008,45 @@ msgstr "Escriu el codi HTML a la sortida estàndard en sortir"
 #, kde-format
 msgid "File to open"
 msgstr "Fitxer a obrir"
+
+#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
+#~ msgstr ""
+#~ "Copyright 2001-2003 Jan Sch&auml;fer <email>janschaefer@users.sourceforge."
+#~ "net</email>"
+
+#~ msgid ""
+#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>El fitxer <em>%1</em> ja existeix.<br />El voleu sobreescriure?</qt>"
+
+#~ msgid "Overwrite File?"
+#~ msgstr "Sobreescric el fitxer?"
+
+#~ msgid "Overwrite"
+#~ msgstr "Sobreescriu"
+
+#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
+#~ msgstr ""
+#~ "<qt>No teniu prou permisos d'escriptura per al fitxer <em>%1</em>.</qt>"
+
+#~ msgid "HTML File"
+#~ msgstr "Fitxer HTML"
+
+#~ msgid "Text File"
+#~ msgstr "Fitxer de text"
+
+#~ msgid "Web Files"
+#~ msgstr "Fitxers web"
+
+#~ msgid "HTML Files"
+#~ msgstr "Fitxers HTML"
+
+#~ msgid "PNG Images"
+#~ msgstr "Imatges PNG"
+
+#~ msgid "JPEG Images"
+#~ msgstr "Imatges JPEG"
+
+#~ msgid "GIF Images"
+#~ msgstr "Imatges GIF"

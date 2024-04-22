@@ -68,12 +68,12 @@ msgstr "Görsel Önizleme"
 #: imagemapchoosedialog.cpp:104
 #, kde-format
 msgid "No maps found"
-msgstr "Bulunan harita yok"
+msgstr "Harita bulunamadı"
 
 #: imagemapchoosedialog.cpp:140
 #, kde-format
 msgid "No images found"
-msgstr "Bulunan görsel yok"
+msgstr "Görsel bulunamadı"
 
 #: imagemapchoosedialog.cpp:153
 #, kde-format

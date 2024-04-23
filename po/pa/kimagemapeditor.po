@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:26+0000\n"
+"POT-Creation-Date: 2024-04-23 00:37+0000\n"
 "PO-Revision-Date: 2007-06-26 17:22+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi <punjabi-l10n@users.sf.net>\n"
@@ -565,31 +565,31 @@ msgstr ""
 msgid "Delete Map?"
 msgstr ""
 
-#: kimagemapeditor.cpp:2753
+#: kimagemapeditor.cpp:2749
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr ""
 
-#: kimagemapeditor.cpp:2845
+#: kimagemapeditor.cpp:2833
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "ਚੋਣ"
 
-#: kimagemapeditor.cpp:2846
+#: kimagemapeditor.cpp:2834
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2892
+#: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
 msgstr ""
 
-#: kimagemapeditor.cpp:2893
+#: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr ""

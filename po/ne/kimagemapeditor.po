@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:26+0000\n"
+"POT-Creation-Date: 2024-04-23 00:37+0000\n"
 "PO-Revision-Date: 2007-08-24 21:09+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Delete Map?"
 msgstr "मानचित्र मेट्नुहुन्छ ?"
 
-#: kimagemapeditor.cpp:2753
+#: kimagemapeditor.cpp:2749
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <i>%1</i> has been modified.<br>Do you want to save it?</qt>"
@@ -602,25 +602,25 @@ msgid ""
 msgstr ""
 "<qt>फाइल <i>%1</i> परिमार्जन गरिएको छ ।<br>तपाईँ यसलाई बचत गर्न चाहनुहुन्छ?</qt>"
 
-#: kimagemapeditor.cpp:2845
+#: kimagemapeditor.cpp:2833
 #, fuzzy, kde-format
 #| msgid "Selection"
 msgid "Select image"
 msgstr "चयन"
 
-#: kimagemapeditor.cpp:2846
+#: kimagemapeditor.cpp:2834
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
 
-#: kimagemapeditor.cpp:2892
+#: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
 msgstr "मानचित्र प्रयोग प्रविष्ट गर्नुहोस्"
 
-#: kimagemapeditor.cpp:2893
+#: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "मानचित्र प्रयोग मान प्रविष्ट गर्नुहोस्:"

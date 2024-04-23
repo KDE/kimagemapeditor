@@ -1,6 +1,6 @@
 # translation of kimagemapeditor.po to Slovenian
 # Translation of kimagemapeditor.po to Slovenian
-# $Id: kimagemapeditor.po 1664120 2023-11-05 13:15:21Z scripty $
+# $Id: kimagemapeditor.po 1678514 2024-04-23 01:09:09Z scripty $
 # $Source$
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2005.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:26+0000\n"
+"POT-Creation-Date: 2024-04-23 00:37+0000\n"
 "PO-Revision-Date: 2020-12-15 09:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -588,19 +588,19 @@ msgstr ""
 msgid "Delete Map?"
 msgstr "Zbrišem zemljevid?"
 
-#: kimagemapeditor.cpp:2753
+#: kimagemapeditor.cpp:2749
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr ""
 "<qt>Datoteka <i>%1</i> je bila spremenjena.<br />Ali jo želite shraniti?</qt>"
 
-#: kimagemapeditor.cpp:2845
+#: kimagemapeditor.cpp:2833
 #, kde-format
 msgid "Select image"
 msgstr "Izberi sliko"
 
-#: kimagemapeditor.cpp:2846
+#: kimagemapeditor.cpp:2834
 #, kde-format
 msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
@@ -609,12 +609,12 @@ msgstr ""
 "Slike (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Vse datoteke "
 "(*)"
 
-#: kimagemapeditor.cpp:2892
+#: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
 msgstr "Vnesite Usemap"
 
-#: kimagemapeditor.cpp:2893
+#: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
 msgstr "Vnesite vrednost za usemap:"

@@ -1,177 +1,174 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kimagemapeditor package.
+#
+# giovanni <g.sora@tiscali.it>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2024-04-23 19:24\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-04-23 11:20+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kimagemapeditor/kimagemapeditor.pot\n"
-"X-Crowdin-File-ID: 53458\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国, Guo Yunhe, Henry Hu, Tianbei Tang, fangzheng, Wordless Echo"
+msgstr "Giovanni Sora"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"kde-china@kde.org, i@guoyunhe.me, henry.hu.sh@gmail.com, tangtianbei@kde."
-"org, fangzheng@kde.org, wordless@echo.moe"
+msgstr "g.sora@tiscali.it"
 
 #: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
 msgid "Areas"
-msgstr "地区"
+msgstr "Areas"
 
 #: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
 msgid "Preview"
-msgstr "Preview"
+msgstr "Vista preliminar"
 
 #: imagemapchoosedialog.cpp:46
 #, kde-format
 msgid "Choose Map & Image to Edit"
-msgstr "选择要编辑的映射和图像"
+msgstr "Selige MAppa e Imagine a modificar"
 
 #: imagemapchoosedialog.cpp:55
 #, kde-format
 msgid "Select an image and/or a map that you want to edit"
-msgstr "选择您想编辑的图片或映射"
+msgstr "Selige un imagine e /o unmappa que tu vole modificar"
 
 #: imagemapchoosedialog.cpp:67
 #, kde-format
 msgid "&Maps"
-msgstr "&地图"
+msgstr "&Mappas"
 
 #: imagemapchoosedialog.cpp:79
 #, kde-format
 msgid "Image Preview"
-msgstr "图像预览"
+msgstr "Vista preliminar de Imagine"
 
 #: imagemapchoosedialog.cpp:104
 #, kde-format
 msgid "No maps found"
-msgstr "没有找到映射"
+msgstr "Nulle mappas trovate"
 
 #: imagemapchoosedialog.cpp:140
 #, kde-format
 msgid "No images found"
-msgstr "未找到图像"
+msgstr "Nulle imagines trovate"
 
 #: imagemapchoosedialog.cpp:153
 #, kde-format
 msgid "&Images"
-msgstr "&个图像"
+msgstr "&Imagines"
 
 #: imagemapchoosedialog.cpp:162
 #, kde-format
 msgid "Path"
-msgstr "路径"
+msgstr "Percurso"
 
 #: imageslistview.cpp:56 kimagemapeditor.cpp:108 kimagemapeditor.cpp:141
 #, kde-format
 msgid "Images"
-msgstr "图片"
+msgstr "Imagines"
 
 #: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
-msgstr "Usemap"
+msgstr ""
 
 #: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
 msgid "Maps"
-msgstr "映射"
+msgstr "Mappas"
 
 #: kimagemapeditor.cpp:258 mapslistview.cpp:166
 #, kde-format
 msgid "unnamed"
-msgstr "未命名"
+msgstr "sin nomine"
 
 #: kimagemapeditor.cpp:454
 #, kde-format
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3>打开文件</h3>单击此处来<em>打开</em>一幅新图片或一个新的 HTML 文件。"
 
 #: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
-msgstr "打开新图片或 HTML 文件"
+msgstr ""
 
 #: kimagemapeditor.cpp:462
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
-msgstr "<h3>保存文件</h3>单击此处<em>保存</em>对 HTML 文件的更改。"
+msgstr ""
 
 #: kimagemapeditor.cpp:463
 #, kde-format
 msgid "Save HTML file"
-msgstr "保存 HTML 文件"
+msgstr ""
 
 #: kimagemapeditor.cpp:471
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
-msgstr "<h3>关闭文件</h3>单击此处<em>关闭</em>目前打开的 HTML 文件。"
+msgstr ""
 
 #: kimagemapeditor.cpp:472
 #, kde-format
 msgid "Close HTML file"
-msgstr "关闭 HTML 文件"
+msgstr ""
 
 #: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
-msgstr "<h3>复制</h3>点击此处<em>复制</em>所选区域。"
+msgstr ""
 
 #: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
-msgstr "<h3>剪切</h3>点击此处<em>剪切</em>所选区域。"
+msgstr ""
 
 #: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
-msgstr "<h3>粘贴</h3>点击此处<em>粘贴</em>已复制的区域。"
+msgstr ""
 
 #: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, kde-format
 msgid "&Delete"
-msgstr "删除(&D)"
+msgstr "&Dele"
 
 #: kimagemapeditor.cpp:499
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
-msgstr "<h3>删除</h3>单击此处<em>删除</em>选定的区域。"
+msgstr ""
 
 #: kimagemapeditor.cpp:509
 #, kde-format
 msgid "Pr&operties"
-msgstr "属性(&O)"
+msgstr "Pr&oprietates"
 
 #: kimagemapeditor.cpp:520
 #, kde-format
 msgid "Zoom"
-msgstr "缩放"
+msgstr "Zoom"
 
 #: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
-msgstr "<h3>缩放</h3>选择想要的缩放级别。"
+msgstr ""
 
 #: kimagemapeditor.cpp:526
 #, kde-format
@@ -226,305 +223,305 @@ msgstr "1000%"
 #: kimagemapeditor.cpp:540
 #, kde-format
 msgid "Highlight Areas"
-msgstr "高亮区域"
+msgstr "Evidentia Areas"
 
 #: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
-msgstr "显示 Alt 标签"
+msgstr ""
 
 #: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Map &Name..."
-msgstr "映射名称(&N)..."
+msgstr "&Nomine de Mappa ..."
 
 #: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Ne&w Map..."
-msgstr "新建映射(&W)..."
+msgstr "No&ve Mappa..."
 
 #: kimagemapeditor.cpp:556
 #, kde-format
 msgid "Create a new map"
-msgstr "创建一个新映射"
+msgstr "Crea un nove mappa"
 
 #: kimagemapeditor.cpp:558
 #, kde-format
 msgid "D&elete Map"
-msgstr "删除映射(&E)"
+msgstr "D&ele Mappa"
 
 #: kimagemapeditor.cpp:561
 #, kde-format
 msgid "Delete the current active map"
-msgstr "删除当前活动的映射"
+msgstr "Dele le mappa currente active"
 
 #: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
-msgstr "编辑默认区域(&D)..."
+msgstr "Modifica Area Pre&definite..."
 
 #: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr "编辑当前活动映射的默认区域"
+msgstr "Modifica le area predefinite del mappa currente active"
 
 #: kimagemapeditor.cpp:568
 #, kde-format
 msgid "&Preview"
-msgstr "预览(&P)"
+msgstr "Vista &preliminar"
 
 #: kimagemapeditor.cpp:571
 #, kde-format
 msgid "Show a preview"
-msgstr "显示预览"
+msgstr "Monstra un vista preliminar"
 
 #. i18n: ectx: Menu (images)
 #: kimagemapeditor.cpp:574 kimagemapeditorpartui.rc:61
 #, kde-format
 msgid "&Image"
-msgstr "镜像(&I)"
+msgstr "&Imagine"
 
 #: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Add Image..."
-msgstr "添加图像..."
+msgstr "Adde imagine..."
 
 #: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Add a new image"
-msgstr "添加新图像"
+msgstr "Adde un nove imagine"
 
 #: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
-msgstr "删除图像"
+msgstr "Remove imagine"
 
 #: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
-msgstr "删除当前可见的图像"
+msgstr ""
 
 #: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
-msgstr "编辑 Usemap..."
+msgstr ""
 
 #: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr "编辑当前可见图像的 usemap 标签"
+msgstr ""
 
 #: kimagemapeditor.cpp:591
 #, kde-format
 msgid "Show &HTML"
-msgstr "显示 &HTML"
+msgstr "Monstra &HTML"
 
 #: kimagemapeditor.cpp:598
 #, kde-format
 msgid "&Selection"
-msgstr "选区(&S)"
+msgstr "&Selection"
 
 #: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
-msgstr "<h3>选择</h3>单击此处选择区域。"
+msgstr ""
 
 #: kimagemapeditor.cpp:608
 #, kde-format
 msgid "&Circle"
-msgstr "&圆"
+msgstr "&Circulo"
 
 #: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
-msgstr "<h3>圆</h3>点击此处开始绘制圆形。"
+msgstr ""
 
 #: kimagemapeditor.cpp:618
 #, kde-format
 msgid "&Rectangle"
-msgstr "&矩形"
+msgstr "&Rectangulo"
 
 #: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
-msgstr "<h3>矩形</h3>点击此处开始绘制矩形。"
+msgstr ""
 
 #: kimagemapeditor.cpp:627
 #, kde-format
 msgid "&Polygon"
-msgstr "&多边形"
+msgstr "&Polygono"
 
 #: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr "<h3>多边形</h3>点击此处开始绘制多边形。"
+msgstr ""
 
 #: kimagemapeditor.cpp:636
 #, kde-format
 msgid "&Freehand Polygon"
-msgstr "徒手多边形(&F)"
+msgstr ""
 
 #: kimagemapeditor.cpp:640
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
-msgstr "<h3>徒手多边形</h3>单击此处徒手画一个多边形。"
+msgstr ""
 
 #: kimagemapeditor.cpp:645
 #, kde-format
 msgid "&Add Point"
-msgstr "&添加点"
+msgstr "&Adde Puncto"
 
 #: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
-msgstr "<h3>添加端点</h3>单击此处为一个多边形添加端点。"
+msgstr ""
 
 #: kimagemapeditor.cpp:654
 #, kde-format
 msgid "&Remove Point"
-msgstr "删除端点 (&R)"
+msgstr "&Remove puncto"
 
 #: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
-msgstr "<h3>添加端点</h3>单击此处删除一个多边形中的端点。"
+msgstr ""
 
 #: kimagemapeditor.cpp:663
 #, kde-format
 msgid "Cancel Drawing"
-msgstr "取消绘制"
+msgstr "Cancella Designo"
 
 #: kimagemapeditor.cpp:668
 #, kde-format
 msgid "Move Left"
-msgstr "向左移动"
+msgstr "Move a sinistra"
 
 #: kimagemapeditor.cpp:674
 #, kde-format
 msgid "Move Right"
-msgstr "向右移动"
+msgstr "Move a dextera"
 
 #: kimagemapeditor.cpp:679
 #, kde-format
 msgid "Move Up"
-msgstr "上移(&U)"
+msgstr "Move in alto"
 
 #: kimagemapeditor.cpp:684
 #, kde-format
 msgid "Move Down"
-msgstr "向下移动"
+msgstr "Move a basso "
 
 #: kimagemapeditor.cpp:689
 #, kde-format
 msgid "Increase Width"
-msgstr "增加宽度"
+msgstr "Augmenta Largessa"
 
 #: kimagemapeditor.cpp:694
 #, kde-format
 msgid "Decrease Width"
-msgstr "减少宽度"
+msgstr "Diminue largessa "
 
 #: kimagemapeditor.cpp:699
 #, kde-format
 msgid "Increase Height"
-msgstr "增加高度"
+msgstr "Augmenta altessa"
 
 #: kimagemapeditor.cpp:704
 #, kde-format
 msgid "Decrease Height"
-msgstr "减少高度"
+msgstr "Diminue altessa"
 
 #: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring to Front"
-msgstr "移到最前"
+msgstr "Porta de Fronte"
 
 #: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
-msgstr "置于底层"
+msgstr "Invia a Retro"
 
 #: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
-msgstr "提升一层"
+msgstr ""
 
 #: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
-msgstr "放下一层"
+msgstr ""
 
 #: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
-msgstr "配置 KImageMapEditor..."
+msgstr ""
 
 #: kimagemapeditor.cpp:739
 #, kde-format
 msgid "Show Area List"
-msgstr "显示区域列表"
+msgstr "Monstra Lista de Area"
 
 #: kimagemapeditor.cpp:744
 #, kde-format
 msgid "Show Map List"
-msgstr "显示映射列表"
+msgstr "Monstra lista de Mappa"
 
 #: kimagemapeditor.cpp:748
 #, kde-format
 msgid "Show Image List"
-msgstr "显示图片列表"
+msgstr "Monstra lista de imagine"
 
 #. i18n(" Cursor")+" : x: 0 ,y: 0",STATUS_CURSOR);
 #. i18n(" Selection")+" : - ",STATUS_SELECTION);
 #: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
-msgstr " 选区：- 光标：x: 0, y: 0 "
+msgstr " Selection: -  Cursor: x: 0, y: 0 "
 
 #: kimagemapeditor.cpp:847
 #, kde-format
 msgid " Cursor: x: %1, y: %2 "
-msgstr " 光标：x: %1, y: %2 "
+msgstr " Cursor: x: %1, y: %2 "
 
 #: kimagemapeditor.cpp:855 kimagemapeditor.cpp:868
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
-msgstr " 选区：x: %1, y: %2, w: %3, h: %4 "
+msgstr " Selection: x: %1, y: %2, w: %3, h: %4 "
 
 #: kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: - "
-msgstr " 已选项目: - "
+msgstr " Selection: - "
 
 #: kimagemapeditor.cpp:913
 #, kde-format
 msgid "Drop an image or HTML file"
-msgstr "拖入一个图片或HTML文件"
+msgstr "Abandona un imagine o un file HTML"
 
 #: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter Map Name"
-msgstr "输入映射名称"
+msgstr "Inserta Nomine de Mappa"
 
 #: kimagemapeditor.cpp:1562
 #, kde-format
 msgid "Enter the name of the map:"
-msgstr "输入映射的名称："
+msgstr "Inserta lenomine del mappa:"
 
 #: kimagemapeditor.cpp:1567
 #, kde-format
 msgid "The name <em>%1</em> already exists."
-msgstr "名称 <em>%1</em> 已存在。"
+msgstr ""
 
 #: kimagemapeditor.cpp:1579
 #, kde-format
 msgid "HTML Code of Map"
-msgstr "映射的 HTML 代码"
+msgstr ""
 
 #: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
-msgstr "选择要打开的文件"
+msgstr ""
 
 #: kimagemapeditor.cpp:1630 kimeshell.cpp:201
 #, kde-format
@@ -533,53 +530,51 @@ msgid ""
 "*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
 "(*)"
 msgstr ""
-"网络文件 (*.png *.jpg *.jpeg *.gif *.htm *.html);;图像 (*.png *.jpg *.jpeg *."
-"gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML 文件 (*.htm *.html);;所有文件 (*)"
 
 #: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
-msgstr "HTML 文件 (*.htm *.html);;文本文件 (*.txt);;所有文件 (*)"
+msgstr ""
 
 #: kimagemapeditor.cpp:1688
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>文件 <b>%1</b> 不存在。</qt>"
+msgstr "<qt>Le file <b>%1</b> non existe.</qt>"
 
 #: kimagemapeditor.cpp:1689
 #, kde-format
 msgid "File Does Not Exist"
-msgstr "文件不存在"
+msgstr "File non existe"
 
 #: kimagemapeditor.cpp:2384
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
-msgstr "<qt>无法保存文件 <i>%1</i>，因为您没有所需的写入权限。</qt>"
+msgstr ""
 
 #: kimagemapeditor.cpp:2699
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
 "way to undo this.</b></qt>"
-msgstr "<qt>您确定要删除映射 <i>%1</i> 吗？<br /><b>此操作无法撤销。</b></qt>"
+msgstr ""
 
 #: kimagemapeditor.cpp:2701
 #, kde-format
 msgid "Delete Map?"
-msgstr "删除映射吗？"
+msgstr "D&ele Mappa?"
 
 #: kimagemapeditor.cpp:2749
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
-msgstr "<qt>文件 <i>%1</i> 已修改。<br />您项保存文件吗？</qt>"
+msgstr ""
 
 #: kimagemapeditor.cpp:2833
 #, kde-format
 msgid "Select image"
-msgstr "选择图像"
+msgstr "Selige imagine..."
 
 #: kimagemapeditor.cpp:2834
 #, kde-format
@@ -587,275 +582,276 @@ msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
-"图片 (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;所有文件 (*)"
+"Imagines (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
+"(*)"
 
 #: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
-msgstr "输入 Usemap"
+msgstr ""
 
 #: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
-msgstr "输入 usemap 的值："
+msgstr ""
 
 #. i18n: ectx: Menu (edit)
 #: kimagemapeditorpartui.rc:14
 #, kde-format
 msgid "&Edit"
-msgstr "编辑(&E)"
+msgstr "&Edita"
 
 #. i18n: ectx: Menu (view)
 #: kimagemapeditorpartui.rc:31
 #, kde-format
 msgid "&View"
-msgstr "视图(&V)"
+msgstr "&Vista"
 
 #. i18n: ectx: Menu (tools)
 #: kimagemapeditorpartui.rc:40
 #, kde-format
 msgid "&Tools"
-msgstr "工具"
+msgstr "Ins&trumentos"
 
 #. i18n: ectx: Menu (map)
 #: kimagemapeditorpartui.rc:50
 #, kde-format
 msgid "&Map"
-msgstr "&映射"
+msgstr "&Mappa"
 
 #. i18n: ectx: Menu (settings)
 #: kimagemapeditorpartui.rc:66
 #, kde-format
 msgid "&Settings"
-msgstr "设置(&S)"
+msgstr "Preferentia&s"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
 #, kde-format
 msgid "KImageMapEditor Main Toolbar"
-msgstr "KImageMapEditor 主工具栏"
+msgstr "Instrumento de barra principal de ImageMapEditor "
 
 #. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
 #: kimagemapeditorpartui.rc:96
 #, kde-format
 msgid "KImageMapEditor Draw Toolbar"
-msgstr "KImageMapEditor 绘图工具栏"
+msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: kimagemapeditorui.rc:4
 #, kde-format
 msgid "&File"
-msgstr "文件(&F)"
+msgstr "&File"
 
 #: kimearea.cpp:142
 #, kde-format
 msgid "noname"
-msgstr "无名"
+msgstr ""
 
 #: kimearea.cpp:1401
 #, kde-format
 msgid "Number of Areas"
-msgstr "区域数"
+msgstr ""
 
 #: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
 msgid "Rectangle"
-msgstr "矩形"
+msgstr "Rectangulo"
 
 #: kimearea.h:252 kimedialogs.cpp:361
 #, kde-format
 msgid "Circle"
-msgstr "圆圈"
+msgstr "Circulo"
 
 #: kimearea.h:278 kimedialogs.cpp:362
 #, kde-format
 msgid "Polygon"
-msgstr "多边形"
+msgstr "Polygono"
 
 #: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
-msgstr "默认"
+msgstr "Predefinite"
 
 #: kimecommands.cpp:26
 #, kde-format
 msgid "Cut %1"
-msgstr "剪切 %1"
+msgstr "Talia %1"
 
 #: kimecommands.cpp:70
 #, kde-format
 msgid "Delete %1"
-msgstr "删除 %1"
+msgstr "Dele %1"
 
 #: kimecommands.cpp:74
 #, kde-format
 msgid "Paste %1"
-msgstr "粘贴 %1"
+msgstr "Colla %1"
 
 #: kimecommands.cpp:113
 #, kde-format
 msgid "Move %1"
-msgstr "移动 %1"
+msgstr "Move %1"
 
 #: kimecommands.cpp:169
 #, kde-format
 msgid "Resize %1"
-msgstr "缩放 %1"
+msgstr "Redimensiona %1"
 
 #: kimecommands.cpp:210
 #, kde-format
 msgid "Add point to %1"
-msgstr "向 %1 添加端点"
+msgstr ""
 
 #: kimecommands.cpp:254
 #, kde-format
 msgid "Remove point from %1"
-msgstr "从 %1 删除端点"
+msgstr ""
 
 #: kimecommands.cpp:301
 #, kde-format
 msgid "Create %1"
-msgstr "创建 %1"
+msgstr "Crea %1"
 
 #: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
-msgstr "顶部 &X 坐标："
+msgstr ""
 
 #: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
-msgstr "顶部 &Y 坐标："
+msgstr ""
 
 #: kimedialogs.cpp:89
 #, kde-format
 msgid "&Width:"
-msgstr "宽度(&W)："
+msgstr "Lar&gessa:"
 
 #: kimedialogs.cpp:96
 #, kde-format
 msgid "Hei&ght:"
-msgstr "高度(&G)："
+msgstr "Alt&essa:"
 
 #: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
-msgstr "中心 &X 坐标："
+msgstr ""
 
 #: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
-msgstr "中心 &Y 坐标："
+msgstr ""
 
 #: kimedialogs.cpp:132
 #, kde-format
 msgid "&Radius:"
-msgstr "半径(&R)："
+msgstr "&Radius:"
 
 #: kimedialogs.cpp:165
 #, kde-format
 msgid "Add"
-msgstr "添加"
+msgstr "Adde"
 
 #: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
-msgstr "移除"
+msgstr "Remove"
 
 #: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
-msgstr "顶部 &X 坐标"
+msgstr ""
 
 #: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
-msgstr "顶部 &Y 坐标"
+msgstr ""
 
 #: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
-msgstr "&HREF:"
+msgstr ""
 
 #: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
-msgstr "替代文字 (&T)："
+msgstr ""
 
 #: kimedialogs.cpp:293
 #, kde-format
 msgid "Tar&get:"
-msgstr "目标(&G)："
+msgstr "Ob&jectivo:"
 
 #: kimedialogs.cpp:296
 #, kde-format
 msgid "Tit&le:"
-msgstr "标题(&L)："
+msgstr "Titu&lo:"
 
 #: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
-msgstr "自动调整"
+msgstr "Activate (On)"
 
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr "启用默认映射"
+msgstr ""
 
 #: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
-msgstr "OnClick："
+msgstr ""
 
 #: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
-msgstr "OnDblClick："
+msgstr ""
 
 #: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
-msgstr "OnMouseDown："
+msgstr ""
 
 #: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
-msgstr "OnMouseUp："
+msgstr ""
 
 #: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
-msgstr "OnMouseOver："
+msgstr ""
 
 #: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
-msgstr "OnMouseMove："
+msgstr ""
 
 #: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
-msgstr "OnMouseOut："
+msgstr ""
 
 #: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
-msgstr "区域标记编辑器"
+msgstr ""
 
 #: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
-msgstr "已选项目"
+msgstr "Selection"
 
 #: kimedialogs.cpp:382
 #, kde-format
 msgid "&General"
-msgstr "常规(&G)"
+msgstr "&General"
 
 #: kimedialogs.cpp:389
 #, kde-format
 msgid "Coor&dinates"
-msgstr "坐标(&D)"
+msgstr "Coor&dinatas"
 
 #: kimedialogs.cpp:391
 #, kde-format
@@ -865,52 +861,52 @@ msgstr "&JavaScript"
 #: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
-msgstr "选择文件"
+msgstr "Selige file"
 
 #: kimedialogs.cpp:435
 #, kde-format
 msgid "All Files (*)"
-msgstr "所有文件 (*)"
+msgstr "Omne files (*)"
 
 #: kimedialogs.cpp:504
 #, kde-format
 msgid "Preferences"
-msgstr "首选项"
+msgstr "Preferentias"
 
 #: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
-msgstr "图像的最大预览高度(&M)："
+msgstr ""
 
 #: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
-msgstr "撤销次数上限(&U)："
+msgstr ""
 
 #: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
-msgstr "重做限制(&R)："
+msgstr ""
 
 #: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
-msgstr "启动时打开上次使用的文档(&S)"
+msgstr ""
 
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr "无法找到 kimagemapeditorpart 的部分！"
+msgstr ""
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr "无法创建 kimagemapeditorpart 的部分！"
+msgstr ""
 
 #: kimeshell.cpp:200
 #, kde-format
 msgid "Choose Picture to Open"
-msgstr "选择要打开的图片"
+msgstr ""
 
 #: main.cpp:34
 #, kde-format
@@ -920,74 +916,74 @@ msgstr "KImageMapEditor"
 #: main.cpp:35
 #, kde-format
 msgid "An HTML imagemap editor"
-msgstr "HTML 图像映射编辑器"
+msgstr "Un editor de imagemap (mappa de imagine) HTML"
 
 #: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
-msgstr "(c) 2001-2007 Jan Schaefer"
+msgstr ""
 
 #: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
-msgstr "Jan Schaefer"
+msgstr ""
 
 #: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
-msgstr "Joerg Jaspert"
+msgstr ""
 
 #: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
-msgstr "帮助我制作 Makefiles 和创建 Debian 包"
+msgstr ""
 
 #: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
-msgstr "Aaron Seigo 和 Michael"
+msgstr ""
 
 #: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
-msgstr "帮助我修复 --enable-final 模式"
+msgstr ""
 
 #: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
-msgstr "Antonio Crevillen"
+msgstr ""
 
 #: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
-msgstr "西班牙语翻译"
+msgstr ""
 
 #: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
-msgstr "Fabrice Mous"
+msgstr ""
 
 #: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
-msgstr "芬兰语翻译"
+msgstr ""
 
 #: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
-msgstr "Germain Chazot"
+msgstr ""
 
 #: main.cpp:43
 #, kde-format
 msgid "For the French translation"
-msgstr "法语翻译"
+msgstr ""
 
 #: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
-msgstr "退出时将 HTML 代码写入 stdout"
+msgstr ""
 
 #: main.cpp:57
 #, kde-format
 msgid "File to open"
-msgstr "要打开的文件"
+msgstr "File de aperir"

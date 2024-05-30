@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2024-04-23 11:20+0200\n"
+"PO-Revision-Date: 2024-05-29 15:01+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -85,7 +85,7 @@ msgstr "Imagines"
 #: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
-msgstr ""
+msgstr "Usemap (Mappa de usar)"
 
 #: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
@@ -117,7 +117,7 @@ msgstr ""
 #: kimagemapeditor.cpp:463
 #, kde-format
 msgid "Save HTML file"
-msgstr ""
+msgstr "Salveguarda  file HTML"
 
 #: kimagemapeditor.cpp:471
 #, kde-format
@@ -128,7 +128,7 @@ msgstr ""
 #: kimagemapeditor.cpp:472
 #, kde-format
 msgid "Close HTML file"
-msgstr ""
+msgstr "Claude file HTML"
 
 #: kimagemapeditor.cpp:476
 #, kde-format
@@ -228,7 +228,7 @@ msgstr "Evidentia Areas"
 #: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
-msgstr ""
+msgstr "Monstra etiquetta alternative (Alt Tag)"
 
 #: kimagemapeditor.cpp:549
 #, kde-format
@@ -299,17 +299,17 @@ msgstr "Remove imagine"
 #: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
-msgstr ""
+msgstr "Remove le image visibile currente"
 
 #: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
-msgstr ""
+msgstr "Edita Usemap (mappa de usar)..."
 
 #: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr ""
+msgstr "Edita le etiquetta de usemap del imagine visibile currente"
 
 #: kimagemapeditor.cpp:591
 #, kde-format
@@ -521,7 +521,7 @@ msgstr ""
 #: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
-msgstr ""
+msgstr "Selige File a aperir"
 
 #: kimagemapeditor.cpp:1630 kimeshell.cpp:201
 #, kde-format
@@ -530,11 +530,14 @@ msgid ""
 "*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
 "(*)"
 msgstr ""
+"File de Web (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *."
+"jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Files HTML (*.htm *.html);;Omne "
+"Files (*)"
 
 #: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
-msgstr ""
+msgstr "File HTML (*.htm *.html);;Text File (*.txt);;Omne Files (*)"
 
 #: kimagemapeditor.cpp:1688
 #, kde-format
@@ -588,12 +591,12 @@ msgstr ""
 #: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
-msgstr ""
+msgstr "Inserta Usemap"
 
 #: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
-msgstr ""
+msgstr "Inserta le valor de usemap:"
 
 #. i18n: ectx: Menu (edit)
 #: kimagemapeditorpartui.rc:14
@@ -635,7 +638,7 @@ msgstr "Instrumento de barra principal de ImageMapEditor "
 #: kimagemapeditorpartui.rc:96
 #, kde-format
 msgid "KImageMapEditor Draw Toolbar"
-msgstr ""
+msgstr "Instrument de Designar KImageMapEditor"
 
 #. i18n: ectx: Menu (file)
 #: kimagemapeditorui.rc:4
@@ -651,7 +654,7 @@ msgstr ""
 #: kimearea.cpp:1401
 #, kde-format
 msgid "Number of Areas"
-msgstr ""
+msgstr "Numero de Areas"
 
 #: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
@@ -701,12 +704,12 @@ msgstr "Redimensiona %1"
 #: kimecommands.cpp:210
 #, kde-format
 msgid "Add point to %1"
-msgstr ""
+msgstr "Adde puncto a %1"
 
 #: kimecommands.cpp:254
 #, kde-format
 msgid "Remove point from %1"
-msgstr ""
+msgstr "Remove puncto ex %1"
 
 #: kimecommands.cpp:301
 #, kde-format
@@ -716,12 +719,12 @@ msgstr "Crea %1"
 #: kimedialogs.cpp:75
 #, kde-format
 msgid "Top &X:"
-msgstr ""
+msgstr "&X al Culmine"
 
 #: kimedialogs.cpp:82
 #, kde-format
 msgid "Top &Y:"
-msgstr ""
+msgstr "&Y al Culmine"
 
 #: kimedialogs.cpp:89
 #, kde-format
@@ -736,12 +739,12 @@ msgstr "Alt&essa:"
 #: kimedialogs.cpp:118
 #, kde-format
 msgid "Center &X:"
-msgstr ""
+msgstr "&X al Centro"
 
 #: kimedialogs.cpp:125
 #, kde-format
 msgid "Center &Y:"
-msgstr ""
+msgstr "&Y al Centro"
 
 #: kimedialogs.cpp:132
 #, kde-format
@@ -761,17 +764,17 @@ msgstr "Remove"
 #: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
-msgstr ""
+msgstr "&X al Culmine"
 
 #: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
-msgstr ""
+msgstr "&Y al Culmine"
 
 #: kimedialogs.cpp:284
 #, kde-format
 msgid "&HREF:"
-msgstr ""
+msgstr "&HREF:"
 
 #: kimedialogs.cpp:290
 #, kde-format
@@ -801,42 +804,42 @@ msgstr ""
 #: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
-msgstr ""
+msgstr "SurCliccarSingule:"
 
 #: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
-msgstr ""
+msgstr "SurDupleCliccar:"
 
 #: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
-msgstr ""
+msgstr "SurMusABasso:"
 
 #: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
-msgstr ""
+msgstr "SurMusInAlto:"
 
 #: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
-msgstr ""
+msgstr "SurMusSuper:"
 
 #: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
-msgstr ""
+msgstr "SurMusMover:"
 
 #: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
-msgstr ""
+msgstr "SurMusFora:"
 
 #: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
-msgstr ""
+msgstr "Editor de Etiquetta de Area"
 
 #: kimedialogs.cpp:363
 #, kde-format
@@ -876,22 +879,22 @@ msgstr "Preferentias"
 #: kimedialogs.cpp:518
 #, kde-format
 msgid "&Maximum image preview height:"
-msgstr ""
+msgstr "Altessa &maxime de vista preliminari de imagine:"
 
 #: kimedialogs.cpp:527
 #, kde-format
 msgid "&Undo limit:"
-msgstr ""
+msgstr "Ann&ulla Limite:"
 
 #: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
-msgstr ""
+msgstr "&Reface limite:"
 
 #: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
-msgstr ""
+msgstr "&Starta con ultime documento usate"
 
 #: kimeshell.cpp:76
 #, kde-format
@@ -906,7 +909,7 @@ msgstr ""
 #: kimeshell.cpp:200
 #, kde-format
 msgid "Choose Picture to Open"
-msgstr ""
+msgstr "Selige pictura a aperir"
 
 #: main.cpp:34
 #, kde-format
@@ -921,17 +924,17 @@ msgstr "Un editor de imagemap (mappa de imagine) HTML"
 #: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
-msgstr ""
+msgstr "(c) 2001-2007 Jan Schaefer"
 
 #: main.cpp:38
 #, kde-format
 msgid "Jan Schaefer"
-msgstr ""
+msgstr "Jan Schaefer"
 
 #: main.cpp:39
 #, kde-format
 msgid "Joerg Jaspert"
-msgstr ""
+msgstr "Joerg Jaspert"
 
 #: main.cpp:39
 #, kde-format
@@ -941,7 +944,7 @@ msgstr ""
 #: main.cpp:40
 #, kde-format
 msgid "Aaron Seigo and Michael"
-msgstr ""
+msgstr "Aaron Seigo e Michael"
 
 #: main.cpp:40
 #, kde-format
@@ -951,32 +954,32 @@ msgstr ""
 #: main.cpp:41
 #, kde-format
 msgid "Antonio Crevillen"
-msgstr ""
+msgstr "Antonio Crevillen"
 
 #: main.cpp:41
 #, kde-format
 msgid "For the Spanish translation"
-msgstr ""
+msgstr "Per le Traduction espaniol"
 
 #: main.cpp:42
 #, kde-format
 msgid "Fabrice Mous"
-msgstr ""
+msgstr "Fabrice Mous"
 
 #: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
-msgstr ""
+msgstr "Per le Traduction Nederlandese"
 
 #: main.cpp:43
 #, kde-format
 msgid "Germain Chazot"
-msgstr ""
+msgstr "Germain Chazot"
 
 #: main.cpp:43
 #, kde-format
 msgid "For the French translation"
-msgstr ""
+msgstr "Per le traduction francese"
 
 #: main.cpp:56
 #, kde-format

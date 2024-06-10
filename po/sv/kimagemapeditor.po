@@ -1,16 +1,16 @@
 # translation of kimagemapeditor.po to Swedish
 # Copyright (C) 2004, 2005, 2007 Free Software Foundation, Inc.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2007.
+# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2004, 2005, 2007.
 # Mattias Newzella <newzella@linux.nu>, 2004.
-# Stefan Asserhall <stefan.asserhall@bredband.net>, 2005, 2017, 2020.
+# Stefan Asserhall <stefan.asserhall@gmail.com>, 2005, 2017, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
 "PO-Revision-Date: 2020-12-14 10:30+0100\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "stefan.asserhall@bredband.net"
+msgstr "stefan.asserhall@gmail.com"
 
 #: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format

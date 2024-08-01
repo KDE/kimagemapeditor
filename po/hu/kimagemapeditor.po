@@ -1,26 +1,28 @@
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2009-03-30 11:11+0100\n"
-"Last-Translator: Tamas Szanto <tszanto@interware.hu>\n"
-"Language-Team: Hungarian <kde-lista@sophia.jpte.hu>\n"
+"PO-Revision-Date: 2024-07-31 21:46+0200\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Szántó Tamás"
+msgstr "Kiszel Kristóf,Szántó Tamás"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tszanto@interware.hu"
+msgstr "ulysses@fsf.hu,tszanto@interware.hu"
 
 #: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
@@ -535,32 +537,20 @@ msgid "Choose File to Open"
 msgstr "Válassza ki a megnyitni kívánt fájlt"
 
 #: kimagemapeditor.cpp:1630 kimeshell.cpp:201
-#, fuzzy, kde-format
-#| msgid ""
-#| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
-#| "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
-#| "*.htm *.html|HTML Files\n"
-#| "*.png|PNG Images\n"
-#| "*.jpg *.jpeg|JPEG Images\n"
-#| "*.gif|GIF-Images\n"
-#| "*|All Files"
+#, kde-format
 msgid ""
 "Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
 "*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
 "(*)"
 msgstr ""
-"*.png *.jpg *.jpeg *.gif *.htm *.html|Webes fájlok\n"
-"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Képek\n"
-"*.htm *.html|HTML-fájlok\n"
-"*.png|PNG-képek\n"
-"*.jpg *.jpeg|JPEG-képek\n"
-"*.gif|GIF-képek\n"
-"*|Minden fájl"
+"Webes fájlok (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *."
+"jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML-fájlok (*.htm *.html);;"
+"Minden fájl (*)"
 
 #: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
-msgstr ""
+msgstr "HTML-fájlok (*.htm *.html);;Szövegfájl (*.txt);;Minden fájl (*)"
 
 #: kimagemapeditor.cpp:1688
 #, kde-format
@@ -602,10 +592,9 @@ msgid ""
 msgstr "<qt>A(z) <i>%1</i> fájl megváltozott.<br />El szeretné menteni?</qt>"
 
 #: kimagemapeditor.cpp:2833
-#, fuzzy, kde-format
-#| msgid "Selection"
+#, kde-format
 msgid "Select image"
-msgstr "Kijelölés"
+msgstr "Kép kiválasztása"
 
 #: kimagemapeditor.cpp:2834
 #, kde-format
@@ -613,6 +602,8 @@ msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
+"Képek (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Minden fájl "
+"(*)"
 
 #: kimagemapeditor.cpp:2880
 #, kde-format
@@ -773,10 +764,9 @@ msgid "Center &Y:"
 msgstr "Középső, &Y:"
 
 #: kimedialogs.cpp:132
-#, fuzzy, kde-format
-#| msgid "&Radius:"
+#, kde-format
 msgid "&Radius:"
-msgstr "S&ugár:"
+msgstr "Sugá&r:"
 
 #: kimedialogs.cpp:165
 #, kde-format
@@ -821,7 +811,7 @@ msgstr "C&ím:"
 #: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
-msgstr ""
+msgstr "Be"
 
 #: kimedialogs.cpp:303
 #, kde-format
@@ -894,10 +884,9 @@ msgid "Choose File"
 msgstr "Válasszon egy fájlt"
 
 #: kimedialogs.cpp:435
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgid "All Files (*)"
-msgstr "Minden fájl"
+msgstr "Minden fájl (*)"
 
 #: kimedialogs.cpp:504
 #, kde-format
@@ -927,12 +916,12 @@ msgstr "A legutó&bbi dokumentum megnyitása induláskor"
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr ""
+msgstr "A kimagemapeditorpart objektum nem található."
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr ""
+msgstr "A kimagemapeditorpart objektum nem hozható létre."
 
 #: kimeshell.cpp:200
 #, kde-format

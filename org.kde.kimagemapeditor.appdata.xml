@@ -26,6 +26,7 @@
   <name xml:lang="gl">KImageMapEditor</name>
   <name xml:lang="he">KImageMapEditor</name>
   <name xml:lang="hi">के-इमेज-मैप-एडिटर</name>
+  <name xml:lang="hu">KImageMapEditor</name>
   <name xml:lang="ia">KImageMapEditor</name>
   <name xml:lang="id">KCitraMapEditor</name>
   <name xml:lang="it">KImageMapEditor</name>
@@ -64,6 +65,7 @@
   <summary xml:lang="gl">Editor de mapas de imaxes HTML</summary>
   <summary xml:lang="he">עורך מפת תמונת HTML</summary>
   <summary xml:lang="hi">एचटीएमएल इमेज मैप संपादक</summary>
+  <summary xml:lang="hu">HTML képtérkép-szerkesztő</summary>
   <summary xml:lang="ia">Editor de Mappa de Imagine HTML</summary>
   <summary xml:lang="id">Pengedit Peta Citra HTML</summary>
   <summary xml:lang="it">Editor di mappe immagine HTML</summary>
@@ -103,6 +105,7 @@
     <p xml:lang="gl">KImageMapEditor é un editor de mapas de imaxe incrustados dentro de ficheiros HTML, baseado na etiqueta &lt;map&gt;.</p>
     <p xml:lang="he">KImageMapEditor הוא עורך מפות תמונות שמוטמעות בתוך HTML, על בסיס התגית &lt;map&gt;.</p>
     <p xml:lang="hi">के-इमेज-मैप-एडिटर &lt;मानचित्र&gt; टैग के आधार पर एचटीएमएल फ़ाइलों के अंदर सन्निहित छवि मानचित्रों का एक संपादक है।</p>
+    <p xml:lang="hu">A KIMageMapEditor a HTML-fájlokba ágyazott képtérképek szerkesztője, a &lt;map&gt; címkék alapján.</p>
     <p xml:lang="ia">KImageMapEditor es un editor de mappas de imagineincastrate intra files HTML, basate sur le etiquetta  &lt;map&gt; .</p>
     <p xml:lang="id">KCitraMapEditor adalah editor peta citra yang disematkan dalam file HTML, berdasarkan pada tag &lt;map&gt;.</p>
     <p xml:lang="it">KImageMapEditor è un editor di mappe immagine incorporate all'interno dei file HTML e basate sul tag &lt;map&gt;.</p>
@@ -144,6 +147,7 @@
       <caption xml:lang="gl">Editando un mapa de imaxe de HTML en KImageMapEditor</caption>
       <caption xml:lang="he">עריכת מפת תמונת HTML ב־KImageMapEditor</caption>
       <caption xml:lang="hi">के-इमेज-मैप-एडिटर में एचटीएमएल छवि मानचित्र का संपादन</caption>
+      <caption xml:lang="hu">HTML képtérkép szerkesztése a KImageMapEditorral</caption>
       <caption xml:lang="ia">Modificar mappade imagine HTML in KImageMapEditor</caption>
       <caption xml:lang="id">Mengedit peta citra HTML di KCitraMapEditor</caption>
       <caption xml:lang="it">Modifica di una mappa immagine HTML in KImageMapEditor</caption>

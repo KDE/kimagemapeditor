@@ -4,36 +4,37 @@
 #
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Maris Nartiss <maris.kde@gmail.com>, 2008.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2008-12-27 19:02+0200\n"
-"Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Lavtian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-11-01 16:10+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 24.08.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Viesturs Zariņš"
+msgstr "Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "viesturs.zarins@mi.lu.lv"
+msgstr "viesturs.zarins@mi.lu.lv, toms.trasuns@posteo.net"
 
 #: arealistview.cpp:43 kimagemapeditor.cpp:106 kimagemapeditor.cpp:139
 #, kde-format
 msgid "Areas"
-msgstr "Apgabali"
+msgstr "Reģioni"
 
 #: arealistview.cpp:44 kimedialogs.cpp:593
 #, kde-format
@@ -58,7 +59,7 @@ msgstr "&Kartes"
 #: imagemapchoosedialog.cpp:79
 #, kde-format
 msgid "Image Preview"
-msgstr "Attēla priekšapskate"
+msgstr "Attēla priekšskatījums"
 
 #: imagemapchoosedialog.cpp:104
 #, kde-format
@@ -105,56 +106,54 @@ msgstr "nenosaukts"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3>Atvērt failu</h3>Nospiediet šo, lai <em>atvērtu</em> jaunu attēlu vai "
-"HTML failu."
+"<h3>Atvērt datni</h3>Klikšķiniet, lai <em>atvērtu</em> jaunu attēlu vai HTML "
+"datni."
 
 #: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
-msgstr "Atvērt jaunu attēlu vai HTML failu."
+msgstr "Atvērt jaunu attēlu vai HTML datni"
 
 #: kimagemapeditor.cpp:462
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
-"<h3>Saglabāt failu</h3>Nospiediet šo, lai <em>saglabātu</em> izmaiņas HTML "
-"failā."
+"<h3>Saglabāt datni</h3>Klikšķiniet, lai <em>saglabātu</em> izmaiņas HTML "
+"datnē."
 
 #: kimagemapeditor.cpp:463
 #, kde-format
 msgid "Save HTML file"
-msgstr "Saglabāt HTML failu"
+msgstr "Saglabāt HTML datni"
 
 #: kimagemapeditor.cpp:471
 #, kde-format
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
 msgstr ""
-"<h3>Aizvērt failu</h3>Nospiediet šo, lai<em>close</em> the currently open "
-"HTML file."
+"<h3>Aizvērt datni</h3>Klikšķiniet, lai<em>aizvērtu</em> šobrīd atvērto HTML "
+"datni."
 
 #: kimagemapeditor.cpp:472
 #, kde-format
 msgid "Close HTML file"
-msgstr "Aizvērt HTML failu"
+msgstr "Aizvērt HTML datni"
 
 #: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
-msgstr "<h3>Kopēt</h3>Nospiediet šo, lai <em>kopētu</em> iezīmēto apgabalu."
+msgstr "<h3>Kopēt</h3>Klikšķiniet, lai <em>kopētu</em> atlasīto reģionu."
 
 #: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
-msgstr ""
-"<h3>Izgriezt</h3>Nospiediet šo, lai  <em>izgrieztu</em> iezīmēto apgabalu."
+msgstr "<h3>Izgriezt</h3>Klikšķiniet, lai <em>izgrieztu</em> atlasīto reģionu."
 
 #: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
-msgstr ""
-"<h3>Ielīmēt</h3>Nospiediet šo, lai  <em>ielīmētu</em> nokopēto apgabalu."
+msgstr "<h3>Ielīmēt</h3>Klikšķiniet, lai <em>ielīmētu</em> nokopēto reģionu."
 
 #: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, kde-format
@@ -164,82 +163,82 @@ msgstr "D&zēst"
 #: kimagemapeditor.cpp:499
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
-msgstr "<h3>Dzēst</h3>Nospiediet šo, lai <em>dzēstu</em> iezīmēto apgabalu."
+msgstr "<h3>Dzēst</h3>Klikšķiniet, lai <em>dzēstu</em> atlasīto reģionu."
 
 #: kimagemapeditor.cpp:509
 #, kde-format
 msgid "Pr&operties"
-msgstr "Īp&ašības..."
+msgstr "Īp&ašības"
 
 #: kimagemapeditor.cpp:520
 #, kde-format
 msgid "Zoom"
-msgstr "Mērogs"
+msgstr "Tālummaiņa"
 
 #: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
-msgstr "<h3>Mērogs</h3>Izvēlieties vēlamo mērogu."
+msgstr "<h3>Tālummaiņa</h3>Izvēlieties vēlamo mērogu."
 
 #: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
-msgstr "25%"
+msgstr "25 %"
 
 #: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
-msgstr "50%"
+msgstr "50 %"
 
 #: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
-msgstr "150%"
+msgstr "150 %"
 
 #: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
-msgstr "200%"
+msgstr "200 %"
 
 #: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
-msgstr "250%"
+msgstr "250 %"
 
 #: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
-msgstr "300%"
+msgstr "300 %"
 
 #: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
-msgstr "500%"
+msgstr "500 %"
 
 #: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
-msgstr "750%"
+msgstr "750 %"
 
 #: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
-msgstr "1000%"
+msgstr "1000 %"
 
 #: kimagemapeditor.cpp:540
 #, kde-format
 msgid "Highlight Areas"
-msgstr "Izcelt apgabalus"
+msgstr "Izcelt reģionus"
 
 #: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
-msgstr "Rādīt Alt tagu"
+msgstr "Rādīt „Alt“ birku"
 
 #: kimagemapeditor.cpp:549
 #, kde-format
@@ -249,7 +248,7 @@ msgstr "Kartes &nosaukums..."
 #: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Ne&w Map..."
-msgstr "&Jauna katre..."
+msgstr "&Jauna karte..."
 
 #: kimagemapeditor.cpp:556
 #, kde-format
@@ -269,12 +268,12 @@ msgstr "Dzēst aktīvo karti"
 #: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
-msgstr "Rediģēt &noklusēto apgabalu..."
+msgstr "Rediģēt &noklusējuma reģionu..."
 
 #: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr "Rediģēt aktīvās kartes noklusēto apgabalu"
+msgstr "Rediģēt aktīvās kartes noklusējuma reģionu"
 
 #: kimagemapeditor.cpp:568
 #, kde-format
@@ -305,22 +304,22 @@ msgstr "Pievienot jaunu attēlu"
 #: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
-msgstr "Izņemt attēlu"
+msgstr "Noņemt attēlu"
 
 #: kimagemapeditor.cpp:584
 #, kde-format
 msgid "Remove the current visible image"
-msgstr "Izņemt šobrīd redzamo attēlu"
+msgstr "Noņemt šobrīd redzamo attēlu"
 
 #: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
-msgstr "Rediģēt usemap..."
+msgstr "Rediģēt „usemap“..."
 
 #: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr "Rediģēt redzamā attēla usemap tagu"
+msgstr "Rediģēt redzamā attēla „usemap“ birku"
 
 #: kimagemapeditor.cpp:591
 #, kde-format
@@ -330,12 +329,12 @@ msgstr "Parādīt &HTML"
 #: kimagemapeditor.cpp:598
 #, kde-format
 msgid "&Selection"
-msgstr "&Iezīmēt"
+msgstr "&Atlase"
 
 #: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
-msgstr "<h3>Iezīmēt</h3>Spiediet šeit, lai iezīmētu apgabalus."
+msgstr "<h3>Atlase</h3>Klikšķiniet, lai atlasītu reģionus."
 
 #: kimagemapeditor.cpp:608
 #, kde-format
@@ -345,7 +344,7 @@ msgstr "&Aplis"
 #: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
-msgstr "<h3>Aplis</h3>Nospiediet šo, lai zīmētu apli."
+msgstr "<h3>Aplis</h3>Klikšķiniet, lai zīmētu apli."
 
 #: kimagemapeditor.cpp:618
 #, kde-format
@@ -355,7 +354,7 @@ msgstr "&Taisnstūris"
 #: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
-msgstr "<h3>Taisnstūris</h3>Nospiediet šo, lai zīmētu taisnstūri."
+msgstr "<h3>Taisnstūris</h3>Klikšķiniet, lai zīmētu taisnstūri."
 
 #: kimagemapeditor.cpp:627
 #, kde-format
@@ -365,7 +364,7 @@ msgstr "&Daudzstūris"
 #: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr "<h3>Daudzstūris</h3>Nospiediet šo, lai zīmētu daudzstūri."
+msgstr "<h3>Daudzstūris</h3>Klikšķiniet, lai zīmētu daudzstūri."
 
 #: kimagemapeditor.cpp:636
 #, kde-format
@@ -376,7 +375,7 @@ msgstr "&Brīvrokas daudzstūris"
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
-"<h3>Brivrokas daudzstūris</h3>Nospiediet šo, lai zīmētu brīvrokas daudzstūri."
+"<h3>Brīvrokas daudzstūris</h3>Klikšķiniet, lai zīmētu brīvrokas daudzstūri."
 
 #: kimagemapeditor.cpp:645
 #, kde-format
@@ -387,17 +386,17 @@ msgstr "&Pievienot punktu"
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
 msgstr ""
-"<h3>Pievienot punktu</h3>Nospiediet šo, lai daudzstūrim pievienotu punktus."
+"<h3>Pievienot punktu</h3>Klikšķiniet, lai daudzstūrim pievienotu punktus."
 
 #: kimagemapeditor.cpp:654
 #, kde-format
 msgid "&Remove Point"
-msgstr "&Izņemt punktu"
+msgstr "&Noņemt punktu"
 
 #: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
-msgstr "<h3>Izņemt punktu</h3>Spiediet šo, lai no daudzstūra izņemtu punktus."
+msgstr "<h3>Noņemt punktu</h3>Klikšķiniet, lai no daudzstūra noņemtu punktus."
 
 #: kimagemapeditor.cpp:663
 #, kde-format
@@ -417,12 +416,12 @@ msgstr "Pārvietot pa labi"
 #: kimagemapeditor.cpp:679
 #, kde-format
 msgid "Move Up"
-msgstr "Pārvietot uz augšu"
+msgstr "Pārvietot augšup"
 
 #: kimagemapeditor.cpp:684
 #, kde-format
 msgid "Move Down"
-msgstr "Pārvietot uz leju"
+msgstr "Pārvietot lejup"
 
 #: kimagemapeditor.cpp:689
 #, kde-format
@@ -447,32 +446,32 @@ msgstr "Samazināt augstumu"
 #: kimagemapeditor.cpp:709
 #, kde-format
 msgid "Bring to Front"
-msgstr "Nolikt virs citiem"
+msgstr "Izvilkt priekšā"
 
 #: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
-msgstr "Nolikt aiz citiem"
+msgstr "Aizvilkt aizmugurē"
 
 #: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
-msgstr "Pārlikt vienu uz priekšu"
+msgstr "Izvilkt vienu uz priekšu"
 
 #: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
-msgstr "Pārlikt vienu uz aizmuguri"
+msgstr "Aizvilkt vienu uz aizmuguri"
 
 #: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
-msgstr "Konfigurēt KImageMapEditor..."
+msgstr "Konfigurēt „KImageMapEditor“..."
 
 #: kimagemapeditor.cpp:739
 #, kde-format
 msgid "Show Area List"
-msgstr "Rādīt apgabalu sarakstu"
+msgstr "Rādīt reģionu sarakstu"
 
 #: kimagemapeditor.cpp:744
 #, kde-format
@@ -489,7 +488,7 @@ msgstr "Rādīt attēlu sarakstu"
 #: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
-msgstr " Iezīmētais: -  kursors: x: 0, y: 0 "
+msgstr " Atlase: —  kursors: x: 0, y: 0 "
 
 #: kimagemapeditor.cpp:847
 #, kde-format
@@ -499,17 +498,17 @@ msgstr " Kursors: x: %1, y: %2 "
 #: kimagemapeditor.cpp:855 kimagemapeditor.cpp:868
 #, kde-format
 msgid " Selection: x: %1, y: %2, w: %3, h: %4 "
-msgstr " Iezīmētais: x: %1, y: %2, w: %3, h: %4 "
+msgstr " Atlase: x: %1, y: %2, w: %3, h: %4 "
 
 #: kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: - "
-msgstr " Iezīmētais: - "
+msgstr " Atlase: — "
 
 #: kimagemapeditor.cpp:913
 #, kde-format
 msgid "Drop an image or HTML file"
-msgstr "Nometiet attēlu vai HTML failu"
+msgstr "Nometiet attēlu vai HTML datni"
 
 #: kimagemapeditor.cpp:1562
 #, kde-format
@@ -534,45 +533,33 @@ msgstr "Kartes HTML kods"
 #: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
-msgstr "Izvēlieties atveramo failu"
+msgstr "Izvēlieties atveramo datni"
 
 #: kimagemapeditor.cpp:1630 kimeshell.cpp:201
-#, fuzzy, kde-format
-#| msgid ""
-#| "*.png *.jpg *.jpeg *.gif *.htm *.html|Web File\n"
-#| "*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Images\n"
-#| "*.htm *.html|HTML Files\n"
-#| "*.png|PNG Images\n"
-#| "*.jpg *.jpeg|JPEG Images\n"
-#| "*.gif|GIF-Images\n"
-#| "*|All Files"
+#, kde-format
 msgid ""
 "Web File (*.png *.jpg *.jpeg *.gif *.htm *.html);;Images (*.png *.jpg *.jpeg "
 "*.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML Files (*.htm *.html);;All Files "
 "(*)"
 msgstr ""
-"*.png *.jpg *.jpeg *.gif *.htm *.html|Tīmekļa faili\n"
-"*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng|Attēli\n"
-"*.htm *.html|HTML faili\n"
-"*.png|PNG attēli\n"
-"*.jpg *.jpeg|JPEG attēli\n"
-"*.gif|GIF attēli\n"
-"*|Visi faili"
+"Tīmekļa datne (*.png *.jpg *.jpeg *.gif *.htm *.html);;Attēli (*.png *.jpg *."
+"jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;HTML datnes (*.htm *.html);;Visas "
+"datnes (*)"
 
 #: kimagemapeditor.cpp:1668
 #, kde-format
 msgid "HTML File (*.htm *.html);;Text File (*.txt);;All Files (*)"
-msgstr ""
+msgstr "HTML datne (*.htm *.html);;Teksta datne (*.txt);;Visas datnes (*)"
 
 #: kimagemapeditor.cpp:1688
 #, kde-format
 msgid "<qt>The file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>Fails <b>%1</b> nepastāv.</qt>"
+msgstr "<qt>Datne <b>%1</b> nepastāv.</qt>"
 
 #: kimagemapeditor.cpp:1689
 #, kde-format
 msgid "File Does Not Exist"
-msgstr "Mape nepastāv"
+msgstr "Datne nepastāv"
 
 #: kimagemapeditor.cpp:2384
 #, kde-format
@@ -580,7 +567,7 @@ msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
 msgstr ""
-"<qt>Neizdevās saglabāt failu <i>%1</i>, jo jums nav saglabāšanai "
+"<qt>Neizdevās saglabāt datni <i>%1</i>, jo jums nav saglabāšanai "
 "nepieciešamo atļauju.</qt>"
 
 #: kimagemapeditor.cpp:2699
@@ -589,25 +576,24 @@ msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
 "way to undo this.</b></qt>"
 msgstr ""
-"<qt>Vai esat pārliecināts ka vēlaties dzēst karti <i>%1</i>? <br /><b>To "
-"nebūs iespējams atgūt.</b></qt>"
+"<qt>Vai tiešām vēlaties dzēst karti <i>%1</i>? <br /><b>To nebūs iespējams "
+"atgūt.</b></qt>"
 
 #: kimagemapeditor.cpp:2701
 #, kde-format
 msgid "Delete Map?"
-msgstr "Dzēst karti?"
+msgstr "Vai dzēst karti?"
 
 #: kimagemapeditor.cpp:2749
 #, kde-format
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
-msgstr "<qt>Fails <i>%1</i> ir mainīts.<br />Vai vēlaties to saglabāt?</qt>"
+msgstr "<qt>Datne <i>%1</i> ir mainīta.<br />Vai vēlaties to saglabāt?</qt>"
 
 #: kimagemapeditor.cpp:2833
-#, fuzzy, kde-format
-#| msgid "Selection"
+#, kde-format
 msgid "Select image"
-msgstr "Iezīmētais"
+msgstr "Atlasīt attēlu"
 
 #: kimagemapeditor.cpp:2834
 #, kde-format
@@ -615,16 +601,18 @@ msgid ""
 "Images (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;All Files "
 "(*)"
 msgstr ""
+"Attēli (*.png *.jpg *.jpeg *.gif *.bmp *.xbm *.xpm *.pnm *.mng);;Visas "
+"datnes (*)"
 
 #: kimagemapeditor.cpp:2880
 #, kde-format
 msgid "Enter Usemap"
-msgstr "Ievadiet usemap"
+msgstr "Ievadiet „usemap“"
 
 #: kimagemapeditor.cpp:2881
 #, kde-format
 msgid "Enter the usemap value:"
-msgstr "Ievadiet usemap vērtību:"
+msgstr "Ievadiet „usemap“ vērtību:"
 
 #. i18n: ectx: Menu (edit)
 #: kimagemapeditorpartui.rc:14
@@ -660,29 +648,29 @@ msgstr "Ie&statījumi"
 #: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
 #, kde-format
 msgid "KImageMapEditor Main Toolbar"
-msgstr "KImageMapEditor galvenā rīkjosla"
+msgstr "„KImageMapEditor“ galvenā rīkjosla"
 
 #. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
 #: kimagemapeditorpartui.rc:96
 #, kde-format
 msgid "KImageMapEditor Draw Toolbar"
-msgstr "KImageMapEditor zīmēšanas rīkjosla"
+msgstr "„KImageMapEditor“ zīmēšanas rīkjosla"
 
 #. i18n: ectx: Menu (file)
 #: kimagemapeditorui.rc:4
 #, kde-format
 msgid "&File"
-msgstr "&Fails"
+msgstr "&Datne"
 
 #: kimearea.cpp:142
 #, kde-format
 msgid "noname"
-msgstr "bezvārda"
+msgstr "beznosaukuma"
 
 #: kimearea.cpp:1401
 #, kde-format
 msgid "Number of Areas"
-msgstr "Apgabalu skaits"
+msgstr "Reģionu skaits"
 
 #: kimearea.h:229 kimedialogs.cpp:360
 #, kde-format
@@ -702,7 +690,7 @@ msgstr "Daudzstūris"
 #: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
-msgstr "Noklusētais"
+msgstr "Noklusējums"
 
 #: kimecommands.cpp:26
 #, kde-format
@@ -775,10 +763,9 @@ msgid "Center &Y:"
 msgstr "Centra &Y:"
 
 #: kimedialogs.cpp:132
-#, fuzzy, kde-format
-#| msgid "&Radius:"
+#, kde-format
 msgid "&Radius:"
-msgstr "&Rādiuss"
+msgstr "&Rādiuss:"
 
 #: kimedialogs.cpp:165
 #, kde-format
@@ -788,7 +775,7 @@ msgstr "Pievienot"
 #: kimedialogs.cpp:168
 #, kde-format
 msgid "Remove"
-msgstr "Izņemt"
+msgstr "Noņemt"
 
 #: kimedialogs.cpp:243
 #, kde-format
@@ -823,57 +810,57 @@ msgstr "&Virsraksts:"
 #: kimedialogs.cpp:299 kimedialogs.cpp:536
 #, kde-format
 msgid "On"
-msgstr ""
+msgstr "Uz"
 
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr "Ieslēgt noklusēto karti"
+msgstr "Ieslēgt noklusējuma karti"
 
 #: kimedialogs.cpp:327
 #, kde-format
 msgid "OnClick:"
-msgstr "OnClick:"
+msgstr "Klikšķinot:"
 
 #: kimedialogs.cpp:328
 #, kde-format
 msgid "OnDblClick:"
-msgstr "OnDblClick:"
+msgstr "Ar daubultklikšķi:"
 
 #: kimedialogs.cpp:329
 #, kde-format
 msgid "OnMouseDown:"
-msgstr "OnMouseDown:"
+msgstr "Velkot peli lejup:"
 
 #: kimedialogs.cpp:330
 #, kde-format
 msgid "OnMouseUp:"
-msgstr "OnMouseUp:"
+msgstr "Velkot peli augšup:"
 
 #: kimedialogs.cpp:331
 #, kde-format
 msgid "OnMouseOver:"
-msgstr "OnMouseOver:"
+msgstr "Pāliekot peli pāri:"
 
 #: kimedialogs.cpp:332
 #, kde-format
 msgid "OnMouseMove:"
-msgstr "OnMouseMove:"
+msgstr "Kustinot peli:"
 
 #: kimedialogs.cpp:333
 #, kde-format
 msgid "OnMouseOut:"
-msgstr "OnMouseOut:"
+msgstr "Izvelkot peli laukā:"
 
 #: kimedialogs.cpp:341
 #, kde-format
 msgid "Area Tag Editor"
-msgstr "Apgabalu tagu redaktors"
+msgstr "Reģiona birku redaktors"
 
 #: kimedialogs.cpp:363
 #, kde-format
 msgid "Selection"
-msgstr "Iezīmētais"
+msgstr "Atlase"
 
 #: kimedialogs.cpp:382
 #, kde-format
@@ -893,13 +880,12 @@ msgstr "&JavaScript"
 #: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
-msgstr "Izvēlieties failu"
+msgstr "Izvēlieties datni"
 
 #: kimedialogs.cpp:435
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgid "All Files (*)"
-msgstr "Visi faili"
+msgstr "Visas datnes (*)"
 
 #: kimedialogs.cpp:504
 #, kde-format
@@ -919,22 +905,22 @@ msgstr "Atsa&ukšanas ierobežojums:"
 #: kimedialogs.cpp:534
 #, kde-format
 msgid "&Redo limit:"
-msgstr "Pā&rdarīšanas ierobežojums:"
+msgstr "A&tatsaukšanas ierobežojums:"
 
 #: kimedialogs.cpp:538
 #, kde-format
 msgid "&Start with last used document"
-msgstr "&Sākt ar pēdējo izmantoto parametru"
+msgstr "&Sākt ar pēdējo izmantoto dokumentu"
 
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr ""
+msgstr "Nevarēja atrast „kimagemapeditorpart“ daļu!"
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr ""
+msgstr "Nevarēja izveidot „kimagemapeditorpart“ daļu!"
 
 #: kimeshell.cpp:200
 #, kde-format
@@ -949,12 +935,12 @@ msgstr "KImageMapEditor"
 #: main.cpp:35
 #, kde-format
 msgid "An HTML imagemap editor"
-msgstr "HTML attēlu karšu redaktors"
+msgstr "HTML attēlkaršu redaktors"
 
 #: main.cpp:36
 #, kde-format
 msgid "(c) 2001-2007 Jan Schaefer"
-msgstr "(c) 2001-2007 Jan Schaefer"
+msgstr "(c) 2001—2007 Jan Schaefer"
 
 #: main.cpp:38
 #, kde-format
@@ -969,7 +955,7 @@ msgstr "Joerg Jaspert"
 #: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
-msgstr "Palīdzēja man izveidot Makefiles un Debian pakotni"
+msgstr "Palīdzēja man izveidot „Makefiles“ un „Debian“ pakotni"
 
 #: main.cpp:40
 #, kde-format
@@ -979,7 +965,7 @@ msgstr "Aaron Seigo un Michael"
 #: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
-msgstr "Palīdzēja man salabot --enable-final mode"
+msgstr "Palīdzēja man salabot „--enable-final“ režīmu"
 
 #: main.cpp:41
 #, kde-format
@@ -999,7 +985,7 @@ msgstr "Fabrice Mous"
 #: main.cpp:42
 #, kde-format
 msgid "For the Dutch translation"
-msgstr "Nīderlanes tulkojums"
+msgstr "Holandiešu tulkojums"
 
 #: main.cpp:43
 #, kde-format
@@ -1014,12 +1000,12 @@ msgstr "Franču tulkojums"
 #: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
-msgstr "Beidzot darbu, izdrukāt HTML kodu uz stdoit"
+msgstr "Beidzot darbu, izdrukāt HTML kodu uz „stdoit“"
 
 #: main.cpp:57
 #, kde-format
 msgid "File to open"
-msgstr "Atveramais fails"
+msgstr "Atveramā datne"
 
 #, fuzzy
 #~| msgid ""

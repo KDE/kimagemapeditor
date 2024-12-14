@@ -39,6 +39,7 @@
   <name xml:lang="pt">KImageMapEditor</name>
   <name xml:lang="pt-BR">KImageMapEditor</name>
   <name xml:lang="ru">KImageMapEditor</name>
+  <name xml:lang="sa">KImageMapEditor इति</name>
   <name xml:lang="sk">KImageMapEditor</name>
   <name xml:lang="sl">KImageMapEditor</name>
   <name xml:lang="sv">Kimagemapeditor</name>
@@ -79,6 +80,7 @@
   <summary xml:lang="pt">Editor de Mapas de Imagens HTML</summary>
   <summary xml:lang="pt-BR">Editor de mapeamento de imagem HTML</summary>
   <summary xml:lang="ru">Редактор табличных изображений HTML</summary>
+  <summary xml:lang="sa">HTML चित्र मानचित्र सम्पादक</summary>
   <summary xml:lang="sk">Editor HTML mapy obrázkov</summary>
   <summary xml:lang="sl">Urejevalnik slikovnih zemljevidov za HTML</summary>
   <summary xml:lang="sv">Redigering av HTML-bildkartor</summary>
@@ -120,6 +122,7 @@
     <p xml:lang="pt">O KImageMapEditor é um editor de mapas de imagens incorporados dentro dos ficheiros HTML, baseado na marca &lt;map&gt;.</p>
     <p xml:lang="pt-BR">KImageMapEditor é um editor de mapas de imagens incorporado dentro de arquivos HTML, com base na tag &lt;map&gt;.</p>
     <p xml:lang="ru">KImageMapEditor — редактор разметки HTML-карт изображений, основанных на использовании тега &lt;map&gt;.</p>
+    <p xml:lang="sa">KImageMapEditor HTML सञ्चिकानां अन्तः निहितस्य चित्रनक्शानां सम्पादकः अस्ति, यः &lt;map&gt; सूचकपत्त्र।</p>
     <p xml:lang="sk">KImageMapEditor je editor obrazových máp vložených do HTML súborov, založený na tagu &lt;map&gt;.</p>
     <p xml:lang="sl">KImageMapEditor je urejevalnik slikovnih zemljevidov, ki so v obliki oznak &lt;map&gt; vgrajeni znotraj datotek HTML.</p>
     <p xml:lang="sv">Kimagemapeditor är en editor av bildkartor inbäddade i HTML-filer, baserade på taggen &lt;map&gt;.</p>
@@ -163,6 +166,7 @@
       <caption xml:lang="pt">Edição de um mapa de imagens HTML no KImageMapEditor</caption>
       <caption xml:lang="pt-BR">Editando mapeamento de imagem HTML no KImageMapEditor</caption>
       <caption xml:lang="ru">Редактирование HTML-разметки карты изображения в KImageMapEditor</caption>
+      <caption xml:lang="sa">KImageMapEditor इत्यस्मिन् HTML इमेज मैप् सम्पादनम्</caption>
       <caption xml:lang="sk">Editovanie HTML mapy obrázkov v KImageMapEditor</caption>
       <caption xml:lang="sl">Urejaj slikovne zemljevide HTML z KImageMapEditor</caption>
       <caption xml:lang="sv">Redigering av HTML-bildkarta i KImagemapeditor</caption>

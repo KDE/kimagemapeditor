@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kimagemapeditor package.
 #
-# giovanni <g.sora@tiscali.it>, 2024.
+# SPDX-FileCopyrightText: 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2024-05-29 15:01+0200\n"
+"PO-Revision-Date: 2024-12-19 19:06+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -102,17 +102,21 @@ msgstr "sin nomine"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
+"<h3>Aperi File</h3>Clicca isto per <em>aperir</em> un nove imagine o  file "
+"HTML."
 
 #: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
-msgstr ""
+msgstr "Aperi  nove imagine o  file HTML"
 
 #: kimagemapeditor.cpp:462
 #, kde-format
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
+"<h3>Salveguarda File</h3>Clicca isto per <em>salveguardar</em> le "
+"modificationes al file  HTML ."
 
 #: kimagemapeditor.cpp:463
 #, kde-format
@@ -124,6 +128,8 @@ msgstr "Salveguarda  file HTML"
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
 msgstr ""
+"<h3>Claude File</h3>Clicca isto per <em>clauder</em> le file HTML "
+"currentemente aperite."
 
 #: kimagemapeditor.cpp:472
 #, kde-format
@@ -133,17 +139,17 @@ msgstr "Claude file HTML"
 #: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
-msgstr ""
+msgstr "<h3>Copia</h3>Clicca isto per <em>copiar</em> le area selectionate."
 
 #: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
-msgstr ""
+msgstr "<h3>Talia</h3>Clicca isto per <em>taliar</em> le area selectionate."
 
 #: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
-msgstr ""
+msgstr "<h3>Colla</h3>Clicca isto per <em>collar</em> le area copiate."
 
 #: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, kde-format
@@ -153,7 +159,7 @@ msgstr "&Dele"
 #: kimagemapeditor.cpp:499
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
-msgstr ""
+msgstr "<h3>Dele</h3>Clicca isto per <em>deler</em> le area selectionate."
 
 #: kimagemapeditor.cpp:509
 #, kde-format
@@ -168,7 +174,7 @@ msgstr "Zoom"
 #: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
-msgstr ""
+msgstr "<h3>Zoom</h3>Selige le desirate nivello de zoom."
 
 #: kimagemapeditor.cpp:526
 #, kde-format
@@ -324,7 +330,7 @@ msgstr "&Selection"
 #: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
-msgstr ""
+msgstr "<h3>Selection</h3>Clicca isto per selectionar areas."
 
 #: kimagemapeditor.cpp:608
 #, kde-format
@@ -334,7 +340,7 @@ msgstr "&Circulo"
 #: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
-msgstr ""
+msgstr "<h3>Circulo</h3>Clicca isto per initiar designar un circulo."
 
 #: kimagemapeditor.cpp:618
 #, kde-format
@@ -344,7 +350,7 @@ msgstr "&Rectangulo"
 #: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
-msgstr ""
+msgstr "<h3>Rectangulo</h3>Clicca isto per initiar designar un rectangulo."
 
 #: kimagemapeditor.cpp:627
 #, kde-format
@@ -354,17 +360,19 @@ msgstr "&Polygono"
 #: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr ""
+msgstr "<h3>Polygono</h3>Clicca isto per initiar designar un polygono."
 
 #: kimagemapeditor.cpp:636
 #, kde-format
 msgid "&Freehand Polygon"
-msgstr ""
+msgstr "Pol&ygono a mano libere"
 
 #: kimagemapeditor.cpp:640
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
+"<h3>Poligono a mano libere</h3>clicca isto per initiar designar un polygono "
+"a mano libere."
 
 #: kimagemapeditor.cpp:645
 #, kde-format
@@ -374,7 +382,7 @@ msgstr "&Adde Puncto"
 #: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
-msgstr ""
+msgstr "<h3>Add Puncto</h3>Clicca isto per adder punctos a un polygono."
 
 #: kimagemapeditor.cpp:654
 #, kde-format
@@ -385,6 +393,7 @@ msgstr "&Remove puncto"
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
 msgstr ""
+"<h3>Remove Puncto</h3>Clicca isto per remover punctoss ex un  polygono."
 
 #: kimagemapeditor.cpp:663
 #, kde-format
@@ -444,17 +453,17 @@ msgstr "Invia a Retro"
 #: kimagemapeditor.cpp:717
 #, kde-format
 msgid "Bring Forward One"
-msgstr ""
+msgstr "Porta Avante Un"
 
 #: kimagemapeditor.cpp:720
 #, kde-format
 msgid "Send Back One"
-msgstr ""
+msgstr "Invia Retro Un"
 
 #: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
-msgstr ""
+msgstr "Configura KImageMapEditor..."
 
 #: kimagemapeditor.cpp:739
 #, kde-format
@@ -511,12 +520,12 @@ msgstr "Inserta lenomine del mappa:"
 #: kimagemapeditor.cpp:1567
 #, kde-format
 msgid "The name <em>%1</em> already exists."
-msgstr ""
+msgstr "Le nomine <em>%1</em> ja existe."
 
 #: kimagemapeditor.cpp:1579
 #, kde-format
 msgid "HTML Code of Map"
-msgstr ""
+msgstr "Codice HTML de Mappa"
 
 #: kimagemapeditor.cpp:1629
 #, kde-format
@@ -555,6 +564,8 @@ msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
 msgstr ""
+"<qt>Le file <i>%1</i> non poteva esser salveguardate, perque tu non ha le "
+"requirite permissiones a scriber.</qt>"
 
 #: kimagemapeditor.cpp:2699
 #, kde-format
@@ -562,6 +573,8 @@ msgid ""
 "<qt>Are you sure you want to delete the map <i>%1</i>? <br /><b>There is no "
 "way to undo this.</b></qt>"
 msgstr ""
+"<qt>Tu es secur que tu vole deler le mappa  <i>%1</i>? <br /><b>Il non ha "
+"alcun modo per annullar isto.</b></qt>"
 
 #: kimagemapeditor.cpp:2701
 #, kde-format
@@ -573,6 +586,8 @@ msgstr "D&ele Mappa?"
 msgid ""
 "<qt>The file <i>%1</i> has been modified.<br />Do you want to save it?</qt>"
 msgstr ""
+"<qt>Le file <i>%1</i> ha essite modificate.<br />Tu vole salveguardar lo?</"
+"qt>"
 
 #: kimagemapeditor.cpp:2833
 #, kde-format
@@ -649,7 +664,7 @@ msgstr "&File"
 #: kimearea.cpp:142
 #, kde-format
 msgid "noname"
-msgstr ""
+msgstr "nullenomine"
 
 #: kimearea.cpp:1401
 #, kde-format
@@ -779,7 +794,7 @@ msgstr "&HREF:"
 #: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
-msgstr ""
+msgstr "Alt. &Texto:"
 
 #: kimedialogs.cpp:293
 #, kde-format
@@ -799,7 +814,7 @@ msgstr "Activate (On)"
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr ""
+msgstr "Habilita mappa predefinite"
 
 #: kimedialogs.cpp:327
 #, kde-format
@@ -899,12 +914,12 @@ msgstr "&Starta con ultime documento usate"
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr ""
+msgstr "Non poteva trovar parte de  kimagemapeditorpart!"
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr ""
+msgstr "Non poteva crear parte de  kimagemapeditorpart!"
 
 #: kimeshell.cpp:200
 #, kde-format
@@ -939,7 +954,7 @@ msgstr "Joerg Jaspert"
 #: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
-msgstr ""
+msgstr "Per adjutar me con le Makefiles, e crear le pacchetto de Debian"
 
 #: main.cpp:40
 #, kde-format
@@ -949,7 +964,7 @@ msgstr "Aaron Seigo e Michael"
 #: main.cpp:40
 #, kde-format
 msgid "For helping me fixing --enable-final mode"
-msgstr ""
+msgstr "Per adjutar me a corriger modo --enable-final"
 
 #: main.cpp:41
 #, kde-format
@@ -984,7 +999,7 @@ msgstr "Per le traduction francese"
 #: main.cpp:56
 #, kde-format
 msgid "Write HTML-Code to stdout on exit"
-msgstr ""
+msgstr "Scribe Codice-DTML al stdout quando on exi"
 
 #: main.cpp:57
 #, kde-format

@@ -652,7 +652,7 @@ msgstr "&Configuración"
 #: kimagemapeditorpartui.rc:77 kimagemapeditorui.rc:15
 #, kde-format
 msgid "KImageMapEditor Main Toolbar"
-msgstr "Barra de ferramentas Principal de KImageMapEditor"
+msgstr "Barra de ferramentas principal de KImageMapEditor"
 
 #. i18n: ectx: ToolBar (kImageMapEditorPartDrawToolBar)
 #: kimagemapeditorpartui.rc:96

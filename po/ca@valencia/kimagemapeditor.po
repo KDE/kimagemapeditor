@@ -44,7 +44,7 @@ msgstr "Vista prèvia"
 #: imagemapchoosedialog.cpp:46
 #, kde-format
 msgid "Choose Map & Image to Edit"
-msgstr "Escolliu la correspondència i la imatge que s'ha d'editar"
+msgstr "Trieu la correspondència i la imatge que s'ha d'editar"
 
 #: imagemapchoosedialog.cpp:55
 #, kde-format
@@ -106,7 +106,7 @@ msgstr "sense nom"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3>Obri un fitxer</h3>Feu-hi clic per a <em>obrir</em> una imatge nova o un "
+"<h3>Obri un fitxer</h3>Cliqueu-hi per a <em>obrir</em> una imatge nova o un "
 "fitxer HTML."
 
 #: kimagemapeditor.cpp:455
@@ -119,7 +119,7 @@ msgstr "Obri una nova imatge o fitxer HTML"
 msgid ""
 "<h3>Save File</h3>Click this to <em>save</em> the changes to the HTML file."
 msgstr ""
-"<h3>Guarda el fitxer</h3>Feu-hi clic <em>guardar</em> els canvis en el "
+"<h3>Guarda el fitxer</h3>Cliqueu-hi per a <em>guardar</em> els canvis en el "
 "fitxer HTML."
 
 #: kimagemapeditor.cpp:463
@@ -132,7 +132,7 @@ msgstr "Guarda el fitxer HTML"
 msgid ""
 "<h3>Close File</h3>Click this to <em>close</em> the currently open HTML file."
 msgstr ""
-"<h3>Tanca el fitxer</h3>Feu-hi clic per a <em>tancar</em> el fitxer HTML "
+"<h3>Tanca el fitxer</h3>Cliqueu-hi per a <em>tancar</em> el fitxer HTML "
 "actualment obert."
 
 #: kimagemapeditor.cpp:472
@@ -143,18 +143,18 @@ msgstr "Tanca el fitxer HTML"
 #: kimagemapeditor.cpp:476
 #, kde-format
 msgid "<h3>Copy</h3>Click this to <em>copy</em> the selected area."
-msgstr "<h3>Copia</h3>Feu-hi clic per a <em>copiar</em> l'àrea seleccionada."
+msgstr "<h3>Copia</h3>Cliqueu-hi per a <em>copiar</em> l'àrea seleccionada."
 
 #: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
 msgstr ""
-"<h3>Retalla</h3>Feu-hi clic per a <em>retallar</em> l'àrea seleccionada."
+"<h3>Retalla</h3>Cliqueu-hi per a <em>retallar</em> l'àrea seleccionada."
 
 #: kimagemapeditor.cpp:488
 #, kde-format
 msgid "<h3>Paste</h3>Click this to <em>paste</em> the copied area."
-msgstr "<h3>Apega</h3>Feu-hi clic per a <em>apegar</em> l'àrea copiada."
+msgstr "<h3>Apega</h3>Cliqueu-hi per a <em>apegar</em> l'àrea copiada."
 
 #: kimagemapeditor.cpp:495 kimagemapeditor.cpp:2701
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "Sup&rimix"
 #, kde-format
 msgid "<h3>Delete</h3>Click this to <em>delete</em> the selected area."
 msgstr ""
-"<h3>Suprimix</h3>Feu-hi clic per a <em>suprimir</em> l'àrea seleccionada."
+"<h3>Suprimix</h3>Cliqueu-hi per a <em>suprimir</em> l'àrea seleccionada."
 
 #: kimagemapeditor.cpp:509
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "Zoom"
 #: kimagemapeditor.cpp:523
 #, kde-format
 msgid "<h3>Zoom</h3>Choose the desired zoom level."
-msgstr "<h3>Zoom</h3>Trieu el nivell de zoom desitjat."
+msgstr "<h3>Zoom</h3>Tria el nivell de zoom desitjat."
 
 #: kimagemapeditor.cpp:526
 #, kde-format
@@ -336,7 +336,7 @@ msgstr "&Selecció"
 #: kimagemapeditor.cpp:602
 #, kde-format
 msgid "<h3>Selection</h3>Click this to select areas."
-msgstr "<h3>Selecció</h3>Feu-hi clic per a seleccionar àrees."
+msgstr "<h3>Selecció</h3>Cliqueu-hi per a seleccionar àrees."
 
 #: kimagemapeditor.cpp:608
 #, kde-format
@@ -346,7 +346,7 @@ msgstr "&Cercle"
 #: kimagemapeditor.cpp:613
 #, kde-format
 msgid "<h3>Circle</h3>Click this to start drawing a circle."
-msgstr "<h3>Cercle</h3>Feu-hi clic per a començar a dibuixar un cercle."
+msgstr "<h3>Cercle</h3>Cliqueu-hi per a començar a dibuixar un cercle."
 
 #: kimagemapeditor.cpp:618
 #, kde-format
@@ -356,7 +356,7 @@ msgstr "&Rectangle"
 #: kimagemapeditor.cpp:622
 #, kde-format
 msgid "<h3>Rectangle</h3>Click this to start drawing a rectangle."
-msgstr "<h3>Rectangle</h3>Feu-hi clic per a començar a dibuixar un rectangle."
+msgstr "<h3>Rectangle</h3>Cliqueu-hi per a començar a dibuixar un rectangle."
 
 #: kimagemapeditor.cpp:627
 #, kde-format
@@ -366,7 +366,7 @@ msgstr "&Polígon"
 #: kimagemapeditor.cpp:631
 #, kde-format
 msgid "<h3>Polygon</h3>Click this to start drawing a polygon."
-msgstr "<h3>Polígon</h3>Feu-hi clic per a començar a dibuixar un polígon."
+msgstr "<h3>Polígon</h3>Cliqueu-hi per a començar a dibuixar un polígon."
 
 #: kimagemapeditor.cpp:636
 #, kde-format
@@ -377,7 +377,7 @@ msgstr "Polígon a &mà alçada"
 #, kde-format
 msgid "<h3>Freehandpolygon</h3>Click this to start drawing a freehand polygon."
 msgstr ""
-"<h3>Polígon a mà alçada</h3>Feu-hi clic per a començar a dibuixar un polígon "
+"<h3>Polígon a mà alçada</h3>Cliqueu-hi per a començar a dibuixar un polígon "
 "a mà alçada."
 
 #: kimagemapeditor.cpp:645
@@ -388,7 +388,7 @@ msgstr "Afi&g un punt"
 #: kimagemapeditor.cpp:649
 #, kde-format
 msgid "<h3>Add Point</h3>Click this to add points to a polygon."
-msgstr "<h3>Afig un punt</h3>Feu-hi clic per a afegir punts a un polígon."
+msgstr "<h3>Afig un punt</h3>Cliqueu-hi per a afegir punts a un polígon."
 
 #: kimagemapeditor.cpp:654
 #, kde-format
@@ -398,7 +398,7 @@ msgstr "&Elimina el punt"
 #: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
-msgstr "<h3>Elimina el punt</h3>Feu-hi clic per a eliminar punts d'un polígon."
+msgstr "<h3>Elimina el punt</h3>Cliqueu-hi per a eliminar punts d'un polígon."
 
 #: kimagemapeditor.cpp:663
 #, kde-format
@@ -535,7 +535,7 @@ msgstr "Codi HTML de la correspondència"
 #: kimagemapeditor.cpp:1629
 #, kde-format
 msgid "Choose File to Open"
-msgstr "Escolliu un fitxer per a obrir"
+msgstr "Trieu un fitxer per a obrir"
 
 #: kimagemapeditor.cpp:1630 kimeshell.cpp:201
 #, kde-format
@@ -884,7 +884,7 @@ msgstr "&JavaScript"
 #: kimedialogs.cpp:435
 #, kde-format
 msgid "Choose File"
-msgstr "Trieu un fitxer"
+msgstr "Tria un fitxer"
 
 #: kimedialogs.cpp:435
 #, kde-format
@@ -929,7 +929,7 @@ msgstr "No s'ha pogut crear la part «kimagemapeditorpart»!"
 #: kimeshell.cpp:200
 #, kde-format
 msgid "Choose Picture to Open"
-msgstr "Trieu una imatge que s'ha d'obrir"
+msgstr "Tria una imatge que s'ha d'obrir"
 
 #: main.cpp:34
 #, kde-format

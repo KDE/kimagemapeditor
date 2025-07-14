@@ -264,12 +264,12 @@ msgstr "მიმდინარე აქტიური რუკის წა
 #: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
-msgstr "&ნაგულისხმები ფართობის ჩასწორება..."
+msgstr "&ნაგულისხმევი ფართობის ჩასწორება..."
 
 #: kimagemapeditor.cpp:566
 #, kde-format
 msgid "Edit the default area of the current active map"
-msgstr "ამჟამად აქტიური რუკის ნაგულისხმები ადგილის ჩასწორება"
+msgstr "ამჟამად აქტიური რუკის ნაგულისხმევი ადგილის ჩასწორება"
 
 #: kimagemapeditor.cpp:568
 #, kde-format
@@ -686,7 +686,7 @@ msgstr "მრავალკუთხედი"
 #: kimearea.h:302 kimedialogs.cpp:387
 #, kde-format
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ნაგულისხმევი"
 
 #: kimecommands.cpp:26
 #, kde-format
@@ -811,7 +811,7 @@ msgstr "ჩართული"
 #: kimedialogs.cpp:303
 #, kde-format
 msgid "Enable default map"
-msgstr "ნაგულისხმები რუკის ჩართვა"
+msgstr "ნაგულისხმევი რუკის ჩართვა"
 
 #: kimedialogs.cpp:327
 #, kde-format

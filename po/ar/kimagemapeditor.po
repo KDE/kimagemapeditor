@@ -560,7 +560,7 @@ msgid ""
 "<qt>The file <i>%1</i> could not be saved, because you do not have the "
 "required write permissions.</qt>"
 msgstr ""
-"<qt> كن حفظ الملف <i>%1</i> ، لأنه ليس لديك أذونات الكتابة المطلوبة. </qt>"
+"<qt> كن حفظ الملف <i>%1</i>، لأنه ليس لديك أذونات الكتابة المطلوبة. </qt>"
 
 #: kimagemapeditor.cpp:2699
 #, kde-format
@@ -946,7 +946,7 @@ msgstr "جورغ جاسبرت"
 #: main.cpp:39
 #, kde-format
 msgid "For helping me with the Makefiles, and creating the Debian package"
-msgstr "لمساعدتي في Makefiles ، وإنشاء حزمة Debian"
+msgstr "لمساعدتي في Makefiles، وإنشاء حزمة Debian"
 
 #: main.cpp:40
 #, kde-format

@@ -223,7 +223,7 @@
 ><guimenu
 >Imagen</guimenu
 ><guimenuitem
->Editar usemap...</guimenuitem
+>Editar usemap…</guimenuitem
 ></menuchoice
 > e introduzca el nombre del mapa como valor de usemap. Guarde su trabajo mediante <menuchoice
 ><guimenu
@@ -247,7 +247,7 @@ Map-Preview is empty?
 > <guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configuración &kimagemapeditor;...</guimenuitem
+>Configuración &kimagemapeditor;…</guimenuitem
 ></menuchoice
 >. </para>
 <screenshot>
@@ -288,6 +288,8 @@ Map-Preview is empty?
 <para
 >Traducido por Santiago Fernández Sancho <email
 >santi@kde-es.org</email
+>, Cristina Yenyxe Gonzalez Garcia <email
+>the.blue.valkyrie@gmail.com</email
 > y Rocío Gallego <email
 >traducciones@rociogallego.com</email
 >.</para

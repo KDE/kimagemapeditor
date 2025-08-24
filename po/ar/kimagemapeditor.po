@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2025-08-03 12:02+0400\n"
+"PO-Revision-Date: 2025-08-23 08:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -87,7 +87,7 @@ msgstr "الصور"
 #: imageslistview.cpp:57
 #, kde-format
 msgid "Usemap"
-msgstr "خريطةتخدام Usemap"
+msgstr "خريطة استخدام Usemap"
 
 #: kimagemapeditor.cpp:107 kimagemapeditor.cpp:140 mapslistview.cpp:37
 #, kde-format
@@ -143,7 +143,7 @@ msgstr "<h3> نسخ </h3> انقر فوق هذا <em> لنسخ </em> المنط�
 #: kimagemapeditor.cpp:482
 #, kde-format
 msgid "<h3>Cut</h3>Click this to <em>cut</em> the selected area."
-msgstr "<H3>قص</h3> انقر فوق هذا <em>لقص</em> المنطقة المحددة."
+msgstr "<h3>قص</h3> انقر فوق هذا <em>لقص</em> المنطقة المحددة."
 
 #: kimagemapeditor.cpp:488
 #, kde-format
@@ -163,7 +163,7 @@ msgstr "<h3>احذف</h3> انقر فوق هذا <em> لحذف </em> المنط�
 #: kimagemapeditor.cpp:509
 #, kde-format
 msgid "Pr&operties"
-msgstr "الخصائص"
+msgstr "ال&خصائص"
 
 #: kimagemapeditor.cpp:520
 #, kde-format
@@ -299,7 +299,7 @@ msgstr "أضف صورة جديداً"
 #: kimagemapeditor.cpp:581
 #, kde-format
 msgid "Remove Image"
-msgstr "إزالة الصورة"
+msgstr "أزل الصورة"
 
 #: kimagemapeditor.cpp:584
 #, kde-format
@@ -314,7 +314,7 @@ msgstr "حرر خريطة الاستخدام…"
 #: kimagemapeditor.cpp:589
 #, kde-format
 msgid "Edit the usemap tag of the current visible image"
-msgstr "حرر ويطة الاستخدام usemap للصورة المرئية الحالية"
+msgstr "حرر خريطة الاستخدام usemap للصورة المرئية الحالية"
 
 #: kimagemapeditor.cpp:591
 #, kde-format
@@ -389,7 +389,7 @@ msgstr "أزل &نقطة"
 #: kimagemapeditor.cpp:659
 #, kde-format
 msgid "<h3>Remove Point</h3>Click this to remove points from a polygon."
-msgstr "<h3> أزل نقطة</h3> انقر هنا لتبدأ بإزالة نقاط من مضلع."
+msgstr "<h3>أزل نقطة</h3>انقر هنا لتبدأ بإزالة نقاط من مضلع."
 
 #: kimagemapeditor.cpp:663
 #, kde-format
@@ -609,7 +609,7 @@ msgstr "أدخل خريطة الاستخدام Usemap:"
 #: kimagemapeditorpartui.rc:14
 #, kde-format
 msgid "&Edit"
-msgstr "ت&حرير"
+msgstr "&حرّر"
 
 #. i18n: ectx: Menu (view)
 #: kimagemapeditorpartui.rc:31
@@ -716,7 +716,7 @@ msgstr "أضف نقطة إلى %1"
 #: kimecommands.cpp:254
 #, kde-format
 msgid "Remove point from %1"
-msgstr "أزل نن %1"
+msgstr "أزل نقطة من %1"
 
 #: kimecommands.cpp:301
 #, kde-format
@@ -911,7 +911,7 @@ msgstr "لم يعثر على جزء kimagemapeditorpart!"
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr "يتعثرء جزء kimagemapeditorpart!"
+msgstr "تعذر إنشاء جزء kimagemapeditorpart!"
 
 #: kimeshell.cpp:200
 #, kde-format

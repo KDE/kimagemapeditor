@@ -49,7 +49,7 @@ msgstr "Trieu la correspondència i la imatge que s'ha d'editar"
 #: imagemapchoosedialog.cpp:55
 #, kde-format
 msgid "Select an image and/or a map that you want to edit"
-msgstr "Seleccioneu una imatge i/o correspondència que voleu editar"
+msgstr "Trieu una imatge i/o correspondència que voleu editar"
 
 #: imagemapchoosedialog.cpp:67
 #, kde-format
@@ -597,7 +597,7 @@ msgstr ""
 #: kimagemapeditor.cpp:2833
 #, kde-format
 msgid "Select image"
-msgstr "Seleccioneu una imatge"
+msgstr "Trieu una imatge"
 
 #: kimagemapeditor.cpp:2834
 #, kde-format

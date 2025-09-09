@@ -45,7 +45,6 @@
   <name xml:lang="sv">Kimagemapeditor</name>
   <name xml:lang="tr">K Görsel Haritacısı</name>
   <name xml:lang="uk">KImageMapEditor</name>
-  <name xml:lang="x-test">xxKImageMapEditorxx</name>
   <name xml:lang="zh-CN">KImageMapEditor</name>
   <name xml:lang="zh-TW">KImageMapEditor</name>
   <summary>HTML Image Map Editor</summary>
@@ -86,7 +85,6 @@
   <summary xml:lang="sv">Redigering av HTML-bildkartor</summary>
   <summary xml:lang="tr">HTML Görsel Haritası Düzenleyicisi</summary>
   <summary xml:lang="uk">Редактор карт зображень HTML</summary>
-  <summary xml:lang="x-test">xxHTML Image Map Editorxx</summary>
   <summary xml:lang="zh-CN">HTML 图像映射编辑器</summary>
   <summary xml:lang="zh-TW">HTML 影像地圖編輯器</summary>
   <description>
@@ -128,7 +126,6 @@
     <p xml:lang="sv">Kimagemapeditor är en editor av bildkartor inbäddade i HTML-filer, baserade på taggen &lt;map&gt;.</p>
     <p xml:lang="tr">K Görsel Haritacısı, HTML dosyaları içine gömülmüş görsel haritaları için bir düzenleyicidir.</p>
     <p xml:lang="uk">KImageMapEditor — редактор карт зображень, які вбудовуються до файлів HTML і працюють на основі теґу &lt;map&gt;.</p>
-    <p xml:lang="x-test">xxKImageMapEditor is an editor of image maps embedded inside HTML files, based on the &lt;map&gt; tag.xx</p>
     <p xml:lang="zh-CN">KImageMapEditor 是一个基于 &lt;map&gt; 标签，编辑 HTML 文件中图像映射的编辑器。</p>
     <p xml:lang="zh-TW">KImageMapEditor 是個可以編輯嵌入在 HTML 檔案中影像地圖的編輯器，基於 &lt;map&gt; 標籤。</p>
   </description>
@@ -172,7 +169,6 @@
       <caption xml:lang="sv">Redigering av HTML-bildkarta i KImagemapeditor</caption>
       <caption xml:lang="tr">K Görsel Haritacısı içinde HTML görsel haritası düzenleme</caption>
       <caption xml:lang="uk">Редагування HTML-карти зображення у KImageMapEditor</caption>
-      <caption xml:lang="x-test">xxEditing HTML image map in KImageMapEditorxx</caption>
       <caption xml:lang="zh-CN">在 KImageMapEditor 中编辑 HTML 图像映射</caption>
       <caption xml:lang="zh-TW">在 KImageMapEditor 中編輯 HTML 影像地圖</caption>
       <image width="1367" height="680">https://www.kde.org/images/screenshots/kimagemapeditor.png</image>

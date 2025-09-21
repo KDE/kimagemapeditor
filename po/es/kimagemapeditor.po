@@ -1,22 +1,25 @@
-# translation of kimagemapeditor.po to Español
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2004, 2005.
-# Alberto Garcia <info@trebol-a.com>, 2008.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2008, 2017, 2020.
-# Sito Soler <soler.sito@gmail.com>, 2008.
-# Rocio Gallego <traducciones@rociogallego.com>, 2013.
+# Spanish translations for kimagemapeditor.po package.
+# Copyright (C) 2004-2025 This file is copyright:
+# This file is distributed under the same license as the kimagemapeditor package.
+#
+# SPDX-FileCopyrightText: 2004, 2005 Juan Manuel Garcia Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2008 Alberto Garcia <info@trebol-a.com>
+# SPDX-FileCopyrightText: 2008, 2017, 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2008 Sito Soler <soler.sito@gmail.com>
+# SPDX-FileCopyrightText: 2013 Rocio Gallego <traducciones@rociogallego.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-23 00:37+0000\n"
-"PO-Revision-Date: 2020-12-14 20:53+0100\n"
+"PO-Revision-Date: 2025-09-20 16:37+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -183,52 +186,52 @@ msgstr "<h3>Zoom</h3>Elija el zoom deseado."
 #: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
-msgstr "25%"
+msgstr "25 %"
 
 #: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
-msgstr "50%"
+msgstr "50 %"
 
 #: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
-msgstr "150%"
+msgstr "150 %"
 
 #: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
-msgstr "200%"
+msgstr "200 %"
 
 #: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
-msgstr "250%"
+msgstr "250 %"
 
 #: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
-msgstr "300%"
+msgstr "300 %"
 
 #: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
-msgstr "500%"
+msgstr "500 %"
 
 #: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
-msgstr "750%"
+msgstr "750 %"
 
 #: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
-msgstr "1000%"
+msgstr "1000 %"
 
 #: kimagemapeditor.cpp:540
 #, kde-format
@@ -243,12 +246,12 @@ msgstr "Mostrar la etiqueta alt"
 #: kimagemapeditor.cpp:549
 #, kde-format
 msgid "Map &Name..."
-msgstr "&Nombre del mapa..."
+msgstr "&Nombre del mapa…"
 
 #: kimagemapeditor.cpp:553
 #, kde-format
 msgid "Ne&w Map..."
-msgstr "Nue&vo mapa..."
+msgstr "Nue&vo mapa…"
 
 #: kimagemapeditor.cpp:556
 #, kde-format
@@ -268,7 +271,7 @@ msgstr "Borra el mapa actual"
 #: kimagemapeditor.cpp:563
 #, kde-format
 msgid "Edit &Default Area..."
-msgstr "Editar el área pre&definida..."
+msgstr "Editar el área pre&definida…"
 
 #: kimagemapeditor.cpp:566
 #, kde-format
@@ -294,7 +297,7 @@ msgstr "&Imagen"
 #: kimagemapeditor.cpp:576
 #, kde-format
 msgid "Add Image..."
-msgstr "Añadir imagen..."
+msgstr "Añadir imagen…"
 
 #: kimagemapeditor.cpp:579
 #, kde-format
@@ -314,7 +317,7 @@ msgstr "Elimina la imagen visible actual"
 #: kimagemapeditor.cpp:586
 #, kde-format
 msgid "Edit Usemap..."
-msgstr "Editar usemap..."
+msgstr "Editar usemap…"
 
 #: kimagemapeditor.cpp:589
 #, kde-format
@@ -465,7 +468,7 @@ msgstr "Enviar un paso atrás"
 #: kimagemapeditor.cpp:730
 #, kde-format
 msgid "Configure KImageMapEditor..."
-msgstr "Configurar KImageMapEditor..."
+msgstr "Configurar KImageMapEditor…"
 
 #: kimagemapeditor.cpp:739
 #, kde-format
@@ -1007,43 +1010,3 @@ msgstr "Escribir el código HTML en la salida estándar al salir"
 #, kde-format
 msgid "File to open"
 msgstr "Archivo que abrir"
-
-#~ msgid "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
-#~ msgstr "Copyright 2001-2003 Jan Schäfer <janschaefer@users.sourceforge.net>"
-
-#~ msgid ""
-#~ "<qt>The file <em>%1</em> already exists.<br />Do you want to overwrite it?"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>El archivo <em>%1</em> ya existe.<br />¿Quiere sobrescribirlo?</qt>"
-
-#~ msgid "Overwrite File?"
-#~ msgstr "¿Sobrescribir el archivo?"
-
-#~ msgid "Overwrite"
-#~ msgstr "Sobrescribir"
-
-#~ msgid "<qt>You do not have write permission for the file <em>%1</em>.</qt>"
-#~ msgstr ""
-#~ "<qt>No tiene permiso de escritura sobre el archivo <em>%1</em>.</qt>"
-
-#~ msgid "HTML File"
-#~ msgstr "Archivo HTML"
-
-#~ msgid "Text File"
-#~ msgstr "Archivo de texto"
-
-#~ msgid "Web Files"
-#~ msgstr "Archivos web"
-
-#~ msgid "HTML Files"
-#~ msgstr "Archivos HTML"
-
-#~ msgid "PNG Images"
-#~ msgstr "Imágenes PNG"
-
-#~ msgid "JPEG Images"
-#~ msgstr "Imágenes JPEG"
-
-#~ msgid "GIF Images"
-#~ msgstr "Imágenes GIF"

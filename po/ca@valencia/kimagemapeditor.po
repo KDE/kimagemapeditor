@@ -240,7 +240,7 @@ msgstr "Ressalta les àrees"
 #: kimagemapeditor.cpp:546
 #, kde-format
 msgid "Show Alt Tag"
-msgstr "Mostra l'etiqueta Alt"
+msgstr "Mostra l'etiqueta «Alt»"
 
 #: kimagemapeditor.cpp:549
 #, kde-format

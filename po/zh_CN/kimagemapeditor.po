@@ -442,7 +442,7 @@ msgstr "移到最前"
 #: kimagemapeditor.cpp:713
 #, kde-format
 msgid "Send to Back"
-msgstr "置于底层"
+msgstr "置于最下方"
 
 #: kimagemapeditor.cpp:717
 #, kde-format
@@ -780,7 +780,7 @@ msgstr "&HREF:"
 #: kimedialogs.cpp:290
 #, kde-format
 msgid "Alt. &Text:"
-msgstr "替代文字 (&T)："
+msgstr "替代文本(&T)："
 
 #: kimedialogs.cpp:293
 #, kde-format

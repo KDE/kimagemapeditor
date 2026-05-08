@@ -55,7 +55,6 @@ ecm_qt_declare_logging_category(kimagemapeditor_LOG_SRC
     HEADER kimagemapeditor_debug.h
     IDENTIFIER KIMAGEMAPEDITOR_LOG
     CATEGORY_NAME org.kde.kimagemapeditor
-    DEFAULT_SEVERITY Warning
     DESCRIPTION "KImageMapEditor"
     EXPORT KIMAGEMAPEDITOR
 )

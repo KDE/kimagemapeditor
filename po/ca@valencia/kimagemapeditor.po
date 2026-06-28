@@ -490,7 +490,7 @@ msgstr "Mostra la llista d'imatges"
 #: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
-msgstr " Selecció: -  Cursor: x: 0, y: 0 "
+msgstr " Selecció: –  Cursor: x: 0, y: 0 "
 
 #: kimagemapeditor.cpp:847
 #, kde-format
@@ -505,7 +505,7 @@ msgstr " Selecció: x: %1, y: %2, w: %3, h: %4 "
 #: kimagemapeditor.cpp:860
 #, kde-format
 msgid " Selection: - "
-msgstr " Selecció: - "
+msgstr " Selecció: – "
 
 #: kimagemapeditor.cpp:913
 #, kde-format

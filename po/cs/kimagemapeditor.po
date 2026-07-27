@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-07-22 21:59+0200\n"
+"PO-Revision-Date: 2026-07-26 11:56+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -491,7 +491,7 @@ msgstr "Zobrazit seznam obrázků"
 #: kimagemapeditor.cpp:763
 #, kde-format
 msgid " Selection: -  Cursor: x: 0, y: 0 "
-msgstr " Výběr: - Kurzor: x: 0, y: 0"
+msgstr " Výběr: - Kurzor: x: 0, y: 0 "
 
 #: kimagemapeditor.cpp:847
 #, kde-format
@@ -783,12 +783,12 @@ msgstr "Odstranit"
 #: kimedialogs.cpp:243
 #, kde-format
 msgid "Top &X"
-msgstr "Vrchol &X:"
+msgstr "Vrchol &X"
 
 #: kimedialogs.cpp:251
 #, kde-format
 msgid "Top &Y"
-msgstr "Vrchol &Y:"
+msgstr "Vrchol &Y"
 
 #: kimedialogs.cpp:284
 #, kde-format
@@ -918,12 +918,12 @@ msgstr "&Otevřít s posledním otevřeným dokumentem"
 #: kimeshell.cpp:76
 #, kde-format
 msgid "Could not find kimagemapeditorpart part!"
-msgstr "Nelze nalézt součást kimagemapeditorpart."
+msgstr "Nelze nalézt součást kimagemapeditorpart!"
 
 #: kimeshell.cpp:89
 #, kde-format
 msgid "Could not create kimagemapeditorpart part!"
-msgstr "Nelze vytvořit součást kimagemapeditorpart."
+msgstr "Nelze vytvořit součást kimagemapeditorpart!"
 
 #: kimeshell.cpp:200
 #, kde-format

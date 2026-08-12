@@ -104,12 +104,12 @@ msgstr "غير مسمًّى"
 msgid ""
 "<h3>Open File</h3>Click this to <em>open</em> a new picture or HTML file."
 msgstr ""
-"<h3> افتح ملفاً </h3> انقر فوق هذا <em> لفتح </em> صورة جديدة أو ملف HTML."
+"<h3> افتح ملفًا </h3> انقر فوق هذا <em> لفتح </em> صورة جديدة أو ملف HTML."
 
 #: kimagemapeditor.cpp:455
 #, kde-format
 msgid "Open new picture or HTML file"
-msgstr "افتح صورة جديداً أو ملف اتش تي ام ال"
+msgstr "افتح صورة جديدًا أو ملف اتش تي ام ال"
 
 #: kimagemapeditor.cpp:462
 #, kde-format
@@ -294,7 +294,7 @@ msgstr "أضف صورة"
 #: kimagemapeditor.cpp:579
 #, kde-format
 msgid "Add a new image"
-msgstr "أضف صورة جديداً"
+msgstr "أضف صورة جديدًا"
 
 #: kimagemapeditor.cpp:581
 #, kde-format

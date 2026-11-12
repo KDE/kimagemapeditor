@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: kimagemapeditor\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2022-06-03 15:39+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2026-11-11 20:46+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -185,52 +185,52 @@ msgstr "<h3>Масштаб</h3>Выберите масштаб"
 #: kimagemapeditor.cpp:526
 #, kde-format
 msgid "25%"
-msgstr "25%"
+msgstr "25 %"
 
 #: kimagemapeditor.cpp:527
 #, kde-format
 msgid "50%"
-msgstr "50%"
+msgstr "50 %"
 
 #: kimagemapeditor.cpp:528
 #, kde-format
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: kimagemapeditor.cpp:529
 #, kde-format
 msgid "150%"
-msgstr "150%"
+msgstr "150 %"
 
 #: kimagemapeditor.cpp:530
 #, kde-format
 msgid "200%"
-msgstr "200%"
+msgstr "200 %"
 
 #: kimagemapeditor.cpp:531
 #, kde-format
 msgid "250%"
-msgstr "250%"
+msgstr "250 %"
 
 #: kimagemapeditor.cpp:532
 #, kde-format
 msgid "300%"
-msgstr "300%"
+msgstr "300 %"
 
 #: kimagemapeditor.cpp:533
 #, kde-format
 msgid "500%"
-msgstr "500%"
+msgstr "500 %"
 
 #: kimagemapeditor.cpp:534
 #, kde-format
 msgid "750%"
-msgstr "750%"
+msgstr "750 %"
 
 #: kimagemapeditor.cpp:535
 #, kde-format
 msgid "1000%"
-msgstr "1000%"
+msgstr "1000 %"
 
 #: kimagemapeditor.cpp:540
 #, kde-format

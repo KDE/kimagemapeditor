@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kimagemapeditor "<application
+>KImageMapEditor</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kimagemapeditor" lang="&language;">
+
+<bookinfo>
+<title
+>دليل محرر خريطة الصور ك</title>
+
+<authorgroup>
+<author
+><firstname
+>Jan</firstname
+> <othername
+></othername
+> <surname
+>Sch&auml;fer</surname
+> <affiliation
+> <address
+><email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Jan  Sch&auml;fer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2011-08-22</date>
+<releaseinfo
+>3.9.0 (&kde; 4.7)</releaseinfo>
+
+<abstract>
+<para
+>محرر خريطة الصور ك هو محرر خريطة صور &HTML; من كيدي. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>محرر خريطة الصور ك</keyword>
+<keyword
+>خريطة صورية</keyword>
+<keyword
+>خريطة استخدام Usemap</keyword>
+<keyword
+>HTML</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using">
+<title
+>استخدام محرر خريطة الصور ك</title>
+
+<para
+>محرر خريطة الصور ك هو محرر خريطة صور &HTML; طوره مجتمع كيدي. يتيح لك إنشاء وتعديل <ulink url="http://en.wikipedia.org/wiki/Imagemap"
+>خرائط الصور</ulink
+> بنسق &HTML;. </para>
+
+<screenshot>
+<screeninfo
+>إليك لقطة شاشة لـ محرر خريطة الصور ك</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="mainwindow.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>لقطة شاشة</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>نافذة محرر خريطة الصور ك الرئيسة. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+
+<para
+>حالة الاستخدام الشائعة هي خريطة العالم حيث يمثل كل بلد خريطة صورية. بالنقر على بلد في الخريطة، يمكنك فتح رابط للبلد المحدد.</para>
+
+<para
+>يتطلب إنشاء خريطة صورية الخطوات التالية:</para>
+
+<para
+>حمل ملف صورة (بامتداد <filename class="extension"
+>png</filename
+>، أو <filename class="extension"
+>jpg</filename
+>، أو <filename class="extension"
+>gif</filename
+>) أو ملف &HTML; من قرصك أو اسحبه إلى منطقة الصورة. اختر صورة من رصيف <guilabel
+>الصور</guilabel
+>.</para>
+
+<para
+>أضف خريطة صورية باستخدام <menuchoice
+><guimenu
+>خريطة</guimenu
+><guimenuitem
+>خريطة جديدة</guimenuitem
+></menuchoice
+> من القائمة وأدخل اسم الخريطة.</para>
+
+<para
+>قائمة <guimenu
+>الأدوات</guimenu
+> مفعّلة الآن ويمكنك اختيار الشكل الهندسي المناسب مثل <guimenuitem
+>دائرة</guimenuitem
+>، أو <guimenuitem
+>مستطيل</guimenuitem
+>، أو <guimenuitem
+>مضلع</guimenuitem
+> أو <guimenuitem
+>مضلع حر</guimenuitem
+> وتحديد منطقة قابلة للنقر في الصورة.</para>
+
+<para
+>يُعرض حوار <guilabel
+>محرر وسم المنطقة</guilabel
+>. في لسان <guilabel
+>عام</guilabel
+> أدخل الخصائص <guilabel
+>HREF</guilabel
+> (عنوان &URL; المستهدف للرابط)، و<guilabel
+>النص البديل</guilabel
+>، و<guilabel
+>الهدف</guilabel
+> و<guilabel
+>العنوان</guilabel
+>.</para
+> 
+
+<para
+>يُظهر لسان <guilabel
+>الإحداثيات</guilabel
+> البيانات الهندسية للشكل. يتيح لك تحرير القيمة ضبط الحجم والموضع على الصورة حيث تظهر تغييراتك فورًا في الصورة. يمكن تغيير الحجم والموضع باستخدام الفأرة أيضًا.</para>
+
+<!--para
+>JavaScript tab Enter name of funtions defined where? for actions</para-->
+
+<para
+>لفتح حوار <guilabel
+>محرر وسم المنطقة</guilabel
+> لخريطة صورية معرّفة مسبقًا، استخدم <guimenuitem
+>خصائص</guimenuitem
+> من قائمة <guimenu
+>تحرير</guimenu
+> أو القائمة السياقية للمنطقة.</para>
+
+<para
+>استخدم <menuchoice
+><guimenu
+>خريطة</guimenu
+><guimenuitem
+>أظهر HTML</guimenuitem
+></menuchoice
+> لعرض كود &HTML; المولد للخريطة.</para>
+
+<para
+>بعد ذلك افتح <menuchoice
+><guimenu
+>صورة</guimenu
+><guimenuitem
+>حرر خريطة الاستخدام...</guimenuitem
+></menuchoice
+> وأدخل اسم الخريطة كقيمة لخريطة الاستخدام. احفظ عملك بـ <menuchoice
+><guimenu
+>ملف</guimenu
+> <guimenuitem
+>احفظ</guimenuitem
+></menuchoice
+>. افتح ملف &HTML; في كونكيورر للتحقق من أن الخريطة الصورية تعمل كما هو متوقع.</para>
+
+<!-- 
+Map-Preview is empty?
+
+  Draft of Howto create an imagemap
+  1) Load Image (png/jpg/gif) or html file
+  2) Tools Circle Rectangle Polygon to define an area
+  3) Area Tag Editor (Property from context menu) Link+AltTag+..., Coordinates, JavaScript
+  4) Map->Show HTMl to view the html code of the map
+--> 
+<para
+>يمكن الوصول إلى خيارات ضبط محرر خريطة الصور ك عبر فتح حوار الضبط باختيار <menuchoice
+> <guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>اضبط محرر خريطة الصور ك...</guimenuitem
+> </menuchoice
+> من القائمة. </para>
+<screenshot>
+<screeninfo
+>حوار ضبط محرر خريطة الصور ك</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="configure.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>حوار ضبط محرر خريطة الصور ك</phrase>
+	  </textobject>
+	  <caption>
+	    <para
+>حوار ضبط محرر خريطة الصور ك. </para>
+	  </caption>
+	</mediaobject>
+</screenshot>
+</chapter>
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>محرر خريطة الصور ك </para>
+<para
+>حقوق نشر البرنامج 2003-2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>حقوق نشر التوثيق 2007 Jan Sch&auml;fer <email
+>j_schaef&#64;informatik&#46;uni-kl&#46;de</email
+> </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab 
+-->
+

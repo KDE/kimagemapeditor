@@ -1,6 +1,6 @@
 # translation of kimagemapeditor.po to Slovenian
 # Translation of kimagemapeditor.po to Slovenian
-# $Id: kimagemapeditor.po 1723087 2025-11-17 12:44:32Z scripty $
+# $Id$
 # $Source$
 # Gregor Rakar <gregor.rakar@kiss.si>, 2004, 2005.
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2005.
